@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title><{ $Subject_name }> - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<meta property="og:title" content="<{ $HtmlTitle }>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="description" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+        
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />        
+        
+<{ include_php file="include/include_ga.php" }>
+
+<!--原有的js-->    
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>//js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>//js/jquery/jquery.form.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>//js/jquery/jquery.validate.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="javascript">
+function checkStorage(id,color,size,detail_id){
+	var cobj,sobj,cvalue,svalue;
+	if (color==1){
+		cobj = document.getElementById("xycolor" + id);
+		cvalue = cobj.value;
+	}
+	if (size==1){
+		sobj = document.getElementById("xysize" + id);
+		svalue = sobj.value;
+	}
+	$.ajax({
+				url: "../../product/checkProduct.php",
+				data: 'checktype=1&gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&act=checkstorage' + '&detail_id=' + detail_id,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+					//alert(msg +"|"+ id);
+				    if (msg == 0 || msg == ""){
+				   		$('#showstorage' + id).html("<div class='col-md-12 col-sm-12 col-xs-12 nopadding text-center'><div class='noborder margin-top-10' style='border: solid #999 1px;padding-top:1px; padding-right:10px; padding-bottom:1px; padding-left:10px; width:100%'>缺貨中</div></div>");
+						$('#cart' + id).css("display","none");
+					}else{
+						$('#showstorage' + id).html("");
+						$('#cart' + id).css("display","");
+					}
+				}
+	});
+	
+}
+function buysale(id,color,size,detail_id){
+	var cobj,sobj,cvalue,svalue;
+	if (color==1){
+		cobj = document.getElementById("xycolor" + id);
+		cvalue = cobj.value;
+	}
+	//alert(id);
+	if (size==1){
+		sobj = document.getElementById("xysize" + id);
+		svalue = sobj.value;
+	}
+	$.ajax({
+				url: "../../modules/sale/buy_sale.php",
+				data: 'gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&act=buy&saleid=<{$smarty.get.subject_id}>&detail_id=' + detail_id,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg == 1)
+				   		showsaleshopping();
+				}
+	});	
+}
+function showsaleshopping(){
+	$.ajax({
+				url: "../../modules/sale/shopping_sale.php",
+				data:"saleid=<{$smarty.get.subject_id}>",
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg != "")
+				   		$('.showbuyshopping').html(msg);
+				}
+	});
+}
+</script>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<!--原有的js-->    
+
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+		<!--浮動廣告-->
+		<{ if $Ear_radio eq 1 }>	
+		<{ include_php file="modules/advertising/ear.php" }>
+	    <{ /if }>
+  		<!--/浮動廣告-->
+        <!-- PAGE HEADER-->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h3 class="size-18 hidden"><{ $Subject_name }></h3>
+				
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li class="active">促銷活動</li> 
+						<li class="active"><{ $Subject_name }></li> 
+                        
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->   
+<section>
+				<div class="container">
+					
+					<div class="row">
+                    	<!-- 上面購物清單開始 -->
+						<div class="col-md-12 col-sm-12">
+                        <!-- 活動說明開始 -->
+      					<div class="product_banner margin-bottom-20">
+      						<{$Subject_content}>
+      					</div>
+                        <!-- 活動說明結束 -->
+                        <div class="showbuyshopping margin-bottom-20">
+      					
+      					</div>
+                        
+                         <!-- 商品列表開始 -->
+						<div > 
+                        <ul class="shop-item-list row list-inline nomargin">
+                  <{ section name=Comm loop=$sale_p_array }>
+                  <li class="col-sm-5th col-md-5th padding-bottom-50">
+						<div class="shop-item margin-bottom-30">
+              			<div class="thumbnail noborder nopadding">
+                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      <{/if}>
+                                        <a href="<{ $Site_Url }>/product/detail<{ $sale_p_array[Comm].gid }>" target='_blank'>
+                <img src="<{if $sale_p_array[Comm].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$sale_p_array[Comm].smallimg}><{/if}>" border=0 name="goodpic">
+                
+                </a>
+                <{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+                     </div>
+			<!-- /商品圖片 -->
+            
+                    <div align="left" style="vertival-align:top;padding-right:3px; padding-left:3px">
+                    <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{$sale_p_array[Comm].sale_name}></div>
+                    <div class="shop-item-summary text-left height-50 line-height-15" style="overflow:hidden;padding:5px 0 5px 0"><h3><a href="<{ $Site_Url }>/product/detail<{ $sale_p_array[Comm].gid }>" target='_blank'><{$sale_p_array[Comm].goodsname}></a></h3></div>
+                    <input type="hidden" name="storage<{ $sale_p_array[Comm].gid }>" id="storage<{ $sale_p_array[Comm].gid }>" value="<{ $sale_p_array[Comm].storage }>">
+                    <div style="vertical-align:top;padding: 5px 0 5px 0;" align="left"><span <{ if $P_levelprice>0 || $P_iftimesale>0 }><{else}>class="shop-item-price"<{/if}>  <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}> id="price<{ $sale_p_array[Comm].gid }>">NT. <{$sale_p_array[Comm].pricedesc}></span></div>
+                    <{if $sale_p_array[Comm].color neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-30" style="width:100%" name="xycolor<{$sale_p_array[Comm].gid}>" id="xycolor<{$sale_p_array[Comm].gid}>" onChange="checkStorage(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].color neq ""}>
+                   1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);"> 
+                   <{$sale_p_array[Comm].color}>
+                </select>
+                    </div>
+                    <{/if}>
+                    
+                    <{if $sale_p_array[Comm].size neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-30" style="width:100%" name="xysize<{$sale_p_array[Comm].gid}>" id="xysize<{$sale_p_array[Comm].gid}>" onChange="checkStorage(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].color neq ""}>
+                   1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);"> 
+                   <{$sale_p_array[Comm].size}>
+                </select>
+                    </div>
+                    <{/if}>
+                    <{if $sale_p_array[Comm].detail_num neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-30" style="width:100%" name="xydetail<{ $sale_p_array[Comm].gid }>" id="xydetail<{ $sale_p_array[Comm].gid }>" onChange="<{ section name=i loop=$sale_p_array[Comm].detail }>if(this.value == <{$sale_p_array[Comm].detail[i].detail_id}>)$('#price<{ $sale_p_array[Comm].gid }>').html('<{$sale_p_array[Comm].detail[i].detail_pricedes}>');<{/section}>checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>
+                        
+                        1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val());">
+                        <{ section name=i loop=$sale_p_array[Comm].detail }>
+                        <{if $smarty.section.i.index eq 0}>
+                        <script language="javascript">
+						$('#price<{ $sale_p_array[Comm].gid }>').html("<{$sale_p_array[Comm].detail[i].detail_pricedes}>")
+						</script>
+                        <{/if}>
+                        <option value="<{$sale_p_array[Comm].detail[i].detail_id}>"><{$sale_p_array[Comm].detail[i].detail_name}>
+                        <{/section}>
+                      </select>
+                    </div>
+                    <{/if}>
+                    <{if $classinfo_array.manyunfei>0}>
+                    <div align="left" style="padding: 5px 0 5px 0;vertical-align:top;"><div style="float:left"> <input type="checkbox" name="ibuy<{$sale_p_array[Comm].gid}>" id="ibuy<{$sale_p_array[Comm].gid}>" value="1" onClick="if (this.checked==true) buysale(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].good_color neq ""}>
+                1<{else}>0<{/if}>,<{if $sale_p_array[Comm].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$sale_p_array[Comm].gid}>').val()); else {deletsale(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].good_color neq ""}>1<{else}>0<{/if}>,<{if $sale_p_array[Comm].good_size neq ""}>1<{else}>0<{/if}>,'<{$product_array.ino[Comm].buykey}>');}" <{if $goods_array[Comm].buykey neq ""}>checked <{/if}>>我要選購
+                <select name="count<{$sale_p_array[Comm].gid}>" id="count<{$sale_p_array[Comm].gid}>" onChange="buysale(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].good_color neq ""}>
+                  1<{else}>0<{/if}>,<{if $sale_p_array[Comm].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$sale_p_array[Comm].gid}>').val());$('#ibuy<{$sale_p_array[Comm].gid}>').attr('checked','true');">
+                </select>
+                件 
+                      </div>
+                      <script language="javascript">
+			checkStorage(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].color neq ""}> 1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);
+		</script>
+              <{else}>
+              <{if $smarty.get.type neq "present"}>
+                      <div align="left" style="padding: 5px 0 5px 0;vertical-align:top;">
+                      <a href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goods_id=<{$sale_p_array[Comm].gid}>&count=1<{if $sale_p_array[Comm].good_color neq ""}>&good_color=' + $('#xycolor<{$sale_p_array[Comm].gid}>').val() + '<{/if}><{if $sale_p_array[Comm].good_size neq ""}>&good_size=' + $('#xysize<{$sale_p_array[Comm].gid}>').val() + '<{/if}>';"><{if $smarty.get.type eq 'bonus'}><img src="<{ $template_dir }>/images/GO_cart1.gif" border="0" id="showbuy<{$sale_p_array[Comm].gid}>" /><{else}>
+                <!--<img src="<{ $template_dir }>/images/GO_cart.gif" border="0" id="showbuy<{$sale_p_array[Comm].gid}>" />-->
+                <{/if}></a>
+                <div id="showstorage<{$sale_p_array[Comm].gid}>"></div>
+                <script language="javascript">
+			checkStorage(<{$sale_p_array[Comm].gid}>,<{if $sale_p_array[Comm].color neq ""}> 1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);
+		</script>
+                      </div>
+                       <{/if}>
+                       <{/if}>
+                      
+                      <div style="clear:both"></div>
+                    </div>
+                    <{if $sale_p_array[Comm].storage eq 0 && $sale_p_array[Comm].ifalarm eq 1 }>
+                    <div align="left" style="color:#F00; float:left; line-height:50px;" id="showstorage<{$sale_p_array[Comm].gid}>"></div>
+                    <{else}>
+                    <div class="col-md-12 col-sm-12 col-xs-12 nopadding text-center"><a class="btn btn-default btn-sm" style="border: solid #999 1px;padding-top:1px; padding-right:10px; padding-bottom:1px; padding-left:10px; width:96px;border-radius: 0px;" href="javascript:" onClick="buysale(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val(),$('#count<{ $sale_p_array[Comm].gid }>').val());" class="btn btn-primary " id="cart<{$sale_p_array[Comm].gid}>"><i class="icon-shopping-cart"></i>&nbsp;選 購</a></div>
+                    <{/if}>
+                    
+                    
+                    <script language="javascript">
+								checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);
+								</script>
+                                </div>
+                  </li>
+                  <{/section}>
+                </ul>
+     
+      
+      
+        				</div>
+                        <!--商品列表結束-->
+
+      					<!-- 頁數開始 -->
+                        <div class="p9black"  align="center" >
+      						<{ $ProductPageItem }>
+      					</div> 
+                        <!-- 頁數結束 -->
+                        <!-- 下面購物清單開始 -->
+						<div class="showbuyshopping"> 
+     
+        				</div>
+                        <!--下面購物清單結束-->
+                        </div>
+                        <!--上面購物清單結束-->
+                        
+  </div>
+    <!--row結束-->
+    <div style="clear:both;"></div>
+    <!--右邊邊結束-->
+  </div>
+  <!--container結束-->
+</section>
+<!--section結束-->
+<{ include_php file="include/bottom.php" }>
+<script language="javascript">
+showsaleshopping();
+</script>
+</body>
+</html>

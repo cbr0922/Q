@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>使用心得 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+        <link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+        <!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/js/alter.js"></script>
+<script language="javascript">
+function changeOrderState(state_values,state_types,order_id,detail_id){
+	if (detail_id>0)
+		optype = 2;
+	else
+		optype = 1;
+	showWin('url','order_showact.php?state_value='+state_values+'&state_type='+state_types+'&order_id='+order_id+'&optype=' + optype +  '&detail_id=' + detail_id +'','',300,200);
+}
+</script>
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+
+<!-- PAGE HEADER -->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="bfont size-18 hidden">使用心得</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li><a href="<{$Site_Url}>/member/">會員中心</a></li>
+                         <li class="active">使用心得</li>
+					</ol><!-- /breadcrumbs -->
+                </div>
+			</section>
+<!-- /PAGE HEADER -->
+
+<!--身體開始-->
+	<section>
+	 <div class="container">
+		<div class="row">
+
+		<!--左邊開始-->
+		<div class="col-md-3 col-sm-3 margin-bottom-30 product_left border_all_left_side">
+          <{ include_php file="member/left.php" }>
+	    </div>
+		<!--左邊結束-->
+
+		<!--右邊開始-->
+		<div class="col-md-9 col-sm-9 margin-bottom-30 product_right border_left minheight">
+
+        <!--使用心得開始 -->
+           <div class="table-responsive">
+             <table class="table table-hover">
+              <thead>
+               <tr>
+                 <td>訂單編號</td>
+                 <td>訂單時間</td>
+                 <td>訂單狀態</td>
+              </tr>
+              <tr>
+              <td><{$order_serial}></td>
+                <td><{$createtime}></td>
+                <td><{$order_state}>,<{$pay_state}>,<{$transport_state}></td>
+              </tr>
+              <tr>
+                <td colspan="4"><table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr>
+               <td width="13%" rowspan="4" align="left" style=" padding:10px"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$smallimg}>" /></td>
+               <td height="30" colspan="2" align="left" valign="middle" style=" font-size:15px; font-weight:bolder;padding:10px"><{$goodsname}></td>
+              </tr>
+              <tr>
+             <td colspan="2" align="left" valign="top" style=" padding:10px" ><{$intro}></td>
+             </tr>
+          </table>
+          </td>
+          </tr>
+          <tr>
+            <td colspan="4"><{if $ifcanscore eq 1 && $score_id eq 0}>
+            <form action="myscoregoods.php" method="post">
+            <input name="act" value="save" type="hidden">
+            <input name="order_id" value="<{$order_id}>" type="hidden">
+            <input name="goods_id" value="<{$gid}>" type="hidden">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"  id="table_me" style="margin-bottom:10px">
+              <tr>
+                <td height="25" colspan="2" align="left" nowrap class="head" style="padding-left:10px;"><span  style="font-size:13px; font-weight:bold">請輸入使用心得</span></td>
+             </tr>
+             <tr>
+               <td width="50" height="30" align="right" nowrap style="padding-left:10px">評分：</td>
+               <td align="left" class="padding-bottom-20"><select name="score" id="score">
+                          <option value="5">5</option>
+                          <option value="4">4</option>
+                          <option value="3">3</option>
+                          <option value="2">2</option>
+                          <option value="1">1</option>
+                        </select>
+           分</td>
+               </tr>
+               <tr>
+                <td align="right" valign="top" nowrap  style="padding-top:5px;padding-left:10px">心得內容：</td>
+                <td class="form-group"><textarea name="content" id="content"  class="form-control"></textarea></td>
+               </tr>
+               <tr>
+                 <td height="30" align="right" nowrap>&nbsp;</td>
+                 <td align="left" class="padding-top-20">
+                 <input type="submit" name="button" id="button" value="送出" class="col-xs-12 col-sm-3 btn btn-black">
+                 </td>
+               </tr>
+             </table>
+            </form>
+           <{else}>
+           <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+             <tr>
+                <td width="50" height="50" align="left" valign="middle" nowrap>
+               <div class="member_stars">評分：<{$score1}><{$score2}></div>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#efefef"   id="table_me" style="margin:0px;">
+              <tr>
+                  <td  colspan="2" height="25" align="left"  style="padding-left:10px;" class="head">心　　得：<!--{$username}--></td>
+                  <td width="100" align="center" bgcolor="#fff" class="head"><{$scoretime}></td>
+              </tr>
+			 
+			  <tr>
+                  <td height="25" colspan="3" align="left" bgcolor="#fff"  style="padding-left:10px; padding:10px 15px 10px 15px "><{$content}></td>
+              </tr>
+			  
+			   <tr>
+                  <td height="25" colspan="3" align="left" bgcolor="#fff" ></td>
+              </tr>
+              <tr>
+                  <td  height="25" colspan="3"align="left"  style="padding-left:10px;"class="head">客服回覆：</td>
+              </tr>
+			  <tr>
+                 <td height="25" colspan="3" align="left" bgcolor="#fff"  style="padding-left:10px; padding:10px 15px 10px 15px ;"><{$answer}></td>
+              </tr>
+           </table><{/if}>
+           </td>
+         </tr>
+       </table>
+        </div>
+
+			<!-- /使用心得結束 -->
+
+			</div>
+			<!--右邊結束-->
+       </div>
+	</section>
+<!--身體結束-->
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

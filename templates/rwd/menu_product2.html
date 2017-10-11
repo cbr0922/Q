@@ -1,0 +1,19 @@
+<li class="dropdown mega-menu">
+<a id="menudown" class="hidden-lg dropdown-toggle" href="#"><div class="hidden-lg" style="position: absolute;right: 0;z-index:1;width:50px;  height: 40px;line-height: 40px;text-align: center;"><i class="fa fa-angle-down"></i></div></a>
+	<a class="dropdown" href="<{ $Site_Url }>/product/index.php">商品總覽<span class="hidden-xs">&nbsp;&nbsp;<i class="fa fa-angle-down"></i></span></a>
+	<ul class="dropdown-menu">
+		<li>
+		<div class="row">
+           	<{ section name=list loop=$ClassArray }>
+			<div class="col-md-9th text-center padding-0">
+				<ul class="list-unstyled">
+					<a class="mp_2" href="<{ $Site_Url }>/product/<{$ClassArray[list].bid}>"><li>
+                    <{if $ClassArray[list].pic1 neq ""}><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ClassArray[list].pic1  }>" title="<{$ClassArray[list].catname}>"  border="0"  /><br /><{/if}>
+                    <{$ClassArray[list].classname}></li></a>
+				</ul>
+			</div>
+            <{/section}>
+		</div>
+		</li>
+	</ul>
+</li>

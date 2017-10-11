@@ -1,0 +1,72 @@
+<section class="noborder">
+<div class="container">
+	<div class="row">
+		<!-- 左邊開始 使用左欄整個外框class=border_all_left_side -->
+		<!-- 螢幕767以下、沒有開啟篩選時隱藏左欄商品分類加class=hidden-left-->
+		<div class="col-lg-3 col-md-3 col-sm-3 product_left border_all_left_side<{ if $product_filter eq 0 }> hidden-left<{/if}>">
+			<{if $smarty.get.brand_id>0}>
+            <div class="product_banner margin-top-10"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" />
+            </div>
+			<div class="brand_content product_banner margin-bottom-10"><{$content}>
+            </div>
+			<{/if}>
+			<!--<{ include_php file="include/include_discountsubject_list.php" }> 活動主題列表-->
+			<!-- 商品分類 -->
+			<{if $smarty.get.bid>0 }><{ include_php file="include/include_product_class.php" }>
+			<!--一般商品分類(三級分類)，若須二級全部展開需要提換-->
+			<{elseif $smarty.get.brand_id>0 }><{ include_php file="include/include_product_class1.php" }>
+			<!--保留品牌分類給id=1-->
+			<{else}><{ include_php file="include/include_product_class2.php" }><{/if}>
+			<!--沒有id或其他頁面使用全部大分類沒有子分類-->
+			<!-- /商品分類 -->
+			<!--ESHOP左側篩選-->
+			<{ if $product_filter eq 1 }>
+            	<{ if $smarty.get.type eq 'bonus'}>
+                <div style=" display:none">
+				<{ include file="include_product_attr.html" }>
+                </div>
+                <{else}>
+                <{ include file="include_product_attr.html" }>
+                <{/if}>
+			<{/if}>
+            <div class="hidden-xs"><!-- 暢銷排行 -->							<{ include_php file="include/include_saleproduct_class.php" }>
+            </div>
+		</div>
+		<!-- 左邊結束 -->
+		<!-- 右邊開始 使用左右分隔線class= border_left -->
+		<div class="col-lg-9 col-md-9 col-sm-9 product_right border_left">
+			<!-- 圖片輪播 -->
+            <{ include_php file="modules/advertising/adv_banner_p.php" }>
+			<!-- /圖片輪播 -->
+          	<div class="product_banner"><{if $classinfo_array.catcontent neq ""}><{ $classinfo_array.catcontent }><{/if}><{$brandcontent}>
+            </div>
+			<{if $classinfo_array.top_id eq 0 && $smarty.get.type eq "" && $smarty.get.skey eq "" && $smarty.get.Action eq ""}>
+          	<{if $smarty.get.brand_id eq 0}><{ if $pic_news != '' }>
+          	<!--若無指定分類文章則不出現館別活動-->
+         	<div valign="top"  align="left" class="thumbnail featured clearfix radius-0 border-all padding-10" >
+				<h4><i class="fa fa-caret-down"></i>本館活動</h4>
+		  		<{ section name=i loop=$pic_news }>
+            	<{ if $pic_news[i].title != '' }>
+            	<div>
+              	<!--tr>
+                  <td align="center"><img src="<{ $Site_Url }>/UploadFile/NewsPic/<{ $pic_news[i].nimg }>" width=80 height="80"></td>
+                </tr-->
+                <{ $pic_news[i].ltitle }>
+            	</div>
+            	<{ /if }>
+            	<{ /section  }>
+            </div>
+          	<{/if}>
+            <{/if}>
+            <{/if}>
+			<!--商品列表-->
+      <{if $classinfo_array.top_id eq 0}>			<!--只有大分類出現推薦商品-->			<!--<{ include file="include_product_index_recommend.html" }>-->			<{ include file="include_product_index_hot.html" }>			<{/if}>
+			<div id="productlist"></div>
+
+
+			<!--/商品列表-->
+		</div>
+        <!-- 右邊結束-->
+	</div>
+</div>
+</section>

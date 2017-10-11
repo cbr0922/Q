@@ -1,0 +1,161 @@
+
+
+
+#main {
+	width:800px;
+	margin:0 auto;
+}
+
+#images {
+	display:none;	
+	height:150px;
+}
+
+.panel {
+	float:left;	
+	margin-bottom: 20px;
+}
+
+ul.exposureThumbs {
+
+	border-right:none;
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+
+ul.exposureThumbs li {
+	padding:0;
+	text-align:center;
+	display:none;
+	float:left;
+	margin-top: 12px;
+margin-right: 12px;
+}
+
+ul.exposureThumbs li img {
+	cursor:pointer;
+	width: expression(this.width > 150 ? 150: true);
+	max-width:150px;
+ height: expression(this.height > 150 ? 150: true);
+	max-height:150px;
+}
+
+ul.exposureThumbs li.last {
+	margin:0;	
+	margin-top:12px;
+}
+
+.exposureTarget {
+	width:800px;
+	height:600px;
+
+	background-image:url(../images/loader.gif);
+	background-repeat:no-repeat;
+	background-position:center center;
+	float:left;	
+	padding:0;
+	margin:0;
+	position:relative;
+	overflow:hidden; 
+}
+
+.exposureWrapper {
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+
+.exposureWrapper img {
+	cursor:pointer;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+.exposureLoaded {
+	background-image:none;	
+}
+
+.exposureData {
+	position:absolute;
+ 	left:0;
+ 	right:0;
+ 	bottom:-2000px;
+	height:60px;
+	padding:7px;
+	background-image:url(../images/veil.png);
+	color:#fff;
+	font-family:Arial,Verdana,Helvetica,sans-serif,'微軟正黑體';
+	font-size:16px;
+	font-weight:bold;
+	display:none;
+}
+
+/* In this demo we are using thumbs with fixed size */
+ul.exposureThumbs li {
+	width:150px;
+	height:100px;
+}
+
+.exposureSlideshowControls a,
+.exposureControls span,
+.exposureControls a {
+	font-family:Arial,Verdana,Helvetica,sans-serif;
+	font-size:11px;
+	padding:8px;
+	background-color:#ffffff;
+	display:block;
+	float:left;
+	
+}
+
+.exposureSlideshowControls a {
+	float:right;	
+}
+
+.exposureSlideshowControls a,
+.exposureControls a {
+	color:#00a5e3;
+	text-decoration:none;
+	outline:none;
+}
+
+.exposureSlideshowControls a:active,
+.exposureSlideshowControls a:hover,
+.exposureControls a:active,
+.exposureControls a:hover {
+	background-color:#eeeeee;
+	color:#00a5e3;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.exposurePaging .active {
+	color:#ea535e;
+	font-size:14px;
+	font-weight:bold;
+	background-color:#eeeeee;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.clear {
+	clear:both;	
+}
+
+p.info {
+	margin:40px auto;
+	text-align:center;	
+	width:600px;
+}
+
+p.info a {
+	color:#006fc0;	
+}
+
+p.info a:hover, p.info a:active {
+	color:#0084e7;	
+}

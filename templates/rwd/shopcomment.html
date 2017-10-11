@@ -1,0 +1,263 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">-->
+
+<html>
+
+
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+
+
+<meta content="<{ $Meta_keyword }>" name="keywords"><title><{ $HtmlTitle }></title>
+
+
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>	
+
+
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+
+
+	
+
+
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" style="padding:7px;">
+
+
+
+      <tr>
+
+
+
+        <td width="207" valign="top" style="padding-right:9px;"><table width="198" border="0" align="center" cellpadding="0" cellspacing="0" class="border" style="margin-bottom:15px;">
+
+
+
+        <tr>
+
+
+
+              <td align="center" class="backcolor">商店管理</td>
+
+
+
+            </tr>
+
+
+
+            <tr>
+
+
+
+              <td align="center"><{ include_php file="member/left_shop.php" }></td>
+
+
+
+            </tr>
+
+
+
+            <tr>
+
+
+
+              <td></td>
+
+
+
+            </tr>
+
+
+
+        </table></td>
+
+
+
+        <td width="753" height="400" valign="top">
+
+
+
+        <div class="title_blue_s">
+
+
+
+            <div class="title_blue_s_left">
+
+
+
+    <h1>店鋪留言</h1>
+
+
+
+  </div>
+
+
+
+  <div class="title_blue_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span>店鋪留言</div>
+
+
+
+</div>
+
+
+
+        <br>
+
+
+
+        
+
+
+
+          <table width="90%"  border="0" align="center" style="margin-top:20px;margin-bottom:20px;">
+
+
+
+           <{ section name=i loop=$CommentArray }>
+
+
+
+                  <tr>
+
+
+
+                    <td>提問人：<{$CommentArray[i].username}> 時間：<{$CommentArray[i].pubtime}></td>
+
+
+
+                  </tr>
+
+
+
+                   <tr>
+
+
+
+                    <td>問題：<{$CommentArray[i].content}></td>
+
+
+
+                  </tr>
+
+
+
+                  <tr>
+
+
+
+                    <td><a href="shopcomment_post.php?scid=<{$CommentArray[i].scid}>">回覆</a></td>
+
+
+
+                  </tr>
+
+
+
+                  <{ section name=j loop=$CommentArray[i].ask }>
+
+
+
+                  <tr>
+
+
+
+                    <td>回覆人：<{$CommentArray[i].ask[j].username}> 時間：<{$CommentArray[i].ask[j].pubtime}></td>
+
+
+
+                  </tr>
+
+
+
+                  <tr>
+
+
+
+                    <td>回覆：<{$CommentArray[i].ask[j].content}></td>
+
+
+
+                  </tr>
+
+
+
+                  <{ /section  }>
+
+
+
+                  <{ /section  }>
+
+
+
+                  
+
+
+
+          </table>
+
+
+
+          <div align="center"><{$ProductPageItem}></div>
+
+
+
+        <br></td>
+
+
+
+      </tr>
+
+
+
+    </table>
+
+
+
+      <{ include_php file="include/bottom.php" }>
+
+
+
+</body>
+
+
+
+</html>
+
+
+

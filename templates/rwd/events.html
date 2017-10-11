@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $Ntitle_first }> - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+<div id="body_center">
+
+ 
+	 
+      <div ><{ $Nbody }></div>
+	 
+      <{ if $Ncateid ==1 || 4}><{ else}>
+      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="40%" height="30" align="left" style="padding-left:20px;">更新日期
+            ： <{ $Idate }></td>
+          <td width="10%" align="right"><img src="<{ $template_dir }>/images/mail-icon.gif" width="20" height="20"></td>
+          <td width="15%" style="padding-left:8px;">&nbsp;<a href="<{ $Site_Url }>/email/mailtofriend.php?action=sendto&Articleid=<{ $Articleid }>"><{ $SendArticleToFriend }></a>&nbsp;</td>
+          <td width="15%" align="right" style="padding-left:8px;">分享到：</td>
+          <td width="20%" style="padding-left:8px;"><a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));"><img src="<{ $template_dir }>/images/facebook-icon.gif" alt="推到Facebook" width="20" height="20" border="0"></a></a> <a href="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&status=' .concat(encodeURIComponent(location.href)) .concat(' ') .concat('&#40;') .concat(encodeURIComponent(document.title)) .concat('&#41;')));"><img src="<{ $template_dir }>/images/plurk-icon.gif" alt="推到Plurk" width="20" height="20" border="0"></a> <a href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)) .concat(' ') .concat(encodeURIComponent(location.href))));"><img src="<{ $template_dir }>/images/twitter-icon.gif" alt="推到Twitter" width="20" height="20" border="0"></td>
+        </tr>
+      </table>
+      <br>
+      <{if $ifcomment eq 1}>
+      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" id="showfour3">
+        <tr>
+          <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+              <tr>
+                <td width="3%" height="22" align="CENTER">&nbsp;</td>
+                <td class="comment" width="97%">我要評論</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td style=" padding-bottom:10px" bgcolor="#F3F3F3">
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <{ section name=Comm loop=$CommentArray }>
+              <tr style="padding-top:10px; padding-bottom:5px">
+                <td width="17%" align="right" valign="top" nowrap>會員評論：
+                  <!--//用户评论 --></td>
+                <td width="83%" style="border-bottom:1px dotted #CCC" ><span class="small" ><{ $CommentArray[Comm].comment_idate }></span><br>
+                <span class="small"><span class="comment"><{ $CommentArray[Comm].comment_content }></span></span></td>
+              </tr>
+              <tr style="padding-top:5px; padding-bottom:10px">
+                <td align="right" valign="middle" nowrap>店主回覆：
+                  <!--//店主回复 --></td>
+                <td valign="middle" style="border-bottom:1px dotted #CCC"><span class="comment" > <{ $CommentArray[Comm].comment_answer }> </span></td>
+              </tr>
+              <{ /section }>
+          </table></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><form action="<{ $Site_Url }>/article/article.php" method="post" name="formcomment" >
+              <input type="hidden" value="SubmitComment" name="action">
+              <input type="hidden" value="<{ $Url }>" name="Url">
+              <input type="hidden" value="<{ $Articleid }>" name="news_id">
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="158" align="RIGHT" nowrap class="p9black">評論內容：
+                    <!--评论内容--></td>
+                  <td width="765"><textarea name="content" cols="50" rows="5" class="inputstyle3"></textarea></td>
+                </tr>
+                <tr align="center">
+                  <td colspan="2" class="p9black">&nbsp;</td>
+                </tr>
+                <tr align="center">
+                  <td class="p9black">&nbsp;</td>
+                  <td align="left" class="p9black"><input name="submit" type="submit" class="inputstyle" value="確定送出" onClick="return CheckComments('請輸入評論內容','評論內容字符不能少於6個字');">
+                    (使用評論前請先登入) </td>
+                </tr>
+              </table>
+            </form>    <br></td>
+        </tr>
+      </table>
+  
+      <{/if}><{ if $abProductArray[abProduct].smallimg!="" }>
+      <table width="90%" height="22" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="22" class="comment" style="padding-left:15px;border-bottom:#ccc 1px solid;">相關推薦</td>
+        </tr>
+      </table><{/if}>
+      <ul class="viewed">
+        <{ section name=abProduct loop=$abProductArray }>
+        <li align="middle">
+          <table width="130" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" valign="top"><table width="94" border="0" cellpadding="3" cellspacing="1" bgcolor="ececec">
+                  <tr>
+                    <td bgcolor="#FFFFFF"><table width="86" height="86" border="0" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+                        <tr>
+                          <td align="left" valign="top"style="padding:3px;"><{ if $abProductArray[abProduct].smallimg!="" }><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{  $abProductArray[abProduct].gid  }>"><img src="<{ $Site_Url }>/<{ $good_pic_path }>/<{ $abProductArray[abProduct].smallimg }>" border="0" align="top"></a><{ /if }></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td height="75" valign="top" style="padding:6px;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{  $abProductArray[abProduct].gid  }>"> <{ $abProductArray[abProduct].goodsname }></a><br></td>
+            </tr>
+          </table>
+        </li>
+        <{ /section }>
+      </ul>
+      <{ /if }> 
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+</div><!--身體置中結束-->
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

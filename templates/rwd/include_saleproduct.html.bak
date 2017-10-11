@@ -1,0 +1,204 @@
+<style type="text/css">
+
+<!--
+
+.style1 {color: #FF0000}
+
+.style5 {font-size: 14px}
+
+.style6 {
+
+	text-decoration: line-through;
+
+}
+
+-->
+
+</style>
+
+<table width="178" height="586" cellspacing="0" cellpadding="0" style="border:#dbdbdb 1px solid; padding-top:0px">
+
+  <tr>
+
+    <td height="24" align="center" valign="middle"><img src="<{ $template_dir }>/images/title-hot-arrival.jpg" width="179" height="31" /></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="100%" height="510" valign="top" ><{ if $View_product_gid_1 != '' }>
+<table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/1.gif" width="13" height="11"></td>
+ <td width="55" rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0" >
+
+              <tr>
+
+                <td align="left" valign="top" class="picture5"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_1 }>'> <IMG width="55"  src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product_smallimg_1 }>"   border=0></A></td>
+              </tr>
+
+          </table></td>
+          <td width="100" height="30" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_1 }>"><{ $View_product_goodsname_1 }></a></div></td>
+        </tr>
+
+        <tr>
+  <td  align="left" valign="top">特價：<span class="price"><{ $View_product_pricedesc_1 }> </span></td>
+        </tr>
+
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_2 != '' }>
+      <table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/2.gif" width="13" height="11"></td>
+ <td width="55" rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0" >
+
+              <tr>
+
+                <td align="left" valign="top" class="picture5"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_2 }>'> <IMG width="55"  src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product_smallimg_2 }>"  border=0></A></td>
+
+              </tr>
+
+          </table></td>
+          <td width="100" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_2 }>"><{ $View_product_goodsname_2 }></a></div></td>
+
+         
+
+        </tr>
+
+        <tr>
+ 
+          <td align="left" valign="top">特價：<span class=" price"><{ $View_product_pricedesc_2 }> </span></td>
+
+        </tr>
+
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_3 != '' }>
+      <table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/3.gif" width="13" height="11"></td>
+ <td width="55" rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0" >
+
+              <tr>
+
+                <td align="left" valign="top" class="picture5"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_3 }>'> <IMG  width="55" src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product_smallimg_3 }>"border=0></A></td>
+
+              </tr>
+
+            </table></td>
+          <td width="100" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_3 }>"><{ $View_product_goodsname_3 }></a></div></td>
+
+         
+
+        </tr>
+
+        <tr>
+
+          <td colspan="2" align="left" valign="top">特價：<span class="price"><{ $View_product_pricedesc_3 }> </span></td>
+
+        </tr>
+
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_4 != '' }>
+      <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/4.gif" width="13" height="11" /></td>
+<td  width="55" rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0" >
+
+              <tr>
+
+                <td align="left" valign="top" class="picture5" ><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_4 }>'> <IMG width="55"  src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product_smallimg_4 }>"  border=0></A></td>
+
+              </tr>
+
+            </table></td>
+          <td width="100" height="30" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_4 }>"><{ $View_product_goodsname_4 }></a></div></td>
+        </tr>
+
+        <tr>
+
+          <td align="left" valign="top">特價：<span class="price"><{ $View_product_pricedesc_4 }> </span></td>
+        </tr>
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_5 != '' }>
+      <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/5.gif" width="13" height="11"></td>
+		  <td width="55" rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0">
+
+              <tr>
+
+               <td align="left" valign="top" class="picture5" ><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_5 }>'> <IMG width="55" src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product_smallimg_5 }>"   border=0 ></A></td>
+
+              </tr>
+
+            </table></td>
+
+          <td width="100" height="30" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_5 }>"><{ $View_product_goodsname_5 }></a></div></td>
+
+        </tr>
+
+        <tr>
+
+          <td align="left" valign="top">特價：<span class="price"><{ $View_product_pricedesc_5 }> </span></td>
+
+        </tr>
+
+    </table><img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_6 != '' }>
+	
+	<table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/6.gif" width="13" height="11"></td>
+
+          <td width="256" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_6 }>"><{ $View_product_goodsname_6 }></a></div></td>
+        </tr>
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_7 != '' }>
+<table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/7.gif" width="13" height="11"></td>
+
+          <td width="256" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_7 }>"><{ $View_product_goodsname_7 }></a></div></td>
+        </tr>
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_8 != '' }>
+<table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/8.gif" width="13" height="11"></td>
+
+          <td width="256" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_8 }>"><{ $View_product_goodsname_8 }></a></div></td>
+        </tr>
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}><{ if $View_product_gid_9 != '' }>
+<table  border="0" align="center" cellpadding="2" cellspacing="0" style="margin-top:5px; margin-bottom:5px " >
+
+        <tr>
+
+          <td width="16" rowspan="2" align="left" valign="top" style="padding-left:5px ; padding-top:3px"><img src="<{ $template_dir }>/images/9.gif" width="13" height="11"></td>
+
+          <td width="256" align="left" valign="top"><div style="height:35px;	overflow: hidden;"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $View_product_gid_9 }>"><{ $View_product_goodsname_9 }></a></div></td>
+        </tr>
+      </table>
+<img height="1px" src="<{ $template_dir }>/images/sale.gif"  ><{/if}>
+
+</td>
+
+  </tr>
+
+</table>
+

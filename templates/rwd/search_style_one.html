@@ -1,0 +1,102 @@
+<SCRIPT language=JavaScript type=text/JavaScript>
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</SCRIPT>
+<SCRIPT language=javascript>
+<{section name=bar start=0 max=20 loop=20  step=1}>
+	function open_ctg<{$smarty.section.bar.index}>() {
+		ctg<{$smarty.section.bar.index}>.style.visibility = "visible";
+		
+	}
+	function close_ctg<{$smarty.section.bar.index}>() {
+		ctg<{$smarty.section.bar.index}>.style.visibility = "hidden";
+	}
+<{/section}>	
+	function swapImgRestore() { 		// v3.0 
+ 	 	var i,x,a=document.sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc; 
+ 	}
+</SCRIPT>	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><LINK href="<{ $template_dir }>/css/fire.css" type=text/css rel=stylesheet>
+<table width="187" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><TABLE border=0 align="center" cellPadding=0 cellSpacing=0>
+        <TR>
+          <TD vAlign=top>
+            <TABLE cellSpacing=0 cellPadding=0 width=149 border=0>
+              <TR>
+                <TD vAlign=top width=149>
+                  <SCRIPT language=JavaScript> 
+ function swapImgRestore() { //v3.0 
+ 	 var i,x,a=document.sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc; 
+ } 
+</SCRIPT>
+                  <TABLE cellSpacing=0 cellPadding=0 width=149 border=0>
+                    <TR>
+                      <TD> <{ if $staticState eq "open" }>
+                          <table width=177 height="20" border=0 align="center" cellpadding=0  cellspacing=0>
+<{ section name=listBclassHtml loop=$ProductListB_staticHtml start=0 }>
+  <tr>
+    <td width="10" valign="top"  onMouseOver="open_ctg<{$smarty.section.listBclassHtml.index
+}>();"  onMouseOut="close_ctg<{$smarty.section.listBclassHtml.index }>();">&nbsp; </td>
+    <td width="151"  onMouseOver="open_ctg<{$smarty.section.listBclassHtml.index }>();" 
+                                onMouseOut="close_ctg<{ $smarty.section.listBclassHtml.index }>();"> <a href="<{ $ProductListB_staticHtml[listBclassHtml].Url  }>"  class="job2"> <{ $ProductListB_staticHtml[listBclassHtml].catname }></a></td>
+  </tr>
+  <tr>
+    <td height="1" colspan="2" valign="top"> </td>
+  </tr>
+<{ /section }>
+                          </table>
+                          <{ else }>
+                          <table width=177 border=0 align="center" cellpadding=0  cellspacing=0>
+<{ section name=listBclass loop=$ProductListAll start=0 }>
+  <tr>
+    <td width="10" valign="top"  onMouseOver="open_ctg<{$smarty.section.listBclass.index
+}>();"  onMouseOut="close_ctg<{$smarty.section.listBclass.index }>();">&nbsp; </td>
+    <td width="151" height="20"  onMouseOver="open_ctg<{$smarty.section.listBclass.index }>();" 
+                                onMouseOut="close_ctg<{ $smarty.section.listBclass.index }>();"> <a href="<{ $Site_Url }>/product/product_class_detail.php?bid=<{ $ProductListAll[listBclass].bid  }>"  class="job2" > <{ $ProductListAll[listBclass].catname }></a></td>
+  </tr>
+  <tr bgcolor="#E3E3E3">
+    <td height="1" colspan="2" valign="top"> </td>
+  </tr>
+<{ /section }>
+                          </table>
+                      <{ /if }></TD>
+                      <TD style="POSITION: absolute"> <{ section name=subclassindex loop=$ProductListcc start=0 step=1}> <{ if $ProductListcc[subclassindex].Open==1 }>
+                          <STYLE type=text/css>
+#ctg<{$smarty.section.subclassindex.index}> {
+Z-INDEX: 1; BACKGROUND: white; FILTER: alpha(opacity=85); LEFT: 100px; VISIBILITY: hidden; OVERFLOW: hidden; WIDTH: 150px; POSITION: absolute; TOP: <{ $ProductListcc[subclassindex].High}>px
+}
+  </STYLE>
+                          <A onmouseover="open_ctg<{$smarty.section.subclassindex.index}>();" onmouseout="swapImgRestore();close_ctg<{$smarty.section.subclassindex.index}>();"> <SPAN  id="ctg<{$smarty.section.subclassindex.index}>">
+                          <TABLE cellSpacing=1 cellPadding=3 width=150  bgColor=#929292 border=0>
+                            <TBODY>
+                              <TR>
+                                <TD bgColor=#ffffff> <{ section name=subclasslist loop=$ProductListcc[subclassindex].SubClassList }>
+                                    <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                                      <TBODY>
+                                        <TR onmouseover='this.style.backgroundColor="#DDEFFC"' onmouseout='this.style.backgroundColor=""'>
+                                          <TD class=menu height=18> <IMG height=12 hspace=2  src="<{ $template_dir }>/images/arrow_subn.gif"  width=12 align=absMiddle border=0> <{ if $staticState eq "open" }> <a href="<{  $ProductListcc[subclassindex].SubClassList[subclasslist].Url }>" class=lay><{ $ProductListcc[subclassindex].SubClassList[subclasslist].catname }></a> <{ else }> <a href="<{ $Site_Url }>/product/product_class_detail.php?bid=<{ $ProductListcc[subclassindex].SubClassList[subclasslist].bid  }>" class=lay> <{ $ProductListcc[subclassindex].SubClassList[subclasslist].catname }> </a> <{ /if }> </TD>
+                                        </TR>
+                                      </TBODY>
+                                    </TABLE>
+    <{ /section }> </TD>
+                              </TR>
+                            </TBODY>
+                          </TABLE>
+                        </SPAN></A> <{ else }> <SPAN  id="ctg<{$smarty.section.subclassindex.index}>"> <{ /if }> <{ /section }> </span></TD>
+                    </TR>
+                </TABLE></TD>
+              </TR>
+          </TABLE></TD>
+        </TR>
+    </TABLE></td>
+  </tr>
+</table>
+<br>

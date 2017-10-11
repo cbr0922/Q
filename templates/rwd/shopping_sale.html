@@ -1,0 +1,126 @@
+<!-- 
+	controlls-over		= navigation buttons over the image 
+	buttons-autohide 	= navigation buttons visible on mouse hover only
+	
+	data-plugin-options:
+		"singleItem": true
+		"autoPlay": true (or ms. eg: 4000)
+		"navigation": true
+		"pagination": true
+		"items": "5"
+
+	owl-carousel item paddings
+		.owl-padding-0
+		.owl-padding-3
+		.owl-padding-6
+		.owl-padding-10
+		.owl-padding-15
+		.owl-padding-20
+-->
+			<section class="padding-top-20 nopadding-bottom noborder margin-bottom-20" >
+
+				<div style=" border:1px solid #CCC;">
+                
+                <div class="col-md-10 col-sm-10 margin-top-10 margin-bottom-10">
+  <h2 class="owl-featured noborder margin-top-10 margin-bottom-0">已選購 <{$total_count}> 件，購買總計金額 <{$total_price}> 元</h2>
+  還有<font style="font-weight:bold; color:#C30"><{$havecount}></font>件達到優惠數量
+  	</div>
+
+
+	 
+     <div class="col-md-2 col-sm-2 text-center margin-top-20 margin-bottom-10">
+  <a class="btn btn-primary fullwidth" href="../../shopping/cart.php?Action=Add&type=sale&saleid=<{$smarty.get.saleid}>" class="addcart">放入購物車</a>
+  	</div>
+  	
+
+
+					<div class="owl-carousel owl-padding-3 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "5", "autoPlay": true, "navigation": true, "pagination": false}'>
+
+                        <{ section name=list loop=$SaleProductArray }>
+
+						<!-- item -->
+
+						<div class="shop-item margin-bottom-0" style="margin:20px;" >
+
+
+
+							<div class="thumbnail noborder nopadding">
+
+										<!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      <{/if}>
+								<img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $SaleProductArray[list].smallimg }>' name="goodpic" width="100" border=0>
+
+                               <{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+			<!-- /商品圖片 -->
+
+								<!-- /product image(s) -->
+
+
+							</div>
+
+							
+
+							<div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
+
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $SaleProductArray[list].goodsname }></div>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">促銷價：<{$SaleProductArray[list].sale_price}></div>
+                                <{ if $SaleProductArray[list].color neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">顏色：<{$SaleProductArray[list].color}></div>
+                                <{/if}>
+                                <{ if $SaleProductArray[list].size neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">尺寸：<{$SaleProductArray[list].size}></div>
+                                <{/if}>
+                                <{ if $SaleProductArray[list].detail_name neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">規格：<{$SaleProductArray[list].detail_name}></div>
+                                <{/if}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><a href="javascript:" onClick="deletsale('<{$SaleProductArray[list].gid}>','<{$SaleProductArray[list].color}>','<{$SaleProductArray[list].size}>','<{$SaleProductArray[list].detail_id}>','<{$SaleProductArray[list].key}>');"><i class="icon-trash"></i>&nbsp;移除該商品</a></div>
+
+                                
+
+
+
+								
+
+							</div>
+
+
+
+						</div>
+
+						<!-- /item -->
+
+                        <{ /section }>
+
+					</div>
+
+
+				<div style="clear:both"></div>
+				</div>
+
+			
+
+			<!-- RECOMMEND PRODUCTS -->
+<script language="javascript">
+function deletsale(gid,color,size,detail_id,key){
+	$.ajax({
+				url: "../../modules/sale/buy_sale.php",
+				data: 'gid='+ gid +'&color=' + encodeURIComponent(color) + "&size=" + encodeURIComponent(size) + '&act=del&saleid=<{$smarty.get.saleid}>&key=' + key + '&detail_id=' + detail_id,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg + key);
+				    if (msg == 1)
+				   		showsaleshopping();
+				}
+	});
+}
+</script>
+<script type="text/javascript">
+				_owl_carousel();
+			</script>

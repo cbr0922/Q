@@ -1,0 +1,96 @@
+<link rel="stylesheet" type="text/css" href="<{ $Site_Url }>/css/easyui.css">
+<script type="text/javascript" src="<{ $Site_Url }>/js/jquery.easyui.min.js"></script>
+<script>
+
+jQuery(document).ready(function(){
+
+	jQuery("#forgetform").validationEngine();
+
+});
+
+</script>
+
+<div style="position:relative;width:873px;height:363px;">
+  <div style="position:absolute;right:0;z-index:99999;"><a href="javascript:void(0);" onclick="$.unblockUI2();"><img src="<{ $template_dir }>/images/reg_close.png" style="margin-right:10px;margin-top:10px;" border="0" /></a></div>
+	<table width="873" border="0" align="center" cellpadding="0" cellspacing="0" style="color:#666666;border:3px solid #aaaaaa; margin-top:35px;margin-bottom:35px;background-color: rgb(255, 255, 255);">
+						 <tr>
+							 <td width="433" height="323" valign="middle"><!-- 語言包 --><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-right:1px solid #CCC;">
+ <tr>
+	 <td height="270" align="center" valign="top"><span style="padding-bottom:5px"><img src="<{ $template_dir }>/images/find_password.png" /></span><br />
+		 <br />
+		 <form action="<{$Site_Url}>/member/forget_password.php" method="post" name="forgetform" id="forgetform">
+									 <input type="hidden" name="Action" value="SendEmail">
+									 <input type="hidden" name="showtype" value="ajax">
+									 <TABLE width=80% height=151 border=0 align="center" cellPadding=3 cellSpacing=0>
+										 <TBODY>
+											 <TR>
+												 <TD height="36" colspan="2" align=left><{ $Remind }></TD>
+												 <!--登录-->
+											 </TR>
+											 <TR>
+												 <TD width="40%" height="14" align=left><{ $Email_say }>
+													 <!--email-->
+：</TD>
+												 <TD width="60%" align="left"><input type="text" size="30" name="email" id="email" class="validate[required,custom[email],ajax[ajaxUserEmailExit2]] text-input inputstyle" /></TD>
+											 </TR>
+											 <TR>
+												 <TD height="27" align=left><{ $Code_say }>：</TD>
+												 <TD align="left"><img src="<{ $Site_Url }>/Resources/securimage/securimage_show.php?sid=<{$sid}>" border="0" align="absmiddle"><br /><input name="inputcode" type="text" id="inputcode" size="5" class="inputstyle" style=" width:215px;margin-top: 5px;"></TD>
+											 </TR>
+											 <TR>
+												 <TD height="27" align=right>&nbsp;</TD>
+												 <TD align="left"><input type=button value='<{ $Submit }>' name=Submit id="imgfwd" class="input_bottom" /></TD>
+											 </TR>
+										 </TBODY>
+								 </TABLE>
+								 </form></td>
+ </tr>
+</table>
+</td>
+							 <td width="434" valign="top" style="padding-top:27px;padding-bottom:27px;"><table  width="312" border="0" align="center" cellpadding="0" cellspacing="0" >
+										 <tr>
+											 <td height="40" align="center" valign="top"><img src="<{ $template_dir }>/images/title-zhuce.png" /></td>
+										 </tr>
+										 <tr>
+											 <td height="44" align="left" valign="top">．如果您是會員在購物前請先登入！<br />
+											 ．如果還沒有註冊建議您先註冊可享有更多的網站服務！<br />
+												<input type="button" value="註冊" onclick="location.href='<{ $Site_Url }>/member/reg_rule.php'" class="input_bottom_member" style="margin-top:15px; margin-left:125px" />
+											 </td>
+										 </tr>
+										 <tr>
+											 <td height="40" align="center" valign="bottom"><img src="<{ $template_dir }>/images/title-tixing.png" /></td>
+										 </tr>
+										 <tr>
+											 <td align="left"  valign="bottom" style="padding-top:14px"><div><div style="float:left; width:12px">．</div><div style="float:left; width:300px">我們不會主動打電話要求您操作 ATM 或透露存款餘額，如果您接到類似可疑電話，請拒絕回應，並與本公司客服中心聯絡，或直接撥打刑事局詐騙 165 專線通報，以確保您的權益。請您定期更新密碼，以保障您的資料安全。</div></div></td>
+										 </tr>
+									 </table></td>
+		 </tr>
+	 </table>
+</div>
+<script>
+	var options_fwd = {
+		success:       function(msg){
+			//alert(msg);
+						if (msg==1){
+							$.messager.alert("提示訊息","已發送到您的郵箱，請注意查收");
+							window.location.reload(true);
+						}else if (msg==0){
+							$.messager.alert("提示訊息","Email錯誤");
+						}else{
+							$.messager.alert("提示訊息","驗證碼錯誤");
+							$('.lnkfpwd').trigger('click');
+						}
+					},
+		type:      'post',
+		dataType:  'html',
+		clearForm: false
+	};
+	$("#imgfwd").click(function(){
+								 if($('#email').val()==""){
+										$.messager.alert("提示訊息","請填寫您的Email");
+										return false;
+								  }
+
+									  $('#forgetform').ajaxSubmit(options_fwd);
+	});
+</script>

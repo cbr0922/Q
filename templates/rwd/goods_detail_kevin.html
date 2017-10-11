@@ -1,0 +1,803 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Keywords }>" name="keywords">
+<title><{ $Goodsname|strip_tags }> - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style100 {
+	font-size: 9px
+}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function showcontent(showname){
+		var obj,showobj,imgobj,myobj;
+		i = 2;
+		for (j=0;j<i;j++){
+				myobj = document.getElementById("showfour" + (j+1));
+				myobj.style.display = "none";
+				imgobj = document.getElementById("imgfour" + (j+1));
+				if (showname ==  (j+1)){
+					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + ".gif";
+					
+					myobj.style.display = "";
+				}else{
+					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + "2.gif";
+				}
+		}
+		
+	}
+//-->
+</script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('images/q1.gif','images/q2.gif','images/q3.gif','images/q4.gif','images/q5.gif','&lt;{ $template_dir }&gt;/images/q1.gif','&lt;{ $template_dir }&gt;/images/q2.gif','&lt;{ $template_dir }&gt;/images/q3.gif')">
+<{ include_php file="menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="976" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+        <tr>
+          <td width="206" height="400" valign="top" style="padding-right:11px;"><{ include_php file="search/search_banner.php" }> </td>
+          <td width="770" valign="top"><table width="770" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="30" align="left" valign="middle" class="title-in" style="padding-left:30px;"><a href="<{ $Site_Url }>">首頁</a><{if $goodoBname neq ""}>  &nbsp;<span class="style100">／</span> &nbsp;<a href="product_class_index.php?bid=<{ $goodoBid }>&topid=<{ $goodoBid }>"><{ $goodoBname }></a><{/if}><{if $goodBname neq ""}>  &nbsp;<span class="style100">／</span> &nbsp;<a href="product_class_second.php?bid=<{ $goodBid }>&topid=<{ $goodstopid }>"><{ $goodBname }></a><{/if}><{if $goodcBname neq ""}>  &nbsp;<span class="style100">／</span> &nbsp;<a href="product_class_detail.php?bid=<{ $goodcBid }>&topid=<{ $goodstopid }>"><{ $goodcBname }></a><{/if}></td>
+              </tr>
+              <tr>
+                <td>
+<form action="<{ $Site_Url }>/shopping/shopping.php" name="form_goods" method='get' >
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+                      <tr>
+                        <td><input name="Action" value="Add" type="hidden">
+                          <input name="goods_id" value="<{ $Goods_id }>" type="hidden">
+                          <table width="100%" border="0" align="center" cellpadding="1" cellspacing="0">
+                            <tr>
+                              <td width="31%" align="RIGHT" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td colspan="2" align="CENTER"><a href="javascript:temp=window.open('<{ $Site_Url }>/product/product_pic.php?goods_id=<{ $Goods_id }>','shopcat','width=700,height=500,resizable=1,scrollbars=1,status=no,toolbar=no,location=no,menu=no');temp.focus()"><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $Middleimg }>' border=0 name="goodpic"></a></td>
+                                  </tr>
+                                  <tr style="display:">
+                                    <td height="58" align="CENTER"><a href="javascript:temp=window.open('<{ $Site_Url }>/product/product_pic.php?goods_id=<{ $Goods_id }>','shopcat','width=700,height=500,resizable=1,scrollbars=1,status=no,toolbar=no,location=no,menu=no');temp.focus()"><img src="<{ $template_dir }>/images/morepic.gif"  border="0"></a></td>
+                                    <td align="CENTER"><{ $VideoUrl }></td>
+                                  </tr>
+                                  <tr style="display:">
+                                    <td height="58" colspan="2" align="CENTER"><table width="100%" border="0">
+                                        <tr>
+                                          <td align="left"><{ if $HaveUpId!='' }><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $HaveUpId }>"><img src="<{ $template_dir }>/images/lbut1.gif" width="51" height="13" border="0"></a><{ /if }>&nbsp;&nbsp;&nbsp;<a href="<{ $Site_Url }>/product/product_class_detail.php?bid=<{ $Bid }>"><img src="<{ $template_dir }>/images/lbut2.gif" width="60" height="13" border="0"></a><a href="<{ $Site_Url }>/email/mailtofriend.php?action=sendto&gid=<{ $Goods_id}>"><img src="<{ $template_dir }>/images/lbut4.gif" width="63" height="13" border="0"></a>&nbsp;&nbsp;&nbsp;<{ if $HaveNextId!='' }><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $HaveNextId }>"><img src="<{ $template_dir }>/images/lbut3.gif" width="51" height="13" border="0"></a><{ /if }> </td>
+                                        </tr>
+                                      </table></td>
+                                  </tr>
+                                </table></td>
+                              <td valign="top" width="69%"><table width="95%" border="0" align="center" cellpadding="2" cellspacing="0" class="p9rednothrough">
+                                  <tr valign="top">
+                                    <td colspan="2" align="left" class="salename"><{ $sale_name }></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="32" colspan="2" align="left"><h1><font color="#666666"><{ $Goodsname }></font></h1></td>
+                                  </tr>
+                                  <{if $ifsaleoff eq 1}>
+                                  <tr valign="top">
+                                    <td colspan="2" align="left" nowrap class="saletime"> 整點促銷：<{$saleoff_startdate}>至<{$saleoff_enddate}> </td>
+                                  </tr>
+                                  <{/if}>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  <{ if $Brand!="" }>
+                                  <tr valign="top">
+                                    <td width="18%" align="left" nowrap class="p9black"><{ $Brand_name }>：
+                                      <!--商品品牌--></td>
+                                    <td><{ $Brand }></td>
+                                  </tr>
+                                  <{ /if }> 
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  <{ if $Intro!="" }>
+                                  <tr valign="top">
+                                    <td width="18%" align="left" nowrap class="p9black"><nobr><{ $Intro_name }>：</nobr>
+                                      <!--簡介--></td>
+                                    <td><{ $Intro }></td>
+                                  </tr>
+                                  <{ /if }><{ if $Unit!="" }>
+                                  <tr valign="top">
+                                    <td width="18%" align="left" nowrap class="p9black"><nobr><{ $Unit_name }>：</nobr>
+                                      <!--計量單位--></td>
+                                    <td><{ $Unit }></td>
+                                  </tr>
+                                  <{ /if }>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  <{foreach name=outer item=contact from=$ProductAttrArray}> <{foreach key=key item=item from=$contact}>
+                                  <tr valign="top">
+                                    <td align="left" nowrap class="p9black"><nobr><{ $key }>：</nobr></td>
+                                    <td ><{ $item }></td>
+                                  </tr>
+                                  <{ /foreach }> <{ /foreach }> <{ if $NoCarriage ne 0 }>
+                                  <tr valign="top">
+                                    <td class="p9black" align="left" nowrap><{ $NoCar_name }>：</td>
+                                    <td><{ $NoCarriage }></td>
+                                  </tr>
+                                  <{ /if }>
+                                  <script language="javascript">
+storage = new Array();
+<{ section name=list loop=$storage_array }>
+storage[<{ $storage_array[list].i }>] = new Array('<{ $storage_array[list].color }>','<{ $storage_array[list].size }>',<{ $storage_array[list].storage }>);
+<{ /section }>
+function ChangeStorage(color,size){
+var thisstorage;
+	for (i=0;i<storage.length;i++){
+		if (color == storage[i][0] && size == storage[i][1]){
+			thisstorage = storage[i][2];
+		}
+	}
+	if(storage.length > 0){
+	<{ if $Storage >0 }>
+	if (thisstorage <= 0){
+		document.all.showimage.style.display = 'none';
+		document.all.showmessage1.innerHTML = "【缺貨中】 ";
+	}else if (thisstorage <= <{ $Alarmnum }>){
+		document.all.showimage.style.display = 'block';
+		document.all.showmessage1.innerHTML = "【庫存已不多，欲購從速】";
+	}else{
+		document.all.showimage.style.display = 'block';
+		document.all.showmessage1.innerHTML = "";
+	}
+	<{ /if }>
+	}
+}
+</script>
+                                  <{ if $Good_Color_Option !="" }>                                        <{ /if }> <{ if $Good_Size_Option !="" }>                                        <{ /if }>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  <{ if $Point gt 0 }>
+                                  <tr valign="top">
+                                    <td align="left" class="p9black"><{ $ProductPoint_say }>：
+                                      <!--商品積分--></td>
+                                    <td><{ $Point }></td>
+                                  </tr>
+                                  <{ /if }>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  <{ if $Good_Color_Option !="" }>
+                                  <tr>
+                                    <td align="left"  class="p9black"><{ $Product_Color }>：</td>
+                                    <td valign="top" ><select name="good_color" onChange="javascript: <{ if $Good_Size_Option !="" }>
+                                        
+                                        
+                                        
+                      ChangeStorage(this.value,document.all.good_size.value,this.value)<{ else }>ChangeStorage(this.value,'')<{ /if }>;"> <{ $Good_Color_Option }>
+                                      </select></td>
+                                  </tr>
+                                  <{ /if }> <{ if $Good_Size_Option !="" }>
+                                  <tr>
+                                    <td align="left"  class="p9black"><{ $Product_Size }>：</td>
+                                    <td ><select name="good_size" onChange="javascript:<{ if $Good_Color_Option !="" }>
+                                        
+                                        
+                                        
+                      ChangeStorage(document.all.good_color.value,this.value)<{ else }>ChangeStorage('',this.value)<{ /if }>;"> <{ $Good_Size_Option }>
+                                      </select></td>
+                                  </tr>
+                                  <{ /if }>
+                                  <tr align="left">
+                                    <td colspan="2"><span id="showmessage1" style="color:#FF0000"></span></td>
+                                  </tr>
+                                  <tr align="right">
+                                    <td colspan="2" align="left"><table width="396" border="0" cellspacing="0" cellpadding="3">
+                                        <tr>
+                                          <td width="72" align="left" class="p9black">建議售價：</td>
+                                          <td width="312" align="left"><s><{$Price}></s> 元</td>
+                                        </tr>
+                                        <tr>
+                                          <td align="left" valign="top" class="p9black">網購價：</td>
+                                          <td align="left" valign="top" class="price"><{$Pricedesc}> 元                                            </td>
+                                        </tr>
+                                      </table>
+                                      <table width="396" height="24" border="0" align="left" cellpadding="3" cellspacing="0">
+  <{ section name=Price loop=$PriceArray }> <{ if $PriceArray[Price].level_name eq $Session_userlevel}>
+  <tr>
+    <td width="72" align="left"><{ $PriceArray[Price].level_name }><{ $PriceIs }>
+      <!--价格-->
+      ：</td>
+    <td width="312" align="left"><{ $PriceArray[Price].m_price }> 元</td>
+  </tr>
+  <{ /if }> <{ /section }>
+                                      </table></td>
+                                  </tr>
+                                  <tr align="right" valign="top">
+                                    <td colspan="2" align="left" nowrap class="p9navyblue"><{ section name=list loop=$goodcolor_array }> <a href="javascript:changeimg('<{ $goodcolor_array[list].pic2 }>','<{$goodcolor_array[list].color}>');"><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $goodcolor_array[list].pic1 }>' border=0 width='25' height='25'></a>&nbsp;&nbsp; <{ /section }> </td>
+                                  </tr>
+                                  <tr valign="top">
+                                    <td class="p14red" nowrap align="right">&nbsp;</td>
+                                    <td class="p14red">&nbsp;</td>
+                                  </tr>
+                                  <{ if $if_monthprice eq 1 }>
+                                  <tr>
+                                    <td class="p14red" nowrap align="right"></td>
+                                    <td><table width="100%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+                                        <{ section name=Price loop=$monthpriceArray }>
+                                        <tr bgcolor="#FFFFFF">
+                                          <td><{ $monthpriceArray[Price].month }>期</td>
+                                          <td>每期 <font color="red"><{ $monthpriceArray[Price].month_price }></font> 元</td>
+                                          <td>價格為<{ $monthpriceArray[Price].total }></td>
+                                        </tr>
+                                        <{ /section }>
+                                      </table>
+                                      <br>
+                                      我想
+                                      <select name="iid">
+                                        <option value="0">不分期</option>
+                                        <{ section name=Price loop=$monthpriceArray }>
+                                        <option value="<{ $monthpriceArray[Price].month }>">分<{ $monthpriceArray[Price].month }>期</option>
+                                        <{ /section }>
+                                      </select>
+                                      購買 (分期付款只接受中國信託信用卡) </td>
+                                  </tr>
+                                  <{ /if }>
+                                  <!--
+        <tr valign="top" style="display:none"> 
+          <td class="p9navyblue" nowrap align="RIGHT"><{ $Point_name }>积分点数</td>
+          <td class="p9black"><{ $Point }></td>
+        </tr>
+		-->
+                                </table>
+                                <table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+                                  <tr>
+                                    <td height="40" align="left" nowrap><img src="<{ $template_dir }>/images/an0.jpg" width="12" height="16"><span class="p9black"><nobr> <{ $Bn_name }>：</nobr></span>
+                                      <!--商品編號-->
+                                      <{ $Bn }>  <img src="<{ $template_dir }>/images/an0.jpg" width="12" height="16"><{ if $Ifbonus !=1 }><a href='<{ $Site_Url }>/product/Collection.php?Action=Insert&gid=<{ $Goods_id }>'>加入追蹤清單</a><{ /if }></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="49" align="left" nowrap style="padding-left:5px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td width="20%" nowrap><{ if $AlertZeroStorage =='' }><{ if $Ifbonus==1 }><a  href='<{ $Site_Url }>/shopping/bonuspointop.php?gid=<{ $Goods_id }>'><img  alt='<{ $fav_say }>' src='<{ $template_dir }>/images/but4.jpg' border=0></a> <{ else }> 
+                                            
+                                            <{if $nobuytime eq 1 && $ifsaleoff eq 1}>已過期<{/if}> <div id="showtime" <{if $havebuytime <= 0}>style="display:none"<{/if}>>
+                                            </div>
+                                            <input name="showimage" type="image" src="<{ $template_dir }>/images/but1.jpg" <{if ($havebuytime>0 || $nobuytime eq 1) && $ifsaleoff eq 1}>style="display:none"<{/if}>>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            <{ /if }><{ else }><{ $AlertZeroStorage }><{ /if }></td>
+                                          <td></td>
+                                        </tr>
+                                      </table></td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{if $detail_num>0 }>
+                          <table width="700" border="0" cellspacing="1" cellpadding="3" id="detailgoodstd">
+                            <tr>
+                              <td width="100" align="center" bgcolor="#EEEEEE">&nbsp;</td>
+                              <td width="100" align="center" bgcolor="#EEEEEE">商品編號</td>
+                              <td width="300" align="center" bgcolor="#EEEEEE">商品名稱/描述</td>
+                              <td width="130" align="center" bgcolor="#EEEEEE">價格</td>
+                              <td width="70" align="center" bgcolor="#EEEEEE">購買</td>
+                            </tr>
+                            <{ section name=list loop=$goods_detail }>
+                            <tr>
+                              <td align="center"><{if $goods_detail[list].detail_pic neq ""}><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $goods_detail[list].detail_pic }>' border=0 width=100><{else}><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $Smallimg }>' border=0 width=100><{/if}></td>
+                              <td align="center"><{ $goods_detail[list].detail_bn }></td>
+                              <td><{ $goods_detail[list].detail_name }><br>
+                                <{ $goods_detail[list].detail_des }> </td>
+                              <td><s>建議售價：<{ $goods_detail[list].detail_price }></s><br>
+                                網購價：<{ $goods_detail[list].detail_pricedes }>	
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ section name=Price loop=$goods_detail[list].memberprice }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ if $goods_detail[list].memberprice[Price].level_name eq $Session_userlevel}>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                <{ $goods_detail[list].memberprice[Price].level_name }><{ $PriceIs }>
+                                <!--价格-->
+                                ：<{ $goods_detail[list].memberprice[Price].m_price }><{ /if }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ /section }></td>
+                              <td align="center"><{ if $goods_detail[list].storage > 0 }> <input type="button" name="Submit" value="購買" onClick="javascript:buy('<{ $goods_detail[list].detail_id }>');"  <{if ($havebuytime>0 || $nobuytime eq 1) && $ifsaleoff eq 1}> style="display:none"<{/if}>>
+                                
+                                <{if $nobuytime eq 1 && $ifsaleoff eq 1}>已過期<{/if}>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ else }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                暫時無貨
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ /if }> </td>
+                            </tr>
+                            <{ /section }>
+                          </table>
+                          <{else}>
+                          <!--加購-->
+                          <table width="484" border="0" align="right" cellpadding="3" cellspacing="0">
+                            <{ section name=list loop=$change_array }>
+                            <tr>
+                              <td width="20" bgcolor="#EEEEEE"><input type="checkbox" value="<{ $change_array[list].gid }>" id="changegid" name="changegid[]"></td>
+                              <td width="504" bgcolor="#EEEEEE">加購：<{ $change_array[list].goodsname }><{ if $change_array[list].Good_Color_Option neq "" }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                顏色：
+                                <select id="changecolor<{ $change_array[list].gid }>" name="changecolor<{ $change_array[list].gid }>">
+                                  <{$change_array[list].Good_Color_Option}>
+                                </select>
+                                <{ /if }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ if $change_array[list].Good_Size_Option neq "" }>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                尺寸：
+                                <select id="changesize<{ $change_array[list].gid }>" name="changesize<{ $change_array[list].gid }>">
+                                  <{$change_array[list].Good_Size_Option}>
+                                </select>
+                                <{ /if }>                            - 
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <{ $change_array[list].price }>元</td>
+                            </tr>
+                            <tr>
+                              <td height="1" colspan="2"></td>
+                            </tr>
+                            <{ /section }>
+                          </table>
+                          <{/if}></td>
+                      </tr>
+                    </table>
+                    <input type="hidden" id="detail_id" name="detail_id">
+                  </form>
+                  <script language="javascript">
+			var timesecond = <{$havebuytime}>;
+			var timehave = timesecond;
+            function gethavetime(){
+				var d,h,m,s;
+				var obj,obj2;
+				timesecond = timehave;
+				obj = document.getElementById("showtime");
+				obj2 = document.getElementById("showimage");
+				d = parseInt(timesecond/(24*60*60));
+				if (d > 0){
+					timesecond = timesecond%(24*60*60);
+				}
+				h = parseInt(timesecond/(60*60));
+				if (h > 0){
+					timesecond = timesecond%(60*60);
+				}
+				m = parseInt(timesecond/60);
+				if (m > 0){
+					timesecond = timesecond%60;
+				}
+				s = timesecond;
+				if (d>0||h>0||m>0||s>0){
+					obj.style.display = "block";
+					obj.innerHTML = "還剩" + d +"天" + h + "小時" + m + "分" + s + "秒開始促銷";
+				}else{
+					obj.style.display = "none";	
+					obj2.style.display = "block";
+					
+					<{if $detail_num>0 }>
+					objs = document.getElementsByTagName("detailgoodstd");
+					len_o = objs.length
+					for(i=0;i<len_o;i++){
+						objs[i].style.display = "block";
+					}
+					<{/if}>
+				}
+				timehave = timehave - 1;
+			}
+			if (timehave>0)
+				setInterval("gethavetime()",1000);
+            </script>
+                  <script language="javascript">
+					function buy(id){
+						myobj = document.getElementById("detail_id");
+						myobj.value = id;
+						document.getElementById("form_goods").submit();
+					}
+					</script>
+                  <table width="700" height="35" border="0" align="center" cellpadding="0" cellspacing="0" background="<{ $template_dir }>/images/lv_line.gif">
+                  <tr>
+                    <td width="92"><a href="javascript:" onMouseOver="MM_swapImage('Image19','','<{ $template_dir }>/images/q1.gif',1);showcontent('1');"><img src="<{ $template_dir }>/images/q1.gif" name="Image19" width="92" height="38" border="0" id="imgfour1"></a></td>
+                    <td width="92"><a href="javascript:" onMouseOver="MM_swapImage('Image20','','<{ $template_dir }>/images/q2.gif',1);showcontent('2');"><img src="<{ $template_dir }>/images/q22.gif" name="Image20" width="92" height="38" border="0" id="imgfour2"></a></td>
+                    <td width="92"></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" id="showfour1">
+                  <tr>
+                    <td align="left" style="padding:15px;"><span class="p9black"> <{ $Body }> </span></td>
+                  </tr>
+              </table>
+              
+<table width="84%" border="0" align="center" cellpadding="0" cellspacing="0" id="showfour2">
+                  <tr>
+                    <td><br>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EFEFEF">
+                          <tr>
+                            <td width="3%" height="22" align="CENTER">&nbsp;</td>
+                            <td class="p8white" width="97%">問與答</td>
+                          </tr>
+                      </table></td>
+                  </tr>
+                  <tr>
+                    <td><table width="98%" border="0" cellspacing="0" cellpadding="3" class="p9black">
+                      <{ section name=Comm loop=$CommentArray }>
+                      <tr>
+                        <td width="20%" align="right" valign="top" nowrap class="p9navyblue"><{ $UserComment}>：
+                          <!--//用户评论 -->                        </td>
+                        <td width="80%"><{ $CommentArray[Comm].comment_idate }> <br>
+                          <{ $CommentArray[Comm].comment_content }></td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top" nowrap class="p9orange"><{ $ShoperReport }>：
+                          <!--//店主回复 -->                        </td>
+                        <td><{ $CommentArray[Comm].comment_answer }></td>
+                      </tr>
+                      <{ /section }>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td><form action="<{ $Site_Url }>/product/goods_detail.php" method="post" name="formcomment" >
+                        <input type="hidden" value="SubmitComment" name="action">
+                        <input type="hidden" value="<{ $Url }>" name="Url">
+                        <input type="hidden" value="<{ $Goods_id }>" name="Goods_id">
+                        <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="23%" align="RIGHT" nowrap class="p9black"><div align="center"><{ $CommentIntro }>
+                                    <!--评论内容-->
+                            </div></td>
+                            <td width="77%"><textarea name="content" cols="50" rows="5" class="inputstyle3"></textarea></td>
+                          </tr>
+                          <tr align="center">
+                            <td colspan="2" class="p9black">&nbsp;</td>
+                          </tr>
+                          <tr align="center">
+                            <td class="p9black">&nbsp;</td>
+                            <td align="left" class="p9black"><input name="submit" type="submit" class="inputstyle" value="<{ $SubmitComment }>" onClick="return CheckComments('<{ $InputComment }>','<{ $Commentlen }>');">
+                              <{ $CommentIntro1 }> </td>
+                          </tr>
+                        </table>
+                    </form></td>
+                  </tr>
+              </table>
+                  <table width="700" height="35" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="35" valign="bottom" background="<{ $template_dir }>/images/lv_line.gif" class="bgrepeat2"><img src="<{ $template_dir }>/images/q0002.gif" width="92" height="38"></td>
+                    </tr>
+                  </table>
+                  <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="left"><div align="left"><br>
+                          <table width="95%" border="0" align="center" cellpadding="3" cellspacing="2" class="p9black">
+                            <{ section name=abProduct loop=$abProductArray }>
+                            <tr>
+                              <td class="p9navyblue" width="20" align="right" valign="top"><{ $abProductArray[abProduct].autonum }></td>
+                              <td width="110" valign="top"><{ if $abProductArray[abProduct].smallimg!="" }><a href="goods_detail.php?goods_id=<{  $abProductArray[abProduct].gid  }>"><img src="<{ $Site_Url }>/<{ $good_pic_path }>/<{ $abProductArray[abProduct].smallimg }>" width="100" border="0" align="top"></a><{ /if }></td>
+                              <td align="left" valign="top" class="job2"><a href="goods_detail.php?goods_id=<{  $abProductArray[abProduct].gid  }>"> <{ $abProductArray[abProduct].goodsname }></a> <span class="price"><{ $abProductArray[abProduct].pricedesc }>元</span> <br>
+                                <{ $abProductArray[abProduct].intro }> </td>
+                            </tr>
+                            <{ /section }>
+                          </table>
+                        </div></td>
+                    </tr>
+                  </table>
+                  <br>
+                  <table width="700" height="35" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="35" valign="bottom" background="<{ $template_dir }>/images/lv_line.gif" class="bgrepeat2"><img src="<{ $template_dir }>/images/q0001.gif" width="157" height="38"></td>
+                    </tr>
+                  </table>
+                  <table width="700" height="35" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td valign="top" style="padding-top:15px;"><ul class="viewed">
+                          <{ section name=list loop=$viewProductArray }>
+                          <li align="middle">
+                            <table width="130" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td align="center" valign="top" style="padding:6px;"><table width="94" border="0" cellpadding="3" cellspacing="1" bgcolor="ececec">
+                                    <tr>
+                                      <td bgcolor="#FFFFFF"><table width="86" height="86" border="0" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+                                          <tr>
+                                            <td align="left" valign="top"style="padding:3px;"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $viewProductArray[list].gid }>'><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $viewProductArray[list].smallimg }>" width="80"  border=0></a></td>
+                                          </tr>
+                                        </table></td>
+                                    </tr>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td height="75" valign="top" style="padding:6px;"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $viewProductArray[list].gid }>'><{ $viewProductArray[list].goodsname }></A></td>
+                              </tr>
+                            </table>
+                          </li>
+                          <{ /section }>
+                        </ul></td>
+                    </tr>
+                  </table>
+                  <script language="javascript">
+					function buy(id){
+						myobj = document.getElementById("detail_id");
+						myobj.value = id;
+						document.getElementById("form_goods").submit();
+					}
+					</script>
+                  <p>&nbsp;</p></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+<script language="javascript">
+showcontent("1");
+<{ if $Good_Color_Option !="" && $Good_Size_Option != ""}>
+ChangeStorage(document.all.good_color.value,document.all.good_size.value);
+<{ /if }>
+<{ if $Good_Color_Option !="" && $Good_Size_Option == "" }>
+ChangeStorage(document.all.good_color.value,'');
+<{ /if }>
+<{ if $Good_Size_Option !="" && $Good_Color_Option == "" }>
+ChangeStorage('',document.all.good_size.value);
+<{ /if }>
+</script>
+<{ include_php file="bottom.php" }>
+<script language="JavaScript" id="upload"></script>
+</body>
+</html>

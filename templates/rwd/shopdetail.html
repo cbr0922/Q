@@ -1,0 +1,273 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">-->
+
+<html>
+
+ 
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $shop_description }>" name="description">
+
+<meta content="<{ $shop_keywords }>" name="keywords">
+
+<title><{ $shopname }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+<body>
+
+<{ include_php file="shop_menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="A<{ $getbid }>">
+
+  <tr>
+
+    <td width="207" height="400" valign="top" style="padding-right:9px;">
+
+   <{ include_php file="include/include_shopproductclass.php" }>    
+
+ </td>
+
+    <td width="753" valign="top">
+
+    
+
+    <{ include_php file="include/include_shop_tab.php" }>    
+
+ 
+
+<span class="pink">Home > 商店街首頁 <{ section name=list loop=$class_banner }>> <a href="shoplist.php?scid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{ /section }></span> 
+
+      <script language="javascript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=longbanner"></script>
+
+      <table width="753" border="0" cellpadding="0" cellspacing="1" style="margin-bottom:5px;margin-top:5px;">
+
+        <tr>
+
+          <td align="left" style="padding-top:0px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr>
+
+                <td align="left" valign="top"><{$adv}> </td>
+
+              </tr>
+
+              <tr>
+
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+
+                      <td align="left" valign="top"><{ section name=list loop=$GoodsArray }>
+
+                        <div class="shoplist">
+
+                          <TABLE  cellSpacing=0 cellPadding=4 width="150" border=0 style="display:block;float:left;">
+
+                            <TR >
+
+                              <TD width="" align="center" class=p9v><a href="../product/goods_detail.php?goods_id=<{$GoodsArray[list].gid}>"><IMG src="../UploadFile/GoodPic/<{$GoodsArray[list].smallimg}>" border="0" ></a></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left"><a href="../product/goods_detail.php?goods_id=<{$GoodsArray[list].gid}>"><strong><{$GoodsArray[list].goodsname}></strong></a></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left" class=p9v><{$GoodsArray[list].intro}></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left" class=p9v>網 購 價 ：<span class="prices"><{$GoodsArray[list].pricedesc}></span>元</TD>
+
+                            </TR>
+
+                          </TABLE>
+
+                        </div>
+
+                        <{ /section }> </td>
+
+                    </tr>
+
+                  </table></td>
+
+              </tr>
+
+              
+
+              <tr>
+
+                <td><img src="<{ $template_dir }>/images/shoptit-hot.gif" width="745" height="30"></td>
+
+              </tr>
+
+              <tr>
+
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+
+                      <td align="left" valign="top"><{ section name=list loop=$GoodsHotArray }>
+
+                        <div class="shoplist">
+
+                          <TABLE  cellSpacing=0 cellPadding=4 width="150" border=0 style="display:block;float:left;">
+
+                            <TR >
+
+                              <TD width="" align="center" class=p9v><a href="../product/goods_detail.php?goods_id=<{$GoodsHotArray[list].gid}>"><IMG src="../UploadFile/GoodPic/<{$GoodsHotArray[list].smallimg}>" border="0" ></a></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left"><a href="../product/goods_detail.php?goods_id=<{$GoodsHotArray[list].gid}>"><strong><{$GoodsHotArray[list].goodsname}></strong></a></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left" class=p9v><{$GoodsHotArray[list].intro}></TD>
+
+                            </TR>
+
+                            <TR >
+
+                              <TD align="left" class=p9v>網 購 價 ：<span class="prices"><{$GoodsHotArray[list].pricedesc}></span>元</TD>
+
+                            </TR>
+
+                          </TABLE>
+
+                        </div>
+
+                        <{ /section }> </td>
+
+                    </tr>
+
+                  </table></td>
+
+              </tr>
+
+              <tr>
+
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                    <tr>
+
+                      <td width="49%" valign="top"><img src="<{ $template_dir }>/images/shoptit-comment.gif" width="745" height="30">
+
+                       <table width="85%" border="0" align="center" cellpadding="0" cellspacing="2" style="margin-top:15px;">
+
+                    <{ section name=i loop=$ScoreArray }>
+
+                    <tr>
+
+                      <td><b><a href="../product/goods_detail.php?goods_id=<{$ScoreArray[i].gid}>" class="job"><{$ScoreArray[i].goodsname}></a>,</b>    <font color="#FF0000"><{$ScoreArray[i].avg}></font> <span class="small">(<{$ScoreArray[i].scoretime}>)</span></td>
+
+                    </tr>
+
+                    <{ /section  }>
+
+                        </table></td>
+
+                    </tr>
+
+                  </table>
+
+                        </td>
+
+                    </tr>
+
+                  </table></td>
+
+              </tr>
+
+<tr>
+
+                <td><img src="<{ $template_dir }>/images/shoptit-top10.gif" width="745" height="30"></td>
+
+              </tr>
+
+              <tr>
+
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+                    <tr>
+
+                      <td valign="top">
+
+
+
+                          <TABLE width="650" border=0 align="center" cellPadding=4  cellSpacing=0>
+
+<{ section name=list loop=$GoodsSaleArray }>
+
+                            <TR >
+
+                              <TD align="left" style="border-bottom:1px dotted #999999;"><a href="../product/goods_detail.php?goods_id=<{$GoodsSaleArray[list].gid}>" class="job"><{$GoodsSaleArray[list].goodsname}></a></TD>
+
+                            </TR>
+
+<{ /section }> 
+
+                          </TABLE>
+
+
+
+                      </td>
+
+                    </tr>
+
+                  </table></td>
+
+              </tr>
+
+              <tr>
+
+                <td></td>
+
+              </tr>
+
+            </table></td>
+
+        </tr>
+
+      </table></td>
+
+  </tr>
+
+</table>
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

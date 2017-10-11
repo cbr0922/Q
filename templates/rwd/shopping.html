@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>商品確認 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+			<section class="page-header page-header-xs">
+				<div class="container">
+
+					<h1 class="bfont size-18 hidden">商品確認</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li><a href="<{ $Site_Url }>/shopping/shopping.php">購物車</a></li>
+						<li class="active">商品確認</li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+            <!-- 內容 -->
+<section>
+	<div class="container">
+     <div class="row">
+      <div class="col-md-12">
+
+      <div class="shopping_steps">
+         <div class="step_over"><div class="step_number">1</div>商品確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">2</div>航班確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">3</div>填寫資料</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">4</div>訂單完成</div>
+       </div>
+
+      <div class="clear_shopcart"><{if $Session_user_id!=""}> <a href="javascript:void(0);" onClick="javascript:getshowcollection(1);"><i class="fa fa-heart nopadding"></i>追蹤清單：<{$collection_Num}>件</a><{/if}><a onClick="location.href='cart.php?Action=clear';"><i class="icon-trash"></i>清空購物車</a></div>
+                      <div id="showshopping"> <{if $Cart_count eq 0}>
+
+        您尚未選購商品
+
+        <{/if}>
+         <{ section name=list loop=$Cart_item }>
+        <div class="trans_name"><i class="icon-circle-arrow-right"></i><{$Cart_item[list].provider_name}> <{$Cart_item[list].shop_name}> <{$Cart_item[list].trans_name}></div>
+        <table class="table-hover responsive">
+        <thead>
+         <tr>
+            <th class="span_hidden">序號</td>
+            <th>圖片</td>
+            <th>商品名稱</td>
+            <th>單價 NT$ </td>
+            <th>數量</td>
+            <th>小計</td>
+            <th  style="min-width:50px">刪除</td>
+            <th  style="min-width:50px"><span class="span_hidden">移入</span>追蹤<span class="span_hidden">清單</span></td>
+           </tr>
+         </thead>
+         <tbody>
+          <{ section name=list1 loop=$Cart_item[list].goods }>
+          <form method="get" action="cart.php">
+            <input type=hidden name=Action value='change'>
+            <input type=hidden name=key value='<{ $Cart_item[list].key }>'>
+            <input type=hidden name=gkey value='<{ $Cart_item[list].goods[list1].gkey }>'>
+            <tr>
+              <td data-label="序號" class="span_hidden"><{math equation="(x+y)" x=$smarty.section.list1.index y=1 }></td>
+              <td data-label="圖片"><a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].goods[list1].gid }>">
+                <img src='<{if $Cart_item[list].goods[list1].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../<{ $Gpicpath }>/<{ $Cart_item[list].goods[list1].smallimg }><{/if}>' width="70" alt="<{ $Cart_item[list].goods[list1].goodsname }>"  />
+              </a>
+              </td>
+              <td  data-label="商品名稱" class="receivePay_text shopping_gn">
+			  
+			  <{if $Cart_item[list].goods[list1].ifchange eq 1 || $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 }>
+				<{ $Cart_item[list].goods[list1].goodsname }>
+				<!--<{if $Cart_item[list].goods[list1].ifchange eq 1}>[加購商品]<{/if}><{if $Cart_item[list].goods[list1].ifpresent eq 1}>[滿額禮]<{/if}>-->
+			  
+                <{else}><a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].goods[list1].gid }>"><{ $Cart_item[list].goods[list1].goodsname }></a><{/if}><{if $Cart_item[list].goods[list1].xygoods_des neq ""}><{ $Cart_item[list].goods[list1].xygoods_des }><{/if}>
+                <{if $Cart_item[list].goods[list1].good_color neq ""}><br>
+                顏色：<{ $Cart_item[list].goods[list1].good_color }>
+                <{/if}><{if $Cart_item[list].goods[list1].good_size neq ""}><br>
+                尺寸：<{ $Cart_item[list].goods[list1].good_size }>
+                <{/if}><{if $Cart_item[list].goods[list1].detail_name neq ""}><br>
+                規格：<{ $Cart_item[list].goods[list1].detail_name }>
+                <{/if}>
+                <{if $Cart_item[list].goods[list1].detail_des neq ""}><br>
+                <{ $Cart_item[list].goods[list1].detail_des }><{/if}>
+                <{if $Cart_item[list].goods[list1].rebateinfo neq ""}><br>
+                <{ $Cart_item[list].goods[list1].rebateinfo }><{/if}>
+                <{if $Cart_item[list].goods[list1].promotion_name}>
+                <br />【<{$Cart_item[list].goods[list1].promotion_name}>】<{/if}></td>
+              <td data-label="單價 NT$ "><{ $Cart_item[list].goods[list1].price }>
+              <{if ($Cart_item[list].goods[list1].ifjs eq 1)}> <img src="../images/co-price.gif"> <{/if}> </td>
+              <td  data-label="數量" style="min-width: 100px;"><{if $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 || $Cart_item[list].goods[list1].ifadd eq 1 || $Cart_item[list].goods[list1].ifgoodspresent eq 1 || $Cart_item[list].goods[list1].redgreen_type>0}>
+                <{$Cart_item[list].goods[list1].count}>
+                <{else}>
+                <!--{ html_options name="count" options=$Cart_item[list].goods[list1].storagelist selected=$Cart_item[list].goods[list1].count }-->
+                <!--select name="count<{ $Cart_item[list].goods[list1].skey }>" onchange="location.href='cart.php?Action=change&key=<{ $Cart_item[list].key }>&gkey=<{ $Cart_item[list].goods[list1].gkey }>&count=' + this.value;" class="nopadding height-30">
+                  <{foreach from=$Cart_item[list].goods[list1].storagelist key=tk item=tv  }> <option value="<{$tv}>" <{if $tv eq $Cart_item[list].goods[list1].count}>selected<{/if}>><{$tv}>
+                  </option>
+                  <{/foreach}>
+                </select-->
+								<div class="input-group col-md-10 col-md-offset-2 margin-top-20 margin-bottom-20 countsdiv">
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-number" data-type="minus" data-field="count<{ $Cart_item[list].goods[list1].gkey }>">
+											<span class="glyphicon glyphicon-minus" style="top:0 !important;font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif!important;"></span>
+										</button>
+									</span>
+									<input id="count" type="text" name="count<{ $Cart_item[list].goods[list1].gkey }>" class="form-control input-number" value="<{$Cart_item[list].goods[list1].count}>" min="1" max="<{$Cart_item[list].goods[list1].storagecount}>" onchange="location.href='cart.php?Action=change&key=<{ $Cart_item[list].key }>&gkey=<{ $Cart_item[list].goods[list1].gkey }>&count=' + this.value;" disabled>
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-number" data-type="plus" data-field="count<{ $Cart_item[list].goods[list1].gkey }>">
+											<span class="glyphicon glyphicon-plus" style="top:0 !important;font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif!important;"></span>
+										</button>
+									</span>
+								</div>
+								<{/if}></td>
+              <td  data-label="小計"><{ $Cart_item[list].goods[list1].total }></td>
+              <td  data-label="刪除"><a href="./cart.php?Action=remove&key=<{ $Cart_item[list].key}>&gkey=<{ $Cart_item[list].goods[list1].gkey }>"><span class="important-txt"><i class="fa fa-times"></i></span></a></td>
+              <td  data-label="移入追蹤清單"><a href="./cart.php?Action=move&key=<{ $Cart_item[list].key}>&gkey=<{ $Cart_item[list].goods[list1].gkey }>&gid=<{ $Cart_item[list].goods[list1].gid }>"><span class="important-txt">移動</span></a></td>
+              </tr>
+          </form>
+          <{ /section }>
+</tbody>
+</table>
+<table width="100%">
+          <tr>
+            <td height="34"  align="right"><div class="shop-item-price height-50">商品總金額：<{$Cart_item[list].totalprice}>元</div></td>
+          </tr>
+          <tr>
+            <td align="left" class="shopping_present"> <div align="left">注意：在刪除和更改購物車商品數量時將會清空購物車中的額滿加購商品，請您重新選購，謝謝。</div>
+              <{ if $Cart_item[list].addgoodscount neq '' }>
+          <div class="important-txt size-16 margin-top-10 margin-bottom-10"><i class="fa fa-caret-down"></i> <b>滿額加購</b></div>
+              <{/if}>
+
+              <{ section name=list1 loop=$Cart_item[list].addgoods }>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+              <table id="cart_add_items" border="0" cellpadding="3" cellspacing="0" style=" margin-bottom:10px;">
+                <tr>
+                  <td valign="top" align="center" class="pics" style="padding-right:10px"><a class="lightbox" href="../product/showProduct.php?goods_id=<{ $Cart_item[list].addgoods[list1].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'>
+                    <img id="linkimg" src="<{if $Cart_item[list].addgoods[list1].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../UploadFile/GoodPic/<{ $Cart_item[list].addgoods[list1].smallimg }><{/if}>" width="70" border="0">
+                    </a></td>
+                  <td valign="top" align="left"><a class="lightbox" href="../product/showProduct.php?goods_id=<{ $Cart_item[list].addgoods[list1].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":true}'><{ $Cart_item[list].addgoods[list1].goodsname }></a><br>
+                    額滿金額：<{ $Cart_item[list].addgoods[list1].addmoney }><br>
+					原價：<{ $Cart_item[list].addgoods[list1].pricedesc }><br>
+                    加購價格：<span class="prices"><{ $Cart_item[list].addgoods[list1].addprice }></span><br />
+                   <a href="cart.php?Action=addgoods&gid=<{ $Cart_item[list].addgoods[list1].gid }>&key=<{ $Cart_item[list].key}>" class="addcart btn btn-primary btn-sm" style="margin-top: 5px;">加購</a></td>
+                </tr>
+              </table>
+            </div>
+              <{ /section }>
+
+              </td>
+          </tr>
+          <tr>
+            <td height="23" class="padding-top-20" align="center">
+            <input type="button" name="button3" id="button3" value="繼續購物" onClick="location.href='../index.php';" class="btn size-15 cart_botton" />
+              <input type="button" name="button" id="button" value="開始結帳" onClick="if (<{$MinBuyMoney}><=<{$Cart_item[list].totalprice}>) location.href='../member/login_windows.php?key=<{ $Cart_item[list].key}>&shop=shop&Url=../shopping/flight-orderday.php?key=<{ $Cart_item[list].key}>'; else alert('未達到最小購買金額');"  class="btn size-15 btn-primary cart_botton_r" /></td>
+          </tr>
+
+        </table>
+       <{ /section }>
+      </div>
+      <div id="showcollection"> </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+<script language="javascript">
+$('#button').click(function() {
+<{$InitiateCheckout_js}>
+});
+function getshowcollection(page){
+	var ajaxurl = "../member/ajax_collection.php";
+	document.getElementById("showshopping").style.display = "none";
+	document.getElementById("showcollection").style.display = "block";
+	$.ajax({
+				url: ajaxurl,
+				daga: 'page=' + page,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    $('#showcollection').html(msg);
+					//$('#classcount').attr("value",counts+1);
+					//$(msg).appendTo('#extclass')
+				}
+	});
+}
+function getshowshopping(){
+	document.getElementById("showshopping").style.display = "block";
+	document.getElementById("showcollection").style.display = "none";
+}
+
+</script>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+<script type="text/javascript">
+function setshopping(key,gkey,count){
+	$.ajax({
+       url: '<{$Site_Url}>/shopping/cart.php',
+       data: 'Action=change&key=' + key + '&gkey=' + gkey + '&count=' + count,
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){//alert(msg);
+					showshopping(0);
+				}
+	});
+}
+
+$('.btn-number').click(function(e){
+	fieldName = $(this).attr('data-field');
+	type      = $(this).attr('data-type');
+	var input = $("input[name='"+fieldName+"']");
+	var currentVal = parseInt(input.val());
+	if (!isNaN(currentVal)) {
+		if(type == 'minus') {
+			if(currentVal > input.attr('min')) {
+				input.val(currentVal - 1).change();
+			}
+			if(parseInt(input.val()) == input.attr('min')) {
+				$(this).attr('disabled', true);
+			}
+		} else if(type == 'plus') {
+			if(currentVal < input.attr('max')) {
+				input.val(currentVal + 1).change();
+			}
+			if(parseInt(input.val()) == input.attr('max')) {
+				$(this).attr('disabled', true);
+			}
+		}
+	} else {
+		input.val(0);
+	}
+});
+$('.input-number').focusin(function(){
+	 $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+	minValue =  parseInt($(this).attr('min'));
+	maxValue =  parseInt($(this).attr('max'));
+	valueCurrent = parseInt($(this).val());
+	name = $(this).attr('name');
+	if(valueCurrent >= minValue) {
+		$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+	} else {
+		$(this).val($(this).data('oldValue'));
+	}
+	if(valueCurrent <= maxValue) {
+		$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+	} else {
+		$(this).val($(this).data('oldValue'));
+	}
+});
+$(".input-number").keydown(function (e) {
+	// Allow: backspace, delete, tab, escape, enter and .
+	if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+		 // Allow: Ctrl+A
+		(e.keyCode == 65 && e.ctrlKey === true) ||
+		 // Allow: home, end, left, right
+		(e.keyCode >= 35 && e.keyCode <= 39)) {
+			 // let it happen, don't do anything
+			 return;
+	}
+	// Ensure that it is a number and stop the keypress
+	if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+		e.preventDefault();
+	}
+});
+</script>

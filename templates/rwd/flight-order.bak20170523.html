@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>航班確認 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<style>
+.flighthead {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+.flighthead p {
+    margin: 10px 0;
+}
+.flighthead input {
+    display: inline-block;
+	width: 130px;
+}
+.flighthead input.datepicker {
+    color: #c03c87;
+    font-size: 20px;
+}
+.flighttitle h3{
+	display: inline-block;
+	margin:0;
+}
+.flighttitle {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.flightinfo button {
+    width: 100%;
+    color: #91918F;
+    border:1px solid #d2d2d2;
+	box-shadow:2px 2px 2px #f3f3f3;
+    transition: all .2s;
+	border-radius: 4px;
+}
+.flightinfo button:hover {
+	color: #000000;
+    border:1px solid #929292;
+	box-shadow:2px 2px 2px #c5c5c5​;
+	box-shadow:2px 2px 2px #c5c5c5​;
+}
+.flightinfo li {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.flightinfo li button {
+    padding: 5px 10px;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding: 5px 10px;
+}
+ol, ul {
+    list-style: none;
+}
+
+@media (min-width: 768px){
+
+.flightinfo li img {
+    margin-right: 10px;
+    width: 35px;
+}
+}
+@media (max-width: 767px){
+
+.flightinfo li img {
+    margin-right: 5px;
+    width: 30px;
+}
+}
+
+.flightinfo li span {
+    font-size: 14px;
+}
+.btn-default:hover {
+	color:#000 !important;
+}
+</style>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<script type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+			<section class="page-header page-header-xs">
+				<div class="container">
+
+					<h1 class="bfont size-18 hidden">商品確認</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">首頁</a></li>
+                        <li><a href="<{ $Site_Url }>/shopping/shopping.php">購物車</a></li>
+						<li class="active">航班確認</li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+            <!-- 內容 -->
+<section>
+	<div class="container">
+     <div class="row">
+      <div class="col-md-12">
+
+      <div class="shopping_steps">
+         <div class="step_normal"><div class="step_normal_number">1</div>商品確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_over"><div class="step_number">2</div>航班確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">3</div>填寫資料</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">4</div>訂單完成</div>
+       </div>
+
+
+
+
+			<div class="flighthead margin-top-50">
+			<form action="shopping3.php?key=<{$smarty.get.key}>" method="post" id="shopform">
+				<div class="flighttitle">
+				<input type="hidden" name="flight-time" id="flight-time">
+				<input type="hidden" name="Departure" id="Departure">
+					<h3>航班日期  <input id="flight-date" class="datepicker hasDatepicker form-control text-center" type="text" value="<{ $datetime }>"></h3>
+
+
+
+
+					<div class="form-group nomargin inline-block" style="vertical-align: bottom;">
+
+						<label for="direct" class="radio" style="padding-top:2px;float: left;margin-right: 10px;margin-left: 10px;"><input type="radio" name="flightstyle" id="direct" value="direct" checked><i></i>直達目的地</label>
+						<label for="transfer" class="radio" style="padding-top:2px;margin: 0;float: left;"><input type="radio" name="flightstyle" id="transfer" value="transfer"><i></i><i></i>中途轉機</label>
+
+
+					</div>
+					<br><br>
+					<p>您可以點選上方日期來修改航班日期</p>
+					<p style="color: #C73D3E;">請注意:目前僅提供桃園機場出境旅客提貨服務</p>
+				</div>
+				<h3>
+					<i class="fa fa-plane"></i>
+					您離開台灣搭乘的是
+
+
+						<input id="flight-id" type="text" placeholder="請輸入航班代碼" name="flight-id" maxlength="2" data-required="" class="form-control" style="text-transform:uppercase;">
+						<!--<div class="tool-tip bottom slideIn">
+							<div class="table">
+								<div class="table-cell">
+									不知道您的航空公司嗎？請參考以下航空公司代碼
+								</div>
+							</div>
+						</div>-->
+
+					航空，<br class="visible-xs">
+					編號
+					<input type="text" id="flight-no" name="flight-no" placeholder="請輸入航班編號" data-required="" class="form-control" onkeyup="value=value.replace(/[^0-9 \-\$]/,'')">
+					班機
+				</h3>
+				</form>
+			<button id="submit-flightinfo" class="btn btn-default btn-black" onclick="getAirInternational();">送出</button>
+			</div>
+
+			<div class="flightinfo">
+				<h3 class="text-center">常用航空公司及其代碼</h3>
+				<ul class="nopadding">
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="CI"><img src="<{ $Site_Url }>/images/flight/CI.jpg" alt=""><span>中華航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="BR"><img src="<{ $Site_Url }>/images/flight/BR.jpg" alt=""><span>長榮航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="CX"><img src="<{ $Site_Url }>/images/flight/CX.jpg" alt=""><span>國泰航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="IT"><img src="<{ $Site_Url }>/images/flight/IT.jpg" alt=""><span>台灣虎航</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="MU"><img src="<{ $Site_Url }>/images/flight/MU.jpg" alt=""><span>東方航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="JW"><img src="<{ $Site_Url }>/images/flight/JW.jpg" alt=""><span>香草航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="CA"><img src="<{ $Site_Url }>/images/flight/CA.jpg" alt=""><span>中國國際</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="CZ"><img src="<{ $Site_Url }>/images/flight/CZ.jpg" alt=""><span>南方航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="TZ"><img src="<{ $Site_Url }>/images/flight/TZ.jpg" alt=""><span>酷航</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="MM"><img src="<{ $Site_Url }>/images/flight/MM.jpg" alt=""><span>樂桃航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="B7"><img src="<{ $Site_Url }>/images/flight/B7.jpg" alt=""><span>立榮航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AE"><img src="<{ $Site_Url }>/images/flight/AE.jpg" alt=""><span>華信航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="GK"><img src="<{ $Site_Url }>/images/flight/GK.jpg" alt=""><span>捷星日本</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="HX"><img src="<{ $Site_Url }>/images/flight/HX.jpg" alt=""><span>香港航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="TG"><img src="<{ $Site_Url }>/images/flight/TG.jpg" alt=""><span>泰國航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="JL"><img src="<{ $Site_Url }>/images/flight/JL.jpg" alt=""><span>日本航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="EK"><img src="<{ $Site_Url }>/images/flight/EK.jpg" alt=""><span>阿聯酋航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="MF"><img src="<{ $Site_Url }>/images/flight/MF.jpg" alt=""><span>廈門航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="3K"><img src="<{ $Site_Url }>/images/flight/3K.jpg" alt=""><span>捷星航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="NX"><img src="<{ $Site_Url }>/images/flight/NX.jpg" alt=""><span>澳門航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="ZH"><img src="<{ $Site_Url }>/images/flight/ZH.jpg" alt=""><span>深圳航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="5J"><img src="<{ $Site_Url }>/images/flight/5J.jpg" alt=""><span>宿霧航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="KE"><img src="<{ $Site_Url }>/images/flight/KE.jpg" alt=""><span>大韓航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="TK"><img src="<{ $Site_Url }>/images/flight/TK.jpg" alt=""><span>土耳其航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="HU"><img src="<{ $Site_Url }>/images/flight/HU.jpg" alt=""><span>海南航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="OZ"><img src="<{ $Site_Url }>/images/flight/OZ.jpg" alt=""><span>韓亞航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="PR"><img src="<{ $Site_Url }>/images/flight/PR.jpg" alt=""><span>菲律賓航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="BX"><img src="<{ $Site_Url }>/images/flight/BX.jpg" alt=""><span>釜山航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="NH"><img src="<{ $Site_Url }>/images/flight/NH.jpg" alt=""><span>全日本空輸</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="7C"><img src="<{ $Site_Url }>/images/flight/7C.jpg" alt=""><span>濟州航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="D7"><img src="<{ $Site_Url }>/images/flight/D7.jpg" alt=""><span>全亞洲航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="DL"><img src="<{ $Site_Url }>/images/flight/DL.jpg" alt=""><span>達美航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="KA"><img src="<{ $Site_Url }>/images/flight/KA.jpg" alt=""><span>港龍航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="VN"><img src="<{ $Site_Url }>/images/flight/VN.jpg" alt=""><span>越南航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="VJ"><img src="<{ $Site_Url }>/images/flight/VJ.jpg" alt=""><span>越捷航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="SC"><img src="<{ $Site_Url }>/images/flight/SC.jpg" alt=""><span>山東航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="SQ"><img src="<{ $Site_Url }>/images/flight/SQ.jpg" alt=""><span>新加坡航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="KL"><img src="<{ $Site_Url }>/images/flight/KL.jpg" alt=""><span>荷蘭航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="MH"><img src="<{ $Site_Url }>/images/flight/MH.jpg" alt=""><span>馬來西亞</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="XW"><img src="<{ $Site_Url }>/images/flight/XW.jpg" alt=""><span>酷鳥航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="9C"><img src="<{ $Site_Url }>/images/flight/9C.jpg" alt=""><span>春秋航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="UA"><img src="<{ $Site_Url }>/images/flight/UA.jpg" alt=""><span>聯合航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AK"><img src="<{ $Site_Url }>/images/flight/AK.jpg" alt=""><span>馬亞洲航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="Z2"><img src="<{ $Site_Url }>/images/flight/Z2.jpg" alt=""><span>飛龍航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="HO"><img src="<{ $Site_Url }>/images/flight/HO.jpg" alt=""><span>吉祥航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="QF"><img src="<{ $Site_Url }>/images/flight/QF.jpg" alt=""><span>澳洲航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="LJ"><img src="<{ $Site_Url }>/images/flight/LJ.jpg" alt=""><span>真航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="FE"><img src="<{ $Site_Url }>/images/flight/FE.jpg" alt=""><span>遠東航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="3U"><img src="<{ $Site_Url }>/images/flight/3U.jpg" alt=""><span>四川航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="TW"><img src="<{ $Site_Url }>/images/flight/TW.jpg" alt=""><span>德威航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="TR"><img src="<{ $Site_Url }>/images/flight/TR.jpg" alt=""><span>虎航</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="OD"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>馬印航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="ZE"><img src="<{ $Site_Url }>/images/flight/ZE.jpg" alt=""><span>易斯達航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="DG"><img src="<{ $Site_Url }>/images/flight/DG.jpg" alt=""><span>菲律賓虎航</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="XT"><img src="<{ $Site_Url }>/images/flight/XT.jpg" alt=""><span>印尼亞洲長途</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AZ"><img src="<{ $Site_Url }>/images/flight/AZ.jpg" alt=""><span>義大利航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="RL"><img src="<{ $Site_Url }>/images/flight/RL.jpg" alt=""><span>俄羅斯皇家航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AA"><img src="<{ $Site_Url }>/images/flight/AA.jpg" alt=""><span>美國航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="PG"><img src="<{ $Site_Url }>/images/flight/PG.jpg" alt=""><span>曼谷航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="UN"><img src="<{ $Site_Url }>/images/flight/UN.jpg" alt=""><span>全祿航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="BL"><img src="<{ $Site_Url }>/images/flight/BL.jpg" alt=""><span>越南太平洋</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="FJ"><img src="<{ $Site_Url }>/images/flight/FJ.jpg" alt=""><span>斐濟航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="GA"><img src="<{ $Site_Url }>/images/flight/GA.jpg" alt=""><span>印尼航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="7G"><img src="<{ $Site_Url }>/images/flight/7G.jpg" alt=""><span>日本星悅航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="8L"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>大菲航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="8M"><img src="<{ $Site_Url }>/images/flight/8M.jpg" alt=""><span>緬甸國際航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AB"><img src="<{ $Site_Url }>/images/flight/AB.jpg" alt=""><span>空中巴士</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AC"><img src="<{ $Site_Url }>/images/flight/AC.jpg" alt=""><span>加拿大航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AF"><img src="<{ $Site_Url }>/images/flight/AF.jpg" alt=""><span>亞洲法國</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AI"><img src="<{ $Site_Url }>/images/flight/AI.jpg" alt=""><span>印度航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="AV"><img src="<{ $Site_Url }>/images/flight/AV.jpg" alt=""><span>哥倫比亞航空公司</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="B3"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>商務專機</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="BI"><img src="<{ $Site_Url }>/images/flight/BI.jpg" alt=""><span>汶萊航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="ED"><img src="<{ $Site_Url }>/images/flight/ED.jpg" alt=""><span>帛琉商帕勞</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="FM"><img src="<{ $Site_Url }>/images/flight/FM.jpg" alt=""><span>上海航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="FX"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>聯邦</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="HA"><img src="<{ $Site_Url }>/images/flight/HA.jpg" alt=""><span>夏威夷航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="LH"><img src="<{ $Site_Url }>/images/flight/LH.jpg" alt=""><span>德國航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="OK"><img src="<{ $Site_Url }>/images/flight/OK.jpg" alt=""><span>捷克航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="OO"><img src="<{ $Site_Url }>/images/flight/OO.jpg" alt=""><span>OO</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="QD"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>景成國際航空公司</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="RK"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>天際蘇美航空</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="S7"><img src="<{ $Site_Url }>/images/flight/S7.jpg" alt=""><span>西伯利亞航空公司</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="UX"><img src="<{ $Site_Url }>/images/flight/UX.jpg" alt=""><span>UX</span></button></li>
+										<li class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><button value="ZA"><img src="<{ $Site_Url }>/images/flight/plane.png" alt=""><span>天空吳哥航空</span></button></li>
+									</ul>
+			</div>
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+<script language="javascript">
+//var D = new Date();
+//alert(d);
+//document.getElementById("flight-date").value = d.getFullYear()+ "-" + addZero((d.getMonth()+1)) + "-" + addZero(d.getDate());
+//$('#flight-date').datepicker({ dateFormat: 'dd/mm/yyyy' });
+
+$('#button').click(function() {
+<{$InitiateCheckout_js}>
+});
+function getshowcollection(page){
+	var ajaxurl = "../member/ajax_collection.php";
+	document.getElementById("showshopping").style.display = "none";
+	document.getElementById("showcollection").style.display = "block";
+	$.ajax({
+				url: ajaxurl,
+				daga: 'page=' + page,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    $('#showcollection').html(msg);
+					//$('#classcount').attr("value",counts+1);
+					//$(msg).appendTo('#extclass')
+				}
+	});
+}
+function getshowshopping(){
+	document.getElementById("showshopping").style.display = "block";
+	document.getElementById("showcollection").style.display = "none";
+}
+
+$('li button').click(function() {
+	$('#flight-id').val($(this).val());
+});
+
+function addZero(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
+}
+
+function setDatetime(i,j) {
+	var iDate = i.split("-");
+	if(j!=""){
+		var jDate = j.split(":");
+		//alert(iDate[1]+"/"+iDate[2]+"/"+iDate[0]+" "+jDate[0]+":"+jDate[1]);
+		return new Date(iDate[0],iDate[1]-1,iDate[2],jDate[0],jDate[1]);
+	}
+	var D = new Date();
+  return new Date(iDate[0],iDate[1]-1,iDate[2],addZero(D.getHours()),addZero(D.getMinutes()));
+}
+
+function getAirInternational(){
+	var datetime = document.getElementById("flight-date").value;
+	var transfer = document.getElementById("transfer").value;
+	var AirlineID = document.getElementById("flight-id").value.toUpperCase();
+	var AirlineName = $("li button[value='"+AirlineID+"']").find("span").text();
+	var FlightNumber = document.getElementById("flight-no").value;
+	var form = document.getElementById("shopform");
+	var flighttype;
+
+	if(AirlineID == '' || FlightNumber == ''){
+		alert("請輸入班機號碼!");
+		return false;
+	}
+
+	for(var i=0; i<form.flightstyle.length;i++){
+			if(form.flightstyle[i].checked){
+					var flightstyle = form.flightstyle[i].value;
+					if(flightstyle == 'direct'){
+						flighttype = " 直接抵達 ";
+					}else {
+						flighttype = " 抵達轉機點 ";
+					}
+			}
+	}
+
+	var AirportName = {"KIX":"大阪/關西", "NGO":"名古屋", "SEA":"西雅圖", "DPS":"峇里島"};
+	var Datearray = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+	var D = setDatetime(datetime,""), S = setDatetime(datetime,"00:00:00"), E = setDatetime(datetime,"23:59:59");
+	var W = D.getDay();
+	var n = 0;
+	var StrStartDate, StrEndDate;
+	var Msg, ArrivalAirportName = "";
+
+	S.setDate(S.getDate() + (0-((W!=0?W:7)-1)));
+	//S.setHours(0,0,0);
+	E.setDate(E.getDate() + (7-(W!=0?W:7)));
+	//E.setHours(23,59,59);
+
+	//console.log(D+"-"+S+"-"+E);
+	//console.log(Datearray[W]+"-"+AirlineID+"-"+FlightNumber);
+	var ajaxurl = "//ptx.transportdata.tw/MOTC/v2/Air/GeneralSchedule/International?$filter=FlightNumber%20eq%20'"+AirlineID+parseInt(FlightNumber)+"'%20and%20DepartureAirportID%20eq%20'TPE'&$orderby=ScheduleStartDate&$top=5&$format=JSON";
+	$.ajax({
+				url: ajaxurl,
+				type:'get',
+				async: false,
+				dataType:"json",
+				success: function(result){
+					//alert(result.length);
+					$.each(result, function(i, field){
+						var fS = setDatetime(field.ScheduleStartDate,field.DepartureTime), fE = setDatetime(field.ScheduleEndDate,field.DepartureTime);
+						console.log(fS+'~'+fE+' '+field[Datearray[W]]);
+						//console.log(S+'~'+E);
+						if(fS >= S && fE <= E && field[Datearray[W]] == true){
+							n = 1;
+							var StartDate = setDatetime(datetime,field.DepartureTime), EndDate = setDatetime(datetime,field.ArrivalTime);
+							//console.log(StartDate+'~'+EndDate);
+							StrStartDate = StartDate.getFullYear()+ "/" + addZero((StartDate.getMonth()+1)) + "/" + addZero(StartDate.getDate()) + " " + addZero(StartDate.getHours()) + ":" + addZero(StartDate.getMinutes());
+							StrEndDate = EndDate.getFullYear()+ "/" + addZero((EndDate.getMonth()+1)) + "/" + addZero(EndDate.getDate()) + " " + addZero(EndDate.getHours()) + ":" + addZero(EndDate.getMinutes());
+							if(StartDate > EndDate){
+								EndDate.setDate(EndDate.getDate() + 1);
+							}
+
+							Msg = "您搭乘的是 "+AirlineName+" 編號 "+AirlineID+FlightNumber+" 班機 "+StrStartDate+" 從 臺灣桃園國際機場 ("+field.DepartureAirportID+") 出發 "+StrEndDate+flighttype;//+field.ArrivalAirportID
+							//alert(Msg);
+							//alert(StrStartDate);
+							$("#flight-time").val(StrStartDate);
+							$("#Departure").val(field.ArrivalAirportID);
+							//$("#shopform").submit();
+						}
+					});
+				}
+	});
+
+	if(n == 0){
+		alert("查詢無資料!!!");
+	}else {
+		$.each(AirportName, function( key, value ) {
+  		if(key == $("#Departure").val()){
+				ArrivalAirportName = value + " (" + key + ")";
+				Msg += ArrivalAirportName;
+			}
+		});
+
+		if(ArrivalAirportName == ""){
+			var ajaxurl = "//ptx.transportdata.tw/MOTC/v2/Air/Airport/"+$("#Departure").val()+"?$format=JSON";
+			$.ajax({
+						url: ajaxurl,
+						type:'get',
+						async: false,
+						dataType:"json",
+						success: function(result){
+							//alert(result.AirportName.Zh_tw+' '+result.AirportID);
+							Msg += result.AirportName.Zh_tw+" ("+result.AirportID+")";
+						}
+			});
+		}
+	}
+
+	if(n == 1){
+		alert(Msg);
+		$("#shopform").submit();
+	}
+}
+</script>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+<script type="text/javascript">
+    //$('#flight-date').datepicker({ dateFormat: 'dd/mm/yyyy' });
+</script>

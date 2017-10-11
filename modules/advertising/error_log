@@ -1,0 +1,105 @@
+[27-Mar-2014 16:02:27] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:02:27] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:02:27] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'configs.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:02:27] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:02:27] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:02:27] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'global.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:02:27] PHP Fatal error:  Call to a member function query() on a non-object in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 8
+[27-Mar-2014 16:03:00] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:03:00] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:03:00] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'configs.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:03:00] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:03:00] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:03:00] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'global.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:03:00] PHP Fatal error:  Call to a member function query() on a non-object in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 8
+[27-Mar-2014 16:08:02] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:08:02] PHP Warning:  include(configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:08:02] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'configs.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 5
+[27-Mar-2014 16:08:02] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:08:02] PHP Warning:  include(global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:08:02] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'global.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 6
+[27-Mar-2014 16:08:02] PHP Fatal error:  Call to a member function query() on a non-object in /home/ddcscom/public_html/1838/modules/advertising/adv_banner2.php on line 8
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0

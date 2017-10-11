@@ -1,0 +1,306 @@
+       <!--css樣式切換-->
+        <link href="<{ $Site_Url }>/assets/css/color_scheme/<{ if $css_id eq 0 }>red.css<{ elseif $css_id eq 1 }>orange.css<{ elseif $css_id eq 2 }>pink.css<{ elseif $css_id eq 3 }>yellow.css<{ elseif $css_id eq 4 }>darkgreen.css<{ elseif $css_id eq 5 }>green.css<{ elseif $css_id eq 6 }>darkblue.css<{ elseif $css_id eq 7 }>blue.css<{ elseif $css_id eq 8 }>brown.css<{ elseif $css_id eq 9 }>lightgray.css<{ /if }>" rel="stylesheet" type="text/css" id="color_scheme" />
+        <{ if $main_color eq 0 }><link id="css_dark_skin" href="<{ $Site_Url }>/assets/css/layout-dark.css" rel="stylesheet" type="text/css" title="dark"><{ /if }>
+        <!--css樣式切換-->      
+        
+<!-- SLIDE TOP -->
+		<div id="slidetop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> WHY SMARTY?</h6>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>Address:</b> PO Box 21132, Here Weare St, <br /> Melbourne, Vivas 2355 Australia</li>
+							<li><b>Phone:</b> 1-800-565-2390</li>
+							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+		</div>
+		<!-- /SLIDE TOP -->
+        
+<!--wrapper 整個版面開始--><div id="wrapper">		
+
+			<!-- Top Bar -->
+			<div id="topBar" class="dark">
+				<div class="container">
+
+					<!-- right -->
+				  <ul class="top-links list-inline pull-right">
+						<li class="text-welcome"><{ if $MemberState eq "0" }><a href="<{$Site_Url}>/member/login_windows.php" data-plugin-options='{"type":"iframe"}'>Hi！歡迎您 , 登入</a></li>
+                        <{ elseif $MemberState eq "1" }><li>
+                    <a href="<{$Site_Url}>/member" target="_parent">歡迎您,<{ $Session_truename }><{ $Session_userlevel }></a></li>
+
+                <{ /if }>
+						<li>
+                        <{ if $MemberState eq "0" }><a href="<{ $Site_Url }>/member/reg_detail.php">註冊</a><{ elseif $MemberState eq "1" }>
+							<a class="dropdown-toggle no-text-underline disabled" data-toggle="dropdown" href="<{ $Site_Url }>/member/"><i class="fa fa-user hidden-xs"></i> 會員中心</a>
+							<ul class="dropdown-menu pull-right">
+								<li><a tabindex="-1" href="<{ $Site_Url }>/member/MyOrder.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-list"></i> 我的訂單</a></li>
+                                <li class="divider"></li>
+								<li><a tabindex="-1" href="<{ $Site_Url }>/member/Collection_list.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-heart"></i> 追蹤清單</a></li>
+								<li><a tabindex="-1" href="<{ $Site_Url }>/member/AccountInformation.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-edit"></i> 修改資料</a></li>
+								<li><a tabindex="-1" href="<{ $Site_Url }>/member/kefu_add.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-cog"></i> 問答中心</a></li>
+								<li><a tabindex="-1" href="<{ $Site_Url }>/member/member_login.php?Action=Logout"><i class="glyphicon glyphicon-off"></i> 登出</a></li>
+                                <li class="divider"></li>
+							</ul> 
+                        <{ /if }>
+						</li>
+						<li class="hidden-xs"></li>
+
+					</ul>
+
+					<!-- left -->
+					<ul class="top-links list-inline">
+						<li class="hidden-xs"><a href="page-faq-1.html">FAQ</a></li>
+				  </ul>
+
+				</div>
+			</div>
+			<!-- /Top Bar -->
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.noborder 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent noborder"
+			-->
+			<div id="header" class="sticky clearfix">
+
+            <{ include_php file="search/search_box.php" }>
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- BUTTONS -->
+						<ul class="pull-right nav nav-pills nav-second-main">
+
+							<!-- SEARCH -->
+							<li class="search">
+								<a href="javascript:;">
+									<i class="fa fa-search"></i>
+								</a>
+							</li>
+							<!-- /SEARCH -->
+
+
+							<!-- QUICK SHOP CART -->
+							<li class="quick-cart">
+								<a href="#">
+									<span class="badge badge-aqua btn-xs badge-corner">2</span>
+									<i class="fa fa-shopping-cart"></i> 
+								</a>
+								<div class="quick-cart-box">
+									<h4>Shop Cart</h4>
+
+									<div class="quick-cart-wrapper">
+
+										<a href="#"><!-- cart item -->
+											<img src="../assets/images/demo/people/300x300/4-min.jpg" width="45" height="45" alt="" />
+											<h6><span>2x</span> RED BAG WITH HUGE POCKETS</h6>
+											<small>$37.21</small>
+										</a><!-- /cart item -->
+
+										<a href="#"><!-- cart item -->
+											<img src="../assets/images/demo/people/300x300/5-min.jpg" width="45" height="45" alt="" />
+											<h6><span>2x</span> THIS IS A VERY LONG TEXT AND WILL BE TRUNCATED</h6>
+											<small>$17.18</small>
+										</a><!-- /cart item -->
+
+										<!-- cart no items example -->
+										<!--
+										<a class="text-center" href="#">
+											<h6>0 ITEMS ON YOUR CART</h6>
+										</a>
+										-->
+
+									</div>
+
+									<!-- quick cart footer -->
+									<div class="quick-cart-footer clearfix">
+										<a href="shop-cart.html" class="btn btn-primary btn-xs pull-right">VIEW CART</a>
+										<span class="pull-left"><strong>TOTAL:</strong> $54.39</span>
+									</div>
+									<!-- /quick cart footer -->
+
+								</div>
+							</li>
+							<!-- /QUICK SHOP CART -->
+
+						</ul>
+						<!-- /BUTTONS -->
+
+						<!-- Logo -->
+						<a class="logo pull-left" href="<{$Site_Url}>">
+							<img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" alt="<{ $HtmlTitle }>"  />
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse pull-right nav-main-collapse collapse">
+							<nav class="nav-main">
+
+								<!--
+									NOTE
+									
+									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+									Direct Link Example: 
+
+
+									<li>
+										<a href="#">HOME</a>
+									</li>
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main">
+									<li class="dropdown active"><!-- HOME -->
+										<a href="<{ $Site_Url }>">
+											HOME
+										</a>
+										<ul class="dropdown-menu">
+										  <li class="dropdown"></li>
+									  </ul>
+								  </li>
+									<li class="dropdown"><!-- PAGES -->
+										<a href="<{ $Site_Url }>/help/Aboutour.php?info_id=3">
+											關於我們
+										</a>
+										<ul class="dropdown-menu">
+										  <li></li>
+										</ul>
+									</li>
+                                    <li class="dropdown mega-menu"><!-- PORTFOLIO -->
+										<a class="dropdown-toggle" href="#">
+											商品總覽
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="row">
+                                                  <{ section name=list loop=$ClassArray }>
+													<div class="col-md-9th">
+														<ul class="list-unstyled">
+															<li><a href="<{ $Site_Url }>/product/<{$ClassArray[list].bid}>" onMouseOver="mopen('m<{$smarty.section.list.index+1}>')" onMouseOut="mclosetime()"><{$ClassArray[list].classname}></a></li>
+															    <{if $ClassArray[list].sub neq "" }>
+                                                                <{ section name=list1 loop=$ClassArray[list].sub }>
+                                                                <li>
+                                                                <a href="<{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}>"><{$ClassArray[list].sub[list1].catname}></a>
+                                                                </li>
+                                                                <{/section}>
+                                                                <{/if}>
+														</ul>
+													</div>
+                                                 <{/section}>
+                                                  
+												</div>
+											</li>
+										</ul>
+									</li>
+									<li ><!-- FEATURES -->
+										<a href="<{$Site_Url}>/article/1">
+											最新消息
+										</a>
+										<ul class="dropdown-menu">
+											<li class="dropdown"></li>
+										</ul>
+									</li>
+									
+									<li><!-- BLOG -->
+										<a href="<{$Site_Url}>/article/9">
+											BLOG
+										</a>
+
+									</li>
+									<li><!-- SHOP -->
+										<a href="<{$Site_Url}>/brand/">
+											品牌總覽
+										</a>
+									</li>
+									<li><!-- SHORTCODES -->
+										<a href="<{$Site_Url}>/help/contact.php">
+											聯絡我們
+										</a>
+
+									</li>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+                
+			</div>
+
+
+<script language="text/javascript">
+		var url = "<{ $Site_Url }>/include/search_menu_autocomplate.php";
+			$( "#skey3" ).autocomplete({
+				source: url,
+				autoFocus: true,
+				focus: function(event, ui) {
+					//$(this).val(ui.item.label);
+					return false;
+				},
+				select: function( event, ui ) {
+					var value=ui.item.value;
+					var label=ui.item.label;
+					$(this).val(ui.item.label);
+					if( value!=label ){
+						window.location="<{ $Site_Url }>/product/detail"+value;
+					}
+					else{
+						document.getElementById("searchbanner").submit();
+					}
+					return false;
+				}
+			});
+</script>
+

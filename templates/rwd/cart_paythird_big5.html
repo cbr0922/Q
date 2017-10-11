@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.bgrepeat {
+	BACKGROUND-POSITION: center top;
+	BACKGROUND-REPEAT: repeat-x;
+	background-image: url(<{ $template_dir }>/images/top_back.jpg);
+}
+.style1 {color: #FF0000}
+-->
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><script language="javascript"  src="../js/function.js"></script>  
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.js"></script>
+<script language="javascript" src="../js/newarea.js"></script>
+<script language="javascript">
+//提交表单输入有效性检测
+function Form_Validator(theForm)
+{ 
+      if (document.form1.pay_id.length>0){
+          var pay_id_Count = 0;
+          for(var i=0;i<document.form1.pay_id.length;i++) { 
+             if (document.form1.pay_id[i].checked)  {          
+                 pay_id_Count++;   
+             }     
+          } 
+      
+          if (pay_id_Count<=0){
+               alert('<{ $PleaseSelectPayType }>'); //請選擇付款方式
+               return false;
+          }
+       }
+	   
+	   
+/*E-MAIL邮件地址检测
+     */
+if (!isEmpty(theForm.receiver_email,"<{ $PleaseInputEmail }>")) return false; 
+    var re = new RegExp("^([A-Za-z0-9_|-]+[.]*[A-Za-z0-9_|-]+)+@[A-Za-z0-9|-]+([.][A-Za-z0-9|-]+)*[.][A-Za-z0-9]+$","ig");
+  if (!re.test(theForm.receiver_email.value)){
+      alert('<{ $PleaseInputTrueEmail }>'); //必须输入有效的E-mail地址
+   theForm.receiver_email.focus();
+   return false;
+  }
+//收货人姓名检测
+  if (!isEmpty(theForm.receiver_name,"<{ $PleaseInputName }>")) return false;
+  if (!isEmpty(theForm.addr,"<{ $PleaseInputAddr }>")) return false;    //BIG5的模版中这么写.
+  if (!isEmpty(theForm.receiver_tele,"<{ $PleaseInputTel }>")) return false;
+      if (document.form1.HomeTimeType.length>0){
+          var HomeSend_TimeTypeNum = 0;
+          for(var i=0;i<document.form1.HomeTimeType.length;i++) { 
+             if (document.form1.HomeTimeType[i].checked)  {          
+                 HomeSend_TimeTypeNum++;   
+             }     
+          } 
+      
+          if (HomeSend_TimeTypeNum<=0){
+               alert('<{ $PleaseSelectHomeSend_TimeType }>'); //请选择宅配时间
+               return false;
+          }
+       }
+/*
+   chkRadio=theForm.ifinvoice;
+   for(var i=0;i<chkRadio.length;i++) { 
+      if (chkRadio.checked && chkRadio.value==1)  { 
+       if (!isEmpty(theForm.invoice_num,"<{ $PleaseInputInvoice_Num }>")) return false;
+  if ( theForm.invoice_num.value.length != 8 ){
+   alert('<{ $Invoice_error }>');
+   theForm.invoice_num.focus();
+   return false;
+  }
+        if (!isEmpty(theForm.invoiceform,"<{ $PleaseInputInvoice }>")) return false;   
+       }  
+   }  
+   */ 
+}
+function view(obj,a)
+{
+  if(a == 1){
+   obj.style.display="";
+  }else{
+   obj.style.display="none";
+  }
+}
+</script>
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="135" valign="top"><span style="padding-top:8px;"><{ include_php file="include/menu.php" }> </span>
+         
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+      <table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="910" height="22" bgcolor="#ffa90e" style="padding-left:20px;"><h1><{ $title }></h1></td>
+          </tr>
+          <tr>
+            <td><br>
+              <table width=95% border="0" align="center" cellpadding="0" cellspacing="0">
+                <FORM NAME="form1" ACTION="cart_payfourthly.php" METHOD="POST" onSubmit="return Form_Validator(this)">
+                  <input type="hidden" name="Action" value="view">
+                  <input type="hidden" name="totalprice"  value="<{ $totalPrices }>">
+                  <TR>
+                    <TD align="center" valign="top"><br>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                          <tr>
+                            <td><div align="center"><img src="<{ $template_dir }>/images/step2.jpg" width="488" height="57"></div></td>
+                          </tr>
+                          <tr>
+                            <td align="left"><table width="98%" border="0" cellspacing="0" cellpadding="0" class="p14red">
+                                <tr>
+                                  <td class="p14gold" height="27" width="87%"><{ $OrderInfo_say }>
+                                      <!--订单信息-->                                  </td>
+                                  <td class="p14gold" width="13%" align="RIGHT">&nbsp;</td>
+                                </tr>
+                              </table>
+                                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="p9orange">
+                                  <tr>
+                                    <td height="27" class="p14gold"><{ $AlSelect_say }>
+                                        <!--已选购商品-->                                    </td>
+                                  </tr>
+                                </table>
+                              <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="1" cellpadding="4" class="p9v">
+                                        <tr bgcolor="#E4E3E1" align="center">
+                                          <td width="7%" class="p9blue"><{ $Bn_say }>
+                                              <!--编号-->                                          </td>
+                                          <td class="p9blue" width="23%" bgcolor="#E4E3E1" align="center"><{ $ProductName_say }>
+                                              <!--商品名称-->                                          </td>
+                                          <td width="24%" nowrap bgcolor="#E4E3E1" class="p9blue"  align="center"><{ $Product_Color_Size }>&nbsp;</td>
+                                          <td width="12%" bgcolor="#E4E3E1" class="p9blue"  align="center"><{ $items_price_say }>
+                                              <!--市场价格-->                                          </td>
+                                          <td class="p9blue" width="14%"  align="center"><{ $items_tprice_say }>
+                                              <!--优惠价格-->                                          </td>
+                                          <td class="p9blue" width="9%"  align="center">分期數</td>
+                                          <td class="p9blue" width="9%"  align="center"><{ $ProductNum_say }>
+                                              <!--数量-->                                          </td>
+                                        </tr>
+                                      <{ section name=Product_sname loop=$Product_s }>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td class="p9black" width="7%" bgcolor="#FFFFFF" align="CENTER"><{ $Product_s[Product_sname].bn }></td>
+                                        <td width="23%" align="left" nowrap bgcolor="#FFFFFF" class="p9black"><{ if $Product_s[Product_sname].detail_id eq 0 && $Product_s[Product_sname].detail_name eq "額滿禮" }><{ $Product_s[Product_sname].detail_name }><br>
+                                          <{ $Product_s[Product_sname].goodsname }><{else}><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Product_s[Product_sname].gid }>"><{ $Product_s[Product_sname].goodsname }></a> <{if $Product_s[Product_sname].detail_bn neq ""}> <br>
+                                          <{ $Product_s[Product_sname].detail_bn }>
+                                          
+                                          <{/if}>
+                                          
+                                          <{if $Product_s[Product_sname].detail_name neq ""}> <br>
+                                          <{ $Product_s[Product_sname].detail_name }>
+                                          
+                                          <{/if}>
+                                          
+                                          <{if $Product_s[Product_sname].detail_des neq ""}> <br>
+                                          <{ $Product_s[Product_sname].detail_des }>
+                                          
+                                          <{/if}>
+                                          
+                                          
+                                          
+                                          <{ /if }> </td>
+                                        <td width="24%" bgcolor="#FFFFFF" class="p9black" align="center"><{ $Product_s[Product_sname].good_color }>/<{ $Product_s[Product_sname].good_size }></td>
+                                        <td class="p9black" width="12%" bgcolor="#FFFFFF" align="center"><s><{ $Product_s[Product_sname].temp_price }></s></td>
+                                        <td class="p14red" width="14%" bgcolor="#FFFFFF" align="center"><b><{ $Product_s[Product_sname].MemberPice }></b> <{ if $Product_s[Product_sname].Js_price gt 0 }><img src="<{ $Site_Url }>/images/co-price.gif" align="absbottom"><{ /if }></td>
+                                        <td class="p9black" width="9%" bgcolor="#FFFFFF" align="center"><{ if $Product_s[Product_sname].month eq 0}>不分期<{ else }>分<{ $Product_s[Product_sname].month }>期<{ /if }></td>
+                                        <td class="p9black" width="9%" bgcolor="#FFFFFF" align="center"><{ $Product_s[Product_sname].count }></td>
+                                      </tr>
+                                      <{ /section }>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td colspan="7" align="right" bgcolor="#FFFFFF" class="p9black"><{ $Buy_money_say }> ： <{ $MemberPice_total }><{ $Yuan }>&nbsp;
+                            <!--優惠券-->
+                                          <{ if $TicketMoney ne "" }>[折價後價格：<{ $Ticket_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                                          <!--end-->
+                                          <!--紅利折價-->
+                                          <{ if $bonus_point ne "" }>[折價後價格：<{ $Bonus_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                                          <!--end-->                                        </td>
+                                      </tr>
+                                      <{ if $Paytype==1 && $Nocarriage eq "" && $Noplay_Payinfo ne "Yes" }>
+                                      <!-- $Nocarriage 是判断是否是免费产品的字段。如果不是免费产品,那么就将如下显示了! 
+                                                    金钱数字大于需要达到的运费规定数字的时候与总价格为零的时候，不显示相关的提示信息。 -->
+                                      <tr bgcolor="#FFFFFF">
+                                        <td colspan="7" align="right" bgcolor="#FFFFFF" class="p9black"><{ $WhenMoneylostfor }><{ $PayStartprice }><{ $Yuan }>,<{ $HavetoAddMoney }><{ $PayEndprice }><{ $Yuan }>。 &nbsp;&nbsp;&nbsp;<{ $PayTypePrice_say }> ： <{ $PayEndprice }><{ $Yuan }>&nbsp; </td>
+                                      </tr>
+                                      <{ /if}>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td colspan="7" align="right" bgcolor="#E4E3E1" class="p9black"><{ $Total_member_all_say }> ： <{ $MemberPice_total_2 }><{ $Yuan }>&nbsp;
+                            <!--優惠券-->
+                                          <{ if $TicketMoney ne "" }>[折價後價格：<{ $Ticket_MemberPice_total_T }><{ $Yuan }>]<{ /if }>
+                                          <!--end-->
+                                          <!--紅利折價-->
+                                          <{ if $bonus_point ne "" }>[折價後價格：<{ $Bonus_MemberPice_total_T }><{ $Yuan }>]<{ /if }>
+                                          <!--end-->                                        </td>
+                                      </tr>
+                                    </table></td>
+                                  </tr>
+                                </table>
+                              <br>
+                                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="p9orange">
+                                  <tr>
+                                    <td height="27"><!--付款方式-->
+                                      <{ $PleaseSelectPayType }></td>
+                                  </tr>
+                                </table>
+                              <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="1" cellpadding="4" class="p9v">
+                                      <{ section name=payname loop=$PayType_array }>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="pay_id" value="<{ $PayType_array[payname].pay_id }>" checked onClick="document.all.bankid.style.display='none';">                                        </td>
+                                        <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">&nbsp;<{ $PayType_array[payname].pay_name }> </td>
+                                        <td bgcolor="#FFFFFF" class="p9v"><{ $PayType_array[payname].pay_content }> </td>
+                                      </tr>
+                                      <{ /section }> <{ section name=paynametwone loop=$TW_ARRAY }>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="pay_id" value="<{ $TW_ARRAY[paynametwone].Value }>" onClick="<{ if $TW_ARRAY[paynametwone].showbankid eq 1 }> document.all.bankid.style.display='block';<{ else }>document.all.bankid.style.display='none';<{ /if }> " <{ if $TW_ARRAY[paynametwone].Value eq "I" }>checked <{/if}>> </td>
+                                        <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">&nbsp;<{ $TW_ARRAY[paynametwone].Title }> </td>
+                                        <td bgcolor="#FFFFFF" class="p9v"><{ $TW_ARRAY[paynametwone].Content }> </td>
+                                      </tr>
+                                      <{ /section }>
+                                    </table></td>
+                                  </tr>
+                                </table>
+                              <{ if $IfNeed_invoice eq 1 }>
+                                <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="12%" valign="top">&nbsp;</td>
+                                  </tr>
+                                  <tr style="display: display">
+                                    <td height="27" align="left" nowrap class="p9orange"><{ $Need_invoice_say }>&nbsp;
+                                        <!--需要发票-->                                    </td>
+                                    <td width="88%" class="p9v"><input type="radio" name="ifinvoice"  value=0 onClick=view(invoiceshow,0) checked>
+                                      <{ $Two_piao}>
+                                      <!--二聯式-->
+                                      &nbsp;&nbsp; &nbsp;
+                                      <input type="radio" name="ifinvoice"  value=1 onClick=view(invoiceshow,1)>
+                                      <{ $Three_piao}>
+                                      <!--三聯式-->
+                                      &nbsp;&nbsp;&nbsp;</td>
+                                  </tr>
+                                  <tr id="invoiceshow" style="DISPLAY: none">
+                                    <td height="27" class="p9orange">&nbsp;</td>
+                                    <td class="p9v"><!--統一編號-->
+                                      <{ $Invoice_num_say }>
+                                      <input name="invoice_num" type="input" id="invoice_num" size="8"  maxlength="8"  class="inputstyle">
+                                      &nbsp;&nbsp;<br>
+                                      <{ $Top_invoice_say }>
+                                      <!--抬頭-->
+                                      <input type="input" name="invoiceform" size="50" class="inputstyle">                                    </td>
+                                  </tr>
+                                </table>
+                              <{ /if }> <{ if $Paytype==0 && ($buy_total_price<$PayFreetrans or $PayFreetrans==0)}>
+                                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="p9orange">
+                                  <tr>
+                                    <td height="27"><br>
+                                      <{ $PleaseSelectSendType }>
+                                      <!--选择配送方式-->                                    </td>
+                                  </tr>
+                                </table>
+                              <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="1" cellpadding="4" class="p9v">
+                                      <{ section name=sendname loop=$SendType }>
+                                      <tr bgcolor="#FFFFFF">
+                                        <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="transport_id" value="<{ $SendType[sendname].transport_id }>">
+                                          &nbsp;</td>
+                                        <td  align="left" bgcolor="#FFFFFF" class="p9v"><{ $SendType[sendname].transport_name }> </td>
+                                        <td  bgcolor="#FFFFFF" class="p9black" align="left"><{ $SendType[sendname].transport_content }> </td>
+                                        <td width="18%" bgcolor="#FFFFFF" class="p9black" align="left"><!--费用-->
+                                          <{ $Feiyong_say }>:<{ $SendType[sendname].transport_price }></td>
+                                      </tr>
+                                      <{ /section }>
+                                    </table></td>
+                                  </tr>
+                                </table>
+                              <{else}>
+                              
+                              <{ if $Paytype==0 && ($buy_total_price>=$PayFreetrans && $PayFreetrans>0)}>
+                              
+                              您的金額已達免運費
+                              
+                              <{/if}>
+                              
+                              
+                              
+                              <{ /if } >
+                                    <!--
+                                        <br> <table width="98%" border="0" cellspacing="0" cellpadding="4" class="p9black" bgcolor="#E4E3E1">
+                                          <tr> 
+                                            <td width="81%" height="16" align="right" class="p14red"><{ 
+                                              $TotalPrice_say }> 
+                                              <!--订单金额共计
+                                              ：</td>
+                                            <td width="19%" height="16" nowrap class="p14red">
+											     <div id=total><{ $MemberPice_total_2 }><{ $Yuan }></div></td>
+                                          </tr>
+                                        </table>
+                                        <br> 
+										-->
+                                    <br>
+                                    <table width="98%" border="0" cellspacing="0" cellpadding="0" class="p9orange">
+                                      <tr>
+                                        <td height="27" class="border-b"><{ $Getpersoninfo }>
+                                            <!--收货人信息-->                                        </td>
+                                      </tr>
+                                    </table>
+                              <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td bgcolor=""><!-- *********************************************************************************************************-->
+                                            <table width="96%" border="0" cellspacing="0" cellpadding="3" class="p9black">
+                                              <tr>
+                                                <td width="12%" align="right" class="p9blue"><{ $email_say }>
+                                                    <!--电子信箱-->                                                </td>
+                                                <td width="88%" class="p9rednothrough"><input name="receiver_email" type="text" class="inputstyle" value="<{ $email }>" size="32">
+                                                  * <{ $impro7 }></td>
+                                              </tr>
+                                              <tr>
+                                                <td width="12%" align="right" nowrap class="p9blue"><{ $name_say }>
+                                                    <!--收货人姓名-->                                                </td>
+                                                <td width="88%" class="p9rednothrough"><input type="text" name="receiver_name" class="inputstyle" value="<{ $true_name }>">
+                                                  * <{ $impro8 }></td>
+                                              </tr>
+                                              <tr id="bankid" style="display:none">
+                                                <td align="right" class="p9blue">PayNow帳號</td>
+                                                <td class="p9rednothrough"><input name="receiver_id" type="text" class="inputstyle" id="receiver_id" value="<{ $id }>" size="32">
+                                                  *若您已經是PayNow的會員請填寫您的帳號，若您還不是PayNow的會員則不需填寫，結帳時會請做簡單的申請動作。</td>
+                                              </tr>
+                                              <tr id="showiid" style="display:none">
+                                                <td align="right" class="p9blue">付款期數</td>
+                                                <td class="p9rednothrough"><input type="hidden" name="iid" value="<{ $iid }>">                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td width="12%" align="right" class="p9blue"><{ $addr_say }>
+                                                    <!--收货人地址-->                                                </td>
+                                                <td width="88%" class="p9rednothrough"><input name="othercity" id="othercity" size="5">
+                                                    <select id="county" name="county">
+                                                    </select>
+                                                    <select id="province" name="province">
+                                                    </select>
+                                                    <select id="city" name="city">
+                                                    </select>
+                                                    <input name="addr" type="text" id="addr" size="40" maxlength="200" value="<{ $addr }>"></td>
+                                              </tr>
+                                              <tr>
+                                                <td width="12%" align="right" class="p9blue"><{ $tel_say }>
+                                                    <!--联系电话-->                                                </td>
+                                                <td width="88%" class="p9rednothrough"><input type="text" name="receiver_tele" class="inputstyle" value="<{ $tel }>">                                                </td>
+                                              <tr>
+                                                <td width="12%" align="right" class="p9blue"><{ $mobile_say }>
+                                                    <!--联系手机-->                                                </td>
+                                                <td width="88%" class="p9rednothrough"><input type="text" name="receiver_mobile" class="inputstyle" value="<{ $other_tel }>">                                                </td>
+                                              </tr>
+                                              <tr>
+                                              <tr bgcolor="#FFFFFF">
+                                                <td align="right" nowrap class="p9blue"><{ $HomeSend_TimeType }></td>
+                                                <td class="p9rednothrough"><!--宅配時間部分-->
+                                                  <{ section name='homesendtimetype' loop=$HomeTimeType }>
+                                                  <input type="radio"  value="<{ $HomeTimeType[homesendtimetype].transtime_id }>(&)<{ $HomeTimeType[homesendtimetype].transtime64encode_name }>" name='HomeTimeType'>
+                                                  <{ $HomeTimeType[homesendtimetype].transtime64decode_name }>&nbsp; <{ /section }> </td>
+                                              </tr>
+                                              <td width="12%" align="right" nowrap class="p9blue"><{ $content_say }>
+                              <!--备注-->                                              </td>
+                          <td width="88%" class="p9rednothrough"><textarea name="receiver_memo" rows="6" cols="80" class="p9v"></textarea>                          </td>
+                                              </tr>
+                                            </table>
+                                          <!-- *********************************************************************************************************-->                                        </td>
+                                      </tr>
+                                    </table>
+                              <br>
+                                    <hr size="1" noshade>
+                                    <br>
+                                    <table width="200" height="40" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><a href="javascript:window.history.go(-1)"><img src="<{ $template_dir }>/images/cartprew.gif" width="56" height="32" border="0"></a></td>
+                                        <td><input name="image" type="image" src="<{ $template_dir }>/images/cartnext.gif" width="56" height="32" border="0"></td>
+                                      </tr>
+                                    </table>
+                              <br>
+                                    <div align="center"></div></td>
+                          </tr>
+                      </table></TD>
+                  </TR>
+                  <input type=hidden name='total_member_price' value='<{ $MemberPice_total_2 }>'>
+                  <input type=hidden name='ProductPrice_total' value='<{ $MemberPice_total }>'>
+                </FORM>
+              </TABLE>
+              <p>&nbsp;</p></td>
+          </tr>
+        </table>
+      <{ include_php file="include/bottom.php" }>
+        <map name="Map">
+          <area shape="rect" coords="578,6,660,40" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Special">
+        </map>
+        <map name="Map2">
+          <area shape="rect" coords="579,7,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=NewProduct">
+        </map>
+        <map name="Map3">
+          <area shape="rect" coords="581,5,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Recommend">
+        </map>
+        <!--Float advertising Start-->
+      <{ if $Float_radio eq  1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/float.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Float advertising End -->
+            <!--Ear advertising Start -->
+      <{ if $Ear_radio eq 1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/ear.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Ear advertising End -->
+            <!-- 统计部分代码开始 --></td>
+  </tr>
+</table>
+</body>
+</html>
+<script language="JavaScript">
+$(function(){
+        $("select").css("width","100px");
+       //
+		 var area;
+$.ajax({
+				url: "../area.php",
+				type:'get',
+				dataType:"json",
+				success: function(msg){
+				    //$('#showsize').html(msg);
+					area = msg;
+					//alert(area);
+					 $.area(area);
+					// $.areaini(area,"<{$Country}>","<{$canton}>","<{$city}>");
+					$('#county').val("<{$Country}>");$("#county").trigger('change');
+					 $('#province').val("<{$canton}>");$("#province").trigger('change');
+					 $('#city').val("<{$city}>");$("#city").trigger('change');
+					
+				}
+			});
+        });
+</script>

@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $HtmlTitle }> --  我的訂單</title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<LINK href="./css/theme.css" type=text/css rel=stylesheet>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/js/alter.js"></script>
+<script language="javascript">
+function changeOrderState(state_values,state_types,order_id){
+	showWin('url','order_showact.php?state_value='+state_values+'&state_type='+state_types+'&order_id='+order_id+'&optype=1','',300,200);	
+}
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<style type="text/css">
+body{
+margin:0px;
+}
+#fullBg{
+background-color: Black;
+display:none;
+z-index:30;
+position:absolute;
+left:0px;
+top:0px;
+filter:Alpha(Opacity=30);
+/* IE */
+-moz-opacity:0.4; 
+/* Moz + FF */
+opacity: 0.4; 
+}
+#msg{
+	position:absolute;
+	z-index:40;
+	display:none;
+	background-color:#FFFFFF;
+	border:1px solid #6633CC;
+}
+#msg #close{
+height:30px;
+text-align:right;
+padding-top:8px;
+padding-right:15px;
+}
+#msg #ctt{
+text-align:center;
+font-size:12px;
+padding-bottom:15px;
+}
+#cPic{
+cursor:pointer;
+}
+</style>
+<div id="fullBg"></div>
+<div id="msg">
+<div id="close"></div>
+<div id="ctt"></div>
+</div>
+<{ include_php file="menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+  <tr>
+    <td width="207" height="400" valign="top" style="padding-right:9px;padding-left:23px;"><table width="175" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
+        <tr>
+          <td align="center"><img src="<{ $template_dir }>/images/title-member.gif" width="175" height="38"></td>
+        </tr>
+        <tr>
+          <td align="center"><{ include_php file="left.php" }></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+</table></td>
+    <td width="753" valign="top">
+    <div id="title_s">
+            <div id="title_s_left">
+    <h1><{ $Myorder_say }></h1>
+  </div>
+  <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span>  <a href="<{$Site_Url}>/member/">會員中心</a> <span class="style100">／</span> <{ $Myorder_say }>
+    </div>
+</div>
+    <br>
+      <{ if $OrderTotalNum != 0 }> <br>
+      <TABLE  cellSpacing=1 cellPadding=4 width="98%" align=center  border=0 class="member">
+        <TBODY>
+          <TR>
+            <TD width="" align=center vAlign=middle nowrap class="head"><{ $OrderSerial_say }>
+              <!--订单编号--></TD>
+            <TD width="" align="center" valign="middle" nowrap class="head"><{ $OrderCreatetime_say }>
+              <!--下单日期--></TD>
+            <TD width="" align="center" nowrap class="head"><{ $OrderState_say }>
+              <!--定单状态--></TD>
+            <TD width="" align="center" nowrap class="head"><{ $OrderTotalPrice_say }>
+              <!--订单总金额--></TD>
+            <TD width="" align="center" nowrap class="head">優惠後金額</TD>
+            <TD width="" colspan="2" align="center" nowrap class="head"><{ $OrderOperate }>
+              <!--状态/操作--></TD>
+          </TR>
+        <{ section name=list loop=$OrderList }>
+        <TR >
+          <TD align=center vAlign=top nowrap><A  href="javascript:temp=window.open('ViewOrder.php?order_id=<{ $OrderList[list].order_id }>','MyOrder','width=850,height=500,scrollbars=yes');temp.focus()"><{ $OrderList[list].order_serial }></a></TD>
+          <TD align="center" nowrap class=p9v><{ $OrderList[list].createtime }></TD>
+          <TD align="center" class=p9v><{ $OrderList[list].order_state }>&nbsp;</TD>
+          <TD align="right" class=p9v><{ $OrderList[list].totalprice }> </TD>
+          <TD align="right" class=p9v><{ $OrderList[list].tot }>&nbsp;</TD>
+          <TD align="center" class=p9v><a href="ViewAnswer.php?order_id=<{ $OrderList[list].order_id }>" >店長回覆</a></TD>
+          <TD align="center" class=p9v>
+          <{ section name=list1 loop=$OrderList[list].opList }>
+          <a href="<{ $OrderList[list].opList[list1].1 }>"><{ $OrderList[list].opList[list1].0 }></a>
+          <{ /section }>
+          </TD>
+        </TR>
+        <{ /section }>
+      </TABLE>
+      <table width="98%"  border="0" align="center">
+        <tr>
+          <td align="left"><{ $Nav_banner }></td>
+        </tr>
+      </table><{ else }> 
+                    <br><div align="center"><p></p>
+                    無任何訂單資料!!</div>
+      <{ /if }> <br></td>
+  </tr>
+</table>
+<{ include_php file="bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<?php
+include "Check_Admin.php";
+include_once "pagenav_stard.php";
+$objClass = "9pv";
+$Nav      = new buildNav($DB,$objClass);
+include RootDocumentShare."/setindex.php";
+include Classes . "/ajax.class.php";
+$Ajax      = new Ajax();
+$InitAjax  = $Ajax->InitAjax();
+include "../language/".$INFO['IS']."/Admin_indexseting_Pack.php";
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE><?php echo $JsMenu[Set]?>--&gt;<?php echo $JsMenu[Sys_Set]?>--&gt;版面配置</TITLE></HEAD>
+<SCRIPT language=JavaScript>var NewWin = null; function WinOpen(url) {if(!NewWin || NewWin.closed) {NewWin=LoadWin(url,'win_poll',300,240);}else{NewWin.focus();}} function LoadWin(url, name, width, height) {var str='scrollbars,resizable,location,height='+height+',innerHeight='+height+',width='+width+',innerWidth='+width; if(window.screen) {var ah=screen.availHeight-30; var aw=screen.availWidth-10; var xc=(aw-width)/2; var yc=(ah-height)/2; str +=',left='+xc+',screenX='+xc; str +=',top='+yc+',screenY='+yc;} return window.open(url,name,str); }</SCRIPT>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0"  onload="addMouseEvent();">
+<div id="fullBg"></div>
+<div id="msg">
+<!--<div id="close"></div>-->
+<div id="ctt"></div>
+</div>
+<?php include_once "head.php";?>
+<SCRIPT language=javascript>
+function InitAjax()
+
+{
+
+  var ajax=false;
+
+  try {
+
+    ajax = new ActiveXObject("Msxml2.XMLHTTP");
+
+  } catch (e) {
+
+    try {
+
+      ajax = new ActiveXObject("Microsoft.XMLHTTP");
+
+    } catch (E) {
+
+      ajax = false;
+
+    }
+
+  }
+
+  if (!ajax && typeof XMLHttpRequest!='undefined') {
+
+    ajax = new XMLHttpRequest();
+
+  }
+
+  return ajax;
+
+}
+
+</SCRIPT>
+<style>
+.index_banner img{
+	max-width:100%;
+	height:auto !important;
+
+}
+</style>
+<TABLE height=24 cellSpacing=0 cellPadding=2 width="99%" align=center  border=0><TBODY>
+  <TR>
+    <TD width=0%>&nbsp; </TD>
+    <TD width="16%">&nbsp;</TD>
+    <TD align=right width="84%">
+      <?php  include_once "desktop_title.php";?>
+	  </TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript src="../js/function.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript>
+function addBanenr(){
+	$.ajax({
+		  url: "admin_indexseting_ajax_banner.php",
+		  data: "count=" + $("#bannercount").attr("value"),
+		  type:'get',
+		  dataType:"html",
+		  success: function(msg){
+			  location.reload();
+		  }
+	});
+}
+function delBanner(ib_id){
+	//alert(orders);
+	$.ajax({
+		  url: "admin_indexseting_ajax_advsave.php",
+		  data: "ib_id="+ib_id+"&act=del",
+		  type:'post',
+		  dataType:"html",
+		  success: function(msg){
+			//  alert(msg);
+			  location.reload();
+		  }
+	});
+}
+function changeOrder(ib_id,orders){
+	//alert(orders);
+	$.ajax({
+		  url: "admin_indexseting_ajax_advsave.php",
+		  data: "ib_id="+ib_id+"&act=changeorder&order="+orders,
+		  type:'post',
+		  dataType:"html",
+		  success: function(msg){
+			//  alert(msg);
+			  location.reload();
+		  }
+	});
+}
+function changeTag(ib_id,tag){
+	//alert(orders);
+	$.ajax({
+		  url: "admin_indexseting_ajax_advsave.php",
+		  data: "ib_id="+ib_id+"&act=changetag&tag="+tag,
+		  type:'post',
+		  dataType:"html",
+		  success: function(msg){
+			//  alert(msg);
+			  //location.reload();
+		  }
+	});
+}
+function getAdv(count,ib_id){
+	$.ajax({
+		  url: "admin_indexseting_ajaxgrid.php",
+		  data: "indexadv_grid=" + count+"&ib_id="+ib_id,
+		  type:'get',
+		  dataType:"html",
+		  success: function(msg){
+			  //alert(msg);
+			  $("#show_adv"+ib_id).html(msg);
+		  }
+	});
+}
+	function view(obj,a)
+	{
+		if(a == 1){
+			obj.style.display="";
+		}else{
+			obj.style.display="none";
+		}
+	}
+	function checkform(){
+/*
+		if (chkblank(form1.site_name.value) || form1.site_name.value.length>30){
+			form1.site_name.focus();
+			alert('<?php echo $INFO['N_site_name']?>');
+			return;
+		}
+
+*/
+		form1.submit();
+	}
+
+  function delpattern(name){
+    form1.pattern_del.value=name;
+		form1.submit();
+	}
+
+	function viewCount(obj,a)
+	{
+	   	if(a == 'no'){
+		    countStyleDisplay.innerHTML = "";
+		}
+		if(a == 0){
+			//obj.style.display="";
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style00/0.gif'><IMG SRC='../Resources/count/style00/1.gif'><IMG SRC='../Resources/count/style00/2.gif'><IMG SRC='../Resources/count/style00/3.gif'><IMG SRC='../Resources/count/style00/4.gif'><IMG SRC='../Resources/count/style00/5.gif'><IMG SRC='../Resources/count/style00/6.gif'><IMG SRC='../Resources/count/style00/7.gif'><IMG SRC='../Resources/count/style00/8.gif'><IMG SRC='../Resources/count/style00/9.gif'>";
+		}
+	   	if(a == 1){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style01/0.gif'><IMG SRC='../Resources/count/style01/1.gif'><IMG SRC='../Resources/count/style01/2.gif'><IMG SRC='../Resources/count/style01/3.gif'><IMG SRC='../Resources/count/style01/4.gif'><IMG SRC='../Resources/count/style01/5.gif'><IMG SRC='../Resources/count/style01/6.gif'><IMG SRC='../Resources/count/style01/7.gif'><IMG SRC='../Resources/count/style01/8.gif'><IMG SRC='../Resources/count/style01/9.gif'>";
+		}
+	   	if(a == 2){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style02/0.gif'><IMG SRC='../Resources/count/style02/1.gif'><IMG SRC='../Resources/count/style02/2.gif'><IMG SRC='../Resources/count/style02/3.gif'><IMG SRC='../Resources/count/style02/4.gif'><IMG SRC='../Resources/count/style02/5.gif'><IMG SRC='../Resources/count/style02/6.gif'><IMG SRC='../Resources/count/style02/7.gif'><IMG SRC='../Resources/count/style02/8.gif'><IMG SRC='../Resources/count/style02/9.gif'>";
+		}
+	   	if(a == 3){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style03/0.gif'><IMG SRC='../Resources/count/style03/1.gif'><IMG SRC='../Resources/count/style03/2.gif'><IMG SRC='../Resources/count/style03/3.gif'><IMG SRC='../Resources/count/style03/4.gif'><IMG SRC='../Resources/count/style03/5.gif'><IMG SRC='../Resources/count/style03/6.gif'><IMG SRC='../Resources/count/style03/7.gif'><IMG SRC='../Resources/count/style03/8.gif'><IMG SRC='../Resources/count/style03/9.gif'>";
+		}
+	   	if(a == 4){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style04/0.gif'><IMG SRC='../Resources/count/style04/1.gif'><IMG SRC='../Resources/count/style04/2.gif'><IMG SRC='../Resources/count/style04/3.gif'><IMG SRC='../Resources/count/style04/4.gif'><IMG SRC='../Resources/count/style04/5.gif'><IMG SRC='../Resources/count/style04/6.gif'><IMG SRC='../Resources/count/style04/7.gif'><IMG SRC='../Resources/count/style04/8.gif'><IMG SRC='../Resources/count/style04/9.gif'>";
+		}
+	   	if(a == 5){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style05/0.gif'><IMG SRC='../Resources/count/style05/1.gif'><IMG SRC='../Resources/count/style05/2.gif'><IMG SRC='../Resources/count/style05/3.gif'><IMG SRC='../Resources/count/style05/4.gif'><IMG SRC='../Resources/count/style05/5.gif'><IMG SRC='../Resources/count/style05/6.gif'><IMG SRC='../Resources/count/style05/7.gif'><IMG SRC='../Resources/count/style05/8.gif'><IMG SRC='../Resources/count/style05/9.gif'>";
+		}
+	   	if(a == 6){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style06/0.gif'><IMG SRC='../Resources/count/style06/1.gif'><IMG SRC='../Resources/count/style06/2.gif'><IMG SRC='../Resources/count/style06/3.gif'><IMG SRC='../Resources/count/style06/4.gif'><IMG SRC='../Resources/count/style06/5.gif'><IMG SRC='../Resources/count/style06/6.gif'><IMG SRC='../Resources/count/style06/7.gif'><IMG SRC='../Resources/count/style06/8.gif'><IMG SRC='../Resources/count/style06/9.gif'>";
+		}
+	   	if(a == 7){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style07/0.gif'><IMG SRC='../Resources/count/style07/1.gif'><IMG SRC='../Resources/count/style07/2.gif'><IMG SRC='../Resources/count/style07/3.gif'><IMG SRC='../Resources/count/style07/4.gif'><IMG SRC='../Resources/count/style07/5.gif'><IMG SRC='../Resources/count/style07/6.gif'><IMG SRC='../Resources/count/style07/7.gif'><IMG SRC='../Resources/count/style07/8.gif'><IMG SRC='../Resources/count/style07/9.gif'>";
+		}
+	   	if(a == 8){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style08/0.gif'><IMG SRC='../Resources/count/style08/1.gif'><IMG SRC='../Resources/count/style08/2.gif'><IMG SRC='../Resources/count/style08/3.gif'><IMG SRC='../Resources/count/style08/4.gif'><IMG SRC='../Resources/count/style08/5.gif'><IMG SRC='../Resources/count/style08/6.gif'><IMG SRC='../Resources/count/style08/7.gif'><IMG SRC='../Resources/count/style08/8.gif'><IMG SRC='../Resources/count/style08/9.gif'>";
+		}
+	   	if(a == 9){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style09/0.gif'><IMG SRC='../Resources/count/style09/1.gif'><IMG SRC='../Resources/count/style09/2.gif'><IMG SRC='../Resources/count/style09/3.gif'><IMG SRC='../Resources/count/style09/4.gif'><IMG SRC='../Resources/count/style09/5.gif'><IMG SRC='../Resources/count/style09/6.gif'><IMG SRC='../Resources/count/style09/7.gif'><IMG SRC='../Resources/count/style09/8.gif'><IMG SRC='../Resources/count/style09/9.gif'>";
+		}
+	   	if(a == 10){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style10/0.gif'><IMG SRC='../Resources/count/style10/1.gif'><IMG SRC='../Resources/count/style10/2.gif'><IMG SRC='../Resources/count/style10/3.gif'><IMG SRC='../Resources/count/style10/4.gif'><IMG SRC='../Resources/count/style10/5.gif'><IMG SRC='../Resources/count/style10/6.gif'><IMG SRC='../Resources/count/style10/7.gif'><IMG SRC='../Resources/count/style10/8.gif'><IMG SRC='../Resources/count/style10/9.gif'>";
+		}
+	   	if(a == 11){
+			countStyleDisplay.innerHTML = "<IMG SRC='../Resources/count/style11/0.gif'><IMG SRC='../Resources/count/style11/1.gif'><IMG SRC='../Resources/count/style11/2.gif'><IMG SRC='../Resources/count/style11/3.gif'><IMG SRC='../Resources/count/style11/4.gif'><IMG SRC='../Resources/count/style11/5.gif'><IMG SRC='../Resources/count/style11/6.gif'><IMG SRC='../Resources/count/style11/7.gif'><IMG SRC='../Resources/count/style11/8.gif'><IMG SRC='../Resources/count/style11/9.gif'>";
+		}
+
+	}
+</SCRIPT>
+<div id="contain_out">
+  <FORM name=form1 action='' method='post'  enctype="multipart/form-data" id="theform">
+    <?php  include_once "Order_state.php";?>
+<input type="hidden" name="Action" value="Modi">
+      <TABLE class=p9black cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+            <TD width="50%">
+              <TABLE width="90%" border=0 cellPadding=0 cellSpacing=0>
+                <TBODY>
+                  <TR>
+                    <TD width=38><IMG height=32 src="images/<?php echo $INFO[IS]?>/program-1.gif"  width=32></TD>
+                    <TD class=p12black noWrap><SPAN  class=p9orange><?php echo $JsMenu[Set]?>--&gt;<?php echo $JsMenu[Sys_Set]?>--&gt;萬用格</SPAN></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+              </TD>
+            <TD align=right width="50%"><TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+                <TR>
+                  <!--TD align=middle>
+                  <TABLE height=33 cellSpacing=0 cellPadding=0 width=79 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD align=middle width=79><!--BUTTON_BEGIN
+                        <TABLE>
+                          <TBODY>
+                          <TR>
+                            <TD vAlign=bottom noWrap>
+							<a href="javascript:window.history.back(-1);"><IMG  src="images/<?php echo $INFO[IS]?>/fb-cancel.gif" border=0>&nbsp;<?php echo $Basic_Command['Cancel'];//取消?></a>&nbsp; </TD></TR></TBODY></TABLE><!--BUTTON_END</TD></TR></TBODY></TABLE></TD-->
+
+                  <TD align=middle>
+                    <TABLE height=33 cellSpacing=0 cellPadding=0 width=79 border=0>
+                      <TBODY>
+                        <TR>
+                          <TD align=middle width=79><!--BUTTON_BEGIN-->
+                            <TABLE>
+                              <TBODY>
+                                <TR>
+                                  <TD vAlign=bottom noWrap class="link_buttom"><a href="javascript:checkform();"><IMG src="images/<?php echo $INFO[IS]?>/fb-save.gif" border=0 >&nbsp;<?php echo $Basic_Command['Save']?></a></TD></TR></TBODY></TABLE><!--BUTTON_END-->
+
+                            </TD></TR></TBODY></TABLE>
+
+                    </TD>
+
+
+
+
+
+                  </TR></TBODY></TABLE>
+              </TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+            <TD vAlign=top height=262>
+              <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                <TBODY>
+                  <TR>
+                    <TD vAlign=top bgColor=#ffffff height=300>
+                      <TABLE class=allborder cellSpacing=0 cellPadding=5  width="100%" align=center bgColor=#f7f7f7 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD colspan="3" align=left noWrap></TD></TR>
+                          <TR>
+                            <TD height="47" colspan="3" align=left noWrap>
+							  <select name="tag" id="tag" onchange="location.href='admin_gridseting.php?tag='+this.value;">
+                              	<option value="">所有萬用格</option>
+                              	<option value="index" <?php if($_GET['tag']=="index") echo "selected";?>>首頁</option>
+                              	<option value="">----以下為品牌頁----</option>
+                              	<?php
+								  $brand_Sql      = "select * from `{$INFO[DBPrefix]}brand` order by brand_id desc ";
+								  $brand_Query    = $DB->query($brand_Sql);
+								  while($brand_Result= $DB->fetch_array($brand_Query)){
+								?>
+						    	<option value="brand<?php echo $brand_Result['brand_id'];?>" <?php if($_GET['tag']=="brand".$brand_Result['brand_id']) echo "selected";?>><?php echo $brand_Result['brandname'];?></option>
+							    <?php
+								  }
+								?>
+                              </select>
+                         </TD>
+                          </TR>
+                          <TR>
+                            <TD height="47" colspan="3" align=left noWrap><div style="width:90px;height:30px; line-height:30px; border:solid 1px #19CF99; text-align:center;"><a href="#" onclick="addBanenr();"><i class="icon-plus"></i> 新增萬用格</a></div></TD>
+                          </TR>
+                          <TR>
+                            <TD colspan="3" align=left noWrap bgcolor="#FFFFFF">
+                            <?php
+							if($_GET['tag']!="")
+								$where_Sql = "where tag='" . $_GET['tag'] . "'";
+                            $Sql = "select * from `{$INFO[DBPrefix]}index_banner` " . $where_Sql . " order by bannerorder asc";
+							$Query    = $DB->query($Sql);
+							$Num   = $DB->num_rows($Query);
+							
+							if ($Num>0){
+								$limit = $_GET['listnum']!="" ? intval($_GET['listnum']) : 10  ;
+								$Nav->total_result=$Num;
+								$Nav->execute($Sql,$limit);
+								$Query    = $Nav->sql_result;
+								$Nums     = $Num<$limit ? $Num : $limit ;
+							}
+							while($Result= $DB->fetch_array($Query)){
+							?>
+                            <div class="index_banner" id="index_banner<?php echo $Result['ib_id'];?>" style="width:1000px !important;margin-bottom:20px;">
+                            <label>
+                              <select name="indexadv_grid" id="indexadv_grid" onchange="getAdv(this.value,<?php echo $Result['ib_id'];?>);">
+                                  <option value="1" <?php if($Result['bannercount']==1) echo "selected";?>>一格</option>
+                                  <option value="2" <?php if($Result['bannercount']==2) echo "selected";?>>二格</option>
+                                  <option value="3" <?php if($Result['bannercount']==3) echo "selected";?>>三格</option>
+                                  <option value="4" <?php if($Result['bannercount']==4) echo "selected";?>>四格</option>
+                                </select>
+                              排序</label>
+                              <input name="bannerorder" type="text" id="bannerorder" size="5" value="<?php echo $Result['bannerorder'];?>" onchange="changeOrder(<?php echo $Result['ib_id'];?>,this.value);" />
+                              位置
+                              <select name="tag" id="tag" onchange="changeTag(<?php echo $Result['ib_id'];?>,this.value);">
+                              	<option value="">請選擇</option>
+                              	<option value="index" <?php if($Result['tag']=="index") echo "selected";?>>首頁</option>
+                              	<option value="">----以下為品牌頁----</option>
+                              	<?php
+								  $brand_Sql      = "select * from `{$INFO[DBPrefix]}brand` order by brand_id desc ";
+								  $brand_Query    = $DB->query($brand_Sql);
+								  while($brand_Result= $DB->fetch_array($brand_Query)){
+								?>
+						    	<option value="brand<?php echo $brand_Result['brand_id'];?>" <?php if($Result['tag']=="brand".$brand_Result['brand_id']) echo "selected";?>><?php echo $brand_Result['brandname'];?></option>
+							    <?php
+								  }
+								?>
+                              </select>
+                              <label>
+                            <a href="#" onclick="delBanner(<?php echo $Result['ib_id'];?>);">刪除</a></label>
+                            <div id="show_adv<?php echo $Result['ib_id'];?>"></div>
+                            <div style="clear:both"></div>
+                            </div>
+                            <script language="javascript">
+							getAdv(<?php echo $Result['bannercount'];?>,<?php echo $Result['ib_id'];?>);
+							</script>
+                            <?php
+							}
+							?>
+                            <input name="bannercount" id="bannercount" value="<?php echo $Num;?>" type="hidden" />
+                            <div id="showadd"></div><br />
+                            </TD>
+                          </TR>
+						<?php  if ($Num>0){ ?>
+                          <TR align="center">
+                            <TD height=14><?php echo $Nav->pagenav()?></TD>
+                            </TR>
+                          <?php } ?>
+                          
+                          <TR>
+                            <TD colspan="3" align=left noWrap>&nbsp;</TD>
+                          </TR>
+                        </TBODY>
+                  </TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+    </TR>
+  </FORM>
+</div>
+<div align="center"><?php include_once "botto.php";?></div>
+
+</BODY>
+</HTML>
+<?php
+if ( $_POST['Action']=="Modi" ){
+
+    if (intval($_POST[hidden_countnum])!=intval($_POST[countnum])){
+
+	$file= RootDocumentShare."/countNum.php";	//记录数据的文件
+
+	if(!file_exists($file))		//判断是否存在文件
+     {
+	    chmod("../".ConfigDir,0777);	//修改文件夹属性
+     }
+
+	if(!is_writeable($file))	//判断文件是否可写
+	 {
+		chmod($file,0777);		//修改文件属性
+	 }
+
+	 $fo2=fopen($file,'w+');		//以可写方式打开文件
+     fputs($fo2,intval($_POST[countnum]));
+	 fclose($fo2);
+
+	}
+
+  if (trim($_FILES['patterns']['name'])!=""){
+		$patterns[]   = $FUNCTIONS->Upload_File($_FILES['patterns']['name'],$_FILES['patterns']['tmp_name'],"","../UploadFile/patterns/");
+		$_POST['patterns'] = $patterns;
+	}else{
+		$_POST['patterns'] = $INFO['patterns'];
+	}
+
+  if(isset($_POST['pattern_del'])){
+    $pattern_del = array($_POST['pattern_del']);
+    $_POST['patterns'] = array_diff($patterns,$pattern_del);
+    @unlink ("../UploadFile/patterns/" . $_POST['pattern_del']);
+  }
+
+	if (trim($_FILES['shop_logo']['name'])!=""){
+		$shop_logo   = $FUNCTIONS->Upload_File($_FILES['shop_logo']['name'],$_FILES['shop_logo']['tmp_name'],"","../UploadFile/LogoPic/");
+		$_POST['shop_logo'] = $shop_logo;
+		//@rename ("../templates/".$INFO['templates']."/images/logo.jpg","../templates/".$INFO['templates']."/images/logo_bak.jpg");
+		//@unlink ("../templates/".$INFO['templates']."/images/logo.jpg");
+		//@copy ("../templates/".$INFO[templates]."/images/".$shop_logo,"../templates/".$INFO['templates']."/images/logo.jpg");
+	}else{
+		$_POST['shop_logo'] = $INFO['shop_logo'];
+	}
+
+	if (trim($_FILES['shop_background']['name'])!=""){
+		$shop_background   = $FUNCTIONS->Upload_File($_FILES['shop_background']['name'],$_FILES['shop_background']['tmp_name'],"","../UploadFile/LogoPic/");
+		$_POST['shop_background'] = $shop_background;
+	}else{
+		$_POST['shop_background'] = $INFO['shop_background'];
+	}
+
+	if (trim($_FILES['forum_logo']['name'])!=""){
+		$forum_logo   = $FUNCTIONS->Upload_File($_FILES['forum_logo']['name'],$_FILES['forum_logo']['tmp_name'],"","../templates/".$INFO[templates]."/images");
+		@rename ("../templates/".$INFO['templates']."/images/forum_logo.jpg","../templates/".$INFO['templates']."/images/forum_logo_bak.jpg");
+		@unlink ("../templates/".$INFO['templates']."/images/forum_logo.jpg");
+		@copy ("../templates/".$INFO[templates]."/images/".$forum_logo,"../templates/".$INFO['templates']."/images/forum_logo.jpg");
+	}
+	if (trim($_FILES['cart_logo']['name'])!=""){
+		$cart_logo   = $FUNCTIONS->Upload_File($_FILES['cart_logo']['name'],$_FILES['cart_logo']['tmp_name'],"","../templates/".$INFO[templates]."/images");
+		@rename ("../templates/".$INFO['templates']."/images/cart_logo.jpg","../templates/".$INFO['templates']."/images/cart_logo_bak.jpg");
+		@unlink ("../templates/".$INFO['templates']."/images/cart_logo.jpg");
+		@copy ("../templates/".$INFO[templates]."/images/".$cart_logo,"../templates/".$INFO['templates']."/images/cart_logo.jpg");
+	}
+	$Ex_Function->save_config( $new = array("Poll_id","ear_adv_id","three_adv","two_adv","pop_adv_tag","head_adv_tag","float_adv_id","float_radio","pop_radio","head_radio","ear_radio","banner_type","boxed","main_color","css_id","use_pattern","patterns","shop_pattern","shop_background","use_background","logo_width","logo_height","index_iframe_id","index_iframe_height","forum_logo_width","forum_logo_height","cart_logo_width","cart_logo_height","subject_id","IndexNewClassId","IndexNewClassId1","IndexNewClassId1type","countStyle","shop_logo","menuStyle","headerStyle","price_color","new_pd","rm_pd","jh_pd","free_info1","free_info2","fb_pluging","pic_fix","productlist_type","product_filter","fbmsg_radio","fbmsg_account","cell_num","reg_type","responsive","good_multi_img","good_type","size_block","color_block","color_sort","toolbar_color","indexadv_grid","album_radio","album_id","fbmsg_account"),"setindex") ;
+	$FUNCTIONS->setLog("編輯首頁設置");
+	echo " <script language=javascript>alert('".$Basic_Command[Back_System_Sucuess]."'); location.href='admin_indexseting.php'; </script>";
+	//@header("location:admin_indexseting.php");
+}
+?>
+ <script language="javascript">
+ getIndex_iframe_id('<?php echo $INFO['index_iframe_id']?>');
+ function getIndex_iframe_id(ifid){
+ 	//alert(ifid);
+ 	if (typeof(ifid) == 'undefined'){
+ 		　　return false;
+ 	}
+
+ 	var url = "admin_indexiframe.php?adv_tag="+ifid;
+
+ 	var show = document.getElementById("show_ifidcontent");
+
+ 	var ajax = InitAjax();
+
+ 	ajax.open("GET", url, true);
+
+ 	ajax.onreadystatechange = function() {
+ 		//alert ('d');
+ 		　　//如果执行是状态正常，那么就把返回的内容赋值给上面指定的层
+ 		　　　　　　	if (ajax.readyState == 4 && ajax.status == 200) {
+ 		　　　　　　		　　　　		if (ajax.responseText!="")
+ 		　　　　　　		　　　　		　　　　		document.all.iframe.style.display="";
+ 		　　　　　　		　　　　		　　　　		　　　　		else
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		document.all.iframe.style.display="none";
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      //alert (ajax.responseText);
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      　　　　		　　　show.innerHTML = ajax.responseText;
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      　　　　		　　　　　　　		　　　　　}
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      　　　　		　　　　　　　		　　　　　　　　　		　　　　　//alert (ajax.responseText);
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      　　　　		　　　　　　　		　　　　　　　　　		　　　　　　　　　	}
+
+ 		　　　　　　		　　　　		　　　　		　　　　		　　　　		　　　　	      　　　　		　　　　　　　		　　　　　　　　　		　　　　　　　　　	　　　　	ajax.send(null);
+ 	}
+</script>

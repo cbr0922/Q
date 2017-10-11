@@ -1,0 +1,29 @@
+<div class="side-nav margin-bottom-40">
+
+								<div class="side-nav-head border_title_bottom">
+									<button class="fa fa-bars"></button>
+									<h4>本館分類</h4>
+								</div>
+
+								<ul class="list-group list-group-bordered list-group-noicon uppercase">
+								<{ section name=list loop=$ProductListAll start=0 }>
+									<li class="list-group-item active">
+										<a class="<{if $ProductListAll[list].sub neq "" }> dropdown-toggle <{/if}> size-16 border_bottom" href="<{if $ProductListAll[list].url eq ""}><{ $Site_Url }>/product/<{$ProductListAll[list].bid}><{else}><{$ProductListAll[list].url}><{/if}>"><{$ProductListAll[list].catname}></a>
+									<{if $ProductListAll[list].sub neq ""}>	
+										<ul>
+											<{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+											<{if $ProductListAll[list].sub[list1].catname neq ""}>
+											
+												<li class="<{if $ProductListAll[list].sub[list1].bid eq $smarty.get.bid}>active<{else}><{/if}>"><a style="padding-left:8px;"  href="<{if $ProductListAll[list].sub[list1].url eq ""}><{ $Site_Url }>/product/<{$ProductListAll[list].sub[list1].bid}><{else}><{$ProductListAll[list].sub[list1].url}><{/if}>">
+												
+												<div class="<{if $ProductListAll[list].sub[list1].manyunfei>0 }>margin-left-0<{else}>margin-left-15<{/if}> size-14"><{if $ProductListAll[list].sub[list1].manyunfei>0 }><span><i class="fa fa-check-square" style="color:#F00;"></i></span><{/if}> <{$ProductListAll[list].sub[list1].catname}></div></a></li>
+											<{/if}>
+											<{/section}>
+										</ul>
+									<{/if}>	
+									</li>
+								<{/section}>
+								</ul>
+
+							</div>
+							

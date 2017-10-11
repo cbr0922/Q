@@ -1,0 +1,4 @@
+Note from DesignerFreeSolutions:
+
+The contents of the jqplot folder are provided under the MIT License.
+Please read MIT-LICENSE.txt for details.

@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>找不到網頁 - 404 error</title>
+</head>
+<body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="482" align="center" cellPadding="3" cellSpacing="5" id="table1">
+	<tr>
+		<td vAlign="center" align="center" width="464">
+		<h1 style="COLOR: #0000FF; font-style:normal; font-variant:normal; font-weight:normal; line-height:40pt; font-size:26pt; font-family:"微軟正黑體"">
+		找不到網頁 - 404 Not Found</h1>
+		</td>
+	</tr>
+	<tr>
+		<td width="464" colSpan="2" align="center" id="tablePropsWidth">
+		<font style="COLOR: #666699; font-style:normal; font-variant:normal; font-weight:normal; line-height:12pt; font-size:9pt; font-family:微軟正黑體",Verdana">
+		查詢的網頁可能已經移除、重新命名或者暫時無法使用。</font></td>
+	</tr>
+	<tr>
+	  <td colSpan="2" align="center" id="tablePropsWidth3"><font id="LID4" style="font-style:normal; font-variant:normal; font-weight:normal; line-height:12pt; font-family:Verdana" size="2" color="#0000FF">Sorry, the page you requested was not found.</font><font id="LID4" style="COLOR: black; font-style:normal; font-variant:normal; font-weight:normal; line-height:12pt; font-family:Verdana" size="2"></font></td>
+  </tr>
+	<tr>
+		<td width="464" height="104" colSpan="2" align="center" id="tablePropsWidth2"><p id="LID2"><a style="font-style: normal; font-variant: normal; font-weight: normal; line-height: 12pt; font-size: 9pt; font-family: Verdana; color: red" href="javascript:history.back(1)">[回上一頁]</a><span class="org14"><font id="LID1" style="COLOR: black; font-style:normal; font-variant:normal; font-weight:normal; line-height:12pt; font-size:9pt; font-family:Verdana"><br>
+		</font></span>
+		<font id="LID1" style="COLOR: black; font-style:normal; font-variant:normal; font-weight:normal; line-height:12pt; font-size:9pt" face="Verdana">
+		<br>
+		</p></td>
+	</tr>
+</table>
+</body>
+</html>

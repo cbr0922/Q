@@ -1,0 +1,230 @@
+<style type="text/css">
+<!--
+.hotimg {
+	margin-left:auto;
+	margin-right:auto
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.hotpro {
+	width: 120px;
+	overflow:hidden;
+	height:235px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+.newimg {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+div.newimg a {
+	display: block;
+	border: 1px solid #fff;
+}
+div.newimg a:hover {
+	border: 1px solid #ccc;
+}
+.hotpro1 {
+	width: 119px;
+	overflow:hidden;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+-->
+<!--
+.rollBox {
+	overflow:hidden;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.rollBox .Cont {
+	overflow:hidden;
+	float:left;
+	width:530px;
+}
+.rollBox .ScrCont {
+	width:10000000px;
+}
+.rollBox .Cont .pic {
+	width:130px;
+	float:left;
+	text-align: left;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+	padding-left: 0px;
+}
+.pic0 {
+	margin-left:auto;
+	margin-right:auto
+}
+div.pic0 a {
+	display: block;
+	width:140px;
+	border: 0px solid #fff;
+}
+div.pic0 a:hover {
+	border: 0px solid #ccc;
+}
+.rollBox .Cont .pic img {
+	padding:0px;
+	background:#fff;
+	border:0px solid #ececec;
+	display:block;
+	margin:0 auto;
+	text-align: center;
+}
+.rollBox .Cont .pic p {
+	line-height:26px;
+	color:#505050;
+}
+.rollBox .Cont a:link, .rollBox .Cont a:visited {
+	color:#666666;
+	text-decoration:none;
+}
+.rollBox .Cont a:hover {
+	color:#cc0000;
+	text-decoration:none;
+}
+.rollBox #List1, .rollBox #List2 {
+	float:left;
+}
+-->
+</style>
+<table width="560" border="0"  cellpadding="0" cellspacing="0" style=" border:1px solid #e6e6e6" >
+  <tr>
+    <td height="200" valign="top"  ><!-- 图片列表 begin -->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td  height="33" align="right" background="<{ $template_dir }>/images/recproduct.gif"   style="padding-right:10pt"><a href="<{ $Site_Url }>/product/index.php?type=recommend "><img src="<{ $template_dir }>/images/more01.gif"  border="0" /></a></td>
+        </tr>
+        <tr>
+          <td align="center"  ><table width="500" border="0" cellpadding="0" cellspacing="0" class="index_txt_all">
+              <tr>
+                <td  height="150" align="left"><img src="<{ $template_dir }>/images/arr-right.gif" width="8" height="13" onMouseDown="clearInterval(AutoPlayObj);ISL_GoUp()" onMouseUp="clearInterval(AutoPlayObj);ISL_StopUp()" onMouseOut="ISL_ScrUp()" /></td>
+                <td width="100%"  align="left" valign="top" style=" padding-top:10px; padding-bottom:12px"><div class="rollBox">
+                    <div class="Cont" id="ISL_Cont">
+                      <div class="ScrCont">
+                        <div id="List1">
+                          <!-- 图片列表 begin -->
+                          <{ section name=i loop=$Recommendation_productarray }>
+                          <div class="hotpro1">
+                            <div class="hotimg picture2" style="margin-bottom:3px ; height:117px;z-index:1;  "> <{if $Recommendation_productarray[i].ifsaleoff eq 1 }>
+                              <div style="position:absolute;top:1px;right:1px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></div>
+                              <{/if}> <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Recommendation_productarray[i].gid }>"><img width="115" src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $Recommendation_productarray[i].smallimg }>" border="0"></a></div>
+                            <div class="salename2" style="height:20px;overflow: hidden;"><{ $Recommendation_productarray[i].sale_name }></div>
+                            <div style="height:35px;	overflow: hidden;"><a  href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Recommendation_productarray[i].gid }>" class="green"><{ $Recommendation_productarray[i].goodsname }></a></div>
+                            市價：<span ><s><{ $Recommendation_productarray[i].price }></s></span><br />
+                            網購價：<span class="price"><{ $Recommendation_productarray[i].pricedesc }></span></div>
+                          <{ /section }></div>
+                        <div id="List2"></div>
+                      </div>
+                    </div>
+                  </div></td>
+                <td align="right"><img src="<{ $template_dir }>/images/arr-left.gif" width="8" height="13" onMouseDown="clearInterval(AutoPlayObj);ISL_GoDown()" onMouseUp="clearInterval(AutoPlayObj);ISL_StopDown()" onMouseOut="ISL_ScrDown()" /></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<script language="javascript" type="text/javascript">
+<!--//--><![CDATA[//><!--
+//图片滚动列表 mengjia 070816
+var Speed = 1; //速度(毫秒)
+var Space = 5; //每次移动(px)
+var PageWidth = 130; //翻页宽度
+var fill = 0; //整体移位
+var MoveLock = false;
+var MoveTimeObj;
+var Comp = 0;
+var AutoPlayObj = null;
+GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+GetObj('ISL_Cont').scrollLeft = fill;
+GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
+GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
+AutoPlay();
+function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
+function AutoPlay(){ //自动滚动
+ clearInterval(AutoPlayObj);
+ AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',5000); //间隔时间
+}
+function ISL_GoUp(){ //上翻开始
+ if(MoveLock) return;
+ clearInterval(AutoPlayObj);
+ MoveLock = true;
+ MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
+}
+function ISL_StopUp(){ //上翻停止
+ clearInterval(MoveTimeObj);
+ if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
+  Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
+  CompScr();
+ }else{
+  MoveLock = false;
+ }
+ AutoPlay();
+}
+function ISL_ScrUp(){ //上翻动作
+ if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
+ GetObj('ISL_Cont').scrollLeft -= Space ;
+}
+function ISL_GoDown(){ //下翻
+ clearInterval(MoveTimeObj);
+ if(MoveLock) return;
+ clearInterval(AutoPlayObj);
+ MoveLock = true;
+ ISL_ScrDown();
+ MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
+}
+function ISL_StopDown(){ //下翻停止
+ clearInterval(MoveTimeObj);
+ if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
+  Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
+  CompScr();
+ }else{
+  MoveLock = false;
+ }
+ AutoPlay();
+}
+function ISL_ScrDown(){ //下翻动作
+ if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
+ GetObj('ISL_Cont').scrollLeft += Space ;
+}
+function CompScr(){
+ var num;
+ if(Comp == 0){MoveLock = false;return;}
+ if(Comp < 0){ //上翻
+  if(Comp < -Space){
+   Comp += Space;
+   num = Space;
+  }else{
+   num = -Comp;
+   Comp = 0;
+  }
+  GetObj('ISL_Cont').scrollLeft -= num;
+  setTimeout('CompScr()',Speed);
+ }else{ //下翻
+  if(Comp > Space){
+   Comp -= Space;
+   num = Space;
+  }else{
+   num = Comp;
+   Comp = 0;
+  }
+  GetObj('ISL_Cont').scrollLeft += num;
+  setTimeout('CompScr()',Speed);
+ }
+}
+//--><!]]>
+      </script>

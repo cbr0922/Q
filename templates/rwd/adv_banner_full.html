@@ -1,0 +1,83 @@
+<style>
+.swiper-wrapper img {
+    max-width: 100%;
+    height: auto !important;
+    width: 100%;
+}
+
+@media only screen and (max-width:479px) {
+    .mo {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 20px !important;
+        line-height: 40px;
+    }
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #b00062 !important;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 0px !important;
+    margin-top: 20px !important;
+}
+
+.swiper-pagination {
+    position: relative !important;
+}
+</style>
+<!-- SWIE SLIDER -->
+<link href="<{ $Site_Url }>/assets/plugins/slider.swiper/dist/css/swiper.min.css" rel="stylesheet" type="text/css" />
+<!--    SWIPPER SLIDER PARAMS   
+data-effect="slide|fade|coverflow"
+data-autoplay="2500|false"
+<{if $ismobile eq 1}>height-500 <{/if}>
+-->
+<section class="noborder nopadding" style="<{if $ismobile eq 1}>margin-bottom: 20px;<{else}>padding-bottom:20px !important;<{/if}>">
+    <div class="swiper-container" data-effect="fade" data-autoplay="4000|false">
+        <div class="swiper-wrapper">
+            <{ section name=list loop=$adv_array }>
+                <{if $ismobile eq 1}>
+                     <!--<div class="swiper-slide" style="background-image: url('<{ $Site_Url }>/UploadFile/AdvPic/<{$adv_array[list].adv_right_img}>');">
+                       <{if $adv_array[list].url neq "#"}>
+                            <A title="<{$adv_array[list].title}>" href="<{$adv_array[list].url}>">
+                                <{/if}>
+                                    <div class="display-table" id="logo_text">
+                                        <div class="display-table-cell vertical-align-middle">
+                                            <div class="container">
+                                                <div class="slider-featured-text text-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <{if $adv_array[list].url neq "#"}>
+                            </A>
+                            <{/if}>
+					 </div>-->		
+						<div class="swiper-slide">
+                            <A href="<{$adv_array[list].url}>" class="ad">
+                                <{$adv_array[list].img_m}>
+                            </A>
+                        </div>
+                   
+                    <{else}>
+                        <div class="swiper-slide">
+                            <A href="<{$adv_array[list].url}>" class="ad">
+                                <{$adv_array[list].img}>
+                            </A>
+                        </div>
+                        <{/if}>
+                            <{/section}>
+        </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Swiper Arrows -->
+        <div class="swiper-button-next mo"><i class="icon-angle-right"></i></div>
+        <div class="swiper-button-prev mo"><i class="icon-angle-left"></i></div>
+        <script type="text/javascript">
+            // console.log('hello world');
+        </script>
+    </div>
+
+</section>

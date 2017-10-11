@@ -1,0 +1,67 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="3"  style="border: 1px solid #cccccc;">
+
+  <tr>
+
+    <td style="padding-left:15px;">收件人記錄本
+
+    <a class="lightbox" href="shopping_ajax_receiverinfo.php?act=add"  data-target="#ajax" data-toggle="modal">
+
+    新增收件</a>
+
+      <div class="turn_off"><a href="javascript:void(0);" onclick="$('#showreceiver').html('');">關閉 <i class="icon-remove-sign"></i></a></div></td>
+
+  </tr>
+
+  <tr>
+
+    <td><TABLE  cellSpacing=1 cellPadding=4 width="98%" align=center  border=0  >
+
+        <TR >
+
+          <TD width="" align=center vAlign=middle nowrap bgcolor="#EEEEEE" class=p9rednothrough>收貨人
+
+            <!--订单编号--></TD>
+
+          <TD width="" align="center" valign="middle" nowrap bgcolor="#EEEEEE"><span class="p9rednothrough">聯絡電話
+
+            <!--下单日期-->
+
+            </span></TD>
+
+          <TD width="" align="center" nowrap bgcolor="#EEEEEE">地址
+
+            <!--定单状态--></TD>
+
+          <TD width="" colspan="3" align="center" nowrap bgcolor="#EEEEEE">操作
+
+          <!--状态/操作--></TD>
+
+           </TR>
+
+        <{ section name=list loop=$OrderList }>
+
+        <TR  bgcolor="#FFFFFF">
+
+          <TD height="30" align=left vAlign=middle nowrap><{ $OrderList[list].receiver_name }></TD>
+
+          <TD align="left" valign="middle" nowrap class=p9v><{ $OrderList[list].receiver_tele }></TD>
+
+          <TD align="left" valign="middle" class=p9v><div align="left"><{ $OrderList[list].county }><{ $OrderList[list].province }><{ $OrderList[list].city }><{ $OrderList[list].addr }>&nbsp;</div></TD>
+
+          <TD align="center" valign="middle" class="receiver_link">
+
+          <a class="lightbox" href="shopping_ajax_receiverinfo.php?act=modify&reid=<{ $OrderList[list].reid }>"  data-target="#ajax" data-toggle="modal">
+
+          改</a></TD>
+
+          <TD align="center" valign="middle" class="receiver_link"><a href="javascript:void(0);" id="receiver" onclick='showpage("shopping_ajax_shoppingreceiver.php","op=receiverinfo&reid=<{ $OrderList[list].reid }>","showshoppingreceiver");' >選</a></TD>
+
+        </TR>
+
+        <{ /section }>
+
+    </TABLE></Td>
+
+  </Tr>
+
+</Table><Br>

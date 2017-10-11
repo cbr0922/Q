@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>促銷活動 - <{ $site_name }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<meta property="og:title" content="<{ $HtmlTitle }>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="description" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<{ include_php file="include/include_ga.php" }>
+<style>
+.img-responsive img{
+	width:100% !important;
+	height:auto !important;
+}
+</style>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+		<!--浮動廣告-->
+		<{ if $Ear_radio eq 1 }>
+		<{ include_php file="modules/advertising/ear.php" }>
+	    <{ /if }>
+  		<!--/浮動廣告-->
+     <!-- PAGE HEADER-->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h3 class="size-18 hidden">促銷活動</h3>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+						<li class="active">促銷活動</li>
+
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+<section>
+				<div class="container">
+
+					<div class="row">
+
+  <!-- 左邊開始 -->
+<div class="col-md-12 col-sm-12 col-xs-12">
+<{ section name=Comm loop=$discount_array }>
+<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-50">
+<div><h2 class="size-18 weight-500" style=" border-bottom:2px solid #CCC; line-height:35px; height:35px;"><a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><{ $discount_array[Comm].subject_name }></a></h2></div>
+<{ if $discount_array[Comm].dis_pic neq "" }>
+<div class="col-md-6 col-sm-6 col-xs-12 margin-bottom-10 nopadding">
+	<a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><img class="img-responsive lazy" src="<{ $Site_Url }>/images/Loading.svg" data-original='../../UploadFile/LogoPic/<{$discount_array[Comm].dis_pic}>' alt="<{ $discount_array[Comm].subject_name }>" />
+    </a>
+</div>
+<{/if}>
+<div class="<{if $discount_array[Comm].dis_pic eq ''}>col-md-12 col-sm-12 col-xs-12<{else}>col-md-6 col-sm-6<{/if}>">
+<{ section name=list loop=$discount_array[Comm].goods max=$discount_array[Comm].maxnum }>
+	<div class="<{if $discount_array[Comm].dis_pic eq ''}>col-md-2 col-sm-2<{else}>col-md-4 col-sm-4 col-xs-12<{/if}>">
+	<div class="shop-item margin-bottom-0" >
+    <a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>">
+    <img class="img-responsive lazy" src="<{ $Site_Url }>/images/Loading.svg" data-original='<{if $discount_array[Comm].goods[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{ $discount_array[Comm].goods[list].smallimg }><{/if}>' alt="<{$discount_array[Comm].goods[list].goodsname}>" /></a><br>
+     <div class="shop-item-summary text-left height-50 line-height-15" style="overflow:hidden;padding:5px 0 5px 0"><h3><a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><{$discount_array[Comm].goods[list].goodsname}></a></h3></div><div class="shop-item-price text-left" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>NT. <{$discount_array[Comm].goods[list].pricedesc}></div>
+    </div>
+	</div>
+    <{/section}>
+</div>
+</div>
+<div style="clear:both;"></div>
+<{/section}>
+<{ section name=Comm loop=$Array_sub }>
+<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-50">
+<div><h2 class="size-18 weight-500" style=" border-bottom:2px solid #CCC; line-height:35px; height:35px;"><a href="<{ $Site_Url }>/modules/redgreen/index.php?subject_id=<{$Array_sub[Comm].dsid}>"><{$Array_sub[Comm].subject_name}></a></h2></div>
+<div class="col-md-6 col-sm-6 col-xs-12 margin-bottom-10 nopadding img-responsive">
+<{$Array_sub[Comm].subject_content}>
+</div>
+</div>
+<{/section}>
+
+     </div>
+  <!--右邊邊結束-->
+</div>
+<!--身體結束-->
+</section>
+<div style="clear:both;"></div>
+<div style="display:none; cursor:default" id="showcompare"></div>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+<script type="text/javascript">
+$("img.lazy").lazyload({
+    effect : "fadeIn",
+	skip_invisible: false
+});
+</script>

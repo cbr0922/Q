@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $SearchResult_say }> - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+
+<div id="body_center">
+
+ <div id="body_left"><!--左邊開始-->
+
+<{ include_php file="search/pclass.php" }>
+
+ </div><!--左邊結束-->
+
+ <div id="body_right"  ><!--右邊邊開始-->
+<div id="title_s">
+        <div id="title_s_left">
+          <h1><{ $SearchResult_say }></h1>
+        </div>
+        <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <{ $SearchResult_say }> </div>
+      </div>
+      <table width="744"  border="0"  cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="left" style="padding-left:15PX">相關屬性：
+            
+            
+            
+            <{ section name=list loop=$attrvalue_array }> <a href="<{ $Site_Url }>/product/product_attr.php?attrid=<{$attrvalue_array[list].attrid}>&valueid=<{$attrvalue_array[list].valueid}>"><{$attrvalue_array[list].value}></a> <{/section}> </td>
+        </tr>
+      </table><br>
+      <table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="40" align="left"><h1>你正在搜尋 "<{$skey}>" 共找到<span class="price"><{$productNum}></span>項&nbsp;</h1></td>
+          <td width="370" align="right" class="asc_desc">
+         <li <{if $smarty.get.orderby eq ""}>class="asc_desc_cur"<{/if}>><a href="search.php?<{$restring}>">優先推薦</a></li><li <{if $smarty.get.orderby eq "price"}>class="asc_desc_cur"<{/if}>><a href="search.php?orderby=price&ordertype=<{$smarty.get.ordertype}><{$restring}>">價格<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "price"}>▼<{else}>▲<{/if}></a></li>
+          <li <{if $smarty.get.orderby eq "pubtime"}>class="asc_desc_cur"<{/if}>><a href="search.php?orderby=pubtime&ordertype=<{$smarty.get.ordertype}><{$restring}>">上架<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "pubtime"}>▼<{else}>▲<{/if}></a></li>
+          <li <{if $smarty.get.orderby eq "visit"}>class="asc_desc_cur"<{/if}>><a href="search.php?orderby=visit&ordertype=<{$smarty.get.ordertype}><{$restring}>">人氣<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "visit"}>▼<{else}>▲<{/if}></a></li></ul>
+</td>
+        </tr>
+      </table>
+      <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+          <tr>
+            <td><div align="center">
+              <table width="744"  border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="250" align="center" valign="top"><{ if $ProNav_gid1 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td align="center"><table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                          <tr>
+                            <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid1 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img1 }>"  border=0></a></td>
+                          </tr>
+                        </table>
+                          <span class="salename2"><{ $ProNav_sale_name1 }></span></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff1 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate1 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate1 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid1 }>'><{ $ProNav_goodsname1 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc1 }></span></td>
+                      </tr>
+                    </table>
+                    <{ /if }><br></td>
+                  <td width="1" rowspan="3" bgcolor="#ffffff"></td>
+                  <td width="250" align="center" valign="top"><{ if $ProNav_gid2 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td align="center"><table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                          <tr>
+                            <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid2 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img2 }>"  border=0></a></td>
+                          </tr>
+                        </table>
+                          <span class="salename2"><{ $ProNav_sale_name2 }></span></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff2 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate2 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate2 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid2 }>'><{ $ProNav_goodsname2 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc2 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }><br></td>
+                  <td width="1" rowspan="3" bgcolor="#ffffff"></td>
+                  <td width="250" align="center" valign="top"><{ if $ProNav_gid3 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid3 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img3 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name3 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff3 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate3 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate3 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid3 }>'><{ $ProNav_goodsname3 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc3 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid4 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid4 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img4 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name4 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff4 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate4 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate4 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid4 }>'><{ $ProNav_goodsname4 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc4 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }><br></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid5 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid5 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img5 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name5 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff5 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate5 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate5 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid5 }>'><{ $ProNav_goodsname5 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc5 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid6 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid6 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img6 }>"  border=0></a></td>
+                              </tr>
+                            </table>
+                          <span class="salename2"><{ $ProNav_sale_name6 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff6 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate6 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate6 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid6 }>'><{ $ProNav_goodsname6 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc6 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid7 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid7 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img7 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name7 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff7 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate7 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate7 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid7 }>'><{ $ProNav_goodsname7 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc7 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }><br></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid8 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid8 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img8 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name8 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff8 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate8 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate8 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid8 }>'><{ $ProNav_goodsname8 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc8 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid9 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid9 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img9 }>"  border=0></a></td>
+                              </tr>
+                            </table>
+                          <span class="salename2"><{ $ProNav_sale_name9 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff9 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate9 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate9 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="left" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid9 }>'><{ $ProNav_goodsname9 }></a></td>
+                      </tr>
+                      <tr>
+                        <td><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc9 }></span>
+                          <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid10 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid10 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img10 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name10 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff10 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate10 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate10 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid10 }>'><{ $ProNav_goodsname10 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc10 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid11 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid11 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img11 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name11 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff11 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate11 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate11 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid11 }>'><{ $ProNav_goodsname11 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc11 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid12 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid12 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img12 }>"  border=0></a></td>
+                              </tr>
+                            </table>
+                          <span class="salename2"><{ $ProNav_sale_name12 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff12 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate12 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate12 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid12 }>'><{ $ProNav_goodsname12 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc12 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid13 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid13 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img13 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name13 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff13 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate13 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate13 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid13 }>'><{ $ProNav_goodsname13 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc13 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid14 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid14 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img14 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name14 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff14 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate14 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate14 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid14 }>'><{ $ProNav_goodsname14 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc14 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid15 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid15 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img15 }>"  border=0></a></td>
+                              </tr>
+                            </table>
+                          <span class="salename2"><{ $ProNav_sale_name15 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff15 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate15 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate15 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid15 }>'><{ $ProNav_goodsname15 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc15 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid16 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid16 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img16 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name16 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff16 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate16 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate16 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid16 }>'><{ $ProNav_goodsname16 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc16 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid17 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid17 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img17 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name17 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff17 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate17 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate17 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid17 }>'><{ $ProNav_goodsname17 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc17 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid18 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid18 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img18 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name18 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff18 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate18 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate18 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid18 }>'><{ $ProNav_goodsname18 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc18 }></span>
+
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  
+                </tr>
+                <tr>
+                  <td align="center" valign="top"><{ if $ProNav_gid19 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid19 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img19 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name19 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff19 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate19 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate19 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid19 }>'><{ $ProNav_goodsname19 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc19 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid20 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid20 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img20 }>"  border=0></a></td>
+                            </tr>
+                          </table>
+                          <span class="salename2"><{ $ProNav_sale_name20 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff20 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate20 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate20 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid20 }>'><{ $ProNav_goodsname20 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc20 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                  <td bgcolor="#ffffff"></td>
+                  <td align="center" valign="top"><{ if $ProNav_gid21 != '' }>
+                    <table width="90%"  border="0" cellspacing="2" cellpadding="0">
+                      <tr>
+                        <td><div align="center">
+                          <table width="135" height="" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                            <tr>
+                              <td align="center" valign="top" class="job4"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid21 }>'> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img21 }>"  border=0></a></td>
+                              </tr>
+                            </table>
+                          <span class="salename2"><{ $ProNav_sale_name21 }></span></div></td>
+                      </tr>
+                      <{if $ProNav_ifsaleoff21 == 1}>
+                      <tr>
+                        <td align="left" style="padding-top:10px;padding-bottom:8px"> 整點促銷：<{ $ProNav_saleoff_startdate21 }><br>
+                          結束時間：<{ $ProNav_saleoff_enddate21 }> </td>
+                      </tr>
+                      <{/if}>
+                      <tr>
+                        <td align="center" valign="top" style="padding-top:10px;padding-bottom:8px"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid21 }>'><{ $ProNav_goodsname21 }></a></td>
+                      </tr>
+                      <tr>
+                        <td align="center"><{ $Pricedesc_say }>:<span class="price"><{ $ProNav_pricedesc21 }></span>
+                        <div class="salename2"></div></td>
+                      </tr>
+                    </table>
+                    <{ /if }></td>
+                </tr>
+              </table>
+            </div></td>
+        </tr>
+      </table>
+      <p align="center"><{ $ProductPageItem }><br>
+        <{ if $productNum eq 0 }> <{ $zero_search_result }> <{ /if }> <br>
+      </p>
+ 
+
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+
+</div><!--身體結束-->
+
+</div><!--身體置中結束-->
+
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

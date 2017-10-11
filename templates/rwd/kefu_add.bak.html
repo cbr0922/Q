@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $HtmlTitle }> --  問答中心 </title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript">		
+function CheckKeFu()
+{
+// if (!isEmpty(KeFuForm.order_serial,       '請輸入訂單編號'   ))     return false;
+if (KeFuForm.order_serial.value=="" && KeFuForm.marketno.value==""){
+	alert("請填寫訂單編號或者賣場編號");	
+	return false;
+}
+ if (checkValue()==false) {
+	alert("請選擇客服類型");	 
+	return false;
+ }
+ if (!isEmpty(KeFuForm.title,       '<{ $kefu_Js_input_title }>'   ))     return false; //'请输入簡單標題！
+ if (!isEmpty(KeFuForm.realname,    '<{ $kefu_Js_input_name }>'    ))     return false; //'请输入姓名！
+ if (!isEmpty(KeFuForm.email,       '<{ $kefu_Js_input_email }>'   ))     return false; //'请输入電子郵件地址！
+ if (!isEmpty(KeFuForm.k_kefu_con,  '<{ $kefu_Js_input_content }>' ))     return false; //'请输入留言內容！
+}
+function checkValue(){
+ var obj=document.getElementsByName("kefu_type");
+//alert(obj.length);
+ for (var i=0;i<obj.length;i++)
+ {
+  if(obj[i].checked)
+  return true;
+ }
+ return false;
+}
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+  <tr>
+    <td width="207" height="400" valign="top" style="padding-right:9px;padding-left:23px;"><table width="175" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
+        <tr>
+          <td align="center"><img src="<{ $template_dir }>/images/title-member.gif" width="175" height="38"></td>
+        </tr>
+        <tr>
+          <td align="center"><{ include_php file="left.php" }></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+</table></td>
+    <td width="753" valign="top"><div id="title_s"  style="margin-bottom:15px">
+        <div id="title_s_left">
+          <h1><{ $kefu_add_say }></h1>
+        </div>
+        <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <a href="<{$Site_Url}>/member/">會員中心</a> <span class="style100">／</span> <{ $kefu_add_say }> </div>
+      </div>
+      <br>
+      <ul style="display: block;">
+        <li style="width: 100px; background-color: #FFF; padding:5px; marging-right:4px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc;border-right: 1px solid #cccccc;float: left;text-align: center;"><{ $kefu_add_say }></li>
+        <li style="width: 100px; background-color: #ccc; padding:5px; marging-right:4px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc;border-right: 1px solid #cccccc; text-align: center;;"><a href="kefu_list.php" class="member">留言紀錄</a></li>
+      </ul>
+      <br />
+      <TABLE width="90%"  border=0 align=center cellPadding=4  cellSpacing=1 class="member">
+        <FORM action="kefu_save.php" method="post" onSubmit="return CheckKeFu();" name="KeFuForm">
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head">訂單編號：</TD>
+            <TD align="left" nowrap><INPUT size=27 name="order_serial" class="inputstyle" value="<{$smarty.get.order_serial}>">
+              或賣場編號<INPUT size=27 name="marketno" class="inputstyle" value="<{$smarty.get.marketno}>"></TD>
+          </TR>
+          <TR>
+            <TD width="20%" align=right vAlign=middle nowrap class="head"><{ $kefu_type_say }>
+              <!--留言類別--></TD>
+            <TD width="80%" align="left" nowrap><table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#CCCCCC">
+                <{ section name=list loop=$kefu_type }>
+                <tr>
+                  <td><{ $kefu_type[list].name }></td>
+                  <{ section name=list2 loop=$kefu_type[list].kefutype }>
+                  <td bgcolor="#FFFFFF"><input type="radio" name="kefu_type" value="<{ $kefu_type[list].kefutype[list2].k_type_id }>">
+                    <{$kefu_type[list].kefutype[list2].k_type_name}></td>
+                  <{ /section }> </tr>
+                <{ /section }>
+              </table></TD>
+          </TR>
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head"><{ $kefu_title_say }>
+              <!--簡單標題--></TD>
+            <TD align="left" nowrap><INPUT size=27 name="title" class="inputstyle"></TD>
+          </TR>
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head"><{ $kefu_access_say }>
+              <!--帳號--></TD>
+            <TD align="left" nowrap><INPUT   disabled="disabled" size=27 name="demo_username" class="inputstyle"  value="<{$Username}>"></TD>
+          </TR>
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head"><{ $kefu_name_say }>
+              <!--姓名--></TD>
+            <TD align="left" nowrap><INPUT size=27 class="inputstyle" name="realname" value="<{$LoginUsername}>"></TD>
+          </TR>
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head"><{ $kefu_email_say }>
+              <!--電子郵件地址--></TD>
+            <TD align="left" nowrap><INPUT size=27 name="email" class="inputstyle" value="<{ $Email }>"></TD>
+          </TR>
+          <TR>
+            <TD align=right vAlign=middle nowrap class="head"><{ $kefu_content_say }>
+              <!--留言內容--></TD>
+            <TD align="left" nowrap><TEXTAREA name="k_kefu_con" rows=5 cols=65></TEXTAREA>
+              <span class="p9rednothrough"> <br>
+              <br>
+              <input name="submit" type="submit"  value="<{ $kefu_submit_say }>">
+              <input name="Action" type="hidden" value="Insert" >
+              </span></TD>
+          </TR>
+          <INPUT  type="hidden" size=27 name="username" class="inputstyle"  value="<{$Username}>">
+        </form>
+      </TABLE></td>
+  </tr>
+</table>
+<{ include_php file="bottom.php" }>
+</body>
+</html>

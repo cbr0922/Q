@@ -1,0 +1,44 @@
+<div id="Layer1">
+
+  <TABLE width="100%" border=0 align="left" cellPadding=0 cellSpacing=0>
+
+    <TBODY>
+
+      <TR>
+
+        <TD align="left" ><img src="<{ $template_dir }>/images/title-qiangtui.gif" width="198" height="34" /></TD>
+
+        <{ section name=list loop=$adv_array }>
+
+        <TD width="20" height="10" >
+
+        <IMG class=ImgTab onmouseover=Rot_Msg(<{$smarty.section.list.index+1}>) onclick=Pause_Msg() 
+
+      onmouseout=Rot_Msg(<{$smarty.section.list.index+1}>) src="<{ $template_dir }>/images/Tab_Img<{$smarty.section.list.index+1}>0.gif"
+
+      name=Tag_COMM></TD>
+
+      <{/section}>
+
+      </TR>
+
+    </TBODY>
+
+  </TABLE>
+
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="showmsgbn">
+
+<{ section name=list loop=$adv_array }>
+
+  <DIV id="Tag_IE_1" name="Tag_NN_1" class="MsgHide"><{$adv_array[list].img}>
+
+  </DIV>
+
+<{/section}>
+
+</div>
+

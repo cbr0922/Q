@@ -1,0 +1,238 @@
+﻿<?php
+include_once "Check_Admin.php";
+include_once Classes . "/pagenav_stard.php";
+include      "../language/".$INFO['IS']."/Mail_Pack.php";
+$objClass = "9pv";
+$Nav      = new buildNav($DB,$objClass);
+/**
+ *  装载语言包
+ */
+include "../language/".$INFO['IS']."/Admin_Member_Pack.php";
+$Sql      = "select * from `{$INFO[DBPrefix]}ticketpubrecord` as r inner join `{$INFO[DBPrefix]}ticket` as t on r.ticketid=t.ticketid where r.ticketid='" . $_GET['ticketid'] . "' order by r.recordid desc";
+
+$Query    = $DB->query($Sql);
+$Num      = $DB->num_rows($Query);
+if ($Num>0){
+	$limit = $_GET['listnum']!="" ? intval($_GET['listnum']) : 20  ;
+	$Nav->total_result=$Num;
+	$Nav->execute($Sql,$limit);
+	$Query = $Nav->sql_result;
+	$Nums     = $Num<$limit ? $Num : $limit ;
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>行銷工具--&gt;CRM</TITLE>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0"  onload="addMouseEvent();">
+<?php include_once "head.php";?>
+<script language="javascript">
+function toExprot(){
+	form2.submit();
+}
+</script>
+<form name="form2" method="post" action="admin_group_excel.php" target='_blank'  >
+<input type="hidden" name="Action" value="Excel">
+</form>
+<SCRIPT language=javascript>
+function toEdit(id,catid){
+	var checkvalue;
+	var catvalue = "";
+	
+	if (id == 0) {
+		checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	}else{
+		checkvalue = id;
+	}
+		
+	if (catid != 0) {
+		catvalue = "&scat="+catid;
+	}
+	
+	if (checkvalue!=false){
+		//document.adminForm.action = "admin_goods.php?goodsid="+checkvalue + catvalue;
+		document.adminForm.action = "admin_ticket.php?Action=Modi&ticketid="+checkvalue;
+		document.adminForm.act.value="edit";
+		document.adminForm.submit();
+	}
+}
+
+function toDel(){
+	var checkvalue;
+	checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	if (checkvalue!=false){
+		if (confirm('<?php echo $Basic_Command['Del_Select']?>')){
+			document.adminForm.action = "admin_ticket_save.php";
+			document.adminForm.act.value="Del";
+			document.adminForm.submit();
+		}
+	}
+}
+</SCRIPT>
+<div id="contain_out">
+  <?php  include_once "Order_state.php";?>
+      <TABLE class=p9black cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+            <TD width="50%">
+              <TABLE width="90%" border=0 cellPadding=0 cellSpacing=0>
+                <TBODY>
+                  <TR>
+                    <TD width=38 height="49"><IMG height=32 src="images/<?php echo $INFO[IS]?>/program-1.gif" width=32></TD>
+                    <TD class=p12black noWrap><SPAN class=p9orange>行銷工具--&gt;CRM
+                    --&gt; 註冊會員統計</SPAN></TD>
+                </TR></TBODY></TABLE></TD>
+            <TD align=right width="50%">&nbsp;</TD>
+          </TR>
+        </TBODY>
+  </TABLE>
+  
+  <table class="allborder" style="margin-bottom:10px" width="100%">
+  <tr>
+  <td>
+<TABLE class=p12black cellSpacing=0 cellPadding=0 width="85%"   align=center border=0 >
+        <FORM name=form1 id=form1 method=post action="admin_ticketrecord_save.php">        
+          <input type="hidden" name="Action" value="Search">
+          <TR>
+            <TD height=19 colspan="3" align=right>		 </TD>
+            </TR>
+          <TR>
+            <TD width="160" height="30" align=left class=p9black>註冊日期：</TD>
+            <TD height="1" colspan="2" align=left class=p9black>起始日期
+              <input  onMouseOver="this.className='box2'" onMouseOut="this.className='box1'"  id=begtime size=10  onClick="showcalendar(event, this)" onFocus="showcalendar(event,this);if(this.value=='0000-00-00')this.value=''" value='<?php echo $pub_starttime;?>' name='goods_starttime'>
+              - 結束日期
+              <input  onMouseOver="this.className='box2'" onMouseOut="this.className='box1'"  id=endtime size=10   onClick="showcalendar(event, this)" onFocus="showcalendar(event,this);if(this.value=='0000-00-00')this.value=''"  value='<?php echo $pub_endtime;?>' name='goods_endtime'>
+            </TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>性別：</TD>
+            <TD height="0" colspan="2" align=left class=p9black><input name="type" type="radio" checked="checked" />
+              不限
+              <input type="radio" name="type" />
+              男
+              <input type="radio" name="type" />
+              女</TD>
+            </TR>
+           <TR>
+             <TD height="30" align=left class=p9black>生日月份：</TD>
+             <TD height="0" colspan="2" align=left class=p9black>月份
+               <select name="month">
+                 <?php
+            for($k=1;$i<=12;$i++){
+			?>
+                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                 <?php	
+			}
+			?>
+                </select>
+             </TD>
+            </TR>
+           <TR>
+             <TD height="30" align=left class=p9black>年齡：</TD>
+             <TD height="0" colspan="2" align=left class=p9black><input size="4">
+               歲 -                <input size="4">
+              歲</TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>地區：</TD>
+            <TD height="0" colspan="2" align=left class=p9black>
+                    <input name="othercity" id="othercity" size="5" style="display:none">
+                    <select id="county" name="county">
+                    </select>
+                    <select id="province" name="province">
+                    </select>
+                    <select id="city" name="city">
+                    </select>
+                    <input name="ifallarea" type="checkbox" id="ifallarea" value="1" <?php if($_GET['ifallarea']=="1") echo "checked";?> />
+
+              不限地區</TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>經銷商：</TD>
+            <TD height="0" colspan="2" align=left class=p9black><?php
+							$Sql      = "select u.*  from `{$INFO[DBPrefix]}saler` u order by u.id desc";
+$Query_c    = $DB->query($Sql);
+$Num_area      = $DB->num_rows($Query_c);
+while ($Rs=$DB->fetch_array($Query_c)) {
+	$company .="<option value=".$Rs['id']." ";
+	if ($_GET['companyid'] == $Rs['id'])
+		$company .= " selected";
+	$company .= " >".$Rs['name']."</option>\n";
+}
+							?>
+                      <select name="companyid">
+                        <option value="0">請選擇經銷商</option>
+                        <?php echo $company;?>
+                      </select></TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>會員等級：</TD>
+            <TD height="30" colspan="2" align=left class=p9black><select><option value="0">請選擇會員等級</option></select></TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>訂閱電子報：</TD>
+            <TD height="30" colspan="2" align=left class=p9black><input name="type" type="radio" checked="checked" />
+              所有會員
+              <input type="radio" name="type" />
+              是
+              <input type="radio" name="type" />
+              否
+              <input type="radio" name="type" />
+              非會員訂閱</TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>&nbsp;</TD>
+            <TD height="30" colspan="2" align=left class=p9black><input type="submit" value="送出結果" /></TD>
+            </TR>
+          <TR>
+            <TD height="19" colspan="3" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          </FORM>
+        </TABLE>
+        
+</td>
+        </tr>
+        </table>
+<TABLE width="100%" border=0 cellPadding=0 cellSpacing=0 class="allborder">
+        <TBODY>
+          <TR>
+            <TD vAlign=top height=210><table class="p12black" cellspacing="0" cellpadding="0" width="85%"   align="center" border="0" >
+              <form name="form1" id="form2" method="post" action="admin_ticketrecord_save.php">
+                <input type="hidden" name="Action2" value="Search" />
+                <tr>
+                  <td height="19" colspan="5" align="right"></td>
+                </tr>
+                <tr>
+                  <td width="142" height="30" align="left" class="p9black">會員人數：</td>
+                  <td width="93" height="1" align="left" class="p9black">5688人</td>
+                  <td width="96" align="left" class="p9black"><input type="submit" value="匯出execl表" /></td>
+                  <td width="74" height="1" align="left" class="p9black"><input type="submit" value="儲存名單" /></td>
+                  <td width="532" align="left" class="p9black"><i class="icon-warning-sign" style="font-size:16px;color:#C00"></i> 匯出會員欄位請至 " <a href="admin_member_excel_sys.php">會員匯入匯出欄位設定</a> "</td>
+                </tr>
+                <tr>
+                  <td height="30" align="left" class="p9black">圖表：</td>
+                  <td height="0" colspan="4" align="left" class="p9black">只要長條圖和折線圖，Y軸人數，X軸日期(按月或其他可能切換)</td>
+                </tr>
+                <tr>
+                  <td height="30" align="left" class="p9black">&nbsp;</td>
+                  <td height="0" colspan="4" align="left" class="p9black">&nbsp;</td>
+                </tr>
+                <tr>
+                  
+                </tr>
+                <tr>
+                  <td height="19" colspan="5" align="left" class="p9black">&nbsp;</td>
+                </tr>
+              </form>
+            </table></TD>
+        </TR></TABLE>
+</div>
+<script language="javascript" src="../js/modi_bigarea1.js"></script>
+<script language="javascript">
+initCounty2(document.getElementById("province"), "<?php echo trim($_GET[province])?>")
+initZone2(document.getElementById("province"), document.getElementById("city"), document.getElementById("othercity"), "<?php echo trim($_GET[city])?>")
+</script>
+<div align="center"><?php include_once "botto.php";?></div>
+</BODY></HTML>

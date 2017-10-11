@@ -1,0 +1,19 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top"><{ section name=i loop=$pic_news }>
+      
+      <{ if $pic_news[i].title != '' }>
+      <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+        <tr>
+          <td width="11"><img src="<{ $template_dir }>/images/dot_news.gif"></td>
+          <td><{ $pic_news[i].ltitle }> </td>
+        </tr>
+      </table>
+      <{ /if }>
+      
+      <{ /section  }></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top"><a href="<{ $Site_Url }>/store/index.php?ncid=33&type=company">更多訊息</a> <img src="<{ $template_dir}>/images/arr000.gif" width="3" height="7" /></td>
+  </tr>
+</table>

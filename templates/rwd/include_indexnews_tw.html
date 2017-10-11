@@ -1,0 +1,63 @@
+<section class="padding-top-40 padding-bottom-40 noborder ">		
+
+ <div class="container" style="width:85%; max-width:1030px">        
+
+	<div class="row" style="border:rgba(170, 170, 170, 0.5) 1px solid !important">			
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-12 padding-20 margin-bottom-0" style="padding-left: 0 !important;">
+
+        <div class="news_title_box">
+
+           <h2 class="owl-featured noborder important-txt" style="font-family:'Times New Roman', serif; font-size:26px;font-weight:normal;">News&Events</h2>
+
+           <span style="height:40px;"><a class="btn-primary news_title_btn" style="color: #fff;" href="<{ $Site_Url }>/article/<{ $IndexNewClassId}>"><{$More_News}><!--更多消息--></a></span>
+
+           </div>
+
+        </div>
+
+        <div class="news_link_box col-lg-9 col-md-9 col-sm-12">
+
+        <{ section name=i loop=$pic_news1 }>
+
+        <div class="news_block" style="<{if $smarty.section.i.index neq 0}>padding-top:10px;<{else}>padding-top:3px;<{/if}> <{if $smarty.section.i.index lt 2}>border-bottom: 1px solid rgba(170, 170, 170, 0.4);padding-bottom:10px;<{/if}>">
+
+            <{ $pic_news1[i].nidated }> - <{ $pic_news1[i].nidate }> <{ $pic_news1[i].ltitle }>
+
+            
+
+        </div>
+
+        <{ /section  }>
+
+	   </div>
+
+    
+
+    </div>
+
+	
+
+   </div>	
+
+</section>
+
+    <!--<div class="col-md-6 col-sm-6" style="float: right;height: 455px;">
+
+    <{ include_php file="include/include_product_class_home.php" }>
+
+        
+
+    </div>
+
+    
+
+   <div class="col-md-6 col-sm-6">
+
+   	<script language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=index_adv00" type="text/javascript"></script>
+
+   </div>-->
+
+    

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title><{ $Subject_name }> - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<meta property="og:title" content="<{ $HtmlTitle }>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="description" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<{ include_php file="include/include_ga.php" }>
+
+
+<!--原有的js-->
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>//js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>//js/jquery/jquery.form.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.validate.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="javascript">
+function checkStorage(id,color,size,detail_id){
+	var cobj,sobj,cvalue,svalue;
+	if (color==1){
+		cobj = document.getElementById("xycolor" + id);
+		cvalue = cobj.value;
+	}
+	//alert(cvalue);
+	if (size==1){
+		sobj = document.getElementById("xyxize" + id);
+		svalue = sobj.value;
+	}
+	$.ajax({
+				url: "../../product/checkProduct.php",
+				data: 'checktype=1&gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&act=checkstorage' + '&detail_id=' + detail_id + '&checktype=1',
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg == 0 || msg == ""){
+				   		$('#showstorage' + id).html("<div class='col-md-6 col-sm-6 col-xs-6 nopadding'><div class='noborder margin-top-10 list_b' style='border: solid #999 1px;padding-top:1px; padding-right:0px; padding-bottom:1px; padding-left:0px; width:100%;    text-align: center;'>缺貨中</div></div>");
+						$('#count' + id).find("option").remove();
+						$('#count' + id).append( "<option value=\"0\">0</option>" );
+						$('#cart' + id).css("display","none");
+					}else{
+						$('#showstorage' + id).html("");
+						$('#count' + id).find("option").remove();
+						if (msg><{$buy_product_max_num}>)
+							count = <{$buy_product_max_num}>
+						else
+							count = msg
+						for(i=0;i<=count;i++){
+							$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
+							$('#count' + id).val("1");
+						}
+						$('#cart' + id).css("display","");
+					}
+				}
+	});
+
+}
+function buysale(id,color,size,detail_id,count){
+	var cobj,sobj,cvalue,svalue;
+	if (color==1){
+		cobj = document.getElementById("xycolor" + id);
+		cvalue = cobj.value;
+	}
+	//alert(id);
+	if (size==1){
+		sobj = document.getElementById("xyxize" + id);
+		svalue = sobj.value;
+	}
+	$.ajax({
+				url: "../../modules/discount/buy_discount.php",
+				data: 'gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&count='+count+'&act=buy&saleid=<{$smarty.get.subject_id}>&detail_id=' + detail_id,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg == 1)
+				   		showsaleshopping();
+				}
+	});
+}
+function showsaleshopping(){
+	$.ajax({
+				url: "../../modules/discount/shopping_discount.php",
+				data:"saleid=<{$smarty.get.subject_id}>",
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg != ""){
+				   		$('.showbuyshopping').html(msg);						}
+				}
+	});
+}
+</script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<!--原有的js-->
+
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+		<!--浮動廣告-->
+		<{ if $Ear_radio eq 1 }>
+		<{ include_php file="modules/advertising/ear.php" }>
+	    <{ /if }>
+  		<!--/浮動廣告-->
+        <!-- PAGE HEADER-->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h3 class="size-18 hidden"><{ $Subject_name }></h3>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li class="active">促銷活動</li>
+						<li class="active"><{ $Subject_name }></li>
+
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+<section>
+				<div class="container">
+
+					<div class="row">
+                    	<!-- 上面購物清單開始 -->
+						<div class="col-md-12 col-sm-12">
+                        <div class="margin-bottom-20">活動時間：<font style="font-weight:bold; color:#C30" ><{$start_date}>~<{$end_date}> </font><{if $min_money>0}><br>
+              購買超過<font style="font-weight:bold; color:#C30"><{$min_money}></font>元商品可參加此活動<{/if}><{if $min_count>0}>，購買超過<font style="font-weight:bold; color:#C30"><{$min_count}></font>件商品可參加此活動<{/if}> <{if $mianyunfei>0}>，購買超過<font style="font-weight:bold; color:#C30"><{$mianyunfei}></font>元商品可免運費。<{/if}><{if $point>0}> <br>
+              ※參加次活動贈送<font style="font-weight:bold; color:#C30"><{$point}></font>點紅利<{/if}></div>
+              			
+						<{if $Subject_content neq''}>
+                        <div class="product_banner margin-bottom-20"><{$Subject_content}></div>
+                        <{/if}>
+
+
+                        <div class="showbuyshopping margin-bottom-20">
+
+      					</div>
+
+                         <!-- 商品列表開始 -->
+						<div >
+                        <ul class="shop-item-list row list-inline nomargin">
+                  <{ section name=Comm loop=$sale_p_array }>
+                  <li class="col-sm-5th col-md-5th padding-bottom-50 product_float cellnum5">
+						<div class="shop-item">
+              			<div class="thumbnail noborder nopadding">
+                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      <{/if}>
+                                        <a href="<{ $Site_Url }>/product/detail<{ $sale_p_array[Comm].gid }>" target='_blank'>
+                    <img src='<{if $sale_p_array[Comm].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{ $sale_p_array[Comm].smallimg }><{/if}>' alt="<{ $sale_p_array[Comm].goodsname }>" />
+
+                    </a>
+                    <{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+                     </div>
+			<!-- /商品圖片 -->
+
+
+                    <div class="shop-item-summary cellnum5">
+                     <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $sale_p_array[Comm].sale_name }></div>
+                    <div style="height:40px; overflow:hidden; text-align: left !important;"><h2><a href="<{ $Site_Url }>/product/detail<{ $sale_p_array[Comm].gid }>" target='_blank'><{ $sale_p_array[Comm].goodsname }></a></h2></div>
+                    <input type="hidden" name="storage<{ $sale_p_array[Comm].gid }>" id="storage<{ $sale_p_array[Comm].gid }>" value="<{ $sale_p_array[Comm].storage }>">
+                    <div style="vertical-align:top;padding: 5px 0 5px 0;" align="left"><span <{ if $P_levelprice>0 || $P_iftimesale>0 }><{else}>class="shop-item-price"<{/if}>  <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}> id="price<{ $sale_p_array[Comm].gid }>">NT. <{$sale_p_array[Comm].pricedesc }></span></div>
+                    <{if $sale_p_array[Comm].color neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-25 size-13" style="width:100%;border-radius: 0px;" name="xycolor<{ $sale_p_array[Comm].gid }>" id="xycolor<{ $sale_p_array[Comm].gid }>" onChange="checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>
+
+                        1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val());"> <{ $sale_p_array[Comm].color }>
+                      </select>
+                    </div>
+                    <{/if}>
+
+                    <{if $sale_p_array[Comm].size neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-25 size-13" style="width:100%;border-radius: 0px;" name="xyxize<{ $sale_p_array[Comm].gid }>" id="xyxize<{ $sale_p_array[Comm].gid }>" onChange="checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>
+
+                        1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val());"> <{ $sale_p_array[Comm].size }>
+                      </select>
+                    </div>
+                    <{/if}>
+                    <{if $sale_p_array[Comm].detail_num neq ""}>
+                    <div  class="clearfix shop-list-options margin-top-10">
+                      <select class="nopadding height-25" style="width:100%;border-radius: 0px;" name="xydetail<{ $sale_p_array[Comm].gid }>" id="xydetail<{ $sale_p_array[Comm].gid }>" onChange="<{ section name=i loop=$sale_p_array[Comm].detail }>if(this.value == <{$sale_p_array[Comm].detail[i].detail_id}>)$('#price<{ $sale_p_array[Comm].gid }>').html('<{$sale_p_array[Comm].detail[i].detail_pricedes}>');<{/section}>checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>
+
+                        1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val());">
+                        <{ section name=i loop=$sale_p_array[Comm].detail }>
+                        <{if $smarty.section.i.index eq 0}>
+                        <script language="javascript">
+						$('#price<{ $sale_p_array[Comm].gid }>').html("<{$sale_p_array[Comm].detail[i].detail_pricedes}>")
+						</script>
+                        <{/if}>
+                        <option value="<{$sale_p_array[Comm].detail[i].detail_id}>"><{$sale_p_array[Comm].detail[i].detail_name}>
+                        <{/section}>
+                      </select>
+                    </div>
+                    <{/if}>
+                    <div  class="col-md-6 col-sm-6 col-xs-6 clearfix shop-list-options padding-right-5 margin-top-10 nopadding-left" style="text-align:left !important; ">
+                      <select class="nopadding" style="width:100%;border-radius: 0px;height:26px;" name="count<{ $sale_p_array[Comm].gid }>" id="count<{ $sale_p_array[Comm].gid }>">
+                      </select>
+
+
+                      <div style="clear:both"></div>
+                    </div>
+
+
+
+                    <div id="showstorage<{ $sale_p_array[Comm].gid }>"></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 nopadding"  id="cart<{ $sale_p_array[Comm].gid }>"><a class="btn btn-sm margin-top-10 list_b" href="javascript:" onClick="buysale(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>,$('#xydetail<{ $sale_p_array[Comm].gid }>').val(),$('#count<{ $sale_p_array[Comm].gid }>').val());">選 購</a></div>
+
+                    <script language="javascript">
+								checkStorage(<{ $sale_p_array[Comm].gid }>,<{if $sale_p_array[Comm].color neq ""}>1<{else}>0<{/if}>,<{if $sale_p_array[Comm].size neq ""}>1<{else}>0<{/if}>);
+								</script>
+                                </div>
+
+      <div style="clear:both"></div>
+        				</div>
+                  </li>
+                  <{/section}>
+                </ul>
+
+
+                        <!--商品列表結束-->
+                        <!-- 活動說明開始 -->
+      					<div class="margin-bottom-20 padding-20" style=" border:1px solid #CCC;">
+						<span class="bold size-18 line-height-30">備註：</span><br>
+      						<{$remark}>
+      					</div>
+                        <!-- 活動說明結束 -->
+      					<!-- 頁數開始 -->
+                        <div class="p9black"  align="center" >
+      						<{ $ProductPageItem }>
+      					</div>
+                        <!-- 頁數結束 -->
+
+                        </div>
+                        <!--上面購物清單結束-->
+
+
+  </div>
+  <!--row結束-->
+  </div>
+  <!--container結束-->
+</section>
+<!--section結束-->
+<{ include_php file="include/bottom.php" }>
+<script language="javascript">
+showsaleshopping();
+</script>
+</body>
+</html>

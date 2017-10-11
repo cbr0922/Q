@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE><{ $PoolTitle_say }>：<{ $Poll_title }></TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><LINK href="<{ $template_dir }>/css/v.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<BODY leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="400" height="300" border="0" cellspacing="0" cellpadding="0" align="center">
+  <TR>
+    <TD align="center" valign="top" bgcolor="#CB1238">
+<TABLE width="350" border="0" cellspacing="0" cellpadding="0"><TR><TD>&nbsp;</TD>
+</TR><TR><TD><{ $PoolTitle_say }>：<{ $Poll_title }></TD></TR></TABLE><SPAN class="v1"><STRONG><{ $PollTotal_say }><!--总票数--></STRONG>：<{ $Total }></SPAN>
+<TABLE width="350" border="0" cellspacing="1" cellpadding="0">
+      <TR align="center" bgcolor="#F97791"> 
+        <TD width="90" height="25" class="v1"><FONT color="#FFFFFF"><STRONG><{ 
+          $PollOption_say }> 
+          <!--选项-->
+          </STRONG></FONT></TD>
+        <TD width="260" class="v1"><FONT color="#FFFFFF"><STRONG><{ $PollScale_say 
+          }> 
+          <!--比例-->
+          </STRONG></FONT></TD>
+      </TR>
+<{section name=poll loop=$Poll_view}>
+<TR bgcolor="#FFFFFF"><TD height="23" nowrap class="v1">&nbsp;&nbsp;<{$Poll_view[poll].subtitle}>：</TD>
+<TD>
+<TABLE align="left">
+  <TR><TD width="54" align="left"><SPAN class="v1">&nbsp;<{$Poll_view[poll].pollpercent}>％</SPAN></TD>
+  <TD align="left"><IMG src="<{ $template_dir }>/images/red.gif" width="<{$Poll_view[poll].pollwidth*300 }>" height="6"></TD>
+  </TR></TABLE></TD></TR>
+ <{/section}>
+</TABLE>
+</body>
+</html>

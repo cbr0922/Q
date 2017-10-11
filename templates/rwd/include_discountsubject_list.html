@@ -1,0 +1,8 @@
+<{if $Array_sub[0].subject_name neq ""}><img src="<{ $template_dir }>/images/discountsubject.gif"  /><{/if}>
+        <div id="left_menu"> <{ section name=sub_list loop=$Array_sub }>
+          <ul  class="<{if $Array_sub[sub_list].dsid eq $smarty.get.subject_id}>level2_cur<{else}>level2<{/if}>">
+            <a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $Array_sub[sub_list].dsid }>" >
+            <li><{ $Array_sub[sub_list].subject_name }></li>
+            </a>
+          </ul>
+          <{ /section }> </div>

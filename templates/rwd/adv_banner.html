@@ -1,0 +1,16 @@
+<!-- SLIDER -->
+			<section class="padding-top-30 padding-bottom-30 noborder">
+				<div class="container">
+
+					<!-- OWL SLIDER -->
+					<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"items": 1, "autoHeight": true, "navigation": true, "pagination": false, "transitionStyle":"fade", "progressBar":"false", "autoPlay": 3000, "stopOnHover": true}' >
+
+						<{ section name=list loop=$adv_array }>
+							<A title="<{$adv_array[list].title}>" href="<{$adv_array[list].url}>"><{$adv_array[list].img}></A>
+                        <{/section}>
+					</div>
+					<!-- /OWL SLIDER -->
+				</div>
+			</section>
+<!-- /SLIDER -->
+

@@ -1,0 +1,61 @@
+<!-- SWIE SLIDER -->
+
+		<link href="<{ $Site_Url }>/assets/plugins/slider.swiper/dist/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
+		    
+
+<section id="slider" class="height-550">
+
+
+
+				<!--
+
+					SWIPPER SLIDER PARAMS
+
+					
+
+					data-effect="slide|fade|coverflow"
+
+					data-autoplay="2500|false"
+
+				-->
+
+				<div class="swiper-container" data-effect="slide" data-autoplay="false">
+
+					<div class="swiper-wrapper">
+
+
+
+						<{ section name=list loop=$adv_array }>
+
+						<div class="swiper-slide" style="background-image: url('/UploadFile/AdvPic/<{$adv_array[list].adv_left_img}>');">
+
+							
+
+						</div>
+
+                        <{/section}>
+
+
+
+					</div>
+
+
+
+					<!-- Swiper Pagination -->
+
+					<div class="swiper-pagination"></div>
+
+
+
+					<!-- Swiper Arrows -->
+
+					<div class="swiper-button-next"><i class="icon-angle-right"></i></div>
+
+					<div class="swiper-button-prev"><i class="icon-angle-left"></i></div>
+
+				</div>
+
+					
+
+			</section>

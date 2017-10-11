@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{ $HtmlTitle }> -- <{  $Info_modi }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/newarea.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="990" border="0" align="center" cellpadding="0" cellspacing="0" id="container">
+  <tr>
+    <td>
+<table width="956" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" id="A">
+      <tr>
+        <td width="201" height="400" valign="top" style="padding-right:11px;">
+<div><img src="<{ $template_dir }>/images/title-member.gif" border="0"></div>
+    <div class="block-category" style="margin-bottom:15px;">
+<{ include_php file="member/left.php" }>
+<img src="<{ $template_dir }>/images/foot-blue.gif" width="190" height="12" />
+</div>
+        </td>
+    <td width="755" valign="top">
+    <div id="title_s">
+  <div id="title_s_left">
+    <h1><{ $Info_modi }></h1>
+  </div>
+  <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <a href="<{$Site_Url}>/member/">會員中心</a> <span class="style100">／</span> <{ $Info_modi }>
+  </div>
+</div>
+      <TABLE class=p9black cellSpacing=0 cellPadding=3 width="95%"  align=center border=0>      <form enctype="multipart/form-data" action="member_save.php" name="form1" method="post">
+        <input type="hidden" name="user_id" value="<{ $Sessid }>">
+        <input type="hidden" name="Action" value="Update_dianzibao">
+        <input name="modicity" type="hidden"  value="1">
+          <TBODY>          <{ if $companyname != '' }>          <{ /if }>          <{if $pic neq ""}>          <{/if}>
+          <TR>
+            <TD colspan="3"  align=left>米米福利社會員可以免費享有最新商品活動及優惠資訊通知</TD>
+            </TR>
+          <TR>
+            <TD colspan="3"  align=left><input name="dianzibao" type="radio" value="1" <{ if $dianzibao==1 }> checked <{ /if }>>
+                                  訂閱優惠電子報
+                                  </TD>
+          </TR>
+          <TR>
+            <TD colspan="3"  align=left><input type="radio" name="dianzibao" value="0" <{ if $dianzibao==0 }> checked <{ /if }>>
+                                  取消優惠電子報</TD>
+            </TR>
+          <TR>
+            <TD class=p9blue align=right width="7%">&nbsp;</TD>
+            <TD class=p9rednothrough width="93%"><INPUT class=inputstyle type=submit name='Submit' value='<{$Submit_say }>' ></TD>
+          </TR></form>
+        </TABLE>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+</td>
+  </tr>
+</table>
+</body>
+</html>
+<script language="JavaScript">
+$(function(){
+        $("select").css("width","100px");
+		 var area;
+$.ajax({
+				url: "../area.php",
+				type:'get',
+				dataType:"json",
+				success: function(msg){
+					area = msg;
+					 $.area(area);
+					$('#county').val("<{$Country}>");$("#county").trigger('change');
+					 $('#province').val("<{$canton}>");$("#province").trigger('change');
+					 $('#city').val("<{$city}>");$("#city").trigger('change');
+				}
+			});
+        });
+</script>

@@ -1,0 +1,44 @@
+<a class="noborder hidden_menu_m margin-top-10" style="border-radius:0px;background: none !important;width:120px;" href="#"><div style="width:100%; float:left; font-size:25px;"><i class="icon-shopping-cart"></i></div><div style="width:100%; float:left;line-height: 20px;">購物車(<{if $CountItem eq ''}>0<{else}><{ $CountItem}><{/if}>)</div><!--<span class="arrow"></span>-->
+					</a>
+    <a class="noborder hidden-lg" href="javascript:void(0);" style="background: none !important;">
+
+		<span class="hidden-lg" style="position:relative"><i class="fa fa-shopping-cart"></i><span class="badge badge-aqua btn-xs badge-corner hidden-lg" style="right:-15px !important;"><{if $CountItem eq ''}>0<{else}><{ $CountItem}><{/if}></span></span>
+	</a>
+	<{ if $CountItem > 0 }>
+	<div class="quick-cart-box" id="quick-cart-box"  style="position:fixed;right:30px !important;">
+		<h4>Shop Cart</h4>
+
+		<div class="quick-cart-wrapper">
+			<{ section name=list loop=$Cart_item }>
+				<{ section name=list1 loop=$Cart_item[list].goods }>
+				<a href="<{ $Site_Url }>/product/detail<{$Cart_item[list].goods[list1].gid}>"><!-- cart item -->
+					<img class="img-50" src="<{if $Cart_item[list].goods[list1].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$Cart_item[list].goods[list1].smallimg}><{/if}>" alt="" />
+					<h6><span><{$Cart_item[list].goods[list1].count}>x</span> <{$Cart_item[list].goods[list1].goodsname}></h6>
+					<small>NT$ <{$Cart_item[list].goods[list1].price}></small>
+				</a><!-- /cart item -->
+				<{ /section }>
+			<{ /section }>
+			<!-- cart no items example -->
+			<!--
+			<a class="text-center" href="#">
+				<h6>0 ITEMS ON YOUR CART</h6>
+			</a>
+			-->
+		</div>
+
+		<!-- quick cart footer -->
+		<div class="quick-cart-footer clearfix">
+			<a href="<{ $Site_Url }>/shopping/shopping.php" class="btn btn-primary btn-xs pull-right">結帳</a>
+			<span class="pull-left cart_top_t"><strong>總計:</strong> NT$ <{$totalPrices}></span>
+		</div>
+		<!-- /quick cart footer -->		<{/if}>
+	</div>
+	<script>
+		//showcart
+		$("#quick-cart").mouseover(function(){
+			$("#quick-cart-box").show();
+		});
+		$(".quick-cart").mouseout(function(){
+			$("#quick-cart-box").hide();
+		});
+	</script>

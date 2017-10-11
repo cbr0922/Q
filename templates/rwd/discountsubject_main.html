@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<title>本館超值破盤專區 - <{ $site_name }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+
+  <div id="body_center"> <{ include_php file="include/menu.php" }>
+
+    <div id="title_l" style="margin-bottom:15px;" >
+
+      <div id="title_l_left"><a href="<{ $Site_Url }>">首頁</a> <{ section name=list loop=$class_banner }>  &nbsp;>&nbsp; <a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{/section}></div>
+
+      <div  id="title_l_right" ></div>
+
+    </div>
+
+    <div id="body_left" style="padding-top:0px;">
+<{if $banner!=""}> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$banner}>" style="margin-bottom:10px;"/> <{/if}>
+      <!--左邊開始-->
+
+
+<{ include_php file="include/include_product_class.php" }>
+</div>
+
+    <!--左邊結束-->
+
+<div id="body_right" style="padding-top:0px;">
+<{ section name=Comm loop=$discount_array }>
+<div class="dis_main">
+<a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><{ $discount_array[Comm].subject_name }></a>
+<span>
+<a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>">more</a> </span>
+</div>
+<div class="dis_main_inside">
+
+<div class="dis_main_image">
+<{ if $discount_array[Comm].dsid neq "" }><a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{$discount_array[Comm].dis_pic}>" /></a><{/if}>
+</div>
+<{ section name=list loop=$discount_array[Comm].goods }>
+<div class="dis_main_product" style="<{if $smarty.section.list.index eq 5}>border-right:0px;<{/if}>">
+<table width="97" border="0" cellspacing="0" cellpadding="0" >
+  <tr>
+    <td height="109" align="center" valign="middle" > 
+    <div style="width:97px;height:97px; overflow:hidden; position:relative;"><div style="position:absolute;left:-6px;top:-1px;">
+        <a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{ $discount_array[Comm].goods[list].smallimg }>" border="0" name="goodpic"></a>
+        </div>
+        </div>      </td>
+  </tr>
+ <!-- <tr>
+        <td height="20" align="left" valign="middle" ><font color="#bb1c21"><{$discount_array[Comm].goods[list].sale_name}></font></td>
+      </tr>-->
+   <tr>
+        <td height="36" align="left" valign="top">
+        <div style="overflow:hidden;height:36px;">
+        <a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $discount_array[Comm].dsid }>"><{$discount_array[Comm].goods[list].goodsname}></a>
+        </div>
+        </td>
+      </tr>
+ <tr>
+        <td height="20" align="left" valign="middle" ><!--<s>NT$&nbsp;<{$discount_array[Comm].goods[list].price}></s>&nbsp;&nbsp;&nbsp;--><span class="price"><strong>NT$&nbsp;<{$discount_array[Comm].goods[list].pricedesc}></strong></span></td>
+      </tr>
+</table>
+</div>
+<{/section}>
+<div style="width:5px; position:absolute; right:0px; height:195px; z-index:1; background:#ffffff;">&nbsp;
+</div>
+</div>
+<{/section}>
+</div>
+  </div>
+  <!--右邊邊結束-->
+</div>
+<!--身體結束-->
+
+<div style="clear:both;"></div>
+
+<div style="display:none; cursor:default" id="showcompare"></div>
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

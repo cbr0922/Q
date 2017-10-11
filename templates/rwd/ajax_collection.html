@@ -1,0 +1,45 @@
+<div class="col-md-12 col-sm-12 margin-bottom-10">
+<div style="float:left">
+<a href="../member/Collection_list.php">更多追蹤清單&nbsp;<i class="icon-double-angle-right"></i></a>
+</div>
+<div style="float:right">
+<a href="javascript:void(0);" onClick="javascript:getshowshopping();">關閉 <i class="icon-remove-sign"></i></a>
+</div>
+<div style="clear:both"></div>
+</div>
+<table class="responsive">
+  <thead>
+    <tr  bgcolor="#eaeaea">
+      <th>序號</th>
+      <th>圖片</th>
+      <th>商品名稱</th>
+      <th>售價</th>
+    </tr>
+  </thead>
+  <tbody>
+  <{ section name=list loop=$Collection_list }>
+    <tr bgcolor="#fff">
+      <td data-label="序號">
+      <{$Collection_list[list].i}></td>
+      <td data-label="圖片">
+      <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Collection_list[list].gid }>">
+  <img src='<{if $Collection_list[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../<{ $Gpicpath }>/<{ $Collection_list[list].smallimg }><{/if}>' width=70 border=0>
+  
+  </a></td>
+      <td data-label="商品名稱">
+      <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Collection_list[list].gid }>"><{$Collection_list[list].goodsname}></a></td>
+      <td data-label="售價">
+      <{$Collection_list[list].pricedesc}></td>
+    </tr>
+    <{ /section }>
+ </tbody>
+</table>
+<div class="col-md-12 col-sm-12 margin-bottom-10">
+<div style="float:left">
+第<{$curpage}>頁，共<{$pagecount}>頁
+</div>
+<div style="float:right">
+頁數： <{ section name=list loop=$page_array }><a href="javascript:void(0);" onclick="javascript:getshowcollection(<{$page_array[list].page}>);"><{$page_array[list].page}></a><{/section}>
+</div>
+<div style="clear:both"></div>
+</div>

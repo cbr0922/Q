@@ -1,0 +1,34 @@
+<!--一二級分類全部開合效果-->
+<link href="<{$Site_Url}>/js/css/class_menu.css" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+$(function(){
+$(".subNav").click(function(){
+			$(this).toggleClass("currentDd").siblings(".subNav").removeClass("currentDd")
+			$(this).toggleClass("currentDt").siblings(".subNav").removeClass("currentDt")
+			
+			// 修改数字控制速度， slideUp(500)控制卷起速度
+			$(this).next(".navContent").slideToggle(500).siblings(".navContent").slideUp(500);
+	})	
+})
+</script>
+<{if $banner neq ""}> <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$banner}>"> <{/if}>
+<div><img src="<{ $template_dir }>/images/product.gif"  /></div>
+<!--<div id="left_menu">選單外框開始-->
+<div class="subNavBox" style="margin-bottom:10px"><!--選單開始-->
+<{ section name=list loop=$ProductListAll start=0 }>
+<div class="subNav <{if $ProductListAll[list].bid eq $smarty.get.bid || $stop_id eq $ProductListAll[list].bid}>currentDd currentDt<{else}><{/if}>">
+<{if $ProductListAll[list].pic1 neq ""}> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>"  border="0" title="<{$ProductListAll[list].catname}>" id="imgclass<{$ProductListAll[list].bid}>" onmouseover="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic2  }>';" onmouseout="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>';" /> <{else}> <{$ProductListAll[list].catname}> <{/if}>
+</div>
+
+  <ul class="navContent" <{if $ProductListAll[list].bid eq $smarty.get.bid || $stop_id eq $ProductListAll[list].bid}>style="display:block"<{else}><{/if}>> <{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+  <{if $ProductListAll[list].sub[list1].catname neq ""}>
+  <li>
+ <a href="<{ $Site_Url }>/product/<{$ProductListAll[list].sub[list1].bid}>">   <{if $ProductListAll[list].sub[list1].manyunfei>0}><img src="<{ $template_dir }>/images/icon-bag.gif" border="0"><{else}><{if $ProductListAll[list].sub[list1].color eq 1}> <img src="<{ $template_dir }>/images/an0.gif" width="12" height="16" border="0"> <{/if}> <{/if}> 
+    <{$ProductListAll[list].sub[list1].catname}></a>
+  </li><{/if}>
+  <{/section}>
+  </ul>
+  
+<{/section}>
+</div><!--選單結束-->
+<!--</div>選單外框結束-->

@@ -1,0 +1,75 @@
+<?php
+@ob_start();
+//session_start();
+include "Check_Admin.php";
+include "../language/".$INFO['IS']."/Order_Pack.php";
+include "../language/".$INFO['IS']."/Good.php";
+include "../language/".$INFO['IS']."/Cart.php";
+include "../language/".$INFO['IS']."/Admin_Product_Pack.php";
+@header("Pragma: no-cache");
+@header("Content-type: text/html; charset=utf-8");
+	@ob_implicit_flush(0);
+	$Creatfile ="order_".date("Y-m-d");
+	//@header("Content-Type: text/html;  charset=UTF-8; name=\"$Creatfile.csv\"");
+	@header("Content-Type: text/x-delimtext;  name=\"".$Creatfile.".csv\"");
+	@header("Content-disposition: attachment;filename=\"".$Creatfile.".csv\"");
+	@header("Content-Type: application/ms-excel;  name=\"".$Creatfile.".csv\"");
+
+
+$file_string .= "序號,貨號,商品名稱,尺寸,顏色,規格,庫存量\n";
+echo iconv("UTF-8","big5",$file_string);
+
+
+
+$Where    = $_GET['skey']!="" ?  " and ( g.goodsname like '%".trim(urldecode($_GET['skey']))."%' ) "  : $Where ;
+$Where2    = $_GET['skey']!="" ?  " and ( od.goodsname like '%".trim(urldecode($_GET['skey']))."%' )"  : $Where2 ;
+
+$Sql      = "select g.*,bc.* from `{$INFO[DBPrefix]}goods` g left join `{$INFO[DBPrefix]}bclass`  bc  on (g.bid=bc.bid)  where 1=1 " . $Where;
+$Sql      = $Sql." group by g.gid order by g.idate desc , g.goodorder desc ";
+
+$Query    = $DB->query($Sql);
+$Num      = $DB->num_rows($Query);
+$i = 0;
+while ($Rs=$DB->fetch_array($Query)) {
+		
+		echo $file_string =($i+1) . "," .$Rs['bn'] . "," . iconv("UTF-8","big5",$Rs['goodsname']) . ",,,," . $Rs['storage']  . "\n";
+		if (trim($Rs['good_color'])!=""){
+			$Good_color_array    =  explode(',',trim($Rs['good_color']));
+	
+			if (!is_array($Good_color_array)){
+				$Good_color_array = array("");
+			}
+		}else {
+			$Good_color_array = array("");
+		}
+		if (trim($Rs['good_size'])!=""){
+			$Good_size_array    =  explode(',',trim($Rs['good_size']));
+	
+			if (!is_array($Good_color_array)){
+				$Good_size_array = array("");
+			}
+		}else {
+			$Good_size_array = array("");
+		}
+		$Sql_s = "select * from `{$INFO[DBPrefix]}storage` where goods_id='" . $Rs['gid'] . "' and (color!='' or size!='')";
+		$Query_s    = $DB->query($Sql_s);
+		while ($Rs_s=$DB->fetch_array($Query_s)) {
+			if ((in_array($Rs_s['color'],$Good_color_array) || trim($Rs_s['color']) == "") && (in_array($Rs_s['size'],$Good_size_array) || trim($Rs_s['size'])=="")){
+				$goods_Sql = "select * from `{$INFO[DBPrefix]}attributeno` where gid='" . $Rs['gid'] . "' and size='" . $Rs_s['size'] . "' and color='" . $Rs_s['color'] . "'";
+	$goods_Query =  $DB->query($goods_Sql);
+	$goods_Num   =  $DB->num_rows($goods_Query );
+	if ($goods_Num>0){
+		$goods_Rs = $DB->fetch_array($goods_Query);
+		$goodsno = ($goods_Rs['goodsno']);
+	}
+				echo $file_string ="," .$goodsno . ",," . iconv("UTF-8","big5",$Rs_s['size']) . "," . iconv("UTF-8","big5",$Rs_s['color']) . ",," . $Rs_s['storage']  . "\n";
+			}
+		}
+		$Sql_s = "select * from `{$INFO[DBPrefix]}goods_detail` where gid='" . $Rs['gid'] . "' ";
+		$Query_s    = $DB->query($Sql_s);
+		while ($Rs_s=$DB->fetch_array($Query_s)) {
+			echo $file_string ="," .$Rs_s['detail_bn'] . ",,,," . iconv("UTF-8","big5",$Rs_s['detail_name']) . "," . $Rs_s['storage']  . "\n";
+		}
+		$i++;
+}
+?>

@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.bgrepeat {
+	BACKGROUND-POSITION: center top;
+	BACKGROUND-REPEAT: repeat-x;
+	background-image: url(<{ $template_dir }>/images/top_back.jpg);
+}
+body {
+	background-color: #333333;
+}
+-->
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="764" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><{ include_php file="menu.php" }></td>
+  </tr>
+  <tr>
+    <td background="<{ $template_dir }>/images/back.jpg"><table width="764" height="250" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="216" valign="top" background="<{ $template_dir }>/images/leftback.jpg">
+            <div align="center"><img src="<{ $template_dir }>/images/member.jpg" width="216" height="38">><div align="left">			
+			<IFRAME name=top marginWidth=0 marginHeight=0  src="<{ $Site_Url }>/member/login_box.php?url=<{ $url_From }>" frameBorder=no width="229"   scrolling=no height=150 topmargin="0" leftmargin="0"></IFRAME>
+			</div>
+ <{ include_php file="search/search_style_one.php" }> 
+              <table width="181" border="0" align="center" cellpadding="2" cellspacing="0">
+                <tr>
+                  <td height="27" background="<{ $template_dir }>/images/lbannerback.jpg"><div align="center" class="p9white"><{ $ShopEvent_say }>
+                                        <!--最新消息-->
+                  </div></td>
+                </tr>
+                <tr>
+                  <td height="62">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<{ section name=js_list loop=$JsProduct }>
+        <tr>
+          <td valign="top">
+            <div align="left"><{ strip }><{ include_php file="../article/include_article.php" }><{/strip }> </div></td>
+        </tr>
+<{ /section }>
+                  </table></td>
+                </tr>
+              </table>
+            </div></td>
+          <td width="548" valign="top"><div align="center">
+              <table width="513" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="27" background="<{ $template_dir }>/images/zback.jpg"><table width="97%" height="19" border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td>  <span class="p9white">  <{ $ProductList_say }></span></td>
+                        <td><div align="right"></div></td>
+                      </tr>
+                  </table></td>
+                </tr>
+                <tr>
+                  <td valign="top"> <br>
+                      <table width="100%" border="0" cellpadding="2" cellspacing="0">
+                        <tr>
+                          <td align="center" valign="top"> <{ if $ProNav_gid1 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname1 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn1}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid1 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img1 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price1 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js1_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js1_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js1_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js1_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid1 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                          <td align="center" valign="top"> <{ if $ProNav_gid2 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname2 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn2}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid2 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img2 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price2 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js2_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js2_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js2_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js2_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid2 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top"> <{ if $ProNav_gid3 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname3 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn3}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid3 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img3 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price3 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js3_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js3_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js3_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js3_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid3 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                          <td align="center" valign="top"><{ if $ProNav_gid4 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname4 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn4}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid4 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img4 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price4 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js4_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js4_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js4_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js4_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid4 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top"> <{ if $ProNav_gid5 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname5 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn5}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid5 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img5 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price5 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js5_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js5_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js5_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js5_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid5 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                          <td align="center" valign="top"><{ if $ProNav_gid6 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname6 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn6}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid6 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img6 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price6 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js6_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js6_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js6_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js6_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid6 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top"><{ if $ProNav_gid7 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname7 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn7}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid7 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img7 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price7 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js7_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js7_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js7_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js7_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid7  }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                          <td align="center" valign="top"><{ if $ProNav_gid8 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname8 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn8}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid8 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img8 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price8 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js8_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js8_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js8_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js8_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid8  }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top"><{ if $ProNav_gid9 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname9 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn9}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid9 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img9 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price9 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js9_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js9_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js9_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js9_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid9  }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                          <td align="center" valign="top"><{ if $ProNav_gid10 != '' }>
+                                    <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0">
+                                      <tr align="left" valign="bottom" bgcolor="">
+                                        <td height="37" colspan="2" background="<{ $template_dir }>/images/rtableback.jpg"class="p"><img src="<{ $template_dir }>/images/index_10.gif" width="9" height="9">&nbsp;<{ $ProNav_goodsname10 }> &nbsp;(<{ $bn_say }>:<{ $ProNav_bn10}>)</td>
+                                      </tr>
+                                      <tr align="left" valign="top">
+                                        <td height="2" colspan="2" class="p"></td>
+                                      </tr>
+                                      <tr bgcolor="E5E8FD">
+                                        <td width="107" height="60" align="left" valign="top">
+                                          <table width="100" height="100" border="0" cellpadding="0" cellspacing="0" bordercolor="">
+                                            <tr>
+                                              <td align="left" valign="top"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid10 }>'> <IMG src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProNav_img10 }>" width=100 height=100  border=0></A></td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="center" valign="top">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p">
+                                            <tr>
+                                              <td align="right" nowrap><{ $yprice_say }>：</td>
+                                              <td nowrap><s><{ $ProNav_price10 }></s><{ $Yuan }>&nbsp;</td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxQg_say }>
+                                                            <!--起購價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js10_num1 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $JxPrice_say }>
+                                                            <!--集殺價-->
+                  ： </td>
+                                              <td nowrap class="p"><{ $js10_num5 }><{ $Yuan }></td>
+                                            </tr>
+                                            <tr valign="top">
+                                              <td class="p" align="RIGHT" nowrap> <{ $SjTotalNum_say }>
+                                                            <!--已累计-->
+                  ：</td>
+                                              <td nowrap class="p"><{ $js10_totalnum }><{ $Jian_say }></td>
+                                            </tr>
+                                            <tr>
+                                              <td align="right" nowrap><{ $endtime_say }>
+                                                            <!--活动结束日-->
+                  ：</td>
+                                              <td nowrap><{ $js10_endtime }></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr align="right" bgcolor="E5E8FD">
+                                        <td colspan="2" valign="top">
+                                          <TABLE border=0 align="right" cellPadding=2 cellSpacing=2>
+                                            <TBODY>
+                                              <TR>
+                                                <TD class=p9orange><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $ProNav_gid10 }>'> <IMG  alt='<{ $detail_say }>' src='<{ $template_dir }>/images/but2.jpg' border=0></A> </TD>
+                                              </TR>
+                                            </TBODY>
+                                        </TABLE></td>
+                                      </tr>
+                                    </table>
+                              <{ /if }> </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="center" class="p9black"><{ $ProductPageItem }></td>
+                        </tr>
+                      </table></td>
+                </tr>
+              </table>
+          </div></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><img src="<{ $template_dir }>/images/bottom.jpg" width="764" height="24"></td>
+  </tr>
+</table>
+<{ include_php file="bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>留言板 - <{ $HtmlTitle }> - <{  $Title }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/validateUtil.js"></script>
+<script language="javascript">
+function checkform(myform){
+	if(!isEmpty(myform.username.value)){
+		alert("請填寫姓名");
+		return false;
+	}
+	if(myform.username.value.length<2 || myform.username.value.length>10){
+		alert("姓名長度2到10個符");
+		return false;
+	}
+	if(!isEmpty(myform.email.value)){
+		alert("請填寫郵件地址");
+		return false;
+	}
+	if(!checkEmail(trim(myform.email.value))){
+		alert("郵件地址格式不對");
+		return false;
+	}
+	if(!isEmpty(myform.content.value)){
+		alert("請填寫留言內容");
+		return false;
+	}
+}
+</script>
+<{ include_php file="include/ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+						<li class="active">留言板</li>
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+<section>
+	<div class="container">
+		<div class="row">
+			<!-- 左邊開始 -->
+			<div class="col-lg-3 col-md-3 col-sm-3 product_left">
+            	<{ include_php file="../../include/include_product_class2.php" }>
+        	</div>
+        	<!-- 左邊結束 -->
+			<!-- 右邊開始 -->
+			<div class="col-lg-9 col-md-9 col-sm-9 product_right">
+            	<div id="comments" class="comments margin-top-0">
+
+								<h4 class="page-header margin-top-0 margin-bottom-60 size-20">
+									 留言板
+								</h4>
+
+								<!-- comment item -->
+                                <{ section name=Comm loop=$CommentArray }>
+								<div class="comment-item">
+
+									<!-- user-avatar -->
+									<span class="user-avatar">
+										<img class="pull-left media-object" src="<{ $template_dir }>/images/avatar.png" width="64" height="64" alt="">
+									</span>
+
+									<div class="media-body">
+
+										<h4 class="media-heading bold"><{ $CommentArray[Comm].username }></h4>
+										<small class="block"><{ $CommentArray[Comm].comment_idate }></small>
+										<{ $CommentArray[Comm].comment_content }>
+                                        <{if $CommentArray[Comm].comment_answer !=''}>
+                                        <div class="media">
+
+											<!-- user-avatar -->
+											<span class="user-avatar">
+												<img class="media-object" src="<{ $template_dir }>/images/avatar.png" width="64" height="64" alt="">
+											</span>
+
+											<div class="media-body">
+												<h4 class="media-heading bold">站長回覆</h4>
+
+												<{ $CommentArray[Comm].comment_answer }>
+											</div>
+										</div>
+                                        <{ /if }>
+									</div>
+								</div>
+                                <{ /section }>
+
+
+
+
+								<!-- comment item -->
+
+<div class="comment-item">
+<{ $ProductPageItem }>
+</div>
+
+
+								<h4 class="page-header size-20 margin-bottom-60 margin-top-100">
+									 我要留言
+								</h4>
+
+								<!-- Form -->
+								<form action="message.php" method="post" onSubmit="return checkform(this);">
+
+                    <input type="hidden" name="action" value="save">
+
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-4">
+												<label>姓　　名</label>
+                                                <input required type="text" name="username" id="username" value="<{$true_name}>" maxlength="100" class="form-control input-lg">
+											</div>
+											<div class="col-md-4">
+												<label>聯絡信箱</label>
+                                                <input required type="text" name="email" id="email" value="<{$emails}>" maxlength="100" class="form-control input-lg">
+
+											</div>
+											<div class="col-md-4">
+												<label>聯繫電話</label>
+												<input required type="text" name="tel" id="tel" value="<{$tels}>" maxlength="100" class="form-control input-lg">
+											</div>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label>留言內容</label>
+												<textarea required name="content" id="content" maxlength="5000" rows="5" class="form-control"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+												<label>驗 證 碼</label>
+												<img src="<{ $Site_Url }>/Resources/securimage/securimage_show.php?sid=<{$sid}>" border="0" align="absmiddle">
+
+             <input name="inputcode" type="text" id="inputcode" size="5" class="inputstyle" style=" width:155px;margin-top: 5px;">
+											</div>
+									</div>
+                                    <{if $true_name neq ""}>
+                                    <!--div class="row">
+										<div class="col-md-12">
+												<label class="radio" style="padding-top:2px"><input name="ifhidden" type="radio" id="radio" value="0" checked/><i></i>公開</label>
+								<label class="radio" style="margin-top:0;padding-top:2px"><input type="radio" name="ifhidden" id="radio2" value="1"/><i></i>隱藏</label>
+											</div>
+									</div-->
+                                    <{/if}>
+									<div class="row">
+										<div class="col-md-12">
+
+											<button class="btn btn-3d btn-lg btn-reveal btn-black"  name="submit" id="button3"  value="留言">
+												<i class="fa fa-check"></i>
+												<span>留言</span>
+											</button>
+
+										</div>
+									</div>
+
+								</form>
+								<!-- /Form -->
+
+							</div>
+        	</div>
+        </div>
+    </div>
+</section>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

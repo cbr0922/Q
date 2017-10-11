@@ -1,0 +1,157 @@
+<?php
+include_once "Check_Admin.php";
+include_once Classes . "/pagenav_stard.php";
+include      "../language/".$INFO['IS']."/Mail_Pack.php";
+$objClass = "9pv";
+$Nav      = new buildNav($DB,$objClass);
+/**
+ *  装载语言包
+ */
+include "../language/".$INFO['IS']."/Admin_Member_Pack.php";
+$Sql      = "select * from `{$INFO[DBPrefix]}ticketpubrecord` as r inner join `{$INFO[DBPrefix]}ticket` as t on r.ticketid=t.ticketid where r.ticketid='" . $_GET['ticketid'] . "' order by r.recordid desc";
+
+$Query    = $DB->query($Sql);
+$Num      = $DB->num_rows($Query);
+if ($Num>0){
+	$limit = $_GET['listnum']!="" ? intval($_GET['listnum']) : 20  ;
+	$Nav->total_result=$Num;
+	$Nav->execute($Sql,$limit);
+	$Query = $Nav->sql_result;
+	$Nums     = $Num<$limit ? $Num : $limit ;
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>行銷工具--&gt;CRM--&gt;會員概況</TITLE>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0"  onload="addMouseEvent();">
+<?php include_once "head.php";?>
+<script language="javascript">
+function toExprot(){
+	form2.submit();
+}
+</script>
+<form name="form2" method="post" action="admin_group_excel.php" target='_blank'  >
+<input type="hidden" name="Action" value="Excel">
+</form>
+<SCRIPT language=javascript>
+function toEdit(id,catid){
+	var checkvalue;
+	var catvalue = "";
+	
+	if (id == 0) {
+		checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	}else{
+		checkvalue = id;
+	}
+		
+	if (catid != 0) {
+		catvalue = "&scat="+catid;
+	}
+	
+	if (checkvalue!=false){
+		//document.adminForm.action = "admin_goods.php?goodsid="+checkvalue + catvalue;
+		document.adminForm.action = "admin_ticket.php?Action=Modi&ticketid="+checkvalue;
+		document.adminForm.act.value="edit";
+		document.adminForm.submit();
+	}
+}
+
+function toDel(){
+	var checkvalue;
+	checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	if (checkvalue!=false){
+		if (confirm('<?php echo $Basic_Command['Del_Select']?>')){
+			document.adminForm.action = "admin_ticket_save.php";
+			document.adminForm.act.value="Del";
+			document.adminForm.submit();
+		}
+	}
+}
+</SCRIPT>
+<div id="contain_out">
+  <?php  include_once "Order_state.php";?>
+      <TABLE class=p9black cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+            <TD width="50%">
+              <TABLE width="90%" border=0 cellPadding=0 cellSpacing=0>
+                <TBODY>
+                  <TR>
+                    <TD width=38 height="49"><IMG height=32 src="images/<?php echo $INFO[IS]?>/program-1.gif" width=32></TD>
+                    <TD class=p12black noWrap><SPAN class=p9orange>行銷工具--&gt;CRM
+                    --&gt; 會員概況</SPAN></TD>
+                </TR></TBODY></TABLE></TD>
+            <TD align=right width="50%">&nbsp;</TD>
+          </TR>
+        </TBODY>
+  </TABLE>
+  
+  <table class="allborder" style="margin-bottom:10px" width="100%">
+  <tr>
+  <td>
+<TABLE class=p12black cellSpacing=0 cellPadding=0 width="85%"   align=center border=0 >
+        <FORM name=form1 id=form1 method=post action="admin_ticketrecord_save.php">        
+          <input type="hidden" name="Action" value="Search">
+          <TR>
+            <TD height=19 colspan="3" align=right>		 </TD>
+            </TR>
+          <TR>
+            <TD height="30" colspan="3" align=left class=p9black>瀏覽人數(折線圖，最近30天)</TD>
+            </TR>
+          <TR>
+            <TD width="443" height="30" align=left class=p9black>會員註冊人數(長條圖，最近12個月)</TD>
+            <TD height="30" colspan="2" align=left class=p9black>會員成長圖(折線圖，最近12個月)</TD>
+            </TR>
+           <TR>
+             <TD height="30" align=left class=p9black>男女比例(餅圖)</TD>
+             <TD height="30" colspan="2" align=left class=p9black>&nbsp;</TD>
+            </TR>
+           <TR>
+             <TD height="30" align=left class=p9black>會員地區分布</TD>
+             <TD height="30" colspan="2" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          <TR>
+            <TD rowspan="2" align=left valign="top" class=p9black><p>台灣(地區第一層)：3569<br />
+              台北市：1000 ； 新北市：501(地區第二層)</p>              <p>外島：3<br />
+                金門：1 ； 馬祖：2<br />
+              </p>            大陸：5366</TD>
+            <TD colspan="2" align=left class=p9black>訂閱電子報人數：<br />
+              訂閱人數：658 取消訂閱：444 非會員訂閱：15</TD>
+          </TR>
+          <TR>
+            <TD height="30" colspan="2" align=left class=p9black><p>會員生日分布：<br />
+              1月：20<br />
+            2月：35<br />
+            3月：45<br />
+4月：12<br />
+......</p></TD>
+          </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>&nbsp;</TD>
+            <TD height="30" colspan="2" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>&nbsp;</TD>
+            <TD height="30" colspan="2" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          <TR>
+            <TD height="19" colspan="3" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          </FORM>
+        </TABLE>
+        
+</td>
+        </tr>
+        </table>
+
+</div>
+<script language="javascript" src="../js/modi_bigarea1.js"></script>
+<script language="javascript">
+initCounty2(document.getElementById("province"), "<?php echo trim($_GET[province])?>")
+initZone2(document.getElementById("province"), document.getElementById("city"), document.getElementById("othercity"), "<?php echo trim($_GET[city])?>")
+</script>
+<div align="center"><?php include_once "botto.php";?></div>
+</BODY></HTML>

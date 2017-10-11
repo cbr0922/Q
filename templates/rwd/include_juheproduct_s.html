@@ -1,0 +1,517 @@
+<style>
+.picture2 img {
+width: expression(this.width > 95 ? 95: true);
+	max-width: 95px;
+height: expression(this.height > 95 ? 95: true);
+	max-height: 95px;
+}
+.picture2 a {
+	display: block;
+	border: 1px solid #fff;
+	padding: 3px;
+	height: 95px;
+	width: 95px;
+}
+.picture2 a:hover {
+	border: 1px solid #ccc;
+	padding: 3px;
+	height: 95px;
+	width: 95px;
+}
+
+#tab1, #tab2 {
+
+	width:575px;
+
+	height:24px;
+
+	font-size:13px;
+
+	font-weight:normal;
+
+}
+
+#tab1 ul, #tab2 ul {
+
+	margin:0;
+
+	padding:0;
+
+}
+
+#tab1 li {
+
+	width:101px;
+
+	float:left;
+
+	height:34px;
+
+	line-height:24px;
+
+	text-align:center;
+
+	border-left:0px #dadada solid;
+
+	border-right:0px #dadada solid;
+
+	border-top:0px #dadada solid;
+
+	border-bottom:0px #dadada solid;
+
+	cursor:pointer;
+
+	color:#888888;
+
+	background-image:url(<{$template_dir}>/images/gray-arr.png);
+
+	background-position:right;
+
+	background-repeat:no-repeat;
+
+}
+
+#tab2 li {
+
+	width:101px;
+
+	float:left;
+
+	height:34px;
+
+	line-height:24px;
+
+	text-align:center;
+
+	border-left:0px #dadada solid;
+
+	border-right:0px #dadada solid;
+
+	border-top:0px #dadada solid;
+
+	border-bottom:0px #dadada solid;
+
+	cursor:pointer;
+
+	color:#888888;
+
+	background-image:url(<{$template_dir}>/images/gray-arr.png);
+
+	background-position:right;
+
+	background-repeat:no-repeat;
+
+}
+
+*+html#tab1 li {
+
+	width:101px;
+
+	float:left;
+
+	height:34px;
+
+	line-height:24px;
+
+	text-align:center;
+
+	border-left:1px #dadada solid;
+
+	border-right:0px #dadada solid;
+
+	border-top:1px #dadada solid;
+
+	border-bottom:1px #dadada solid;
+
+	cursor:pointer;
+
+	background-color:#f1f1e6;
+
+	color:#888888;
+
+	background-image:url(<{$template_dir}>/images/gray-arr.png);
+
+	background-position:right;
+
+	background-repeat:no-repeat;
+
+}
+
+"*+html#tab2 li {
+
+	width:113px;
+
+	float:left;
+
+	height:24px;
+
+	line-height:24px;
+
+	text-align:center;
+
+	border-left:1px #dadada solid;
+
+	border-right:1px #dadada solid;
+
+	border-top:1px #dadada solid;
+
+	border-bottom:1px #dadada solid;
+
+	cursor:pointer;
+
+	background-color:#f1f1e6;
+
+	color:#888888;
+
+	background-image:url(<{$template_dir}>/images/gray-arr.gif);
+
+	background-position:right;
+
+	background-repeat:no-repeat;
+
+}
+
+#tab1 li.now {
+	border-left:0px #dadada solid;
+	border-right:0px #dadada solid;
+	border-top:0px #dadada solid;
+	border-bottom:0px #dadada solid;
+	background-image:url(<{$template_dir}>/images/gray-arr1.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	color: #FFFFFF;
+
+}
+
+#tab2 li.now {
+	border-left:0px #dadada solid;
+	border-right:0px #dadada solid;
+	border-top:0px #dadada solid;
+	border-bottom:0px #dadada solid;
+	background-image:url(<{$template_dir}>/images/gray-arr1.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	color: #FFFFFF;
+
+}
+
+#tab2 li.last {
+
+	border-left:1px #dadada solid;
+
+	border-right:1px #dadada solid;
+
+	border-top:1px #dadada solid;
+
+	border-bottom:0px #dadada solid;	
+
+	background-color:#fff;
+
+}
+
+#tab2 li.last.now {
+
+	border-left:1px #dadada solid;
+
+	border-right:1px #dadada solid;
+
+	border-top:1px #dadada solid;
+
+	border-bottom:0px #dadada solid;	
+
+	background-color:#fff;
+
+}
+
+.tablist {
+
+	width:755px;
+	height:185px;
+	font-size:12px;
+
+	border-left:1px #dadada solid;
+
+	border-right:1px #dadada solid;
+
+	border-bottom:1px #dadada solid;
+
+	display:none;
+	float:left
+
+}
+.tablist2 {
+
+	width:755px;
+
+	height:185px;
+
+	font-size:12px;
+
+	border-left:1px #dadada solid;
+
+	border-right:1px #dadada solid;
+
+	border-bottom:1px #dadada solid;
+
+	display:none;
+	overflow:hidden;
+		float:left
+
+}
+.block {
+
+	display:block;
+
+}
+
+</style>
+
+<table width="755" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px">
+
+  <tr>
+
+    <td></td>
+
+  </tr>
+
+  <tr>
+
+    <td style="background-image:url(<{ $template_dir }>/images/index01_03.gif);background-repeat: no-repeat;background-position:left  top; "  ><div id="tab2">
+
+        <ul>
+
+          <li onMouseOver="setTab(2,0)" class="now">保&nbsp;&nbsp;濕</li>
+
+          <li onMouseOver="setTab(2,1)">美&nbsp;&nbsp;白</li>
+
+          <li onMouseOver="setTab(2,2)">防&nbsp;&nbsp;老</li>
+
+          <li onMouseOver="setTab(2,3)">滋&nbsp;&nbsp;潤</li>
+
+          <li onMouseOver="setTab(2,4)">防&nbsp;&nbsp;老</li>
+
+        </ul> </div>
+
+      <div id="tablist2">
+
+        <div class="tablist block">
+
+              <ul style="margin:0 0 0 10px ;padding:0; ">
+              <{ section name=list loop=$qk_goods_array_1 }>
+
+                <li style=" float:left;DISPLAY: inline; ">
+
+                  <table width="140" border="0" cellpadding="3" cellspacing="0"  align="left" style="margin-left:5px">
+
+                    <tr>
+
+                      <td align="center" valign="top"><span class="picture2"><a href="product/detail<{ $qk_goods_array_1[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_1[list].smallimg }>" border=0></a></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td height="70" valign="top">
+					<span style=" height:30px"><a href="product/detail<{ $qk_goods_array_1[list].gid }>"><{ $qk_goods_array_1[list].goodsname }></a> </span><br>
+
+                        <{if $qk_goods_array_1[list].ifhidden eq 0 }>
+
+                        
+市價：<s><{ $qk_goods_array_1[list].price }></s><br />
+                        會員價：<span class="price"><{ $qk_goods_array_1[list].pricedesc }></span> <{/if}>
+    				 </td>
+
+                    </tr>
+
+                  </table>
+
+                </li>
+
+              <{ /section }>
+              </ul>
+
+</div>
+
+<div class="tablist">
+
+
+               <ul style="margin:0 0 0 10px ;padding:0; ">
+              <{ section name=list loop=$qk_goods_array_2 }>
+
+                <li style="FLOAT: left;DISPLAY: inline;">
+
+                  <table width="140" border="0" cellpadding="3" cellspacing="0"  style="margin-left:5px">
+
+                    <tr>
+
+                      <td align="center" valign="top"><span class="picture2"><a href="product/detail<{ $qk_goods_array_2[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_2[list].smallimg }>" border=0></a></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td height="70" valign="top"><span style=" height:30px"><a href="product/detail<{ $qk_goods_array_2[list].gid }>"><{ $qk_goods_array_2[list].goodsname }></a> </span><br>
+
+                        <{if $qk_goods_array_2[list].ifhidden eq 0 }>
+
+                        
+市價：<s><{ $qk_goods_array_2[list].price }></s><br />
+                        會員價：<span class="price"><{ $qk_goods_array_2[list].pricedesc }></span> <{/if}></td>
+
+                    </tr>
+
+                  </table>
+
+                </li>
+
+              <{ /section }>
+               </ul>
+
+</div>
+
+<div class="tablist">
+
+               <ul style="margin:0 0 0 10px ;padding:0; ">
+              <{ section name=list loop=$qk_goods_array_3 }>
+
+                <li style="FLOAT: left;DISPLAY: inline;">
+
+                  <table width="140" border="0" cellpadding="3" cellspacing="0"  style="margin-left:5px">
+
+                    <tr>
+
+                      <td align="center" valign="top"><span class="picture2"><a href="product/detail<{ $qk_goods_array_3[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_3[list].smallimg }>" border=0></a></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td height="70" valign="top"><span style=" height:30px"><a href="product/detail<{ $qk_goods_array_3[list].gid }>"><{ $qk_goods_array_3[list].goodsname }></a></span><br>
+
+                        <{if $qk_goods_array_3[list].ifhidden eq 0 }>
+
+                        
+市價：<s><{ $qk_goods_array_3[list].price }></s><br />
+                        會員價：<span class="price"><{ $qk_goods_array_3[list].pricedesc }></span> <{/if}> </td>
+
+                    </tr>
+
+                  </table>
+
+                </li>
+
+              <{ /section }> </ul>
+
+</div>
+
+<div class="tablist">
+
+               <ul style="margin:0 0 0 10px ;padding:0; ">
+              <{ section name=list loop=$qk_goods_array_4 }>
+
+                <li style="FLOAT: left;DISPLAY: inline;">
+
+                  <table width="140" border="0" cellpadding="3" cellspacing="0"  style="margin-left:5px">
+
+                    <tr>
+
+                      <td align="center" valign="top"><span class="picture2"><a href="product/detail<{ $qk_goods_array_4[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_4[list].smallimg }>" border=0></a></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td height="70" valign="top"><span style=" height:30px"><a href="product/detail<{ $qk_goods_array_4[list].gid }>"><{ $qk_goods_array_4[list].goodsname }></a></span><br>
+
+                        <{if $qk_goods_array_4[list].ifhidden eq 0 }>
+
+                        
+市價：<s><{ $qk_goods_array_4[list].price }></s><br />
+                        會員價：<span class="price"><{ $qk_goods_array_4[list].pricedesc }></span> <{/if}> </td>
+
+                    </tr>
+
+                  </table>
+
+                </li>
+
+              <{ /section }> </ul>
+
+</div>
+
+ <div class="tablist">
+
+               <ul style="margin:0 0 0 10px ;padding:0; ">
+              <{ section name=list loop=$qk_goods_array_5 }>
+
+                <li style="FLOAT: left;DISPLAY: inline;">
+
+                  <table width="140" border="0" cellpadding="3" cellspacing="0"  style="margin-left:5px">
+
+                    <tr>
+
+                      <td align="center" valign="top"><span class="picture2"><a href="product/detail<{ $qk_goods_array_5[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_5[list].smallimg }>" border=0></a></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                      <td height="70" valign="top"><span style=" height:30px"><a href="product/detail<{ $qk_goods_array_5[list].gid }>"><{ $qk_goods_array_5[list].goodsname }></a></span><br>
+
+                        <{if $qk_goods_array_5[list].ifhidden eq 0 }>
+
+                        
+市價：<s><{ $qk_goods_array_5[list].price }></s><br />
+                        會員價：<span class="price"><{ $qk_goods_array_5[list].pricedesc }></span> <{/if}> </td>
+
+                    </tr>
+
+                  </table>
+
+                </li>
+
+              <{ /section }> </ul>
+</div>         
+
+    </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td></td>
+
+  </tr>
+
+</table>
+
+<script type="text/javascript">
+
+//m选项卡数目
+
+//n当前选项卡编号
+
+function setTab(m,n){
+
+	
+
+	var menu=document.getElementById("tab"+m).getElementsByTagName("li");   //获取ID为tab+m标签下的li标签
+
+	var showdiv=document.getElementById("tablist"+m).getElementsByTagName("div");   //获取ID为tablist+m标签下的div标签
+
+	//alert(showdiv.length);
+
+	for(i=0;i<menu.length;i++)
+
+	{
+
+		menu[i].className=i==n?"now":"";   //如果i=n;那么menu[i].classname为now
+
+		showdiv[i].style.display=i==n?"block":"none";   //如果如果i=n;那么showdiv[i].style.display为block"
+
+	}
+
+}
+
+</script>
+

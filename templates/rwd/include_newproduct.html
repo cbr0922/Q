@@ -1,0 +1,113 @@
+    <ul class=" row list-inline nomargin">
+    <{ section name=hotlistname loop=$New_productarray}>
+		<li class="<{ if $cell_num eq 1 }> col-md-4 col-sm-4 col-xs-6<{/if}><{ if $cell_num eq 2 }>col-md-3 col-sm-4 col-xs-6<{/if}><{ if $cell_num eq 3 }>col-sm-4 col-md-5th col-xs-6<{/if}>" >
+			<div class="shop-item">
+              <div class="thumbnail noradius nopadding">
+
+                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      <{/if}>
+                         <a  href="<{ $Site_Url }>/product/detail<{ $New_productarray[hotlistname].gid }>">
+                         <img class="img-responsive lazy"  src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $New_productarray[hotlistname].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}>UploadFile/GoodPic/<{ $New_productarray[hotlistname].smallimg }><{/if}>" alt="<{ $New_productarray[hotlistname].goodsname }>" />
+                        </a>
+<{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+			<!-- /商品圖片 -->
+
+ 					<!-- 加入追蹤 -->
+                    <div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+                    <a class="gid<{ $New_productarray[hotlistname].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $New_productarray[hotlistname].gid }>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單"><i class="fa fa-heart nopadding<{if $New_productarray[hotlistname].heartColor eq 1}> heartColor<{/if}>"></i></a></div>
+                    <!-- /加入追蹤  -->
+                    <!-- 特惠標示 -->
+                    <div class="shop-item-info  text-left">
+                    <{if $New_productarray[hotlistname].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+                    <!--<{if $New_productarray[hotlistname].ifsaleoff eq 1 || ($New_productarray[hotlistname].price neq 0 && $New_productarray[hotlistname].price neq $New_productarray[hotlistname].pricedesc && $New_productarray[hotlistname].productdetail.count eq 0)}><span class="label label-danger">促銷中</span><{/if}>
+				
+                    <span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+                    </div>
+                    <!-- 特惠標示 -->
+            		</div>
+					
+							<div class="margin-bottom-0 margin-top-10 hidden-xs TAGdiv">
+							<{ section name=attri loop=$New_productarray[hotlistname].attr }>
+											<{ if $New_productarray[hotlistname].attr neq ''}>
+											<a class="TAGa"><{$New_productarray[hotlistname].attr[attri].value}>&nbsp;</a>
+											
+											<{/if}>
+										<{/section}>
+							<{if $New_productarray[hotlistname].ifnew eq 1}><a class="TAGa">NEW</a>&nbsp;<{/if}>
+							<{if $New_productarray[hotlistname].ifsaleoff eq 1 || ($New_productarray[hotlistname].price neq 0 && $New_productarray[hotlistname].price neq $New_productarray[hotlistname].pricedesc && $New_productarray[hotlistname].productdetail.count eq 0)}><a class="TAGa">促銷中</a><{/if}>
+							</div>
+             <div class="shop-item-summary text-center">
+			 
+			 
+              <!--<div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $New_productarray[hotlistname].sale_name }></div>-->
+			  
+					<div class="goodbrand" <{if $New_productarray[hotlistname].brand_id eq ""}>style="height: 33px;"<{/if}>>
+								<{ section name=j loop=$New_productarray[hotlistname].br }>
+								<a  href="<{$Site_Url}>/brand/<{$New_productarray[hotlistname].br[j].brand_id}>" class="namecolor"><{$New_productarray[hotlistname].br[j].brandname}></a>
+								<{ /section }>
+					</div>
+              
+					<div>
+								<a href="<{ $Site_Url }>/product/detail<{ $Recommendation_productarray[i].gid }>">
+									<h2 style="max-height:42px; overflow:hidden;"><{ $New_productarray[hotlistname].ERP }></h2>
+									<h2 style="height:42px; overflow:hidden;"><a href="<{ $Site_Url }>/product/detail<{ $New_productarray[hotlistname].gid }>"><{ $New_productarray[hotlistname].goodsname }></a></h2><{ $New_productarray[hotlistname].showstorage }>
+								</a>
+					</div>
+			  
+			  
+              
+            
+
+            <!-- price -->
+            <div class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+			
+			<{ if $New_productarray[hotlistname].price neq 0 && $New_productarray[hotlistname].price neq $New_productarray[hotlistname].pricedesc}>
+								
+				<span class="line-through">NT$ <{ $New_productarray[hotlistname].price }></span>
+			<{/if}>
+			
+			  NT$ <{ $New_productarray[hotlistname].pricedesc }>
+           </div>
+           <!-- /price -->
+            </div>
+
+        </div>
+        </li>
+        <{ if $cell_num eq 1 }>
+			<{if $smarty.section.hotlistname.index_next%2 eq 0}>
+    		<div class="clearfix visible-xs-block margin-bottom-10"></div>
+    		<{/if}>
+        	<{if $smarty.section.hotlistname.index_next%3 eq 0}>
+        	<div class="clearfix visible-sm-block visible-md-block visible-lg-block margin-bottom-10"></div>
+    		<{/if}>
+		<{/if}>
+		<{ if $cell_num eq 2 }>			
+        	<{if $smarty.section.hotlistname.index_next%2 eq 0}>
+    		<div class="clearfix visible-xs-block margin-bottom-10"></div>
+    		<{/if}>
+        	<{if $smarty.section.hotlistname.index_next%3 eq 0}>
+        	<div class="clearfix visible-sm-block margin-bottom-10"></div>
+    		<{/if}>
+        	<{if $smarty.section.hotlistname.index_next%4 eq 0}>
+        	<div class="clearfix visible-md-block visible-lg-block margin-bottom-10"></div>
+    		<{/if}>
+		<{/if}>
+		<{ if $cell_num eq 3 }>
+			<{if $smarty.section.hotlistname.index_next%2 eq 0}>
+    		<div class="clearfix visible-xs-block margin-bottom-10"></div>
+    		<{/if}>
+        	<{if $smarty.section.hotlistname.index_next%3 eq 0}>
+        	<div class="clearfix visible-sm-block margin-bottom-10"></div>
+    		<{/if}>
+        	<{if $smarty.section.hotlistname.index_next%5 eq 0}>
+        	<div class="clearfix visible-md-block visible-lg-block margin-bottom-10"></div>
+    		<{/if}>
+		<{/if}>
+    <{ /section }>
+   </ul>

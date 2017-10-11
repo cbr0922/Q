@@ -1,0 +1,27 @@
+<div class="side-nav margin-bottom-40">
+
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4>商品分類</h4>
+		</div>
+
+		<ul class="list-group list-group-bordered list-group-noicon uppercase">
+         <{ section name=list loop=$ProductListAll start=0 }>
+			<li class="list-group-item size-16 hidden-sm hidden-lg">
+				<a href="<{ $Site_Url }>/product/<{$ProductListAll[list].bid}>"><{$ProductListAll[list].catname}></a>
+			</li>
+		 <{/section}>
+		</ul>
+        <{ section name=list loop=$ProductListAll start=0 }>
+      	
+        <div class="col-md-5th hidden-xs">
+        	<a href="<{ $Site_Url }>/product/<{$ProductListAll[list].bid}>"><{$ProductListAll[list].catname}></a>
+        </div>
+		<{/section}>
+        <div style="clear:both"></div>
+</div>
+
+
+
+
+

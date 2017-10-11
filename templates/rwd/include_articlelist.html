@@ -1,0 +1,17 @@
+<div class="side-nav margin-bottom-60 ">
+
+	<div class="side-nav-head border_title_bottom">
+		<button class="fa fa-bars"></button>
+		<h4 class="bfont"><{ $NcatName }></h4>
+	</div>
+
+
+    <ul class="list-group list-group-bordered list-group-noicon uppercase">
+     <{ section name=i loop=$news }>
+  		<{ if $news[i].title != '' }>
+			<li class="list-group-item <{if $news[i].news_id eq $smarty.get.articleid}>active<{/if}>"><{ $news[i].title }></li>
+ 		<{ /if }>
+
+	 <{ /section  }>
+	</ul>
+ </div>

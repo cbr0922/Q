@@ -1,0 +1,124 @@
+<link rel="stylesheet" type="text/css" media="all" href="<{ $Site_Url }>/assets/plugins/slick-slider/flickity.css" />
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slick-slider/flickity.pkgd.js"></script>
+
+<style>
+.gallery {
+	height:auto !important;
+}.gallery img {
+	width:100% !important;
+	height:auto  !important;
+}
+
+.gallery-cell {
+	width: 76%;
+  	height:auto !important;
+/**    margin-right: 10px;**/
+}.flickity-prev-next-button.next{
+	position: absolute;
+    left: 88%;
+    z-index:2;
+    background: rgba(0,0,0,0.2);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#99000000,EndColorStr=#99000000);
+    cursor: pointer;
+    height: 100%!important;
+	width: 100%!important;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+	border-radius:0;
+}.flickity-prev-next-button.previous{
+	position: absolute;
+    left: -88%;
+    z-index:2;
+    background: rgba(0,0,0,0.2);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#99000000,EndColorStr=#99000000);
+    cursor: pointer;
+    height: 100% !important;
+	width: 100% !important;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+	border-radius:0;
+}.flickity-prev-next-button.next:hover,.flickity-prev-next-button.previous:hover{
+	opacity:0.7;
+}.flickity-prev-next-button.previous:before {
+    content: "\f104";
+    font-family: FontAwesome;
+    position: absolute;
+    font-size:50px;
+    left:90%;
+	top: 45%;
+    color: #999;
+}.flickity-prev-next-button.next:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    position: absolute;
+    font-size:50px;
+    right:90%;
+	top: 45%;
+    color: #999;
+}
+@media only screen and (min-width:769px) and (max-width:1024px) {
+	.flickity-prev-next-button.next:before,.flickity-prev-next-button.previous:before{
+		top:40%;
+	}
+}
+@media only screen and (min-width:640px) and (max-width:768px) {
+	.flickity-prev-next-button.next:before,.flickity-prev-next-button.previous:before{
+		font-size:30px;
+		top:40%;
+	}
+}
+@media only screen and (min-width:480px) and (max-width:639px) {
+	.flickity-prev-next-button.next:before,.flickity-prev-next-button.previous:before{
+		font-size:30px;
+		top:35%;
+	}
+}
+@media only screen and (max-width:479px) {
+.flickity-prev-next-button.next:before,.flickity-prev-next-button.previous:before{
+		font-size:30px;
+		top:30%;
+	}	
+}
+
+</style>
+<section class="noborder nopadding">		
+<div style="position:relative">
+<div id="loading_i" style=" opacity:0;">
+<div id="loading-toggle" class="gallery js-flickity margin-bottom-30" data-flickity-options='{ "autoPlay": "1500","wrapAround": true }'>
+<{ section name=list loop=$adv_array }>
+  <div class="gallery-cell"><A title="<{$adv_array[list].title}>" href="<{$adv_array[list].url}>"><{$adv_array[list].img}></A></div>
+  <{/section}>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div id="vodid1" align="center" style="position: absolute;text-align: center;width: 100%;left: 0%;top:50%;transform: translateY(-50%);">
+<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+  <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"></path>
+  <path fill="#fff" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z" transform="rotate(288 20 20)">
+    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.5s" repeatCount="indefinite"></animateTransform>
+    </path>
+  </svg></div>
+</div>
+</section>
+<script type="text/javascript">     
+window.onload=function(){
+  var odiv=document.getElementById("vodid1");
+  function yincang(){
+    odiv.style.display="none";
+  }
+  setTimeout(yincang,800);
+  var odivimg=document.getElementById("loading_i");
+  function yincangimg(){
+    odivimg.style.opacity="1";
+  }
+  setTimeout(yincangimg,800);
+}
+
+</script>

@@ -1,0 +1,171 @@
+<!--
+	controlls-over		= navigation buttons over the image
+	buttons-autohide 	= navigation buttons visible on mouse hover only
+
+	data-plugin-options:
+		"singleItem": true
+		"autoPlay": true (or ms. eg: 4000)
+		"navigation": true
+		"pagination": true
+		"items": "5"
+
+	owl-carousel item paddings
+		.owl-padding-0
+		.owl-padding-3
+		.owl-padding-6
+		.owl-padding-10
+		.owl-padding-15
+		.owl-padding-20
+-->
+			<section id="showbuy" class="padding-top-20 nopadding-bottom noborder margin-bottom-20" >
+
+				<div style=" border:1px solid #CCC;">
+
+                <div class="col-md-10 col-sm-10 margin-top-10 margin-bottom-10" style="line-height:35px;">
+  <span class="owl-featured noborder margin-top-10 margin-bottom-0 bold size-16" >已選購 <span style="font-weight: bold;color: #C30;"><{$total_count}> </span>件，購買總計金額 <span style="font-weight: bold;color: #C30;"><{$total_price}></span> 元</span><{ if $min_count>0}>，
+還有<font style="font-weight:bold; color:#C30"><{$havecount}></font>件可以參加活動
+  <{/if}>
+  <{ if $min_money>0}>，還有<font style="font-weight:bold; color:#C30"><{$havemoney}></font>元可以參加活動
+  <{/if}>
+  <{ if $mianyunfei>0}>，還有<font style="font-weight:bold; color:#C30"><{$haveyunfei}></font>元可以免運費
+  <{/if}>
+  	</div>
+
+<div class="col-md-2 col-sm-2 text-center margin-top-10 margin-bottom-10">
+	 <{if $ifbuy eq 1 && ($min_money eq 0 ||$havemoney eq 0) && ($min_count eq 0 || $havecount eq 0)}>
+
+  <a class="btn btn-primary fullwidth" href="../../shopping/cart.php?Action=Add&type=discount&saleid=<{$smarty.get.saleid}>" class="addcart">放入購物車</a>
+
+  	<{/if}>
+    	</div>
+
+ 
+					<div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "7", "autoPlay": true, "navigation": true, "pagination": false}'>
+
+                        <{ section name=list loop=$SaleProductArray }>
+
+						<!-- item -->
+
+						<div class="shop-item margin-bottom-0">
+              <div class="thumbnail noborder nopadding">
+
+                  <!-- 商品圖片fix在div內 -->
+
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+
+								<img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $SaleProductArray[list].smallimg }>' name="goodpic" width="100" border=0>
+<div style="clear:both"></div>
+
+                      </div>
+                      </div>
+
+			<!-- /商品圖片 -->
+
+
+								<!-- /product image(s) -->
+
+
+							</div>
+
+
+
+							<div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
+
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $SaleProductArray[list].goodsname }></div>
+                             <!--   <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">促銷價：<{$SaleProductArray[list].sale_price}></div>-->
+
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0; position:relative"><{ if $SaleProductArray[list].color neq ""}><{$SaleProductArray[list].color}><{/if}><{ if $SaleProductArray[list].size neq ""}>&nbsp;-&nbsp;<{$SaleProductArray[list].size}>&nbsp;-&nbsp;<{/if}><{ if $SaleProductArray[list].detail_name neq ""}>&nbsp;-&nbsp;<{$SaleProductArray[list].detail_name}><{/if}><{$SaleProductArray[list].count}>件
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0; position:absolute; right:0; top:0;"><a href="javascript:" onClick="deletsale('<{$SaleProductArray[list].gid}>','<{$SaleProductArray[list].color}>','<{$SaleProductArray[list].size}>','<{$SaleProductArray[list].detail_id}>','<{$SaleProductArray[list].key}>');"><i class="icon-trash"></i></a></div>
+                                </div>
+
+
+
+
+
+
+
+
+
+							</div>
+
+
+
+						</div>
+
+						<!-- /item -->
+
+                        <{ /section }>
+
+					</div>
+                    
+
+
+				<div style="clear:both"></div>
+				</div>
+
+
+
+			<!-- RECOMMEND PRODUCTS -->
+<script language="javascript">
+function deletsale(gid,color,size,detail_id,key){
+	$.ajax({
+				url: "../../modules/discount/buy_discount.php",
+				data: 'gid='+ gid +'&color=' + encodeURIComponent(color) + "&size=" + encodeURIComponent(size) + '&act=del&saleid=<{$smarty.get.saleid}>&key=' + key + '&detail_id=' + detail_id,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    if (msg == 1)
+				   		showsaleshopping();
+				}
+	});
+}
+</script>
+<script type="text/javascript">
+				_owl_carousel();
+			</script>
+<script language="javascript">
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function setcheckCookie() {
+    /*var filter=getCookie("filter");    if (filter == "0") {      setCookie("filter", "1", 30);			document.getElementById("icon-filter").className = "fa fa-minus-square-o";    } else {      setCookie("filter", "0", 30);			document.getElementById("icon-filter").className = "fa fa-plus-square-o";    }*/		var filter=document.getElementById("icon-filter").className;		if (filter == "fa fa-plus-square-o") {			document.getElementById("icon-filter").className = "fa fa-minus-square-o";			/*document.getElementById("showbuy").className = "padding-top-20 nopadding-bottom noborder margin-bottom-20";*/		} else {			document.getElementById("icon-filter").className = "fa fa-plus-square-o";			/*document.getElementById("showbuy").className = "padding-top-100 nopadding-bottom noborder margin-bottom-100";*/		}
+}
+
+function getcheckCookie(filter) {  	//var filter=getCookie("filter");
+
+    if (filter == "0") {
+			document.getElementById("icon-filter").className = "fa fa-plus-square-o";
+      document.getElementById("demo").className = "collapse";
+    } else {
+			document.getElementById("icon-filter").className = "fa fa-minus-square-o";
+      document.getElementById("demo").className = "collapse in";
+
+			/*document.getElementById("showbuy").className = "padding-top-20 nopadding-bottom noborder margin-bottom-20";*/
+
+    }
+}
+
+getcheckCookie("1");
+$(window).load(function(){	getcheckCookie("0");});
+
+</script>

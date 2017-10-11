@@ -1,0 +1,37 @@
+<style type="text/css">
+<!--
+.hot-block {
+	width: 290px;
+	height:80px;
+	display:block;
+	margin-left:15px;
+	MARGIN-TOP:10px;
+}
+.hotimg {
+	width:80px;
+	height:80px;
+	display:block;
+	float:left;
+}
+.protit {
+	height:35px;
+	overflow:hidden;
+}
+.procontent {
+	width:180px;
+	height:80px;
+	display:block;
+	float:left;
+	overflow:hidden;
+	text-align:left;
+	margin-left:10px;
+}
+-->
+</style>
+<{ section name=i loop=$Recommendation_productarray }>
+<div class="hot-block">
+  <div class="hotimg"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Recommendation_productarray[i].gdid }>"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $Recommendation_productarray[i].smallimg }>" width="110" border="0"></a></div>
+  <div class="procontent"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Recommendation_productarray[i].gdid }>"><{ $Recommendation_productarray[i].groupname }></a> <br />
+    團購價格：<span class="price"><{ $Recommendation_productarray[i].groupprice }></span>元</div>
+</div>
+<{ /section }> 

@@ -1,0 +1,41 @@
+<style type="text/css">
+<!--
+.juhe_s1_img {
+	width:104px;
+	height:35px;
+    display:block;
+	float:left;
+    margin-right:5px;
+}
+div.juhe_s1_img a {
+	display: block;
+	border: 1px solid #979797;
+}
+div.juhe_s1_img a:hover {
+	border: 1px solid #009fe8;
+}	
+-->
+</style>
+<table width="300" height="385" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #979797;">
+  <tr>
+    <td  align="left" valign="top" ><img src="<{ $template_dir }>/images/title-jingxuan1.jpg" width="293" height="44" />
+    <br />
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0" style="margin-top:5px" >
+                  <tr>
+                    <!--<td align="center" valign="top" style="padding-left:5px;padding-top:2px"><a href="<{ $gc_link1 }>"></a></td>-->
+                    <td align="left" valign="top" ><!--商品循環-->
+<{ section name=list loop=$qk_goods_array_7 }>
+                      <table width="98%"  border="0" align="left" cellpadding="3" cellspacing="0" style="  margin-bottom:10px">
+<tr>
+                           <td  height="90" valign="top" style="padding-left:15px"><div class="juhe_s1_img" ><a href="product/detail<{ $qk_goods_array_7[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_7[list].smallimg }>" width="102" height="102"  border=0></a></div></td>
+                          <td align="left" height="100" valign="top" style="padding-bottom:0px;"><div style=""><span class="ibaby_arrow">◆</span> <span style="font-size:20px; "><a href="product/detail<{ $qk_goods_array_7[list].gid }>" ><{ $qk_goods_array_7[list].goodsname }></a></span></div>
+                            <div style="margin-top:0px;margin-bottom:0px"><{ $qk_goods_array_7[list].intro }></div>
+                          <span style="padding-bottom:0px;"><{ $Pricedesc_say }>： </span><span class="price"><{ $qk_goods_array_7[list].pricedesc }></span></td>
+                        </tr>
+                      </table> <{ /section }>
+                    <!--END商品循環--></td>
+                  </tr>
+      </table>
+    </td>
+  </tr>
+</table>

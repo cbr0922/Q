@@ -1,0 +1,47 @@
+<li class="dropdown mega-menu">
+<a id="menudown" class="hidden-lg dropdown-toggle" href="#"><div class="hidden-lg" style="position: absolute;right: 0;z-index:1;width:50px;  height: 40px;line-height: 40px;text-align: center;"><i class="fa fa-angle-down"></i></div></a>
+	<a class="dropdown" href="<{ $Site_Url }>/product/index.php">商品總覽<span class="hidden-xs">&nbsp;&nbsp;<i class="fa fa-angle-down"></i></span></a>
+	<ul class="dropdown-menu">
+		<li id="menuhidden" class="noborder">
+		<div class="row hidden-xs ">
+           	<{ section name=list loop=$ClassArray }>
+			<div class="col-md-9th padding-top-0">
+				<ul class="list-unstyled">
+					<li class="noborder"><a class="bold size-14 nobackground" href="<{ $Site_Url }>/product/<{$ClassArray[list].bid}>" onMouseOver="mopen('m<{$smarty.section.list.index+1}>')" onMouseOut="mclosetime()"><{$ClassArray[list].classname}></a></li>
+					<{if $ClassArray[list].sub neq "" }>
+                    	<{ section name=list1 loop=$ClassArray[list].sub }>
+                        	<li class="noborder"><a class="nobackground padding-bottom-0" href="<{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}>"><{$ClassArray[list].sub[list1].catname}></a></li>
+                        <{/section}>
+                    <{/if}>
+				</ul>
+			</div>
+            <{/section}>
+		</div>
+        <{ section name=list loop=$ClassArray }>
+		<li class="dropdown hidden-lg">
+        <{if $ClassArray[list].sub neq "" }><a id="menudown" class="hidden-lg dropdown-toggle" href="#"><div class="hidden-lg" style="position: absolute;right: 0;z-index:1;width:50px;  height: 40px;line-height: 40px;text-align: center;"><i class="fa fa-angle-right"></i></div></a><{/if}>
+			<a href="<{ $Site_Url }>/product/<{$ClassArray[list].bid}>"><{$ClassArray[list].classname}><{if $ClassArray[list].sub neq "" }><span class="hidden-xs" style="float: right;"><i class="fa fa-angle-right"></i></span><{/if}></a>
+               <{if $ClassArray[list].sub neq "" }>
+					<ul class="dropdown-menu has-topBar">
+                      <{ section name=list1 loop=$ClassArray[list].sub }>
+						<li>
+                        <{if $ClassArray[list].sub[list1].sub neq "" }><a id="menudown" class="hidden-lg dropdown-toggle" href="#"><div class="hidden-lg" style="position: absolute;right: 0;z-index:1;width:50px;  height: 40px;line-height: 40px;text-align: center;"><i class="fa fa-angle-right"></i></div></a><{/if}>
+                        <a class="menu_3" href="<{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}>"><{$ClassArray[list].sub[list1].catname}><{if $ClassArray[list].sub[list1].sub neq "" }><span class="hidden-xs" style="float: right;"><i class="fa fa-angle-right"></i></span><{/if}></a>
+                        
+                        
+                        <ul class="dropdown-menu has-topBar">
+                      <{ section name=list2 loop=$ClassArray[list].sub[list1].sub start=0 }>
+						<li><a class="menu_4" href="<{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].sub[list2].bid}>"><{$ClassArray[list].sub[list1].sub[list2].catname}></a></li>
+                      <{/section}>
+					</ul>
+                        
+                        
+                        </li>
+                      <{/section}>
+					</ul>
+               <{/if}>
+		</li>
+        <{/section}>
+		</li>
+	</ul>
+</li>

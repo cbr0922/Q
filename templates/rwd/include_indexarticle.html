@@ -1,0 +1,15 @@
+
+<table width="244" align="center"   border="0" cellpadding="0" cellspacing="0"  >
+ <tr>
+  <td  align="center" valign="top" ><{ section name=i loop=$pic_news }>
+    <table width="244" border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px; margin-top:17px">
+      <tr>
+        <td  rowspan="2" width="93" align="center" valign="top"   class="style4" ><a href="article/article<{$pic_news[i].news_id}>"><img width="66" src="UploadFile/NewsPic/<{ $pic_news[i].nimg }>"  border=0  /></a></td>
+        <td  align="left" valign="top"  class="job3" ><div style=" height:35px;overflow: hidden; "><a href="<{ $Site_Url }>/article/article<{ $pic_news[i].news_id }>"><{ $pic_news[i].ltitle }></a></div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="left" valign="top" style="  padding-top:5px " ><div style=" height:38px;overflow: hidden; "><!--a href="article/article.php?articleid=<{$pic_news[i].news_id}>"</a>--><{ $pic_news[i].brief }></div></td>
+        </tr>
+    </table>    <{ /section }>  </td>
+ </tr>
+</table>

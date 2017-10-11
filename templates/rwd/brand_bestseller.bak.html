@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title><{ $brandname }> - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<meta property="og:title" content="<{ $brandname }>" />
+<meta property="og:type" content="brand" />
+<meta property="og:url" content="<{$Site_Url}>/brand/index.php" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="<{ $Meta_desc }>" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<{ include_php file="include/ga.php" }>
+</head>
+<style>
+
+
+
+.header-best10{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header-best10 h2{
+    font-size: 42px;
+    display: block;
+    width: 284px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: normal;
+}
+
+#brand-best10 {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "微軟正黑體", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.brand-best10-column{
+  width:100%;
+  position: relative;
+}
+
+.brand-best10-col{
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+  width: 49%;
+}
+
+#brand-best10 #brand-best10-1, #brand-best10 #brand-best10-3, #brand-best10 #brand-best10-5, #brand-best10 #brand-best10-7, #brand-best10 #brand-best10-9{
+  text-align: right;
+}
+
+#brand-best10 #brand-best10-1 .brand-best10-content, #brand-best10 #brand-best10-3 .brand-best10-content, #brand-best10 #brand-best10-5 .brand-best10-content, #brand-best10 #brand-best10-7 .brand-best10-content, #brand-best10 #brand-best10-9 .brand-best10-content{
+  text-align: left;
+}
+
+
+
+/*#brand-best10 img.prod {
+    max-width: 80%;
+    margin: 20px 0;
+}*/
+#brand-best10 img {
+    max-width: 60%;
+    margin: 20px 0;
+}
+
+#brand-best10 .brand-best10-btn {
+	font-size: 20px;
+    line-height: 20px;
+    font-family: "微軟正黑體";
+    font-weight: normal;
+    display: inline-block;
+    padding: 12px 35px;
+	background-color:#000;
+    text-decoration: none;
+    color: #fff;
+}
+#brand-best10 .brand-best10-btn .fa-angle-right{
+	font-size: 25px;
+	padding-left: 10px;
+}
+#brand-best10 .brand-best10-content {
+    padding: 0 20px;
+}
+
+#brand-best10 .brand-best10-EN {
+    font-family: "微軟正黑體";
+    font-weight: normal;
+	font-size: 12px;
+    line-height: 16px;
+}
+
+
+
+.brand-best10-EN {
+    display: block;
+}
+
+#brand-best10 p {
+    margin: 0 0 20px;
+}
+
+.brand-best10-mobile{
+  display: none !important;
+}
+
+.brand-best10-desktop{
+  display: inline-block !important;
+}
+.brand-best10-EN{
+  display: inline-block;
+}
+
+#brand-best10 #brand-best10-2 .brand-best10-content, #brand-best10 #brand-best10-4 .brand-best10-content, #brand-best10 #brand-best10-6 .brand-best10-content, #brand-best10 #brand-best10-8 .brand-best10-content, #brand-best10 #brand-best10-10 .brand-best10-content {
+    text-align: right;
+}
+
+@media (max-width: 640px) {
+
+
+  #brand-best10 .brand-best10-column .brand-best10-col {
+    width: 100%;
+    float: none;
+    text-align: center;
+}
+  .brand-best10-mobile{
+    display: block !important;
+  }
+
+  .brand-best10-desktop{
+    display: none !important;
+  }
+  .brand-best10-EN{
+    padding-bottom: 5px;
+  }
+  #brand-best10 #brand-best10-1 .brand-best10-content, #brand-best10 #brand-best10-3 .brand-best10-content, #brand-best10 #brand-best10-5 .brand-best10-content, #brand-best10 #brand-best10-2 .brand-best10-content, #brand-best10 #brand-best10-4 .brand-best10-content, #brand-best10 #brand-best10-6 .brand-best10-content, #brand-best10 #brand-best10-7 .brand-best10-content, #brand-best10 #brand-best10-8 .brand-best10-content, #brand-best10 #brand-best10-9 .brand-best10-content, #brand-best10 #brand-best10-10 .brand-best10-content {
+    text-align: center;
+    padding-top: 0;
+    margin-bottom: 50px;
+}
+}
+
+
+/*******/
+#brand-best10-1 .sellernum, #brand-best10-3 .sellernum, #brand-best10-5 .sellernum, #brand-best10-7 .sellernum, #brand-best10-9 .sellernum{
+	
+
+}
+#brand-best10-2 .sellernum img, #brand-best10-8 .sellernum img{
+
+	position: absolute;
+	
+}
+.numcenter{
+
+	margin:20px 0 20px 85px!important;
+}
+.sellernum{
+	display: inline;
+}
+.sellernum img {
+	vertical-align: top;
+}
+
+@media (min-width: 1290px){
+	.container.container-best10{
+		width: 1000px;
+	}
+}
+@media (max-width: 1023px) {
+	#brand-best10-2 .sellernum img, #brand-best10-8 .sellernum img{
+
+			position: absolute;
+			right: 50px;
+	}
+	.numcenter{
+
+		margin:20px 0!important;
+	}
+	#brand-best10-1 .sellernum img, #brand-best10-3 .sellernum img, #brand-best10-5 .sellernum img, #brand-best10-7 .sellernum img, #brand-best10-9 .sellernum img{
+		position: absolute;
+		max-width: 25% !important;
+		left: 5%;
+		top: 0%;
+	}
+	#brand-best10-10 .sellernum img {
+		position: absolute;
+		max-width: 20%;
+		right: 5%;
+		top: 0%;
+	}
+	#brand-best10 img {
+		max-width: 60%;
+		margin: 20px 0;
+	}
+}
+@media (max-width: 768px) {
+	#brand-best10-2 .sellernum img, #brand-best10-8 .sellernum img{
+
+		position: initial;
+	}
+	#brand-best10 .brand-best10-btn {
+		font-size: 15px;
+		line-height: 15px;
+		padding: 6px 15px;
+	}
+	#brand-best10 .brand-best10-btn .fa-angle-right {
+		font-size: 16px;
+		padding-left: 10px;
+	}
+}
+@media (max-width: 640px) {
+
+	.sellernum img {
+		position: absolute;
+		max-width: 25% !important;
+		left: 5%;
+		top: 0%;
+	}
+	#brand-best10-2 .sellernum img, #brand-best10-8 .sellernum img{
+		position: absolute;
+		max-width: 25% !important;
+		left: 5%;
+		top: 0%;
+	}
+}
+
+
+</style>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>	
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>  
+  <{ include file="include_brandclass.html" }>
+<section class="page-header page-header-xs">
+				<div class="container">
+
+					<h1 class="bfont size-18 hidden"><{ $BrandArea }></h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url"><span itemprop="title">品牌導覽</span></a></li><li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $brandname }></span></li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+            
+			
+			
+			
+			
+            <!-- 內容 -->
+<!--身體開始-->
+			<section>
+				<div class="container container-best10">
+					<div class="row">
+						<!--右邊開始-->
+						
+                            <div> 
+    
+ 
+    
+    <div class="header-best10">
+      <h2 class="center-block">Best Sellers</h2>
+    </div>
+    <div>
+      <div>
+        <div id="brand-best10">
+          <div id="brand-best10-1" class="brand-best10-column">
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder"> 
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b1.png" alt=""></div>
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/33/small/149662659226933.jpg" alt="特潤超導修護精華及眼部凝膠"> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Advanced Night Repair Face Serum and Eye Gel</span>
+                <p class="name"> <strong>特潤超導修護精華及眼部修護霜</strong> </p>
+                <a href="https://www.everrich.com/tw/est%C3%A9e-lauder/3364-Travel-Exclusive-Advanced-Night-Repair-Face-Serum--Eye-Gel-Crme.html" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-2" class="brand-best10-column">
+            <div class="brand-best10-col brand-best10-desktop">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">NUTRITIOUS VITALITY8™ OVERNIGHT RADIANCE COLLECTION</span>
+                <p class="name"> <strong>超能紅石榴微循環系列套裝</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail4506" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b2.png" alt=""></div>
+			  <img class="numcenter prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/46/small/14963048579846.jpg" alt="超能紅石榴微循環系列套裝"> </div>
+            </div>
+            <div class="brand-best10-col brand-best10-mobile">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">NUTRITIOUS VITALITY8™ OVERNIGHT RADIANCE COLLECTION</span>
+                <p class="name"> <strong>超能紅石榴微循環系列套裝</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail4506" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-3" class="brand-best10-column">
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b3.png" alt=""></div>
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/61/small/149662712725661.jpg" alt="絕對慾望奢華潤唇膏"> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Pure Color Envy Sculpting Lipstick</span>
+                <p class="name"> <strong>絕對慾望奢華潤唇膏</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail4507" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-4" class="brand-best10-column">
+            <div class="brand-best10-col brand-best10-desktop">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Double Wear Stay-in-Place Makeup SPF 10/PA++</span>
+                <p class="name"> <strong>粉持久完美持妝粉底</strong><span class="brand-best10-EN">&nbsp;SPF 10/PA++</span> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9159" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/79/small/150475261327079.jpg" alt="粉持久完美持妝粉底 SPF10/PA++">
+				<div class="sellernum"><img src="<{ $Site_Url }>/images/b4.png" alt=""></div>
+			  </div>
+            </div>
+            <div class="brand-best10-col brand-best10-mobile">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Double Wear Stay-in-Place Makeup SPF 10/PA++</span>
+                <p class="name"> <strong>粉持久完美持妝粉底</strong><span class="brand-best10-EN">&nbsp;SPF 10/PA++</span> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9159" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-5" class="brand-best10-column">
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b5.png" alt=""></div>
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/75/small/15046878846275.jpg" alt="無限抗皺奇蹟露"> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Optimizer Intensive Boosting Lotion Anti-Wrinkle + Lifting</span>
+                <p class="name"> <strong>無限抗皺奇蹟露</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9160" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-6" class="brand-best10-column">
+            <div class="brand-best10-col brand-best10-desktop">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Double Wear Cushion BB All Day Wear Liquid Compact SPF 50/PA+++</span>
+                <p class="name"> <strong>粉持久氣墊打光粉餅</strong><span class="brand-best10-EN">&nbsp;SPF 50/PA+++</span> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9166" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/91/small/150475434419091.jpg" alt="粉持久氣墊打光粉餅 SPF 50/PA+++">
+				<div class="sellernum"><img src="<{ $Site_Url }>/images/b6.png" alt=""></div>
+			  </div>
+            </div>
+            <div class="brand-best10-col brand-best10-mobile">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Double Wear Cushion BB All Day Wear Liquid Compact SPF 50/PA+++</span>
+                <p class="name"> <strong>粉持久氣墊打光粉餅</strong><span class="brand-best10-EN">&nbsp;SPF 50/PA+++</span> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9166" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-7" class="brand-best10-column">
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b7.png" alt=""></div>
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/92/small/15047530922792.jpg" alt="極淨光透白修護隔離乳 SPF 50/PA++++"> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Crescent White Full Cycle Brightening UV Protector SPF 50/PA++++</span>
+                <p class="name"> <strong>極淨光透白修護隔離乳</strong><span class="brand-best10-EN">&nbsp;SPF 50/PA++++</span> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9163" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-8" class="brand-best10-column">
+            <div class="brand-best10-col brand-best10-desktop">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Re-Nutriv Ultimate Lift Age-Correcting Eye Creme Duo</span>
+                <p class="name"> <strong>白金級極緻珍璽甦活眼霜雙組合</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9165" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b8.png" alt=""></div>
+			  <img class="numcenter prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/34/small/150475377830934.jpg" alt="白金級極緻珍璽甦活眼霜雙組合"> </div>
+            </div>
+            <div class="brand-best10-col brand-best10-mobile">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Re-Nutriv Ultimate Lift Age-Correcting Eye Creme Duo</span>
+                <p class="name"> <strong>白金級極緻珍璽甦活眼霜雙組合</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9165" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-9" class="brand-best10-column">
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b9.png" alt=""></div>
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/92/small/150475370312192.jpg" alt="創意彩妝盤"> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Ingenious Color Palette</span>
+                <p class="name"> <strong>創意彩妝盤</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail9164" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="brand-best10-10" class="brand-best10-column">
+            <div class="brand-best10-col brand-best10-desktop">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Pleasures Duo</span>
+                <p class="name"> <strong>歡沁香水雙組合</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail4510" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="brand-best10-col">
+              <div class="brand-best10-img-holder">
+			  
+			  <img class="prod" src="https://test.tasameng.com.tw/UploadFile/GoodPic/16/small/149630588726216.jpg" alt="歡沁香水雙組合">
+			  <div class="sellernum"><img src="<{ $Site_Url }>/images/b10.png" alt=""></div>
+			  </div>
+            </div>
+            <div class="brand-best10-col brand-best10-mobile">
+              <div class="brand-best10-content"> <span class="brand-best10-EN ">Pleasures Duo</span>
+                <p class="name"> <strong>歡沁香水雙組合</strong> </p>
+                <a href="https://test.tasameng.com.tw/product/detail4510" class="brand-best10-btn">了解更多<i class="fa fa-angle-right"></i></a> </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    
+  </div> 
+						
+						<!--右邊結束-->
+					</div>
+				</div>
+			</section>
+
+<!--身體結束-->
+
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

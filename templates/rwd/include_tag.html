@@ -1,0 +1,8 @@
+<table width="212" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="32" valign="top"><img src="<{ $template_dir }>/images/title-article.gif" width="212" height="30"></td>
+        </tr>
+        <tr>
+          <td style="border:#ccc 1px solid;padding:10px;"><{ section name=list loop=$tag_array_one }> <span class="style2"><a href="<{ $Site_Url }>/article/article_tag.php?tagid=<{ $tag_array_one[list].tagid }>"><{ $tag_array_one[list].tagname }></a> </span> &nbsp;<{ /section }></td>
+        </tr>
+      </table>

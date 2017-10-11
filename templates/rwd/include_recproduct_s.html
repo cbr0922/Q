@@ -1,0 +1,52 @@
+<style type="text/css">
+<!--
+.hot-block {
+	width: 280px;
+	height:102px;
+	display:block;
+	margin-left:5px;
+    MARGIN-TOP:10px;
+}
+.hotimg {
+	width:104px;
+	height:35px;
+    display:block;
+	float:left;
+    margin-right:5px;
+}
+div.hotimg a {
+	display: block;
+	border: 1px solid #fff;
+}
+div.hotimg a:hover {
+	border: 1px solid #ccc;
+}
+.protit {
+	height:35px;
+	overflow:hidden;}
+.procontent {
+	width:150px;
+	height:100px;
+	display:block;
+	float:left;
+	overflow:hidden;
+	text-align:left;
+	margin-left:10px;
+}	
+-->
+</style>              
+<table width="293" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #d6d6d6;padding-bottom:5px;">
+  <tr>
+    <td><img src="<{ $template_dir }>/images/title-jingxuan.gif" width="293" height="40" />
+    <{ section name=i loop=$Recommendation_productarray }>
+<div class="hot-block">  
+                          <div class="hotimg"><a href="<{ $Site_Url }>/product/detail<{ $Recommendation_productarray[i].gid }>"><img src="UploadFile/GoodPic/<{ $Recommendation_productarray[i].smallimg }>" width="102" border="0"></a></div>
+                         
+                          <div class="procontent"><h2><span class="ibaby_arrow">◆</span> <a href="<{ $Site_Url }>/product/detail<{ $Recommendation_productarray[i].gid }>"><{ $Recommendation_productarray[i].goodsname }></a></h2>
+                            <div style="margin-top:8px;margin-bottom:8px"><{ $Recommendation_productarray[i].intro }></div>
+        網購價格：<span class="price"><{ $Recommendation_productarray[i].pricedesc }></span>元</div>
+      </div>
+                          <{ /section }>
+    </td>
+  </tr>
+</table>

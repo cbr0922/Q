@@ -1,0 +1,52 @@
+<{ if $recommend_array != ''}>
+<div class="owl-carousel owl-padding-10 controlls-over onbutton margin-top-20" data-plugin-options='{"singleItem": false,  "items": "3","itemsDesktopSmall":[768,3],"itemsTablet":[480,2],"itemsMobile": false,"stopOnHover":true, "autoPlay":4000, "autoHeight": false, "navigation": true, "pagination": false,"lazyLoad":true }'>
+                        <{ section name=list loop=$recommend_array start=0 }>
+						<!-- item -->
+						<div class="shop-item margin-bottom-0" >
+
+							<div class="thumbnail noborder nopadding">
+							                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix" style="position:absolute">
+                      <{/if}>
+
+								<a href="detail<{$recommend_array[list].gid}>">
+                                <img class="img-responsive lazyOwl"  data-src="<{if $recommend_array[list].middleimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$recommend_array[list].middleimg}><{/if}>" alt="<{$recommend_array[list].goodsname}>"  />
+								</a>
+<{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+			<!-- /商品圖片 -->
+
+ 					<!-- 加入追蹤 -->
+                    <div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+                    <a class="gid<{ $hot_array[list].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $recommend_array[list].gid }>);" data-item-id="1" data-toggle="tooltip"><i class="fa fa-heart nopadding<{if $recommend_array[list].heartColor eq 1}> heartColor<{/if}>"></i></a></div>	
+                    <!-- /加入追蹤  -->
+                    <!-- 特惠標示 -->
+                    <div class="shop-item-info  text-left">
+                    <span class="label label-danger">HOT</span>
+                    </div>
+                    <!-- 特惠標示 -->
+            		</div>
+
+							<div class="shop-item-summary">
+                                <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $hot_array[list].sale_name }></div>
+                                <div style="height:40px; overflow:hidden; text-align: left !important;">
+								<h2><a href="detail<{$recommend_array[list].gid}>"><{$recommend_array[list].goodsname}></a></h2>
+                                </div>
+
+								<!-- price -->
+								<div class="shop-item-price text-left" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+									<span class="line-through">NT <{ $recommend_array[list].price }></span>
+									NT <{ $recommend_array[list].pricedesc }>
+								</div>
+								<!-- /price -->
+							</div>
+
+						</div>
+						<!-- /item -->
+                        <{ /section }>
+					</div>
+<{/if}>

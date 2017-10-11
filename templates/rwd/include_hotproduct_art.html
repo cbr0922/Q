@@ -1,0 +1,24 @@
+<font style="color: #f464b7;font-size: 22px;font-weight: bold;">熱門商品</font>
+<div style="margin-top:10px; margin-bottom:10px;">
+<div>
+ <{ section name=hotlistname loop=$Hot_product }>
+<div class="shiyong-block_a" style="margin-right:10px;"> 
+  <div class="shiyonglist_a" style="position:relative; margin-bottom:15px;">
+ <div id="line1">
+                 <span id="a">
+                  <div class="shiyongtitle_a">
+                <{ $Hot_product[hotlistname].goodsname }>
+                </div><div class="yuan_hotpd_pic_a"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $Hot_product[hotlistname].smallimg }>" border="0" /></div>
+                 </span>
+                <a href="<{ $Site_Url }>/product/detail<{ $Hot_product[hotlistname].gid }>"><span id="b">
+                <div class="shiyongtitle_a">
+               <{ $Hot_product[hotlistname].goodsname }>
+                </div><div class="yuan_hotpd_pic_a"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $Hot_product[hotlistname].smallimg }>" border="0" /></div>
+        </span></a>
+      </div>
+ </div>      
+</div>
+      <{ /section }>  
+        </div>
+        <div style="clear:both;"></div>
+  </div>

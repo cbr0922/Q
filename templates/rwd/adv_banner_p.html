@@ -1,0 +1,30 @@
+							<{ if $adv_Num > 0 }>
+                            <!-- CAROUSEL -->
+							<div class="product_banner owl-carousel buttons-autohide controlls-over margin-top-30 margin-bottom-30 radius-4" data-plugin-options='{"singleItem": true, "autoPlay": 6000, "navigation": true, "pagination": true, "transitionStyle":"fade"}'>
+								<!-- item -->
+                                 <{ section name=list loop=$adv_array }>
+								<div>
+									<!--<div class="caption-slider-default">
+										<div class="display-table">
+											<div class="display-table-cell vertical-align-middle">
+												<div class="caption-container text-left">
+													<h2>SHOP <strong>NOW</strong> &ndash; 50% OFF</h2>
+													<p>
+														This is a category banner rotator<br />
+														for any category of your shop.
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>-->
+
+									<A title="<{$adv_array[list].title}>" href="<{$adv_array[list].url}>" class="ad"><{$adv_array[list].img}></A>
+								</div>
+                                <{/section}>
+								<!-- /item -->
+
+
+							</div>
+							<!-- /CAROUSEL -->
+							<{ /if }>
+

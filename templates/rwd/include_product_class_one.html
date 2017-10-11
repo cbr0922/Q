@@ -1,0 +1,30 @@
+<div><img src="<{ $template_dir }>/images/brand.gif"  /></div>
+<div id="left_menu">
+<{if $show_top eq 1}>
+<div >
+<a href="<{ $Site_Url }>/product/<{ $show_top_id }>"> <{if $show_top_pic1 neq ""}> <img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $show_top_pic1  }>" title="<{$show_top_name}>"  border="0"/><{else}> <span style="padding-left:25px;margin-top:0px"><{$show_top_name}></span> <{/if}> </a>
+</div>
+ <{/if}>
+<div align="left">
+	<{ section name=list loop=$ProductListAll start=0 }>
+	<ul   class="<{if $ProductListAll[list].bid eq $smarty.get.brand_id}>level2_cur<{else}>level2<{/if}>">
+		<a href="<{ $Site_Url }>/brand/<{$ProductListAll[list].bid}>"> 
+		<li><{$ProductListAll[list].catname}></li>
+		</a> 
+		<!--div style="margin-left:16px" <{if $ProductListAll[list].link eq "product_class_second.php"}>style="margin-left:10px;"<{/if}>> 
+		 <{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+            <{if $ProductListAll[list].sub[list1].goodsname neq ""}> 
+			<ul style="padding-left:5px;padding-right:15px" class="<{if $ProductListAll[list].sub[list1].link eq "product_class_second.php"}>level2<{elseif $ProductListAll[list].sub[list1].color eq 1}>level3-1_cur<{else}>level3-1<{/if}>">
+		<li>
+			<a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{$ProductListAll[list].sub[list1].gid}>">
+            <{if $ProductListAll[list].sub[list1].color eq 1}>  <{/if}> 
+        	<{$ProductListAll[list].sub[list1].goodsname}></a>
+		</li>
+		</ul>
+		<{/if}>
+        <{/section}>
+		</div-->
+	</ul>
+	<{/section}>
+</div>
+</div>

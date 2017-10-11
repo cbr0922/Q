@@ -1,0 +1,6 @@
+<{ section name=list loop=$attr_class }>
+    <span class="p12blue"><{$attr_class[list].attributename}>：</span>
+    <{ section name=list2 loop=$attr_class[list].value }>
+     <a href="<{ $Site_Url }>/product/product_attr.php?attrid=<{$attr_class[list].attrid}>&bid=<{$attr_class[list].bid}>&valueid=<{$attr_class[list].value[list2].valueid}>"><{$attr_class[list].value[list2].value}></a> &nbsp;|&nbsp;
+     <{/section}>
+<{/section}>

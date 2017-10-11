@@ -1,0 +1,326 @@
+<xml version="1.0" encoding="utf-8">
+	<keyword signature="does not appear to be registered" weight="2"/>
+	<keyword signature="DNS lookup failed" weight="2"/>
+	<keyword signature="No DNS information" weight="2"/>
+	<keyword signature="this server doesn't handle mail for that user" weight="2"/>
+	<keyword signature="no users here by that name" weight="2"/>
+	<keyword signature="Invalid Domain" weight="2"/>
+	<keyword signature="Cannot resolve" weight="2"/>
+	<keyword signature="Can&#x27;t connect to host" weight="2"/>
+	<keyword signature="This user doesn&#x27;t have a" weight="2"/>
+	<keyword signature="User unknown" weight="2"/>
+	<keyword signature="Unknown Recipient" weight="2"/>
+	<keyword signature="Recipient unknown" weight="2"/>
+	<keyword signature="not listed in public Name" weight="2"/>
+	<keyword signature="mailbox unavailable" weight="2"/>
+	<keyword signature="account has been disabled" weight="2"/>
+	<keyword signature="unrecognised recipient" weight="2"/>
+	<keyword signature="The recipient name is not recognized" weight="2"/>
+	<keyword signature="MAILBOX NOT FOUND" weight="2"/>
+	<keyword signature="destination addresses were unknown" weight="2"/>
+	<keyword signature="mailbox inactive" weight="2"/>
+	<keyword signature="Invalid recipient" weight="2"/>
+	<keyword signature="invalid address" weight="2"/>
+	<keyword signature="invalid user" weight="2"/>
+	<keyword signature="invactive user" weight="2"/>
+	<keyword signature="destination addresses were unknown" weight="2"/>
+	<keyword signature="user account inactive" weight="2"/>
+	<keyword signature="no mailbox here by that name" weight="2"/>
+	<keyword signature="unknown user" weight="2"/>
+	<keyword signature="unknown or illegal alias" weight="2"/>
+	<keyword signature="over the allowed quota" weight="1"/>
+	<keyword signature="Quota violation" weight="1"/>
+	<keyword signature="not known here" weight="2"/>
+	<keyword signature="Address not known" weight="2"/>
+	<keyword signature="is not a valid maildrop" weight="2"/>
+	<keyword signature="is not a valid user" weight="2"/>
+	<keyword signature="addressee unknown" weight="2"/>
+	<keyword signature="No such user" weight="2"/>
+	<keyword signature="Unsupported mail destination" weight="2"/>
+	<keyword signature="box full" weight="1"/>
+	<keyword signature="DNS server could not be contacted" weight="1"/>
+	<keyword signature="Access denied" weight="1"/>
+	<keyword signature="box full" weight="1"/>
+	<keyword signature="box is full" weight="1"/>
+	<keyword signature="exceeded storage allocation" weight="1"/>
+	<keyword signature="that domain isn&#x27;t in my list of allowed rcpthosts" weight="1"/>
+	<keyword signature="Relaying denied" weight="1"/>
+	<keyword signature="Insufficient disk space" weight="1"/>
+	<keyword signature="Message will exceed maximum mailbox size" weight="1"/>
+	<keyword signature="User mailbox exceeds allowed size" weight="1"/>
+	<keyword signature="User&#x27;s Disk Quota Exceeded" weight="1"/>
+	<keyword signature="Mailbox or Conference is full" weight="1"/>
+	<keyword signature="I/O error encountered" weight="1"/>
+	<keyword signature="Local configuration error" weight="1"/>
+	<keyword signature="Quota exceeded" weight="1"/>
+	<keyword signature="this message has been in the queue too long" weight="1"/>
+	<keyword signature="error while writing to dropfile" weight="1"/>
+	<keyword signature="retry timeout exceeded" weight="1"/>
+	<keyword signature="4.4.5" weight="1"/>
+	<keyword signature="5.7.1" weight="1"/>
+	<keyword signature="4.4.7" weight="1"/>
+	<keyword signature="5.3.0" weight="1"/>
+	<keyword signature="5.7.2" weight="2"/>
+	<keyword signature="5.5.0" weight="2"/>
+	<keyword signature="5.1.1" weight="2"/>
+	<keyword signature="4.1.8" weight="1"/>
+	<keyword signature="5.7.0" weight="1"/>
+	<keyword signature="5.5.6" weight="2"/>
+	<keyword signature="5.4.0" weight="1"/>
+	<keyword signature="5.2.1" weight="2"/>
+	<keyword signature="4.4.4" weight="1"/>
+	<keyword signature="We do not accept mail from spammers" weight="1"/>
+	<keyword signature="non-fatal" weight="0"/>
+	<keyword signature="this warning" weight="0"/>
+	<keyword signature="Message delayed" weight="0"/>
+	<keyword signature="Will keep trying" weight="0"/>
+	<keyword signature="out of the office" weight="0"/>
+	<keyword signature="No action is required on your part" weight="0"/>
+	<keyword signature="Message delayed" weight="0"/>
+	<keyword signature="No such host is known" weight="2"/>
+	<keyword signature="non-existent host" weight="2"/>
+	<keyword signature="Unknown local part" weight="2"/>
+	<keyword signature="550 Command RCPT User" weight="2"/>
+	<keyword signature="550 recipient" weight="2"/>
+	<keyword signature="550 unknown" weight="1"/>
+	<keyword signature="Unknown host" weight="2"/>
+	<keyword signature="user not found" weight="2"/>
+	<keyword signature="recipient storage full" weight="1"/>
+	<keyword signature="is unknown" weight="2"/>
+	<keyword signature="a valid email address" weight="2"/>
+	<keyword signature="User not known" weight="2"/>
+	<keyword signature="unknown local-part" weight="2"/>
+	<keyword signature="Recipient user name  not unique" weight="2"/>
+	<keyword signature="no se encuentra en la Libreta de direcciones" weight="2"/>
+	<keyword signature="not listed in Domino Directory" weight="2"/>
+	<keyword signature="service unavailable" weight="1"/>
+	<keyword signature="mail box space not enough" weight="1"/>
+	<keyword signature="retry time not reached for any host after a long failure period" weight="2"/>
+	<keyword signature="temporarily restricted from receiving email" weight="1"/>
+	<keyword signature="user is not authorized to receive e-mail" weight="2"/>
+	<keyword signature="mailbox has been suspended" weight="2"/>
+	<keyword signature="account is disabled" weight="2"/>
+	<keyword signature="Mailbox disabled" weight="2"/>
+	<keyword signature="over the storage quota" weight="1"/>
+	<keyword signature="exceeded their disk quota" weight="1"/>
+	<keyword signature="Carefully check that it was spelled correctly" weight="2"/>
+	<keyword signature="Authentication required" weight="1"/>
+	<keyword signature="not a valid mailbox" weight="2"/>
+	<keyword signature="out of quota" weight="1"/>
+	<keyword signature="inactive user" weight="2"/>
+	<keyword signature="does not exist" weight="2"/>
+	<keyword signature="Account discontinued" weight="2"/>
+	<keyword signature="try again later" weight="1"/>
+	<keyword signature="no such mailbox" weight="2"/>
+	<keyword signature="too many messages on the server" weight="1"/>
+	<keyword signature="mailbox name not allowed" weight="2"/>
+	<keyword signature="error in recipient address" weight="2"/>
+	<keyword signature="invalid mailbox" weight="2"/>
+	<keyword signature="Bad Recipient" weight="2"/>
+	<keyword signature="account expired" weight="2"/>
+	<keyword signature="configured to reject your mail" weight="1"/>
+	<keyword signature="is Inactive  on this domain" weight="2"/>
+	<keyword signature="mailbox is disabled" weight="2"/>
+	<keyword signature="is no longer active" weight="2"/>
+	<keyword signature="No user here by that name" weight="2"/>
+	<keyword signature="no such address" weight="2"/>
+	<keyword signature="doesn&#x27;t exist" weight="2"/>
+	<keyword signature="mailbox is inactive" weight="2"/>
+	<keyword signature="550 Mail refused" weight="2"/>
+	<keyword signature="is now disabled with SMTP service" weight="2"/>
+	<keyword signature="user does not have an account" weight="2"/>
+	<keyword signature="address rejected" weight="2"/>
+	<keyword signature="Connection timed out" weight="2"/>
+	<keyword signature="temp failure; user is invited to retry" weight="1"/>
+	<keyword signature="quota limit" weight="1"/>
+	<keyword signature="post got bad listname" weight="2"/>
+	<keyword signature="Host not found" weight="2"/>
+	<keyword signature="server refused mail" weight="1"/>
+	<keyword signature="too many letters during this connection" weight="1"/>
+	<keyword signature="administrativley disabled" weight="2"/>
+	<keyword signature="Delivery will be attempted for" weight="0"/>
+	<keyword signature="unable to connect" weight="2"/>
+	<keyword signature="account not activated" weight="2"/>
+	<keyword signature="Possible spam" weight="1"/>
+	<keyword signature="exceed storage quota" weight="1"/>
+	<keyword signature="not accepted" weight="2"/>
+	<keyword signature="I will be back" weight="0"/>
+	<keyword signature="over quota" weight="1"/>
+	<keyword signature="Service not available" weight="2"/>
+	<keyword signature="User not a member of domain" weight="2"/>
+	<keyword signature="Please check the spelling" weight="2"/>
+	<keyword signature="non-local recipient" weight="2"/>
+	<keyword signature="permanent delivery errors" weight="2"/>
+	<keyword signature="I don&#x27;t treat it as local" weight="1"/>
+	<keyword signature="not local host hello" weight="1"/>
+	<keyword signature="Cannot route to" weight="1"/>
+	<keyword signature="INCORRECT DOMAIN" weight="2"/>
+	<keyword signature="discarded by mail filter" weight="1"/>
+	<keyword signature="Helo command rejected" weight="1"/>
+	<keyword signature="eMail-ID does not exist" weight="2"/>
+	<keyword signature="I have a new email" weight="2"/>
+	<keyword signature="unknown virtual user" weight="2"/>
+	<keyword signature="A restriction in the system prevented delivery of the message" weight="1"/>
+	<keyword signature="Local configuration error" weight="1"/>
+	<keyword signature="not a valid account" weight="2"/>
+	<keyword signature="Mailbox_quota_exceeded" weight="1"/>
+	<keyword signature="User Blocked" weight="1"/>
+	<keyword signature="not a gateway" weight="1"/>
+	<keyword signature="relaying denied" weight="1"/>
+	<keyword signature="Local user only" weight="1"/>
+	<keyword signature="check if address is correct" weight="2"/>
+	<keyword signature="mail loop" weight="1"/>
+	<keyword signature="address unknown" weight="2"/>
+	<keyword signature="Recipient ok" weight="1"/>
+	<keyword signature="Some addresses were rejected" weight="2"/>
+	<keyword signature="space shortage" weight="1"/>
+	<keyword signature="not known at this site" weight="2"/>
+	<keyword signature="exceeded dropfile size quota" weight="1"/>
+	<keyword signature="Account Disable" weight="2"/>
+	<keyword signature="This Message is not welcome" weight="1"/>
+	<keyword signature="I couldn&#x27;t find any host named" weight="2"/>
+	<keyword signature="Maximum hop count exceeded" weight="1"/>
+	<keyword signature="address no longer accepts mail" weight="2"/>
+	<keyword signature="destinataire n&#x27;est pas reconnu" weight="2"/>
+	<keyword signature="account will be terminated" weight="2"/>
+	<keyword signature="I am away" weight="0"/>
+	<keyword signature="as soon as I return" weight="0"/>
+	<keyword signature="nicht im ?ffentlichem" weight="2"/>
+	<keyword signature="I no longer answer email" weight="1"/>
+	<keyword signature="DNS Loop" weight="1"/>
+	<keyword signature="has been blocked" weight="1"/>
+	<keyword signature="recipient was unavailable" weight="1"/>
+	<keyword signature="This message has been forwarded" weight="0"/>
+	<keyword signature="not accepting mail with attachments" weight="1"/>
+	<keyword signature="adresse invalide" weight="2"/>
+	<keyword signature="does not like recipient" weight="2"/>
+	<keyword signature="Not found in directory" weight="2"/>
+	<keyword signature="on vacation" weight="0"/>
+	<keyword signature="email name is not found" weight="2"/>
+	<keyword signature="Host Unknown" weight="2"/>
+	<keyword signature="have stoped using my email account" weight="2"/>
+	<keyword signature="we will reply" weight="0"/>
+	<keyword signature="received the email" weight="0"/>
+	<keyword signature="received your email" weight="0"/>
+	<keyword signature="new email address" weight="1"/>
+	<keyword signature="no longer with us" weight="2"/>
+	<keyword signature="recipient moved" weight="2"/>
+	<keyword signature="Mailbox voll" weight="1"/>
+	<keyword signature="Destinataire inconnu" weight="2"/>
+	<keyword signature="mailbox is temporarily suspended" weight="1"/>
+	<keyword signature="message has been received" weight="0"/>
+	<keyword signature="unknown local mailbox" weight="2"/>
+	<keyword signature="recipient could not be processed" weight="1"/>
+	<keyword signature="a loop was found" weight="1"/>
+	<keyword signature="nicht erkannt" weight="2"/>
+	<keyword signature="WARNING MESSAGE ONLY" weight="0"/>
+	<keyword signature="mail quota" weight="1"/>
+	<keyword signature="550 relay" weight="1"/>
+	<keyword signature="550 User" weight="1"/>
+	<keyword signature="571 mail relay" weight="1"/>
+	<keyword signature="relaying mail" weight="1"/>
+	<keyword signature="Pop3 Before authentication" weight="1"/>
+	<keyword signature="cannot relay" weight="1"/>
+	<keyword signature="Requested action aborted" weight="1"/>
+	<keyword signature="Can&#x27;t find mailnode" weight="2"/>
+	<keyword signature="516 sender" weight="1"/>
+	<keyword signature="556 Conta Inativa" weight="2"/>
+	<keyword signature="Invalid final delivery userid" weight="2"/>
+	<keyword signature="reached disk quota" weight="1"/>
+	<keyword signature="exceeds allowed message count" weight="1"/>
+	<keyword signature="Message rejected due to content" weight="1"/>
+	<keyword signature="this message is unwanted here" weight="1"/>
+	<keyword signature="relay mail" weight="1"/>
+	<keyword signature="Relay request denied" weight="1"/>
+	<keyword signature="too many connections" weight="1"/>
+	<keyword signature="unknown address" weight="2"/>
+	<keyword signature="Direccion electronica inexistente" weight="1"/>
+	<keyword signature="Remote sending only allowed with authentication" weight="1"/>
+	<keyword signature="unresolvable relay" weight="1"/>
+	<keyword signature="No such account" weight="2"/>
+	<keyword signature="Server too busy" weight="1"/>
+	<keyword signature="content rejected" weight="1"/>
+	<keyword signature="rejected by content" weight="1"/>
+	<keyword signature="failed to open files for write" weight="1"/>
+	<keyword signature="SPAM" weight="1"/>
+	<keyword signature="Unbekannter Empf?nger" weight="2"/>
+	<keyword signature="create permissions on this folder" weight="1"/>
+	<keyword signature="rejected for policy reasons" weight="1"/>
+	<keyword signature="email address has changed" weight="2"/>
+	<keyword signature="This address is not allowed" weight="2"/>
+	<keyword signature="nicht im ?ffentlichen" weight="2"/>
+	<keyword signature="non recens? dans" weight="2"/>
+	<keyword signature="closed due to inactivity" weight="2"/>
+	<keyword signature="forced failure" weight="1"/>
+	<keyword signature="configured to reject mail from" weight="1"/>
+	<keyword signature="Operation timed out" weight="1"/>
+	<keyword signature="do not relay" weight="1"/>
+	<keyword signature="No such mail drop" weight="2"/>
+	<keyword signature="space critically low" weight="1"/>
+	<keyword signature="User is no longer" weight="2"/>
+	<keyword signature="computer could not be found" weight="2"/>
+	<keyword signature="No such recipient" weight="2"/>
+	<keyword signature="addresses below have changed" weight="2"/>
+	<keyword signature="550 Access to" weight="1"/>
+	<keyword signature="Rule imposed mailbox access" weight="1"/>
+	<keyword signature="maximum allowed" weight="1"/>
+	<keyword signature="reply to you" weight="0"/>
+	<keyword signature="is not my user" weight="2"/>
+	<keyword signature="exceeds mailbox storage" weight="1"/>
+	<keyword signature="This account is not" weight="2"/>
+	<keyword signature="No se reconoce el recipiente" weight="2"/>
+	<keyword signature="E-mail was received" weight="0"/>
+	<keyword signature="no account by that name" weight="2"/>
+	<keyword signature="Address is unrecognized" weight="2"/>
+	<keyword signature="unrecoverable error" weight="1"/>
+	<keyword signature="Can&#x27;t create output" weight="1"/>
+	<keyword signature="over disk quota" weight="1"/>
+	<keyword signature="has been forwarded to" weight="0"/>
+	<keyword signature="Too Many Hops" weight="1"/>
+	<keyword signature="data format error" weight="1"/>
+	<keyword signature="loops back to myself" weight="1"/>
+	<keyword signature="Name service error" weight="1"/>
+	<keyword signature="user has moved" weight="2"/>
+	<keyword signature="Der Inhalt der Nachricht ist zum Ubermitteln zu lang" weight="1"/>
+	<keyword signature="Too much sessions in a connection" weight="1"/>
+	<keyword signature="Delivery to the following recipients failed" weight="1"/>
+	<keyword signature="El mail no pudo ser entregado" weight="1"/>
+	<keyword signature="was undeliverable to the following" weight="1"/>
+	<keyword signature="undelivered message follows" weight="1"/>
+	<keyword signature="?chec de la remise aux destinataires suivants" weight="1"/>
+	<keyword signature="Relaying not allowed" weight="1"/>
+	<keyword signature="Attached is your mail message which could not be delivered" weight="2"/>
+	<keyword signature="This email could not be delivered" weight="2"/>
+	<keyword signature="This is a permanent error" weight="2"/>
+	<keyword signature="disk full" weight="1"/>
+	<keyword signature="usuario es inactivo" weight="2"/>
+	<keyword signature="Your Domain does not have access" weight="1"/>
+	<keyword signature="Syntax error in address" weight="2"/>
+	<keyword signature="User disabled" weight="2"/>
+	<keyword signature="The user name is invalid" weight="1"/>
+	<keyword signature="invalid email address" weight="2"/>
+	<keyword signature="Unrouteable address" weight="2"/>
+	<keyword signature="email address is invalid" weight="2"/>
+	<keyword signature="on vacation" weight="0"/>
+	<keyword signature="I seguenti indirizzi di destinazione risultano inesistenti" weight="2"/>
+	<keyword signature="En vacances" weight="0"/>
+	<keyword signature="n&#x27;a pas ?t? distribu? au destinataire" weight="2"/>
+	<keyword signature="wurde nicht zugestellt" weight="2"/>
+	<keyword signature="Recapito non riuscito per i seguenti destinatari" weight="2"/>
+	<keyword signature="+AMk-chec de la remise aux destinataires suivants" weight="2"/>
+	<keyword signature="No reply is necessary" weight="0"/>
+	<keyword signature="Error en la entrega a los siguientes destinatarios" weight="2"/>
+	<keyword signature="Error Connecting to domain" weight="2"/>
+	<keyword signature="Unknown Error" weight="1"/>
+	<keyword signature="Temporary local problem" weight="1"/>
+	<keyword signature="please try later" weight="1"/>
+	<keyword signature="Connection not authorised" weight="1"/>
+	<keyword signature="Network is unreachable" weight="1"/>
+	<keyword signature="server rejected" weight="1"/>
+	<keyword signature="Error_connection_broken" weight="1"/>
+	<keyword signature="connection broken" weight="1"/>
+	<keyword signature="is not available" weight="2"/>
+	<keyword signature="DNS_Server_error" weight="1"/>
+	<keyword signature="name server reports that it is having technical problems" weight="1"/>
+	<keyword signature="Your message has encountered delivery problems" weight="2"/>
+</xml>

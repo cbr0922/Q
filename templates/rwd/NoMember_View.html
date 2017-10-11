@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript">	
+if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+    ajax = new XMLHttpRequest();
+} else if (window.ActiveXObject) { // IE
+    ajax = new ActiveXObject("Microsoft.XMLHTTP");
+}
+function checkname(value){
+    var f = document.form1;
+	var checkOK = "0123456789";
+	var checkStr = value;
+	var allValid = true;
+	for (i = 0;  i < checkStr.length;  i++){
+		ch = checkStr.charAt(i);
+		for (j = 0;  j < checkOK.length;  j++)
+		if (ch == checkOK.charAt(j))
+			break;
+		if (j == checkOK.length){
+			allValid = false;
+			break;
+		}
+	}
+	if (!allValid){
+		//alert("！");
+		BuildTxt("<{ $MustbeNum }>"); //定单编号必须是数字组成
+	    f.TheSubmit.disabled=true;
+        f.namecheck.vlaue==0;
+		//f.Serial.focus();
+		return false;
+	}
+return allValid;
+}
+function checkemail(value){
+    var f = document.form1;
+	var pattern = /^([A-Za-z0-9_|-]+[.]*[A-Za-z0-9_|-]+)+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/; 
+    var re = pattern.test(value); 
+	if (!re)
+	{
+	BuildEmailTxt("<font color=red><{ $NoformatEmail }></font>"); 
+    f.TheSubmit.disabled=true;
+   	f.emailcheck.vlaue==0;
+	return false;
+	}else{
+	BuildEmailTxt(""); 
+	return true;
+	}
+}
+function validateName(value){
+    var f = document.form1;
+	var strSerial = f.Serial.value;
+	var serverPage ;
+	var Result  = checkname(strSerial);
+	if(Result){
+		serverPage = "CheckUserExist.php?type=3&order_serial="+value ;
+	}else{
+	    f.Serial.focus();
+	    return false;
+    }
+		
+	//if((serverPage.indexOf("<{ $Site_Url }>/")!=0)) return-1; 
+    ajax.open("GET", serverPage, false); 
+	ajax.send(null); 
+    result =  Math.abs(ajax.responseText); 			
+           if(result==0){
+				BuildTxt("<font color=red><{ $NOorderNum }></font>"); //订单编号并不存在
+			    f.TheSubmit.disabled=true;
+                f.namecheck.vlaue==0;
+				return false;
+			} else if (result==1){
+ 			    BuildTxt("<font color=green><{ $PassorderNum }></font>");//订单编号通过
+			    f.namecheck.vlaue=1;
+				action();
+			}   
+}
+function validateEmail(value){
+    var f = document.form1;
+	var strEmail = f.email.value;
+	var serverPage ;
+	var Result  = checkemail(strEmail);
+	if(Result){
+		serverPage = "CheckUserExist.php?type=4&email="+value ;
+	}else{
+	    //f.email.focus();
+	    return false;
+    }	
+    ajax.open("GET", serverPage, false); 
+	ajax.send(null); 
+    result =  Math.abs(ajax.responseText); 			
+           if(result==0){
+				//alert();
+				BuildEmailTxt("<font color=red><{ $NOEmail }></font>");  //此Email并不存在订单资料中
+				f.TheSubmit.disabled=true;
+             	f.emailcheck.vlaue==0;
+				return false;
+			} else if (result==1){
+			    BuildEmailTxt("<font color=green><{ $PassEmail }></font>"); //Email资料通过
+			    f.emailcheck.vlaue=1;
+				action();
+			}     
+}	
+function BuildTxt(txt)
+{
+    var f = document.form1;
+    div_name.style.display="";
+    document.getElementById("div_name").innerHTML = txt;		
+}
+function BuildEmailTxt(txt)
+{
+    var f = document.form1;
+    div_email.style.display="";
+    document.getElementById("div_email").innerHTML = txt;			
+}
+function action(){
+ var f = document.form1;
+ if (f.emailcheck.vlaue==1 && f.namecheck.vlaue==1){
+   //  div_email.style.display="none";
+   //  div_name.style.display="none";
+     f.TheSubmit.disabled=false;
+  }
+}
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" style="padding:7px;">
+  <tr>
+    <td width="" height="362" align="center" valign="top"><div id="title_l">
+        <div id="title_l_left">
+          <!--h1><{ $Title_say }></h1--><a href="<{ $Site_Url }>">首頁</a> <span class="style100">> </span> <{ $Title_say }>
+        </div>
+        <div id="title_l_right"> </div>
+      </div>
+      <br>
+      <table width="100%"  border="0">
+        <tr>
+          <td align="center"><div align="center" class="style1"><{ if $Wrong != '' }><img src="<{ $template_dir }>/images/alert.gif"> <{ $Wrong }>
+              <!-- 并不存在您的资料-->
+              <{ /if }> </div></td>
+        </tr>
+        <tr>
+          <td align="center"><p><SPAN  class=p9orange>
+              <!-- 如果您想在本站购物，请先登陆！如果还没有注册请先免费注册！-->
+              若您是會員請先登入，並至會員中心查詢。</SPAN></p></td>
+        </tr>
+        <tr>
+          <td valign="middle"><form action="NoMember_ViewOrder.php" method="post" name="form1" onSubmit="return checkSerial(this,'<{ $JsSerial }>','<{ $JsEmail }>');"  target='_blank'>
+              <input type="hidden" name="namecheck" value="0">
+              <input type="hidden" name="emailcheck" value="0">
+              <TABLE width=400 height=84 border=0 align="center" cellPadding=3 cellSpacing=3>
+                <TBODY>
+                  <TR>
+                    <TD align=right noWrap><{ $Serial }>
+                      <!--用户名-->
+                      ：</TD>
+                    <TD align="left" nowrap><INPUT class=inputstyle size=30 name="Serial" onBlur="return validateName(this.value);"  >
+                      <div id="div_name"></TD>
+                  </TR>
+                  <TR>
+                    <TD noWrap align=right><{ $Email }>
+                      <!--email-->
+                      ：</TD>
+                    <TD align="left" nowrap><INPUT class=inputstyle type=text size=30 name="email" onBlur="return validateEmail(this.value);"  >
+                      <div id="div_email"></TD>
+                    <!--登录-->
+                  </TR>
+                  <TR>
+                    <TD noWrap align=right>&nbsp;</TD>
+                    <TD align="left" nowrap><INPUT class=inputstyle type=submit value='<{ $Submit }>' name="TheSubmit"  >
+                      &nbsp;</TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+            </form></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,45 @@
+								  
+				<{ section name=Comm loop=$CommentArray }>				  
+								  
+								  <table class="table table-bordered">
+									<tr>
+										<td class="text-right"><{ $CommentArray[Comm].comment_idate }></td>
+										
+									</tr>
+									<tr>
+										
+										<td>
+											<div><{ $UserComment}>：
+												<{ $CommentArray[Comm].comment_content }></span></span>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+										    <div>
+											<{ $ShoperReport }>：
+											<{ $CommentArray[Comm].comment_answer }>
+											</div>
+										</td>
+									</tr>
+									
+								  </table>
+				<{ /section }>								  
+      			<form class="margin-bottom-0" action="<{ $Site_Url }>/include/include_productcomment.php" method="post" name="formcomment" >
+						<input type="hidden" value="SubmitComment" name="action">
+						<input type="hidden" value="<{ $Url }>" name="Url">
+						<input type="hidden" value="<{ $Goods_id }>" name="Goods_id">
+      					<div>
+							<div class="margin-bottom-10">
+								<{ $CommentIntro }>：
+							</div>
+							<div>
+								<textarea name="content" cols="90" rows="3" class="form-control"></textarea>
+							</div>
+      					</div>
+      					<div class="margin-top-10">
+							<input class="btn size-15 btn-primary" name="submit" type="submit" value="確定送出" onclick="return CheckComments('請輸入評論內容','評論內容字符不能少於6個字');">&nbsp;(使用評論前請先登入)
+						</div>
+
+    	 		</form>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>我的電子折價券 - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="body_out">
+<div id="body_center"><{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+ <div id="title_l">
+   <div id="title_l_left">
+  <a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span> <a href="<{ $Site_Url }>/member/member_infor.php">會員專區</a> <span class="style100">></span> 我的電子折價券
+  </div>
+  <div id="title_l_right">&nbsp;</div>
+</div>
+ <div id="body_left"><!--左邊開始-->
+  <{ include_php file="member/left.php" }>
+ </div><!--左邊結束-->
+ <div id="body_right"><!--右邊邊開始-->
+  <div  class="table_member">
+  <table width="750"  align="center" cellpadding="0" cellspacing="0" >
+<tr>
+<td valign="top">
+ 
+ 
+ <div style="min-height:400px;">
+        <div style="clear:both;"></div>
+	 <table width="710" border="0" align="center" cellpadding="0" cellspacing="0" style=" margin-top:20px;">
+<tr>
+<td width="161"><a href="<{ $Site_Url }>/member/myticket.php" title="會員折價券" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('red1','','<{ $template_dir }>/images/useticket1-2.gif',1)"><img src="<{ $template_dir }>/images/useticket1-1.gif" width="161" height="27" id="red1" border="0" /></a></td>
+<td width="1"><img src="<{ $template_dir }>/images/redpoint_bit.gif" width="1" height="27" border="0"/>
+</td>
+<td width="161">
+  <a title="通用折價券使用" href="<{ $Site_Url }>/member/useticket2.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('red2','','<{ $template_dir }>/images/useticket2-2.gif',1)"><img src="<{ $template_dir }>/images/useticket2-2.gif" width="161" height="27" id="red2"  border="0"/></a></td>
+<td width="1"><img src="<{ $template_dir }>/images/redpoint_bit.gif" width="1" height="27" border="0"/>
+</td>
+<td width="161"><img src="<{ $template_dir }>/images/redpoint04.jpg" width="161" height="27"/>
+</td>
+<td width="225"><img src="<{ $template_dir }>/images/redpoint04.jpg" width="225" height="27" border="0"/>
+</td>
+</tr>
+</table><{ if $OrderTotalNum != 0 }>
+       <TABLE style="margin-top:15px;" cellSpacing=1 cellPadding=4 width="710" align=center  border=0 id="table_me">
+          <TBODY>
+            <TR>
+             <TD width="" align=center vAlign=middle nowrap class="head">訂單編號</TD>
+             <TD width="" align="center" valign="middle" nowrap class="head">抵用金額 /百分</TD>
+             <TD width="" align="center" nowrap class="head">使用日期</TD>
+            </TR>
+             <{ section name=list loop=$OrderList }>
+                      <TR>
+                        <TD align=center vAlign=top nowrap  class="job5"><A  href="javascript:temp=window.open('ViewOrder.php?order_id=<{ $OrderList[list].order_id }>','MyOrder','width=850,height=500,scrollbars=yes');temp.focus()"><{ $OrderList[list].ordercode }></a></TD>
+                        <TD align="center" nowrap><{if $OrderList[list].moneytype eq 0}><{ $OrderList[list].money }>元<{else}><{ $OrderList[list].money*100 }>%<{/if}></TD>
+                        <TD align="center"><{ $OrderList[list].usetime}></TD>
+                      </TR>
+            <{ /section }>
+</TBODY>
+                </TABLE>
+                    <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td > <{ $Nav_banner }> </td>
+                      </tr>
+                  
+                       
+              </table>
+                    <{ else }> 
+                   <TABLE style="margin-top:15px;" cellSpacing=1 cellPadding=4 width="710" align=center  border=0 id="table_me">
+          <TBODY>
+            <TR>
+             <TD width="" align=center vAlign=middle nowrap class="head">訂單編號</TD>
+             <TD width="" align="center" valign="middle" nowrap class="head">抵用金額 /百分</TD>
+             <TD width="" align="center" nowrap class="head">使用日期</TD>
+            </TR>
+         
+                      <TR>
+                        <TD colspan="3" align=center  valign="middle" height="75" nowrap  class="job5">  無任何折價券資料!!</TD>
+                      </TR>
+       
+</TBODY>
+                </TABLE>
+
+                    <{ /if }> 
+</div>
+</td>
+</Tr>
+</table></div>
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+<!--身體置中結束-->
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

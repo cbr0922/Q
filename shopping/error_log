@@ -1,0 +1,195 @@
+[23-Mar-2014 12:37:15] PHP Parse error:  syntax error, unexpected $end in /home/ddcscom/public_html/1838/Classes/cart.class.php on line 541
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[30-Jul-2014 09:52:13 Asia/Chongqing] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so' - libmysqlclient.so.16: cannot open shared object file: No such file or directory in Unknown on line 0
+[31-Jul-2014 09:39:09 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:17 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:20 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:30 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:31 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:32 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:43 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:44 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:47 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:47 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:49 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:49 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:50 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:51 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:54 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[31-Jul-2014 09:39:56 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 420
+[01-Aug-2014 19:11:18] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92
+[04-Aug-2014 16:00:41] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:00:41] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:00:43] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:00:43] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:01:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:01:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:01:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:01:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 421
+[04-Aug-2014 16:58:18] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 16:58:50] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 16:58:51] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 16:58:51] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 17:00:40] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 17:01:09] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 17:01:10] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[04-Aug-2014 17:01:22] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 438
+[08-Aug-2014 17:44:35] PHP Parse error:  syntax error, unexpected T_IF in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 769
+[08-Aug-2014 17:44:37] PHP Parse error:  syntax error, unexpected T_IF in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 769
+[08-Aug-2014 17:44:37] PHP Parse error:  syntax error, unexpected T_IF in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 769
+[14-Aug-2014 11:08:01] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 398
+[14-Aug-2014 11:08:01] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 510
+[14-Aug-2014 11:08:01] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 60
+[14-Aug-2014 11:10:54] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 398
+[14-Aug-2014 11:10:54] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 510
+[14-Aug-2014 11:10:54] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 60
+[25-Aug-2014 09:51:27] PHP Warning:  require_once(../Classes/cart.class.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/smartshop5/shopping/cart.php on line 2
+[25-Aug-2014 09:51:27] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '../Classes/cart.class.php' (include_path='.:/opt/alt/php52/usr/share/pear:/opt/alt/php52/usr/share/php') in /home/ddcscom/public_html/smartshop5/shopping/cart.php on line 2
+[01-Sep-2014 17:06:15] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[01-Sep-2014 17:11:11] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[01-Sep-2014 17:15:17] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[03-Sep-2014 14:57:11] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[09-Sep-2014 15:48:35] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[09-Sep-2014 15:49:59] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 460
+[09-Sep-2014 15:49:59] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 572
+[09-Sep-2014 15:49:59] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 61
+[09-Sep-2014 15:51:21] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 669
+[09-Sep-2014 23:15:59] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1180
+[09-Sep-2014 23:29:36] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1209
+[09-Sep-2014 23:31:41] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1209
+[09-Sep-2014 23:32:48] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1213
+[09-Sep-2014 23:33:38] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1213
+[09-Sep-2014 23:33:41] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1213
+[09-Sep-2014 23:34:42] PHP Parse error:  syntax error, unexpected '}' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 1214
+[09-Sep-2014 23:40:56] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:20] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:27] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:43] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:48] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:52] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:43:58] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:44:02] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:44:20] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[09-Sep-2014 23:44:24] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 01:12:07] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 01:12:12] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 01:42:32] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 01:42:38] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 01:45:52] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 08:57:38] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:05:21] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:05:50] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:05:51] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:05:55] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:05:59] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:10:19] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:13:11] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:26:30] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:28:31] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:41:38] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:41:41] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:45:50] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:48:48] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 09:49:42] PHP Parse error:  syntax error, unexpected ')' in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 734
+[10-Sep-2014 10:25:50] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 716
+[10-Sep-2014 10:32:22] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 716
+[12-Sep-2014 09:42:03] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 716
+[22-Oct-2014 11:00:11] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[23-Oct-2014 17:55:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 481
+[23-Oct-2014 17:55:00] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 629
+[29-Oct-2014 09:11:46] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 481
+[29-Oct-2014 09:11:46] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 629
+[29-Oct-2014 09:11:46] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 61
+[29-Oct-2014 14:32:58] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 481
+[29-Oct-2014 14:32:58] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 629
+[29-Oct-2014 14:32:58] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 61
+[30-Oct-2014 12:26:18] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 481
+[30-Oct-2014 12:26:18] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 629
+[07-Nov-2014 12:27:45] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[11-Nov-2014 16:44:02] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[11-Nov-2014 16:49:26] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[12-Nov-2014 09:23:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[23-Dec-2014 09:36:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[23-Dec-2014 09:36:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 726
+[23-Dec-2014 10:53:44 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 494
+[23-Dec-2014 10:53:44 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 642
+[23-Dec-2014 10:53:44 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[23-Dec-2014 11:12:57 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 494
+[23-Dec-2014 11:12:57 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 642
+[23-Dec-2014 11:12:57 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[23-Dec-2014 11:14:53 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 494
+[23-Dec-2014 11:14:53 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 642
+[23-Dec-2014 11:14:53 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[23-Dec-2014 11:26:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 494
+[23-Dec-2014 11:26:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 642
+[23-Dec-2014 11:28:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 494
+[23-Dec-2014 11:28:06 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 642
+[12-Jan-2015 20:05:25] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 743
+[14-Jan-2015 18:18:02] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[14-Jan-2015 18:18:02] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[14-Jan-2015 18:18:02] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 61
+[21-Jan-2015 16:47:16] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[21-Jan-2015 16:47:16] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:45:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:45:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:45:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[26-Jan-2015 13:58:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:58:08] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:58:13] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:58:13] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:58:23] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:58:23] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:58:25] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:58:25] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:58:27] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:58:27] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:59:23] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:59:23] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 13:59:31] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 13:59:31] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 14:24:48] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 14:24:48] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 14:57:05] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 14:57:05] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 14:58:28] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 495
+[26-Jan-2015 14:58:28] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 646
+[26-Jan-2015 14:58:28] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[26-Jan-2015 17:30:13] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 743
+[10-Feb-2015 10:46:04] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[10-Feb-2015 10:46:04] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[10-Feb-2015 10:46:07] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[10-Feb-2015 10:46:08] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[10-Feb-2015 10:46:28] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[10-Feb-2015 10:46:28] PHP Warning:  Division by zero in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 624
+[11-Mar-2015 11:47:43] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 744
+[12-Mar-2015 13:37:35] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 744
+[17-Mar-2015 16:03:13] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 744
+[17-Mar-2015 16:04:30] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:30] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:30] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping3.php on line 61
+[17-Mar-2015 16:04:32] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:32] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:32] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[17-Mar-2015 16:04:34] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:34] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:34] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[17-Mar-2015 16:04:36] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:36] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:36] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[17-Mar-2015 16:04:37] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:37] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:37] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[17-Mar-2015 16:04:39] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 496
+[17-Mar-2015 16:04:39] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 647
+[17-Mar-2015 16:04:39] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/shopping/shopping2.php on line 46
+[17-Mar-2015 17:28:28] PHP Warning:  Invalid argument supplied for foreach() in /home/ddcscom/public_html/smartshop5/Classes/cart.class.php on line 744

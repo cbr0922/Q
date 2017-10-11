@@ -1,0 +1,455 @@
+<script language="JavaScript" type="text/JavaScript">
+function checkStorage(id,color,size,ifalarm,detail_id){
+
+	var cobj,sobj,cvalue,svalue,dobj,dvalue,dprice;
+
+	if (color==1){
+
+		cobj = document.getElementById("xycolor" + id);
+
+		cvalue = cobj.value;
+
+	}else{
+
+		cvalue = "";
+
+	}
+
+	if (size==1){
+
+		sobj = document.getElementById("xysize" + id);
+
+		svalue = sobj.value;
+
+	}else{
+
+		svalue = "";
+
+	}
+
+	if (detail_id==1){
+
+		dobj = document.getElementById("xydetail" + id);
+
+		dvalue = dobj.value;
+
+		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
+
+		document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
+
+	}else{
+
+		dvalue = "";
+
+	}
+
+	if(ifalarm == 3){
+
+
+
+		$('#showstorage' + id).html("<div class='col-md-8 col-sm-6 col-xs-6 nopadding'><div class='noborder margin-top-10' style='border: solid #999 1px;width:100%'><a href='<{ $Site_Url }>/help/contact.php?gid="+id+"' class='btn btn-sm margin-top-10 list_b nomargin' >請電洽</a></div></div>");
+
+
+
+		$('#nobtn' + id).css("display","none");
+
+
+
+		$('#showbuy' + id).css("display","none");
+
+
+
+		$('.showbuy' + id).css("display","none");
+
+
+
+		$('#count' + id).find("option").remove();
+
+
+
+		$('#count' + id).append( "<option value=\"0\">0</option>" );
+
+
+
+	}else{
+
+
+
+		$.ajax({
+
+					url: "<{ $Site_Url }>/product/checkProduct.php",
+
+					data: 'gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&act=checkstorage&detail_id=' + encodeURIComponent(dvalue),
+
+					type:'get',
+
+					dataType:"html",
+
+					success: function(msg){
+
+					//alert(msg);
+
+					  if (msg <= 0 || msg == ""){
+
+							if(ifalarm == 2){
+
+					   		$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>已售完</div></div>");
+
+								$('#nobtn' + id).css("display","none");
+
+								$('#showbuy' + id).css("display","none");
+
+								$('#count' + id).find("option").remove();
+
+								$('#count' + id).append( "<option value=\"0\">0</option>" );
+
+							}else if(ifalarm == 1){
+								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");								$('#nobtn' + id).css("display","none");								$('#showbuy' + id).css("display","none");								$('#count' + id).find("option").remove();								$('#count' + id).append( "<option value=\"0\">0</option>" );							}else{
+
+								$('#showstorage' + id).html("");
+
+								$('#showbuy' + id).css("display","block");
+
+								$('#count' + id).find("option").remove();
+
+								for(i=1;i<=<{$buy_product_max_num}>;i++){
+
+									$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
+
+									$('#count' + id).val("1");
+
+								}
+
+							}
+
+					  }else{
+
+							$('#showstorage' + id).html("");
+
+
+
+							$('#count' + id).find("option").remove();
+
+							if (msg><{$buy_product_max_num}>)
+
+								count = <{$buy_product_max_num}>
+
+							else
+
+								count = msg
+
+							for(i=1;i<=count;i++){
+
+								$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
+
+								$('#count' + id).val("1");
+
+							}
+
+							$('#showbuy' + id).css("display","block");
+
+							$('#nobtn' + id).css("display","block");
+
+					}
+
+				}
+
+		});
+
+	}
+
+}
+
+//商品加入購物車
+
+function buyProduct(gid,color,size,count,detail_id){
+
+	$.ajax({
+
+       url: '<{$Site_Url}>/shopping/cart.php',
+
+       data: 'Action=Add&type=goods&goods_id=' + gid + '&good_color=' + color + '&good_size=' + size + '&count=' + count + '&detail_id=' + detail_id,
+
+				type:'get',
+
+				dataType:"html",
+
+				cache: false,
+
+				success: function(msg){//alert(msg);
+
+					showshopping(1);
+
+				}
+
+	});
+
+}
+
+//商品兌換
+
+function bonusProduct(gid,color,size,detail_id){
+
+	var cvalue,svalue,dvalue;
+
+	if (color==1){
+
+		cobj = document.getElementById("xycolor" + gid);
+
+		cvalue = cobj.value;
+
+	}else{
+
+		cvalue = "";
+
+	}
+
+	if (size==1){
+
+		sobj = document.getElementById("xysize" + gid);
+
+		svalue = sobj.value;
+
+	}else{
+
+		svalue = "";
+
+	}
+
+	if (detail_id==1){
+
+		dobj = document.getElementById("xydetail" + gid);
+
+		dvalue = dobj.value;
+
+	}else{
+
+		dvalue = "";
+
+	}
+
+	location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goods_id=' + gid +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&count=1&detail_id=' + encodeURIComponent(dvalue);
+
+}
+</script>
+
+
+
+      <table width="100%" border="0" id="product_list" cellspacing="0" cellpadding="0">
+  <{if $smarty.get.skey neq ""}><tr>
+     <td height="22"  valign="middle"  align="left" colspan="2" style="border-top: 2px solid #CCCCCC; border-bottom: 2px solid #CCCCCC; font-size:15px; font-weight:bold; padding:5px; padding-left:15px"><{$product_array.count}>項商品></td>
+  </tr><{/if}>
+  <tr>
+    <td>
+    <div class="form-group margin-top-20">
+			<div class="col-md-9 col-xs-7">
+			  <h1 class="size-18 margin-bottom-10 weight-500" style="margin-top:5px"><{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}>商品區</h1>
+			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
+
+								<!-- LIST OPTIONS -->
+							<div class="clearfix shop-list-options margin-bottom-10 col-md-3 col-xs-5">
+								<!-- 排序下拉 -->
+								<div class="options text-right">
+
+									<select id="productMenu" class="nopadding height-30" style="width:90%;border-radius: 0px;" onChange="location.href=this.value">
+										<option value="product_attr.php?bid=<{$smarty.get.bid}>&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>">優先推薦</option>
+										<option value="product_attr.php?orderby=price&bid=<{$smarty.get.bid}>&ordertype=1&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "price" && $smarty.get.ordertype eq "1"}>selected<{/if}>>價格由低到高</option>
+										<option value="product_attr.php?orderby=price&bid=<{$smarty.get.bid}>&ordertype=0&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "price"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>價格由高到低</option>
+										<option value="product_attr.php?orderby=pubtime&bid=<{$smarty.get.bid}>&ordertype=1&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "pubtime"  && $smarty.get.ordertype eq "1"}>selected<{/if}>>上架由舊到新</option>
+										<option value="product_attr.php?orderby=pubtime&bid=<{$smarty.get.bid}>&ordertype=0&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "pubtime"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>上架由新到舊</option>
+										<option value="product_attr.php?orderby=visit&bid=<{$smarty.get.bid}>&ordertype=1&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "visit"  && $smarty.get.ordertype eq "1"}>selected<{/if}>>人氣由低到高</option>
+										<option value="product_attr.php?orderby=visit&bid=<{$smarty.get.bid}>&ordertype=0&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&attrid=<{$smarty.get.attrid}>&valueid=<{$smarty.get.valueid}>" <{if $smarty.get.orderby eq "visit"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>人氣由高到低</option>
+									</select>
+
+							</div>
+							</div>
+							<!-- /LIST OPTIONS -->
+                            <div style="clear:both"></div>
+                            <hr class="margin-top-0 margin-bottom-0">
+		</div>
+
+    </td>
+  </tr>
+</table>
+<div id="product_list"><ul class="shop-item-list row list-inline nomargin">
+  <{ section name=list loop=$product_array.info start=0 }>
+
+
+    <li class="<{ if $productlist_type eq 1 }> col-md-4 col-sm-5th col-xs-6<{ elseif $cell_num eq 1 }> col-md-4 col-sm-6 col-xs-6 <{ elseif $cell_num eq 2 }>col-md-3 col-sm-4 col-xs-6<{ else $cell_num eq 3 }>col-sm-4 col-md-5th col-xs-6<{/if}>  padding-bottom-50 product_float">
+
+									<div class="shop-item">
+                                     <div class="thumbnail noborder nopadding">
+
+											<!-- 商品圖片fix在div內 -->
+                                            <{if $pic_fix eq 1}>
+                                              <div class="thumbnail_container_fix">
+                                              <div class="thumbnail_fix">
+                                            <{/if}>
+
+											<a  <{if $smarty.get.type eq 'bonus'}> class="lightbox" href="../product/showProduct.php?goods_id=<{$product_array.info[list].gid}>"  data-target="#ajax" data-toggle="modal" <{else}>href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>"<{/if}>>
+                                            <img class="lazy" id="showbonus" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $product_array.info[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].smallimg}><{/if}>" border=0 name="goodpic" alt="<{$product_array.info[list].goodsname}>">
+                                            </a>
+
+                                            <{if $pic_fix eq 1}>
+                                            </div>
+                                            </div>
+                                            <{/if}>
+											<!-- /商品圖片 -->
+
+											<!-- 加入追蹤 -->
+											<{if $smarty.get.type neq 'bonus'}><div class="shop-option-over"<{if $product_array.info[list].heartColor eq 1}> style="opacity: 1;"<{/if}>><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="gid<{ $product_array.info[list].gid }> btn btn-default add-wishlist<{$product_array.info[list].heartColor}>" href="javascript:void(0);" onclick="clickHeart(<{ $product_array.info[list].gid }>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單"><i class="fa fa-heart nopadding<{if $product_array.info[list].heartColor eq 1}> heartColor<{/if}>"></i></a>
+
+											</div>
+											<!-- /加入追蹤  -->
+
+											<!-- 特惠標示 -->
+											<div class="shop-item-info">
+											<{if $product_array.info[list].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+											<{if $product_array.info[list].saleoff.ifsaleoff eq 1 || $product_array.info[list].timesale.iftimesale eq 1}><span class="label label-danger">促銷中</span><{/if}>
+											<!--<span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+											</div><{/if}>
+											<!-- 特惠標示 -->
+										</div>
+
+										<div class="shop-item-summary">
+                                        <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px;"><{$product_array.info[list].sale_name}></div>
+											<div style="height:40px; overflow:hidden;"><h2><a  <{if $smarty.get.type eq 'bonus'}>class="lightbox" href="../product/showProduct.php?goods_id=<{$product_array.info[list].gid}>" data-target="#ajax" data-toggle="modal"  <{else}>href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>"<{/if}>><{$product_array.info[list].goodsname}></a></h2></div>
+
+
+											<!-- 價格 -->
+											<div id="shop-item-price<{$product_array.info[list].gid}>" class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+												<span class="line-through">NT <{$product_array.info[list].price}></span>
+                                                <{if $smarty.get.type eq 'bonus'}>
+      											    所需積分： <{$product_array.info[list].bonusnum}>
+       											<{else}>
+          											　NT <{$product_array.info[list].pricedesc}>
+        										<{/if}>
+
+											</div>
+											<!-- /價格 -->
+
+										   <!--<{if $smarty.get.type eq 'bonus' }>
+										     紅利商品規格尺寸 --><!-- /紅利商品規格尺寸
+										   <{/if}>-->
+
+											 <{if $product_array.info[list].productdetail.count gt 0}>
+											 <div  class="clearfix shop-list-options margin-top-10">
+												 <select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="xydetail<{$product_array.info[list].gid}>" id="xydetail<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);">
+													 <{ section name=list1 loop=$product_array.info[list].productdetail.info }>
+													 <option price="<{$product_array.info[list].productdetail.info[list1].member_price}>" value="<{$product_array.info[list].productdetail.info[list1].detail_id}>"><{$product_array.info[list].productdetail.info[list1].detail_name}></option>
+													 <{ /section}>
+												 </select>
+											 </div>
+											 <{/if}>
+
+										    <{if $product_array.info[list].good_color neq ""}>
+											<div  class="clearfix shop-list-options margin-top-10">
+											  <select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
+											  <{ section name=list1 loop=$product_array.info[list].color }>
+												  <option value="<{$product_array.info[list].color[list1].color}>"><{$product_array.info[list].color[list1].color}></option>
+											  <{ /section}>
+											  </select>
+											  </div>
+											<{/if}>
+
+
+											<{if $product_array.info[list].good_size neq ""}>
+											<div  class="clearfix shop-list-options margin-top-10">
+											  <select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="xysize<{$product_array.info[list].gid}>" id="xysize<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
+											  <{ section name=list1 loop=$product_array.info[list].size }>
+												  <option value="<{$product_array.info[list].size[list1].size}>"><{$product_array.info[list].size[list1].size}></option>
+											  <{ /section}>
+											  </select>
+											</div>
+											<{/if}>
+
+      <{if $classinfo_array.manyunfei>0}>
+
+		<{if $product_array.info[list].ifsaleoff eq 0 || ($product_array.info[list].ifsaleoff eq 1 && $product_array.info[list].saleoff.ifsaleoff eq 1)}>
+       <div class="clearfix shop-list-options margin-top-10">
+	   <label class="checkbox">
+			<input style="display:none" type="checkbox" name="ibuy<{$product_array.info[list].gid}>" id="ibuy<{$product_array.info[list].gid}>" value="1" onClick="if (this.checked==true) buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val()); else {deletsale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,'<{$product_array.ino[list].buykey}>');}" <{if $goods_array[list].buykey neq ""}>checked <{/if}>>
+		    <i></i> 我要選購
+		</label>
+			<select class="nopadding height-30" style="border-radius: 0px;" name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" onChange="buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val());$('#ibuy<{$product_array.info[list].gid}>').attr('checked','true');">
+						</select>件
+            </div>
+			<{elseif $product_array.info[list].saleoff.nobuytime eq 1}>
+            <div class="margin-top-10" style="line-height:30px;">限時促銷已過期
+            </div>
+            <{elseif $product_array.info[list].saleoff.havebuytime>0}>
+            還未到促銷時間
+            <{else}>
+            未達促銷時間或已過期
+            <{/if}>
+        <script language="javascript">
+			checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);
+		</script>
+        <{else}>
+        <{if $smarty.get.type neq "present"}>
+<div <{if $smarty.get.type eq 'bonus'}>align="center"<{/if}> class="form-group margin-bottom-0">
+	<{if $product_array.info[list].ifsaleoff eq 1 && $product_array.info[list].saleoff.ifsaleoff neq 1}>
+				<{if $product_array.info[list].saleoff.nobuytime eq 1}><div class="margin-top-10" style="line-height:30px;">限時促銷已過期</div>
+				<{elseif $product_array.info[list].saleoff.havebuytime>0}><div class="margin-top-10" style="line-height:30px;">還未到促銷時間</div>
+				<{else}><div class="margin-top-10" style="line-height:30px;">未達促銷時間或已過期</div>
+				<{/if}>
+  <{else}>
+<{if $smarty.get.type neq 'bonus' }>
+
+
+	<div  class="col-md-6 col-sm-6 col-xs-6 clearfix shop-list-options margin-top-10 nopadding-left" style="text-align:left !important; ">
+
+	<select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" onChange="buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val());$('#ibuy<{$product_array.info[list].gid}>').attr('checked','true');">
+	</select>
+	</div>
+<{/if}>
+	<div <{if $smarty.get.type neq 'bonus'}>class="showbuy<{$product_array.info[list].gid}> col-md-6 col-sm-6 col-xs-6 nopadding"<{/if}>>
+
+	<a id="nobtn<{$product_array.info[list].gid}>"
+		<{if $smarty.get.type eq 'bonus'}>
+			class="btn  btn-sm size-15 btn-primary margin-top-10"
+			href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goods_id=<{$product_array.info[list].gid}>&count=1<{if $product_array.info[list].good_color neq ""}>&good_color=' + $('#xycolor<{$product_array.info[list].gid}>').val() + '<{/if}><{if $product_array.info[list].good_size neq ""}>&good_size=' + $('#xysize<{$product_array.info[list].gid}>').val() + '<{/if}><{if $product_array.info[list].productdetail.count gt 0}>&detail_id=' + $('#xydetail<{$product_array.info[list].gid}> :selected').val() + '<{/if}>';">
+			<div id="showbuy<{$product_array.info[list].gid}>">我要兌換</div>
+		<{else}>
+			class="btn btn-default btn-sm margin-top-10 list_b" style="border: solid #999 1px;padding-top:1px; padding-right:10px; padding-bottom:1px; padding-left:10px; width:100%;border-radius: 0px;padding-left: 0;padding-right: 0;"
+			href="javascript:void(0);" onclick="buyProduct(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>$('#xycolor<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,<{if $product_array.info[list].good_size neq ""}>$('#xysize<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,$('#count<{$product_array.info[list].gid}>').val(),<{if $product_array.info[list].productdetail.count gt 0}>$('#xydetail<{$product_array.info[list].gid}> :selected').val()<{else}>0<{/if}>);">
+			<div id="showbuy<{$product_array.info[list].gid}>"><span class="hidden-list">加入</span><span class="hidden-list2"><i class="icon-plus"></i>&nbsp;</span>購物車</div>
+		<{/if}>
+	</a>
+	 <!--href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goods_id=<{$product_array.info[list].gid}>&count=1<{if $product_array.info[list].good_color neq ""}>&good_color=' + $('#xycolor<{$product_array.info[list].gid}>').val() + '<{/if}><{if $product_array.info[list].good_size neq ""}>&good_size=' + $('#xysize<{$product_array.info[list].gid}>').val() + '<{/if}>';"-->
+
+    </div>
+    <div id="showstorage<{$product_array.info[list].gid}>"></div>	<script language="javascript">
+	checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);
+	</script>
+    <div style="clear:both"></div>
+</div>
+<{/if}>
+		<{/if}>
+        <{/if}>
+
+									</div>
+									<!-- buttons
+
+
+
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> 加入購物車</a>
+											</div>
+											<!-- /buttons
+
+									-->
+								</div>
+								</li>
+  <{/section}>
+</ul></div>
+<div style="clear:both"></div>
+<{$product_array.page}>
+<script language="javascript">
+$("img.lazy").lazyload({
+    effect : "fadeIn",
+	threshold :700,
+	skip_invisible: false
+});
+</script>

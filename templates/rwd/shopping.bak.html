@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title><{ $HtmlTitle }></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.blockUI.js"></script>
+
+
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<table width="960" height="350" border="0" align="center"cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" valign="top" >
+
+  <tr>
+
+    <td height="85"><p align="center"><br>
+
+        <img src="<{ $template_dir }>/images/step1.gif" width="637" height="50"></p><br></td>
+
+  </tr>
+
+  <tr>
+
+    <td height="31" align="right" style="padding-right:72px"><!--  <{if $Session_user_id!=""}> <a href="javascript:void(0);" onClick="javascript:getshowcollection(1);">追蹤清單：<{$collection_Num}>件</a>　
+
+      
+
+      <{/if}>
+
+    <input type="button" name="button2" id="button2" value="清空購物車" onClick="location.href='shopping.php?Action=clear';">--></td>
+
+  </tr>
+
+  <tr>
+
+    <td align="center"><div id="showshopping"> <{if $Cart_count eq 0}>
+
+        
+
+        您尚未選購商品<br /><br />
+
+
+
+       <a href="<{ $Site_Url }>"> <img src="<{ $template_dir }>/images/shopping2-7.png" border="0" ></a>
+
+        <{/if}>
+
+        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0"  >
+
+          <{ section name=list loop=$Cart_item }>
+
+          <tr>
+
+            <td height="28" colspan="10" bgcolor="#FFFFFF"><strong><{$Cart_item[list].provider_name}> <{$Cart_item[list].shop_name}> <{$Cart_item[list].trans_name}> </strong></td>
+
+          </tr>
+
+          <tr>
+
+            <td align="center" bgcolor="#ffbbd0">序號</td>
+
+            <td align="center" bgcolor="#ffbbd0">圖片</td>
+
+            <td align="center" bgcolor="#ffbbd0">商品名稱</td>
+
+            <td align="center" bgcolor="#ffbbd0"><!--會員價格NT$-->規格尺寸</td>
+
+            <td align="center" bgcolor="#ffbbd0">單價 NT$ </td>
+
+            
+
+            <td align="center" bgcolor="#ffbbd0">數量</td>
+
+            <!--<td align="center" bgcolor="#ffbbd0">重新計算</td>-->
+
+            <td align="center" bgcolor="#ffbbd0">小計</td>
+
+            <td align="center" bgcolor="#ffbbd0">刪除</td>
+
+            <!--<td align="center" bgcolor="#ffbbd0">移入追蹤清單</td>-->
+
+          </tr>
+
+          <{ section name=list1 loop=$Cart_item[list].goods }>
+
+          <form method="get" action="shopping.php">
+
+            <input type=hidden name=Action value='change'>
+
+            <input type=hidden name=key value='<{ $Cart_item[list].key }>'>
+
+            <input type=hidden name=gkey value='<{ $Cart_item[list].goods[list1].gkey }>'>
+
+            <tr>
+
+              <td align="center" bgcolor="#FFFFFF"><{math equation="(x+y)" x=$smarty.section.list1.index y=1 }></td>
+
+              <td align="center" bgcolor="#FFFFFF" style="padding-top:5px"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].goods[list1].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].goods[list1].smallimg }>' width=70 border=0></a></td>
+
+              <td bgcolor="#FFFFFF"><{if $Cart_item[list].goods[list1].ifchange eq 1 || $Cart_item[list].goods[list1].ifpresent eq 1 }><{ $Cart_item[list].goods[list1].goodsname }><{if $Cart_item[list].goods[list1].ifchange eq 1}>[加購商品]<{/if}><{if $Cart_item[list].goods[list1].ifpresent eq 1}>[滿額禮]<{/if}>
+
+                <{else}><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].goods[list1].gid }>"><{ $Cart_item[list].goods[list1].goodsname }></a><{/if}><{if $Cart_item[list].goods[list1].xygoods_des neq ""}><{ $Cart_item[list].goods[list1].xygoods_des }><{/if}>
+
+                <{if $Cart_item[list].goods[list1].good_color neq ""}><br>
+
+                顏色：<{ $Cart_item[list].goods[list1].good_color }>
+
+                <{/if}><{if $Cart_item[list].goods[list1].good_size neq ""}><br>
+
+                尺寸：<{ $Cart_item[list].goods[list1].good_size }>
+
+                <{/if}><{if $Cart_item[list].goods[list1].detail_name neq ""}><br>
+
+                規格：<{ $Cart_item[list].goods[list1].detail_name }>
+
+                <{/if}>
+
+                <{if $Cart_item[list].goods[list1].detail_des neq ""}><br>
+
+                <{ $Cart_item[list].goods[list1].detail_des }><{/if}>
+
+                <{if $Cart_item[list].goods[list1].rebateinfo neq ""}><br>
+
+                <{ $Cart_item[list].goods[list1].rebateinfo }><{/if}> </td>
+
+                <td align="center" bgcolor="#FFFFFF">
+
+                <!--會員價<{if $Cart_item[list].goods[list1].memberprice>0 }>
+
+           <{$Cart_item[list].goods[list1].memberprice}>
+
+                <{/if}>
+
+                <{if $Cart_item[list].goods[list1].combipoint>0 }>
+
+                +<{$Cart_item[list].goods[list1].combipoint}>康幣
+
+                <{/if}>-->
+
+                 <{if $Cart_item[list].goods[list1].good_color neq ""}><br>
+
+                顏色：<{ $Cart_item[list].goods[list1].good_color }>
+
+                <{/if}><{if $Cart_item[list].goods[list1].good_size neq ""}><br>
+
+                尺寸：<{ $Cart_item[list].goods[list1].good_size }>
+
+                <{/if}><{if $Cart_item[list].goods[list1].detail_name neq ""}><br>
+
+                規格：<{ $Cart_item[list].goods[list1].detail_name }>
+
+                <{/if}>
+
+
+
+                </td>
+
+              <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].goods[list1].price }>
+
+                <{if ($Cart_item[list].goods[list1].ifjs eq 1)}> <img src="../images/co-price.gif"> <{/if}> </td>
+
+              
+
+              <td align="center" bgcolor="#FFFFFF"><{if $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 || $Cart_item[list].goods[list1].ifadd eq 1}>
+
+                <{$Cart_item[list].goods[list1].count}>
+
+                <{else}>
+
+                <{ html_options name="count" options=$Cart_item[list].goods[list1].storagelist selected=$Cart_item[list].goods[list1].count }>
+
+                <{/if}> </td>
+
+              <!--<td align="center" bgcolor="#FFFFFF"><{if $Cart_item[list].goods[list1].ifpresent neq 1 && $Cart_item[list].goods[list1].ifbonus neq 1 && $Cart_item[list].goods[list1].ifadd neq 1}>
+
+                <input name="image" type="image" src="<{ $template_dir }>/images/jisuan.jpg"  border="0">
+
+                <{/if}></td>-->
+
+              <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].goods[list1].total }></td>
+
+              <td align="center" bgcolor="#FFFFFF"><a href="./shopping.php?Action=remove&key=<{ $Cart_item[list].key}>&gkey=<{ $Cart_item[list].goods[list1].gkey }>"><img src="<{ $template_dir }>/images/Delete.gif" border="0" /></a></td>
+
+             <!-- <td align="center" bgcolor="#FFFFFF"><a href="./shopping.php?Action=move&key=<{ $Cart_item[list].key}>&gkey=<{ $Cart_item[list].goods[list1].gkey }>&gid=<{ $Cart_item[list].goods[list1].gid }>">移動</a></td>-->
+
+            </tr>
+
+          </form>
+
+          <{ /section }>
+
+          <tr>
+
+            <td colspan="10" align="right" bgcolor="#FFFFFF">商品總計：<{$Cart_item[list].totalprice}>元</td>
+
+          </tr>
+
+          <tr>
+
+            <td colspan="10" align="right" bgcolor="#FFFFFF"><br><input  type=image name="button3" id="button3" value="繼續購物" onClick="location.href='../index.php';" src="<{ $template_dir }>/images/shopping1-1.png">
+
+              <input  type=image name="button" id="button" value="開始結帳" onClick="location.href='../member/login_windows.php?key=<{ $Cart_item[list].key}>&from=shop&Url=../shopping/shopping2.php?key=<{ $Cart_item[list].key}>';" src="<{ $template_dir }>/images/shopping1-2.png"></td>
+
+          </tr>
+
+          <tr>
+
+            <td colspan="10" align="left" bgcolor="#FFFFFF" style="padding:10px;"> <!--注意：在刪除和更改購物車商品數量時將會清空購物車中的額滿加購商品，請您重新選購，謝謝。-->
+
+              
+
+              
+
+              
+
+              <{ section name=list1 loop=$Cart_item[list].addgoods }>
+
+              <li style="FLOAT: left;DISPLAY: inline;">
+
+                <table width="265" border="0" cellpadding="3" cellspacing="0" style="margin-top:10px">
+
+                  <tr>
+
+                    <td valign="top" style="border: 1px solid #d8d8d8;" width="70"><a  href="javascript:void(0);" onclick="showProduct(<{ $Cart_item[list].addgoods[list1].gid }>);"><img src="../UploadFile/GoodPic/<{ $Cart_item[list].addgoods[list1].smallimg }>" width=70 border=0></a></td>
+
+                    <td valign="top" width="195"><a  href="javascript:void(0);" onclick="showProduct(<{ $Cart_item[list].addgoods[list1].gid }>);"><{ $Cart_item[list].addgoods[list1].goodsname }></a><br>
+
+                      額滿金額：<{ $Cart_item[list].addgoods[list1].addmoney }><br>
+
+                      加購價格：<span class="prices"><{ $Cart_item[list].addgoods[list1].addprice }></span>
+
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr>
+
+                          <td width="15%"><img src="<{ $template_dir }>/images/icon_cart.gif"></td>
+
+                          <td width="85%" style="padding-top:3px"><a href="addgoodsop.php?gid=<{ $Cart_item[list].addgoods[list1].gid }>&key=<{ $Cart_item[list].key}>" class="addcart">我要加購</a></td>
+
+                        </tr>
+
+                      </table></td>
+
+                  </tr>
+
+                </table>
+
+              </li>
+
+              <{ /section }> </td>
+
+          </tr>
+
+          <{ /section }>
+
+        </table>
+
+      </div>
+
+      <div id="showcollection" style="width:85%"> </div>
+
+      <br />
+
+      <br /></td>
+
+  </tr>
+
+</table>
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+
+<script language="javascript">
+
+function getshowcollection(page){
+
+	var ajaxurl = "../member/ajax_collection.php";
+
+	document.getElementById("showshopping").style.display = "none";
+
+	document.getElementById("showcollection").style.display = "block";
+
+	$.ajax({
+
+				url: ajaxurl,
+
+				daga: 'page=' + page,
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+				//alert(msg);
+
+				    $('#showcollection').html(msg);
+
+					//$('#classcount').attr("value",counts+1);
+
+					//$(msg).appendTo('#extclass')
+
+				}
+
+	});
+
+}
+
+function getshowshopping(){
+
+	document.getElementById("showshopping").style.display = "block";
+
+	document.getElementById("showcollection").style.display = "none";
+
+}
+
+//顯示額滿禮
+
+function showProduct(gid){
+
+	$.ajax({
+
+       url: '../product/showProduct.php',
+
+       data: 'goods_id=' + gid,
+
+				type:'get',
+
+				dataType:"html",
+
+				cache: false,
+
+				success: function(msg){
+
+					$('#show_product').html(msg);
+
+				}
+
+	});
+
+	$.blockUI({ overlayCSS:{cursor:'default'},
+
+			message: $('#show_product'),
+
+			css: { 
+
+            width: '640px' ,
+
+			height:'auto',
+
+			margin: '0',
+
+			cursor:'default',
+
+			top:  '20px',
+
+            left: ($(window).width() - 640) /2 + 'px'
+
+        }
+
+	});
+
+}
+
+</script>
+
+<{ include_php file="bottom.php" }>
+
+</body>
+
+</html>
+

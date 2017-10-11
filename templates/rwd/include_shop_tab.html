@@ -1,0 +1,54 @@
+<style type="text/css">
+html{filter:expression(document.execCommand("BackgroundImageCache", false, true))}
+body{text-align:center;font:12px Verdana,sans-serif;margin:5px 0}
+ul,ol,li{margin:0;padding:0;border:0;list-style-type:none} input,select{font-size:12px}
+.Tab a:link,.Tab a:active,.Tab a:visited {color:#000;text-decoration:none;outline:none} .Tab a:hover {text-decoration:none;color:#000;}
+.Tab{height:100%;text-align:left}
+.Tab .title,.Tab .title div,.Tab .title .n1,.Tab .title .n1 span,.Tab .title .n2,.Tab .title .n2 span{background:url("<{ $template_dir }>/images/tab_bg.gif") no-repeat left top}
+.Tab .title{height:30px;padding-left:10px;color:#ffffff;}
+.Tab .title div{background-position:right top;display:block;height:100%}
+.Tab .title .n1,.Tab .title .n2{background-position:left bottom;height:26px;line-height:26px; display:block;float:left;text-align:center;padding-left:12px;margin-top:4px;margin-left:1px;color:#333; text-decoration:none}
+.Tab .title .n1 span,.Tab .title .n2 span{background-position:right bottom;display:block;padding-right:12px}
+.Tab .title .n2{background-position:left -30px}
+.Tab .title .n2 span{background-position:right -30px}
+.tabcon {display:block;padding:10px; background-color:#ed338f; color:#666666;}
+</style>
+<script type="text/javascript">
+function $(obj){return document.getElementById(obj)}
+function Tab(Xname,Cname,Lenght,j){for(i=1;i<Lenght;i++){eval("$('"+Xname+i+"').className='n2'");}eval("$('"+Xname+j+"').className='n1'");for(i=1;i<Lenght;i++){eval("$('"+Cname+i+"').style.display='none'");eval("$('"+Cname+j+"').style.display='block'");}}
+</script>
+<div class="Tab">
+	<div class="title">
+	<a href="<{ $Site_Url }>/shop/shop_about.php?sid=<{$smarty.get.sid}>" id="b1" class="n1"><span style="color:#ffffff;">店家介紹</span></a>
+	<a href="<{ $Site_Url }>/shop/shop_know.php?sid=<{$smarty.get.sid}>" id="b2" class="n1"><span style="color:#ffffff;">購物需知</span></a>
+	<a href="#" id="b3" class="n1"><span style="color:#ffffff;">購物車</span></a>
+	<a href="<{ $Site_Url }>/shop/shop_comment.php?sid=<{$smarty.get.sid}>" id="b4" class="n1"><span style="color:#ffffff;">留言版 (<{$shop_comment_count}>)</span></a>
+	<a href="<{ $Site_Url }>/shop/shop_ask.php?sid=<{$smarty.get.sid}>" id="b5" class="n1"><span style="color:#ffffff;">客服</span></a>
+<a href="<{ $Site_Url }>/shop/shopdetail.php?sid=<{$smarty.get.sid}>" id="b6" class="n1"><span style="color:#ffffff;">回首頁</span></a>
+	<div></div>	
+	</div>
+	<div class="tabcon">
+    <h1><font color="#FFFFFF"><{$shopname}></font></h1>
+    <{if $logo neq ""}>
+	  <div align="left" style="width:80px;float:left"><img src="../UploadFile/ShopPic/<{$logo}>" width="70" height="70"></div>
+	  <{/if}>
+<table width="640" border="0" cellspacing="0" cellpadding="0" background="<{ $template_dir }>/images/shop-intro-back.gif">
+  <tr>
+    <td height="73" valign="top"><div style="width:100%;padding:10px;"><{ $shop_description }></div></td>
+  </tr>
+</table>
+<div id="bx1">
+  
+</div>
+	<div id="bx2" style="display:none">
+	購物需知購物需知購物需知購物需知
+	</div>
+	<div id="bx3" style="display:none">
+購物車購物車購物車購物車	</div>
+	<div id="bx4" style="display:none">
+	留言版留言版留言版留言版留言版留言版
+	</div>
+	<div id="bx5" style="display:none">
+	客服客服客服客服客服客服
+	</div>
+</div>

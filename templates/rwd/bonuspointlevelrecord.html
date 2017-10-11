@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>等級紅利記錄 - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+<div id="body_out">
+<div id="body_center">
+ <div id="body_left"><!--左邊開始-->
+  <{ include_php file="member/left.php" }>
+ </div><!--左邊結束-->
+ <div id="body_right"  ><!--右邊邊開始-->
+  <div id="title_s">
+   <div id="title_s_left">
+    <h1>紅利紀錄查詢</h1>
+  </div>
+  <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <a href="<{ $Site_Url }>/member/">會員中心</a> <span class="style100">／</span> 紅利紀錄查詢</div>
+</div>
+    <div class="content">
+	<div style="clear:both;"></div>
+	  <ul style="display: block;">
+        <li class="qian1"><a href="bonuspointrecord.php">紅利記錄</a></li>
+        <li class="qian1"><a href="bonuspointbuyrecord.php">紅利消費記錄</a></li>
+        <li class="qian2">等級紅利記錄</li>
+      </ul>
+            &nbsp;&nbsp;&nbsp;&nbsp;您目前有 <span class="price"><{$sumpoint}></span> 等級紅利<br>
+            <{ if $OrderTotalNum != 0 }> <br>
+            <TABLE  cellSpacing=1 cellPadding=4 width="100%" align=center  border=0 id="table_me">
+              <TBODY>
+                <TR>
+                  <TD width="" align=center vAlign=middle nowrap class="head"h>編號<!--订单编号--></TD>
+                  <TD width="" align="center" valign="middle" nowrap class="head">說明</TD>
+                  <TD width="" align="center" valign="middle" nowrap class="head">積分</TD>
+                  <TD width="" align="center" nowrap class="head">交易類型</TD>
+                  <TD width="" align="center" nowrap class="head">時間<!--订单总金额--></TD>
+                </TR>
+              <{ section name=list loop=$OrderList }>
+              <TR  bgcolor="#FFFFFF">
+                <TD align=center vAlign=top nowrap bgcolor="#FFFFFF" class="member"><{ $OrderList[list].id }></TD>
+                <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><A  href="javascript:temp=window.open('ViewOrder.php?order_id=<{ $OrderList[list].orderid }>','MyOrder','width=980,height=600,scrollbars=yes');temp.focus()"><{ $OrderList[list].content}></A></TD>
+                <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ $OrderList[list].point}></TD>
+                <TD align="center" bgcolor="#FFFFFF" class=p9v><{ $OrderList[list].typename}></TD>
+                <TD align="center" bgcolor="#FFFFFF" class=p9v><{ $OrderList[list].addtime}></TD>
+              </TR>
+<{ /section }>
+        </TABLE>
+            <table width="750"  border="0" align="center">
+              <tr>
+                <td align="left"><{ $Nav_banner }></td>
+              </tr>
+            </table>
+        <{ else }><div align="center">
+              <p></p><br><br>
+              <p>尚無任何使用記錄!!</p>
+          </div><{ /if }></div>
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+</div><!--身體置中結束--><{ include_php file="include/bottom.php" }>
+</body>
+</html>

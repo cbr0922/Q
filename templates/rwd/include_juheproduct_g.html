@@ -1,0 +1,553 @@
+<script language="JavaScript" type="text/JavaScript">
+
+
+
+
+
+
+
+<!--
+
+
+
+function MM_preloadImages() { //v3.0
+
+
+
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+
+
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+
+
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+
+
+}
+
+
+
+function MM_swapImgRestore() { //v3.0
+
+
+
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+
+
+
+}
+
+
+
+function MM_findObj(n, d) { //v4.01
+
+
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+
+
+}
+
+
+
+function MM_swapImage() { //v3.0
+
+
+
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+
+
+
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+
+
+
+}
+
+
+
+function showcontent(showname){
+
+
+
+		var obj,showobj,imgobj,myobj;
+
+
+
+		obj = document.getElementById("showtable").getElementsByTagName("table");
+
+
+
+		i = 3;
+
+
+
+		for(z=1;z<=i;z++){
+
+
+
+		myobj = document.getElementById("showfour" + z);
+
+
+
+		myobj.style.display = "none";
+
+
+
+		}
+
+
+
+		for (j=0;j<i;j++){
+
+
+
+				imgobj = document.getElementById("imgfour" + (j+1));
+
+
+
+				if (showname ==  (j+1)){
+
+
+
+					myobj = document.getElementById("showfour" + (j+1));
+
+
+
+					imgobj.src = "<{ $template_dir }>/images/" + "gtab" + (j+1) + ".jpg";
+
+
+
+					myobj.style.display = "";
+
+
+
+				}else{
+
+
+
+					imgobj.src = "<{ $template_dir }>/images/" + "gtab" + (j+1) + "2.jpg";
+
+
+
+				}
+
+
+
+		}
+
+
+
+	}
+
+
+
+//-->
+
+
+
+</script>
+
+<table width="390" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="136"><a href="#"  onMouseOver="showcontent('1');"><img src="<{ $template_dir }>/images/gtab12.jpg" width="136" height="35" border="0" id="imgfour1"></a></td>
+                <td width="136"><a href="#"  onMouseOver="showcontent('2');"><img src="<{ $template_dir }>/images/gtab22.jpg" width="136" height="35" border="0" id="imgfour2"></a></td>
+                <td width="137"><a href="#"  onMouseOver="showcontent('3');"><img src="<{ $template_dir }>/images/gtab32.jpg" width="137" height="35" border="0" id="imgfour3"></a></td>
+              </tr>
+            </table>
+            <table width="682" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="" id="showtable"><!--本日推薦精選商品-->
+                  
+                  <table width="682" border="0" cellspacing="0" cellpadding="0" id="showfour1">
+                    <tr>
+                      <td width="" height="211" align="center" valign="top" class="border-left" style="padding-bottom:10px;">
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <!--最新上架-->
+                  
+<table width="682" border="0" cellspacing="0" cellpadding="0" id="showfour2">
+                    <tr>
+                      <td width="" height="211" align="center" valign="top" class="border-left" style="padding-bottom:10px;"><table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table>
+                  
+                  <!--人氣最夯商品-->
+<table width="682" border="0" cellspacing="0" cellpadding="0" id="showfour3">
+                    <tr>
+                      <td width="" height="211" align="center" valign="top" class="border-left" style="padding-bottom:10px;"><table width="682" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="<{ $template_dir }>/images/gblock-top.jpg" width="682" height="17" /></td>
+                        </tr>
+                        <tr>
+                          <td height="320" valign="top" background="<{ $template_dir }>/images/gblock-foot.jpg"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="430"><img src="<{ $template_dir }>/images/g-big-pic.jpg" width="418" height="236" style="border:1px solid #ccc;padding:5px;"/></td>
+                              <td rowspan="2" align="left" valign="top" style="padding-left:10px;"><span class="f20-red">飄飄串燒小酒館飄飄串燒小酒館飄串燒小酒館</span><br />
+                              雙人份brunch套餐  ←標題字加粗 〈含Piao Piao早餐(美式炒蛋+奶香  ↑內文一行16個字共4行的空間16個字共4行的空間<br />
+                              <span class="f40-red">$</span><span class="f64-red">100</span><br />
+                              <span class="f15-black">原價：$500<br />
+                              現省：$400</span><br />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="right">
+                              <div style="display:block;float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="37" align="left" valign="middle"><img src="<{ $template_dir }>/images/clock_g.gif" width="27" height="27" /></td>
+                                    <td height="50" valign="bottom" style="padding-bottom:10px;"><span class="f16-gray">剩餘時間：</span><span class="f20-black">18小時35分47秒</span></td>
+                                  </tr>
+                                </table>
+                              </div><div style="display:block;float:right;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="<{ $template_dir }>/images/sicon1.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon2.jpg" width="13" height="14" /> <img src="<{ $template_dir }>/images/sicon3.jpg" width="13" height="14" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="f15-blue">目前搶購人數：<font color="#FF0000">320</font>人</td>
+  </tr>
+</table></div></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table>
+</td>
+              </tr>
+            </table>
+            <script language=javascript>
+
+
+
+var width=screen.width;
+
+
+
+var height=screen.height;
+
+
+
+var referrer=document.referrer;
+
+
+
+//document.getElementById("upload").src ='<{ $Site_Url }>/count.php?width=' + width + '&height=' + height + '&referrer=' + referrer;
+
+
+
+showcontent(1);
+
+
+
+/*showorderpro(1);
+
+
+
+showclasspro(1);
+
+
+
+showclasspro2(1);
+
+
+
+showclasspro3(1);
+
+
+
+*/
+
+
+
+</script> 

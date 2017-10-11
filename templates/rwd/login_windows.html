@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<title><{ $Loginbox_say }> - <{ $HtmlTitle }></title>
+	<meta content="<{ $Meta_desc }>" name="description" />
+	<meta content="<{ $Meta_keyword }>" name="keywords" />
+	<meta name="Author" content="ESIT" />
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+	<!-- CORE CSS -->
+	<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+	<!-- THEME CSS -->
+	<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+	<{ include_php file="include/include_ga.php" }>
+	<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+
+	<{ include_php file="include/menu.php" }>
+	<!--浮動廣告-->
+	<{ if $Ear_radio eq 1 }>
+		<{ include_php file="modules/advertising/ear.php" }>
+	<{ /if }>
+	<!--/浮動廣告-->
+	<!--導覽-->
+	<section class="page-header page-header-xs">
+		<div class="container">
+
+			<h1 class="bfont size-18 hidden"><{ $Loginbox_say }><!--會員登入--></h1>
+
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb breadcrumb-inverse">
+				<li><a href="<{ $Site_Url }>">首頁</a></li>
+				<li class="active"><{ $Loginbox_say }><!--會員登入--></li>
+			</ol><!-- /breadcrumbs -->
+
+		</div>
+	</section>
+	<!--/導覽-->
+	<!-- 會員登入 -->
+	<section>
+		<div class="container">
+			<div class="row">
+            <div class="col-xs-0 col-sm-0 col-md-1 margin-bottom-0">
+            </div>
+				<div class="col-xs-12 col-sm-12 col-md-5 padding-bottom-20">
+                <div class="col-xs-12 col-sm-12 col-md-12 login_windows">
+					<h2 class="size-16 margin-bottom-10 text-center"><{ $Loginbox_say }><!--會員登入--></h2>
+					<form action="member_login.php" method="post" name="form_login" onsubmit="return checklogin(this,'<{ $Please_write_down }>E-MAIL','<{ $Please_write_down }>E-MAIL','<{ $JsPassword }>');" class="form-horizontal margin-bottom-20" role="form" ><!--請填寫-->
+						<input type="hidden" name="Action" value="Login" />
+						<input type="hidden" name="Url" value="<{ $Url }>" />
+						<div class="row form-group">
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-0">
+								<input type="email" name="username" id="username" class="form-control" placeholder="<{ $placeholder_account }>" required/><!--請輸入註冊之電子信箱-->
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-0">
+								<input type="password" name="passwd" id="passwd" class="form-control" placeholder="<{ $Login_Password }>" required/><!--密碼-->
+							</div>
+						</div>
+                        <div class="row margin-bottom-0">
+							<div class="col-xs-6 col-sm-6 col-md-6 text-left margin-bottom-0">
+								<a href="reg_cellphone.php"><p><i class="fa fa-send"></i> 補寄手機驗證碼</p></a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 text-right margin-bottom-0">
+								<a href="forget_password.php"><p><i class="fa fa-unlock-alt"></i> <{ $ForgetPassword }></p><!--忘記密碼--></a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-0">
+								<button type="submit" name="Submit2" class="col-xs-12 col-sm-12 btn btn-black"><{ $Login_say }><!--登入--></button>
+							</div>
+						</div>
+
+                        <div class="divider divider-center margin-bottom-20 margin-top-20"><!-- divider -->
+						或
+						</div>
+
+						<!--<div class="row">
+							<div class="col-xs-12 col-sm-12">
+								<a href="reg_resend.php" class="col-xs-12 col-sm-12 btn btn-black"><i class="fa fa-envelope-o"></i>重新寄註冊驗證信</a>
+							</div>
+						</div>-->
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-0">
+								<a href="javascript:void(0)" onclick="Login()" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i><{ $Login_facebook }><!--facebook帳號登入--></a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<a href="login_yahoo_openid.php?url=<{ $en_url_From }>" class="btn btn-block btn-social btn-yahoo"><i class="fa fa-yahoo"></i>yahoo帳號登入</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<a href="login_google.php?url=<{ $en_url_From }>&logout" class="btn btn-block btn-social btn-google"><i class="fa fa-google"></i>google帳號登入</a>
+							</div>
+						</div>
+						<!--div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<a href="" class="btn btn-block btn-social btn-weibo"><i class="fa fa-weibo"></i>微博帳號登入</a>
+							</div>
+						</div-->
+					</form>
+                 <div class="col-xs-12 col-sm-12 col-md-12 nopadding text-right">   <{ $Login_as_agree }><!--*登入等同您同意我們的--> <a href="<{$Site_Url}>/help/Aboutour.php?info_id=1" class="bold" ><i class="fa fa-external-link"></i> <{ $Rule }><!--服務條款--></a></div>
+                    </div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-5">
+					<div class="col-xs-12 col-sm-12 col-md-12 login_windows">
+					<{if $smarty.get.key neq "" || $smarty.get.shop neq ""}>
+						<h2 class="size-16 text-center"><{ $First_time_buy }><!--首次購物--></h2>
+						<p><{ $First_time_info1 }><!--為了讓您有更好的購物體驗，我們提供您首次購物時更便捷的購物流程，按此即可開始結帳。--></p>
+						<a href="../shopping/flight-orderday.php?key=<{$smarty.get.key}>" title="<{ $First_time_info2 }>" class="col-xs-12 col-sm-12 btn btn-black margin-bottom-20"><{ $Goto_checkout }><!--前往結帳--></a><!--第一次消費後即可直接加入會員！-->
+
+
+
+					<{else}>
+
+						<div class="size-16 margin-bottom-10 text-left"><h2 class="size-16 margin-bottom-0" style="float: left; margin-right:10px; margin-top:1px;"><{ $Not_a_member }><!--還不是會員嗎？--></h2><a href="reg_detail.php"><{ $Regist_now }><!--立即註冊--></a></div>
+                        <{ $IsRemind }><!--如果您是會員在購物前請先登入！如果還沒有註冊建議您先註冊可享有更多的網站服務！-->
+
+
+<div class="divider margin-top-20 margin-bottom-20"><!-- divider --></div>
+						<h2 class="size-16 margin-bottom-10 text-left"><{ $Special_remind }><!--特別提醒--></h2>
+						<{ $Special_remind_info }><!--我們不會主動打電話要求您操作ATM或透露存款餘額，如果您接到類似可疑電話，請拒絕回應，並與本公司客服中心聯絡，或直接撥打刑事局詐騙165專線通報，以確保您的權益。請您定期更新密碼，以保障您的資料安全。-->
+
+					<{/if}>
+					</div>
+				</div>
+                <div class="col-xs-0 col-sm-0 col-md-1 margin-bottom-0">
+            	</div>
+			</div>
+		</div>
+	</section>
+	<!-- 會員登入 -->
+	<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '<{ $app_id }>', // App ID
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
+
+  FB.Event.subscribe('auth.authResponseChange', function(response){
+	  //console.log(response.authResponse.accessToken);
+    if (response.status === 'connected'){
+      console.log('Connected to Facebook');
+		  //SUCCESS
+	  }else if (response.status === 'not_authorized'){
+      console.log('Failed to Connect');
+      //FAILED
+    }else{
+      console.log('Logged Out');
+  	  //UNKNOWN ERROR
+    }
+  });
+};
+
+function Login(){
+  FB.login(function(response){
+    if (response.authResponse){
+      getUserInfo();
+    }else{
+      console.log('User cancelled login or did not fully authorize.');
+    }
+  },{scope: 'public_profile, email'});
+}
+
+function getUserInfo() {
+  FB.api('/me', { locale: 'en_US', fields: 'id, name, email, gender' }, function(response){
+    //alert(JSON.stringify(response));
+    location.href='<{ $Site_Url }>/member/login_facebook_new.php?url=<{ $en_url_From }>&value='+JSON.stringify(response);
+  });
+}
+
+// Load the SDK asynchronously
+(function(d){
+  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement('script');
+  js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/zh_TW/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+</script>

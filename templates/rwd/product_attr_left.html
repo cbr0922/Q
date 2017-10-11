@@ -1,0 +1,62 @@
+<style type="text/css">
+.highlight {
+width: 100px;
+height: 46px;
+background-color: #ffff99;
+}
+-->
+
+.attr_con:before {content:"\f00c";font-weight: bold;display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;}
+.value2{float: left;background-color: #fff;text-align: center;font-size: 13px;color: #000;padding:9px;border: 1px solid #f2f2f2;border-radius: 4px;margin:8px;}
+.value2:hover{border: 1px solid #d9d9d9; text-decoration:underline}
+.check2{background: #3c444d;color: #fff !important;}
+.ui-slider .ui-slider-handle{
+	top:-1px !important;
+}.attr_on{
+	background: #3c444d;
+    color: #fff !important;
+}
+</style>
+						<!--左邊開始-->
+						<div class="col-lg-3 col-md-3 col-sm-3 product_left">
+                          <{ include_php file="include/include_product_class2.php" }>
+
+<div class="hidden-xs"><!-- 暢銷排行 -->							<{ include_php file="include/include_saleproduct_class.php" }>
+            </div>
+					   </div>
+					   <!--左邊結束-->
+						<!--右邊開始-->
+						<div class="col-lg-9 col-md-9 col-sm-9 product_right">
+        <div class="col-md-12 col-sm-12 nopadding margin-bottom-20">
+
+    <{ section name=list loop=$attr_array }> <span class="p12blue" style="padding-bottom:5px;"><{$attr_array[list].attributename}></span> <div><{ section name=list2 loop=$attr_array[list].value }><a href="product_attr.php?attrid=<{$attr_array[list].attrid}>&bid=<{$attr_array[list].bid}>&valueid=<{$attr_array[list].value[list2].valueid}>">
+
+            <{if $smarty.get.valueid eq $attr_array[list].value[list2].valueid}>
+
+            <font color="#FF0000"><{$attr_array[list].value[list2].value}></font>
+
+            <{else}>
+
+            <{$attr_array[list].value[list2].value}>
+
+            <{/if}>
+
+            </a>
+
+            &nbsp;|&nbsp;
+
+
+
+            <{/section}> </div><br>
+
+            <{/section}>
+</div>
+<div id="productlist"></div>
+</div>
+<div style="clear:both;"></div>
+<!--右邊結束-->

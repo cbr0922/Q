@@ -1,0 +1,87 @@
+<!-- RECOMMEND PRODUCTS -->
+					<div class="owl-carousel featured nomargin owl-padding-6" data-plugin-options='{"singleItem": false, "items": "<{ if $cell_num eq 1 }>3<{/if}><{ if $cell_num eq 2 }>4<{/if}><{ if $cell_num eq 3 }>5<{/if}>", "stopOnHover":true, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false,"lazyLoad":true }'>
+                        <{ section name=list loop=$gc_array }>
+						<{ section name=list2 loop=$gc_array[list].goods }>
+						<!-- item -->
+						<div class="shop-item margin-bottom-20" >
+
+							<div class="thumbnail noborder nopadding">
+							                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix" style="position:absolute">
+                      <{/if}>
+
+								<a href="<{ $Site_Url }>/product/detail<{ $gc_array[list].goods[list2].gid }>">
+                                <img class="img-responsive lazy2"  src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $gc_array[list].goods[list2].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}>UploadFile/GoodPic/<{ $gc_array[list].goods[list2].smallimg }><{/if}>" alt="<{ $gc_array[list].goods[list2].goodsname }>"  />
+								</a>
+<{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+			<!-- /商品圖片 -->
+
+ 					<!-- 加入追蹤 -->
+                    <div class="shop-option-over"<{if $gc_array[list].goods[list2].heartColor eq 1}> style="opacity: 1;"<{/if}>><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+                    <a class="gid<{ $gc_array[list].goods[list2].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $gc_array[list].goods[list2].gid }>);" data-item-id="1" data-toggle="tooltip"><i class="fa fa-heart nopadding<{if $gc_array[list].goods[list2].heartColor eq 1}> heartColor<{/if}>"></i></a></div>
+                    <!-- /加入追蹤  -->
+                    <!-- 特惠標示 -->
+                    <div class="shop-item-info  text-left">
+                    <{if $gc_array[list].goods[list2].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+                    <!--<{if $gc_array[list].goods[list2].ifsaleoff eq 1 || ($gc_array[list].goods[list2].price neq 0 && $gc_array[list].goods[list2].price neq $gc_array[list].goods[list2].pricedesc && $gc_array[list].goods[list2].productdetailcount eq 0)}><span class="label label-danger">促銷中</span><{/if}>
+                    <span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+                    </div>
+                    <!-- 特惠標示 -->
+            		</div>
+							<div class="margin-bottom-0 margin-top-10 hidden-xs TAGdiv">
+							<{ section name=attri loop=$gc_array[list].goods[list2].attr }>
+											<{ if $gc_array[list].goods[list2].attr neq ''}>
+											<a class="TAGa"><{$gc_array[list].goods[list2].attr[attri].value}>&nbsp;</a>
+											
+											<{/if}>
+										<{/section}>
+							<{if $gc_array[list].goods[list2].ifnew eq 1}><a class="TAGa">NEW</a>&nbsp;<{/if}>
+							<{if $gc_array[list].goods[list2].ifsaleoff eq 1 || ($gc_array[list].goods[list2].price neq 0 && $gc_array[list].goods[list2].price neq $gc_array[list].goods[list2].pricedesc && $gc_array[list].goods[list2].productdetailcount eq 0)}><a class="TAGa">促銷中</a><{/if}>
+							
+							</div>
+							<div class="shop-item-summary">
+                               <!-- <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $gc_array[list].goods[list2].sale_name }></div>-->
+							   
+							   <div class="goodbrand" <{if $gc_array[list].goods[list2].brand_id eq ""}>style="height: 33px;"<{/if}>>
+								<{ section name=list3 loop=$gc_array[list].goods[list2].br }>	
+								<a  href="<{$Site_Url}>/brand/<{$gc_array[list].goods[list2].br[list3].brand_id}>" class="namecolor"><{$gc_array[list].goods[list2].br[list3].brandname}></a>
+								<{ /section }>
+								</div>
+								
+								<div>
+									<a href="<{ $Site_Url }>/product/detail<{ $gc_array[list].goods[list2].gid }>">
+											<h2 style="max-height:42px; overflow:hidden;"><{ $gc_array[list].goods[list2].ERP }></h2>
+											<h2 style="height:42px; overflow:hidden;"><{ $gc_array[list].goods[list2].goodsname }></h2>
+											<{ $gc_array[list].goods[list2].showstorage }>
+									</a>
+								</div>
+								
+                               
+								<!-- price -->
+								<div class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+								<{ if $gc_array[list].goods[list2].price neq 0 && $gc_array[list].goods[list2].price neq $gc_array[list].goods[list2].pricedesc}>
+									<span class="line-through">NT$ <{ $gc_array[list].goods[list2].price }></span>
+									<{/if}>NT$ <{ $gc_array[list].goods[list2].pricedesc }>
+								</div>
+								<!-- /price -->
+							</div>
+
+						</div>
+						<!-- /item -->
+                        <{ /section }><{ /section }>
+					</div>
+
+			<!-- RECOMMEND PRODUCTS -->
+<script type="text/javascript">
+$("img.lazy2").lazyload({
+    effect : "fadeIn",
+	threshold :200,
+	skip_invisible: false,
+});
+</script>
+

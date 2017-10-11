@@ -1,0 +1,111 @@
+<{if $smarty.get.act eq "modi"}>
+<form name="userinfoform" id="userinfoform" action="shopping_g_ajax_userinfo.php" method="post">
+<input name="act" value="update" type="hidden" />
+<table width="100%" border="0" cellspacing="0" cellpadding="3" >
+  <tr>
+    <td width="15%" align="right"  class="p9blue">電子信箱</td>
+    <td width="85%" align="left" class="p9rednothrough">&nbsp;
+      <input name="email" id="email" type="text" class="inputstyle" value="<{ $email }>" size="32"></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">訂購人姓名</td>
+    <td align="left" class="p9rednothrough">&nbsp;
+      <input type="text" name="true_name" id="true_name" class="inputstyle" value="<{ $true_name }>"></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">訂購人地址</td>
+    <td align="left" class="p9rednothrough">&nbsp;
+      <input name="othercity2" id="othercity2" size="5" value="<{ $post }>">
+      <select id="county2" name="county2">
+      </select>
+      <select id="province2" name="province2">
+      </select>
+      <select id="city2" name="city2">
+      </select></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">&nbsp;</td>
+    <td align="left" class="p9rednothrough"><input name="addr2" type="text" id="addr2" size="40" maxlength="200" value="<{ $addr }>"></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">聯絡電話</td>
+    <td align="left" class="p9rednothrough">&nbsp;
+      <input type="text" name="tel" id="tel" class="inputstyle" value="<{ $tel }>"></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">聯絡手機</td>
+    <td align="left" class="p9rednothrough">&nbsp;
+      <input type="text" name="other_tel" id="other_tel" class="inputstyle" value="<{ $other_tel }>"></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">&nbsp;</td>
+    <td align="left" class="p9rednothrough"><input type="button" name="userinfosave" id="userinfosave" value="保存">
+      <input type="button" name="button2" id="button2" value="返回" onclick="closeWin();"></td>
+  </tr>
+</table>
+</form>
+<script language="JavaScript">
+$(function(){
+    $("select").css("width","100px");
+	var area;
+	$.ajax({
+		url: "../area.php",
+		type:'get',
+		dataType:"json",
+		success: function(msg){
+			//$('#showsize').html(msg);
+			area = msg;
+			//alert(area);
+			
+			 $.area2(area);
+			 $('#county2').val("<{$Country}>");$("#county2").trigger('change');
+			 $('#province2').val("<{$canton}>");$("#province2").trigger('change');
+			 $('#city2').val("<{$city}>");$("#city2").trigger('change');
+			
+		}
+	});
+	var u_options = {
+		success:       function(msg){
+						if (msg==1){
+								closeWin();
+								showpage("shopping_g_ajax_userinfo.php","","showuserinfo");
+						}else{
+							alert(msg);
+						}
+					},
+		type:      'post',
+		dataType:  'json',
+		clearForm: true
+	};
+	$("#userinfosave").click(function(){$('#userinfoform').ajaxSubmit(u_options);});
+});
+</script>
+<{else}>
+<table width="100%" border="0" cellspacing="0" cellpadding="3" style="border: 1px solid #cccccc;">
+  <tr>
+    <td width="12%" align="right"  class="p9blue">電子信箱</td>
+    <td width="88%" class="p9rednothrough">&nbsp;
+      <{ $email }></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">訂購人姓名</td>
+    <td class="p9rednothrough">&nbsp;
+      <{ $true_name }></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">訂購人地址</td>
+    <td class="p9rednothrough">&nbsp;
+      <{$Country}><{$canton}><{$city}><{ $addr }> </td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">聯絡電話</td>
+    <td class="p9rednothrough">&nbsp;
+      <{ $tel }></td>
+  </tr>
+  <tr>
+    <td align="right" class="p9blue">聯絡手機</td>
+    <td class="p9rednothrough">&nbsp;
+      <{ $other_tel }></td>
+  </tr>
+</table>
+<{/if}>

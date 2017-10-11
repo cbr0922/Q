@@ -1,0 +1,155 @@
+<?php
+error_reporting(7);
+@header("Content-type: text/html; charset=utf-8");
+
+include_once ("../configs.inc.php");
+include("global.php");
+
+include_once ("Char.class.php");
+$Char_Class = new Char_class();
+
+include("product.class.php");
+$PRODUCT = new PRODUCT();
+
+$bid = intval($_GET['bid']);
+
+$PRODUCT->ViewBidLevel($bid);
+
+$class_banner = array();
+$list = 0;
+if ($bid>0){
+	$PRODUCT->getBanner($bid);   //導航
+	$class_banner = array_reverse($class_banner);
+	$banner = $class_banner[0][banner];
+}
+
+$classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
+
+if($bid == 0){
+	$type = $_GET['type'];
+	switch($type){
+			case "bonus":
+				$title = "紅利商品";	
+				break;
+			case "xy":
+				$title = "任選商品";	
+				break;
+			case "present":
+				$title = "額滿禮商品";	
+				break;
+			case "change":
+				$title = "加購商品";	
+				break;
+			case "js":
+				$title = "集殺商品";	
+				break;
+			case "recommend":
+				$title = "推薦商品";	
+				break;
+			case "hot":
+				$title = "熱賣商品";	
+				break;
+			case "special":
+				$title = "特價商品";	
+				break;
+			case "new":
+				$title = "最新商品";	
+				break;
+		}
+	//商品列表
+	$product_array = $PRODUCT->getProductList(0,$type,array('key'=>$_GET['skey']),array($_GET['order'],$_GET['ordertype']),0,1,1,0,1);
+	//屬性
+	$attrvalue_array = $PRODUCT->getLikeAttribute($_GET['skey']);
+}else{
+	$type = "ifrecommend";
+	//if ($classinfo_array['manyunfei']>0)
+		$ifshowcolor = 1;
+	//else
+	//	$ifshowcolor = 0;
+	//if($classinfo_array['top_id']>0){
+		//推薦商品3個
+		$recommend_array = $PRODUCT->getProductList($bid,"ifrecommend",array(),array(),3,0,0,0,1);
+		//商品列表
+		$product_array = $PRODUCT->getProductList($bid,"",array(),array($_GET['order'],$_GET['ordertype']),0,1,$ifshowcolor,0,1);
+	//}else{
+	//	$class_product_array = $PRODUCT->getClassList($bid,1);	
+	//}
+}
+
+if(intval($_GET['ordertype'])<=1){
+	$_GET['ordertype'] = 1-intval($_GET['ordertype']);
+}
+
+$menutype = "category";//all左側菜單顯示所有分類級別，category只顯示當前館別分類（即從第二級別分類開始顯示）
+if($menutype == "all")
+	$showbid = 0;
+else
+	$showbid = $class_banner[0][bid];
+$class_array = $PRODUCT->getProductClass($showbid);  //分類，最多顯示3層
+
+//品牌
+if(intval($_GET['brand_id'])>0){
+	$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id=".intval($_GET['brand_id'])." limit 0,1");
+	$Num   = $DB->num_rows($Query);
+
+	if ($Num>0){
+		$Result= $DB->fetch_array($Query);
+		$brandname    =  trim($Result['brandname']);
+		$brandcontent    =  trim($Result['brandcontent']);
+		$logopic    =  trim($Result['logopic']);
+		$content    =  trim($Result['content']);
+		$meta_des    =  trim($Result['meta_des']);
+		$meta_key    =  trim($Result['meta_key']);
+		$tpl->assign("meta_key",       $meta_key);
+		$tpl->assign("meta_des",       $meta_des);
+	}
+}
+$Sql_sub   = " select * from `{$INFO[DBPrefix]}discountsubject` where subject_open=1  and start_date<='" . date("Y-m-d",time()) . "' and end_date>='" . date("Y-m-d",time()) . "' order by dsid desc";
+$Query_sub = $DB->query($Sql_sub);
+$Array_sub = array();
+$sub_i = 0;
+while ($Rs_sub = $DB->fetch_array($Query_sub) ){
+	$Array_sub[$sub_i][dsid]    =  $Rs_sub['dsid'];
+	$Array_sub[$sub_i][subject_name]  =  $Rs_sub['subject_name'];
+	$Array_sub[$sub_i][start_date]  =  $Rs_sub['start_date'];
+	$Array_sub[$sub_i][end_date]  =  $Rs_sub['end_date'];
+	$Array_sub[$sub_i][min_money]  =  $Rs_sub['min_money'];
+	$Array_sub[$sub_i][min_count]  =  $Rs_sub['min_count'];
+	$Array_sub[$sub_i][mianyunfei]  =  $Rs_sub['mianyunfei'];
+	$sub_i++;
+}
+if($classinfo_array['nclass']>0){
+	$Pic_News     = "select ns.news_id,ns.ntitle,ns.nimg,ns.brief,ns.news_id,ns.nltitle,ns.nltitle_color,ns.url_on,ns.url from `{$INFO[DBPrefix]}nclass` nc inner join  `{$INFO[DBPrefix]}news` ns on ( nc.ncid = ns.top_id ) where  nc.ncid='" . $classinfo_array['nclass'] . "' and  nc.ncatiffb='1' and  ns.niffb='1' order by ns.nord asc, ns.nidate desc  limit 0,5";
+		$Query_Pic_News   = $DB->query($Pic_News);
+		$i=0;
+		while( $Result_Pic_news = $DB->fetch_array($Query_Pic_News) )
+		{
+		   $Nltitle        =  $Result_Pic_news['nltitle'];
+		   $Nltitle_first  =  $Result_Pic_news['nltitle_color']!="" ? "<font color=".$Result_Pic_news['nltitle_color'].">".$Nltitle."</font>" : $Nltitle ;
+		   $Nltitle_s =  $Result_Pic_news['url_on']==0 ? "<a href='".$INFO['site_url']."/article/article.php?articleid=".intval($Result_Pic_news['news_id'])."&type=' class=job2>".$Nltitle_first."</a>" :  "<a href='".$Result_Pic_news['url']."'>".$Nltitle_first."</a>";
+		   $Pic_News1[$i]['news_id']	= $Result_Pic_news['news_id'];
+		   $Pic_News1[$i]['title']		= $Char_Class->cut_str($Result_Pic_news['ntitle'],12);
+		   $Pic_News1[$i]['ltitle']		= $Nltitle_s;
+		   $Pic_News1[$i]['brief']		= $Result_Pic_news['brief'];
+		   $Pic_News1[$i]['nimg']		= $Result_Pic_news['nimg'];
+		  $i++;
+		}
+		//print_r($Pic_News1);
+	$tpl->assign('pic_news',$Pic_News1);
+}
+$tpl->assign("title",       $title);
+$tpl->assign("content",       $content);
+$tpl->assign("logopic",       $logopic);
+$tpl->assign("Array_sub",       $Array_sub); 
+$tpl->assign("brandname",  $brandname);
+$tpl->assign("brandcontent",  $brandcontent);
+$tpl->assign("banner",  $banner);
+$tpl->assign("ProductListAll",  $class_array);
+$tpl->assign("attrvalue_array",$attrvalue_array);
+$tpl->assign("class_banner",     $class_banner);
+$tpl->assign("classinfo_array",     $classinfo_array);
+$tpl->assign("class_product_array",     $class_product_array);
+$tpl->assign("recommend_array",     $recommend_array['info']);
+$tpl->assign("product_array",     $product_array);
+$tpl->display("product_index.html");
+?>

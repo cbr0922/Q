@@ -1,0 +1,12 @@
+<img src="<{ $template_dir }>/images/title-ncid<{$ncid}>.gif"/>
+<div id="left_menu">
+ <{ section name=list loop=$Ncat }>
+  <div>
+   <ul class="<{if $Ncat[list].ncid eq $smarty.get.ncid}>level2_cur<{else}>level2<{/if}>">
+    <a href="<{ $Site_Url }>/article/index.php?ncid=<{ $Ncat[list].ncid }>"> 
+     <li><{ $Ncat[list].ncname }></li>
+    </a>
+   </ul>
+  </div>
+ <{ /section }>	
+</div>

@@ -1,0 +1,69 @@
+ATTENTION:
+
+- THIS IS NOT A VALID LICENSE FILE
+- Log in your account and download your personal license file that has your unique order code number.
+- Replace this file with your personal license file.
+- You may not use this software if you do not have a valid license. Contact www.designerfreesolutions.com to obtain a license.
+
+END-USER LICENSE AGREEMENT (EULA) 
+
+- This End User License Agreement (EULA) is a legal agreement between you (either an individual, corporation, 
+public organization, or a company whatsoever) and DesignerFreeSolutions.com for the software product accompanying 
+this EULA, which includes computer software and may include associated media and printed materials, database scripts 
+and schema, as well as on-line or electronic documentation. By installing, copying, or otherwise using the software 
+product, you agree to be bound by the terms of this EULA. 
+
+- This is a 1 license pack which means that you can install, use, access, run, or otherwise interact just 1 
+COPY of this SOFTWARE PRODUCT and you may charge a service fee for installing it. You may however have a 
+localhost, non-productive installation for testing purposes.
+
+- The software product is licensed, not sold. DesignerFreeSolutions.com sells the license to use the software 
+product, not the software product itself. 
+
+- This license file must exist in your installation according to the instructions that were communicated 
+to you when you downloaded this file.
+
+- DesignerFreeSolutions.com will offer FREE support and access to free updates of the software product (if and when
+such updates are published) for 12 months after your order date.
+
+- You are not allowed to distribute or resell or rent or lease or lend this SOFTWARE PRODUCT or modifications 
+or derivatives of it without prior written permission from DesignerFreeSolutions.com.
+
+- If you are buying this software as a developer for your clients you may charge them a service fee at your own 
+discretion for configuration and/or installation. You are still bound however by the rest of the terms of this agreement.
+
+- You may modify the source code of the software product solely for your own use. The modified software product 
+should not be made available for sale, resale or distribution under any circumstances.  DesignerFreeSolutions.com 
+will not offer free technical support neither any custom updates for the modified software product. The modification 
+does not constitute an intellectual property rights transfer neither a copyrights transfer. 
+Both remain under Designerfreesolutions.com.
+
+- You may permanently transfer all of your rights under this EULA provided you retain no copies, you transfer all 
+of the software product (including all component parts, any upgrades and this EULA), and the recipient agrees to 
+the terms of this EULA. You should notify DesignerFreeSolutions.com in such an event.
+
+- This software product is offered to you as-is.
+
+- The software product is protected by copyright laws and international copyright treaties, as well as other 
+intellectual property laws and treaties.
+
+- DesignerFreeSolutions.com may terminate your rights under this EULA if you fail to comply with the terms and conditions
+of this EULA. In such event, you must destroy all copies of the software product and all of its component parts. 
+
+- DesignerFreeSolutions.com expressly disclaims any warranty for the software product. The software product and any 
+related documentation is provided "as is" without warranty of any kind. DesignerFreeSolutions.com does not warrant 
+that the functions of the software product will meet your requirements or that operation of the software product will 
+be uninterrupted or error free. The entire risk arising out of use or performance of the software product remains with you.
+
+- To the maximum extent permitted by applicable law, in no event shall DesignerFreeSolutions.com or its affiliates or 
+its resellers or its associates be liable for any special, incidental, direct or indirect, or consequential damages 
+whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of 
+business information, or any other pecuniary loss) arising out of the use of or inability to use the software product, 
+even if DesignerFreeSolutions.com has been advised of the possibility of such damages. 
+
+- If you encounter any bugs, DesignerFreeSolutions.com will provide an update at no charge. 
+Please contact us.
+
+ 
+_____________________________________
+© 2014 DesignerFreeSolutions.com

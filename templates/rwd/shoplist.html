@@ -1,0 +1,137 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">-->
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<title><{ $Bname }> - <{ $site_name }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+<body>
+
+<{ include_php file="shop_menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="A<{ $getbid }>">
+
+  <tr>
+
+    <td width="207" height="400" valign="top" style="padding-right:9px;"><{if $banner neq ""}> <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$banner}>"> <{/if}>
+
+    
+
+<div class="block-body"><div class="block-title">商店分類</div><table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+                  <tr>
+
+                    <td>
+
+                      <{ include_php file="include/include_shopclass.php" }>
+
+                      <{ include_php file="include/include_newshop2.php" }>
+
+                      </td>
+
+                  </tr>
+
+                </table></div>
+
+      <div style="width:185px;margin-top:10px;margin-bottom:10px; text-align:center;">
+
+        <script language="javascript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=class<{$smarty.get.bid}>"></script>
+
+      </div></td>
+
+    <td width="753" valign="top"><div class="title_blue_s">
+
+        <div class="title_blue_s_left">
+
+          <h1><{if $Bname neq ""}><{ $Bname }><{/if}><{if $cBname neq ""}><{ $cBname }><{/if}></h1>
+
+        </div>
+
+        <div class="title_blue_s_right"><a href="<{ $Site_Url }>">首頁</a> / 商店 </div>
+
+      </div>
+
+      <script language="javascript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=longbanner"></script>
+
+      <table width="753" border="0" cellpadding="0" cellspacing="1" style="margin-bottom:5px;margin-top:5px;">
+
+        <tr>
+
+          <td align="center" style="padding-top:10px"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+              <tr>
+
+                <td width="753" align="left" valign="top"><{ section name=i loop=$shop_array }>
+
+<div><{ if $shop_array[i].shopname != '' }>              
+
+               
+
+                  <table width="700" border="0" cellpadding="2" cellspacing="0" style="display:inline;float:left;margin-bottom:15px;">
+
+                    <tr>
+
+                      <td width="196" align="center"><a href="shopdetail.php?sid=<{ $shop_array[i].sid }>"><img src="<{ $Site_Url }>/UploadFile/ShopPic/<{ $shop_array[i].shoppic }>" width=150 border="0"></a></td>
+
+                      <td width="496" align="left" valign="top">店名：<a href="shopdetail.php?sid=<{ $shop_array[i].sid }>" class="job"><strong><{ $shop_array[i].shopname }></strong></a><br>
+
+                      商品數量：<{ $shop_array[i].count }>件<br>
+
+                      滿意度：<{ $shop_array[i].total }>分<br>
+
+                        簡介：<{ $shop_array[i].content }> </td>
+
+                    </tr>
+
+                  </table>
+
+   <{ /if }> 
+
+</div>
+
+                <{ /section  }></td>
+
+              </tr>
+
+            </table><{$ProductPageItem}></td>
+
+        </tr>
+
+      </table></td>
+
+  </tr>
+
+</table>
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

@@ -1,0 +1,8 @@
+<div style="clear:both;"></div>
+<div class="col-md-12 col-lg-12  text-left" style="padding-left: 40px;">
+	熱門關鍵字：<{ section name=list loop=$Round_array }>
+	<{if $smarty.section.list.index eq 0}><{else}> / <{/if}> <span class="size-12" style="text-decoration: underline; "><{ $Round_array[list].round }></span> 
+<{ /section }>
+</div>
+
+

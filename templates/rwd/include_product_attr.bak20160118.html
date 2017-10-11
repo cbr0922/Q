@@ -1,0 +1,28 @@
+<div class="margin-bottom-30">
+	<h2 class="owl-featured">商品篩選</h2>
+    <{ section name=i loop=$attrvalue_array }>
+	<{if $attrvalue_array[i].attrid eq 1}>
+    <{else}>
+    <{if $smarty.section.i.index neq 0}>
+    <div class="col-md-12 col-sm-12">
+    <hr>
+    </div>
+    <{/if}>
+	<div class="col-md-12 col-sm-12">
+  	<h5 class="margin-bottom-0"><{$attrvalue_array[i].attributename}></h5>
+    	<{ section name=j loop=$attrvalue_array[i].v }>
+        <label class="checkbox">
+    <div class="click_attr"><input onclick="javascript:getProduct('<{$attrvalue_array[i].attrid}>','<{$attrvalue_array[i].v[j].value}>');" type="checkbox" value="<{$attrvalue_array[i].v[j].value}>" name="value<{$attrvalue_array[i].attrid}>" id="value<{$attrvalue_array[i].v[j].valueid}>" style="display:none" /><i></i><{$attrvalue_array[i].v[j].value}></div>
+    </label>
+    <{ /section }>
+	</div>
+    <{/if}>
+	<{ /section }>
+    <div class="col-md-12 col-sm-12 margin-top-20">
+    <div id="slider-range" class="margin-bottom-10"></div>
+    	價格：<input type="text" id="amount" style="border: 0; color: #b69b91; font-weight: bold;background: transparent;" />
+<input type="hidden" id="gprice_from" name="gprice_from" />
+<input type="hidden" id="gprice_to" name="gprice_to" />
+    </div>
+    <div style="clear:both"></div>
+</div>

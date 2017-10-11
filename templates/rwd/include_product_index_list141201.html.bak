@@ -1,0 +1,563 @@
+<script language="javascript">
+
+function checkStorage(id,color,size){
+
+	var cobj,sobj,cvalue,svalue;
+
+	if (color==1){
+
+		cobj = document.getElementById("xycolor" + id);
+
+		cvalue = cobj.value;
+
+	}
+
+	if (size==1){
+
+		sobj = document.getElementById("xysize" + id);
+
+		svalue = sobj.value;
+
+	}
+
+	$.ajax({
+
+				url: "<{ $Site_Url }>/product/checkProduct.php",
+
+				data: 'gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&act=checkstorage',
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+				//alert(msg);
+
+				
+
+				    if (msg == 0 || msg == ""){
+
+				   		$('#showstorage' + id).html("缺貨");
+
+						$('#showbuy' + id).css("display","none");
+
+						//$('#count' + id).find("option").remove();
+
+						//$('#count' + id).append( "<option value=\"0\">0</option>" );
+
+					}else{
+
+						$('#showstorage' + id).html("");
+
+						$('#showbuy' + id).css("display","");
+
+						
+
+						$('#count' + id).find("option").remove();
+
+						if (msg>20)
+
+							count = 20
+
+						else
+
+							count = msg
+
+						for(i=0;i<=count;i++){
+
+							
+
+							
+
+							$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
+
+							
+
+						}
+
+						if (msg>0){
+
+								//cur = " checked ";
+
+								$('#count' + id).val(msg);
+
+							}else{
+
+								$('#count' + id).val("1");
+
+							}
+
+							
+
+					}
+
+				}
+
+	});
+
+	
+
+}
+
+<{if $classinfo_array.manyunfei>0}>
+
+function buysale(id,color,size,count){
+
+	var cobj,sobj,cvalue,svalue;
+
+	if (color==1){
+
+		cobj = document.getElementById("xycolor" + id);
+
+		cvalue = cobj.value;
+
+	}
+
+	//alert(id);
+
+	if (size==1){
+
+		sobj = document.getElementById("xysize" + id);
+
+		svalue = sobj.value;
+
+	}
+
+	$.ajax({
+
+				url: "../modules/carriagefree/buy_manyunfei.php",
+
+				data: 'gid='+ id +'&color=' + encodeURIComponent(cvalue) + "&size=" + encodeURIComponent(svalue) + '&count='+count+'&act=buy&bid=<{$smarty.get.bid}>',
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+					msg = msg.replace(/ */,"");
+
+					msg = msg.replace(/\r/,"");
+
+					msg = msg.replace(/\n/,"");
+
+					msg = msg.replace(/\t/,"");
+
+				//alert(msg);
+
+				    if (msg == 1)
+
+				   		showsaleshopping();
+
+				}
+
+	});	
+
+}
+
+function showsaleshopping(){
+
+	$.ajax({
+
+				url: "../modules/carriagefree/shopping_manyunfei.php",
+
+				data:"bid=<{$smarty.get.bid}>",
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+				//alert(msg);
+
+				    if (msg != ""){
+
+				   		$('#showbuyshopping').html(msg);
+
+						$('#showbuyshopping2').html(msg);
+
+					}
+
+				}
+
+	});
+
+}
+
+function deletsale(gid,color,size,key){
+
+	//alert("vvvvvvvvvvvvw");
+
+	$.ajax({
+
+				url: "../modules/carriagefree/buy_manyunfei.php",
+
+				data: 'gid='+ gid +'&color=' + encodeURIComponent(color) + "&size=" + encodeURIComponent(size) + '&act=del&bid=<{$smarty.get.bid}>&key=' + key,
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+				//alert(msg + key);
+
+				    if (msg == 1)
+
+				   		showsaleshopping();
+
+				}
+
+	});
+
+}
+
+<{/if}>
+
+</script>
+
+<{if $classinfo_array.manyunfei>0}>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td width="15"><img src="<{ $template_dir }>/images/blue-left.gif" width="15" height="98"></td>
+
+    <td bgcolor="#ffe8c4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr>
+
+        <td width="50%" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr>
+
+            <td width="55" align="center"><img src="<{ $template_dir }>/images/bag.gif" width="40" height="48"></td>
+
+            <td align="left">購買本類滿<font color="#CC0000"><b><span class="font18"><{$classinfo_array.manyunfei}></span></b></font>元免運費。</td>
+
+          </tr>
+
+        </table>
+
+</td>
+
+        <td height="80" bgcolor="#FFFFFF"><div id="showbuyshopping"></div></td>
+
+      </tr>
+
+    </table></td>
+
+    <td width="10"><img src="<{ $template_dir }>/images/blue-right.gif" width="10" height="98"></td>
+
+  </tr>
+
+</table>
+
+<div style="padding-top:5px;">
+
+<font color="#CC0000">※ 本區商品需選擇同一種配送及付款方式一起出貨，無法與其它商品一起放入購物車結帳。<br />
+
+※ 如欲退換貨，需將所有商品一併退回，商品無法單獨退換貨。</font>
+
+</div>
+
+<{/if}>
+
+<{if $smarty.get.skey neq ""}><{/if}>
+
+<table width="100%" id="product_list" border="0" cellspacing="0" cellpadding="0" >
+
+  <{if $smarty.get.skey neq ""}><tr>
+
+     <td height="22" class="search" valign="middle"  align="left" colspan="2">相關屬性：
+
+            <{ section name=list loop=$attrvalue_array }> <a href="<{ $Site_Url }>/product/product_attr.php?attrid=<{$attrvalue_array[list].attrid}>&valueid=<{$attrvalue_array[list].valueid}>"><{$attrvalue_array[list].value}></a> <{/section}> <br />
+
+     您搜尋的關鍵字是：<span class="keywords"><{$smarty.get.skey}></span> &nbsp;&nbsp;結果共找到 <span class="price"><{$product_array.count}></span> 項商品</td>
+
+  </tr><{/if}>
+
+  <tr>
+
+    <td width="50%" align="left" valign="middle" class="product_all" ><div class="product-title">
+
+      <h1><{if $title neq ""}><{ $title }><{else}><{ $brandname }><{ $classinfo_array.catname }><{/if}>商品區</h1></div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品--></td>
+
+    <td width="50%" valign="middle" align="right" class="product_skill"><ul class="asc_desc">
+
+        <li <{if $smarty.get.orderby eq ""}>class="asc_desc_cur"<{/if}>><a href="index.php?bid=<{$smarty.get.bid}>&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>">優先推薦</a>
+
+        </li>
+
+        <li <{if $smarty.get.orderby eq "price"}>class="asc_desc_cur"<{/if}>><a href="index.php?order=price&bid=<{$smarty.get.bid}>&ordertype=<{$smarty.get.ordertype}>&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>">價格<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "price"}>▼<{else}>▲<{/if}></a>
+
+        </li>
+
+        <li <{if $smarty.get.orderby eq "pubtime"}>class="asc_desc_cur"<{/if}>><a href="index.php?order=pubtime&bid=<{$smarty.get.bid}>&ordertype=<{$smarty.get.ordertype}>&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>">上架<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "pubtime"}>▼<{else}>▲<{/if}></a>
+
+        </li>
+
+        <li <{if $smarty.get.orderby eq "visit"}>class="asc_desc_cur"<{/if}>><a href="index.php?order=visit&bid=<{$smarty.get.bid}>&ordertype=<{$smarty.get.ordertype}>&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>">人氣<{if $smarty.get.ordertype eq 1 && $smarty.get.orderby eq "visit"}>▼<{else}>▲<{/if}></a>
+
+        </li>
+
+    </ul></td>
+
+  </tr>
+
+  <tr><td colspan="2">
+
+  <{if $classinfo_array.rebate>0}>
+
+     促銷時間：<{$classinfo_array.saleoff_starttime}>~<{$classinfo_array.saleoff_endtime}> <{$classinfo_array.rebate}>折 
+
+     <{/if}></td></tr>
+
+</table>
+
+<div id="product_list"><ul class="ulstyle">
+
+  <{ section name=list loop=$product_array.info start=0 }>
+
+     <li class="box" <{if $smarty.get.type eq 'bonus' || $classinfo_array.manyunfei>0}>style="height:335px;"<{/if}>>
+
+          <div class="picture3" style="margin-bottom:20px;z-index:1;">
+
+	          <{if $product_array.info[list].saleoff.ifsaleoff eq 1 || $product_array.info[list].timesale.iftimesale eq 1}><div style="position:absolute;top:1px;right:1px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></div><{/if}>
+
+          	<a href="javascript:void(0);" onclick="showProduct(<{$product_array.info[list].gid}>,<{if $smarty.get.type eq 'bonus' || $classinfo_array.manyunfei>0}>1<{else}>0<{/if}>)"><img id="showbonus" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].smallimg}>" border=0 name="goodpic"></a></div>
+
+          
+
+          <div style="height:20px;overflow:hidden; text-align:left"><font color="#ef9a9f"><{$product_array.info[list].sale_name}></font></div>
+
+          <div style="height:35px;overflow: hidden; text-align:left;margin-bottom:5px;"><a id="showbonus" href="javascript:void(0);" onclick="showProduct(<{$product_array.info[list].gid}>,<{if $smarty.get.type eq 'bonus' || $classinfo_array.manyunfei>0}>1<{else}>0<{/if}>)"><{$product_array.info[list].goodsname}></a></div>
+
+          <div style="text-align:left">市價：<S><{$product_array.info[list].price}></S></div>
+
+        <{if $smarty.get.type eq 'bonus'}>  
+
+          <div style="text-align:left">所需積分：<span class="price"><{$product_array.info[list].bonusnum}></span></div>
+
+        <{else}>    
+
+          <div style="text-align:left">網購價：<span class="price"><{$product_array.info[list].pricedesc}></span> </div>
+
+        <{/if}>
+
+        
+
+        <{if $smarty.get.type eq 'bonus' }>
+
+        <{if $product_array.info[list].good_color neq ""}>
+
+        <div style="text-align:left">規格：
+
+          <select name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>);">
+
+          <{ section name=list1 loop=$product_array.info[list].color }>
+
+              <option value="<{$product_array.info[list].color[list1].color}>"><{$product_array.info[list].color[list1].color}></option>
+
+          <{ /section}>
+
+          </select>
+
+          </div>
+
+        <{/if}>
+
+        <{if $product_array.info[list].good_size neq ""}>
+
+        <div style="text-align:left;">尺寸：
+
+          <select name="xysize<{$product_array.info[list].gid}>" id="xysize<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>);">
+
+          <{ section name=list1 loop=$product_array.info[list].size }>
+
+              <option value="<{$product_array.info[list].size[list1].size}>"><{$product_array.info[list].size[list1].size}></option>
+
+          <{ /section}>
+
+          </select>
+
+		</div>
+
+        <{/if}><{/if}>
+
+      <{if $classinfo_array.manyunfei>0}>   
+
+       <div style="text-align:left">
+
+            <input type="checkbox" name="ibuy<{$product_array.info[list].gid}>" id="ibuy<{$product_array.info[list].gid}>" value="1" onClick="if (this.checked==true) buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val()); else {deletsale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,'<{$product_array.ino[list].buykey}>');}" <{if $goods_array[list].buykey neq ""}>checked <{/if}>>我要選購<select name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" onChange="buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val());$('#ibuy<{$product_array.info[list].gid}>').attr('checked','true');">
+
+                    </select>件
+
+            </div>
+
+        <script language="javascript">
+
+			checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>);
+
+		</script>
+
+        <{else}>
+
+        <{if $smarty.get.type neq "present"}>
+
+<div align="center" style="margin-top:5px;"><a href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goods_id=<{$product_array.info[list].gid}>&count=1<{if $product_array.info[list].good_color neq ""}>&good_color=' + $('#xycolor<{$product_array.info[list].gid}>').val() + '<{/if}><{if $product_array.info[list].good_size neq ""}>&good_size=' + $('#xysize<{$product_array.info[list].gid}>').val() + '<{/if}>';"><{if $smarty.get.type eq 'bonus'}><div class="input_bottom" id="showbuy<{$product_array.info[list].gid}>" style="width:80px;height:14px;margin-top:15px;font-weight:bold">我要兌換</div><{else}><!--<img src="<{ $template_dir }>/images/GO_cart.gif" border="0" id="showbuy<{$product_array.info[list].gid}>" />--><{/if}></a>
+
+          <div id="showstorage<{$product_array.info[list].gid}>"></div>
+
+          <script language="javascript">
+
+			checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>);
+
+		</script></div>
+
+		<{/if}>  
+
+        <{/if}>
+
+      </li>
+
+  <{/section}>
+
+</ul></div>
+
+<div style="clear:both"></div>
+
+<{$product_array.page}>
+
+<{if $classinfo_array.manyunfei>0}>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td width="15"><img src="<{ $template_dir }>/images/blue-left.gif" width="15" height="98"></td>
+
+    <td bgcolor="#ffe8c4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr>
+
+        <td width="50%" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr>
+
+            <td width="55" align="center"><img src="<{ $template_dir }>/images/bag.gif" width="40" height="48"></td>
+
+            <td align="left">購買本類滿<font color="#CC0000"><b><span class="font18"><{$classinfo_array.manyunfei}></span></b></font>元免運費。</td>
+
+          </tr>
+
+        </table>
+
+</td>
+
+        <td height="80" bgcolor="#FFFFFF"><div id="showbuyshopping2"></div></td>
+
+      </tr>
+
+    </table></td>
+
+    <td width="10"><img src="<{ $template_dir }>/images/blue-right.gif" width="10" height="98"></td>
+
+  </tr>
+
+</table>
+
+<script language="javascript">
+
+showsaleshopping();
+
+</script>
+
+<{/if}>
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+
+<script language="javascript">
+
+//顯示超值任選，加購商品內容
+
+function showProduct(gid,showtype){
+
+	//alert(showtype);
+
+	if (showtype==1){
+
+	$.ajax({
+
+       url: 'showProduct.php',
+
+       data: 'goods_id=' + gid,
+
+				type:'get',
+
+				dataType:"html",
+
+				cache: false,
+
+				success: function(msg){
+
+					$('#show_product').html(msg);
+
+				}
+
+	});
+
+	$.blockUI({ overlayCSS:{cursor:'default'},
+
+			message: $('#show_product'),
+
+			css: { 
+
+            width: '780px' ,
+
+			height:'auto',
+
+			margin: '0',
+
+			cursor:'default',
+
+			top:  '20px',
+
+            left: ($(window).width() - 780) /2 + 'px'
+
+        }
+
+	});
+
+	}else{
+
+		location.href="<{ $Site_Url }>/product/detail" + gid;
+
+	}
+
+	//點擊空白處關閉視窗
+
+	 $(function(){
+
+		$('body').click(function(evt) {
+
+			if($(evt.target).parents(".blockUI").length==0 && 
+
+			evt.target.class != "blockUI" && evt.target.id != "showbonus") {
+
+				$('.blockOverlay').hide();
+
+				$('.blockPage').hide();
+
+			}
+
+		});
+
+     });
+
+}
+
+</script>

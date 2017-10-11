@@ -1,0 +1,20 @@
+<img src="<{ $template_dir }>/images/left_title_view.gif" width="176" height="34">
+<{ section name=list loop=$viewProductArray }>
+<table width="135" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                  <td width="135" align="center" valign="top" style="padding:2px;">
+                                    <table width="80" border="0" cellpadding="3" cellspacing="1" bgcolor="d3d3d3">
+                                      <tr>
+                                        <td width="102" bgcolor="ffffff"><table width="72" height="72" border="0" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+                                            <tr>
+                                              <td width="72" align="left" valign="top"style="padding:6px;"><a  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $viewProductArray[list].gid }>'><img src="<{ $Site_Url }>/GoodPic/<{ $viewProductArray[list].smallimg }>" width=60  border=0></a></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                                <tr>
+                                  <td style="padding:3px;"><A  href='<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $viewProductArray[list].gid }>'><{ $viewProductArray[list].goodsname }></A></td>
+                                </tr>
+                            </table>
+<{ /section }>

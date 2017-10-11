@@ -1,0 +1,64 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr>
+
+        <td colspan="2">&nbsp;</td>
+
+        </tr>
+
+      <tr>
+
+        <td width="100" align="right">門市代碼：</td>
+
+        <td align="left"><{$store_code}></td>
+
+      </tr>
+
+      <tr>
+
+        <td align="right">門市名稱：</td>
+
+        <td align="left"><{$store_name}></td>
+
+      </tr>
+
+      <tr>
+
+        <td align="right">門市電話：</td>
+
+        <td align="left"><{$store_tel}></td>
+
+      </tr>
+
+      <tr>
+
+        <td align="right">門市地址：</td>
+
+        <td align="left"><{$store_address}></td>
+
+      </tr>
+
+      <tr>
+
+        <td colspan="2">
+
+        <{if $store_map neq ''}>
+
+        <img src="../UploadFile/GoodPic/<{$store_map}>" weidth="300">
+
+        <{/if}>
+
+        </td>
+
+        </tr>
+
+      <tr>
+
+        <td colspan="2" align="center"><input type="button" name="button" id="button" value="取消" onclick="closeWin();">
+
+        <input type="button" name="button2" id="button2" value="確定" onclick='setNomalTrans("<{$smarty.get.key}>","15","<{$store_id}>");closeWin();'></td>
+
+  </tr>
+
+    </table>
+

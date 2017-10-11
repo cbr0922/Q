@@ -1,0 +1,41 @@
+<{ section name=list loop=$ClassArray }>
+
+                  <li><a class="noborder height-40" style="border-radius:0px;" href="<{if $ClassArray[list].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].bid}><{else}><{$ClassArray[list].url}><{/if}>"><{$ClassArray[list].classname}><!--<span class="arrow"></span>--></a>
+
+                  <{if $ClassArray[list].sub neq "" }>
+
+                    
+
+                    <ul class="wsmenu-submenu nopadding">
+
+                    <{ section name=list1 loop=$ClassArray[list].sub }>
+
+                          <li class="menu_4_1"><a href="<{if $ClassArray[list].sub[list1].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}><{else}><{$ClassArray[list].sub[list1].url}><{/if}>"><{$ClassArray[list].sub[list1].catname}><{if $ClassArray[list].sub[list1].sub neq "" }>&nbsp;&nbsp;&nbsp;<span class="hidden-xs" style="float: right;"><i class="fa fa-angle-right"></i></span><{/if}></a>
+
+                           <{if $ClassArray[list].sub[list1].sub neq "" }>
+
+                            <ul class="wsmenu-submenu-sub nopadding">
+
+                             <{ section name=list2 loop=$ClassArray[list].sub[list1].sub start=0 }> 
+
+                             <li class="menu_4_1"><a href="<{if $ClassArray[list].sub[list1].sub[list2].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].sub[list2].bid}><{else}><{$ClassArray[list].sub[list1].sub[list2].url}><{/if}>"><{$ClassArray[list].sub[list1].sub[list2].catname}></a></li>
+
+                              <{/section}>
+
+                            </ul>
+
+                           <{/if}>
+
+                          </li> 
+
+                          <{/section}>
+
+                        </ul>
+
+                       
+
+                   <{/if}>
+
+                  </li>
+
+                <{/section}>

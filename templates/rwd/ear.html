@@ -1,0 +1,35 @@
+<script>
+
+function rightbottomad(cid)
+
+{
+
+ var abc = document.getElementById(cid);
+
+ abc.style.top = document.documentElement.clientHeight-350+"px";//20是这个层的高度；
+ 
+ setTimeout(function(){rightbottomad(cid);},50);
+
+}
+
+function closediv()
+
+{
+
+ document.getElementById('tuad').style.visibility='hidden';
+
+}
+
+
+document.write('<div id="tuad" style="display:block;overflow:hidden;position:absolute;right:50%;margin-right:500px;z-index:999;"><{$Ear_object_left|replace:'\'':'"'}></div>');
+
+document.write('<div id="tuad1" style="display:block;overflow:hidden;position:absolute;left:50%;margin-left:500px;z-index:999;right:0px;"><{$Ear_object_right|replace:'\'':'"'}></div>');
+
+
+// rightbottomad('tuad');
+
+// rightbottomad('tuad1');
+
+ // 网页特效 document
+
+</script>

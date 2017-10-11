@@ -1,0 +1,45 @@
+<script> 
+var marqueeContent=new Array();   //滚动主题
+marqueeContent[0]="";
+marqueeContent[1]="";
+<{ section name=list loop=$Horse_array }>                  	
+marqueeContent[<{ $smarty.section.list.index }>]="<{ if $Horse_array[list].url neq'' }><a class='padding-6 horsetext' href=\"<{ $Horse_array[list].url }>\" ><{ $Horse_array[list].horse }></a><{else}><span style='padding:6px;font-size:12px;'><{ $Horse_array[list].horse }></span><{/if}>";
+<{ /section }>
+ 
+var marqueeInterval=new Array();  //定义一些常用而且要经常用到的变量
+var marqueeId=0;
+var marqueeDelay=4000;
+var marqueeHeight=30;
+function initMarquee() {
+ var str=marqueeContent[0];
+ document.write('<ul id="marqueeBox" style="overflow:hidden;height:'+marqueeHeight+'px;" onmouseover="clearInterval(marqueeInterval[0])" onmouseout="marqueeInterval[0]=setInterval(\'startMarquee()\',marqueeDelay)" class="top-links list-inline hidden-xs"><div style="height:30px;line-height:30px">'+str+'</div></ul>');
+ marqueeId++;
+ marqueeInterval[0]=setInterval("startMarquee()",marqueeDelay);
+ }
+function startMarquee() {
+ var str=marqueeContent[marqueeId];
+  marqueeId++;
+ if(marqueeId>=marqueeContent.length) marqueeId=0;
+ if(marqueeBox.childNodes.length==1) {
+  var nextLine=document.createElement('DIV');
+  nextLine.innerHTML=str;
+  marqueeBox.appendChild(nextLine);
+  }
+ else {
+  marqueeBox.childNodes[0].innerHTML=str;
+  marqueeBox.appendChild(marqueeBox.childNodes[0]);
+  marqueeBox.scrollTop=0;
+  }
+ clearInterval(marqueeInterval[1]);
+ marqueeInterval[1]=setInterval("scrollMarquee()",10);
+ }
+function scrollMarquee() {
+ marqueeBox.scrollTop++;
+ if(marqueeBox.scrollTop%marqueeHeight==marqueeHeight){
+  clearInterval(marqueeInterval[1]);
+  }
+ }
+initMarquee();
+</script>
+
+

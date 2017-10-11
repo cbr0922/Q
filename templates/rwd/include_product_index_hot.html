@@ -1,0 +1,92 @@
+<{ if $hot_array != ''}>
+<section class="padding-0 noborder hotbg">
+				<div class="container margin-bottom-40">
+					<h2 class="owl-featured noborder padding-bottom-0">熱門商品</h2>
+					<h5 class="margin-bottom-40 text-center">店長推薦/客戶指名商品</h5>
+					
+					<div class="owl-carousel owl-padding-3 controlls-over onbutton margin-top-20" data-plugin-options='{"singleItem": false,  "items": "4","itemsDesktopSmall":[768,3],"itemsTablet":[480,2],"itemsMobile": false,"stopOnHover":true, "autoPlay":4000, "autoHeight": false, "navigation": true, "pagination": false,"lazyLoad":true }' >
+                        <{ section name=list loop=$hot_array start=0 }>
+						<!-- item -->
+						<div class="shop-item margin-bottom-0">
+
+							<div class="thumbnail noborder nopadding">
+							                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix" style="position:absolute">
+                      <{/if}>
+
+								<a href="detail<{$hot_array[list].gid}>">
+                                <img class="img-responsive lazy" src="<{ $Site_Url }>/images/Loading.svg"  data-original="<{if $hot_array[list].middleimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$hot_array[list].middleimg}><{/if}>" alt="<{$hot_array[list].goodsname}>"  />
+								
+								</a>
+<{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+			<!-- /商品圖片 -->
+
+ 					<!-- 加入追蹤 -->
+                    <div class="shop-option-over"<{if $hot_array[list].heartColor eq 1}> style="opacity: 1;"<{/if}>><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+                    <a class="gid<{ $hot_array[list].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $hot_array[list].gid }>);" data-item-id="1" data-toggle="tooltip"><i class="fa fa-heart nopadding<{if $hot_array[list].heartColor eq 1}> heartColor<{/if}>"></i></a></div>
+                    <!-- /加入追蹤  -->
+                    <!-- 特惠標示 --
+                    <div class="shop-item-info  text-left">
+                    <span class="label label-danger">HOT</span>
+                    </div>
+                    <!-- 特惠標示 -->
+            		</div>
+							<div class="margin-bottom-0 margin-top-10 hidden-xs TAGdiv">
+							<{ section name=attri loop=$hot_array[list].attr }>
+								<{ if $hot_array[list].attr neq ''}>
+									<a class="TAGa"><{$hot_array[list].attr[attri].value}></a>
+								<{else}>
+									<a style="padding:2px 4px; color: #000;">&nbsp;</a>　
+								<{/if}>
+							<{/section}>
+							<{if $hot_array[list].ifnew eq 1}><a class="TAGa">NEW</a><{/if}>
+							<{if $hot_array[list].saleoff.ifsaleoff eq 1 || $hot_array[list].timesale.iftimesale eq 1 || ($hot_array[list].price neq 0 && $hot_array[list].price neq $hot_array[list].pricedesc && $hot_array[list].productdetail.count eq 0)}><a class="TAGa">促銷中</a><{/if}>
+							
+							</div>
+							<div class="shop-item-summary">
+                                <!--<div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $hot_array[list].sale_name }></div>-->
+								
+								
+								<div class="goodbrand" <{if $hot_array[list].brandname eq ""}>style="height: 33px;"<{/if}>>
+									<a  href="<{$Site_Url}>/brand/<{$hot_array[list].brand_id}>" class="namecolor"><{$hot_array[list].brandname}></a>
+								</div>
+                          
+
+								<div>
+									<a href="detail<{$hot_array[list].gid}>">
+											<h2 style=""><{$hot_array[list].ERP}></h2>
+											<h2 style="height:42px; overflow:hidden;"><{$hot_array[list].goodsname}></h2>
+									</a>
+								</div>
+								<div style="height:20px; overflow:hidden; margin-top:5px;"><{ $hot_array[list].showstorage }></div>
+
+								<!-- price -->
+								<div class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+								<{ if $hot_array[list].price neq 0 && $hot_array[list].price neq $hot_array[list].pricedesc}>
+                            		<span class="line-through">NT$ <{ $hot_array[list].price }></span>
+								<{/if}>
+									NT$ <{ $hot_array[list].pricedesc }>
+								</div>
+								<!-- /price -->
+							</div>
+
+						</div>
+						<!-- /item -->
+                        <{ /section }>
+					</div>
+</div>
+</div>
+</section>
+<{/if}>
+<script language="javascript">
+$("img.lazy").lazyload({
+    effect : "fadeIn",
+	threshold :700,
+	skip_invisible: false
+});
+</script>

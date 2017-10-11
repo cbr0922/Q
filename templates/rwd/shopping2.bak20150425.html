@@ -1,0 +1,728 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title><{ $HtmlTitle }></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+
+<style type="text/css">
+
+<!--
+
+.style1 {
+
+	color: #FF0000
+
+}
+
+-->
+
+</style>
+
+<style type="text/css">
+
+body {
+
+	margin:0px;
+
+}
+
+#fullBg {
+
+	background-color: Black;
+
+	display:none;
+
+	z-index:30;
+
+	position:absolute;
+
+	left:0px;
+
+	top:0px;
+
+	filter:Alpha(Opacity=30);
+
+	/* IE */
+
+-moz-opacity:0.4;
+
+	/* Moz + FF */
+
+opacity: 0.4;
+
+}
+
+#msg {
+
+	position:absolute;
+
+	z-index:40;
+
+	display:none;
+
+	background-color:#FFFFFF;
+
+	border:1px solid #6633CC;
+
+}
+
+#msg #close {
+
+	height:30px;
+
+	text-align:right;
+
+	padding-top:8px;
+
+	padding-right:15px;
+
+}
+
+#msg #ctt {
+
+	text-align:center;
+
+	font-size:12px;
+
+	padding-bottom:15px;
+
+}
+
+#cPic {
+
+	cursor:pointer;
+
+}
+
+</style>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome-ie7.css" type=text/css rel=stylesheet>
+
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome.css" type=text/css rel=stylesheet>
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<div id="fullBg"></div>
+
+<div id="msg">
+
+  <div id="close"></div>
+
+  <div id="ctt"></div>
+
+</div>
+
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript" src="../js/alter.js"></script>
+
+<script src="<{ $Site_Url }>/js/area.js" type="text/javascript" charset="utf-8"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.blockUI.js"></script>
+
+<table width="969" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+
+  <tr>
+
+    <td align="center" valign="top"><div id="shopping_steps">
+
+        <div class="step_normal">
+
+          <div class="step_normal_number">1</div>
+
+          購物資訊確認</div>
+
+        <div class="step_arrow"><i class="icon-caret-right"></i></div>
+
+        <div class="step_over">
+
+          <div class="step_number">2</div>
+
+          運費與折扣計算</div>
+
+        <div class="step_arrow"><i class="icon-caret-right"></i></div>
+
+        <div class="step_normal">
+
+          <div class="step_normal_number">3</div>
+
+          選擇付款方式</div>
+
+        <div class="step_arrow"><i class="icon-caret-right"></i></div>
+
+        <div class="step_normal">
+
+          <div class="step_normal_number">4</div>
+
+          訂單完成</div>
+
+      </div></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="" height="400" valign="top"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="shopping_table">
+
+        <tr>
+
+          <td height="19" valign="top"><{$provider_name}></td>
+
+        </tr>
+
+        <tr>
+
+          <td height="69" align="center"><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+
+              <tr>
+
+                <td width="40" align="center" bgcolor="#EEEEEE">序號</td>
+
+                <td width="80" align="center" bgcolor="#EEEEEE">圖片</td>
+
+                <td width="430" align="center" bgcolor="#EEEEEE">商品名稱</td>
+
+                <td width="90" align="center" bgcolor="#EEEEEE">單價 NT$ </td>
+
+                <td width="90" align="center" bgcolor="#EEEEEE">數量</td>
+
+                <td align="center" bgcolor="#EEEEEE">小計</td>
+
+              </tr>
+
+              <{ section name=list loop=$Cart_item }>
+
+              <form method="get" action="changeprice.php" name="priceform<{ $Cart_item[list].gkey }>" id="priceform<{ $Cart_item[list].gkey }>">
+
+                <input type=hidden name=Action value='change'>
+
+                <input type=hidden name=key value='<{ $smarty.get.key }>'>
+
+                <input type=hidden name=gkey value='<{ $Cart_item[list].gkey }>'>
+
+                <tr>
+
+                  <td align="center" bgcolor="#FFFFFF"><{math equation="(x+y)" x=$smarty.section.list.index y=1 }></td>
+
+                  <td align="center" bgcolor="#FFFFFF"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }>' width="70" border=0></a></td>
+
+                  <td align="left" bgcolor="#FFFFFF"><{if $Cart_item[list].ifchange eq 1 || $Cart_item[list].ifpresent eq 1 }>
+
+                    
+
+                    <{ $Cart_item[list].goodsname }>
+
+                    
+
+                    <{if $Cart_item[list].ifchange eq 1}>[加購商品]<{/if}>
+
+                    
+
+                    <{if $Cart_item[list].ifpresent eq 1}>[滿額禮]<{/if}>
+
+                    
+
+                    <{else}> <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].gid }>"><{ $Cart_item[list].goodsname }></a> <{if $Cart_item[list].packgid>0}>[組合商品]<{/if}> <{/if}>
+
+                    
+
+                    <{if $Cart_item[list].xygoods_des neq ""}>
+
+                    
+
+                    <{ $Cart_item[list].xygoods_des }>
+
+                    
+
+                    <{/if}>
+
+                    
+
+                    <{if $Cart_item[list].good_color neq ""}> <br>
+
+                    顏色：<{ $Cart_item[list].good_color }>
+
+                    
+
+                    <{/if}>
+
+                    
+
+                    <{if $Cart_item[list].good_size neq ""}> <br>
+
+                    尺寸：<{ $Cart_item[list].good_size }>
+
+                    
+
+                    <{/if}>
+
+                    
+
+                    <{if $Cart_item[list].detail_name neq ""}> <br>
+
+                    規格：<{ $Cart_item[list].detail_name }><{if $Cart_item[list].detail_des neq ""}> —— <{ $Cart_item[list].detail_des }><{/if}>
+
+                    
+
+                    <{/if}> 
+
+                    <{if $Cart_item[list].rebateinfo neq ""}><br>
+
+                    <{ $Cart_item[list].rebateinfo }><{/if}> </td>
+
+                  <td align="center" bgcolor="#FFFFFF"><{if $Cart_item[list].packgid eq 0}><{ $Cart_item[list].price }>
+
+                    <{if ($Cart_item[list].ifjs eq 1)}> <img src="../images/co-price.gif"> <{/if}><{/if}></td>
+
+                  <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].count }></td>
+
+                  <td align="center" bgcolor="#FFFFFF" class="prices"><{if $Cart_item[list].packgid eq 0}><{ $Cart_item[list].total }><{ if $Cart_item[list].totalcombi>0 }>+<{$Cart_item[list].totalcombi}>積分<{/if}><{/if}></td>
+
+                </tr>
+
+              </form>
+
+              <{ /section }>
+
+            </table></td>
+
+        </tr>
+
+        <tr>
+
+          <td height="24" align="right" valign="middle" class="shopping2_total" >商品總計：<{$Cart_totalPrices}>元</td>
+
+        </tr>
+
+        <{ if $em_goods_array neq '' }>
+
+        <tr>
+
+          <td align="left" class="shopping2_present"><div class="addgoods_title"><img src="<{ $template_dir }>/images/shopping_present.png" border="0"></div>
+
+            <{ section name=list loop=$em_goods_array }>
+
+            <li style="FLOAT: left;DISPLAY: inline;">
+
+              <table width="200" border="0" cellpadding="3" cellspacing="0" id="cart_add_items">
+
+                <tr>
+
+                  <td valign="top" align="center" class="pics"><a href="javascript:void(0);" onClick="showProduct(<{ $em_goods_array[list].gid }>);"><img id="linkimg" src="../UploadFile/GoodPic/<{ $em_goods_array[list].smallimg }>" width=70 border=0></a></td>
+
+                  <td valign="top" align="left" class="infor"><a id="linkimg" href="javascript:void(0);" onClick="showProduct(<{ $em_goods_array[list].gid }>);"><{ $em_goods_array[list].goodsname }></a><br>
+
+                    額滿禮：<{ $em_goods_array[list].present_money }>
+
+                    <{ if $em_goods_array[list].have_present_money>0 }> <br>
+
+                    <b>還需要<{ $em_goods_array[list].have_present_money }></b> <{ /if }> <br />
+
+                    <i class="icon-hand-up"></i>&nbsp;<a href="cart.php?Action=presentgoods&gid=<{ $em_goods_array[list].gid }>&key=<{ $smarty.get.key }>" class="addcart">選擇此贈禮</a></td>
+
+                </tr>
+
+              </table>
+
+            </li>
+
+            <{ /section }></td>
+
+        </tr>
+
+        <{/if}>
+
+        <tr>
+
+          <td height="24" align="right" valign="middle" >&nbsp;</td>
+
+        </tr>
+
+        <{if $cart_usebonus eq 1 ||$cart_useticket eq 1  }>
+
+        <tr>
+
+          <td><div class="trans_name" style="width:auto;"><i class="icon-circle-arrow-right"></i> 折扣計算</div></td>
+
+        </tr>
+
+        
+
+        <tr>
+
+          <td align="center" class="uhea">
+
+          <{if $cart_usebonus eq 1}>
+
+          <table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" class="red_bonus">
+
+              <tr>
+
+                <td><strong>紅利折抵點數</strong></td>
+
+              </tr>
+
+              <tr>
+
+                <td height="19" valign="top">您目前擁有<span class="price"><{$sumpoint}></span>點紅利</td>
+
+              </tr>
+
+              <form action="cart.php?Action=bonus" method="post" onSubmit="javascript:return checkpointform(this);">
+
+                <input type="hidden" name="MemberPice_total" value="<{ $Cart_totalPrices }>">
+
+                <input type="hidden" name="key" value="<{ $smarty.get.key }>">
+
+                <tr>
+
+                  <td align="left"><label>*本訂單您最多可以抵扣<span class="prices"> <{ $MaxbonusPoint }> </span>點紅利</label>
+
+                    <br>
+
+                    請輸入您要使用的點數
+
+                    <input name="point" type="text" size="5" maxlength="5" value="<{ $Cart_bonus }>">
+
+                    <input type="submit" name="Submit" value="使用" class="input_bottom" /></td>
+
+                </tr>
+
+              </form>
+
+            </table>
+
+            <hr>
+
+            <{/if}>
+
+            <{if $cart_useticket eq 1}>
+
+            <table width="100%" cellpadding="3" cellspacing="0" class="tickits">
+
+              <tr>
+
+                <td><strong>使用折價券</strong></td>
+
+              </tr>
+
+              <tr>
+
+                <td align="left">您可以使用的折價券：<span class="note">注意：紅利折抵與折價券不可同時使用</span></td>
+
+              </tr>
+
+              <tr>
+
+                <td align="left"><input name="ticketuseid" type="radio" value="0" 
+
+									<{ if ($Cart_tickets.id eq 0) }> checked <{ /if }> onClick="location.href='cart.php?Action=ticket&ticketid=0&key=<{ $smarty.get.key }>';"> 不使用折價券</td>
+
+              </tr>
+
+              <{ section name=list loop=$TicketList }>
+
+              <tr>
+
+                <td align="left"><input type="radio" name="ticketuseid" value="<{ $TicketList[list].tickeid }>" onClick="location.href='cart.php?Action=ticket&ticketid=<{ $TicketList[list].tickeid }>&key=<{ $smarty.get.key }>';" <{ if ($Cart_tickets.id eq $TicketList[list].tickeid) }> checked <{ /if }>> <{ $TicketList[list].ticketname }>
+
+                  <!--可抵用<{ $TicketList[list].money }>元,可使用<{ $TicketList[list].count }>次--></td>
+
+              </tr>
+
+              <{ /section }>
+
+              <tr>
+
+                <td align="left"><input name="ticketuseid" type="radio" value="-1" <{ if ($Cart_tickets.type eq 1) }> checked <{ /if }> >使用通用優惠券
+
+                  <input name="ticketcode" id="ticketcode" type="text" value="<{ $Cart_tickets.ticketcode }>" onClick="if (this.value == '請輸入折價券號碼'){ this.value='';} else if(this.value==''){ this.value='請輸入折價券號碼';}" onMouseOut="if(this.value==''){ this.value='請輸入折價券號碼';}">
+
+                  <input name="Input" type="button" value="使用" onClick="location.href='cart.php?Action=ticket&ticketid=-1&key=<{ $smarty.get.key }>&ticketcode=' + document.getElementById('ticketcode').value;"></td>
+
+              </tr>
+
+              <tr>
+
+                <td align="right">折扣後金額：<{$Cart_discount_totalPrices}>元</td>
+
+              </tr>
+
+            </table><{/if}></td>
+
+        </tr>
+
+        <{/if}>
+
+        <tr>
+
+          <td>&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td><div class="trans_name" style="width:auto;"><i class="icon-circle-arrow-right"></i> 配送地區及運費</div></td>
+
+        </tr>
+
+        <tr>
+
+          <td height="35" align="left" class="county_title">配送地區：
+
+            <select id="county" name="county">
+
+            </select>
+
+            <select id="province" name="province">
+
+            </select>
+
+            &nbsp;&nbsp;<span class="prices">＊請務必選擇配送地區，謝謝。</span></td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center" id="showtransport"></td>
+
+        </tr>
+
+        <tr>
+
+          <td height="38" align="center"><input type="button" name="button" id="button" value="上一步" onClick="location.href='shopping.php';" class="input_bottom" />
+
+            <input type="button" name="button2" id="shopping2button" value="下一步" onClick="checkShopping();" class="input_bottom" /></td>
+
+        </tr>
+
+      </table></td>
+
+  </tr>
+
+</table>
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+
+<script language="javascript">
+
+function checkpointform(myform){
+
+	if (myform.point.value == ""){
+
+		alert("請填寫需要抵扣的紅利點數");
+
+		return false;
+
+	}else if (isnum(myform.point.value) == -1){
+
+		alert("請填寫數字");
+
+		return false;
+
+	}else if (myform.point.value > <{ $MaxbonusPoint }>){
+
+		alert("您最多可以抵扣<{ $MaxbonusPoint }>點紅利");
+
+		return false;
+
+	}
+
+}
+
+</script>
+
+<script language="JavaScript">
+
+function getTransport(){
+
+		$.ajax({
+
+		url: "shopping_ajax_transport.php",
+
+		data: "county=" + encodeURIComponent($("#county option:selected").text()) + "&province=" + encodeURIComponent($("#province option:selected").text()) + "&key=<{ $smarty.get.key }>",
+
+		type:'get',
+
+		dataType:"html",
+
+		success: function(msg){
+
+			$('#showtransport').html(msg);
+
+		}
+
+	});	
+
+}
+
+iniArea("",0,"","","");
+
+
+
+$("#province").change(function(){getTransport();});
+
+
+
+function setNomalTrans(key,transid,storeid){
+
+	$.ajax({
+
+		url: "shopping_ajax_transport.php",
+
+		data: "county=" + encodeURIComponent($("#county option:selected").text()) + "&province=" + encodeURIComponent($("#province option:selected").text()) + "&key=<{ $smarty.get.key }>&transid=" + transid + "&store_id=" + storeid,
+
+		type:'get',
+
+		dataType:"html",
+
+		success: function(msg){
+
+			$('#showtransport').html(msg);
+
+		}
+
+	});	
+
+}
+
+function checkShopping(){
+
+	<{if $MinBuyMoney<=$Cart_discount_totalPrices}>
+
+	<{if $provider_id eq 0}>
+
+	$.ajax({
+
+		url: "shopping_ajax_checkshopping.php",
+
+		data: "county=" + encodeURIComponent($("#county option:selected").text()) + "&province=" + encodeURIComponent($("#province option:selected").text()) + "&key=<{ $smarty.get.key }>&sid=<{$sid}>",
+
+		type:'get',
+
+		dataType:"html",
+
+		success: function(msg){
+
+			if (msg==1){
+
+				location.href = "shopping3.php?key=<{ $smarty.get.key }>";
+
+			}else{
+
+				alert("請選擇地區，或者您選擇的地區無法運達");	
+
+			}
+
+				
+
+		}
+
+	});	
+
+	<{else}>
+
+	location.href = "shopping3.php?key=<{ $smarty.get.key }>";
+
+	<{/if}>
+
+	<{else}>
+
+	alert('未達到最小購買金額');
+
+	<{/if}>
+
+}
+
+//顯示額滿禮
+
+function showProduct(gid){
+
+	$.ajax({
+
+       url: '../product/showProduct.php',
+
+       data: 'goods_id=' + gid,
+
+				type:'get',
+
+				dataType:"html",
+
+				cache: false,
+
+				success: function(msg){
+
+					$('#show_product').html(msg);
+
+				}
+
+	});
+
+	$.blockUI({ overlayCSS:{cursor:'default'},
+
+			message: $('#show_product'),
+
+			css: { 
+
+             width: '750px' ,
+
+			height:'900px',
+
+			margin: '0',
+
+			cursor:'default',
+
+			top:  '20px',
+
+            left: ($(window).width() - 770) /2 + 'px'
+
+        }
+
+	});
+	//點擊空白處關閉視窗
+	 $(function(){
+		$('body').click(function(evt) {
+			if($(evt.target).parents(".blockUI").length==0 && 
+			evt.target.class != "blockUI" && evt.target.id != "linkimg") {
+				$('.blockUI').remove();
+				$('.blockOverlay').remove();
+				$('.blockPage').remove();
+			}
+		});
+     });
+}
+
+</script>
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

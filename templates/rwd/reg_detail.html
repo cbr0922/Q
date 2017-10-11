@@ -1,0 +1,1138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title><{ $HtmlTitle }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+
+<!--
+
+.bgrepeat {
+
+	BACKGROUND-POSITION: center top;
+
+	BACKGROUND-REPEAT: repeat-x;
+
+	background-image: url(<{ $template_dir }>/images/top_back.jpg);
+
+}
+
+-->
+
+</style>
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<script language="javascript" src="../js/validateUtil.js"></script>
+
+<script language="javascript" src="../js/function.js"></script>
+
+<script language="javascript" src="../js/area_gb.js"></script>		
+
+<script language="JavaScript">
+
+<!--
+
+	var s=["s1","s2"];
+
+	var submitFlag = 0;
+
+	function sl(tx){
+
+		  document.all[tx].style.border='2px #22ADCE solid';
+
+		  document.all[tx].style.color='#006982';
+
+		  document.all[tx].style.paddingLeft='8px';
+
+		  document.all[tx].style.paddingRight='5px';
+
+		  document.all[tx].style.backgroundColor='#EEFAFD';
+
+	  }
+
+	  function slo(tx){
+
+		  document.all[tx].style.border='2px #ffffff solid';
+
+		  document.all[tx].style.color='#848484';
+
+		  document.all[tx].style.paddingLeft='8px';
+
+		  document.all[tx].style.paddingRight='5px';
+
+		  document.all[tx].style.backgroundColor='#ffffff';
+
+		  
+
+	  }
+
+	  function sl2(tx){
+
+	  	  var f = document.societyUserRegRegisterForm;
+
+	  	  var chineseChar = /[\u4e00-\u9fa5]/;
+
+		  var result = chineseChar.exec(trim(f.nickname.value));
+
+	  	  if(result){
+
+			  document.all[tx].style.border='1px #22ADCE solid';
+
+			  document.all[tx].style.color='#006982';
+
+			  document.all[tx].style.paddingLeft='8px';
+
+			  document.all[tx].style.paddingRight='5px';
+
+			  document.all[tx].style.backgroundColor='#EEFAFD';
+
+		  }
+
+	  }
+
+	  //出错的时候调用下面的函数
+
+	  function sl_error(tx){
+
+		  document.all[tx].style.border='1px #E96E00 solid';
+
+		  document.all[tx].style.color='#FF6600';
+
+		  document.all[tx].style.paddingLeft='8px';
+
+		  document.all[tx].style.paddingRight='5px';
+
+		  document.all[tx].style.backgroundColor='#FFEEDE';
+
+	  }
+
+/*
+
+function CheckNickName(){
+
+	var f = document.societyUserRegRegisterForm;
+
+	var chineseChar = /[\u4e00-\u9fa5]/;
+
+	var result = chineseChar.exec(trim(f.nickname.value));
+
+	if(result){//昵称是中文
+
+		f.userid.disabled = false;
+
+		f.userid.value = "";
+
+	}else{//不是中文
+
+		if(trim(f.nickname.value)!=""){	
+
+			f.userid.value = trim(f.nickname.value);
+
+			f.userid.disabled = true;
+
+		}else{
+
+			f.userid.value = "";
+
+		}
+
+	}
+
+}
+
+*/
+
+//没有登陆的用户，
+
+function RegisterUser(){	
+
+	var f = document.societyUserRegRegisterForm;
+
+	var pwd1 = trim(f.password.value);
+
+	var pwd2 = trim(f.passwd2.value);
+
+	var inputcode =trim(f.inputcode.value);
+
+	f.userid.disabled = false;
+
+   if (!isEmpty(f.nickname,"<{ $Username_says }>")) return false;  //用户名只能由字母、数字、下划线长度为4到20位组成！
+
+/*
+
+	if(trim(f.nickname.value)==""){
+
+		alert("用户名不能为空");
+
+		f.nickname.focus();
+
+		return false;
+
+	}
+
+*/
+
+	if(trim(f.nickname.value).length > 20 || trim(f.nickname.value).length <4){
+
+		alert("<{ $Username_says }>");  //用户名只能由字母、数字、下划线长度为4到20位组成！
+
+		f.nickname.focus();
+
+		return false;
+
+	}
+
+	if(trim(f.userid.value)==""){
+
+  	    var strNickname = trim(f.nickname.value);
+
+		var img_obj = document.getElementById("error_image") ;
+
+		img_obj.style.display="";
+
+		errDisplay.innerHTML = "<{ $SorryUser_a }>"+strNickname+"<{ $SorryUser_b }>"+getValidateName(strNickname);<!--对不起，用户名 已经被注册，您可以选择-->
+
+        f.nickname.focus();
+
+		return false;	
+
+    	}
+
+    if (!isEmpty(f.password,'<{ $PleaseInputPass }>')) return false; //请输入密碼
+
+    if (!isEmpty(f.passwd2,"<{ $Qinputpass_s }>")) return false;  //重复密碼不能为空
+
+	if(trim(f.password.value).length > 20 || trim(f.password.value).length <6){
+
+		alert("<{ $Password_says }>");  //密碼由 英文、数字组成，6到20个字符，区分大小写！
+
+		f.password.focus();
+
+		return false;
+
+	}
+
+/*
+
+	if(pwd1==""){
+
+		alert("密碼不能为空");
+
+		f.password.focus();
+
+		return false;
+
+	}
+
+	
+
+	if(pwd2==""){
+
+		alert("重复密碼不能为空");
+
+		f.passwd2.focus();
+
+		return false;
+
+	}
+
+*/	
+
+	if(pwd1!=pwd2){
+
+		alert('<{ $Twobadpassword }>'); //两次密碼输入不一致！
+
+		f.password.focus();
+
+		return false;
+
+	}
+
+	
+
+if (!isEmpty(f.realname,'<{ $PleaseInputTrueName }>')) return false;  //请输入真实姓名
+
+/*
+
+	if(trim(f.realname.value)==""){
+
+		alert("姓名不能为空。");
+
+		f.realname.focus();
+
+		return false;
+
+	}
+
+	
+
+	if(trim(f.realname.value).length > 20){
+
+		alert("姓名不能超过20个字符。");
+
+		f.realname.focus();
+
+		return false;
+
+	}
+
+	*/
+
+	if ( trim(f.realname.value).indexOf(",") != -1 
+
+			|| trim(f.realname.value).indexOf("<") != -1 
+
+			|| trim(f.realname.value).indexOf(">") != -1 
+
+			|| trim(f.realname.value).indexOf("  ") != -1) {
+
+		alert('<{ $NoformatName_a }>'); //"姓名中不能有<、>、,和空格非法字符！"
+
+		f.realname.focus();
+
+		return false;
+
+	}else if (trim(f.realname.value).indexOf("#") != -1 
+
+			|| trim(f.realname.value).indexOf("·") != -1 
+
+			|| trim(f.realname.value).indexOf("￥") != -1 
+
+			|| trim(f.realname.value).indexOf("…") != -1 
+
+			|| trim(f.realname.value).indexOf("%") != -1 ) {
+
+		alert('<{ $NoformatName_b }>'); //"姓名中不能有#，·， ￥， …， %非法字符！"
+
+		f.realname.focus();
+
+		return false;
+
+	}
+
+if (!isEmpty(f.email,'<{ $PleaseInputEmail }>')) return false;  //请输入Email地址
+
+//if (!isEmpty(f.idcard,'<{ $PleaseInputIdcard }>')) return false;  //请输入身份证
+
+	
+
+	if(!checkEmail(trim(f.email.value))){
+
+		alert('<{ $NoformatEmail }>'); //"您输入的邮件地址非法."
+
+		f.email.focus();
+
+		return false;
+
+	}
+
+	
+
+	if(!f.sex[0].checked&&!f.sex[1].checked){
+
+		alert('<{ $PleaseSelectSex }>');  //"请选择性别"
+
+		return false;
+
+	}
+
+if (!isEmpty(f.byear,"<{ $PleaseInputBorn }>")) return false; //请输入出生日期
+
+if (!isEmpty(f.inputcode,"<{ $PleaseInputCode }>")) return false; //"请输入验证码"
+
+	f.operate.value="add";
+
+	if(submitFlag!=0){
+
+		return false;
+
+	}else{
+
+		submitFlag=1;
+
+	}
+
+	//f.submit();
+
+}
+
+function ReturnToLogin(){
+
+	var f = document.societyUserRegRegisterForm;
+
+	f.operate.value="ready_add";
+
+	f.submit();
+
+}
+
+function GetO(){
+
+    var ajax=false; 
+
+    try { 
+
+    	ajax = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+    } catch (e) { 
+
+   	 	try { 
+
+    		ajax = new ActiveXObject("Microsoft.XMLHTTP"); 
+
+    	} catch (E) { 
+
+    		ajax = false; 
+
+    	} 
+
+    }
+
+    if (!ajax && typeof XMLHttpRequest!='undefined') { 
+
+    	ajax = new XMLHttpRequest(); 
+
+    } 
+
+    return ajax;
+
+}
+
+var ajax = GetO();
+
+function getAjaxHTML(serverPage) { 
+
+    if((serverPage.indexOf("<{ $Site_Url }>")!=0)) return-1; 
+
+    ajax.open("GET", serverPage, true); 
+
+    var result ;
+
+    ajax.onreadystatechange = function() { 
+
+        if (ajax.readyState == 4 && ajax.status == 200) { 
+
+            result = ajax.responseText; 
+
+			alert("rssul:"+result) ;
+
+        } 
+
+    } 
+
+    ajax.send(null); 
+
+	return result ;
+
+} 
+
+function validateEmail(value){
+
+    var serverPage = "<{ $Site_Url }>/member/CheckUserExist.php?type=2&email="+value ;
+
+	var f = document.societyUserRegRegisterForm;
+
+	if((serverPage.indexOf("<{ $Site_Url }>/")!=0)) return-1; 
+
+    ajax.open("GET", serverPage, true); 
+
+    var result ;
+
+    ajax.onreadystatechange = function() { 
+
+        if (ajax.readyState == 4 && ajax.status == 200) { 
+
+            result =  Math.abs(ajax.responseText); 
+
+           if(result==1){
+
+				alert("<{ $HadExistEmail }>"); //此邮件地址已经存在
+
+				f.email.focus();
+
+				return false;
+
+			}
+
+        } 
+
+    } 
+
+    ajax.send(null); 
+
+	return result ;
+
+}
+
+function checknickname(value){
+
+	var checkOK = "abcdefghijklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789_ ";
+
+	//var checkStr = f.nickname.value;
+
+	var checkStr = value;
+
+	var allValid = true;
+
+	for (i = 0;  i < checkStr.length;  i++){
+
+		ch = checkStr.charAt(i);
+
+		for (j = 0;  j < checkOK.length;  j++)
+
+		if (ch == checkOK.charAt(j))
+
+			break;
+
+		if (j == checkOK.length){
+
+			allValid = false;
+
+			break;
+
+		}
+
+	}
+
+/*
+
+	if (!allValid){
+
+		alert("用户名只能由字母、数字、下划线组成！");
+
+		f.nickname.focus();
+
+		return false;
+
+	}
+
+*/
+
+return allValid;
+
+}
+
+function validateNickName(value){
+
+	var f = document.societyUserRegRegisterForm;
+
+	var strNickname = trim(f.nickname.value);
+
+	var serverPage ;
+
+	var Result  = checknickname(strNickname);
+
+	if(Result){
+
+		serverPage = "<{ $Site_Url }>/member/CheckUserExist.php?type=1&username="+value ;
+
+	}else{
+
+	   // alert("<?=$TPL_TAGS['ttag_1926'];?>"); //"用户名只能由字母、数字、下划线组成！"
+
+	    f.nickname.focus();
+
+	    return false;
+
+		//serverPage = "<?=$Site_Url?>/member/CheckUserExist.php?type=1" ;
+
+    }
+
+	
+
+	if((serverPage.indexOf("<{ $Site_Url }>/")!=0)) return-1; 
+
+    ajax.open("GET", serverPage, true); 
+
+    var result ;
+
+    ajax.onreadystatechange = function() { 
+
+        if (ajax.readyState == 4 && ajax.status == 200) { 
+
+            result =  Math.abs(ajax.responseText); 
+
+    //  alert(result); 校验是否有返回值
+
+			if(result==1){
+
+				//alert("此用户名已经存在!!!");
+
+				
+
+				var img_obj = document.getElementById("error_image") ;
+
+				img_obj.style.display="";
+
+				errDisplay.innerHTML = "<{ $SorryUser_a }>"+strNickname+"<{ $SorryUser_b }>"+getValidateName(strNickname);
+
+			}else if (strNickname!=""){
+
+				//if (!isEmpty(f.nickname,"")) return false; //"用户名只能由字母、数字、下划线组成！"
+
+				var img_obj = document.getElementById("error_image") ;
+
+				img_obj.style.display="none";
+
+				errDisplay.innerHTML = "<{ $DoUsername }>";//用户名可以使用！
+
+				if(trim(f.nickname.value)!="")
+
+					f.userid.value = trim(f.nickname.value);
+
+		    }else{
+
+				var img_obj = document.getElementById("error_image") ;
+
+				img_obj.style.display="";
+
+   			    errDisplay.innerHTML = " <{ $Username_says }>";//用户名只能由字母、数字、下划线长度为4到20位组成！
+
+				if(trim(f.nickname.value)!="")
+
+					f.userid.value = "" ; //trim(f.nickname.value);
+
+			}		
+
+        } 
+
+    } 
+
+    ajax.send(null); 
+
+	return result ;
+
+}
+
+function displayUserInfo(){
+
+	document.all.user_info.style.display = "block";
+
+}
+
+function getValidateName(nickname){
+
+	var strHref = "<a href='javascript:DoSet(\"";
+
+	var strHref2 ="\");'>"; 
+
+	var rad1 = getRadomNum();
+
+	var rad2 = getRadomNum();
+
+	var rad3 = getRadomNum();
+
+	var rdisplay1 = strHref+nickname+"_"+rad1+strHref2+"<font color=red>"+nickname+"_"+rad1+"</font></a>";
+
+	var rdisplay2 = strHref+nickname+"_"+rad2+strHref2+"<font color=red>"+nickname+"_"+rad2+"</font></a>";
+
+	var rdisplay3 = strHref+nickname+"_"+rad3+strHref2+"<font color=red>"+nickname+"_"+rad3+"</font></a>";
+
+	return  rdisplay1+" , "+rdisplay2+" , "+rdisplay3;
+
+}
+
+-->
+
+</script>
+
+<script language="javascript">
+
+<!--
+
+function getRadomNum(){
+
+	var rad  = Math.random()*100000+" ";
+
+	return rad.substring(0,3);
+
+}
+
+function DoSet(nickname){
+
+	var f = document.societyUserRegRegisterForm;
+
+	f.nickname.value= nickname;
+
+	f.userid.value=nickname;
+
+}
+
+-->
+
+</script>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  onload="createMenus('','','','')">
+
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+
+  <tr>
+
+    <td width="665" align="center" valign="top"><table width="665" border="0" cellpadding="0" cellspacing="0">
+
+        <tr>
+
+          <td height="38" background="<{ $template_dir }>/images/tit_in.jpg"><span class="p9white">    <{
+
+          $Regedit }></span></td>
+
+        </tr>
+
+        <tr>
+
+          <td><br>
+
+              <br>
+
+              <br>
+
+              <table cellpadding="3" cellspacing="0" class="p9black">
+
+                <tr>
+
+                  <td class="p14red">&nbsp;&nbsp;&nbsp;<strong><{ $Info_1 }></strong>
+
+                      <!--关于注册成为本商店用户的特别提示:-->
+
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td>
+
+                    <ul>
+
+                      <li><{ $Info_1a }>
+
+                          <!--本商店仅仅需要能送货的必要信息：收货人姓名、地址、邮政编码和联系电话。对于像性别、身份证号码等对于送货没有任何帮助的信息，我们都不会要求您填写。:-->
+
+                      </li>
+
+                      <li><{ $Info_1b }>
+
+                          <!--本商店将最大限度保护您的隐私:-->
+
+                      </li>
+
+                      <li><{ $Info_1c }>
+
+                          <!--当然您不购买商品也可以成为本站用户，请填写下面的信息注册。:-->
+
+                      </li>
+
+                      <li><{ $Info_1d }>
+
+                          <!--如果您要将订购的商品寄给朋友，也请填写您自己的资料，您仅需在收银台处填写您朋友资料。:-->
+
+                      </li>
+
+                  </ul></td>
+
+                </tr>
+
+              </table>
+
+              <form name="societyUserRegRegisterForm" method="post" action="member_save.php" onSubmit="return RegisterUser();">
+
+                <input type="hidden" name="Action" value="Insert">
+
+                <input type="hidden" name="operate" value="ready">
+
+                <TABLE class=p9black cellSpacing=0 cellPadding=3 width="95%"  align=center border=0>
+
+                  <TBODY>
+
+                    <TR>
+
+                      <TD align=right width="8%"><{ $Username_say }>
+
+                          <!--用户名-->
+
+          ：</TD>
+
+                      <TD  width="23%">
+
+                        <input name="nickname" type="text" style="width:125px;border:1px #B7B7B7 solid;font-family:Arial" onFocus="return sl('ts1');" onBlur="slo('ts1');validateNickName(this.value);" value="" maxlength="20">
+
+                        <input type="text" name="userid" value="" style="display:none;width:125px;border:1px #B7B7B7 solid;font-family:Arial">
+
+                      </TD>
+
+                      <TD  width="100%">
+
+                        <table width="100%" id="ts1" border="0" cellpadding="0" cellspacing="0" class="p9black">
+
+                          <tr>
+
+                            <td><img src="<{ $template_dir }>/images/alert.gif" id="error_image" style="display:none">* <span id='errDisplay'> <{
+
+                                $Username_says }>
+
+                                  <!--可以由英文、数字组成，长度为4到20位-->
+
+                            </span></td>
+
+                          </tr>
+
+                      </table></TD>
+
+                    </TR>
+
+                    <TR>
+
+                      <TD align=right width="8%"><{ $Password_say }>
+
+                          <!--密碼-->
+
+          ：</TD>
+
+                      <TD><input name="password" type="password" style="width:125px;border:1px #B7B7B7 solid;font-family:Arial" onFocus="return sl('ts2');" onBlur="return slo('ts2')" value="" maxlength="20">
+
+                      </TD>
+
+                      <TD >
+
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9black" id="ts2">
+
+                          <tr>
+
+                            <td><img src="<{ $template_dir }>/images/alert.gif" id="error_image" style="display:none">* <{
+
+                              $Password_says }>
+
+                                <!--英文、数字组成，6到20个字符，区分大小写-->
+
+                            </td>
+
+                          </tr>
+
+                      </table></TD>
+
+                    </TR>
+
+                    <TR>
+
+                      <TD width="8%" align=right nowrap ><{ $QPassword_say }>
+
+                          <!--确认密碼-->
+
+          ：</TD>
+
+                      <TD ><input name="passwd2" type="password" style="width:125px;border:1px #B7B7B7 solid;font-family:Arial" onFocus="sl('ts3');displayUserInfo();" onBlur="return slo('ts3');" maxlength="20"></TD>
+
+                      <TD ><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9black" id="ts3">
+
+                          <tr>
+
+                            <td><img src="<{ $template_dir }>/images/alert.gif" id="error_image" style="display:none">* <{
+
+                              $QPassword_says }>
+
+                                <!--请输入确认密碼-->
+
+                            </td>
+
+                          </tr>
+
+                      </table></TD>
+
+                    </TR>
+
+                    <TR>
+
+                      <TD width="5%"  align=right nowrap><{ $Code_say }>
+
+                          <!--验证码-->
+
+          ：</TD>
+
+                      <TD colspan="2"><img src="<{ $Site_Url }>/Resources/securimage/securimage_show.php?sid=<{$sid}>" border="0" align="absmiddle">
+						<br />
+						<input name="inputcode" type="text" id="inputcode" size="5" class="inputstyle">&nbsp; </TD>
+
+                    </TR>
+
+                    <TR>
+
+                      <TD colspan="3" align=right >&nbsp; </TD>
+
+                    </TR>
+
+                  </TBODY>
+
+                </TABLE>
+
+                <TABLE class=p9black cellSpacing=0 cellPadding=3 width="95%"  align=center border=0 id="user_info" style="display:<{ $CookieDisplay }>">
+
+                  <TR>
+
+                    <TD  align=right nowrap>所在公司：</TD>
+
+                    <TD colspan="2" ><select name="company"><{ $companyselect }></select></TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right nowrap>認證密碼：</TD>
+
+                    <TD colspan="2" ><input type="text" name="companypassword"></TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD width="5%"  align=right nowrap><{ $Realname_say }>
+
+                        <!--真实姓名-->
+
+        ：</TD>
+
+                    <TD >
+
+                      <input name="realname" type="text" style="width:125px;border:1px #B7B7B7 solid;font-family:Arial" onFocus="return sl('ts5');" onBlur="return slo('ts5')" value="<{ $Realname }>" maxlength="20"></TD>
+
+                    <TD ><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9black" id="ts5">
+
+                        <tr>
+
+                          <td><img src="<{ $template_dir }>/images/alert.gif" id="error_image" style="display:none">* <{
+
+                            $Realname_says }>
+
+                              <!--请输入真实姓名-->                          </td>
+
+                        </tr>
+
+                    </table></TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Email_say }>
+
+                        <!--E-mail地址-->
+
+        ：</TD>
+
+                    <TD width="26%" >
+
+                      <input name="email" type="text" style="width:125px;border:1px #B7B7B7 solid;font-family:Arial" onFocus="return sl('ts6');" onBlur="javascript:slo('ts6');validateEmail(this.value);" value="" maxlength="40">                    </TD>
+
+                    <TD width="69%" >
+
+                      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9black" id="ts6">
+
+                        <tr>
+
+                          <td><img src="<{ $template_dir }>/images/alert.gif" id="error_image" style="display:none"> <{
+
+                            $Email_says }>
+
+                              <!-- * 很重要！订单、发货等信息都会发送到此信箱。-->                          </td>
+
+                        </tr>
+
+                    </table></TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right nowrap><{ $Idcard_say }>
+
+                        <!--身份证件-->
+
+        ：</TD>
+
+                    <TD colspan="2" ><input name="idcard" type="text" id="idcard" size="20"  ></TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Sex_say }>
+
+                        <!--性别-->
+
+        ：</TD>
+
+                    <TD colspan="2" >
+
+                      <INPUT type="radio"  value="0" name="sex" <{ if $Sex==0 }> checked <{ /if }> > <{ $Sex_men }>
+
+        <!--男-->
+
+        <INPUT type='radio' value='1' name='sex' <{ if $Sex==1 }> checked <{ /if }>> <{ $Sex_women }>
+
+        <!--女-->                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right nowrap><{ $Born_say }>
+
+                        <!--出生日期-->
+
+        ：</TD>
+
+                    <TD colspan="2" >
+
+                      <INPUT  maxLength=4  size=4 name='byear'  value="<{ $Byear }>">
+
+                      <!--onBlur="return isNumber(this,'<?=$TPL_TAGS['ttag_1949']?>');"  -->
+
+                      <SELECT name=bmonth>
+
+                        <{  $Bmonth }>
+
+                      </SELECT>
+
+                      <SELECT name=bday>
+
+                        <{ $Bday }>
+
+                      </SELECT>                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right nowrap><{ $City_say }>
+
+                        <!--地区名称-->
+
+        ：</TD>
+
+                    <TD colspan="2" >
+
+                      <select name="province" onChange=updateMenus(this)>
+
+                      </select>
+
+                      <select name="city" id="city">
+
+                      </select>
+
+<{ $Canton }>:
+
+        <input name="othercity" type="text" size="6" value="">                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Address_say }>
+
+                        <!--联系地址-->
+
+        ：</TD>
+
+                    <TD colspan="2" ><INPUT name=address   size=70 maxlength="200" value="<{ $Address }>">                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Post_say }>
+
+                        <!--邮政编码-->
+
+        ：</TD>
+
+                    <TD colspan="2" ><INPUT name=post  id="post" maxlength="20" value="<{ $Post }>">                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Mobile_say }>
+
+                        <!--移动电话-->
+
+        ：</TD>
+
+                    <TD colspan="2" ><INPUT  name=mobile  maxlength="20" value="<{ $Mobile }>">                    </TD>
+
+                  </TR>
+
+                  <TR>
+
+                    <TD  align=right width="5%"><{ $Phone_say }>
+
+                        <!--固定电话-->
+
+        ：</TD>
+
+                    <TD colspan="2" ><INPUT name=phone  maxlength="26" value="<{ $Phone }>">                    </TD>
+
+                  </TR>
+
+                </TABLE>
+
+                <table width="95%"  border="0" align="center">
+
+                  <tr>
+
+                    <td align="center">
+
+                      <!--
+
+	   <a href="#" onclick="javascript:RegisterUser();">			  
+
+      <img src="images/btn_reg_zhc.gif" width="61" height="19" border="0">
+
+	  </a>
+
+-->
+
+                      <INPUT  type='submit' value='<{ $Submit_say }>' name='submit'>
+
+                      <!--确认-->
+
+                    </td>
+
+                  </tr>
+
+                </table>
+
+          </form></td>
+
+        </tr>
+
+    </table></td>
+
+  </tr>
+
+</table>
+
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

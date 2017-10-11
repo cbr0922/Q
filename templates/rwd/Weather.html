@@ -1,0 +1,20 @@
+<div style="display: none">
+	<{$Area}>|<{$Status}><{$Status_num}>|<{$Temperature}>°<{$Unit}>
+</div>
+
+<div class="weather">
+	 <ul>
+		  <li class="area" style="text-align: left">
+			<div class="hd"><{$Area}></div>
+			<div class="bd">NOW</div>
+		  </li>
+		  <li class="temperature">
+			<div class="hd">Weather:</div>
+			<div class="bd"><span><{$Temperature}></span><sup>°<{$Unit}></sup></div>
+		  </li>
+		  <li class="status">
+			<div class="hd"><{$Status}></div>
+			<div class="bd"><img src="/images/<{ if $Status_num eq 1}>weather_icon01.png<{elseif $Status_num eq 4 or  $Status_num eq 12 or $Status_num eq 13   or $Status_num eq 26 }>weather_icon4-12-13-26.png<{elseif $Status_num eq 3 }>weather_icon3.png<{elseif $Status_num eq 2 or  $Status_num eq  5 or  $Status_num eq  6 }>weather_icon256.png<{elseif $Status_num eq 7 or $Status_num eq  8 }>weather_icon78.png<{elseif $Status_num eq 18 }>weather_icon18.png<{elseif $Status_num eq 24 }>weather_icon24.png<{elseif $Status_num eq 36 }>weather_icon36.png<{ /if }>"></div>
+		  </li>
+	 </ul>
+</div>

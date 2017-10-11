@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title>合作提案 - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="../js/validateUtil.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript">
+function check(){
+var f = document.form1;
+  if (!isEmpty(f.companyname,'<{ $PleaseinputCompany }>')) return false;  //请输入聯絡人名稱
+  //if (!isEmpty(f.address,'<{ $PleaseinputAddress }>')) return false;  请输入公司地址
+  if (!isEmpty(f.email,'<{ $PleaseinputEmail }>')) return false;  //请输入Email地址
+  if(!checkEmail(trim(f.email.value))){
+		alert('<{ $EmailisBad }>'); //"您输入的邮件地址非法."
+		f.email.focus();
+		return false;
+	}
+  if (!isEmpty(f.inputcode,'<{ $PleaseinputCode }>')) return false;  //请输入驗證碼	
+}
+</script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+<div id="body_center">
+ <div id="body_left"><!--左邊開始-->
+  <{ include_php file="search/search_banner.php" }>
+ </div><!--左邊結束-->
+ <div id="body_right"><!--右邊邊開始-->
+  <div id="title_s">
+    <div id="title_s_left">
+        <h1>合作提案</h1>
+        </div>
+        <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> 合作提案
+        </div>
+      </div>
+	  <div style="clear:both;"></div>
+      <div class="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><br>
+            <script>
+function checkform(thisform){
+	if (thisform.username.value==""){
+		alert("請填寫姓名");	
+		return false;
+	}
+	if (thisform.email.value==""){
+		alert("請填寫email");	
+		return false;
+	}
+	if (thisform.tel_one.value==""){
+		alert("請填寫聯絡電話");	
+		return false;
+	}
+	if (thisform.address.value==""){
+		alert("請填寫聯絡地址");	
+		return false;
+	}
+	if (thisform.content.value==""){
+		alert("請填寫合作提案內容");	
+		return false;
+	}
+}
+</script>
+            <form name="form1" method="post" action="join.php" onSubmit="return checkform(this);">
+              <input type="hidden" value="insert" name="action">
+              <table width="550" border="0" align="center" cellpadding="0" cellspacing="5">
+                <tr>
+                  <td width="164" align="right">公司名稱</td>
+                  <td width="386"><input type="text" name="companyname" id="companyname">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">姓名 * </td>
+                  <td><input type="text" name="username" id="username"></td>
+                </tr>
+                <tr>
+                  <td align="right">eMail * </td>
+                  <td><input type="text" name="email" id="email"></td>
+                </tr>
+                <tr>
+                  <td align="right">聯絡電話 * </td>
+                  <td><input type="text" name="tel_one" id="tel_one"></td>
+                </tr>
+                <tr>
+                  <td align="right">聯絡地址 * </td>
+                  <td><input type="text" name="address" id="address"></td>
+                </tr>
+                <tr>
+                  <td align="right">從那兒知道明明文具 * </td>
+                  <td><input type="checkbox" name="zhiye[]" id="zhiye" value="雜誌">
+                    雜誌<br>
+                    <input type="checkbox" name="zhiye[]" id="zhiye" value="網路搜尋">
+                    網路搜尋<br>
+                    <input type="checkbox" name="zhiye[]" id="zhiye" value="路過店面">
+                    路過店面<br>
+                    <input type="checkbox" name="zhiye[]" id="zhiye" value="公家機關">
+                    公家機關</td>
+                </tr>
+                <tr>
+                  <td align="right">合作提案內容 * </td>
+                  <td><textarea name="content" id="content" cols="45" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="submit" name="button" id="button" value="確定送出">
+                    <input type="reset" name="button2" id="button2" value="取消重填"></td>
+                </tr>
+              </table>
+            </form>
+            <p>&nbsp;</p></td>
+        </tr>
+      </table></div>
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+</div><!--身體置中結束-->
+
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

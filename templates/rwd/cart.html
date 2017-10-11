@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<style type="text/css">
+<!--
+.bgrepeat {
+	BACKGROUND-POSITION: center top;
+	BACKGROUND-REPEAT: repeat-x;
+	background-image: url(<{ $template_dir }>/images/top_back.jpg);
+}
+.style1 {color: #FF0000}
+-->
+</style>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="135" valign="top"><span style="padding-top:8px;"><{ include_php file="include/menu.php" }> </span>
+         
+        <table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="910" height="22" bgcolor="#ffa90e" style="padding-left:20px;"><h1><{ $title }></h1></td>
+          </tr>
+          <tr>
+            <td><br>
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tr>
+                  <td><p align="center"><img src="<{ $template_dir }>/images/step1.jpg" width="488" height="57"></p>
+                      <table class="p9orange" width="100%" border="0" cellspacing="1" cellpadding="0">
+                        <tr>
+                          <td align="center" valign="top"><table width="90%" border="0" cellpadding="0" cellspacing="1" class="border-b">
+                              <tr class="p9orange" align="center">
+                                <td width="10%" height="19" nowrap bgcolor="#F2F2F2"><{ $items_pic_say }>
+                                    <!--图片-->                                </td>
+                                <td width="29%" height="19" nowrap bgcolor="#F2F2F2"><{ $items_name_say }>
+                                    <!--商品名称-->                                </td>
+                                <td width="12%" height="19" bgcolor="#F2F2F2"><{ $items_price_say }>
+                                    <!--市场价格-->                                </td>
+                                <td width="12%" nowrap bgcolor="#F2F2F2"><{ $items_tprice_say }>
+                                    <!--优惠价格-->                                </td>
+                                <td width="10%" nowrap bgcolor="#F2F2F2">分期數</td>
+                                <td width="9%" height="19" nowrap bgcolor="#F2F2F2"><{ $items_num_say }>
+                                    <!--数量-->                                </td>
+                                <td width="5%" nowrap bgcolor="#F2F2F2"><!--小计-->                                </td>
+                                <td width="12%" nowrap bgcolor="#F2F2F2"><{ $items_xj_say }></td>
+                                <td width="11%" height="19" align="left" nowrap bgcolor="#F2F2F2"><{ $items_del_say }>
+                                    <!--删除-->                                </td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                    <table align="CENTER" class="yellowborder" width="100%" border="0" cellspacing="0" cellpadding="3" height="120">
+                        <form method="post" action="cart.php">
+                          <!--  循环开   -->
+                          <{ section name=list loop=$Cart_item }>
+                          <input type=hidden name=key[] value='<{ $Cart_item[list].key }>'>
+                          <tr>
+                            <td height="30" colspan="2" align="center" valign="top"><table width="90%" border="0" cellspacing="0" cellpadding="0">
+                              <tr align="center">
+                                <td width="7%" height="30" align="left" class="p9v" style="padding-bottom:4px"><{ if $Cart_item[list].detail_id eq 0 && $Cart_item[list].detail_name eq "額滿禮" }><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }>' width=80 border=0><{else}><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }>' width=80 border=0></a><{ /if }></td>
+                                <td width="32%" align="left" class="p9v" style="padding-left:4px;"><{ if $Cart_item[list].detail_id eq 0 && $Cart_item[list].detail_name eq "額滿禮" }><{ $Cart_item[list].detail_name }><br>
+                                  <{ $Cart_item[list].goodsname }><{else}><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].gid }>"><{ $Cart_item[list].goodsname }></a> <{if $Cart_item[list].good_color neq "" || $Cart_item[list].good_size neq ""}> <br>
+                                  <{ $Cart_item[list].good_color }> <{ $Cart_item[list].good_size }>
+                                  
+                                  <{/if}>
+                                  
+                                  <{if $Cart_item[list].detail_bn neq ""}> <br>
+                                  <{ $Cart_item[list].detail_bn }>
+                                  
+                                  <{/if}>
+                                  
+                                  <{if $Cart_item[list].detail_name neq ""}> <br>
+                                  <{ $Cart_item[list].detail_name }>
+                                  
+                                  <{/if}>
+                                  
+                                  <{if $Cart_item[list].detail_des neq ""}> <br>
+                                  <{ $Cart_item[list].detail_des }>
+                                  
+                                  <{/if}>
+                                  
+                                <{ /if }></td>
+                                <td width="12%" class="p9v"><s><{ $Cart_item[list].temp_price }></s></td>
+                                <td width="15%" class="p14red"><b><{ $Cart_item[list].MemberPice }></b> <{ if $Cart_item[list].Js_price gt 0 }><img src="<{ $Site_Url }>/images/co-price.gif" align="absbottom"><{ /if }></td>
+                                <td width="13%"><{ if $Cart_item[list].month eq 0}>不分期<{ else }>分<{ $Cart_item[list].month }>期<{ /if }> </td>
+                                <td width="9%"><{ if $Cart_item[list].detail_id eq 0 && $Cart_item[list].detail_name eq "額滿禮" }>1<{else}><{ if $Cart_item[list].month eq 0}><{ html_options name="value[]" options=$Product_num_is[list].storage selected=$Cart_item[list].count }><{ else }><{ $Cart_item[list].count }><{ /if }><{ /if }>
+                      <!--		  <input type="text" name="value[]" size="2" class="inputstyle" value=' $Cart_item[list].count '> -->                                </td>
+                                <td class="p14red" width="5%"><{ if $Cart_item[list].detail_id eq 0 && $Cart_item[list].detail_name eq "額滿禮" }><{else}>
+                      <input name="image" type="image" src="<{ $template_dir }>/images/jisuan.jpg"  border="0">
+                                <{ /if }> </td>
+                                <td class="p14red" width="21%"><{ $Cart_item[list].xjcount }></td>
+                                <td width="2%"><a href="./cart.php?action=remove&key=<{ $Cart_item[list].key2 }>"><img src="<{ $template_dir }>/images/b-delete.gif" width="16" height="16" border="0"></a></td>
+                              </tr>
+                            </table>
+                              <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td background="<{ $template_dir }>/images/dot.gif"><img src="<{ $template_dir }>/images/spacer.gif" width="1" height="1"></td>
+                  </tr>
+              </table></td>
+                          </tr>
+                          <!--  循环结束   -->
+                          <{ /section }>
+                          <input type=hidden name=action value=modi>
+                          <input type=hidden name='GetJs_price' value='<{ $GetJs_price }>'>
+                          <input type=hidden name='total_member_price' value='<{ $MemberPice_total }>'>
+                        </form>
+                      <script language="javascript">
+function checkpointform(myform){
+	if (myform.point.value == ""){
+		alert("請填寫需要抵扣的紅利點數");
+		return false;
+	}else if (isnum(myform.point.value) == -1){
+		alert("請填寫數字");
+		return false;
+	}else if (myform.point.value > <{ $MaxbonusPoint }>){
+		alert("您最多可以抵扣<{ $MaxbonusPoint }>點紅利");
+		return false;
+	}
+}
+                </script>
+                        <tr>
+                          <td height="15" colspan="2" align="center" valign="middle" class="p9black"><table width="90%" border="0" cellspacing="1" style="border: 1px solid #e5e5e5;">
+                              <form action="bonusop.php" method="post" onSubmit="javascript:return checkpointform(this);">
+                                <input type="hidden" name="MemberPice_total" value="<{ $MemberPice_total }>">
+                                <tr>
+                                  <td style="padding-left:8px">紅利折抵點數：
+                                    <input name="point" type="text" size="5" maxlength="5" value="<{ $bonus_point }>">
+                                      <label>
+                                      <input type="submit" name="Submit" value="使用">
+                                      <span class="style1">*您最多可以抵扣<{ $MaxbonusPoint }>點紅利 </span></label></td>
+                                </tr>
+                              </form>
+                            <tr>
+                                <td style="padding-left:8px">您可以使用的優惠卷： </td>
+                            </tr>
+                            <{ section name=list loop=$TicketList }>
+                            <tr>
+                              <td><input type="radio" name="ticketuseid" value="<{ $TicketList[list].tickeid }>" onClick="location.href='ticketop.php?ticketid=<{ $TicketList[list].tickeid }>';" <{ if ($TicketSelect eq $TicketList[list].tickeid) }> checked <{ /if }>> <{ $TicketList[list].ticketname }>
+                    <!--可抵用<{ $TicketList[list].money }>元,可使用<{ $TicketList[list].count }>次--></td>
+                            </tr>
+                            <{ /section }>
+                            <tr>
+                              <td><input name="ticketuseid" type="radio" value="0" 
+<{ if ($TicketSelect eq 0) }> checked <{ /if }> onClick="location.href='ticketop.php?ticketid=0';"> 不使用優惠券</td>
+                            </tr>
+                            <tr>
+                              <td><input name="ticketuseid" type="radio" value="-1" 
+<{ if ($TicketSelect eq -1) }> checked <{ /if }> >使用通用優惠券
+                                <input name="ticketcode" type="text" value="<{ $TicketCode }>" onClick="if (this.value == '請輸入折價券號碼'){ this.value=''}; else if(this.value==''){ this.value='請輸入折價券號碼';}" onMouseOut="if(this.value==''){ this.value='請輸入折價券號碼';}">
+                    <input name="Input" type="button" value="使用" onClick="location.href='ticketop.php?ticketid=-1&ticketcode=' + document.all.ticketcode.value;">                              </td>
+                            </tr>
+                            <tr>
+                              <td><span class="style1">注意：紅利折抵與優惠券不可同時使用</span></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="91%" height="15" align="right" valign="middle" class="p9black"><{ $MemberPice_total_say }>：
+                            <!--合计[文字]-->                          </td>
+                          <td width="9%" height="15" align="left" valign="middle" nowrap class="p9black"><{ $MemberPice_total }><{ $Yuan }>
+                              <!--優惠券-->
+                            <{ if $TicketMoney ne "" }>[折價後價格：<{ $Ticket_totalPrices }><{ $Yuan }>]<{ /if }>
+                            <!--end-->
+                            <!--紅利折價-->
+                            <{ if $bonus_point ne "" }>[折價後價格：<{ $Bonus_totalPrices }><{ $Yuan }>]<{ /if }>
+                            <!--end-->                          </td>
+                        </tr>
+                      <{ if $Paytype==1 && $Nocarriage eq "" }>
+                      <!-- $Nocarriage 是判断是否是免费产品的字段。如果不是免费产品,那么就将如下显示了! -->
+                      <{ if $Noplay_Payinfo ne "Yes" }>
+                      <!--当金钱数字大于需要达到的运费规定数字的时候与总价格为零的时候，不显示相关的提示信息。 -->
+                      <tr>
+                        <td height="15" align="right" valign="middle" class="p9black"><{ $PayTypePrice_say }>：<{ $WhenMoneylostfor }><{ $PayStartprice }><{ $Yuan }>,<{ $HavetoAddMoney }><{ $PayEndprice }><{ $Yuan }>。</td>
+                        <td height="15" align="left" valign="middle" nowrap class="p9black">&nbsp;</td>
+                      </tr>
+                      <{ /if }>
+                      <tr>
+                        <td height="15" align="right" valign="middle" class="p9black"><{ $TotalAddPay_say }>：&nbsp;</td>
+                        <td height="15" align="left" valign="middle" nowrap class="p9black"><span class="style1"><strong><{ if $MemberPice_total ge $PayStartprice }> <{ $MemberPice_total }><{ /if }><{ if $MemberPice_total eq 0 }> 0 <{ elseif $MemberPice_total lt $PayStartprice }> <{ $MemberPice_total+$PayEndprice }> <{ /if }><{ $Yuan }>
+                  <!--優惠券-->
+                          <{ if $TicketMoney neq "" }>[折價後價格：<{$Ticket_MemberPice_total}><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                          <!--紅利折價-->
+                          <{ if $bonus_point ne "" }>[折價後價格：<{ if $MemberPice_total ge $PayStartprice }> <{ $Bonus_MemberPice_total }><{ /if }><{ if $Bonus_MemberPice_total eq 0 }> 0 <{ elseif $MemberPice_total lt $PayStartprice }> <{ $Bonus_MemberPice_total+$PayEndprice }> <{ /if }><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                        </strong></span></td>
+                      </tr>
+                      <{ /if }> <{ if $Paytype==0 && $Nocarriage eq "" }>
+                      
+                      <{ if $Paytype==0 && $PayFreetrans>0}>
+                      <!--当金钱数字大于需要达到的运费规定数字的时候与总价格为零的时候，不显示相关的提示信息。 -->
+                      <tr>
+                        <td height="15" align="right" valign="middle" class="p9black"><{ $PayTypePrice_say }>：</td>
+                        <td height="15" align="left" valign="middle" nowrap class="p9black">當購買滿<{$PayFreetrans}>免運費。</td>
+                      </tr>
+                      <{ /if }>
+                      <tr>
+                        <td height="15" align="right" valign="middle" class="p9black"><{ $TotalAddPay_say }>：&nbsp;</td>
+                        <td height="15" align="left" valign="middle" nowrap class="p9black"><span class="style1"><strong> <{ $MemberPice_total }><{ $Yuan }>
+                  <!--優惠券-->
+                          <{ if $TicketMoney ne "" }>[折價後價格：<{ $Ticket_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                          <!--紅利折價-->
+                          <{ if $bonus_point ne "" }>[折價後價格：<{ $Bonus_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                        </strong></span></td>
+                      </tr>
+                      <{ /if }> <{ if $Nocarriage eq "Yes" }>
+                      <tr>
+                        <td height="15" align="right" valign="middle" class="p9black"><{ $TotalAddPay_say }>：&nbsp;</td>
+                        <td height="15" align="left" valign="middle" nowrap class="style1 p9black"><strong><{$MemberPice_total }><{ $Yuan }>
+                <!--優惠券-->
+                          <{ if $TicketMoney ne "" }>[折價後價格：<{ $Ticket_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                          <!--紅利折價-->
+                          <{ if $bonus_point ne "" }>[折價後價格：<{ $Bonus_MemberPice_total }><{ $Yuan }>]<{ /if }>
+                          <!--end-->
+                        </strong></td>
+                      </tr>
+                      <{ /if }>
+                    </table>
+                    <table align="center" border="0" cellspacing="0" cellpadding="2">
+                        <tr>
+                          <td><a href="./cart.php?action=clearall"><img src="<{ $template_dir }>/images/cart_q.gif" width="78" height="32" border="0"></a></td>
+                          <td><a href="<{ $Site_Url }>"><img src="<{ $template_dir }>/images/cart_c.gif" width="67" height="32" border="0"></a></td>
+                          <td align="right"><{ if $totalPrices > 0 }> <a href="cart_op.php?Nocarriage=<{ $Nocarriage }>"><img src="<{ $template_dir }>/images/cartnext.gif" width="56" height="32" border="0"></a><{ /if }></td>
+                        </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td><{ section name=list loop=$em_goods_array }>
+                      <li style="FLOAT: left;DISPLAY: inline;">
+                        <table width="160" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td valign="top" style="border: 1px solid #d8d8d8;" width="70"><a href="presentop.php?gid=<{ $em_goods_array[list].gid }>"><img src="../GoodPic/<{ $em_goods_array[list].smallimg }>" width=70 border=0></a></td>
+                            <td valign="top" width="110"><a href="presentop.php?gid=<{ $em_goods_array[list].gid }>"><{ $em_goods_array[list].goodsname }><br>
+                              額滿禮：<{ $em_goods_array[list].present_money }>
+                              
+                              <{ if $em_goods_array[list].have_present_money>0 }> <br>
+                                          <b>還需要<{ $em_goods_array[list].have_present_money }></b></a> <{ /if }> </td>
+                          </tr>
+                        </table>
+                      </li>
+                    <{ /section }> </td>
+                </tr>
+              </table>
+              <p>&nbsp;</p></td>
+          </tr>
+        </table>      
+      <{ include_php file="include/bottom.php" }>
+        <map name="Map">
+          <area shape="rect" coords="578,6,660,40" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Special">
+        </map>
+        <map name="Map2">
+          <area shape="rect" coords="579,7,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=NewProduct">
+        </map>
+        <map name="Map3">
+          <area shape="rect" coords="581,5,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Recommend">
+        </map>
+        <!--Float advertising Start-->
+      <{ if $Float_radio eq  1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/float.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Float advertising End -->
+            <!--Ear advertising Start -->
+      <{ if $Ear_radio eq 1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/ear.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Ear advertising End -->
+            <!-- 统计部分代码开始 -->
+</td>
+  </tr>
+</table>
+</body>
+</html>

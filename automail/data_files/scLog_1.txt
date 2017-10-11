@@ -1,0 +1,3 @@
+Task X-->2016-08-11	18:06:02-->Wrong admin credentials.-->STOP
+Task X-->2016-08-11	18:07:02-->Wrong admin credentials.-->STOP
+Task X-->2016-08-11	18:09:02-->Wrong admin credentials.-->STOP

@@ -1,0 +1,123 @@
+<section class="padding-top-20 nopadding-bottom noborder margin-bottom-20" >
+				<div class="row" style=" border:1px solid #CCC;">
+                
+                <div class="col-md-10 col-sm-10 margin-top-10 margin-bottom-10">
+  <h2 class="owl-featured noborder margin-top-10 margin-bottom-0">紅標商品<{$red_total_count}>個+綠標商品<{$green_total_count}>個=<{$green_total_price+$red_total_price}>元</h2>
+  <{if $red_total_count-$green_total_count>0}>
+  還差<font style="font-weight:bold; color:#C30"><{$red_total_count-$green_total_count}></font>個綠標商品<br />
+  <{/if}>
+  <{if $green_total_count-$red_total_count>0}>
+  還差<font style="font-weight:bold; color:#C30"><{$green_total_count-$red_total_count}></font>個紅標商品<br />
+  <{/if}>
+  	</div>
+	
+     <div class="col-md-2 col-sm-2 text-center margin-top-10 margin-bottom-10">
+	 <{if $ifbuy eq 1 and $green_total_count>0 and $green_total_count eq $red_total_count}>
+  <a class="btn btn-primary fullwidth" href="../../shopping/cart.php?Action=Add&type=redgreen&saleid=<{$smarty.get.saleid}>" class="addcart">放入購物車</a><{/if}>
+  	</div>
+  	
+	<div class="col-md-12 col-sm-12">
+    <h4>紅標商品</h4>
+	<div class="owl-carousel owl-padding-3 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "5", "autoPlay": true, "navigation": true, "pagination": false}'>
+        <{ section name=list loop=$redProductArray }>
+						<!-- item -->
+						<div class="shop-item margin-bottom-0">
+              <div class="thumbnail noborder nopadding">
+                  <!-- 商品圖片fix在div內 -->
+                      
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      
+								<img src='<{if $redProductArray[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{ $redProductArray[list].smallimg }><{/if}>' name="goodpic" width="100" border=0>
+<div style="clear:both"></div>
+                                
+                      </div>
+                      </div>
+                     
+			<!-- /商品圖片 -->
+
+								<!-- /product image(s) -->
+
+							</div>
+							
+							<div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $redProductArray[list].goodsname }></div>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">促銷價：<{$redProductArray[list].sale_price}></div>
+                                <{ if $redProductArray[list].color neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">顏色：<{$redProductArray[list].color}></div>
+                                <{/if}>
+                                <{ if $redProductArray[list].size neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">尺寸：<{$redProductArray[list].size}></div>
+                                <{/if}>
+                                <{ if $redProductArray[list].detail_name neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">規格：<{$redProductArray[list].detail_name}></div>
+                                <{/if}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">數量：<{$redProductArray[list].count}></div>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><a href="javascript:" onClick="deletsale('<{$redProductArray[list].gid}>','<{$redProductArray[list].color}>','<{$redProductArray[list].size}>','<{$redProductArray[list].detail_id}>','<{$redProductArray[list].key}>',1);"><i class="icon-trash"></i>&nbsp;移除該商品</a></div>
+                                
+
+								
+							</div>
+
+						</div>
+						<!-- /item -->
+                        <{ /section }>
+					</div>
+
+				<div style="clear:both"></div>
+	</div>
+	<div class="col-md-12 col-sm-12">
+	<h4>綠標商品</h4>
+	<div class="owl-carousel owl-padding-3 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "5", "autoPlay": true, "navigation": true, "pagination": false}'>
+        <{ section name=list loop=$greenProductArray }>
+						<!-- item -->
+						<div class="shop-item margin-bottom-0">
+              <div class="thumbnail noborder nopadding">
+                  <!-- 商品圖片fix在div內 -->
+                      
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      
+								<img src='<{if $greenProductArray[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{ $greenProductArray[list].smallimg }><{/if}>' name="goodpic" width="100" border=0>
+<div style="clear:both"></div>
+                                
+                      </div>
+                      </div>
+                     
+			<!-- /商品圖片 -->
+
+								<!-- /product image(s) -->
+
+							</div>
+							
+							<div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $greenProductArray[list].goodsname }></div>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">促銷價：<{$greenProductArray[list].sale_price}></div>
+                                <{ if $greenProductArray[list].color neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">顏色：<{$greenProductArray[list].color}></div>
+                                <{/if}>
+                                <{ if $greenProductArray[list].size neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">尺寸：<{$greenProductArray[list].size}></div>
+                                <{/if}>
+                                <{ if $greenProductArray[list].detail_name neq ""}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">規格：<{$greenProductArray[list].detail_name}></div>
+                                <{/if}>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0">數量：<{$greenProductArray[list].count}></div>
+                                <div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><a href="javascript:" onClick="deletsale('<{$greenProductArray[list].gid}>','<{$greenProductArray[list].color}>','<{$greenProductArray[list].size}>','<{$greenProductArray[list].detail_id}>','<{$greenProductArray[list].key}>',2);"><i class="icon-trash"></i>&nbsp;移除該商品</a></div>
+                                
+
+								
+							</div>
+
+						</div>
+						<!-- /item -->
+                        <{ /section }>
+					</div>
+
+				<div style="clear:both"></div>
+				</div>
+				
+				</div>
+			
+<script type="text/javascript">	_owl_carousel();</script>
+

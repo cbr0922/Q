@@ -1,0 +1,42 @@
+// THIS IS A USER CONTRIBUTED API USING CURL AND THE processSub.php
+// REPLACE WITH YOUR OWN URL BELOW: $url
+
+
+//---------------------insert user api below	
+
+function ubesterAddSubscriber($email,$first,$last,$list_id,$zig_id,$mojo_id,$source,$lead_type,$offer_type)
+{
+
+unset ($data);
+$data = ('action=add&email='.$email.'&confirmed=-1&updateaccount=-1&clearoptout=0&name='.$first.'&lastname='.$last.'&idlist='.$list_id.'&password=passit&pcustomsubfield1='.$zig_id.'&pcustomsubfield2='.$mojo_id.'&pcustomsubfield3='.$source.'&pcustomsubfield4='.$lead_type.'&pcustomsubfield5='.$offer_type.'');
+
+// server loc
+$url    = 'http://example/api/processSub.php';
+
+$request = curl_init($url); // initiate curl object
+curl_setopt($request, CURLOPT_HEADER, 0); // set to 0 to eliminate header info from response
+curl_setopt($request, CURLOPT_POST, 1);
+curl_setopt($request, CURLOPT_RETURNTRANSFER, 1); // Returns response data instead of TRUE(1)
+curl_setopt($request, CURLOPT_POSTFIELDS, $data); // use HTTP POST to send form data
+curl_setopt($request, CURLOPT_TIMEOUT, 30);
+curl_setopt($request, CURLOPT_FOLLOWLOCATION, 0); 
+
+//curl_setopt($request, CURLOPT_SSL_VERIFYPEER, FALSE); // uncomment if you get no gateway response and are using HTTPS
+
+$response = (string)curl_exec($request); // execute curl fetch and store results in $response
+
+curl_close($request); // close curl object
+
+
+if ( !$response ) {
+
+	//error handler here
+
+	
+	die('Nothing was returned. Do you have a connection to Email Marketing server?');
+}
+
+
+return $response;
+}
+//---------------------insert user api above

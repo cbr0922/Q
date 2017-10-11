@@ -1,0 +1,23 @@
+<{if $show_top eq 1}>
+<div>
+<a href="<{ $Site_Url }>/product/<{ $show_top_id }>"> <{if $show_top_pic1 neq ""}> <img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $show_top_pic1  }>" title="<{$show_top_name}>"  border="0"/><{else}> <span style="padding-left:25px;margin-top:0px"><{$show_top_name}></span> <{/if}> </a>
+</div>
+ <{/if}>
+
+
+<div class="side-nav margin-bottom-60">
+
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4>商品品牌</h4>
+		</div>
+
+		<ul class="list-group list-group-bordered list-group-noicon uppercase">
+<{ section name=list loop=$ProductListAll start=0 }>
+<li class="list-group-item size-16">
+<a href="<{ $Site_Url }>/brand/<{$ProductListAll[list].bid}>"><{$ProductListAll[list].catname}></a></li>
+
+             <{/section}>           
+		</ul>
+
+</div>

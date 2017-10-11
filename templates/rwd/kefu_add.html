@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title><{ $kefu_add_say }> - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+        
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+        
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<{ include_php file="include/include_ga.php" }>
+</head>
+
+<script language="javascript">		
+
+function CheckKeFu()
+
+{
+
+// if (!isEmpty(KeFuForm.order_serial,       '請輸入訂單編號'   ))     return false;
+
+//if (document.getElementById("order_serial").value=="" && document.getElementById("marketno").value ==""){
+/*if (document.getElementById("order_serial").value==""){
+	alert("請填寫訂單編號");	
+
+	return false;
+
+}*/
+
+ if (checkValue()==false) {
+
+	alert("請選擇留言類別");	 
+
+	return false;
+
+ }
+
+ if (!isEmpty(document.getElementById("title"),       '<{ $kefu_Js_input_title }>'   ))     return false; //'请输入簡單標題！
+
+ if (!isEmpty(document.getElementById("realname"),    '<{ $kefu_Js_input_name }>'    ))     return false; //'请输入姓名！
+
+ if (!isEmpty(document.getElementById("email"),       '<{ $kefu_Js_input_email }>'   ))     return false; //'请输入電子郵件地址！
+
+ if (!isEmpty(document.getElementById("k_kefu_con"),  '<{ $kefu_Js_input_content }>' ))     return false; //'请输入留言內容！
+
+}
+
+function checkValue(){
+
+ var obj=document.getElementsByName("kefu_type");
+
+//alert(obj.length);
+
+ for (var i=0;i<obj.length;i++)
+
+ {
+
+  if(obj[i].checked)
+
+  return true;
+
+ }
+
+ return false;
+
+}
+
+</script>
+
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>	
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>  
+<!-- PAGE HEADER -->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="bfont size-18 hidden"><{ $kefu_add_say }></h1>
+					
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li><a href="<{$Site_Url}>/member/?hometype=<{$smarty.get.hometype}>">會員中心</a></li>
+                         <li class="active"><{ $kefu_add_say }></li>                       
+					</ol><!-- /breadcrumbs -->
+                </div>
+			</section>
+<!-- /PAGE HEADER -->
+<!--身體開始-->
+			<section>
+				<div class="container">
+					<div class="row">
+						<!--左邊開始-->
+						<div class="col-md-3 col-sm-3 margin-bottom-0 product_left border_all_left_side">
+                          <{ include_php file="member/left.php" }>
+					   </div>
+						<!--左邊結束-->
+						<!--右邊開始-->
+						<div class="col-md-9 col-sm-9 margin-bottom-30 product_right border_left minheight">
+                              <!--會員留言開始 -->  
+									<ul class="nav nav-tabs nav-button-tabs margin-bottom-20">
+       									<li class="active"><a href="#">會員留言</a></li>
+     									<li><a href="kefu_list.php">留言紀錄</a></li>
+      								</ul>
+								<div>
+        <FORM action="kefu_save.php" method="post" onSubmit="return CheckKeFu();" name="KeFuForm" class="form-horizontal" role="form">									
+        <input type="hidden" name="type" value="<{$smarty.get.type}>" />
+        <div class="margin-top-20 margin-bottom-20">
+           <div class="form-group" style="padding: 8px;">
+		    <label class="col-md-2 col-sm-2 control-label">訂單編號</label>  
+		   <div class="col-md-3 col-sm-3"> 
+		    <INPUT size=27 name="order_serial" id="order_serial" class="form-control" value="<{$smarty.get.order_serial}>">
+           </div>
+		   <!--
+		   <label class="col-md-2 col-sm-2 control-label">或賣場編號</label> 
+		   <div class="col-md-3 col-sm-3">
+			<INPUT size=27 name="marketno" id="marketno" class="form-control" value="<{$smarty.get.marketno}>">
+           </div>-->
+         </div>
+  	  <TABLE class="table noborder">
+          <TR>
+            
+            
+            <TD>
+			
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label margin-bottom-10"><{ $kefu_type_say }><!--留言類別--></label>
+			   <label class="col-md-10 col-sm-10 hidden-xs control-label margin-bottom-10">&nbsp;</label>
+			   <label class="col-md-2 col-sm-2 hidden-xs control-label">&nbsp;</label>
+			   <div class="col-md-9 col-sm-10"> 
+				<{ section name=list loop=$kefu_type }>
+                
+                  <div class="col-md-3 col-sm-6 col-xs-6 margin-bottom-20 nopadding" style="padding-right:20px!important;vertical-align: top;"><b><{ $kefu_type[list].name }></b><br>
+                  <{ section name=list2 loop=$kefu_type[list].kefutype }>
+                  <input type="radio" name="kefu_type" id="kefu_type" value="<{ $kefu_type[list].kefutype[list2].k_type_id }>" <{if $smarty.get.type eq "back" && $kefu_type[list].kefutype[list2].k_type_id eq 5}>checked<{/if}>>
+                    <{$kefu_type[list].kefutype[list2].k_type_name}><br>
+                  <{ /section }> 
+				</div>
+				
+				<{if $smarty.section.list.index_next%2 eq 0}>
+				<div class="clearfix visible-xs-block visible-sm-block"></div>
+				<{/if}>
+				
+                <{ /section }>
+			   </div>		  
+			</div>
+
+			
+                
+            
+            </TD>
+
+          </TR>
+
+          <TR>
+
+            <TD>
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label"><{ $kefu_title_say }><!--簡單標題--></label>  
+			   <div class="col-md-10 col-sm-10"> 
+				<INPUT size=27 name="title" id="title" class="form-control">
+			   </div>		  
+			</div>
+			</TD>
+
+          </TR>
+
+          <TR>
+
+            <TD>
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label"><{ $kefu_access_say }><!--帳號--></label>  
+			   <div class="col-md-10 col-sm-10"> 
+				<INPUT   disabled="disabled" size=27 name="demo_username" id="demo_username" class="form-control"  value="<{$Username}>">
+			   </div>		  
+			</div>
+			</TD>
+
+          </TR>
+
+          <TR>
+
+            <TD>
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label"><{ $kefu_name_say }><!--姓名--></label>  
+			   <div class="col-md-10 col-sm-10"> 
+				<INPUT size=27 class="form-control" name="realname" id="realname" value="<{$LoginUsername}>">
+			   </div>		  
+			</div>
+			</TD>
+
+          </TR>
+
+          <TR>
+
+            <TD>
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label"><{ $kefu_email_say }><!--電子郵件地址--></label>  
+			   <div class="col-md-10 col-sm-10"> 
+				<INPUT size=27 name="email" id="email" class="form-control" value="<{ $Email }>">
+			   </div>		  
+			</div>
+			</TD>
+
+          </TR>
+
+          <TR>
+
+            <TD>
+			
+			<div class="form-group">
+		       <label class="col-md-2 col-sm-2 control-label"><{ $kefu_content_say }><!--留言內容--></label>  
+			   <div class="col-md-10 col-sm-10"> 
+				<TEXTAREA name="k_kefu_con" id="k_kefu_con" rows=8 cols=65 class="form-control"><{if $smarty.get.type eq "back" }>請您務必填妥下列資料，若資料有缺，我們將主動與您聯絡，並於確認資料後派快遞到下方取件地址收取退貨。
+
+				退貨商品名稱與數量:
+
+				聯絡人:
+
+				聯絡電話:
+
+				取件地址:
+
+				退貨原因:<{/if}></TEXTAREA>
+			   </div>		  
+			</div>
+			
+		
+
+              <br>
+
+              <input type=submit  type=image src="<{ $template_dir }>/images/shopping2-0.png"  value="<{ $kefu_submit_say }>"  class="col-xs-12 col-sm-3 btn btn-black" />
+
+              <input name="Action"  id="Action" type="hidden" value="Insert" >
+
+              </TD>
+
+          </TR>
+
+          <INPUT  type="hidden" size=27 name="username" class="form-control"  value="<{$Username}>">
+      </TABLE>
+      </form>
+<!-- /會員留言結束 -->
+							</div>
+						</div>
+						<!--右邊結束-->
+					</div>
+			</section>
+<!--身體結束-->
+
+
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+
+
+
+
+

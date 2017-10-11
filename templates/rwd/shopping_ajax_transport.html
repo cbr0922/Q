@@ -1,0 +1,47 @@
+<div class="trans_inside col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
+	        <!--普通配送-->
+            <{ section name=sendname loop=$SendType }>
+            <div class="col-md-12 col-sm-12 margin-bottom-10" <{if $smarty.section.sendname.index eq 0}><{else}>style="border-top: 1px solid #cccccc;padding-top: 10px;"<{/if}>>
+<div class="col-xs-6 col-md-2 col-sm-2 padding-0">
+	<label class="radio">
+                  <input type="radio" name="transport_id" style="display:none" value="<{ $SendType[sendname].transport_id }>" <{if $Cart_nomal_trans_type eq $SendType[sendname].transport_id}> checked <{/if}> <{if $SendType[sendname].transport_id neq 15}>onclick='setNomalTrans("<{$smarty.get.key}>","<{ $SendType[sendname].transport_id }>");<{if $SendType[sendname].transport_id eq 29}>window.open("https://map.ezship.com.tw/ezship_map_web.jsp?suID=<{$ez_suID}>&processID=<{$session_id}>&webPara=<{$smarty.get.key}>&rtURL=<{ $Site_Url }>/shopping/ez.php");<{/if}>' <{else}>onclick='showWin("url","shopping_ajax_store.php?key=<{$smarty.get.key}>","",500,350);'<{/if}>><i></i><{ $SendType[sendname].transport_name }> </label>   
+</div>	
+<div class="col-xs-6 col-md-2 col-sm-2 padding-0">
+	<!--费用-->
+	運費:
+	<{if $SendType[sendname].money>0}><{ 	$SendType[sendname].money }>元<{else}><{ $SendType[sendname].transport_price }>元<{/if}>
+<{if $SendType[sendname].permoney>0}><br />
+續重（每公斤）<{ $SendType[sendname].permoney }>元<{/if}>
+</div>	
+<div class="col-xs-12 col-md-8 col-sm-8 padding-0">
+	<{if $SendType[sendname].transport_id eq 29}>
+                <div id="showez"></div>
+                <{/if}>
+                <{ $SendType[sendname].transport_content }>
+</div>	
+<div style="clear:both"></div>
+</div>
+<{ /section }>
+<{if $smarty.get.key neq "T2"}><div  class="shop-item-price" style="text-align:right !important">配送方式及運費：<{$transname}>&nbsp;&nbsp;&nbsp;運費：<{ $Cart_transmoney  }>元</div><{/if}>
+</div>
+<div class="shopping2_totalnow col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right padding-0">
+            <table align="right">
+                          <tr >
+                            <td colspan="2" align="right" style="padding-right:2px;">商品總金額：</td>
+                            <td align="right"><{$Cart_totalPrices}>元</td>
+                          </tr>
+                          <tr >
+                            <td colspan="2" align="right" style="padding-right:2px;">折扣後金額：</td>
+                            <td align="right"><{$Cart_discount_totalPrices}>元<{if $Cart_combipoint>0}>+<{$Cart_combipoint}>積分<{/if}></td>
+                          </tr>
+                          <tr >
+                            <td colspan="2" align="right" style="padding-right:2px;">配送費用：</td>
+                            <td align="right"><{ $Cart_transmoney  }>元</td>
+                          </tr>
+                          <tr >
+                            <td colspan="2" align="right" class="shop-item-price">消費總金額：</td>
+                            <td align="right" class="shop-item-price"> <{ $Cart_transmoney+$Cart_discount_totalPrices  }>元<{if $Cart_combipoint>0}>+<{$Cart_combipoint}>積分<{/if}></td>
+                          </tr>
+                     </table>
+</div>
+

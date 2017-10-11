@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Your title here</title>
+<!--
+	Replace http://www.yourdomain.com/mailer_dir/ with your own url
+-->	
+<script language="JavaScript" type="text/javascript">
+var url="http://www.yourdomain.com/mailer_dir/";
+if (typeof jQuery == 'undefined') {document.write('<script type="text/javascript" src="'+url+'admin/scripts/jQuery_2.1.0.js"><\/script>');}
+document.write('<script type="text/javascript" src="'+url+'admin/scripts/processSub.js"><\/script>');
+</script>
+</head>
+<body>
+
+<!-- ADD THE FOLLOWING WHERE YOU WANT TO TRIGGER THE SUBSCRIBER INSERTION.
+    YOU CAN PASS AS MUCH DATA (ARGUMENTS) AS YOU LIKE. EMAIL IS ALWAYS REQUIRED.
+    IF YOUR PAGE IS DYMANIC ENCLOSE THEM WITH TAGS. PHP: <?php echo $customerLastName ?>
+
+EXAMPLES    -->
+<script language="javascript" type="text/javascript">processSub("action=add","email=aaa@domain.com", "confirmed=-1","updateaccount=0","clearoptout=-1", "name=John", "lastname=Doe", "address=Post road 14", "city=St Helena", "zip=10010", "statecode=CA", "countrycode=us", "idlist=1,7,9", "subcompany=Desinz Inc", "subphone1=010203040", "subphone2=0010203050", "submobile=0010203060", "subbirthday=24", "subbirthmonth=5", "subbirthyear=1960", "password=passit", "pcustomsubfield1=custom-1", "pcustomsubfield2=custom-2", "pcustomsubfield3=custom-3", "pcustomsubfield4=custom-4", "pcustomsubfield5=custom-5")</script>
+<script language="javascript" type="text/javascript">processSub("action=remove","email=bbb@domain.com","idlist=")</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+<{ section name=list loop=$class_product_array start=0 }>
+<{if $class_product_array[list].count>0}>
+  <tr>
+    <td   align="left">  <a href="<{ $Site_Url }>/product/<{$class_product_array[list].bid}>"><{$class_product_array[list].catname}></a> <a href="<{ $Site_Url }>/product/<{$class_product_array[list].bid}>" class="btn pull-right more">看更多＞＞</a></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellpadding="2" cellspacing="0">
+      <tr>
+      	
+        <td><{ section name=list2 loop=$class_product_array[list].product start=0 }>
+        <table width="180" border="0" cellspacing="0" cellpadding="2" align="left">
+          <tr>
+            <td class="picture3"><a href="detail<{$class_product_array[list].product[list2].gid}>"><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{$class_product_array[list].product[list2].smallimg}>' border=0 name="goodpic"></a></td>
+          </tr>
+          <tr>
+            <td><a href="detail<{$class_product_array[list].product[list2].gid}>"><{$class_product_array[list].product[list2].goodsname}></a></td>
+          </tr>
+          <tr>
+            <td><{$class_product_array[list].product[list2].sale_name}></td>
+          </tr>
+          <tr>
+            <td>建議價格：<{$class_product_array[list].product[list2].price}></td>
+          </tr>
+          <tr>
+            <td>促銷價格：<{$class_product_array[list].product[list2].pricedesc}></td>
+          </tr>
+          <{if $class_product_array[list].product[list2].saleoff.ifsaleoff eq 1}>
+          <tr>
+            <td>整點促銷：<{$class_product_array[list].product[list2].saleoff.startdate}>~<{$class_product_array[list].product[list2].saleoff.startend}></td>
+          </tr>
+          <{/if}>
+        </table> <{/section}></td>
+       
+      </tr>
+    </table></td>
+  </tr>
+  <{/if}>
+<{/section}>
+</table>

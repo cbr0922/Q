@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<link href="<{ $template_dir }>/css/css.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style3 {color: #3333FF}
+.style5 {font-size: 14px; color: #518C22; }
+body {
+	margin-top: 10px;
+}
+.sbn {
+	background-color: #ffffff;
+	border: 1px solid #FCB4C0;
+	font-size: 10px;
+}
+.sbt {
+	background-color: #FFFFFF;
+	border: 1px solid #FCB4C0;
+	font-size: 10px;
+}
+.STYLE6 {color: #FF0000}
+-->
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<BODY leftMargin=0>
+<script language="javascript" src="../js/function.js"></script>
+<table width="563" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="26" align="center" valign="bottom" background="<{ $template_dir }>/images/rbannerback.jpg"><span class="p9white"><strong></strong></span></td>
+  </tr>
+    <tr> 
+    <td height="15" align="center" valign="bottom"></td>
+  </tr>
+  <tr> 
+    <td><table width="558" border="0" align="center" cellpadding="2" cellspacing="3" bgcolor="#cccccc">
+        <tr> 
+          <td height="164" valign="top" bgcolor="#FFFFFF"> <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="">
+              <tr> 
+                <td height="25" align="center" bgcolor="#efefef"><span class="p9white"><{ 
+                  $Cancel }>： </span>
+                  <!--订单取消--></td>
+              </tr>
+            </table>
+            <TABLE  cellSpacing=0 cellPadding=0 width="98%" align=center  border=0>
+              <TBODY>
+                <TR> 
+                  <TD width="21%" height=23 align="right" valign="middle" nowrap class=p9black><{ 
+                    $ShuoMIng }> 
+                    <!--说明-->
+                  </TD>
+                  <TD width="79%" valign="middle" class=p9black style1>&nbsp;<span class="style3"><span class="STYLE6"><{ 
+                    $Submit_why }></span> 
+                    <!--请您提交取消定单的理由！-->
+                    </span> </TD>
+                </TR>
+                <TR> 
+                  <TD height=23 align="right" nowrap class=p9black><{ $Con }><!--内容-->：</TD>
+                  <TD height=100 class=p9orange>&nbsp; <textarea name="isay" cols="60" rows="8" class="sbt" id="isay"></textarea></TD>
+                </TR>
+                <TR> 
+                  <TD height=23 colspan="2" class=p9orange>&nbsp;</TD>
+                </TR>
+                <TR align="center"> 
+                  <TD height=23 colspan="2" class=p9orange><input name="Submit2" type="submit" class="sbn" value="<{ $Cancel }>"></TD>
+                  <!--请您提交取消定单的理由！-->
+                </TR>
+              </TBODY>
+            </TABLE></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</BODY>
+</HTML>

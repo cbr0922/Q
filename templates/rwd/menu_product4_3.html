@@ -1,0 +1,103 @@
+<style>
+@media only screen and (min-width: 1024px){
+	.menu_h_s{
+		height: 245px;
+		overflow:auto;
+	}
+}
+@media only screen and (max-width: 1023px){
+	.mobile_bak{
+		background-color:#fff;
+	}.mobile_sf{
+		width:100% !important;
+	}
+}
+#bar_top .mCSB_container{
+	overflow:visible !important;
+	margin-right:5px !important;
+}
+#bar_container .mCSB_container{
+	overflow:hidden !important;
+	margin-right:10px !important;
+}
+</style>
+<{ section name=list loop=$ClassArray }>
+          <li><a href="<{if $ClassArray[list].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].bid}><{else}><{$ClassArray[list].url}><{/if}>" class="navtext"><{$ClassArray[list].classname}></a>
+          <{if $ClassArray[list].sub neq "" }>
+            <div class="wsshoptabing wtsdepartmentmenu clearfix" >
+            <div class="container" style="padding:0px 40px; padding-left:0;">
+              <div class="wstabitem clearfix col-lg-7 col-md-7 col-sm-12 col-xs-12" style="padding-left:40px;">
+              <div class="hidden_menu_m" style="width:35%; height:300px; position:absolute; left:0; top:0; background-color:#faf9f9;z-index: 0;"></div>
+              <ul class="hidden_menu_m" style="list-style-type: none;margin:10px 0px;padding: 0 13px;color: #000; position:relative; z-index:3">
+                    <li>依商品分類</li>
+                    </ul>
+                    <ul id="bar_top" class="menuscrollbar menu_h_s" data-mcs-theme="dark" style="padding: 0;position: relative;">
+
+              <{ section name=list1 loop=$ClassArray[list].sub }>
+				<{if $ClassArray[list].sub[list1].totalcount neq 0}>
+                <li class="block block_<{$ClassArray[list].bid}> "><span class="wsmenu-click02"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href="<{if $ClassArray[list].sub[list1].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}><{else}><{$ClassArray[list].sub[list1].url}><{/if}>"><{$ClassArray[list].sub[list1].catname}></a>
+                <{if $ClassArray[list].sub[list1].sub neq "" }>
+                  <div id="bar_container" class="wstitemright clearfix wstitemrightactive menuscrollbar" data-mcs-theme="dark" style="height:245px;">
+
+                    <{ section name=list2 loop=$ClassArray[list].sub[list1].sub start=0 }>
+					<{if $ClassArray[list].sub[list1].sub[list2].totalcount neq 0}>
+                    <div class="wstmegamenucoll clearfix">
+                      <div class="wstheading"><a href="<{if $ClassArray[list].sub[list1].sub[list2].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].sub[list2].bid}><{else}><{$ClassArray[list].sub[list1].sub[list2].url}><{/if}>"><{$ClassArray[list].sub[list1].sub[list2].catname}></a></div>
+                      <ul class="wstliststy01">
+                       <{ section name=list3 loop=$ClassArray[list].sub[list1].sub[list2].sub start=0 }>
+											 <{if $ClassArray[list].sub[list1].sub[list2].sub[list3].totalcount neq 0}>
+                        <li><a href="<{if $ClassArray[list].sub[list1].sub[list2].sub[list3].url eq ""}><{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].sub[list2].sub[list3].bid}><{else}><{$ClassArray[list].sub[list1].sub[list2].sub[list3].url}><{/if}>"><{$ClassArray[list].sub[list1].sub[list2].sub[list3].catname}></a></li>
+												<{/if}>
+												<{/section}>
+                        <div style="clear:both"></div>
+                      </ul>
+                    </div>
+                    <{/if}>
+                 <{/section}>
+                  </div>
+                 <{/if}>
+                </li>
+                <{/if}>
+            <{/section}>
+            </ul>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding hidden_menu_m">
+              <ul class="hidden_menu_m" style="list-style-type: none;margin:10px 0px;padding: 0px 10px;color: #000;">
+                    <li>依品牌分類</li>
+                    </ul>
+                    <ul class="menuscrollbar menu_h_s" data-mcs-theme="dark" style="padding: 0;">
+              <{ section name=list3 loop=$ClassArray[list].brand start=0 }>
+                <li style="list-style-type: none; padding:5px 10px"><span class="wsmenu-click02"></span><a href="<{$Site_Url}>/product/<{$ClassArray[list].bid}>_<{$ClassArray[list].brand[list3].brand_id}>"><{$ClassArray[list].brand[list3].brandname}></a>
+                </li>
+
+            <{/section}>
+            </ul>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 product_banner hidden_menu_m" style="    margin-top: 15px;">
+                    <{if $ClassArray[list].link neq''}>
+                    <a href="<{$ClassArray[list].link}>">
+                    <{/if}>
+                    <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$ClassArray[list].banner2}>">
+                     <{if $ClassArray[list].link neq''}>
+                    </a>
+                    <{/if}>
+                    </div>
+              <div style=" clear:both"></div>
+              </div>
+              </div>
+
+            <{/if}>
+
+          </li>
+          <!--選單項目-->
+          <script>
+		  $(function(){
+		  	$(".block:first-child").addClass('wsshoplink-active');
+		  	$('.block_<{$ClassArray[list].bid}>').hover(function(){
+		  		$('.block_<{$ClassArray[list].bid}>').removeClass('wsshoplink-active');
+		  		$(this).addClass('wsshoplink-active');},
+		  	function(){
+		  	});
+		  });
+          </script>
+          <{/section}>

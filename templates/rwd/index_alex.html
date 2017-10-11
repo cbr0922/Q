@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title><{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<meta property="og:title" content="<{ $HtmlTitle }>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="description" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+        
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />        
+        
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> <{ if $use_pattern eq 1 }>pattern<{$pattern_id}><{ /if }>" <{ if $use_background eq 1 }> data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>" <{ /if }> >
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5&appId=224291424253684";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<{ include_php file="include/menu.php" }>
+		<!--浮動廣告-->
+		<{ if $Ear_radio eq 1 }>	
+		<{ include_php file="modules/advertising/ear.php" }>
+	    <{ /if }>
+  		<!--/浮動廣告-->
+		<!-- / 輪播廣告-->
+        <{ if $banner_type eq 1 }>
+        <{ include_php file="modules/advertising/adv_banner_full.php" }>
+        <{else}>
+        <{ include_php file="modules/advertising/adv_banner.php" }>
+        <{ /if }>
+	    <!-- / 輪播廣告結束-->
+	<!-- / 首頁RWD廣告--> 
+    
+    <!--首頁自由編輯區一-->
+     <{ if $free_info1 eq 1 }>	
+    <section class="padding-bottom-0 noborder" style="padding-top:30px;">
+		<div class="container">
+          <{$index_freezone1}>
+          <hr>
+        </div>
+    </section>
+    <{/if}>
+    <!--/首頁自由編輯區一-->
+  
+  <!--萬用格-->
+  <{ section name=list loop=$indexAdv_array }>
+    <section class="padding-bottom-0 noborder" style="padding-top:30px;">
+		<div class="container">
+         <div class="row">
+         <{ section name=j loop=$indexAdv_array[list].adv }>
+           <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-0">
+		
+							<!-- OWL SLIDER -->
+							<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fade", "progressBar":"false"}'>
+								<div class="hovereffect item-box margin-bottom-20">
+                                <{if $indexAdv_array[list].adv[j].adv_type eq 21 || $indexAdv_array[list].adv[j].adv_type eq 22}>
+                                    <img class="img-responsive lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPics/<{$indexAdv_array[list].adv[j].adv_left_img}>" alt="">
+                                <div class="overlay">
+                                    <h2></h2>
+                                    <a class="info hidden-xs hidden-sm" href="<{$indexAdv_array[list].adv[j].adv_left_url}>">link here</a>
+                                </div>
+                                <{else}>
+                                <{$indexAdv_array[list].adv[j].adv_content}>
+                                <{/if}>
+                                </div>
+							</div>
+							<!-- /OWL SLIDER -->		   
+		   
+           </div>
+           <{ /section }> 
+         </div>
+          <hr>
+        </div>
+    </section> 
+    <{ /section }> 		
+  <!--/萬用格-->
+  
+    <!--  兩則-->
+    <{ if $two_adv eq 1 }>	
+	<section class="nopadding-bottom noborder" style="padding-top:20px;">
+		<div class="container">
+			<div class="row">
+			<{if $Adv_1_index neq ""}>
+			<div class="col-sm-6 col-md-6 margin-bottom-0">
+			<!-- adv item -->
+			<div class="hovereffect item-box margin-bottom-20">
+				<img class="img-responsive lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$Adv_1_index}>" alt="">
+			<div class="overlay">
+				<h2><{$Adv_1_index_title}></h2>
+				<a class="info hidden-xs hidden-sm" href="<{$Adv_1_index_url}>">link here</a>
+			</div>
+			</div>
+			<!-- / adv item -->
+		</div>
+		<{/if}>
+		<{if $Adv_2_index neq ""}>
+		<div class="col-sm-6 col-md-6 margin-bottom-0">
+		<!-- adv item -->
+		<div class="hovereffect item-box margin-bottom-20">
+			<img class="img-responsive  lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$Adv_2_index}>" alt="">
+			<div class="overlay">
+			<h2><{$Adv_2_index_title}></h2>
+			<a class="info hidden-xs hidden-sm" href="<{$Adv_2_index_url}>">link here</a>
+			</div>
+		</div>
+		<!-- / adv item -->	 </div><{/if}>
+        
+	</div>
+    <hr>
+    </div>
+    </section>
+    <{/if}>
+     <!-- / 二則結束-->
+     
+    <!-- / 三則--> 
+    <{ if $three_adv eq 1 }>	
+   	<section class="padding-top-20 nopadding-bottom noborder">
+    <div class="container">
+   <div class="row">
+   <{if $Adv_3_index neq ""}>
+	 <div class="col-sm-4 col-md-4 margin-bottom-0">
+      <!-- adv item -->
+      <div class="hovereffect item-box margin-bottom-20">
+        <img class="img-responsive  lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$Adv_3_index}>" alt="">
+        <div class="overlay">
+           <h2><{$Adv_3_index_title}></h2>
+           <a class="info hidden-xs hidden-sm" href="<{$Adv_3_index_url}>">link here</a>
+        </div>
+    </div>
+	  <!-- / adv item --></div><{/if}>
+     <{if $Adv_4_index neq ""}>
+	 <div class="col-sm-4 col-md-4 margin-bottom-0">
+      <!-- adv item -->
+      <div class="hovereffect item-box margin-bottom-20">
+        <img class="img-responsive lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$Adv_4_index}>" alt="">
+        <div class="overlay">
+           <h2><{$Adv_4_index_title}></h2>
+           <a class="info hidden-xs hidden-sm" href="<{$Adv_4_index_url}>">link here</a>
+        </div>
+    </div>
+	  <!-- / adv item -->	 </div><{/if}>
+      <{if $Adv_5_index neq ""}>
+      <div class="col-sm-4 col-md-4 margin-bottom-0">
+      <!-- adv item -->
+      <div class="hovereffect item-box margin-bottom-20">
+        <img class="img-responsive lazy" src="<{ $Site_Url }>/images/loading-min.png" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$Adv_5_index}>" alt="">
+        <div class="overlay">
+           <h2><{$Adv_5_index_title}></h2>
+           <a class="info hidden-xs hidden-sm" href="<{$Adv_5_index_url}>">link here</a>
+        </div>
+    </div>
+	  <!-- / adv item -->	 </div><{/if}>
+   </div> 
+<hr>
+   </div>
+   </section>
+   <{/if}>
+   <!-- / 三則結束-->
+
+    <!-- 最新商品-->
+    <{ if $new_pd eq 1 }>	
+	<{ include_php file="include/include_newproduct.php" }>
+    <{/if}>
+	<!-- /最新商品結束 -->
+    
+        <!--首頁自由編輯區二-->
+     <{ if $free_info2 eq 1 }>	
+
+    <section class="nopadding noborder">
+          <{$index_freezone2}>
+          <div class="margin-bottom-20"></div>
+    </section>
+    <{/if}>
+    <!--/首頁自由編輯區二-->
+    
+	<!-- 推薦商品-->
+    <{ if $rm_pd eq 1 }>	
+	<{ include_php file="include/include_recproduct.php" }>
+    <{/if}>
+	<!-- /推薦商品結束 -->
+    
+  	<!-- 聚合商品-->
+    <{ if $jh_pd eq 1 }>	
+	<{ include_php file="include/include_juheproduct1.php" }>
+    <{/if}>
+	<!-- /聚合商品結束 -->
+    <!--facebook崁入-->
+     <!--section class="padding-top-0 noborder" style=" padding-bottom:50px;">
+       <div class="container">
+         <div class="row">
+         
+           <div class="col-lg-6 col-md-6 col-sm-6">
+             <{$fb_pluging}>
+           </div>
+       
+          <div class="col-lg-6 col-md-6 col-sm-6">
+          <script language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=index_tmp" type="text/javascript"></script>
+          </div>
+          
+       </div>
+     </div>
+   </section-->
+    <!--/facebook崁入-->
+	
+    <!--崁入文章1-->	
+    <{ if $IndexNewClassId neq 0 }>	    
+		<{ include_php file="include/include_indexnews_tw.php" }> 
+   <{/if}>     
+    <!--/崁入文章1-->	
+    <!--崁入文章2-->	
+    <{ if $IndexNewClassId1 neq 0 }>	                 
+		<{ include_php file="include/include_indexnews1_tw.php" }>
+    <{/if}>
+    <!--崁入文章2-->	
+    
+    <!--品牌-->
+    
+    <{ include_php file="include/include_indexbrand.php" }>
+    <!--/品牌結束-->
+	<{ include_php file="include/bottom.php" }>
+
+</body>
+</html>
+<script type="text/javascript">
+$("img.lazy").lazyload({
+    effect : "fadeIn",
+	threshold :200,
+	skip_invisible: false,	
+});
+</script>
+<script type="text/javascript">
+$("img.lazy2").lazyload({
+    effect : "fadeIn",
+	threshold :500,
+	skip_invisible: false,	
+});
+</script>

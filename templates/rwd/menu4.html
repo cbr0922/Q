@@ -1,0 +1,234 @@
+<{ $googleTagManager_js}>
+<!--Main Menu File-->
+<link rel="stylesheet" type="text/css" media="all" href="<{ $Site_Url }>/assets/plugins/webslide/non-icon-menu/css/color-theme.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{ $Site_Url }>/assets/plugins/webslide/non-icon-menu2/css/webslidemenu.css" />
+<!--Main Menu File-->
+       <!--css樣式切換-->
+        <link href="<{ $Site_Url }>/assets/css/color_scheme/<{ if $css_id eq 0 }>red.css<{ elseif $css_id eq 1 }>orange.css<{ elseif $css_id eq 2 }>pink.css<{ elseif $css_id eq 3 }>yellow.css<{ elseif $css_id eq 4 }>darkgreen.css<{ elseif $css_id eq 5 }>green.css<{ elseif $css_id eq 6 }>darkblue.css<{ elseif $css_id eq 7 }>blue.css<{ elseif $css_id eq 8 }>brown.css<{ elseif $css_id eq 9 }>lightgrey.css<{ /if }>" rel="stylesheet" type="text/css" id="color_scheme" />
+        <{ if $main_color eq 0 }><link id="css_dark_skin" href="<{ $Site_Url }>/assets/css/layout-dark.css" rel="stylesheet" type="text/css" title="dark"><{ /if }>
+        <!--css樣式切換-->
+<!--wrapper 整個版面開始--><div id="wrapper">
+ <div class="top_clear2"></div>
+<{ if $Head_radio eq 1 }>
+            <!-- headAD start -->
+            		<div class="headAD img-responsive" style="display: none; position:relative">
+						<script language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=<{ $Head_adv_tag }>" type="text/javascript"></script><a class="closeBtn closeBtn--headAD ad_menu_button" href="javascript:void(0);" onclick="setCookie('headAD','1',0);$('.headAD').hide();" ><i class="icon-remove"></i></a>
+                    </div>
+			 <!-- headAD end -->
+<{ /if }>
+
+			<!-- Top Bar -->
+			<div id="topBar" class="fixed-top noborder hidden_menu_m <{ if $toolbar_color eq 0 }>dark"<{ /if }>">
+				<div class="container ">
+					<!-- right -->
+				  <ul class="top-links list-inline pull-right">
+						<li class="text-welcome"><{ if $MemberState eq "0" }><a class="padding-6" href="<{$Site_Url}>/member/login_windows.php" data-plugin-options='{"type":"iframe"}'><{$Hi_Welcome}><!--Hi 歡迎您,--> <{$Log_In}><!--登入--></a></li>
+                        <{ elseif $MemberState eq "1" }><li>
+                    <a class="padding-6" href="<{$Site_Url}>/member" target="_parent"><span class="hidden-xs"><{$Hi_Welcome}><!--Hi 歡迎您,--></span><{ $Session_truename }><span class="hidden-xs"><{ $Session_userlevel }></span></a></li>
+                <{ /if }>
+						 <{ if $MemberState eq "0" }><li>
+                       <a class="padding-6" href="<{ $Site_Url }>/member/reg_detail.php"><{$Member_Register}><!--註冊--></a></li><{ /if }>
+                        <li>
+							<a style="padding: 6px 8px;" class="dropdown-toggle no-text-underline disabled" data-toggle="dropdown" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/index.php"><i class="fa fa-user hidden-xs"></i> <{$Member_Center}><!--會員中心--></a>
+							<ul class="dropdown-menu pull-right  noborder">
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/MyOrder.php"><i class="fa fa-list"></i> <{$My_Order}><!--我的訂單--></a></li>
+                                
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/Collection_list.php"><i class="fa fa-heart"></i> <{$My_Wishlist}><!--追蹤清單--></a></li>
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/AccountInformation.php"><i class="fa fa-edit"></i> <{$Member_Info}><!--修改資料--></a></li>
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/kefu_add.php"><i class="fa fa-commenting"></i> <{$Member_Qa}><!--問答中心--></a></a></li>
+								<{if $MemberState eq "1" }><li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ $Site_Url }>/member/member_login.php?Action=Logout"><i class="glyphicon glyphicon-off"></i> <{$Log_Out}><!--登出--></a></li><{ /if }>
+                                <li class="divider"></li>
+							</ul>
+                        
+						</li>
+						<li class="hidden-xs"></li>
+					</ul>
+					<!-- left -->
+					<ul class="top-links list-inline pull-left hidden-xs">
+						<li><a class="padding-6"  href="<{$Site_Url}>"><span style="font-size:15px; line-height:15px;"><i class="fa fa-home"></i></span> <{$Index_Page}><!--首頁--></a></li>
+					</ul>					
+					<{ include_php file="modules/advertising/horse.php" }>
+				</div>
+
+			</div>
+			<!-- /Top Bar -->
+			<!--
+				AVAILABLE HEADER CLASSES
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+				.noborder 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+				.clearfix		= required for mobile menu, do not remove!
+				Example Usage:  class="clearfix sticky header-sm transparent noborder"
+			-->
+			<div id="header" class="sticky1 header-sm clearfix fixed-top">
+            
+				<!-- SEARCH HEADER -->
+				<{ include_php file="search/search_box_2.php" }>
+				<!-- /SEARCH HEADER -->
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container  nopadding">
+						<!--
+							Top Nav
+
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+   		<div class="wsmenucontent overlapblackbg"></div>
+  		<div class="wsmenu2content2 overlapblackbg2"></div>
+        
+        <!--小螢幕選單icon-->
+		<div class="hidden-lg col-xs-4 col-sm-4 padding-0 margin-bottom-0" style=" margin-top:17px;">
+        	<div class="col-xs-6 col-sm-6 text-center" style="position:relative">
+            	<div class="wsmenuexpandermain slideRight">
+  <a id="navToggle" class="animated-arrow slideLeft margin-top-80" style=" color:#9E9E9E"><i class="icon-reorder" style="font-size: 20px;"></i></a>
+  				</div>
+            </div>
+            <div class="col-xs-6 col-sm-6 text-center">
+            <!-- SEARCH -->
+				<li class="search hidden-lg" style="margin-top:4px;">
+					<a href="javascript:;">
+					<i class="fa fa-search" style="font-size:20px; color:#9E9E9E"></i>
+					</a>
+				</li>
+			<!-- /SEARCH -->
+            </div>
+         </div>
+		 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  nopadding menu_5">
+         	<a class="logo2 has-banner text-center" href="<{$Site_Url}>">
+  <img style="max-width:100%;" src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" alt="<{ $HtmlTitle }>"  />
+			</a>
+         </div>
+         <div class="hidden-lg col-xs-4 col-sm-4 padding-0 margin-bottom-0" style="margin-top:19px;">
+         	<div class="col-xs-6 col-sm-6 text-center" style="position:relative">
+            	<div class="wsmenu2expandermain slideRight">
+                	<a id="navToggle2" class="animated2-arrow slideLeft2 margin-top-80" style=" color:#9E9E9E"><i class="icon-th-list" style="font-size: 18px;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 text-center" style="margin-top: 3px;">
+            	<ul class="nav nav-second-main noborder margin-top-0 menu_5_s">
+				<!-- QUICK SHOP CART -->
+					<li class="quick-cart hidden-lg" id="quick-cart">
+						<a class="noborder" href="#">
+					    <span class="hidden-lg" style="position:relative"><i class="fa fa-shopping-cart"></i><span class="badge badge-aqua btn-xs badge-corner hidden-lg"></span></span>
+								<span class="hidden_menu_m"><{$Shopping_Cart}><!--購物車-->(0)</span>
+                        </a>
+                    </li>
+				<!-- /QUICK SHOP CART -->
+				</ul>
+             </div>
+         </div> 
+         <!--小螢幕選單icon-->
+         <!--大螢幕搜尋.熱門關鍵字-->
+    	 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 menu_5 hidden_menu_m">
+    	 	<ul class="nav noborder margin-top-0 menu_5_s">
+            <!-- SEARCH -->
+				<li class="noborder hidden_menu_m margin-top-20"><{ include_php file="search/search_box_02.php" }>
+                </li>
+			<!-- /SEARCH -->
+                <li class="noborder hidden_menu_m margin-top-10 margin-bottom-10"><{ include_php file="modules/advertising/round_broadcast.php" }>
+                <div style="clear:both"></div>
+                </li>
+			</ul>
+    	 </div>
+         <!--大螢幕搜尋.熱門關鍵字-->
+         <!--大螢幕文章.活動.購物車大icon-->
+			<!-- BUTTONS -->
+         <div class="pull-right col-xs-12 col-sm-12 col-md-4 col-lg-4 nopadding">
+         	<div class="col-ts-8 col-xs-6 col-sm-8 col-md-12 col-lg-12 padding-0">
+            <!--Menu HTML Code-->
+        		<nav class="wsmenu2 slideLeft2 clearfix <{ if $main_color eq 0 }>tranbg<{ /if }>">
+             <!---->
+             		<ul id="topMain" class="mobile-sub wsmenu2-list2 nav-pills menu2 nomargin" style="float:right">
+
+                		<li>
+                			<a class="noborder hidden_menu_m margin-top-10" style="border-radius:0px;background: none !important; width:100px;" href="#"><div style="width:100%; float:left; font-size:25px;"><i class="icon-pencil"></i></div><div style="width:100%; float:left;line-height: 20px;"><{$Blog_Zone}><!--文章專區--></div><!--<span class="arrow"></span>-->
+							</a>
+                    		<a class="noborder height-40 hidden-lg" style="border-radius:0px;background: none !important;" href="#"><{$Blog_Zone}><!--文章專區--><!--<span class="arrow"></span>-->
+							</a>
+                    		<ul class="wsmenu2-submenu2" >
+                      		<{ section name=list loop=$Ncat }>
+                          		<li>
+                                	<a href="<{ $Site_Url }>/article/<{ $Ncat[list].ncid }>"><span class="size-11 text-muted pull-right">(<{ $Ncat[list].count1 }>)</span> <{ $Ncat[list].ncname }></a>
+                                </li>
+                        	<{/section}>
+                        	</ul>
+                		</li>
+
+                		<li>
+                			<a class="noborder hidden_menu_m margin-top-10" style="border-radius:0px;background: none !important;width:100px;" href="#"><div style="width:100%; float:left; font-size:25px;"><i class="icon-bullhorn"></i></div><div style="width:100%; float:left;line-height: 20px;"><{$Activity_Zone}><!--活動專區--></div><!--<span class="arrow"></span>-->
+							</a>
+                			<a class="noborder height-40 hidden-lg" style="border-radius:0px;background: none !important;" href="#"><{$Activity_Zone}><!--活動專區--><!--<span class="arrow"></span>-->
+							</a>
+                    		<ul class="wsmenu2-submenu2" >
+                      			<li>
+                                	<a  href="<{ $Site_Url }>/product/index.php?type=bonus"><{$Bonus_Zone}><!--紅利商品--></a>
+                                </li>
+                          		<li>
+                                	<a  href="<{ $Site_Url }>/product/present.php"><{$Gifts_Zone}><!--滿額好禮--></a>
+                                </li>
+                           		<li>
+                                	<a  href="<{ $Site_Url }>/modules/discount/discountsubject_main_all.php"><{$Sale_Zone}><!--促銷活動--></a>
+                                </li>
+                        	</ul>
+               			</li>
+                		<!-- QUICK SHOP CART -->
+						<li class="quick-cart hidden-xs" id="quick-cart">
+                            <a class="noborder hidden_menu_m margin-top-10" style="border-radius:0px;background: none !important;width:120px;" href="#"><div style="width:100%; float:left; font-size:25px;"><i class="icon-shopping-cart"></i></div><div style="width:100%; float:left;line-height: 20px;"><{$Shopping_Cart}><!--購物車-->(<{if $CountItem eq ''}>0<{else}><{ $CountItem}><{/if}>)</div><!--<span class="arrow"></span>-->
+							</a>
+						</li>
+						<!-- /QUICK SHOP CART -->
+             		</ul>
+             <!---->
+              	</nav>
+           </div>
+         </div>
+         <!-- /BUTTONS -->
+         <!--大螢幕文章.活動.購物車大icon-->
+					</div>
+				</header>
+                <header id="topNav" style="border-top: 1px solid rgba(0,0,0,0.050);">
+					<div class="container">
+                <nav class="nav-main <{ if $main_color eq 0 }>tranbg<{ /if }>" >
+
+        <!--Main Menu HTML Code-->
+           <nav class="wsmenu slideLeft clearfix <{ if $main_color eq 0 }>tranbg<{ /if }>">
+                <ul id="topMain" class="mobile-sub wsmenu-list nav-pills menu1">
+				<{ if $MemberState eq "0" }><li class="hidden-lg"><a style="display: inline-table;width: 60px;color: #000;padding:0 0 0 9px;" href="<{$Site_Url}>/member/login_windows.php" data-plugin-options='{"type":"iframe"}'><i class="fa fa-sign-in"></i><{$Log_In}><!--登入--></a><a style="display:inline-table;width: 180px;padding:0 9px 0 0;" href="<{ $Site_Url }>/member/reg_detail.php">&nbsp; / &nbsp;<{$Member_Register}><!--註冊--></a></li>
+                       	
+                <{ elseif $MemberState eq "1" }>
+				 
+				 <li class="hidden-lg"><a href="<{$Site_Url}>/member/index.php" target="_parent">Hi,<{ $Session_truename }></a></li>
+                <{ /if }>
+				<li class="hidden-lg"><a  style="color: #000;  padding:0 9px;" href="<{$Site_Url}>/member/index.php"><i  style="color: #000;margin-right: 13px;" class="fa fa-user"></i><{$Member_Center}><!--會員中心--></a></li>
+                <li class="hidden-lg" style="color: #000;  padding: 9px;"><i class="fa fa-th-list"></i><{$Product_Class}><!--商品分類--></li>
+                <!-- 商品分類下拉 -->
+                          <{ if $menuStyle eq 0  || $menuStyle eq 1}><{ include file="menu_product4_1.html" }><{ elseif $menuStyle eq 2 }><{ include file="menu_product4_3.html" }><{ /if }>
+                          <!-- 商品分類下拉 -->
+						  
+				<{ if $MemberState eq "1" }>
+				 
+				 <li class="hidden-lg"><a href="<{ $Site_Url }>/member/member_login.php?Action=Logout"><{$Log_Out}><!--登出--> <i class="fa fa-sign-out"></i></a></li>
+                <{ /if }>
+				
+             </ul>
+              </nav>
+  </nav>
+  <div></header>
+				<!-- /Top Nav -->
+			</div>
+           

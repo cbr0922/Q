@@ -1,0 +1,394 @@
+<{ $googleTagManager_js}>
+    <!--Main Menu File-->
+    <link rel="stylesheet" type="text/css" media="all" href="<{ $Site_Url }>/assets/plugins/webslide/non-icon-menu/css/color-theme.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<{ $Site_Url }>/assets/plugins/webslide/mega-menu/css/webslidemenu.css" />
+    <!--Main Menu File-->
+    <!--css樣式切換-->
+    <link href="<{ $Site_Url }>/assets/css/color_scheme/<{ if $css_id eq 0 }>red.css<{ elseif $css_id eq 1 }>orange.css<{ elseif $css_id eq 2 }>pink.css<{ elseif $css_id eq 3 }>yellow.css<{ elseif $css_id eq 4 }>darkgreen.css<{ elseif $css_id eq 5 }>green.css<{ elseif $css_id eq 6 }>darkblue.css<{ elseif $css_id eq 7 }>blue.css<{ elseif $css_id eq 8 }>brown.css<{ elseif $css_id eq 9 }>lightgrey.css<{ /if }>" rel="stylesheet" type="text/css" id="color_scheme" />
+    <{ if $main_color eq 0 }>
+        <link id="css_dark_skin" href="<{ $Site_Url }>/assets/css/layout-dark.css" rel="stylesheet" type="text/css" title="dark">
+        <{ /if }>
+            <link href="<{ $Site_Url }>/assets/css/header-0.css" rel="stylesheet" type="text/css">
+            <!--css樣式切換-->
+            <!--捲軸樣式-->
+            <script src="<{ $Site_Url }>/assets/js/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="<{ $Site_Url }>/assets/css/jquery.mCustomScrollbar.css">
+            <script src="<{ $Site_Url }>/assets/js/jquery.mCustomScrollbar.min.js"></script>
+            <script>
+            (function($) {
+
+                $(window).load(function() {
+
+                    var width = $(window).width();
+
+                    $(".scrollbar").mCustomScrollbar();
+
+                    if (width > 1000) {
+
+                        $(".menuscrollbar").mCustomScrollbar();
+                    }
+
+
+
+                });
+
+            })(jQuery);
+            </script>
+            <!--捲軸樣式-->
+            <!--wrapper 整個版面開始-->
+            <div id="wrapper">
+                <div class="top_clear2"></div>
+                <!-- headAD start -->
+                <{ if $Head_radio eq 1 }>
+                    <div class="headAD img-responsive" style="display: none; position:relative">
+                        <script language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=<{ $Head_adv_tag }>" type="text/javascript"></script><a class="closeBtn closeBtn--headAD ad_menu_button" href="javascript:void(0);" onclick="setCookie('headAD','1',0);$('.headAD').hide();"><i class="icon-remove"></i></a>
+                    </div>
+                    <{ /if }>
+                        <!-- headAD end -->
+                        <!--
+
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+
+				.header-md 		= 70px nav height
+
+				.header-sm 		= 60px nav height
+
+				.noborder 		= remove bottom border (only with transparent use)
+
+				.transparent	= transparent header
+
+				.translucent	= translucent header
+
+				.sticky			= sticky header
+
+				.static			= static header
+
+				.dark			= dark header
+
+				.bottom			= header on bottom
+
+				shadow-before-1 = shadow 1 header top
+
+				shadow-after-1 	= shadow 1 header bottom
+
+				shadow-before-2 = shadow 2 header top
+
+				shadow-after-2 	= shadow 2 header bottom
+
+				shadow-before-3 = shadow 3 header top
+
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent noborder"
+
+			-->
+                        <div id="header" class="sticky header-sm clearfix fixed-top">
+                            <!-- Top Bar -->
+                            <div id="topBar" class="fixed-top noborder hidden_menu_m <{ if $toolbar_color eq 0 }>dark" <{ /if }>">
+                                <div class="container text-center">
+                                    <{ include_php file="modules/advertising/horse.php" }>
+                                </div>
+                            </div>
+                            <!-- /Top Bar -->
+                            <!-- SEARCH HEADER -->
+                            <{ include_php file="search/search_box_2.php" }>
+                                <!-- /SEARCH HEADER -->
+                                <!-- TOP NAV -->
+                                <header id="topNav" style="<{if $menu_color neq''}>background-color:<{$menu_color}> !important;<{/if}><{ if $use_background eq 1 }>background:url('<{ $Site_Url }>/UploadFile/LogoPic/<{ $menu_background }>'); background-image: url('<{ $Site_Url }>/UploadFile/LogoPic/<{ $menu_background }>');<{ /if }>">
+                                    <div class="container nopadding wsmenucontainer clearfix">
+                                        <!--
+
+							Top Nav
+
+
+
+							AVAILABLE CLASSES:
+
+							submenu-dark = dark sub menu
+
+						-->
+                                        <div class="overlapblackbg"></div>
+                                        <div class="hidden_menu_l col-ts-2 col-xs-3 col-sm-2 col-md-2 nopadding">
+                                            <div class="wsmobileheader clearfix"> <a style="position: absolute;margin-top: 15px;" id="wsnavtoggle" class="animated-arrow"><span></span></a> </div>
+                                        </div>
+                                        <div class="hidden_menu_m col-ts-2 col-xs-3 col-sm-2 col-md-2 nopadding">
+                                            <a class="logo has-banner text-center" href="<{$Site_Url}>">
+
+							<img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" alt="<{ $HtmlTitle }>"  />
+
+						</a>
+                                        </div>
+                                        <div class="hidden_menu_l col-ts-8 col-xs-6 col-sm-7 col-md-8 text-center nopadding">
+                                            <a class="logo has-banner text-center" href="<{$Site_Url}>">
+
+							<img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" alt="<{ $HtmlTitle }>"  />
+
+						</a></div>
+                                        <div class="col-xs-3 col-xs-push-0 col-sm-1 col-sm-push-0 col-md-7 text-center nopadding m_d">
+                                            <nav class="nav-main <{ if $main_color eq 0 }>tranbg<{ /if }>">
+                                                <!--Main Menu HTML Code-->
+                                                <div class="headerfull">
+                                                    <div class="wsmain">
+                                                        <nav class="wsmenu clearfix">
+                                                            <ul class="mobile-sub wsmenu-list">
+                                                                <{ if $MemberState eq "0" }>
+                                                                    <li class="hidden_menu_l"><a style="display: inline-table;width:80px;color: #000;padding:0 0 0 9px !important;" href="<{$Site_Url}>/member/login_windows.php"><i class="fa fa-sign-in"></i><{$Log_In}><!--登入--></a><a style="display: inline-table;width: 190px;padding:0 9px 0 0 !important;" href="<{ $Site_Url }>/member/reg_detail.php">/ &nbsp;&nbsp;<{$Member_Register}><!--註冊--></a></li>
+                                                                    <{ elseif $MemberState eq "1" }>
+                                                                        <li class="hidden-lg hidden-md"><a style="display: inline-table;width:70%;color: #000;padding:0 0 0 9px !important;" href="<{$Site_Url}>/member/index.php">Hi,<{ $Session_truename }></a><a style="display: inline-table;width:30%;padding: 0 9px 0 0 !important;text-align: right;" href="<{ $Site_Url }>/member/member_login.php?Action=Logout">&nbsp; / &nbsp;<{$Log_Out}></a></li>
+                                                                        <{ /if }>
+                                                                            <li class="hidden-lg"><a style="color: #000;  padding:0 9px;" href="<{$Site_Url}>/member/index.php"><i  style="color: #000;margin-right: 13px;" class="fa fa-user"></i><{$Member_Center}><!--會員中心--></a>
+                                                                            </li>
+                                                                            <li class="hidden-lg"><a id="" class="menu_overlay_open" style="color: #000;  padding:0 9px;" href=""><i  style="color: #000;margin-right: 13px;" class="fa fa-info-circle"></i>購物小幫手</a></li>
+                                                                            <li class="hidden-lg" style="color: #000;  padding:0px 9px;border-bottom: 1px solid;border-bottom-color: rgba(0,0,0,0.13);"><i style="color: #000;margin-right: 18px;" class="fa fa-th-list"></i>商品總覽</li>
+                                                                            <!-- 商品分類下拉 -->
+                                                                            <{ if $menuStyle eq 0 || $menuStyle eq 1}>
+                                                                                <{ include file="menu_product4_1.html" }>
+                                                                                    <{ elseif $menuStyle eq 2 }>
+                                                                                        <{ include file="menu_product4_3.html" }>
+                                                                                            <{ /if }>
+                                                                                                <!-- 商品分類下拉 -->
+                                                                                                <li><a class="navtext" style="border-radius:0px;" href="<{ $Site_Url }>/brand/directory.php"><i class="fa fa-tag hidden-lg" style="color: #000;margin-right: 13px;"></i>品牌導覽</a></li>
+                                                                                                <li><a class="navtext" style="border-radius:0px;" href="<{ $Site_Url }>/article/1"><i class="fa fa-newspaper-o hidden-lg" style="color: #000;margin-right: 13px;"></i>最新消息</a></li>
+
+
+
+
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                                <!--Menu HTML Code-->
+                                            </nav>
+                                        </div>
+                                        <!-- BUTTONS -->
+                                        <div class="pull-right col-ts-2 col-xs-3 col-sm-3 col-md-3 nopadding m_c">
+                                            <ul class="pull-right nav nav-pills nav-second-main m2top noborder">
+                                                <!-- SEARCH -->
+                                                <li class="search">
+                                                    <a href="javascript:;" class="searchicon" title="搜尋">
+                                                        <!--<i class="fa fa-search"></i>-->
+                                                    </a>
+                                                </li>
+                                                <!-- /SEARCH -->
+                                                <li class="hidden_menu_m">
+                                                    <a href="<{$Site_Url}>/member/login_windows.php" class="icon_member<{ if $Session_sex eq 1}>_w<{ /if }> dropdown-toggle no-text-underline disabled" title="<{ if $MemberState eq " 1 " }>會員中心<{else}>登入/註冊<{ /if }>"></a>
+                                                    <{ if $MemberState eq "1" }>
+                                                        <ul class="dropdown-menu pull-right  noborder" style="min-width: 100px;">
+															 <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/AccountInformation.php"><i class="fa fa-edit"></i> <{$Member_Info}><!--修改資料--></a></li>
+                                                            <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/MyOrder.php"><i class="fa fa-list"></i> <{$My_Order}><!--我的訂單--></a></li>
+                                                            <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/Collection_list.php"><i class="fa fa-heart"></i> <{$My_Wishlist}><!--追蹤清單--></a></li>
+
+                                                            <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/myticket.php"><i class="fa fa-ticket"></i> 我的現金券(<{$ticketcount}>)</a></li>
+                                                            <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/kefu_add.php"><i class="fa fa-commenting"></i> <{$Member_Qa}><!--問答中心--></a></li>
+                                                            <{if $MemberState eq "1" }>
+                                                                <li class="hidden-xs padding-0"><a class="padding-10" tabindex="-1" href="<{ $Site_Url }>/member/member_login.php?Action=Logout"><i class="glyphicon glyphicon-off"></i> <{$Log_Out}><!--登出--></a></li>
+                                                                <{ /if }>
+                                                                    <li class="divider"></li>
+                                                        </ul>
+                                                        <{ /if }>
+                                                </li>
+                                                <li class="hidden_menu_m">
+                                                    <a id="" class="icon_info menu_overlay_open" title="小幫手"></a>
+                                                </li>
+                                                <li class="hidden_menu_m menu_day">
+                                                    <a class="icon_day" title="目前受理預定的出發日期"></a>
+                                                    <ul class="daydown">
+                                                        <li>
+                                                            <div class="daybox">
+                                                                <div style="font-size: 17px;margin: 0;padding: 0 10px 10px 10px;border-bottom: rgba(0,0,0,0.1) 1px solid;font-weight: 600;">目前受理預訂的出發日期</div>
+                                                                <div style="margin: 10px 0;font-size: 16px;letter-spacing: 1px;">
+                                                                    <{$begtime}> ~ <{$endtime}>
+																</div>
+																<div style="margin: 10px 0;font-size: 12px;">
+																	提貨時間為07:00~23:00，更多說明請見<a style="color: #ad4c81;" href="<{ $Site_Url }>/article/article177">購物注意事項</a>
+                                                                </div>
+                                                                <div></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <!-- QUICK SHOP CART -->
+                                                <li class="quick-cart" id="quick-cart">
+                                                    <a href="#" class="icon_cart" title="購物車">
+                                                        <span class="badge badge-aqua btn-xs badge-corner">0</span>
+                                                        <!--<i class="fa fa-shopping-cart"></i>-->
+                                                    </a>
+                                                </li>
+                                                <!-- /QUICK SHOP CART -->
+                                            </ul>
+                                        </div>
+                                        <!-- /BUTTONS -->
+                                    </div>
+                                </header>
+                                <!-- /Top Nav -->
+                                <!--
+
+			OVERLAY NAVIGATION
+
+			Outside of #wrapper
+
+
+
+			CSS HEADER REQUIRED:
+
+			<link href="assets/css/header-0.css" rel="stylesheet" type="text/css" />
+
+		-->
+                                <div id="topMain1">
+                                    <section class="menu-content">
+                                        <div class="container toolbox-bg">
+                                            <!-- menu close -->
+                                            <button id="menu_overlay_close">
+                                                <i class="glyphicon glyphicon-remove"></i>
+                                            </button>
+                                            <!-- /menu close -->
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12 nopadding-xs">
+                                                    <div class="menu-list col-md-12 col-sm-12">
+
+                                                        <ul class="list-unstyled font-raleway toolbox-row">
+                                                            <li class="toolbox-bb">
+                                                            	<h1 class="text-center toolbox-row-h1"><a href=""><span>購物小幫手</span><img src="<{ $template_dir }>/images/icon_info.svg" alt="" style="width:50px;vertical-align: text-bottom;font-weight:400;"></a></h1>
+                                                            </li>
+															<li class="toolbox-bb hidden-lg hidden-md text-center"><a style="text-align: center;font-size: 18px;font-weight: normal;" >目前受理預訂的出發日期<br><{$begtime}><span class="v-xs"> ~ </span><{$endtime}></a>
+																<div style="margin: 10px 0;font-size: 16px;">
+																	提貨時間為07:00~23:00，更多說明請見<a style="color: #ea4ea3;font-size: 16px;letter-spacing: 0;" href="<{ $Site_Url }>/article/article177">購物注意事項</a>
+                                                                </div>
+															</li>
+                                                            <li class="toolbox-bb">
+                                                            	<div class="col-md-12 col-sm-12 toolbox">
+		                                                            <div class="">
+		                                                                <i class=""></i>
+		                                                            </div>
+		                                                            <div class="inline-block" style="vertical-align:top;padding-right:30px;">
+		                                                            	<img src="<{ $template_dir }>/images/icon_change.svg" alt="">
+		                                                                <span style="color: #fff;">
+																			匯率換算
+																		<span style="color: #fff;"></span>
+																		</span>
+		                                                            </div>
+		                                                            <div class="inline-block">
+		                                                                <div class="inline-block">
+		                                                                    <h4 style="color: #fff; text-align: left;">台幣NT$</h4>
+		                                                                    <input type="number" id="number1" class="number" value="0" style="color: #000;">
+		                                                                </div>
+		                                                                <i class="fa fa-exchange"></i>
+		                                                                <div class="inline-block">
+		                                                                    <!--h4 style="color: #fff;">CN¥</h4-->
+		                                                                    <select name="rate" id="rate" class="form-control select">
+		                                                                        <option value="USD">美金</option>
+		                                                                        <option value="USDCNY">人民幣</option>
+		                                                                        <option value="USDJPY">日幣</option>
+		                                                                    </select>
+		                                                                    <input type="number" id="number2" class="number" value="0" style="color: #000;">
+		                                                                </div>
+		                                                            </div>
+	                                                        	</div>
+                                                            </li>
+                                                            <li class="toolbox-bb">
+                                                            	<div class="col-md-6 col-sm-6 toolbox toolbox-bl"><a href="<{ $Site_Url }>/help/Aboutour.php?info_id=17"><img src="<{ $template_dir }>/images/icon_flight.svg" alt=""><span>免稅預訂說明</span></a>
+
+
+																</div>
+                                                            	<div class="col-md-6 col-sm-6 toolbox"><a href="<{ $Site_Url }>/article/article177"><img src="<{ $template_dir }>/images/icon_cart.svg" alt="">&nbsp;<span>購物注意事項</span></a></div>
+                                                            </li>
+
+                                                            <li class="toolbox-bb">
+                                                                <div class="col-md-7 col-sm-7 col-sm-push-5 toolbox" id="weather">
+                                                                    <!--{ include_php file="include/include_weather.php" }-->
+                                                                </div>
+                                                            	<div class="col-md-5 col-sm-5 col-sm-pull-7 toolbox"><img src="<{ $template_dir }>/images/bottomlogo.png" alt="" style="width: auto;"></div>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!-- /OVERLAY NAVIGATION -->
+                        </div>
+                        <script>
+                        var exrate = '';
+
+                        $(".menu_overlay_open").click(function() {
+
+                            if (exrate == '') {
+
+                                $.ajax({
+
+                                    url: '<{$Site_Url}>/include/include_exchangerate.php',
+
+                                    type: 'get',
+
+                                    dataType: "json",
+
+                                    cache: false,
+
+                                    success: function(result) {
+
+                                        exrate = result;
+
+                                        //var from_m=result['USDTWD'];
+
+                                        //var to_m=result[$("#rate :selected").val()];
+
+                                        //console.log(from_m+'~'+to_m);
+
+                                    }
+
+                                });
+
+                            }
+
+                        });
+
+                        $(".number,#rate").change(function() {
+
+                            var num1 = new Number($("#number1").val());
+
+                            var num2 = new Number($("#number2").val());
+
+                            var from_m = exrate['USDTWD'];
+
+                            var to_m = exrate[$("#rate :selected").val()];
+
+                            //alert($(this).attr("id"));
+
+                            if ($(this).attr("id") == "number1") {
+
+                                $("#number2").val((num1 / from_m * to_m).toFixed(5));
+
+                            } else {
+
+                                $("#number1").val((num2 / to_m * from_m).toFixed(5));
+
+                            }
+
+                        });
+
+                        $(window).load(function() {
+
+                            $.ajax({
+
+                                url: '<{$Site_Url}>/include/include_weather.php',
+
+                                type: 'get',
+
+                                dataType: "html",
+
+                                success: function(msg) {
+
+                                    $('#weather').html(msg);
+
+                                }
+
+                            });
+
+                        });
+                        </script>

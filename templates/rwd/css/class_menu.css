@@ -1,0 +1,55 @@
+@charset "utf-8";
+/*reset*/
+
+.subNavBox{
+	width:198px;
+	border:solid 1px #e5e3da;
+	text-align: left;
+}
+.subNav{border-bottom:solid 1px #e5e3da;cursor:pointer;font-weight:bold;font-size:14px;color:#999;line-height:28px;padding-left:10px;background:url(../images/jiantou1.jpg) no-repeat;background-position:95% 50%}
+.subNav:hover{color:#277fc2;}
+.currentDd{color:#277fc2}
+.currentDt{background-image:url(../images/jiantou.jpg);}
+.navContent{
+	display: none;
+	border-bottom:solid 1px #e5e3da;
+	margin:0px;
+	padding:0px;
+	text-indent: 25px;
+}
+.navContent li{
+	background-image: url(../images/an2-1.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+.navContent li a{
+	display:block;
+	width:200px;
+	height:28px;
+	text-align:left;
+	font-size:14px;
+	line-height:28px;
+	color:#333;
+}
+.navContent li a:hover{
+	color:#333;
+	background-color:#eeeeee;
+	background-image: url(../images/an2-2.png);
+	background-repeat: no-repeat;
+	background-position: 7px center;
+}
+.navContent_cur{
+	margin:0px;
+	padding:0px;
+	text-indent: 20px;
+	color:#C30;
+}
+.navContent_cur a:link; .navContent_cur a:visited{
+	display:block;
+	width:200px;
+	height:28px;
+	text-align:left;
+	font-size:14px;
+	line-height:28px;
+	color:#C30;
+}

@@ -1,0 +1,183 @@
+<?php
+include_once "Check_Admin.php";
+include_once Classes . "/pagenav_stard.php";
+include      "../language/".$INFO['IS']."/Mail_Pack.php";
+$objClass = "9pv";
+$Nav      = new buildNav($DB,$objClass);
+/**
+ *  装载语言包
+ */
+include "../language/".$INFO['IS']."/Admin_Member_Pack.php";
+$Sql      = "select * from `{$INFO[DBPrefix]}ticketpubrecord` as r inner join `{$INFO[DBPrefix]}ticket` as t on r.ticketid=t.ticketid where r.ticketid='" . $_GET['ticketid'] . "' order by r.recordid desc";
+
+$Query    = $DB->query($Sql);
+$Num      = $DB->num_rows($Query);
+if ($Num>0){
+	$limit = $_GET['listnum']!="" ? intval($_GET['listnum']) : 20  ;
+	$Nav->total_result=$Num;
+	$Nav->execute($Sql,$limit);
+	$Query = $Nav->sql_result;
+	$Nums     = $Num<$limit ? $Num : $limit ;
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>行銷工具--&gt;統計分析--&gt; 商品銷售統計</TITLE>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0"  onload="addMouseEvent();">
+<?php include_once "head.php";?>
+<script language="javascript">
+function toExprot(){
+	form2.submit();
+}
+</script>
+<form name="form2" method="post" action="admin_group_excel.php" target='_blank'  >
+<input type="hidden" name="Action" value="Excel">
+</form>
+<SCRIPT language=javascript>
+function toEdit(id,catid){
+	var checkvalue;
+	var catvalue = "";
+	
+	if (id == 0) {
+		checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	}else{
+		checkvalue = id;
+	}
+		
+	if (catid != 0) {
+		catvalue = "&scat="+catid;
+	}
+	
+	if (checkvalue!=false){
+		//document.adminForm.action = "admin_goods.php?goodsid="+checkvalue + catvalue;
+		document.adminForm.action = "admin_ticket.php?Action=Modi&ticketid="+checkvalue;
+		document.adminForm.act.value="edit";
+		document.adminForm.submit();
+	}
+}
+
+function toDel(){
+	var checkvalue;
+	checkvalue = isSelected('<?php echo intval($Nums)?>','<?php echo $Basic_Command['No_Select']?>');
+	if (checkvalue!=false){
+		if (confirm('<?php echo $Basic_Command['Del_Select']?>')){
+			document.adminForm.action = "admin_ticket_save.php";
+			document.adminForm.act.value="Del";
+			document.adminForm.submit();
+		}
+	}
+}
+</SCRIPT>
+<div id="contain_out">
+  <?php  include_once "Order_state.php";?>
+      <TABLE class=p9black cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+            <TD width="50%">
+              <TABLE width="90%" border=0 cellPadding=0 cellSpacing=0>
+                <TBODY>
+                  <TR>
+                    <TD width=38 height="49"><IMG height=32 src="images/<?php echo $INFO[IS]?>/program-1.gif" width=32></TD>
+                    <TD class=p12black noWrap><SPAN class=p9orange>行銷工具--&gt; 統計分析
+                    --&gt; 商品銷售統計</SPAN></TD>
+                </TR></TBODY></TABLE></TD>
+            <TD align=right width="50%">&nbsp;</TD>
+          </TR>
+        </TBODY>
+  </TABLE>
+  
+  <table class="allborder" style="margin-bottom:10px" width="100%">
+  <tr>
+  <td>
+<TABLE class=p12black cellSpacing=0 cellPadding=0 width="85%"   align=center border=0 >
+        <FORM name=form1 id=form1 method=post action="admin_ticketrecord_save.php">        
+          <input type="hidden" name="Action" value="Search">
+          <TR>
+            <TD height=19 colspan="3" align=right>		 </TD>
+            </TR>
+          <TR>
+            <TD width="160" height="30" align=left class=p9black>日期：</TD>
+            <TD height="1" colspan="2" align=left class=p9black>起始日期
+              <input  onMouseOver="this.className='box2'" onMouseOut="this.className='box1'"  id=begtime size=10  onClick="showcalendar(event, this)" onFocus="showcalendar(event,this);if(this.value=='0000-00-00')this.value=''" value='<?php echo $pub_starttime;?>' name='goods_starttime'>
+              - 結束日期
+              <input  onMouseOver="this.className='box2'" onMouseOut="this.className='box1'"  id=endtime size=10   onClick="showcalendar(event, this)" onFocus="showcalendar(event,this);if(this.value=='0000-00-00')this.value=''"  value='<?php echo $pub_endtime;?>' name='goods_endtime'>
+            </TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>商品：</TD>
+            <TD height="0" colspan="2" align=left class=p9black><input name="type" type="radio" checked="checked" />
+              全部
+                
+                <input type="radio" name="type" />
+                統倉
+<input type="radio" name="type" />
+                非統倉　供應商 
+                <select name=""><option value="0">請選擇供應商</option>
+                </select> 
+                <input value="輸入商品ID或產品編號" size="20" /></TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>商品分類：</TD>
+            <TD height="0" colspan="2" align=left class=p9black><select name="select">
+              <option value="0">所有分類商品</option>
+            </select></TD>
+          </TR>
+           <TR>
+             <TD height="30" align=left class=p9black>訂單狀態：</TD>
+             <TD height="0" colspan="2" align=left class=p9black><input name="type1" type="radio" checked="checked" />
+               完成交易訂單
+                 <input type="radio" name="type1" />
+                 已出貨訂單</TD>
+            </TR>
+          <TR>
+            <TD height="30" align=left class=p9black>&nbsp;</TD>
+            <TD height="30" colspan="2" align=left class=p9black><input type="submit" value="送出結果" /></TD>
+            </TR>
+          <TR>
+            <TD height="19" colspan="3" align=left class=p9black>&nbsp;</TD>
+            </TR>
+          </FORM>
+        </TABLE>
+        
+</td>
+        </tr>
+        </table>
+<TABLE width="100%" border=0 cellPadding=0 cellSpacing=0 class="allborder">
+        <TBODY>
+          <TR>
+            <TD vAlign=top height=210><table class="p12black" cellspacing="0" cellpadding="0" width="85%"   align="center" border="0" >
+              <form name="form1" id="form2" method="post" action="admin_ticketrecord_save.php">
+                <input type="hidden" name="Action2" value="Search" />
+                <tr>
+                  <td height="19" colspan="3" align="right"></td>
+                </tr>
+                <tr>
+                  <td width="142" height="30" align="left" class="p9black">銷售金額：5688</td>
+                  <td width="161" height="1" align="left" class="p9black">銷售數量：1000</td>
+                  <td width="634" height="1" align="left" class="p9black"><input type="submit" value="匯出execl表" /></td>
+                </tr>
+                <tr>
+                  <td height="30" align="left" class="p9black">圖表：</td>
+                  <td height="0" colspan="2" align="left" class="p9black">只要長條圖和折線圖，Y軸人數，X軸日期(按月或其他可能切換)</td>
+                </tr>
+                <tr>
+                  <td height="30" align="left" class="p9black">&nbsp;</td>
+                  <td height="0" colspan="2" align="left" class="p9black">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="19" colspan="3" align="left" class="p9black">&nbsp;</td>
+                </tr>
+              </form>
+            </table></TD>
+        </TR></TABLE>
+</div>
+<script language="javascript" src="../js/modi_bigarea1.js"></script>
+<script language="javascript">
+initCounty2(document.getElementById("province"), "<?php echo trim($_GET[province])?>")
+initZone2(document.getElementById("province"), document.getElementById("city"), document.getElementById("othercity"), "<?php echo trim($_GET[city])?>")
+</script>
+<div align="center"><?php include_once "botto.php";?></div>
+</BODY></HTML>

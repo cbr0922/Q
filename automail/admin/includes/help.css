@@ -1,0 +1,28 @@
+body {
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #565656;
+	MARGIN: 0px;
+	PADDING: 0px;
+	background: #FFF;
+	}
+.help_anchor {
+	display:block;
+	height:90px;
+	margin-top:-90px;
+	visibility:hidden;
+}
+.hwrapper {
+	PADDING: 8px;
+	position:relative;
+	text-align:left;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:80px
+}
+P { COLOR: #565656; FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica, sans-serif; FONT-SIZE: 12px }
+A:link { text-decoration: underline; FONT-SIZE: 12px; color:#6666CC }
+A:visited {text-decoration: underline; FONT-SIZE: 12px; color:#6666CC }
+A:hover {text-decoration: none; FONT-SIZE: 12px; color: #0066CC }
+A:active {text-decoration: none; FONT-SIZE: 12px; color: #6666CC }
+.helpHeader {COLOR:#333333;font-weight: normal;FONT-SIZE: 14pt;}

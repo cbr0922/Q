@@ -1,0 +1,12 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top"><{ section name=i loop=$forum_array }>
+      <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+        <tr>
+          <td width="11"><img src="<{ $template_dir }>/images/dot_news.gif"></td>
+          <td>[<{ $forum_array[i].catname }>]<A href="<{ $Site_Url }>/forum/viewthread.php?toppost_id=<{ $forum_array[i].toppost_id }>"><{ $forum_array[i].lasttitle }></A>  <{ $forum_array[i].lastidate }> </td>
+        </tr>
+      </table>
+      <{ /section  }></td>
+  </tr>
+</table>

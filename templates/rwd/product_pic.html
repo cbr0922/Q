@@ -1,0 +1,45 @@
+<!-- 
+	controlls-over		= navigation buttons over the image 
+	buttons-autohide 	= navigation buttons visible on mouse hover only
+	
+	data-plugin-options:
+		"singleItem": true
+		"autoPlay": true (or ms. eg: 4000)
+		"navigation": true
+		"pagination": true
+		"items": "5"
+
+	owl-carousel item paddings
+		.owl-padding-0
+		.owl-padding-3
+		.owl-padding-6
+		.owl-padding-10
+		.owl-padding-15
+		.owl-padding-20
+-->
+<!--
+	Used By:
+		shortcode-lightbox.html
+-->
+<div class="lightbox-ajax">
+
+	<!-- title -->
+	<h4><{ $Goodsname }></h4>
+	
+	<!-- body -->
+	<div class="lightbox-ajax-body">
+
+		<div class="owl-carousel owl-padding-3 buttons-autohide controlls-over text-center" data-plugin-options='{"singleItem": false, "items": "1", "autoPlay": true, "navigation": true, "pagination": false}'>
+        <{ section name=Comm loop=$Goodpic }>
+		<a class="img-hover" href="#">
+			<img class="img-responsive" src='<{if $Goodpic[Comm].pic eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path }>/<{$Goodpic[Comm].pic}><{/if}>' alt="">
+		</a>
+		<{/section}>
+	</div>
+		
+<div style="clear:both"></div>
+	</div>
+	<!-- /body -->
+
+</div>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/js/scripts.js"></script>

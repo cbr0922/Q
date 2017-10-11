@@ -1,0 +1,187 @@
+<{ $googleTagManager_js}>
+       <!--css樣式切換-->
+        <link href="<{ $Site_Url }>/assets/css/color_scheme/<{ if $css_id eq 0 }>red.css<{ elseif $css_id eq 1 }>orange.css<{ elseif $css_id eq 2 }>pink.css<{ elseif $css_id eq 3 }>yellow.css<{ elseif $css_id eq 4 }>darkgreen.css<{ elseif $css_id eq 5 }>green.css<{ elseif $css_id eq 6 }>darkblue.css<{ elseif $css_id eq 7 }>blue.css<{ elseif $css_id eq 8 }>brown.css<{ elseif $css_id eq 9 }>lightgrey.css<{ /if }>" rel="stylesheet" type="text/css" id="color_scheme" />
+        <{ if $main_color eq 0 }><link id="css_dark_skin" href="<{ $Site_Url }>/assets/css/layout-dark.css" rel="stylesheet" type="text/css" title="dark"><{ /if }>
+        <!--css樣式切換-->
+<!--wrapper 整個版面開始--><div id="wrapper">
+
+            <!-- headAD start -->
+             <{ if $Head_radio eq 1 }>
+            		<div class="headAD img-responsive" style="display: none; position:relative">
+						<script language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=<{ $Head_adv_tag }>" type="text/javascript"></script><a class="closeBtn closeBtn--headAD ad_menu_button" href="javascript:void(0);" onclick="setCookie('headAD','1',0);$('.headAD').hide();" ><i class="icon-remove"></i></a>
+                    </div>
+              <{ /if }>
+        	<!-- headAD end -->
+            
+			<!-- Top Bar -->
+			<div id="topBar" class="noborder <{ if $toolbar_color eq 0 }>dark<{ /if }>">
+				<div class="container">
+
+					<!-- right -->
+				  <ul class="top-links list-inline pull-right">
+						<li class="text-welcome"><{ if $MemberState eq "0" }><a class="padding-6" href="<{$Site_Url}>/member/login_windows.php" data-plugin-options='{"type":"iframe"}'><{$Hi_Welcome}><!--Hi 歡迎您,--> <{$Log_In}><!--登入--></a></li>
+                        <{ elseif $MemberState eq "1" }><li>
+                    <a class="padding-6" href="<{$Site_Url}>/member" target="_parent"><span class="hidden-xs"><{$Hi_Welcome}><!--Hi 歡迎您,--></span><{ $Session_truename }><span class="hidden-xs"><{ $Session_userlevel }></span></a></li>
+
+                <{ /if }>
+						 <{ if $MemberState eq "0" }><li>
+                       <a class="padding-6" href="<{ $Site_Url }>/member/reg_detail.php"><{$Member_Register}><!--註冊--></a></li><{ /if }>
+                        <li>
+							<a style="padding: 6px 8px;" class="dropdown-toggle no-text-underline disabled" data-toggle="dropdown" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/index.php"><i class="fa fa-user hidden-xs"></i> <{$Member_Center}><!--會員中心--></a>
+							<ul class="dropdown-menu pull-right  noborder">
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/MyOrder.php"><i class="fa fa-list"></i> <{$My_Order}><!--我的訂單--></a></li>
+                                
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/Collection_list.php"><i class="fa fa-heart"></i> <{$My_Wishlist}><!--追蹤清單--></a></li>
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/AccountInformation.php"><i class="fa fa-edit"></i> <{$Member_Info}><!--修改資料--></a></li>
+								<li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ if $MemberState eq  0 }><{$Site_Url}>/member/login_windows.php?Url=<{ /if }><{ $Site_Url }>/member/kefu_add.php"><i class="fa fa-commenting"></i> <{$Member_Qa}><!--問答中心--></a></a></li>
+								<{if $MemberState eq "1" }><li class="hidden-xs"><a class="padding-6" tabindex="-1" href="<{ $Site_Url }>/member/member_login.php?Action=Logout"><i class="glyphicon glyphicon-off"></i> <{$Log_Out}><!--登出--></a></li><{ /if }>
+                                <li class="divider"></li>
+							</ul>
+                        
+						</li>
+						<li class="hidden-xs"></li>
+
+					</ul>
+
+					<!-- left -->
+					<ul class="top-links list-inline pull-left hidden-xs">
+						<li><a class="padding-6" href="<{$Site_Url}>"><span style="font-size:15px; line-height:15px;"><i class="fa fa-home"></i></span> <{$Index_Page}><!--首頁--></a></li>
+				  </ul>
+				  <{ include_php file="modules/advertising/horse.php" }>
+
+				</div>
+			</div>
+			<!-- /Top Bar -->
+
+			<!--
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.noborder 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent noborder"
+			-->
+			<div id="header" class="sticky clearfix">
+
+            <{ include_php file="search/search_box_2.php" }>
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+			<!-- BUTTONS -->
+			<ul class="pull-right nav nav-pills nav-second-main">
+
+				<!-- SEARCH -->
+					<li class="search">
+						<a href="javascript:;">
+							<i class="fa fa-search"></i>
+						</a>
+					</li>
+				<!-- /SEARCH -->
+
+				<!-- QUICK SHOP CART -->
+				<li class="quick-cart" id="quick-cart">          <a href="#">
+        		<span class="badge badge-aqua btn-xs badge-corner">0</span>
+        		<i class="fa fa-shopping-cart"></i>
+        	</a>
+        </li>
+
+				<!-- /QUICK SHOP CART -->
+
+			</ul>
+			<!-- /BUTTONS -->
+
+						<!-- Logo -->
+						<a class="logo pull-left" href="<{$Site_Url}>">
+							<img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" alt="<{ $HtmlTitle }>"  />
+						</a>
+
+						<!--
+							Top Nav
+
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse pull-right nav-main-collapse collapse">
+							<nav class="nav-main">
+
+								<!--
+									NOTE
+
+									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+									Direct Link Example:
+
+
+									<li>
+										<a href="#">HOME</a>
+									</li>
+								-->
+                                
+								<ul id="topMain" class="nav nav-pills nav-main">
+									<li class="dropdown"><!-- PAGES -->
+										<a href="<{ $Site_Url }>/help/Aboutour.php?info_id=3">
+											關於我們
+										</a>
+									</li>
+
+                          <!-- 商品分類下拉 -->
+                          <{ if $menuStyle eq 0 }><{ include file="menu_product1.html" }><{ elseif $menuStyle eq 1 }><{ include file="menu_product2.html" }><{ elseif $menuStyle eq 2 }><{ include file="menu_product3.html" }><{ /if }>
+                          <!-- 商品分類下拉 -->
+
+									<li ><!-- FEATURES -->
+										<a href="<{$Site_Url}>/article/1">
+											最新消息
+										</a>
+									</li>
+
+									<li><!-- BLOG -->
+										<a href="<{$Site_Url}>/article/9">
+											BLOG
+										</a>
+
+									</li>
+									<li><!-- SHOP -->
+										<a href="<{$Site_Url}>/brand/">
+											品牌總覽
+										</a>
+									</li>
+									<li><!-- SHORTCODES -->
+										<a href="<{$Site_Url}>/help/contact.php">
+											聯絡我們
+										</a>
+
+									</li>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>

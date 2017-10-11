@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<title>FB登入後導覽頁 - <{ $HtmlTitle }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+<style>
+
+#login_infor {
+
+color: #666666;
+
+border: 3px solid #e5e5e5;
+
+margin: 0 auto;
+
+margin-top: 35px;
+
+margin-bottom: 35px;
+
+padding: 10px;
+
+width: 873px;
+
+}
+
+#login_infor .box1 {
+
+width: 384px;
+
+padding: 20px;
+
+text-align: left;
+
+float: left;
+
+font-size:12px;
+
+}
+
+#login_infor .box1 li {
+
+	list-style-type: disc;
+
+}
+
+#login_infor .box1 h1 {
+
+	line-height:35px;
+
+}
+
+#login_infor .box {
+
+width: 384px;
+
+padding: 20px;
+
+text-align: left;
+
+margin: auto;
+
+font-size:12px;
+
+}
+
+#login_infor .box h1 {
+
+	line-height:35px;
+
+}
+
+#login_infor .title {
+
+	text-align:center;
+
+	margin-bottom:10px;
+
+}
+
+#login_infor .bot {
+
+	margin:auto;
+
+	text-align:center;
+
+	padding:15px;
+
+	float:left;
+
+}
+
+</style>
+
+</head>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<div id="body_out">
+
+<div id="body_center">
+
+ <div id="title_l">
+
+            <div id="title_l_left">
+
+<a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span> FB登入後導覽頁
+
+  </div>
+
+  <div id="title_l_right">
+
+    </div>
+
+</div>
+
+<!--content開始-->
+
+<div id="login_infor">
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+          <tr>
+
+            <td width="50%" align="right" valign="top" style="border-right: 1px solid #e5e5e5;"><div class="box">
+
+<div class="title"><img src="<{ $template_dir }>/images/login_infor_shopping_title.png" border="0" /></div>
+<div style="height:150px; padding-left:40px; padding-right:40px;">
+<{ $Content }></div>
+
+<div style="width:100%; text-align:center"><a href="<{$Site_Url}>"><img src="<{ $template_dir }>/images/login_infor_index.png" border="0"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<{$Site_Url}>/shopping/shopping.php"><img src="<{ $template_dir }>/images/login_infor_shopping.png" border="0"></a></div>
+
+</div></td>
+
+            <td valign="top" ><div class="box1">
+
+<div class="title"><img src="<{ $template_dir }>/images/login_infor_member_title.png" border="0"></div>
+<div style="height:150px; padding-left:40px; padding-right:20px; padding-top:5px;">
+您可以至會員中心填寫會員資料：<br />
+
+<ul>
+
+<li>性別</li>
+
+<li>出生日期</li>
+
+<li>地區名稱</li>
+
+<li>聯絡地址</li>
+
+<li>手機</li>
+
+<li>市話</li>
+
+</ul>
+</div>
+<div style="width:100%; text-align:center">
+<a href="<{ $Site_Url }>/member/AccountInformation.php"><img src="<{ $template_dir }>/images/login_infor_member.png" border="0"></a>
+</div>
+</div>
+
+            
+
+            </td>
+
+          </tr>
+
+        </table>
+
+
+
+
+
+
+
+</div>
+
+<div style="clear:both;"></div><!--content結束-->
+
+</div><!--身體結束-->
+
+</div><!--身體置中結束--><{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

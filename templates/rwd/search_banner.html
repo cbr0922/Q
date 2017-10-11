@@ -1,0 +1,21 @@
+<table width="212" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="32" valign="top"><img src="<{ $template_dir }>/images/title-category.gif" width="212" height="30"></td>
+        </tr>
+        <tr>
+          <td style="border:#ccc 1px solid;padding-top:15px;padding-bottom:15px;">
+  <{ section name=list loop=$ProductListAll }>
+                        <table width="80%" border="0" align="center" cellpadding="3" cellspacing="0">
+                          <tr> 
+                            <td width="9%" height="25" valign="top" style="padding-top:5px"><img src="<{ $template_dir }>/images/an2.gif" width="10" height="10"></td>
+                            <td width="91%"><a href="<{ $Site_Url }>/product/product_class_detail.php?topid=<{ $topid }>&bid=<{ $ProductListAll[list].bid  }>"><{ $ProductListAll[list].catname  }></a></td>
+                          </tr>
+                          <tr>
+                            <td height="1" colspan="2" valign="top" bgcolor="#e5e5e5"></td>
+                          </tr>
+                        </table>
+						<{ /section }>
+                        
+		  </td>
+        </tr>
+      </table>

@@ -1,0 +1,47 @@
+
+
+	<a href="javascript:void(0);" class="icon_cart"  title="購物車">
+		<span class="badge badge-aqua btn-xs badge-corner"><{ $CountItem}></span>
+		<!--<i class="fa fa-shopping-cart"></i>-->
+	</a>
+	<{ if $CountItem > 0 }>
+	<div class="quick-cart-box nomargin" id="quick-cart-box">
+	<div class="padding-10">
+		<h4>Shop Cart</h4>
+
+		<div class="quick-cart-wrapper">
+			<{ section name=list loop=$Cart_item }>
+				<{ section name=list1 loop=$Cart_item[list].goods }>
+				<a <{if $urlisbox eq 1 }> class="lightbox" href="../product/showProduct.php?goods_id=<{$Cart_item[list].goods[list1].gid}>"  data-plugin-options='{"type":"ajax", "closeOnBgClick":true}'<{else}>href="<{ $Site_Url }>/product/detail<{$Cart_item[list].goods[list1].gid}>"<{/if}>><!-- cart item -->
+					<img class="img-50" src="<{if $Cart_item[list].goods[list1].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$Cart_item[list].goods[list1].smallimg}><{/if}>" alt="" />
+					<h6><span><{$Cart_item[list].goods[list1].count}>x</span> <{$Cart_item[list].goods[list1].goodsname}></h6>
+					<small>NT$ <{$Cart_item[list].goods[list1].price}></small>
+				</a><!-- /cart item -->
+				            
+				<{ /section }>
+			<{ /section }>
+			<!-- cart no items example -->
+			<!--
+			<a class="text-center" href="#">
+				<h6>0 ITEMS ON YOUR CART</h6>
+			</a>
+			-->
+		</div>
+<{if $Cart_item[list].goods[list1].ifbonus eq 1 || $Cart_item[list].goods[list1].ifgoodspresent eq 1 || $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifchange eq 1 || $Cart_item[list].goods[list1].ifadd eq 1 }><{/if}>
+		<!-- quick cart footer -->
+		<div class="quick-cart-footer clearfix">
+			<a href="<{ $Site_Url }>/shopping/shopping.php" class="btn btn-primary btn-xs pull-right">結帳</a>
+			<span class="pull-left cart_top_t"><strong>總計:</strong> NT$ <{$totalPrices}></span>
+		</div>
+		<!-- /quick cart footer -->		<{/if}>
+		</div>
+	</div>
+	<script>
+		//showcart
+		$("#quick-cart").mouseover(function(){
+			$("#quick-cart-box").show();
+		});
+		$(".quick-cart").mouseout(function(){
+			$("#quick-cart-box").hide();
+		});
+	</script>

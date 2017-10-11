@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><title><{ $HtmlTitle }> -- <{  $Title }> </title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+<div id="body_center"> <div id="title_l">
+            <div id="title_l_left">
+    <!--h1>線上客服</h1--><a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span> 線上客服
+  </div>
+  <div id="title_l_right">
+    </div>
+</div>
+<div id="body_left"  ><!--左邊開始-->
+  <{ include_php file="include/include_product_class.php" }> 
+		
+</div><!--左邊結束-->
+ <div id="body_right" ><!--右邊邊開始-->
+       
+        <br>
+          <table width="700"  border="0" align="center" cellpadding="2" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="top">
+                    <a href="http://webmsn.msn.com.tw/webmsn_button"><img src="http://webmsn.msn.com.tw/webmsn_button/images/wlml_paster09a.gif" border="0"></a><a href="http://webmsn.msn.com.tw/webmsn_button/start.htm" target="_blank"><img src="http://webmsn.msn.com.tw/webmsn_button/images/wlml_paster09.gif" border="0"></a>
+					
+					<a href="http://webmsn.msn.com.tw/webmsn_button/start.htm" target="_blank"><img src="http://webmsn.msn.com.tw/webmsn_button/images/wlml_paster02.gif" border="0"></a><a href="http://webmsn.msn.com.tw/webmsn_button"><img src="http://webmsn.msn.com.tw/webmsn_button/images/wlml_paster02a.gif" border="0"></a>
+
+                    </td>
+                  </tr>
+          </table></div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+</div><!--身體置中結束-->
+      <{ include_php file="include/bottom.php" }>
+</body>
+</html>

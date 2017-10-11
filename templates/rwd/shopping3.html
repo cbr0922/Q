@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>填寫資料 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>"  <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+	<{ include_php file="include/menu.php" }>
+	<{ if $Ear_radio eq 1 }><{ include_php file="modules/advertising/ear.php" }><{ /if }>
+	
+	<section class="page-header page-header-xs">
+		<div class="container">
+			<h1 class="bfont size-18 hidden">填寫資料</h1>
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb breadcrumb-inverse">
+				<li><a href="<{ $Site_Url }>">Home</a></li>
+				<li><a href="<{ $Site_Url }>/shopping/shopping.php">購物車</a></li>
+				<li class="active">填寫資料</li>
+			</ol><!-- /breadcrumbs -->
+		</div>
+	</section>
+	
+	<!-- 內容 -->
+	<section>
+		<div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+					<div class="shopping_steps">
+						<div class="step_normal"><div class="step_normal_number">1</div>商品確認</div>
+						<div class="step_arrow"><i class="icon-caret-right"></i></div>
+						<div class="step_normal"><div class="step_normal_number">2</div>航班確認</div>
+						<div class="step_arrow"><i class="icon-caret-right"></i></div>
+						<div class="step_over"><div class="step_number">3</div>填寫資料</div>
+						<div class="step_arrow"><i class="icon-caret-right"></i></div>
+						<div class="step_normal"><div class="step_normal_number">4</div>訂單完成</div>
+					</div>
+					<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="shopping_table">
+					<tr><td><table class="table-hover responsive">
+						<thead>
+							<tr>
+								<th class="span_hidden">序號</th>
+								<th>圖片</th>
+								<th>商品名稱</th>
+								<th>單價 NT$ </th>
+								<th>數量</th>
+								<th>小計</th>
+							</tr>
+						</thead>
+						<tbody>
+						<{ section name=list loop=$Cart_item }>
+							<form method="get" action="changeprice.php" name="priceform<{ $Cart_item[list].gkey }>" id="priceform<{ $Cart_item[list].gkey }>" class="form-horizontal" role="form" >
+								<input type=hidden name=Action value='change'/>
+								<input type=hidden name=key value='<{ $smarty.get.key }>'/>
+								<input type=hidden name=gkey value='<{ $Cart_item[list].gkey }>'/>
+								<tr>
+									<td data-label="序號" class="span_hidden"><{math equation="(x+y)" x=$smarty.section.list.index y=1 }></td>
+									<td data-label="圖片"><a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].gid }>">
+										<img src='<{if $Cart_item[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }><{/if}>' width="70" alt="<{ $Cart_item[list].goodsname }>" />
+									</a></td>
+									<td data-label="商品名稱" class="receivePay_text">
+										<{if $Cart_item[list].ifchange eq 1 || $Cart_item[list].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 }><{ $Cart_item[list].goodsname }>
+										<!--<{if $Cart_item[list].ifchange eq 1}>[加購商品]<{/if}>
+										<{if $Cart_item[list].ifpresent eq 1}>[滿額禮]<{/if}>-->
+										<{else}> <a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].gid }>"><{ $Cart_item[list].goodsname }></a> <{if $Cart_item[list].packgid>0}>[組合商品]<{/if}>
+										<{/if}>
+										<{if $Cart_item[list].xygoods_des neq ""}><{ $Cart_item[list].xygoods_des }><{/if}>
+										<{if $Cart_item[list].good_color neq ""}> <br>顏色：<{ $Cart_item[list].good_color }><{/if}>
+										<{if $Cart_item[list].good_size neq ""}> <br>尺寸：<{ $Cart_item[list].good_size }><{/if}>
+										<{if $Cart_item[list].detail_name neq ""}> <br>規格：<{ $Cart_item[list].detail_name }><{if $Cart_item[list].detail_des neq ""}> —— <{ $Cart_item[list].detail_des }><{/if}><{/if}>
+										<{if $Cart_item[list].rebateinfo neq ""}><br><{ $Cart_item[list].rebateinfo }><{/if}>
+										<{if $Cart_item[list].promotion_name}> <br>【<{$Cart_item[list].promotion_name}>】<{/if}>
+									</td>
+									<td data-label="單價 NT$">
+										<{if $Cart_item[list].packgid eq 0}><{ $Cart_item[list].price }><{if ($Cart_item[list].ifjs eq 1)}> <img src="../images/co-price.gif"> <{/if}><{/if}>
+									</td>
+									<td data-label="數量"><{ $Cart_item[list].count }></td>
+									<td data-label="小計"><{if $Cart_item[list].packgid eq 0}><{ $Cart_item[list].total }><{ if $Cart_item[list].totalcombi>0 }>+<{$Cart_item[list].totalcombi}>積分<{/if}><{/if}></td>
+								</tr>
+							</form>
+						<{ /section }>
+						</tbody>
+					</table></td></tr>
+					<tr><td>&nbsp;</td></tr>
+					<tr><td id="showtrans">
+                    <table align="right" class="nomargin">
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">商品總金額：</td>
+                            <td align="right"><{$Cart_totalPrices}>元</td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">折扣後金額<{$saleoffinfo}>：</td>
+                            <td align="right"><{$Cart_discount_totalPrices}>元 <{ if $Cart_combipoint>0 }>+<{$Cart_combipoint}>積分<{/if}></td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" class="shop-item-price">消費總金額：</td>
+                            <td align="right" class="shop-item-price"><{ $Cart_transmoney+$Cart_discount_totalPrices }>元 <{ if $Cart_combipoint>0 }>+<{$Cart_combipoint}>積分<{/if}></td>
+                          </tr>
+                     </table>
+                    </td></tr>
+					
+					<{ if $em_goods_array neq '' }><tr><td>&nbsp;</td></tr>
+        <tr>
+          <td align="left" class="shopping2_present"><div class="important-txt size-16 margin-top-10"><i class="fa fa-caret-down"></i> <b>滿額好禮</b></div>
+            <{ section name=list loop=$em_goods_array }>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <table border="0" cellpadding="3" cellspacing="0" id="cart_add_items">
+                <tr>
+                  <td valign="top" align="center" class="pics" style="padding-right:10px"><a class="lightbox" href="../product/showProduct.php?goods_id=<{ $em_goods_array[list].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'>
+                  <img id="linkimg" src="<{if $em_goods_array[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../UploadFile/GoodPic/<{ $em_goods_array[list].smallimg }><{/if}>" width=70 border=0>
+                  
+                  </a></td>
+                  <td valign="top" align="left" class="infor"><a class="lightbox" href="../product/showProduct.php?goods_id=<{ $em_goods_array[list].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'><{ $em_goods_array[list].goodsname }></a><br>
+                    額滿禮：<{ $em_goods_array[list].present_money }>
+                    <{ if $em_goods_array[list].have_present_money>0 }> <br>
+                    <b>還需要<{ $em_goods_array[list].have_present_money }></b> <{ /if }> <br />
+                    <span class="important-txt"><i class="icon-hand-up"></i>&nbsp;<a href="cart.php?Action=presentgoods&gid=<{ $em_goods_array[list].gid }>&key=<{ $smarty.get.key }>" class="addcart">選擇此贈禮</a></span></td>
+                </tr>
+              </table>
+            </div>
+            <{ /section }></td>
+        </tr>
+        <{/if}>
+					
+					
+					<{if $mybuypoint>0 }>
+					<tr>
+						<td><div class="trans_name" style="width:auto;"><i class="icon-circle-arrow-right"></i> 購物金計算</div>
+							<form action="cart.php?Action=buypoint" method="post" onSubmit="javascript:return checkpointform(this);">
+							<table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" style="border: 1px solid #cccccc;">
+							<input type="hidden" name="key" value="<{ $smarty.get.key }>">
+							<tr>
+								<td align="left" style="padding:10px;"><label><span class="note">*您擁有 <{ $mybuypoint }> </span></label>
+								購物金<br>
+								請輸入您要使用的購物金
+								<input name="buypoint" type="text" size="5" maxlength="5" value="<{ $Cart_buypoint }>">
+								<input type="submit" name="Submit" value="使用"></td>
+							</tr>
+							<tr>
+								<td align="right" style="padding-right:10px;">折抵購物金：<{ $Cart_buypoint }>元</td>
+							</tr>
+							</table>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td height="35" align="right" valign="bottom" class="price">支付現金：<{$Cart_discount_totalPrices+$Cart_transmoney-$Cart_buypoint}>元 <{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}></td>
+					</tr>
+					<{/if}>
+					<tr><td>&nbsp;</td></tr>
+					<{if $cart_usebonus eq 1 ||$cart_useticket eq 1  }>
+        <tr>
+          <td><div class="trans_name" style="width:auto;margin-bottom:0"><i class="icon-circle-arrow-right"></i> 折扣計算</div></td>
+        </tr>
+        <tr>
+                <td style="padding-bottom: 5px;"><span class="price">＊紅利折抵與現金券不可同時使用</span></td>
+              </tr>
+        <tr>
+          <td align="center" class="uhea">
+          <{if $cart_usebonus eq 1}>
+          <table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" class="red_bonus nomargin">
+              <tr>
+                <td style="padding-bottom:5px;"><strong style="font-size:15px;">紅利折抵點數</strong></td>
+              </tr>
+              <tr>
+                <td height="19" valign="top">您目前擁有<span class="price"><{$sumpoint}></span>點紅利</td>
+              </tr>
+              <form action="cart.php?Action=bonus" method="post" onSubmit="javascript:return checkpointform(this);">
+                <input type="hidden" name="MemberPice_total" value="<{ $Cart_totalPrices }>">
+                <input type="hidden" name="key" value="<{ $smarty.get.key }>">
+                <tr>
+                  <td align="left"><div style="float:left">*本訂單您最多可以抵扣<span class="prices"> <{ $MaxbonusPoint }> </span>點紅利</div>
+                    <br>
+                    <div style="float:left; line-height:30px;">請輸入您要使用的點數</div>
+                    <input class="form-control" style="width:57px; height:30px;margin-left: 5px;margin-right: 5px;float:left" name="point" type="text" size="5" maxlength="5" value="<{ $Cart_bonus }>">
+                    <input type="submit" name="Submit" value="使用" class="btn btn-primary btn-sm" /></td>
+                </tr>
+              </form>
+            </table>
+            <hr>
+            <{/if}>
+            <{if $cart_useticket eq 1}>
+            <table width="100%" cellpadding="3" cellspacing="0" class="tickits nomargin">
+              <tr>
+                <td style="padding-bottom:5px;"><strong style="font-size:15px;">使用現金券</strong></td>
+              </tr>
+              <tr>
+                <td align="left">
+                <label class="radio">
+                <input name="ticketuseid" type="radio" style="display:none" value="0" 
+									<{ if ($Cart_tickets.id eq 0) }> checked <{ /if }> onClick="location.href='cart.php?Action=ticket&ticketid=0&key=<{ $smarty.get.key }>';"><i></i>不使用現金券</label></td>
+              </tr>
+              <{ section name=list loop=$TicketList }>
+              <tr>
+                <td align="left">
+                <label class="radio">
+                <input type="radio" name="ticketuseid" style="display:none" value="<{ $TicketList[list].tickeid }>" onClick="location.href='cart.php?Action=ticket&ticketid=<{ $TicketList[list].tickeid }>&ticketcode=<{ $TicketList[list].ticketcode }>&key=<{ $smarty.get.key }>';" <{ if ($Cart_tickets.id eq $TicketList[list].tickeid && $Cart_tickets.ticketcode eq $TicketList[list].ticketcode) }> checked <{ /if }>><i></i><{ $TicketList[list].ticketname }></label>
+                  <!--可抵用<{ $TicketList[list].money }>元,可使用<{ $TicketList[list].count }>次--></td>
+              </tr>
+              <{ /section }>
+              <tr>
+                <td align="left">
+                <label class="radio" style="float:left">
+                <input name="ticketuseid" type="radio" style="display:none" value="-1" <{ if ($Cart_tickets.type eq 1) }> checked <{ /if }> ><i></i>使用通用現金券</label>
+                  <input class="form-control" style="width:162px; height:30px;margin-right: 5px;float:left" name="ticketcode" id="ticketcode" type="text" value="<{ if ($Cart_tickets.type eq 1) }><{ $Cart_tickets.ticketcode }><{ /if }>" onClick="if (this.value == '請輸入現金券號碼'){ this.value='';} else if(this.value==''){ this.value='請輸入現金券號碼';}" onMouseOut="if(this.value==''){ this.value='請輸入現金券號碼';}">
+                  <input style="float:left" name="Input" type="button" value="使用" onClick="location.href='cart.php?Action=ticket&ticketid=-1&key=<{ $smarty.get.key }>&ticketcode=' + document.getElementById('ticketcode').value;" class="btn btn-primary btn-sm"></td>
+              </tr>
+              <tr>
+                <td align="right"><div  class="shop-item-price">折扣後金額：<{$Cart_discount_totalPrices}>元</div></td>
+              </tr>
+            </table><{/if}></td>
+        </tr>
+        <{/if}>
+					<Tr>
+						<td><form name="shoppingform" id="shoppingform" action="shopping4.php" method="POST" onsubmit="return chknum();">
+							<input type="hidden" name="Action" value="view">
+							<input type="hidden" name="key" value="<{$smarty.get.key}>">
+							<table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" style="border: 0px solid #cccccc;">
+							
+							<tr><td>&nbsp;</td></tr>
+							
+							<tr>
+								<td><div class="trans_name" style="width:auto;"><i class="icon-circle-arrow-right"></i> 取貨人資訊</div>
+								<!--<input type="button" name="button3" id="button3" value="修改"  onclick="showWin('url','shopping_ajax_userinfo.php?act=modi','',550,250);">--></td>
+							</tr>
+							<tr>
+								<td height="35" valign="bottom" id="showuserinfo"></td>
+							</tr>
+							<tr><td>&nbsp;</td></tr>
+							
+							<tr>
+								<td height="40" align="center" class="padding-top-20"><input type="button" name="button" id="button" value="上一步" onClick="location.href='flight-order.php?key=<{$smarty.get.key}>';" class="btn size-15 cart_botton" />
+								<input type="submit" name="button2" id="button2" value="送出訂單" class="btn size-15 btn-primary cart_botton_r" /></td>
+							</tr>
+							</table>
+						</FORM></td>
+					</tr>
+					</table>
+				</div>
+            </div>
+        </div>
+    </section>
+	<div class="modal fade" id="ajax" role="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content noborder"></div>
+		</div>
+	</div>
+	<{ include_php file="include/bottom.php" }>
+	<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+	<script type="text/javascript" src="<{ $Site_Url }>/js/alter.js"></script>
+	<script src="<{ $Site_Url }>/js/area.js" type="text/javascript" charset="utf-8"></script>
+	<script src="<{ $Site_Url }>/js/jquery.ui.core.js" type="text/javascript" charset="utf-8"></script>
+	<script src="<{ $Site_Url }>/js/jquery.ui.widget.js" type="text/javascript" charset="utf-8"></script>
+	<script src="<{ $Site_Url }>/js/jquery.ui.datepicker.js" type="text/javascript" charset="utf-8"></script>
+
+<script language="javascript">
+
+function chknum(){
+	
+}
+
+function showpage(url,data,divname){
+	$.ajax({
+				url: url,
+				data: data,
+				type:'get',
+				dataType:"html",
+				cache:false,
+				success: function(msg){
+				    $('#' + divname).html(msg);
+				}
+	});
+}
+
+showpage("shopping_ajax_userinfo.php","","showuserinfo");
+
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});</script>
+</body>
+</html>

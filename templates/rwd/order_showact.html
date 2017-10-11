@@ -1,0 +1,32 @@
+<form action="order_act.php" method="post" name="orderopform" id="orderopform" class="form-horizontal" role="form">
+	<input value="<{$smarty.get.order_id}>" name="order_id" type='hidden'/>
+	<input value="<{$smarty.get.state_value}>" name="state_value" type='hidden'/>
+	<input value="<{$smarty.get.state_type}>" name="state_type" type='hidden'/>
+	<input value="<{$smarty.get.optype}>" name="optype" type='hidden'/>
+	<input value="<{$smarty.get.detail_id}>" name="detail_id" type='hidden'/>
+	<div class="row padding-30">
+		<div class="col-xs-12 col-sm-12">
+			<div class="form-group">
+				<label>煩請您填寫原因，讓我們日後可提供您更好的服務</label>
+				<textarea maxlength="10000" class="form-control" name="remark" id="remark" cols="65" rows="3"></textarea>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12">
+			<button type="button" name="button" id="button" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black margin-bottom-20" onclick="submitOrderAct();">取消訂單送出</button>
+			<button type="button" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black "data-dismiss="modal">取消</button>
+		</div>
+	</div>
+</form>
+<!--驗證欄位-->
+<script language="javascript">
+function submitOrderAct(){
+	$('#orderopform').submit();
+}
+</script>
+<script language="javascript">
+$(document).ready(function() {
+		$('body').on('hidden.bs.modal', '.modal', function () {
+    	$(this).removeData('bs.modal');
+});
+		});
+</script>

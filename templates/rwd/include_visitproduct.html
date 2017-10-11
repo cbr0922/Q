@@ -1,0 +1,143 @@
+
+
+
+<div class="col-lg-12 margin-top-80 margin-bottom-50">
+
+							<h4 class="bfont owl-featured margin-bottom-30" style="border-bottom:1px solid rgba(0, 0, 0, 0.15) !important;padding-bottom: 15px;">您已瀏覽商品</h4>
+
+							<div class="owl-carousel featured nomargin owl-padding-10" data-plugin-options='{"singleItem": false, "items": "4", "stopOnHover":false,  "autoHeight": false, "navigation": true, "pagination": false}'>
+
+								<{ section name=list loop=$viewProductArray }>
+
+								<div class="shop-item nomargin">
+
+                                <div class="thumbnail noborder nopadding">
+
+									<div class="img-container">
+
+										<!-- 相關商品圖片 -->
+
+										<{if $pic_fix eq 1}>
+
+                                              <div class="thumbnail_container_fix">
+
+                                              <div class="thumbnail_fix">
+
+                                        <{/if}>
+
+                                <a class="shop-item-image" href="detail<{  $viewProductArray[list].gid  }>"><img class="lazy" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $viewProductArray[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path }>/<{ $viewProductArray[list].smallimg }>
+
+<{/if}>" border="0" alt="<{ $viewProductArray[list].goodsname }>" align="top" /></a>
+
+										<{if $pic_fix eq 1}>
+
+                                            </div>
+
+                                            </div>
+
+                                        <{/if}>
+
+										<!-- /相關商品圖片 -->
+
+
+
+									</div>
+
+											<!-- 加入追蹤 -->
+
+											<div class="shop-option-over"<{if $viewProductArray[list].heartColor eq 1}> style="opacity: 1;"<{/if}>><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+
+												<a class="gid<{$viewProductArray[list].gid}> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{$viewProductArray[list].gid}>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單"><i class="fa fa-heart nopadding<{if $viewProductArray[list].heartColor eq 1}> heartColor<{/if}>"></i></a>
+
+
+
+								  </div>
+
+											<!-- /加入追蹤  -->
+
+
+
+											<!-- 特惠標示 -->
+
+											<div class="shop-item-info  text-left">
+
+												<{if $viewProductArray[list].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+
+												<{if $viewProductArray[list].ifsaleoff eq 1}><span class="label label-danger">促銷中</span><{/if}>
+
+											<!--<span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+
+											</div>
+
+											<!-- 特惠標示 -->
+
+
+
+                                <!-- 右上購物車按鈕
+
+								<div class="shop-option-over">
+
+									<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus size-18"></i></a>
+
+								</div>
+
+								 /右上購物車按鈕 -->
+
+                                 
+
+							  </div>
+
+
+
+                                <div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
+
+									<!--<div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $viewProductArray[list].sale_name }></div>-->
+									<div class="goodbrand" <{if $viewProductArray[list].brand_id eq ""}>style="height: 33px;"<{/if}>>
+									<{ section name=j loop=$viewProductArray[list].br }>
+									<a  href="<{$Site_Url}>/brand/<{$viewProductArray[list].br[j].brand_id}>" class="namecolor"><{$viewProductArray[list].br[j].brandname}></a>
+									<{ /section }>
+									</div>
+
+
+									<div class="shop-item-summary" style="padding:5px 0 5px 0">
+									<a href="detail<{  $viewProductArray[list].gid  }>">
+											<h2 style="max-height:42px; overflow:hidden;"><{ $viewProductArray[list].ERP }></h2>
+											<h2 style="height:42px; overflow:hidden;"><{ $viewProductArray[list].goodsname }></h2>
+									</a>
+									</div>
+
+
+
+									<!-- 相關商品價格 -->
+
+
+
+									<div class="shop-item-price"  <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+									
+                                    <{ if $viewProductArray[list].price neq 0 && $viewProductArray[list].price neq $viewProductArray[list].pricedesc }>
+									
+										<span class="line-through">NT$ <{ $viewProductArray[list].price }></span> 
+									
+									<{ /if}>
+
+                                        NT$ <{ $viewProductArray[list].pricedesc }>
+
+									</div>
+
+
+
+									<!-- /相關商品價格 -->
+
+
+
+								</div>
+
+							  </div>
+
+							<{ /section }>
+
+
+
+							</div>
+
+						</div>

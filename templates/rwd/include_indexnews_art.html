@@ -1,0 +1,8 @@
+<font style="color: #f464b7;font-size: 22px;font-weight: bold;">文章排行</font>
+<div class="paihang-block2_a"> <{ section name=i loop=$pic_news start=3 }>
+  <{ if $pic_news[i].title != '' }>
+  <ul class="paihang-list_a">
+    <li><div style=" float:left;width:206px; height:30px; overflow:hidden;"><{ $pic_news[i].ltitle }></div><br /><span><div style=" float:left;width:206px; height:30px; overflow:hidden;"><img src="<{ $template_dir }>/images/pink-block.gif" width="<{$pic_news[i].viewnum/$maxview*300}>" height="5" /></div></span></li>
+  </ul>
+  <{ /if }>
+  <{ /section  }> </div>

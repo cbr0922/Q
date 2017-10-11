@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<title><{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}> - <{ $site_name }></title>
+
+<meta name="description" content="<{ if $meta_des neq '' }><{ $meta_des }><{elseif $classinfo_array.meta_des neq "" }><{ $classinfo_array.meta_des }><{else}><{ $Meta_desc }><{/if}>" />
+<meta name="keywords" content="<{ if $meta_key neq '' }><{ $meta_key }><{elseif $classinfo_array.meta_key neq "" }><{ $classinfo_array.meta_key }><{else}><{ $Meta_keyword }><{/if}>" />
+<meta name="Author" content="ESIT" />
+<!--顯示分享-->
+<{if $smarty.get.brand_id > '0' }>
+<meta property="og:title" content="<{ $brandname }>" />
+<meta property="og:type" content="brand" />
+<meta property="og:url" content="<{$Site_Url}>/brand/<{$smarty.get.brand_id}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="<{ if $meta_des neq '' }><{ $meta_des }><{else}><{ $meta_desc }><{/if}>" />
+<{elseif $smarty.get.bid neq "" }>
+<meta property="og:title" content="<{ $classinfo_array.catname }>" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>/product/<{$smarty.get.bid}>" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="<{if $classinfo_array.meta_des neq "" }><{ $classinfo_array.meta_des }><{else}><{ $meta_desc }><{/if}>" />
+<{else}>
+<meta property="og:title" content="全部商品" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<{$Site_Url}>/product/index.php" />
+<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+<meta property="og:description" content="<{ $meta_desc }>" />
+<{/if}>
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- WEB FONTS : use %7C instead of | (pipe) -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+<!-- THEME CSS -->
+<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+<!-- PAGE LEVEL SCRIPTS -->
+<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+<{ include_php file="include/include_ga.php" }>
+<{if $smarty.get.skey neq ''}>
+<{$Search_js}>
+<{/if}>
+</head>
+<style>
+
+
+</style>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+
+<{if $smarty.get.brand_id>0 }>
+	<{if $brandname neq ""}>
+
+	<!--品牌分類-->
+	<{ include file="ES-include_brandclass.html" }>
+
+	<{/if}>
+<{/if}>
+			<!-- PAGE HEADER-->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="size-18 hidden">
+					<{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}>
+					</h1>
+
+
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>" itemprop="url"><span itemprop="title">首頁</span></a></li>
+						<{if $title neq ""}>
+							<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $title }></span></li>
+						<{elseif $smarty.get.brand_id>0 }>
+							<{if $brandname neq ""}>
+										<!--品牌分類-->
+								<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url"><span itemprop="title">品牌導覽</span></a></li><li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $brandname }></span></li>
+							<{/if}>
+						<{else}>
+							<{if $smarty.get.bid eq ""}>
+								<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/product/index.php" itemprop="url"><span itemprop="title">全部商品</span></a></li>
+							<{/if}>
+                            <{ section name=list loop=$class_banner }>
+							<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/product/<{$class_banner[list].bid}>" itemprop="url"><span itemprop="title"><{$class_banner[list].catname}></span></a></li>
+						<{/section}>
+						<{/if}>
+
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+			<!-- 品牌分類詳細描述 -->
+			<div class="img-responsive">
+			<{$catcontent}>
+			</div>
+			<!-- /品牌分類詳細描述 -->
+
+			<!-- Product List-->
+
+                <{ if $productlist_type eq 1 }>
+			    	        <{ include file="ES-product_index_left.html" }>
+                <{else}>
+                    <{ include file="ES-product_index_full.html" }>
+                <{/if}>
+
+
+
+      <{ include_php file="include/bottom.php" }>
+
+      <{ if $product_filter eq 0 }>
+        <div id="indexlist"><{ include file="ES-include_product_index_list.html" }></div>
+      <{/if}>
+
+<{if $showbid eq 6 || $showalert eq 1}>
+<div class="class_fix6">
+	<div class="table" style="margin-bottom:0;">
+		<div>
+			<script  language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=class_fix6" type="text/javascript"></script>
+		</div>
+	</div>
+</div>
+<{/if}>
+
+
+</body>
+
+<script language="javascript" src="<{ $Site_Url }>/assets/plugins/hash/jquery.hash.js"></script>
+<script language="javascript">
+
+function getProduct(name,value){
+  if(navigator.userAgent.match("MSIE")){
+	   value=encodeURIComponent(value);
+  }
+	var string = "",cate,ifflag;
+	if(name=="price"){
+		$.hash("price_from",$( "#gprice_from" ).val());
+		$.hash("price_to",$( "#gprice_to" ).val());
+	}else if(name=="orderby" || name=="page"){
+		$.hash(name,value);
+	}else if(value!=""){
+		if($.hash(name)!=null){
+			newcate = new Array();
+			cate = $.hash(name);
+			newcate = cate_array = cate.split("-");
+			ifflag = 0;
+			for(i=0;i<cate_array.length;i++){
+				if(value==cate_array[i]){
+					newcate = newcate.del(i);
+					ifflag = 1;
+				}
+			}
+			if(newcate.join("-")!=""){
+				if(ifflag==0)
+				 	$.hash(name,newcate.join("-") + "-" + value)
+				else
+					$.hash(name,newcate.join("-"))
+			}else{
+				if(ifflag==0){
+					$.hash(name,value)
+				}else{
+					$.hash(name,null)
+				}
+			}
+		}else
+			$.hash(name,value);
+	}
+
+	if($.hash("price_from")!=null){
+		string = "&gprice_start=" + $.hash("price_from");
+	}
+	if($.hash("price_to")!=null){
+		string = string+"&gprice_end=" + $.hash("price_to");
+	}
+	if($.hash("cate")!=null){
+		string = string+"&bid=" + $.hash("cate");
+	}
+	if($.hash("gprice")!=null){
+		string = string+"&gprice=" + $.hash("gprice");
+	}
+	if($.hash("page")!=null){
+		string = string+"&page=" + $.hash("page");
+	}
+	if($.hash("orderby")!=null){
+		cate = $.hash("orderby");
+		newcate = cate_array = cate.split("-");
+		string = string+"&orderby=" + newcate[0];
+		if(newcate[1]=="up")
+			string = string+"&ordertype=1";
+		else
+			string = string+"&ordertype=0";
+
+	}
+
+	var attr = new Array();
+	<{ section name=i loop=$attrvalue_array }>
+	if($.hash("<{$attrvalue_array[i].attrid}>")!=null){
+		string = string + "&attr<{$attrvalue_array[i].attrid}>=" + $.hash("<{$attrvalue_array[i].attrid}>");
+	}
+	<{ /section }>
+
+  $.ajax({
+       url: '<{ $Site_Url }>/product/ES-include_product_index_list.php',
+       data: 'bid=<{$smarty.get.bid}>&brand_class=<{$smarty.get.brand_class}>&skey=' + encodeURIComponent("<{$smarty.get.skey}>") + '&type=<{$smarty.get.type}>&brand_id=<{$smarty.get.brand_id}> &gprice_from=' + $.hash("price_from") + '&gprice_to=' + $.hash("price_to") + string,
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					$('#productlist').html(msg);
+				}
+	});
+
+	if(name=="page")
+		click_scroll("productlist");
+
+/*
+	$.ajax({
+       url: '<{ $Site_Url }>/product/include_product_index_list2.php',
+       data: 'bid=<{$smarty.get.bid}>&skey=' + encodeURIComponent("<{$smarty.get.skey}>") + '&type=<{$smarty.get.type}>&brand_id=<{$smarty.get.brand_id}> &gprice_from=' + $.hash("price_from") + '&gprice_to=' + $.hash("price_to") + string,
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					$('#productlist2').html(msg);
+				}
+	});
+	if(name=="page")
+		click_scroll("productlist2");
+*/
+}
+
+function ini(){
+	var cate;
+	var attr = new Array();
+	var attr_array = new Array();
+	if($.hash("price_from")!=null){
+		if($.hash("price_to")== null)
+			$.hash("price_to",2000);
+		$( "#slider-range" ).slider({values:[$.hash("price_from"),$.hash("price_to")]});
+	}
+	if($.hash("cate")!=null){
+		cate = $.hash("cate");
+		cate_array = cate.split("-");
+		for(i=0;i<cate.length;i++){
+			$("#cate" + cate_array[i]).attr("checked",true);
+		}
+	}
+	if($.hash("gprice")!=null){
+		gprice = $.hash("gprice");
+		gprice_array = gprice.split("-");
+		for(i=0;i<gprice.length;i++){
+			$("#gprice" + gprice_array[i]).attr("checked",true);
+		}
+	}
+	if($.hash("orderby")!=null){
+		orderby = $.hash("orderby");
+		$("#sort" + orderby).attr("checked",true);
+	}
+/*
+	<{ section name=i loop=$attrvalue_array }>
+	if($.hash("<{$attrvalue_array[i].attrid}>")!=null){
+		attr[<{$smarty.section.i.index}>]= $.hash("<{$attrvalue_array[i].attrid}>");
+		attr_array[<{$smarty.section.i.index}>] = attr[<{$smarty.section.i.index}>].split("-");
+		for(i=0;i<attr_array[<{$smarty.section.i.index}>].length;i++){
+			//$("#<{$attrvalue_array[i].attrid}>").attr("checked",true);
+			//$("input:[name='value<{$attrvalue_array[i].attrid}>'][value='" + attr_array[<{$smarty.section.i.index}>][i] + "']").attr('checked','true');
+		}
+	}
+	<{ /section }>
+*/
+}
+//控制滾動條
+function click_scroll(objname) {
+	var scroll_offset = $("#" + objname).offset(); //得到pos这个div层的offset，包含两个值，top和left
+  var scroll_offset_top = scroll_offset.top;
+  var scrollTop=$(window).scrollTop();
+  var headerHeight = $("#header").height();
+  console.log(headerHeight+"-"+$("#header").css("top"));
+
+  if($("#header").css("top") == "0px"){
+    if($(window).width() >= 1024){
+      if(scrollTop > 0){
+        scroll_offset_top = scroll_offset_top;
+      }else {
+        scroll_offset_top = scroll_offset_top - 27;
+      }
+    }else if($(window).width() >= 769 && $(window).width() < 1024) {
+      if(scrollTop > 0){
+        scroll_offset_top = scroll_offset_top;
+      }else {
+        scroll_offset_top = scroll_offset_top + 60;
+      }
+    }
+  }
+
+	$("body,html").animate({
+	   scrollTop:scroll_offset_top //让body的scrollTop等于pos的top，就实现了滚动
+	},1000);
+}
+
+$(function() {
+
+	//調用屬性則去掉註銷前面的/*和後面的*/
+
+  	$( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 2000,
+      values: [ 0, 2000 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		$( "#gprice_from" ).val(ui.values[ 0 ]);
+		$( "#gprice_to" ).val(ui.values[ 1 ]);
+      },
+	  stop: function( event, ui ) {
+		getProduct("price");
+      }
+    });
+
+    $("#amount").focusout(function(){
+      var gprice = $(this).val().replace(/\$/g,"").split(" - ");
+      if(gprice.length==2 && gprice[0]>=0 && gprice[1]>gprice[0]){
+        $( "#gprice_from" ).val(gprice[ 0 ]);
+        $( "#gprice_to" ).val(gprice[ 1 ]);
+        getProduct("price");
+      }
+    });
+
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	ini();
+
+
+  <{ if $product_filter eq 1 }>
+    getProduct("","");
+  <{else}>
+  <{/if}>
+
+
+
+})
+Array.prototype.del=function(n) {　//n表示第几项，从0开始算起。
+//prototype为对象原型，注意这里为对象增加自定义方法的方法。
+　if(n<0)　//如果n<0，则不进行任何操作。
+　　return this;
+　else
+　　return this.slice(0,n).concat(this.slice(n+1,this.length));
+　　/*
+　　　concat方法：返回一个新数组，这个新数组是由两个或更多数组组合而成的。
+
+　　　　　　　　　这里就是返回this.slice(0,n)/this.slice(n+1,this.length)
+　　 　　　　　　组成的新数组，这中间，刚好少了第n项。
+　　　slice方法： 返回一个数组的一段，两个参数，分别指定开始和结束的位置。
+　　*/
+}
+
+if($.hash("3")!=null){
+  newcate = $.hash("3").split("-");
+  for(i=0;i<newcate.length;i++){
+    $("."+newcate[i]).addClass("check2");
+  }
+}
+
+if($.hash("4")!=null){
+  newcate = $.hash("4").split("-");
+  for(i=0;i<newcate.length;i++){
+    $("."+newcate[i]).addClass("fa fa-check");
+  }
+}
+
+if($.hash("5")!=null){
+  newcate = $.hash("5").split("-");
+  for(i=0;i<newcate.length;i++){
+    $("."+newcate[i]).addClass("check2");
+  }
+}
+
+$(document).ready(function(){
+  $(".value").click(function(){
+    $(this).toggleClass("fa fa-check");
+  });
+
+  $(".txt").click(function(){
+    $(this).toggleClass("check2");
+  });
+
+  <{ if $product_filter eq 1 }>
+  checkCookie();
+  <{else}>
+  $("#indexlist").hide();
+  $("#footer").hide();
+  <{/if}>
+});
+
+function checkCookie(){
+  var wdth=1000;//$(window).width();
+
+	if(wdth < 768){
+
+		document.getElementById("icon-filter").className = "fa fa-plus-square";
+
+    document.getElementById("demo").className = "collapse";
+
+	}else{
+
+    getcheckCookie();
+
+	}
+}
+
+$(window).resize(function(){
+  <{ if $product_filter eq 1 }>
+  //checkCookie();
+  var wdth=$(window).width();
+  var height;
+  var filter=getCookie("filter");
+  if (filter == "1") {
+    document.getElementById("icon-filter").className = "fa fa-minus-square";
+    if(wdth > 768 && wdth < 992){
+      height = "500px";
+    }else if (wdth > 992) {
+      height = "350px";
+    }
+    if(wdth > 768){
+      document.getElementById("demo_height").style.height = height;
+    }else {
+      document.getElementById("demo_height").style.height = "630px";
+    }
+  }
+  <{/if}>
+});
+
+//搬移區塊indexlist搬入productlist內
+$(window).load(function() {
+  <{ if $product_filter eq 0 }>
+  $("#productlist").prepend( $("#indexlist") );
+  $("#indexlist").show();
+  $("#footer").show();
+  <{/if}>
+});
+</script>
+</html>

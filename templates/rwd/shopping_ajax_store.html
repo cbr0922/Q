@@ -1,0 +1,373 @@
+<style type="text/css">
+
+body {
+
+	margin-left: 0px;
+
+	margin-top: 0px;
+
+	margin-right: 0px;
+
+	margin-bottom: 0px;
+
+}
+
+.ms-form1 {
+
+	border:0px;
+
+	text-indent:10px; line-height:25px;background-image:url(<{ $template_dir }>/images/ms-formback100.gif);
+
+	height:25px; width:215px;
+
+	background-repeat:no-repeat;}
+
+.ms-form2 {
+
+	border:0px;text-indent:10px; line-height:25px;background-image:url(<{ $template_dir }>/images/ms-formback2.gif);
+
+	height:25px; width:97px;
+
+	background-repeat:no-repeat;}	
+
+</style>
+
+<table width="600" border="0" cellspacing="10" cellpadding="0">
+
+
+
+  <tr>
+
+
+
+    <td width="260">
+
+
+
+    <form id="store_form" name="store_form">
+
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+
+
+      <tr>
+
+
+
+        <td align="left"><img src="<{ $template_dir }>/images/ms-pic.gif" width="258" height="125" /><br />
+
+          <img src="<{ $template_dir }>/images/ms-w1.gif" width="97" height="25" />
+
+          </td>
+
+
+
+      </tr>
+
+
+
+      <tr>
+
+
+
+        <td height="30" align="left">
+
+
+
+        <select id="sprovince" name="sprovince" onChange="changecity(this.value,'');">
+
+
+
+        <{ section name=list loop=$province_array }>
+
+
+
+        <option value="<{$province_array[list].areaname}>" <{if $province_array[list].areaname eq $smarty.get.province}>selected<{/if}> ><{$province_array[list].areaname}></option>
+
+
+
+        <{/section}>
+
+
+
+        </select>
+
+
+
+        <span id="showcity"></span>
+
+
+
+        
+
+
+
+        </td>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="178"><input name="address" id="address" value="<{$smraty.get.address}>" class="ms-form1"></td>
+            <td><img style="cursor:hand;" onClick="searchStore('area');" src="<{ $template_dir }>/images/ms-button.jpg"></td>
+          </tr>
+        </table>
+          </td>
+
+      </tr>
+
+
+
+      <tr>
+
+
+
+        <td align="left"><img src="<{ $template_dir }>/images/ms-w2.gif" width="97" height="25" />
+
+          </td>
+
+
+
+      </tr>
+
+
+
+      <tr>
+
+
+
+        <td align="left">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="178"><input name="store_name" id="store_name" value="<{$smraty.get.store_name}>" class="ms-form1"></td>
+            <td><img style="cursor:hand;" onClick="searchStore('name');" src="<{ $template_dir }>/images/ms-button.jpg"></td>
+          </tr>
+        </table>
+        </td>
+
+
+
+      </tr>
+
+
+
+      <tr>
+
+
+
+        <td align="left"><img src="<{ $template_dir }>/images/ms-w3.gif" width="97" height="25" />
+
+          </td>
+
+
+
+      </tr>
+
+
+
+      <tr>
+
+
+
+        <td align="left">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="178"><input name="store_code" id="store_code" value="<{$smraty.get.store_code}>" class="ms-form1"></td>
+            <td><img style="cursor:hand;" onClick="searchStore('code');" src="<{ $template_dir }>/images/ms-button.jpg"></td>
+          </tr>
+        </table>
+        </td>
+
+
+
+      </tr>
+
+
+
+    </table>
+
+
+
+    </form>
+
+
+
+    </td>
+
+
+
+    <td valign="top" style="border:2px solid #bfbfbf;"><img src="<{ $template_dir }>/images/ms-title.gif" width="392" height="29" />
+
+    <div id="showstore"></div>
+
+    </td>
+
+
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2" align="left"><img src="<{ $template_dir }>/images/ms-w4.gif"/><br /><div id="showstorelist"></div></td>
+
+  </tr>
+
+
+
+</table>
+
+
+
+<script language="javascript">
+
+
+
+function changecity(province,city){
+
+
+
+	$.ajax({
+
+
+
+				url: "shopping_ajax_store_city.php",
+
+
+
+				data: "city=" + encodeURIComponent(city) + "&province=" + encodeURIComponent(province),
+
+
+
+				type:'get',
+
+
+
+				dataType:"html",
+
+
+
+				success: function(msg){
+
+
+
+					//alert(msg);
+
+
+
+				    $('#showcity').html(msg);
+
+
+
+				}
+
+
+
+	});
+
+
+
+}
+
+
+
+function searchStore(type){
+
+
+
+	$.ajax({
+
+
+
+				url: "shopping_ajax_store_info.php",
+
+
+
+				data: "city=" + encodeURIComponent($('#scity').val()) + "&province=" + encodeURIComponent($('#sprovince').val()) + "&address=" + encodeURIComponent($('#address').val()) + "&store_name=" + encodeURIComponent($('#store_name').val()) + "&store_code=" + encodeURIComponent($('#store_code').val()) + "&type=" + type + "&key=<{$smarty.get.key}>",
+
+
+
+				type:'get',
+
+
+
+				dataType:"html",
+
+
+
+				success: function(msg){
+
+
+
+					//alert(msg);
+
+
+
+				    $('#showstore').html(msg);
+
+
+
+				}
+
+
+
+	});
+
+	$.ajax({
+
+
+
+				url: "shopping_ajax_store_list.php",
+
+
+
+				data: "city=" + encodeURIComponent($('#scity').val()) + "&province=" + encodeURIComponent($('#sprovince').val()) + "&address=" + encodeURIComponent($('#address').val()) + "&store_name=" + encodeURIComponent($('#store_name').val()) + "&store_code=" + encodeURIComponent($('#store_code').val()) + "&type=" + type + "&key=<{$smarty.get.key}>",
+
+
+
+				type:'get',
+
+
+
+				dataType:"html",
+
+
+
+				success: function(msg){
+
+
+
+					//alert(msg);
+
+
+
+				    $('#showstorelist').html(msg);
+
+
+
+				}
+
+
+
+	});
+
+
+
+}
+
+
+
+changecity('<{$province}>','<{$city}>');
+
+
+
+searchStore('area');
+
+
+
+</script>

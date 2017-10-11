@@ -1,0 +1,232 @@
+@charset "utf-8";
+.ThemeOfficeMenu {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; CURSOR: default; PADDING-TOP: 0px; FONT-FAMILY: "微軟正黑體",verdana, arial, sans-serif; WHITE-SPACE: nowrap;
+}
+.ThemeOfficeSubMenuTable {
+	PADDING-RIGHT: 3px;
+	PADDING-LEFT: 3px;
+	FONT-SIZE: 11px;
+	PADDING-BOTTOM: 3px;
+	CURSOR: default;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: "微軟正黑體", verdana, arial, sans-serif;
+	WHITE-SPACE: nowrap;
+	background-color: #FFFFFF;
+}
+/*外框*/
+.ThemeOfficeSubMenu {
+	PADDING-RIGHT: 4px;
+	PADDING-LEFT: 4px;
+	Z-INDEX: 100;
+FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#BDC3BD, Direction=135, Strength=4); 	VISIBILITY: hidden;
+	PADDING-BOTTOM: 4px;
+	OVERFLOW: visible;
+	PADDING-TOP: 4px;
+	POSITION: absolute;
+	background-color: #FFFFFF;
+	border: 2px solid #D9D7D2;
+	border-top-right-radius:6px; /*top-right為右上角*/
+	border-bottom-left-radius:6px; /*bottom-left為左下角*/
+	border-bottom-right-radius:6px; /*bottom-right為右下角*/
+	-webkit-border-top-right-radius: 6px; /* 設定右上角 */
+	-webkit-border-bottom-left-radius: 6px; /* 設定左下角 */
+	-moz-border-radius-bottomright: 6px; /*設定右下角 */
+}
+.ThemeOfficeSubMenuTable {
+	OVERFLOW: visible
+}
+.ThemeOfficeMainItem {
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	BORDER-LEFT: 0px;
+	CURSOR: default;
+	BORDER-BOTTOM: 0px;
+	WHITE-SPACE: nowrap;
+	color: #D3FEF5;
+}
+.ThemeOfficeMainItemHover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: default; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMainItemActive {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: default; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap;
+}
+.ThemeOfficeMenuItem {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: default; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuItemHover {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: default; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuItemActive {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: default; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap;
+}
+/*主選單文字*/
+.ThemeOfficeMainItem {
+	line-height: 30px;
+	color: #E8E8E8;
+	font-size: 13px;
+	font-weight: bold;
+}
+.ThemeOfficeMainItemHover {
+	color: #CCC;
+	font-size: 13px;
+	font-weight: bold;
+}
+.ThemeOfficeMainItemActive {
+	BACKGROUND-COLOR: #ffffff;
+}
+.ThemeOfficeMenuItem {
+	BACKGROUND-COLOR: white
+}
+
+/*選項背景*/
+.ThemeOfficeMenuItemHover {
+	BACKGROUND-COLOR: #F3F3F3
+}
+.ThemeOfficeMenuItemActive {
+	BACKGROUND-COLOR: #e7e7e7;
+}
+/*最上層主選單框框大小*/
+.ThemeOfficeMainItem {
+	PADDING-RIGHT: 12px;
+	PADDING-LEFT: 6px;
+	PADDING-BOTTOM: 1px;
+	PADDING-TOP: 1px;
+}
+TD.ThemeOfficeMainItemHover {
+	PADDING-RIGHT: 12px;
+	PADDING-LEFT: 6px;
+	PADDING-BOTTOM: 1px;
+	PADDING-TOP: 1px;
+}
+TD.ThemeOfficeMainItemActive {
+	BORDER-RIGHT: #c6c3bd 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #c6c3bd 1px solid; PADDING-BOTTOM: 0px; BORDER-LEFT: #c6c3bd 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #c6c3bd 1px solid;PADDING-RIGHT: 13px;
+	PADDING-LEFT: 7px;
+}
+.ThemeOfficeMainFolderLeft {
+	
+}
+.ThemeOfficeMainItemLeft {
+	
+}
+.ThemeOfficeMainFolderText {
+	
+}
+.ThemeOfficeMainItemText {
+	
+}
+.ThemeOfficeMainFolderRight {
+	
+}
+.ThemeOfficeMainItemRight {
+	
+}
+TD.ThemeOfficeMainFolderLeft {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 4px;
+	PADDING-BOTTOM: 2px;
+	PADDING-TOP: 2px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #d6d6d6;
+	border-bottom-color: #d6d6d6;
+	border-left-color: #d6d6d6;
+}
+TD.ThemeOfficeMainItemLeft {
+	PADDING-RIGHT: 2px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; BORDER-LEFT: #d6d6d6 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid
+}
+TD.ThemeOfficeMainFolderText {
+	PADDING-RIGHT: 5px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+
+}
+TD.ThemeOfficeMainItemText {
+	PADDING-RIGHT: 5px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+TD.ThemeOfficeMainFolderRight {
+	BORDER-RIGHT: #d6d6d6 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid
+}
+TD.ThemeOfficeMainItemRight {
+	BORDER-RIGHT: #d6d6d6 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainFolderLeft {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 2px; BORDER-TOP: 0px; PADDING-LEFT: 1px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainItemLeft {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 2px; BORDER-TOP: 0px; PADDING-LEFT: 1px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainFolderText {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainItemText {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainItemRight {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+TR.ThemeOfficeMainItem TD.ThemeOfficeMainFolderRight {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+
+/**/
+.ThemeOfficeMenuFolderLeft {
+	PADDING-RIGHT: 3px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 2px; BORDER-LEFT: #d6d6d6 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap;
+}
+.ThemeOfficeMenuItemLeft {
+	PADDING-RIGHT: 3px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 2px; BORDER-LEFT: #d6d6d6 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuFolderText {
+	PADDING-RIGHT: 5px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuItemText {
+	PADDING-RIGHT: 5px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuFolderRight {
+	BORDER-RIGHT: #d6d6d6 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+
+
+.ThemeOfficeMenuItemRight {
+	BORDER-RIGHT: #d6d6d6 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #d6d6d6 1px solid; WHITE-SPACE: nowrap
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderLeft {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 3px; BORDER-TOP: 0px; PADDING-LEFT: 2px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffffff
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemLeft {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 3px; BORDER-TOP: 0px; PADDING-LEFT: 2px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffffff
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderText {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemText {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderRight {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemRight {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 3px; BORDER-LEFT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px
+}
+.ThemeOfficeMenuSplit {
+	BORDER-TOP: #c6c3bd 1px solid; MARGIN: 2px; OVERFLOW: hidden; HEIGHT: 1px
+}
+.ThemeOfficeMenuItem IMG.seq1 {
+	DISPLAY: inline
+}
+.ThemeOfficeMenuItemHover seq2 {
+	DISPLAY: inline
+}
+.ThemeOfficeMenuItemActive seq2 {
+	DISPLAY: inline
+}
+.ThemeOfficeMenuItem .seq2 {
+	DISPLAY: none
+}
+.ThemeOfficeMenuItemHover .seq1 {
+	DISPLAY: none
+}
+.ThemeOfficeMenuItemActive .seq1 {
+	DISPLAY: none
+}

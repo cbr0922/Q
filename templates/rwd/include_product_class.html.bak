@@ -1,0 +1,40 @@
+<!--三級分類使用-->
+
+<{if $banner neq ""}> <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$banner}>"> <{/if}>
+
+<div><img src="<{ $template_dir }>/images/product.gif"  /></div>
+
+<div id="left_menu">
+  <div align="left" >
+  
+  <{ section name=list loop=$ProductListAll start=0 }>
+<ul class="<{if $ProductListAll[list].bid eq $smarty.get.bid || $stop_id eq $ProductListAll[list].bid}>level2_cur<{else}>level2<{/if}>" >
+	<li>
+      <a href="<{if $ProductListAll[list].subject_id>0}><{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $ProductListAll[list].subject_id }><{elseif $ProductListAll[list].subject_id2>0}><{ $Site_Url }>/modules/sale/product_sale.php?subject_id=<{ $ProductListAll[list].subject_id2 }><{else}><{ $Site_Url }>/product/index.php?bid=<{$ProductListAll[list].bid}><{/if}>">
+	  <{if $ProductListAll[list].pic1 neq ""}> 
+	  <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>"  border="0" title="<{$ProductListAll[list].catname}>" id="imgclass<{$ProductListAll[list].bid}>" onmouseover="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic2  }>';" onmouseout="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>';" /> <{else}> <!--<img src="<{ $template_dir }>/images/garyarr.gif" border="0"> --><{$ProductListAll[list].catname}><{/if}></a>
+      </li>
+	</ul>
+
+	<{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+      <{if $ProductListAll[list].sub[list1].catname neq ""}> 
+      
+	    <div >	
+
+			  <ul style="margin:0px 0px 0px 0px; padding-left:30px" class="<{if $ProductListAll[list].sub[list1].bid eq $smarty.get.bid}>level3_cur<{else}>level3<{/if}>"> 
+
+			  
+
+              <li><a href="<{ $Site_Url }>/product/index.php?bid=<{$ProductListAll[list].sub[list1].bid}>"><{$ProductListAll[list].sub[list1].catname}></a></li>
+
+			  </ul>
+              
+	    </div>   
+                   
+	   <{/if}>        
+	<{/section}>
+<{/section}>
+
+
+   </div>
+</div>

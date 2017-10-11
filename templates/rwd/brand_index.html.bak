@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+
+
+<title><{ $BrandArea }> - <{ $HtmlTitle }></title>
+
+
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+
+
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+
+<{ include_php file="include/menu.php" }>
+
+
+
+<div id="body_out">
+
+
+
+<div id="body_center">
+
+
+
+<div id="title_l">
+
+
+
+    <div id="title_l_left">
+
+
+
+        <!--h1><{ $BrandArea }></h1--><a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span> <a href="<{ $Site_Url }>/brand/"><{ $BrandArea }></a>
+
+
+
+    </div>
+
+
+
+        <div id="title_l_right"></div>
+
+
+
+      </div>
+
+
+
+ <div id="body_left"><!--左邊開始-->
+
+
+
+  <{if $banner!=""}> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$banner}>" /> <{/if}>
+
+
+
+  <{ include_php file="include/include_product_class1.php" }></div>
+
+
+
+ 
+
+
+
+ 
+
+
+
+ <div id="body_right"><!--右邊邊開始-->
+
+
+
+  
+
+
+
+  
+
+
+
+	<div style="clear:both;"></div>
+
+
+
+	<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" style="border:1px solid #dbdbdb;">
+
+
+
+        <{section name=sec1 loop=$brandArray start=0 }>
+
+
+
+        <tr> <{section name=sec2 loop=$brandArray[sec1].brand start=0 }>
+
+
+
+          <td align="left" valign="top"  style=" padding:17px 23px 17px 23px ; border-bottom:1px dashed #ffb0cc;<{if $smarty.section.sec2.index%4 eq 2}> <{else}>border-right:1px dashed #ffb0cc;<{/if}>"><table width="200"  border="0" cellspacing="0" cellpadding="4">
+
+
+
+              <tr>
+
+
+
+                <td align="center" valign="top"><a href="<{ $Site_Url }>/product/index.php?brand_id=<{ $brandArray[sec1].brand[sec2].brand_id }>"><img src="../UploadFile/LogoPic/<{ $brandArray[sec1].brand[sec2].logopic }>" border="0"></a></td>
+
+
+
+              </tr>
+
+
+
+              <tr>
+
+
+
+                <td align="center" valign="top"><a href="<{ $Site_Url }>/product/index.php?brand_id=<{ $brandArray[sec1].brand[sec2].brand_id }>"><{ $brandArray[sec1].brand[sec2].brandname }></a><br>
+
+
+
+                <br>
+
+
+
+                <br></td>
+
+
+
+              </tr>
+
+
+
+            </table></td>
+
+
+
+          <{ /section }> </tr>
+
+
+
+        <{ /section }>
+
+
+
+      </table>
+
+
+
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+
+
+
+</div><!--身體結束-->
+
+
+
+</div><!--身體置中結束-->
+
+
+
+<{ include_php file="include/bottom.php" }>
+
+
+
+</body>
+
+
+
+</html>
+
+
+

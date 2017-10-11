@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<title>手機驗證 - <{ $HtmlTitle }></title>
+    <meta content="<{ $Meta_desc }>" name="description" />
+	<meta content="<{ $Meta_keyword }>" name="keywords" />
+	<meta property="og:title" content="<{ $Regedit }> - <{ $HtmlTitle }>" />
+	<meta property="og:type" content="product" />
+	<meta property="og:url" content="<{ $Site_Url }>/member/reg_detail.php?u_recommendno=<{ $recommendno }>" />
+	<meta property="og:image" content="<{ $Site_Url }>/UploadFile/LogoPic/144878946719034.png" />
+	<meta property="og:site_name" content="<{ $HtmlTitle }>" />
+	<meta property="og:description" content="<{ $Meta_desc }>" />
+	<meta name="Author" content="ESIT" />
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+	<!-- CORE CSS -->
+	<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+	<!-- THEME CSS -->
+	<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+	<{ include_php file="include/include_ga.php" }>
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<script type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.min.js"></script>
+<script src="<{ $Site_Url }>/js/languages/jquery.validationEngine-zh_TW.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<script>
+jQuery(document).ready(function(){
+	jQuery("#regform").validationEngine();
+});
+</script>
+<style>
+/*@media (max-width: 440px){
+
+
+::-webkit-input-placeholder { display:none;color:#fff; }
+::-moz-placeholder { display:none;color:#fff; }
+:-ms-input-placeholder { display:none;color:#fff;}
+input:-moz-placeholder { display:none;color:#fff; }
+
+.text-danger{display:block !important;}
+
+}*/
+.regnum{
+	width: 20px;
+    height: 20px;
+    float: left;
+    background-color: #d9463f;
+    border-radius: 100%;
+    text-align: center;
+    color: #fff;
+    margin-right: 5px;
+	line-height: 20px;
+}
+</style>
+	<{ include_php file="include/menu.php" }>
+	<!--浮動廣告-->
+	<{ if $Ear_radio eq 1 }>
+		<{ include_php file="modules/advertising/ear.php" }>
+	<{ /if }>
+	<!--/浮動廣告-->
+	<!--導覽-->
+	<section class="page-header page-header-xs">
+		<div class="container">
+
+			<h1 class="size-18 hidden">手機驗證</h1>
+
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb breadcrumb-inverse">
+				<li><a href="<{ $Site_Url }>">首頁</a></li>
+				<li class="active">手機驗證</li>
+			</ol><!-- /breadcrumbs -->
+
+		</div>
+	</section>
+	<!--/導覽-->
+	<section>
+		<div class="container">
+			<!-- 註冊表單 -->
+			<div class="row">
+				<form name="regform" id="regform" method="post" action="member_save.php" enctype="multipart/form-data">
+					<input type="hidden" name="Action" value="checkNum">
+					<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6  col-md-offset-3 col-sm-offset-2 col-lg-offset-3 nopadding">
+                    <div class="row nomargin">
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-30"><{ $Content }></div>
+
+					</div>
+
+
+
+
+
+
+						<div class="row nomargin">
+						<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-30">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-12" ><div class="regnum">1</div>輸入您的會員帳號</label>
+								<div class="col-xs-12 col-sm-12">
+									<input type="text" value="<{$smarty.get.username}>" name="username" id="username" class="form-control radius-0 danger" placeholder="">
+									<div style="color: #d9463f;">為確保您的資訊安全，請再輸入您的註冊帳號(信箱)</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-30">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-12" ><div class="regnum">2</div>輸入您的手機號碼</label>
+								<div class="col-xs-12 col-sm-12 margin-bottom-10">
+									<input type="text" value="<{$smarty.get.mobile}>" name="mobile" id="mobile" maxlength="11"  class="form-control radius-0" placeholder="格式為0955123456">
+								</div>
+							</div>
+							</div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-30">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-12" ><div class="regnum">3</div><{ if $smarty.get.login neq '' || $smarty.get.mobile eq '' }>取得<{else}>補寄<{ /if }>手機驗證碼</label>
+								<div class="col-xs-12 col-sm-12 margin-bottom-10">
+									<a class="btn btn-black" href="javascript:void(0);" id="resend">發送驗證碼至手機</a>
+								</div>
+							</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-30">
+							<div class="form-group">
+								<label class="col-xs-12 col-sm-12"><div class="regnum">4</div>輸入手機驗證碼</label>
+								<div class="col-xs-12 col-sm-12 margin-bottom-10">
+									<input type="text" name="vcode" class="form-control radius-0">
+								</div>
+
+							</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-0">
+							<div class="form-group">
+
+								<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+									<input type="submit" value="確認送出"  class="btn btn-black" />
+								</div>
+							</div>
+							</div>
+						</div>
+
+
+
+
+
+				</form>
+			</div>
+			<!-- /註冊表單 -->
+		</div>
+	</section>
+<script language="javascript">
+$('#resend').click(function() {
+	if($("#mobile").val()=="")
+		alert("請輸入電話號碼");
+	else{
+		$.ajax({
+		   url: 'member_save.php',
+		   data: "Action=mrever&mobile=" + $("#mobile").val() +"&username=" + $("#username").val(),
+					type:'post',
+					dataType:"html",
+					cache: false,
+					success: function(msg){
+						//alert(msg);
+						if(msg == 1)
+						   alert("驗證碼已發送到您手機");
+						else if(msg == 2)
+						   alert("此手機號碼已經被註冊使用");
+						else {
+							alert("請輸入首次購物時，在訂購人欄位中輸入的聯絡電話號碼");
+						}
+					}
+		});
+	}
+});
+</script>
+	<{ include_php file="include/bottom.php" }>
+</body>
+
+<!--驗證欄位
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/language/bootstrapValidator-zh_TW.js" type="text/javascript" charset="utf-8"></script>
+-->
+</html>

@@ -1,0 +1,382 @@
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+<{if $fb_pluging neq''}>
+<script type="text/javascript">
+$(document).ready(function() {
+/*$(".shopbox").hover(function(){
+$(this).stop().animate({right: "0"}, "medium");
+}, function(){
+$(this).stop().animate({right: "-210"}, "medium");
+}, 500);*/
+	$(".shopbox").click(function() {
+	  if($(this).css("right")=="0px"){
+			$(this).stop().animate({right: "-240"}, "medium");
+		}else{
+			$(this).stop().animate({right: "0"}, "medium");
+		}
+	});
+});
+</script>
+<!--div class="shopbox" style="">
+<div style="background-color:#fff;height: 420px;border: rgba(0,0,0,0.06) 1px solid;">
+<{$fb_pluging}>
+</div>
+</div-->
+<{/if}>
+		<!-- FOOTER -->
+			<footer id="footer">
+
+			  <div class="copyright">
+
+				  <div class="container">
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bottom-padding" style=" padding:0">
+
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 margin-bottom-20 nopadding">
+							<img src="<{ $template_dir }>/images/bottomlogo.png"  border="0" />
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 margin-bottom-40 nopadding margin-top-30">
+
+		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding title">關於采盟  About TASA MENG</div>
+		<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding">
+
+		<a href="<{$Site_Url}>/help/Aboutour.php?info_id=3">采盟免稅店</a><br class="visible-xs">
+		<a href="">采盟免稅店粉絲團</a><br class="visible-xs">
+		<a href="">采盟企業官網</a>
+		</div>
+		<div style="clear:both"></div>
+
+		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding title">服務政策  Service Policy</div>
+		<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding">
+		<a href="<{$Site_Url}>/help/Aboutour.php?info_id=35">服務條款</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/help/Aboutour.php?info_id=1">會員條款</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/help/Aboutour.php?info_id=34">免責聲明</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/help/Aboutour.php?info_id=9">隱私權政策</a>
+		</div>
+		<div style="clear:both"></div>
+
+		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding title">客服中心  Customer Center</div>
+		<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 nopadding">
+		<a href="<{$Site_Url}>/article/article166">購物流程</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/article/article177">購物注意事項</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/article/3">常見問題</a><br class="visible-xs">
+		<a href="<{$Site_Url}>/help/contact.php">聯絡我們</a><br class="visible-xs">
+		<{ $serve_info }>
+		</div>
+
+						</div>
+
+
+
+<!--
+                    <div class="col-xs-12 margin-bottom-20 hidden-lg hidden-md hidden-sm">
+                    <div class="toggle toggle-transparent toggle-bordered-full">
+
+
+
+	<div class="toggle">
+		<label class="black">購物說明</label>
+		<div class="toggle-content">
+
+<li style="display: block;"><a href="<{$Site_Url}>/article/16">購物流程</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/article/article8">付款方式</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/article/article9">配送取貨</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/article/article10">7天鑑賞期</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/article/article11">退換貨說明</a></li>
+
+
+		</div>
+	</div>
+
+	<div class="toggle">
+		<label class="black">會員服務</label>
+		<div class="toggle-content">
+
+<li style="display: block;"><a href="<{$Site_Url}>/help/Aboutour.php?info_id=1">會員條款</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/help/Aboutour.php?info_id=9">隱私權保護</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/article/15">常見問題</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/member/edm.php">訂閱電子報</a></li>
+
+		</div>
+	</div>
+    <div class="toggle">
+		<label class="black">聯絡我們</label>
+		<div class="toggle-content" style="border-bottom: rgba(255,255,255,0.1) 1px solid !important;">
+
+<li style="display: block;"><a href="<{$Site_Url}>/help/contact.php">聯絡我們</a></li>
+<li style="display: block;"><a href="<{$Site_Url}>/help/cooperation.php">合作提案</a></li>
+
+		</div>
+	</div>
+
+</div>
+                    </div>-->
+
+                  	<div style="clear:both"></div>
+                  </div>
+
+
+
+
+
+
+
+					</div>
+					<div  style="border-top: 1px solid #3f3f3f;padding-top: 25px;">
+						<{ $copyright_info }><{$countimg}>
+					</div>
+			  </div>
+
+</footer>
+			<!-- /FOOTER -->
+
+		</div>		<!--/wrapper 整個版面結束-->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop" <{ if $fbmsg_radio eq 0 }>style="bottom:10px;"<{ /if }>><span style="font-size: 12px; display: block;">TOP</span></a>
+		<{ if $fbmsg_radio }>
+    <a href="http://m.me/<{ $fbmsg_account }>" target="_blank" id="fbmsg" style="background-image:url(<{$Site_Url}>/images/fbmsg.svg);"  data-toggle="tooltip" data-placement="left" title="Message Us"></a>
+		<{ /if }>
+		<!-- PRELOADER>
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div>< /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = '<{ $Site_Url }>/assets/plugins/';</script>
+
+
+<script type="text/javascript" src="<{ $Site_Url }>/assets/js/scripts.js"></script>
+
+		<!-- STYLESWITCHER - REMOVE--
+<script async type="text/javascript" src="<{ $Site_Url }>/assets/plugins/styleswitcher/styleswitcher.js"></script>
+
+		<!-- 一般banner REVOLUTION SLIDER -->
+<!--
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/js/view/demo.revolution_slider.js"></script>
+-->
+		<!-- 一般banner REVOLUTION SLIDER -->
+		<!-- 滿版banner SWIPE SLIDER -->
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slider.swiper/dist/js/swiper.min.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/js/view/demo.swiper_slider.js"></script>
+		<!-- 滿版banner SWIPE SLIDER -->
+<{ if $Float_radio eq  1 }>
+<!--Float advertising Start-->
+  <{ include_php file="modules/advertising/float.php" }>
+<!--Float advertising End -->
+<{ /if }>
+
+<link rel="stylesheet" type="text/css" href="<{ $Site_Url }>/js/autocomplete/jquery-ui.css">
+<script language="javascript" src="<{ $Site_Url }>/js/autocomplete/jquery-ui.min.js"></script>
+<{ if $headerStyle neq 3 }>
+<script language="javascript">
+showshopping(0);
+$(".quick-cart, .quick-cart>a").click(function() {showcart();});
+function showshopping(n){
+	$.ajax({
+    url: '<{$Site_Url}>/shopping/shopping_windows.php',
+    data: 'type=goods',
+    type:'get',
+    dataType:"html",
+    cache: false,
+    success: function(msg){
+      //alert(msg);
+      $('.quick-cart').html(msg);
+    }
+	});
+	if(n==1){
+		window.setTimeout(showcart,500);
+		window.setTimeout(showcart,2000);
+	}
+}
+function showcart(){
+	var scrollTop=$(window).scrollTop();
+	var headerHeight = $("#header").height();
+	//console.log($("#header").css("top"));
+
+	if($("#header").attr("class").match(/(?:^|\s)navbar-hidden(?!\S)/)){
+		if($("#header").css("top") != "0px"){
+			$("#header").css("top","0px");
+		}else {
+			$("#header").css("top","-"+headerHeight+"px");
+		}
+	}
+
+  $(".quick-cart-box").toggle();
+}
+</script>
+<{/if}>
+<{ if $headerStyle eq 3 }>
+<script language="javascript">
+showshopping(0);
+$(".quick-cart, .quick-cart>a").click(function() {showcart();});
+function showshopping(n){
+	$.ajax({
+    url: '<{$Site_Url}>/shopping/shopping_windows2.php',
+    data: 'type=goods',
+    type:'get',
+    dataType:"html",
+    cache: false,
+    success: function(msg){
+      //alert(msg);
+      $('.quick-cart').html(msg);
+    }
+	});
+	if(n==1){
+		window.setTimeout(showcart,500);
+		window.setTimeout(showcart,2000);
+	}
+}
+function showcart(){
+	var scrollTop=$(window).scrollTop();
+	var headerHeight = $("#header").height();
+	//console.log($("#header").css("top"));
+
+	if($("#header").attr("class").match(/(?:^|\s)navbar-hidden(?!\S)/)){
+		if($("#header").css("top") != "0px"){
+			$("#header").css("top","0px");
+		}else {
+			$("#header").css("top","-"+headerHeight+"px");
+		}
+	}
+
+  $(".quick-cart-box").toggle();
+}
+</script>
+<{/if}>
+<script language="javascript">
+//商品搜尋
+var url = "<{ $Site_Url }>/include/search_menu_autocomplate.php";
+$( "#skey3,#skey3_02" ).autocomplete({
+	source: url,
+	autoFocus: true,
+	focus: function(event, ui) {
+		//$(this).val(ui.item.label);
+		return false;
+	},
+	select: function( event, ui ) {
+		var value=ui.item.value;
+		var label=ui.item.label;
+		$(this).val(ui.item.label);
+		if( value!=label ){
+			window.location="<{ $Site_Url }>/product/detail"+value;
+		}
+		else{
+			$('#searchbanner'+$(this).attr('id').substr(5)).submit();
+			//document.getElementById("searchbanner").submit();
+		}
+		return false;
+	}
+});
+
+
+//追蹤清單愛心顏色變換
+if(<{$MemberState}> != 0){
+	var gid = getQueryParam("gid");
+	if(gid != false){
+		window.location='../product/setcollection.php?gid='+gid+'&Url='+document.location.href;
+	}
+}
+function clickHeart(gid){
+	if(<{$MemberState}> == 0){
+		alert('請先登入會員。');
+		window.location='../member/login_windows.php?Url='+document.location.href+'?gid'+gid;
+	}else{
+		$(".gid"+gid+">i").toggleClass("heartColor");
+		if($(".gid"+gid+">i").attr("class").match(/(?:^|\s)heartColor(?!\S)/)){
+			<{$AddToWishlist_js}>
+			$.ajax({url: '../product/setcollection.php',
+				data: {Action:"Insert",gid:gid},
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					if(msg == 1){
+						$(".gid"+gid+">i").toggleClass("heartColor");
+						alert("請先至會員資訊填寫生日。");
+					}else if(msg == 2){
+						$(".gid"+gid+">i").toggleClass("heartColor");
+						alert("未滿18歲不得將酒類商品加入追蹤清單。");
+					}else {
+						$(".gid"+gid).parent().css('opacity', '1');
+						alert("商品已加入追蹤清單");
+					}
+				}
+			});
+
+		}else{
+			$.ajax({url: '../product/setcollection.php',
+				data: {Action:"Del",gid:gid},
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					$(".gid"+gid).parent().removeAttr("style");
+					alert("商品已移出追蹤清單");
+				}
+			});
+		}
+	}
+}
+function getQueryParam(param) {
+	var result =  window.location.search.match(new RegExp("(\\?|&)" + param + "(\\[\\])?([^&]*)"));
+	return result ? result[3] : false;
+}
+</script>
+<{ if $headerStyle eq 1 }>	<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/webslide/mega-menu/js/webslidemenu.js"></script><{/if}>
+<{ if $headerStyle eq 3 }>	<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/webslide/non-icon-menu2/js/webslidemenu.js"></script><{/if}>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/lazyload/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<script type="text/javascript">
+	$(window).load(function(){
+		// History delete
+		$('.history').find('.remove').click(function(){
+			$(this).parent('li').remove();
+			gid = $(this).attr("gid");
+			$.ajax({url: '../include/include_visitproduct.php', data: {Action:"Del",gid:gid}, type:'get'});
+		});
+		$('.history').find('.removeAll').click(function(){
+			$('.remove').parent('li').remove();
+			$.ajax({url: '../include/include_visitproduct.php', data: {Action:"Del"}, type:'get'});
+		});	});
+</script>
+<script>
+//針對編輯器崁入iframe自動縮放
+$('.product_banner iframe,.tab-content iframe,#article iframe,#showarts iframe').wrap('<div class="embed-responsive embed-responsive-16by9" />');
+if(getCookie("headAD")!='1') $('.headAD').show();
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    if(exdays != 0){
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toGMTString();
+    }
+    document.cookie = cname+"="+cvalue+"; "+expires+"; path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+</script>
+<!--頭部滾動隱藏效果--
+<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/autohidingnavbar/jquery.bootstrap-autohidingnavbar.js"></script>
+<script>
+      $("#header").autoHidingNavbar();
+</script>
+<!--頭部滾動隱藏效果-->
+<{$yahooUET1_js}>
+<{$googleadservices_js}>

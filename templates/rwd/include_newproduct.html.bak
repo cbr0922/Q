@@ -1,0 +1,48 @@
+
+                          
+<style type="text/css">
+<!--
+.hotpro {
+	width: 115px;
+	overflow:hidden;
+	height:235px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+.hotimg {
+	margin-left:auto;
+	margin-right:auto
+}
+.hotpro1 {
+	width: 119px;
+	overflow:hidden;
+	margin-left: 13px;
+	margin-right:13px;	
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+-->
+</style>
+<table width="560" border="0"  cellpadding="0" cellspacing="0" style=" border:1px solid #e6e6e6" >
+  <tr>
+    <td height="31" align="right" background="<{ $template_dir }>/images/newproduct.gif"   style="padding-right:10pt"><a href="<{ $Site_Url }>/product/index.php?type=new"><img src="<{ $template_dir }>/images/more01.gif"  border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="left" height="253" style="  padding-left:18px; padding-top:10px; padding-bottom:12px "><{ section name=hotlistname loop=$New_productarray}>
+      <div class="hotpro1">
+        <div class="hotimg picture2" style="margin-bottom:3px ; height:117px;z-index:1;  "> 
+        <{if $New_productarray[hotlistname].ifsaleoff eq 1 }>
+        <div style="position:absolute;top:1px;right:1px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></div>
+        <{/if}>
+        <a  href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $New_productarray[hotlistname].gid }>"><img width="115" src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $New_productarray[hotlistname].smallimg }>" border="0" /></a></div>
+        <div class="salename2" style="height:20px;overflow: hidden;"><{ $New_productarray[hotlistname].sale_name }></div>
+       <div style="height:35px;	overflow: hidden;"> <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $New_productarray[hotlistname].gid }>" class="green"><{ $New_productarray[hotlistname].goodsname }></a></div>
+	   市價：<span ><s><{ $New_productarray[hotlistname].price }></s></span> <br />
+        網購價：<span class="price"><{ $New_productarray[hotlistname].pricedesc }></span> </div>
+    <{ /section }></td>
+  </tr>
+</table>
+

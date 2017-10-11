@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="5">
+  <tr>
+    <td><table width="100%" height="37" border="0" cellpadding="0" cellspacing="0" bgcolor="#efefef">
+        <tr>
+          <td align="left" class="3"><strong>&nbsp;&nbsp;&nbsp;&nbsp;<{ $ProductDetail_say }>
+                <!--商品详细介绍-->
+          </strong></td>
+          <td></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="99%" border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td height="153" width="31%" align="RIGHT" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="CENTER"> <a href="javascript:temp=window.open('<{ $Site_Url }>/product/product_pic.php?goods_id=<{ $Goods_id }>','shopcat','width=700,height=500,resizable=1,scrollbars=1,status=no,toolbar=no,location=no,menu=no');temp.focus()" target=_top><img src='<{ $Site_Url }>/GoodPic/<{ $Middleimg }>' border=0> </a> </td>
+              </tr>
+              <tr style="display:">
+                <td height="50" align="CENTER"><A href="javascript:temp=window.open('<{ $Site_Url }>/product/product_pic.php?goods_id=<{ $Goods_id }>','shopcat','width=700,height=500,resizable=1,scrollbars=1,status=no,toolbar=no,location=no,menu=no');temp.focus()" ><img src="<{ $template_dir }>/images/morepic.gif"  border="0"></a></td>
+              </tr>
+          </table></td>
+          <td height="153" valign="top" width="69%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="3%"><img src="<{ $template_dir }>/images/an.gif"></td>
+                <td width="69%" class="p14red"><{ $Goodsname }></td>
+                <td width="28%" class="p14red">&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="<{ $template_dir }>/images/sep-1.gif" height="15"><img src="<{ $template_dir }>/images/spacer.gif" width="200" height="14"></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="p9rednothrough">
+              <tr valign="top">
+                <td align="right" nowrap class="p9navyblue">
+                  <div align="right"><{ $Bn_name }>：</div>
+                 
+                    <!--商品编号-->                </td>
+                <td class="p9black" width="54%"><{ $Bn }></td>
+              </tr>
+              <tr valign="top">
+                <td class="p9navyblue"><div align="right"><{ $Brand_name }>：</div>
+                    <!--商品品牌-->                </td>
+                <td class="p9black"><{ $Brand }></td>
+              </tr>
+              <tr valign="top">
+                <td align="right" class="p9navyblue">
+                  <div align="right"><{ $Unit_name }>：</div>
+                  
+                    <!--计量单位-->
+                </td>
+                <td class="p9black" width="54%"><{ $Unit }></td>
+              </tr>
+              <tr valign="top">
+                <td align="right" class="p9navyblue"> 
+                  <div align="right"><{ $Intro_name }>：</div>
+                  
+                    <!--简单描述-->                </td>
+                <td class="p9black" width="54%"><{ $Intro }></td>
+              </tr>
+<{foreach name=outer item=contact from=$ProductAttrArray}> <{foreach key=key item=item from=$contact}>
+              <tr valign="top">
+                <td class="p9navyblue" width="46%" nowrap><div align="right" class="p9navyblue"><{ $key }>：</div></td>
+                <td class="p9black" width="54%"><{ $item }></td>
+              </tr>
+<{ /foreach }> <{ /foreach }>
+              <tr valign="top">
+                <td class="p9navyblue" align="RIGHT" nowrap><{ $Price_name }>：</td>
+                <!--简单描述-->
+                <td class="p9black"><s><{ $Price }></s></td>
+              </tr>
+              <tr valign="top">
+                <td align="RIGHT" nowrap  class="p9navyblue"><{ $ProductLosePoint_say }>：</td>
+                <td><{ $Bonusnum }></td>
+              </tr>
+              <tr valign="top">
+                <td colspan="2" align="RIGHT" nowrap  class="p9navyblue"><{ $Currentpoint_say}>：<{ $Member_point }></td>
+              </tr>
+              <tr valign="top">
+                <td align="RIGHT" nowrap class="p9navyblue">&nbsp;</td>
+                <td class="p9navyblue">&nbsp;</td>
+              </tr>
+              <tr valign="top">
+                <td colspan="2" align="RIGHT" nowrap class="p9navyblue">
+				<form name="Changeintoform" action="ChangeInto.php" method="post">
+				<input type="hidden" name="Action" value="Insert">
+				<input type="hidden" name="Collection_id" value="<{ $Collection_id }>">
+				<input type="hidden" name="Goods_id" value="<{ $Goods_id }>">				
+		  <table width="96%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" valign="top"><textarea name="isay" cols="30" rows="6" id="isay"></textarea></td>
+              </tr>
+            <tr>
+              <td align="center"><{ if $Bonusnum<= $Member_point   }><br>
+                <input type="submit" name="Submit" value="<{ $ChangeInto_say }>" class=inputstyle size=10><{ else }><font color="#FF0000"><{ $PointisPoor }></font><{ /if }></td>
+            </tr>
+          </table>
+		  </form>
+				</td>
+              </tr>
+          </table>            </td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0" class="dotX">
+        <tr>
+          <td height="27" align="CENTER" class="p14red">&nbsp;</td>
+          <td class="p12co">
+		  		  </td>
+        </tr>
+        <tr>
+          <td width="3%" height="27" align="CENTER" class="p14red"><img src="<{ $template_dir }>/images/an.gif" width="10" height="10"></td>
+          <td class="p12co" width="97%"><{ $Body_name }>
+                                                <!--详细介绍 -->
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="98%" border="0" cellspacing="0" cellpadding="0" class="p9content">
+        <tr>
+          <td width="3%">&nbsp;</td>
+          <td class="p9v" width="97%"><P><span class="p9black"> <{ $Body }> </span></P></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[30-Sep-2014 14:10:44] PHP Notice:  Undefined index:  q in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 2
+[30-Sep-2014 14:31:55] PHP Parse error:  syntax error, unexpected '[' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 11
+[30-Sep-2014 14:31:56] PHP Parse error:  syntax error, unexpected '[' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 11
+[30-Sep-2014 14:32:36] PHP Parse error:  syntax error, unexpected '[' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 11
+[01-Oct-2014 11:06:43] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:07:04] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:08:00] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:08:06] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:09:40] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:09:52] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:10:02] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 11:22:42] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 37
+[01-Oct-2014 12:16:15] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/ddcscom/public_html/smartshop5/include/search_autocomplate.php on line 43

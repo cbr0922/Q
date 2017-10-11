@@ -1,0 +1,14 @@
+<!-- INLINE SEARCH -->
+<{ include_php file="include/include_article_search_box.php" }>
+<!-- /INLINE SEARCH -->
+<div class="side-nav margin-bottom-30">
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4>文章分類</h4>
+		</div>
+        <ul class="list-group list-group-bordered list-group-noicon uppercase">
+            <{ section name=list loop=$Ncat }>
+				<li class="list-group-item"><a href="<{ $Site_Url }>/article/<{ $Ncat[list].ncid }>"><span class="size-11 text-muted pull-right">(<{ $Ncat[list].count1 }>)</span> <{ $Ncat[list].ncname }></a></li>
+			<{ /section }>
+		</ul>
+</div>

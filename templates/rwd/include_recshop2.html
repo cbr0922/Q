@@ -1,0 +1,14 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<{ section name=list loop=$newshop_array }>
+  <tr>
+    <td><img src="<{ $Site_Url }>/UploadFile/ShopPic/<{ $newshop_array[list].shoppic }>" width=150><a href="shopdetail.php?sid=<{ $newshop_array[list].sid }>"><{ $newshop_array[list].shopname }></a></td>
+  </tr>
+  <tr>
+    <td><a href="shopdetail.php?sid=<{ $newshop_array[list].sid }>"><{ $newshop_array[list].username }></a></td>
+  </tr>
+  <tr>
+    <td><{ $newshop_array[list].content }></td>
+  </tr>
+  
+<{/section}>
+</table>

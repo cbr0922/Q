@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<script language="javascript"  src="../js/function.js"></script>
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.js"></script>
+<script language="javascript" src="../js/newarea.js"></script>
+<script language="javascript" src="../js/newarea2.js"></script>
+<script type="text/javascript" src="../js/alter.js"></script>
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.form.js"></script>
+<script language="javascript">
+//提交表单输入有效性检测
+function Form_Validator(theForm)
+{ 
+<{if $Cart_buypoint < $Cart_transmoney+$Cart_totalPrices}>
+ if (document.form1.pay_id.length>0){
+          var pay_id_Count = 0;
+          for(var i=0;i<document.form1.pay_id.length;i++) { 
+             if (document.form1.pay_id[i].checked)  {          
+                 pay_id_Count++;   
+             }     
+          } 
+      
+          if (pay_id_Count<=0){
+               alert('<{ $PleaseSelectPayType }>'); //請選擇付款方式
+               return false;
+          }
+       }
+	   <{/if}>
+	if($('#receiver_email').attr("value")==""){
+		alert("<{ $PleaseInputEmail }>");
+		return false; 
+	}
+     
+	   
+	   
+/*E-MAIL邮件地址检测
+     */
+    var re = new RegExp("^([A-Za-z0-9_|-]+[.]*[A-Za-z0-9_|-]+)+@[A-Za-z0-9|-]+([.][A-Za-z0-9|-]+)*[.][A-Za-z0-9]+$","ig");
+  if (!re.test($('#receiver_email').attr("value"))){
+      alert('<{ $PleaseInputTrueEmail }>'); //必须输入有效的E-mail地址
+   	return false;
+  }
+//收货人姓名检测
+	if($('#receiver_name').attr("value")==""){
+		alert("<{ $PleaseInputName }>");
+		return false; 
+	}
+	if($('#addr').attr("value")==""){
+		alert("<{ $PleaseInputAddr }>");
+		return false; 
+	}
+	if($('#receiver_tele').attr("value")==""){
+		alert("<{ $PleaseInputTel }>");
+		return false; 
+	}
+	
+	if($('#county').attr("value")==""){
+		alert("請選擇地區");
+		return false; 
+	}
+	if($('#province').attr("value")==""){
+		alert("請選擇地區");
+		return false; 
+	}
+	if($('#HomeTimeType').attr("value")==""){
+		alert("<{ $PleaseSelectHomeSend_TimeType }>");
+		return false; 
+	}
+	   
+   $('#form1').submit();
+}
+function view(obj,a)
+{
+  if(a == 1){
+	  document.getElementById(obj).style.display="";
+  }else{
+   document.getElementById(obj).style.display="none";
+  }
+}
+</script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<style type="text/css">
+body {
+	margin:0px;
+}
+#fullBg {
+	background-color: Black;
+	display:none;
+	z-index:30;
+	position:absolute;
+	left:0px;
+	top:0px;
+	filter:Alpha(Opacity=30);
+	/* IE */
+-moz-opacity:0.4;
+	/* Moz + FF */
+opacity: 0.4;
+}
+#msg {
+	position:absolute;
+	z-index:40;
+	display:none;
+	background-color:#FFFFFF;
+	border:1px solid #6633CC;
+}
+#msg #close {
+	height:30px;
+	text-align:right;
+	padding-top:8px;
+	padding-right:15px;
+}
+#msg #ctt {
+	text-align:center;
+	font-size:12px;
+	padding-bottom:15px;
+}
+#cPic {
+	cursor:pointer;
+}
+</style>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="fullBg"></div>
+<div id="msg">
+  <div id="close"></div>
+  <div id="ctt"></div>
+</div>
+<{ include_php file="menu_groupon.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td valign="top">
+        <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="30" align="center"><br>
+              <img src="<{ $template_dir }>/images/step3.gif" width="479" height="65"><br>
+              <br></td>
+          </tr>
+         
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td align="right">
+            <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+              <tr>
+                <td align="center" bgcolor="#EEEEEE">序號</td>
+                <td align="center" bgcolor="#EEEEEE">圖片</td>
+                <td align="center" bgcolor="#EEEEEE">商品名稱</td>
+                <td align="center" bgcolor="#EEEEEE">優惠活動</td>
+                <!--td align="center" bgcolor="#EEEEEE">團購價 NT$ </td-->
+                <td align="center" bgcolor="#EEEEEE">團購點</td>
+                <td align="center" bgcolor="#EEEEEE">數量</td>
+                <td align="center" bgcolor="#EEEEEE">小計</td>
+              </tr>
+              <{ section name=list loop=$Cart_item }>
+                <tr>
+                  <td align="center" bgcolor="#FFFFFF"><{math equation="(x+y)" x=$smarty.section.list.index y=1 }></td>
+                  <td align="center" bgcolor="#FFFFFF"><a href="<{ $Site_Url }>/product/goods_detail_groupon.php?goods_id=<{ $Cart_item[list].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }>' width=80 border=0></a></td>
+                  <td align="left" bgcolor="#FFFFFF"><{ $Cart_item[list].goodsname }>
+                    </td>
+                  <!--td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].subjectcontent }></td-->
+                 <td align="center" bgcolor="#FFFFFF">
+                  <{ if $Cart_item[list].buytype eq 0 }><{ $Cart_item[list].price }><{else}><{ $Cart_item[list].memberprice }><{/if}></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ if $Cart_item[list].buytype eq 1 }><{ $Cart_item[list].grouppoint }><{/if}></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].count }></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].total }><{ if $Cart_item[list].totalpoint>0 }>+<{ $Cart_item[list].totalpoint }>團購點<{/if}></td>
+                </tr>
+              <{ /section }>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td id="showtrans"><table width="100%" border="0" cellpadding="3" cellspacing="0" style="border: 1px solid #cccccc;">
+                <tr>
+                  <td colspan="7" align="right">商品總計：<{$Cart_totalPrices}>元<{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}></td>
+                </tr>
+                <tr>
+                  <td colspan="7" align="right">配送方式及運費：
+                    <!--自定義配送-->
+                    <{$transname}>   運費：<{ $Cart_transmoney  }>元</td>
+                </tr>
+                <tr>
+                  <td colspan="7" align="right" class="price">消費總金額：<{ $Cart_transmoney+$Cart_totalPrices }>元 <{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}></td>
+                </tr>
+              </table></td>
+</tr>
+		<{if $mybuypoint>0 }>
+		<tr>
+            <td height="35">
+            <table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" style="border: 1px solid #cccccc;">
+              <form action="buypointop.php" method="post" onSubmit="javascript:return checkpointform(this);">
+                <input type="hidden" name="key" value="<{ $smarty.get.key }>">
+                <tr>
+                  <td align="left"><label><span class="note">*您擁有 <{ $mybuypoint }> </span></label>
+                    帳上餘額<br>
+                    請輸入您要使用的帳上餘額
+                      <input name="buypoint" type="text" size="5" maxlength="5" value="<{ $Cart_buypoint }>">
+                    <input type="submit" name="Submit" value="使用"></td>
+                </tr>
+                <tr>
+                  <td align="right"  class="price">折抵帳上餘額：<{ $Cart_buypoint }>元</td>
+                </tr>
+              </form>
+            </table>
+            </td>
+          </tr>
+          <{/if}>
+          <Tr><td>
+          <form name="form1" id="form1" action="shopping4_g.php" method="POST">
+           <input type="hidden" name="Action" value="view">
+          <input type="hidden" name="key" value="<{$smarty.get.key}>">
+          <table width="100%" height="30" border="0" cellpadding="3" cellspacing="0" style="border: 1px solid #cccccc;">
+          <{if $Cart_buypoint < $Cart_transmoney+$Cart_totalPrices}>
+          <tr>
+            <td height="35" align="right" valign="bottom" class="price">支付現金：<{$Cart_totalPrices+$Cart_transmoney-$Cart_buypoint}>元 <{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}></td>
+          </tr>
+          <tr>
+            <td height="35" valign="bottom"><!--付款方式-->
+              <{ $PleaseSelectPayType }></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="p9v">
+            <{if $ifmonth eq 0}>
+                <{ section name=i loop=$payArray }>
+                <tr bgcolor="#FFFFFF">
+                  <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="pay_id" value="<{ $payArray[i].mid }>" <{if $payArray[i].checked eq 1}>checked<{/if}><{if $ifmonth eq 1}>onClick="$(':radio[name=month3]').attr('checked','false');"<{/if}>></td>
+                  <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">&nbsp;<{ $payArray[i].methodname }> </td>
+                  <td bgcolor="#FFFFFF" class="p9v"><{ $payArray[i].pcontent }>  <{if $payArray[i].month>0}>每期金額：<{ $payArray[i].price }><{/if}></td>
+                </tr>
+                <{ /section }>
+              <{/if}>
+               
+                <{if $ismonth3 eq 1}>
+                <tr bgcolor="#FFFFFF">
+                  <td align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="month3" value="" onClick="$('#show3month').css('display','block');$('#show6month').css('display','none');$(':radio[name=pay_id]').attr('checked','false');">
+                  </td>
+                  <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">信用卡3期&nbsp;</td>
+                  <td bgcolor="#FFFFFF" class="p9v">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFFF" id="show3month" style="display:none">
+                <td align="CENTER" bgcolor="#FFFFFF" class="p9v"></td>
+                  <td align="left" bgcolor="#FFFFFF" class="p9v" colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="p9v">
+                      <{ section name=i loop=$payArray3 }>
+                      <tr bgcolor="#FFFFFF">
+                        <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="pay_id" value="<{ $payArray3[i].mid }>" <{if $payArray[i].checked eq 1}>checked<{/if}>></td>
+                        <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">&nbsp;<{ $payArray3[i].methodname }> </td>
+                        <td bgcolor="#FFFFFF" class="p9v"><{ $payArray3[i].pcontent }>  <{if $payArray3[i].month>0}>每期金額：<{ $payArray3[i].price }><{/if}></td>
+                      </tr>
+                      <{ /section }>
+                    </table></td>
+                </tr>
+                <{/if}>
+                 <{if $ismonth6 eq 1}>
+                <tr bgcolor="#FFFFFF">
+                  <td align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="month3" value="" onClick="$('#show6month').css('display','block');$('#show3month').css('display','none');$(':radio[name=pay_id]').attr('checked','false');">
+                  </td>
+                  <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">信用卡6期&nbsp;</td>
+                  <td bgcolor="#FFFFFF" class="p9v">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#FFFFFF" style="display:none" id="show6month" >
+                <td align="CENTER" bgcolor="#FFFFFF" class="p9v"></td>
+                  <td align="left"bgcolor="#FFFFFF" class="p9v" colspan="2"><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="p9v">
+                      <{ section name=i loop=$payArray6 }>
+                      <tr bgcolor="#FFFFFF">
+                        <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="pay_id" value="<{ $payArray6[i].mid }>" <{if $payArray[i].checked eq 1}>checked<{/if}>></td>
+                        <td align="left" nowrap bgcolor="#FFFFFF" class="p9v">&nbsp;<{ $payArray6[i].methodname }> </td>
+                        <td bgcolor="#FFFFFF" class="p9v"><{ $payArray6[i].pcontent }>  <{if $payArray6[i].month>0}>每期金額：<{ $payArray6[i].price }><{/if}></td>
+                      </tr>
+                      <{ /section }>
+                    </table></td>
+                </tr>
+                 <{/if}>
+               
+              </table></td>
+          </tr>
+          <{/if}>
+          <tr>
+            <td height="35" valign="bottom"><{ if $IfNeed_invoice eq 1 }><{ $Need_invoice_say }> </td>
+          </tr>
+          <tr>
+            <td height="35"><!--發票-->
+              <table width="100%" border="0" cellspacing="0" cellpadding="3" style="border: 1px solid #cccccc;">
+                <tr style="display: display">
+                  <td width="12%" height="27" align="left" nowrap class="p9orange">&nbsp;
+                    <!--需要发票--></td>
+                  <td width="88%" class="p9v"><input type="radio" name="ifinvoice" id="ifinvoice"  value=3 onClick=view("invoiceshow",0) checked>
+                    捐贈&nbsp;&nbsp;發票捐給中華民國全球元母大慈協會&nbsp;&nbsp; &nbsp;
+                    不捐贈
+                    <input type="radio" name="ifinvoice" id="ifinvoice"  value=0 onClick=view("invoiceshow",0)>
+                    <{ $Two_piao}>
+                    <!--二聯式-->
+                    &nbsp;&nbsp; &nbsp;
+                    <input type="radio" name="ifinvoice" id="ifinvoice"  value=1 onClick=view("invoiceshow",1)>
+                    <{ $Three_piao}>
+                    <!--三聯式-->
+                    &nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr id="invoiceshow" style="DISPLAY: none">
+                  <td height="27" class="p9orange">&nbsp;</td>
+                  <td class="p9v"><!--統一編號-->
+                    <{ $Invoice_num_say }>
+                    <input name="invoice_num" type="input" id="invoice_num" size="8"  maxlength="8"  class="inputstyle">
+                    &nbsp;&nbsp;<br>
+                    <{ $Top_invoice_say }>
+                    <!--抬頭-->
+                    <input type="input" name="invoiceform" size="50" class="inputstyle"></td>
+                </tr>
+              </table>
+              <{ /if }></td>
+          </tr>
+          <{ if $true_name neq ""}>
+          <tr>
+            <td height="35" valign="bottom">訂購人資訊
+              <input type="button" name="button3" id="button3" value="修改"  onclick="showWin('url','shopping_g_ajax_userinfo.php?act=modi','',550,250);"></td>
+          </tr>
+          <tr>
+            <td height="35" valign="bottom" id="showuserinfo"></td>
+          </tr>
+          <{/if}>
+          <tr>
+            <td height="35" valign="bottom"><!--收貨人資料-->
+              <{ $Getpersoninfo }><{ if $true_name neq ""}>
+              <input type="checkbox" name="tongdinggou" id="tongdinggou" onClick='if (this.checked==true)showpage("shopping_g_ajax_shoppingreceiver.php?transname_area=<{$transname_area}>","op=userinfo","showshoppingreceiver");else showpage("shopping_g_ajax_shoppingreceiver.php?transname_area=<{$transname_area}>","","showshoppingreceiver");' value="1">
+              資料同訂購人請打勾&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick='showpage("shopping_g_ajax_receiver.php","","showreceiver");'>從收件人記錄本填入</a> <{/if}> </td>
+          </tr>
+          <tr>
+            <td id="showreceiver"></td>
+          </tr>
+          <tr>
+            <td id="showshoppingreceiver"></td>
+          </tr>
+          <tr>
+            <td height="40" align="center"><input type="button" name="button" id="button" value="上一步" onClick="location.href='shopping2_g.php?key=<{$smarty.get.key}>';">
+              <input type="button" name="button2" id="button2" value="下一步" onClick="Form_Validator(this);" ></td>
+          </tr>
+         
+        </table> </FORM></td></Tr></table>
+      </td>
+  </tr>
+</table>
+<script language="javascript">
+function checkpointform(myform){
+	if (myform.buypoint.value == ""){
+		alert("請填寫需要使用的帳上餘額");
+		return false;
+	}else if (isnum(myform.buypoint.value) == -1){
+		alert("請填寫數字");
+		return false;
+	}else if (myform.buypoint.value > <{ $mybuypoint }>){
+		alert("您最多可以使用<{ $MaxbonusPoint }>帳上餘額");
+		return false;
+	}
+}
+</script>
+
+<script language="JavaScript">
+$(function(){
+        $("select").css("width","100px");
+});
+</script>
+<script language="javascript">
+function showpage(url,data,divname){
+	$.ajax({
+				url: url,
+				data: data,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    $('#' + divname).html(msg);
+					//$('#classcount').attr("value",counts+1);
+					//$(msg).appendTo('#extclass')
+				}
+	});
+}
+showpage("shopping_g_ajax_userinfo.php","","showuserinfo");
+showpage("shopping_g_ajax_shoppingreceiver.php?transname_area=<{$transname_area}>","","showshoppingreceiver");
+</script>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

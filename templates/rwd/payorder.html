@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>重新付款 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<{ include_php file="include/ga.php" }>
+
+<!--原有js-->
+<script language="javascript"  src="../js/function.js"></script>
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.js"></script>
+<script language="javascript">
+//提交表单输入有效性检测
+function Form_Validator(theForm)
+{ 
+      if (document.form1.pay_id.length>0){
+          var pay_id_Count = 0;
+          for(var i=0;i<document.form1.pay_id.length;i++) { 
+             if (document.form1.pay_id[i].checked)  {          
+                 pay_id_Count++;   
+             }     
+          } 
+      
+          if (pay_id_Count<=0){
+               alert('<{ $PleaseSelectPayType }>'); //請選擇付款方式
+               return false;
+          }
+       }else{
+			alert('<{ $PleaseSelectPayType }>'); //請選擇付款方式
+               return false;   
+		}
+	   
+	   
+}
+function view(obj,a)
+{
+  if(a == 1){
+   obj.style.display="";
+  }else{
+   obj.style.display="none";
+  }
+}
+</script>
+<!--原有js-->
+
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="bfont size-18 hidden">重新付款</h1>
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+						<li class="active">重新付款</li>
+					</ol><!-- /breadcrumbs -->
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+            
+                       <!-- 內容 -->
+<section>
+				<div class="container">
+                 <div class="row">
+                    <div class="col-md-12">
+            <div class="shopping_steps">
+         <div class="step_normal"><div class="step_normal_number">1</div>商品確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">2</div>折扣運費</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_over"><div class="step_number">3</div>填寫資料</div>  
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">4</div>訂單完成</div>
+         
+       </div>
+    
+    <div class="shopping_cart_information">
+    因信用卡付款失敗需重新選擇付款方式，謝謝。
+    </div>
+
+<table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td valign="top">
+    
+    
+    
+    
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="30" align="center"><p align="center"><br>
+                 
+                  <{$smarty.get.error}> </td>
+              </tr>
+              <form name="form1" action="pay.php" method="POST" onSubmit="return Form_Validator(this)">
+                <input type="hidden" name="orderid" value="<{$Order_id}>">
+                <tr>
+                  <td>
+<table class="table-hover responsive">
+						<thead>
+							<tr>
+								<th class="span_hidden">序號</th>
+								
+								<th>商品名稱</th>
+								<th>單價 NT$ </th>
+								<th>數量</th>
+								<th>小計</th>
+							</tr>
+						</thead>
+						<tbody>
+              <{ section name=list loop=$Cart_item }>
+                <tr>
+                  <td data-label="序號" class="span_hidden"><{math equation="(x+y)" x=$smarty.section.list.index y=1 }></td>
+                  
+                  <td data-label="商品名稱" class="receivePay_text"><{if $Cart_item[list].ifchange eq 1 || $Cart_item[list].ifpresent eq 1 }>
+                          <{ $Cart_item[list].goodsname }>
+                          <{if $Cart_item[list].ifchange eq 1}>[加購商品]<{/if}>
+                          <{if $Cart_item[list].ifpresent eq 1}>[滿額禮]<{/if}>
+                          <{else}> <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Cart_item[list].gid }>"><{ $Cart_item[list].goodsname }></a> <{/if}>
+                          <{if $Cart_item[list].xygoods_des neq ""}>
+                          <{ $Cart_item[list].xygoods_des }>
+                          <{/if}>
+                          <{if $Cart_item[list].good_color neq ""}> <br>
+                          顏色：<{ $Cart_item[list].good_color }>
+                          <{/if}>
+                          <{if $Cart_item[list].good_size neq ""}> <br>
+                          尺寸：<{ $Cart_item[list].good_size }>
+                          <{/if}>
+                          <{if $Cart_item[list].detail_name neq ""}> <br>
+                          規格：<{ $Cart_item[list].detail_name }><{if $Cart_item[list].detail_des neq ""}> —— <{ $Cart_item[list].detail_des }><{/if}>
+                          <{/if}></td>
+                  <td data-label="單價 NT$"><{ $Cart_item[list].price }>
+                          <{if ($Cart_item[list].ifjs eq 1)}> <img src="../images/co-price.gif"> <{/if}></td>
+                  <td data-label="數量"><{ $Cart_item[list].count }></td>
+                  <td data-label="小計"><{ $Cart_item[list].total }></td>
+                </tr>
+              
+              <{ /section }>
+              </tbody>
+            </table>
+           </td>
+                </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td id="showtrans">                    
+                    <table align="right" class="nomargin">
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">商品總金額：</td>
+                            <td align="right"><{$Cart_totalPrices}>元</td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">折扣後金額<{$saleoffinfo}>：</td>
+                            <td align="right"><{$discount_totalPrices}>元</td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">配送費用：</td>
+                            <td align="right"><{if $smarty.get.key neq "T2"}><{ $Cart_transmoney  }>元<{/if}></td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" style="padding-right:2px;">配送方式：</td>
+                            <td align="right"><{ $deliveryname  }></td>
+                          </tr>
+                          <tr >
+                            <td align="center">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                            <td colspan="2" align="right" class="shop-item-price">消費總金額：</td>
+                            <td align="right" class="shop-item-price"><{ $Cart_transmoney+$discount_totalPrices  }>元</td>
+                          </tr>
+                     </table>
+                    </td>
+                </tr>
+                <tr>
+                  <td><!--付款方式-->
+                    <div class="trans_name" style="width:auto;"><i class="icon-circle-arrow-right"></i> <{ $PleaseSelectPayType }></div></td>
+                </tr>
+                <tr>
+                  <td class="padding-10 shopping_border"><{ section name=i loop=$payArray }>
+<div class="col-md-12 col-sm-12 margin-top-10" <{if $smarty.section.i.index eq 0}><{else}>style="border-top: 1px solid #ddd;padding-top: 10px;"<{/if}>>
+<div class="col-md-2 col-sm-2 padding-0">
+	<label class="radio"><input type="radio" name="pay_id" style="display:none" value="<{ $payArray[i].mid }>" <{if $payArray[i].checked eq 1}>checked<{/if}>>
+    <i></i><{ $payArray[i].methodname }></label>
+</div>
+<div class="col-md-10 col-sm-10 padding-0">
+	<{ $payArray[i].pcontent }>  <{if $payArray[i].month>0}>每期金額：<{ $payArray[i].price }><{/if}>
+</div>
+</div>
+<{ /section }>
+</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="40" align="center"><input type="submit" name="button2" id="button2" class="btn size-15 btn-primary cart_botton_r" value="確認" ></td>
+                </tr>
+              </FORM>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

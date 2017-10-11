@@ -1,0 +1,27 @@
+<style>
+@media only screen and (max-width: 1000px){
+.ui-autocomplete {
+	position:fixed !important;
+	top: 0;
+	left:0;
+	cursor: default;
+}
+}
+</style>				
+                <!-- SEARCH HEADER -->
+				<div class="search-box over-header" style=" height:130px; background-color:#fff">
+                <div class="search-box col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+					<a id="closeSearch" href="#" class="glyphicon glyphicon-remove"></a>
+					<form  action="<{ $Site_Url }>/product/index.php"  method="get" name='searchbanner' id="searchbanner">
+                    <script type="text/javascript" >
+                    </script>
+						<input  name="skey" id="skey3" class="form-control" placeholder="SEARCH"/>
+					</form>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2  text-left" style="padding-left: 40px; margin-top:40px;padding-bottom:40px;">
+                    <{ include_php file="modules/advertising/round_broadcast.php" }>
+                    </div>
+				</div> 
+				<!-- /SEARCH HEADER -->
+               

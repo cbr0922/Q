@@ -1,0 +1,96 @@
+<html>
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.js"></script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="menu_groupon.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" border="0"cellpadding="0" cellspacing="0" align="center" height="350" valign="top">
+  <tr>
+    <td height="85" colspan="2"><p align="center"><br>
+        <img src="<{ $template_dir }>/images/step1.gif" width="479" height="65"></p></td>
+  </tr>
+  <tr>
+    <td height="31" align="left" style="padding-right:72px"><{if $Session_user_id>0}>現有團購點：<{$member_grouppoint}><{/if}></td>
+    <td align="right" style="padding-right:72px"><input type="button" name="button2" id="button2" value="清空購物車" onClick="location.href='shopping_g.php?Action=clear';"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><div id="showshopping">
+        <table width="85%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+          <{ section name=list loop=$Cart_item }>
+          <tr>
+            <td align="center" bgcolor="#EEEEEE">序號</td>
+            <td align="center" bgcolor="#EEEEEE">圖片</td>
+            <td align="center" bgcolor="#EEEEEE">商品名稱</td>
+            <!--td align="center" bgcolor="#EEEEEE">優惠活動</td-->
+            <td align="center" bgcolor="#EEEEEE">團購價 NT$ </td>
+            <td align="center" bgcolor="#EEEEEE"><span class="g-right-line">主購價+團購點數</span></td>
+            <td align="center" bgcolor="#EEEEEE">數量</td>
+            <td align="center" bgcolor="#EEEEEE">重新計算</td>
+            <td align="center" bgcolor="#EEEEEE">小計</td>
+            <td align="center" bgcolor="#EEEEEE">功能</td>
+          </tr>
+          <{ section name=list1 loop=$Cart_item[list].goods }>
+          <form method="get" action="shopping_g.php">
+            <input type=hidden name=Action value='change'>
+            <input type=hidden name=key value='<{ $Cart_item[list].key }>'>
+            <input type=hidden name=gkey value='<{ $Cart_item[list].goods[list1].gkey }>'>
+            <tr>
+              <td align="center" bgcolor="#FFFFFF"><{math equation="(x+y)" x=$smarty.section.list1.index y=1 }></td>
+              <td align="center" bgcolor="#FFFFFF"><a href="<{ $Site_Url }>/product/goods_detail_groupon.php?goods_id=<{ $Cart_item[list].goods[list1].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].goods[list1].smallimg }>' width=70 border=0></a></td>
+              <td bgcolor="#FFFFFF"><{ $Cart_item[list].goods[list1].goodsname }> </td>
+              <!--td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].goods[list1].subjectcontent }></td-->
+              <td align="center" bgcolor="#FFFFFF"><{ if $Cart_item[list].goods[list1].memberprice >0 && $Cart_item[list].goods[list1].ifbuymore eq 0 }> <input name="buytype" type="radio" id="radio" value="0" <{ if $Cart_item[list].goods[list1].buytype eq 0 }>checked<{/if}>  onclick="changesale('<{ $Cart_item[list].key }>','<{ $Cart_item[list].goods[list1].gkey }>',0);">
+                
+                <{/if}>
+                
+                <{ $Cart_item[list].goods[list1].price }> </td>
+              <td align="center" bgcolor="#FFFFFF"><{ if $Cart_item[list].goods[list1].memberprice >0 && $Cart_item[list].goods[list1].ifbuymore eq 0 }> <input name="buytype" type="radio" id="radio" value="1" <{ if $Cart_item[list].goods[list1].buytype eq 1 }>checked<{/if}>  onclick="changesale('<{ $Cart_item[list].key }>','<{ $Cart_item[list].goods[list1].gkey }>',1);">
+                
+                <{ $Cart_item[list].goods[list1].memberprice }>+<{ $Cart_item[list].goods[list1].grouppoint }>
+                
+                <{/if}> </td>
+              <td align="center" bgcolor="#FFFFFF"><{ html_options name="count" options=$Cart_item[list].goods[list1].storagelist selected=$Cart_item[list].goods[list1].count }></td>
+              <td align="center" bgcolor="#FFFFFF"><input name="image" type="image" src="<{ $template_dir }>/images/jisuan.jpg"  border="0"></td>
+              <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].goods[list1].total }><{ if $Cart_item[list].goods[list1].totalpoint>0 }>+<{ $Cart_item[list].goods[list1].totalpoint }>團購點<{/if}></td>
+              <td align="center" bgcolor="#FFFFFF"><a href="./shopping_g.php?Action=remove&key=<{ $Cart_item[list].key}>&gkey=<{ $Cart_item[list].goods[list1].gkey }>">刪除</a></td>
+            </tr>
+          </form>
+          <{ /section }>
+          <tr>
+            <td colspan="10" align="right" bgcolor="#FFFFFF">商品總計：<{$Cart_item[list].totalprice}>元<{ if $Cart_item[list].totalpoint>0 }>+<{ $Cart_item[list].totalpoint }>團購點<{/if}></td>
+          </tr>
+          <tr>
+            <td colspan="10" align="right" bgcolor="#FFFFFF"><input type="button" name="button3" id="button3" value="繼續購物" onClick="location.href='../index_groupon.php';">
+              <input type="button" name="button" id="button" value="開始結帳" onClick="location.href='shoppingop.php?key=<{ $Cart_item[list].key}>&type=group';"></td>
+          </tr>
+          <{ /section }>
+        </table>
+      </div>
+      <div id="showcollection" style="width:85%"> </div>
+      <br />
+      <br /></td>
+  </tr>
+</table>
+<script language="javascript">
+function changesale(key,gkey,buytype){
+	location.href='shopping_g.php?key=' + key + '&gkey=' + gkey + '&buytype=' + buytype + '&Action=changebuytype';
+}
+</script>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,264 @@
+				<!--<div id="page-menu" class="page-menu-dark">
+				<div class="container">
+              <{if $logopic neq ''}><div class="product_banner  pull-left"><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a></div><{/if}>
+
+					<nav class="" style="width: 100%;"><!-- page menu --
+						<button id="page-menu-mobile">品牌選單 <i class="fa fa-angle-down"></i></button>
+
+							.menu-scrollTo - for scrollto page menu / no external links
+
+
+								<ul class="list-inline noborder" >
+                                <li class="menudown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>
+								<{ section name=list loop=$brandclass_array }>
+									<li class="menudown"><a <{if $brandclass_array[list].sub eq ""}>style="width:100%;"<{/if}> href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}>"><{$brandclass_array[list].classname}></a><{if $brandclass_array[list].sub neq ""}><i class="fa fa-angle-down"></i><{/if}>
+
+									<{if $brandclass_array[list].sub neq ""}>
+									<ul class="list-inline menudown1" style="position: fixed;">
+									<{ section name=list1 loop=$brandclass_array[list].sub }>
+										<li style="float: none; display: table;"><a <{if $brandclass_array[list].sub[list1].sub eq ""}>style="width:100%;"<{/if}> href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}>"><{$brandclass_array[list].sub[list1].classname}></a><{if $brandclass_array[list].sub[list1].sub neq ""}><i class="fa fa-angle-down"></i><{/if}>
+
+										<{if $brandclass_array[list].sub[list1].sub neq ""}>
+
+										<ul class="list-inline noborder menudown2">
+											<{ section name=list2 loop=$brandclass_array[list].sub[list1].sub }>
+												<li class="noborder">><a href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
+											<{/section}>
+										</ul>
+
+										<{/if}>
+										</li>
+									<{/section}>
+									</ul>
+									<{/if}>
+									</li>
+								<{/section}>
+								<{if $title1 neq "" ||  $title2 neq ""}>
+									<li class="menudown"><a>品牌資訊</a><i class="fa fa-angle-down"></i>
+
+									<ul class="list-inline menudown1" style="position: fixed;">
+
+										<{if $title1 neq ""}><li style="float: none; display: table;"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1"><{$title1}></a></li><{/if}>
+										<{if $title2 neq ""}><li style="float: none; display: table;"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2"><{$title2}></a></li><{/if}>
+
+									</ul>
+
+									</li>
+								<{/if}>
+								</ul>
+					</nav><!-- /page menu
+
+				</div>
+			</div>-->
+<style>
+.brandclass #topMain>li>a {
+    height: 40px;
+    line-height: 20px;
+}
+.brandclass .navbar-collapse.collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important;
+}
+.brandclass #topNav .navbar-collapse {
+    float: none;
+}
+.brandclass .nav-main{
+    display: table;
+    margin: 0 auto;
+}
+.logob.absolute{width:180px;}
+
+@media only screen and (max-width: 1200px){
+	.logob.absolute{
+		width:160px;
+
+		position: relative !important;
+	}
+	.brandclass .nav-main{
+		display: block;
+		margin: 0 auto;
+	}
+}
+@media only screen and (max-width: 1023px){
+
+	.brandclass #topNav div.nav-main-collapse.collapse {
+		display: block !important;
+	}
+	.brandclass ul#topMain{
+		display: none;
+	}
+
+	.brandclass #topMain.nav-pills>li>a,.brandclass #topMain.nav-pills>li:hover>a,.brandclass #topMain.nav-pills>li:focus>a {
+		color: #fff !important;
+		border-bottom: 1px solid #666;
+	}
+
+	.brandclass #page-menu-mobile {
+		display: inline-block;
+		width: calc(100% - 180px);
+		text-align: right;
+		color: #fff;
+	}
+
+	.brandclass #topNav div.nav-main-collapse {
+		float: none;
+		overflow-x: hidden;
+		max-height: 45px;
+	}
+}
+@media only screen and (max-width: 500px){
+	.brandclass #topNav div.nav-main-collapse {
+		float: none;
+		overflow-x: hidden;
+		max-height: 45px;
+	}
+}
+
+@media only screen and (min-width: 1300px){
+	.brandclass .nav-main{
+		margin-left: 133px;
+	}
+}
+@media only screen and (max-width: 1299px) and (min-width: 1290px){
+	.brandclass .nav-main{
+		margin-left: 128px;
+	}
+}
+@media only screen and (max-width: 1289px) and (min-width: 1220px){
+	.brandclass .nav-main{
+		margin-left: 108px;
+	}
+}
+.brandclass #topMain.nav-pills>li>a.dropdown-toggle:after {
+        display: block;
+    content: "\f107";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin: -8px 0 0;
+    font-family: FontAwesome;
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1em;
+    -webkit-transition: -webkit-transform .2s ease-in;
+    -moz-transition: -moz-transform .2s ease-in;
+    -ms-transition: -ms-transform .2s ease-in;
+    -o-transition: -o-transform .2s ease-in;
+    transition: transform .2s ease-in;
+}
+</style>
+<div id="header brandheader" class="brandsticky sticky clearfix dark brandclass" style="z-index: 20;">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+
+
+			<div class="navbar-collapse nav-main-collapse collapse submenu-dark" style=" background-color: #333;">
+							<div class="container">
+							<div class="product_banner logob absolute pull-left">
+							<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
+							</div>
+
+							<nav class="nav-main">
+
+
+							<button id="page-menu-mobile">品牌選單 <i class="fa fa-angle-down"></i></button>
+								<!--
+									NOTE
+
+									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+									Direct Link Example:
+
+									<li>
+										<a href="#">HOME</a>
+									</li>
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main">
+									<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>
+
+									<{ section name=list loop=$brandclass_array }>
+                  <{if $brandclass_array[list].totalcount neq 0}>
+									<li class="dropdown"><a class="<{if $brandclass_array[list].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/brand/<{$smarty.get.brand_id}>_<{$brandclass_array[list].bid}><{else}>#<{/if}>"><{$brandclass_array[list].classname}></a>
+
+									<{if $brandclass_array[list].sub neq ""}>
+									<ul class="dropdown-menu">
+									<{ section name=list1 loop=$brandclass_array[list].sub }>
+                  <{if $brandclass_array[list].sub[list1].totalcount neq 0}>
+										<li class="dropdown"><a class="<{if $brandclass_array[list].sub[list1].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub[list1].sub eq ""}><{ $Site_Url }>/brand/<{$smarty.get.brand_id}>_<{$brandclass_array[list].sub[list1].bid}><{else}>#<{/if}>"><{$brandclass_array[list].sub[list1].classname}></a>
+
+										<{if $brandclass_array[list].sub[list1].sub neq ""}>
+
+										<ul class="dropdown-menu" style="background-color: #4e4e4e;">
+											<{ section name=list2 loop=$brandclass_array[list].sub[list1].sub }>
+                      <{if $brandclass_array[list].sub[list1].sub[list2].totalcount neq 0}>
+												<li><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>_<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
+                      <{/if}>
+                      <{/section}>
+										</ul>
+										<{/if}>
+										</li>
+                  <{/if}>
+									<{/section}>
+									</ul>
+									<{/if}>
+									</li>
+                  <{/if}>
+								<{/section}>
+									<!--<li class="dropdown"> BLOG
+										<a class="dropdown-toggle" href="#">
+											BLOG
+										</a>
+										<ul class="dropdown-menu">
+											<li class="dropdown">
+												<a class="dropdown-toggle" href="#">
+													DEFAULT
+												</a>
+												<ul class="dropdown-menu">
+													<li><a href="blog-default-aside-left.html">LEFT SIDEBAR</a></li>
+													<li><a href="blog-default-aside-right.html">RIGHT SIDEBAR</a></li>
+
+												</ul>
+											</li>
+
+
+
+										</ul>
+									</li>-->
+				<!--文章
+				<li class="dropdown"><a class="cur" href="#"><{$nCatname}></a>
+				<{if $menu_news neq ""}>
+                <ul class="dropdown-menu">
+					<{ section name=Comm loop=$menu_news }>
+						<li class="dropdown"><a href="<{ $Site_Url }>/brand/article.php?articleid=<{ $menu_news[Comm].news_id }>"><{$menu_news[Comm].title}></a></li>
+					<{ /section }>
+				</ul>
+				<{/if}>	
+        
+                </li>-->
+									<{if $title1 neq "" ||  $title2 neq ""}>
+									<li class="dropdown"><a class="dropdown-toggle">品牌資訊</a>
+
+									<ul class="dropdown-menu">
+
+										<{if $title1 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1"><{$title1}></a></li><{/if}>
+										<{if $title2 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2"><{$title2}></a></li><{/if}>
+
+									</ul>
+
+									</li>
+
+									<{/if}>
+									<{if $ifshowgoods eq 1}>
+									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷產品</a></i>
+									<{/if}>
+								</ul>
+
+					</nav></div>
+			</div>
+
+				</header>
+				<!-- /Top Nav -->
+
+			</div>

@@ -1,0 +1,13 @@
+<div class="side-nav  margin-bottom-40">
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4 class="bfont">本館分類</h4>
+		</div>
+		<ul class="list-group list-group-bordered list-group-noicon uppercase">
+         <{ section name=list loop=$ProductListAll start=0 }>
+			<li class="list-group-item size-16">
+				<a href="<{if $ProductListAll[list].url eq ""}><{ $Site_Url }>/product/<{$ProductListAll[list].bid}><{else}><{$ProductListAll[list].url}><{/if}>"><{$ProductListAll[list].catname}></a>
+			</li>
+		 <{/section}>
+		</ul>
+</div>

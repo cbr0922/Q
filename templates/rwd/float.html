@@ -1,0 +1,127 @@
+<style type="text/css"> 
+
+	#abgne_float_ad {
+
+		display: none;
+
+		position: absolute;
+
+	}
+
+	#abgne_float_ad .abgne_close_ad {
+
+		display: block;
+
+		text-align: right;
+
+		cursor: pointer;
+
+		font-size: 12px;
+		
+		z-index:1000;
+
+	}
+
+	#abgne_float_ad a img {
+
+		border: none;
+		
+		
+
+	}
+
+	div.bigDiv {
+
+		height: 3000px;
+
+	}
+
+</style>
+
+<script type="text/javascript"> 
+
+	// 當網頁載入完
+
+	$(window).load(function(){
+
+		var $win = $(window),
+
+			$ad = $('#abgne_float_ad').css('opacity', 0).show(),	// 讓廣告區塊變透明且顯示出來
+
+			_width = $ad.width(),
+
+			_height = $ad.height(),
+
+			_diffY = 100, _diffX = 35,	// 距離右及上方邊距
+
+			_moveSpeed = 800;	// 移動的速度
+
+		
+
+		// 先把 #abgne_float_ad 移動到定點
+
+		$ad.css({
+
+			top: _diffY,	// 往上
+
+			left: $win.width() - _width - _diffX,
+
+			opacity: 1
+
+		});
+
+		
+
+		// 幫網頁加上 scroll 及 resize 事件
+
+		$win.bind('scroll resize', function(){
+
+			var $this = $(this);
+
+			
+
+			// 控制 #abgne_float_ad 的移動
+
+			$ad.stop().animate({
+
+				top: $this.scrollTop() + _diffY,	// 往上
+
+				left: $this.scrollLeft() + $this.width() - _width - _diffX
+
+			}, _moveSpeed);
+
+		}).scroll();	// 觸發一次 scroll()
+
+		
+
+		// 關閉廣告
+
+		$('#abgne_float_ad .abgne_close_ad').click(function(){
+
+			$ad.hide();
+
+		});
+
+	});
+
+</script>
+
+
+<div id="abgne_float_ad">
+
+		<span class="abgne_close_ad">關閉廣告 [X]</span>
+
+		<!--a href="www.ilovebaby.com.tw">
+
+			<img src="http://www.ilovebaby.com.tw/UploadFile/AdvPic/134724758110748.jpg" title="JavaScript & CSS 互動程式入門班" />
+
+		</a-->
+
+		<DIV style="position:absolute;z-index:1000;"><{ $float_left }></DIV>
+
+<DIV style="position:absolute;z-index:1000;"><{ $float_right }></DIV>
+
+	</div>
+
+
+

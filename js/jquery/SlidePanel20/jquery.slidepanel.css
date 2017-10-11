@@ -1,0 +1,89 @@
+/* Slide Panel */
+        .cb_slide_panel {
+	position: fixed;
+	z-index: 65000;
+	display: none;
+	background-color: #1f1f1f;
+        }
+        .cb_slide_panel.panel_left, .cb_slide_panel.panel_right {
+            width: 278px;
+            height: 100%;
+        }
+        .cb_slide_panel.panel_right {
+        }
+        .cb_slide_panel.panel_top, .cb_slide_panel.panel_bottom {
+            height: 278px;
+            width: 100%;
+        }
+        .cb_slide_panel.panel_top {
+            box-shadow: 1px 1px 23px rgba(0, 0, 0, 0.17), -1px -1px 0 rgba(255, 255, 255, 0.85) inset;
+        }
+        .cb_slide_panel.panel_bottom {
+            box-shadow: 1px 1px 23px rgba(0, 0, 0, 0.17), 1px 1px 0 rgba(255, 255, 255, 0.85) inset;
+        }
+        .cb_slide_panel a.close {
+            background: url(panel_close_default.png) no-repeat;
+            height: 40px;
+            position: absolute;
+            text-indent: -9999em;
+            width: 40px;
+            display: none;
+			margin-top:72px;
+        }
+        .cb_slide_panel.panel_left a.close {
+            right: -42px;
+            top: 20px;
+        }
+        .cb_slide_panel.panel_right a.close {
+            left: -42px;
+            top: 20px;
+        }
+        .cb_slide_panel.panel_top a.close {
+            bottom: -41px;
+            left: 20px;
+        }
+        .cb_slide_panel.panel_bottom a.close {
+            top: -41px;
+            left: 20px;
+        }
+        .cb_slide_panel a.close:hover {
+            background-position: -40px 0;
+        }
+        
+        .cb_slide_panel .inner {
+            padding: 20px 0 0 20px;
+            width: 248px;
+        }
+        .cb_slide_panel.loading .inner {
+            min-height: 300px;
+            background: url(ajax-loader.gif) no-repeat scroll 50% 50% transparent
+        }
+.side, .side a:link, .side a:visited, side h2 {
+	color:#fff
+	}
+.side a:hover{
+	color:#F30
+	}
+/*後台桌面站外工具按鈕*/
+#sidebutton{
+	background-color: #333;
+	color: White;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-topleft: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-webkit-border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-top-left-radius: 8px;
+	padding-top: 10px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	padding-left: 11px;
+	margin-top:40px;
+	z-index: 1000;
+	right: 0px;
+	position: absolute;
+	text-shadow:0 -1px 0 rgba(100,100,100,0.2), 0 1px 0 rgba(200,200,200,1);
+	-moz-box-shadow: 0px 0px 8px #81f2e9; /* Firefox */
+	-webkit-box-shadow: 0px 0px 8px #81f2e9; /* Safari 和 Chrome */
+	box-shadow: 0px 0px 8px #81f2e9; /* Opera 10.5 + */
+	}

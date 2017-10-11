@@ -1,0 +1,2265 @@
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: 100% Verdana, Arial, Helvetica, sans-serif; BACKGROUND: #fff; COLOR: #666666; WORD-BREAK: break-all; PADDING-TOP: 0px
+}
+A {
+	COLOR: #1689ff
+}
+.left {
+	FLOAT: left
+}
+.right {
+	FLOAT: right
+}
+.clear {
+	CLEAR: both
+}
+.twoColFixLtHdr #container {
+	TEXT-ALIGN: left; MARGIN: 0px auto; WIDTH: 980px; BACKGROUND: #ffffff
+}
+.twoColFixLtHdr #header_v3 {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; HEIGHT: 60px; PADDING-TOP: 10px
+}
+.twoColFixLtHdr #header_v3 .left {
+	FLOAT: left
+}
+.twoColFixLtHdr #header_v3 .leftcon-left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h15_org_l.gif); WIDTH: 5px; FLOAT: left; HEIGHT: 17px; MARGIN-LEFT: 3px
+}
+.twoColFixLtHdr #header_v3 .leftcon-right {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h15_org_r.gif); PADDING-BOTTOM: 3px; LINE-HEIGHT: 13px; PADDING-LEFT: 1px; PADDING-RIGHT: 4px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right 50%; FLOAT: left; COLOR: #fff; FONT-SIZE: 11px; FONT-WEIGHT: bold; MARGIN-RIGHT: 4px; PADDING-TOP: 1px
+}
+.twoColFixLtHdr #header_v3 .right {
+	TEXT-ALIGN: right
+}
+.twoColFixLtHdr #header_v3 .rightcon-right {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h17_grey_r.gif); PADDING-BOTTOM: 4px; LINE-HEIGHT: 10px; MARGIN-TOP: 10px; WIDTH: 230px; PADDING-RIGHT: 0px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right top; COLOR: #838383; FONT-SIZE: 11px; PADDING-TOP: 4px
+}
+.twoColFixLtHdr #header_v3 .rightcon-right SPAN {
+	MARGIN-RIGHT: 8px
+}
+.twoColFixLtHdr #header_v3 .rightcon-right IMG {
+	MARGIN-RIGHT: 2px
+}
+.twoColFixLtHdr #header_v3 .rightcon-right A {
+	COLOR: #838383; TEXT-DECORATION: none
+}
+.twoColFixLtHdr #header_v3 .rightcon-right A:hover {
+	COLOR: #2964dd
+}
+.twoColFixLtHdr #header_v3 .rightcon-bottom {
+	MARGIN-TOP: 5px
+}
+.twoColFixLtHdr #header_v3 .rightcon-bottom SPAN {
+	MARGIN-RIGHT: 8px
+}
+.twoColFixLtHdr #header_v3 .rightcon-bottom IMG {
+	MARGIN-RIGHT: 2px
+}
+.twoColFixLtHdr #header_v3 .rightcon-bottom A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.twoColFixLtHdr #header_v3_con {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; HEIGHT: 60px; PADDING-TOP: 10px
+}
+.twoColFixLtHdr #header_v3_con .left {
+	FLOAT: left
+}
+.twoColFixLtHdr #header_v3_con .leftcon-left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h15_org_l.gif); WIDTH: 5px; DISPLAY: block; FLOAT: left; HEIGHT: 15px
+}
+.twoColFixLtHdr #header_v3_con .leftcon-right {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h15_org_r.gif); PADDING-BOTTOM: 3px; PADDING-LEFT: 1px; PADDING-RIGHT: 4px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right 50%; FLOAT: left; COLOR: #fff; FONT-SIZE: 11px; FONT-WEIGHT: bold; MARGIN-RIGHT: 4px; PADDING-TOP: 1px
+}
+.twoColFixLtHdr #header_v3_con .right {
+	TEXT-ALIGN: right
+}
+.twoColFixLtHdr #header_v3_con .rightcon-right {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tbg_h17_grey_r.gif); PADDING-BOTTOM: 2px; MARGIN-TOP: 10px; PADDING-LEFT: 0px; WIDTH: 230px; PADDING-RIGHT: 0px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right top; COLOR: #838383; FONT-SIZE: 11px; PADDING-TOP: 0px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-right SPAN {
+	MARGIN-RIGHT: 8px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-right IMG {
+	MARGIN-RIGHT: 2px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-right A {
+	COLOR: #838383; TEXT-DECORATION: none
+}
+.twoColFixLtHdr #header_v3_con .rightcon-right A:hover {
+	COLOR: #2964dd
+}
+.twoColFixLtHdr #header_v3_con .rightcon-bottom {
+	MARGIN-TOP: 5px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-bottom SPAN {
+	MARGIN-RIGHT: 8px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-bottom IMG {
+	MARGIN-RIGHT: 2px
+}
+.twoColFixLtHdr #header_v3_con .rightcon-bottom A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#top-search {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_search_r.png); MARGIN-TOP: 10px; WIDTH: 402px; BACKGROUND-POSITION: right 50%; FLOAT: left; MARGIN-LEFT: 20px; MARGIN-RIGHT: 20px
+}
+#top-search .left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_search_l.gif); WIDTH: 61px; HEIGHT: 44px
+}
+#top-search .right {
+	HEIGHT: 44px
+}
+#top-search .con {
+	MARGIN: 12px 10px 0px 0px
+}
+#top-menu {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mood_event_hp_20100819.gif?t=2); MARGIN-BOTTOM: 13px; PADDING-TOP: 0px
+}
+#top-menu .tag {
+	PADDING-LEFT: 35px; PADDING-TOP: 2px
+}
+#top-menu A DIV.cp {
+	WIDTH: 970px; HEIGHT: 41px; CURSOR: pointer
+}
+#top-menu .tag0 {
+	TEXT-ALIGN: center; WIDTH: 56px; FLOAT: left
+}
+#top-menu .tag0 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu .tag0 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu .tag0 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu .tag1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; FLOAT: left
+}
+#top-menu .tag1 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu .tag1 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu .tag1 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu .tag2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 70px; DISPLAY: block; FLOAT: left
+}
+#top-menu .tag2 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu .tag2 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 70px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu .tag2 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu .tag3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 83px; DISPLAY: block; FLOAT: left
+}
+#top-menu .tag3 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu .tag3 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 83px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu .tag3 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu .tag4 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 113px; DISPLAY: block; FLOAT: left
+}
+#top-menu .tag4 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu .tag4 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 113px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu .tag4 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu .storead {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 75px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+#top-menu .storead-control-but {
+	PADDING-RIGHT: 13px; FLOAT: left; PADDING-TOP: 45px
+}
+#top-menu .storead-iframe {
+	WIDTH: 855px; FLOAT: right; HEIGHT: 72px; PADDING-TOP: 8px
+}
+#top-menu .storead-iframe IMG {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; WIDTH: 160px; HEIGHT: 60px; BORDER-TOP: #fff 1px solid; MARGIN-RIGHT: 9px; BORDER-RIGHT: #fff 1px solid
+}
+#top-menu1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mood_event_20100819.gif?t=1); MARGIN-BOTTOM: 13px; PADDING-TOP: 0px
+}
+#top-menu1 .tag {
+	PADDING-LEFT: 35px; PADDING-TOP: 2px
+}
+#top-menu1 A DIV.cp {
+	WIDTH: 970px; HEIGHT: 41px; CURSOR: pointer
+}
+#top-menu1 .tag0 {
+	TEXT-ALIGN: center; WIDTH: 56px; FLOAT: left
+}
+#top-menu1 .tag0 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu1 .tag0 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu1 .tag0 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu1 .tag1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; FLOAT: left
+}
+#top-menu1 .tag1 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu1 .tag1 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 56px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu1 .tag1 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu1 .tag2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 70px; DISPLAY: block; FLOAT: left
+}
+#top-menu1 .tag2 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu1 .tag2 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 70px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu1 .tag2 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu1 .tag3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 83px; DISPLAY: block; FLOAT: left
+}
+#top-menu1 .tag3 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu1 .tag3 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 83px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu1 .tag3 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu1 .tag4 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_bg.png) !important; TEXT-ALIGN: center; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_bg.png', sizingMethod='scale'); WIDTH: 113px; DISPLAY: block; FLOAT: left
+}
+#top-menu1 .tag4 A {
+	COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#top-menu1 .tag4 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png) !important; FILTER: {position:absolute; progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.pcstore.com.tw/web_img/st/top_menu_over_bg.png', sizingMethod='scale'); WIDTH: 113px; DISPLAY: block; COLOR: #ffff00; CURSOR: pointer
+}
+#top-menu1 .tag4 SPAN {
+	LINE-HEIGHT: 39px
+}
+#top-menu1 .storead {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 75px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+#top-menu1 .storead-control-but {
+	PADDING-RIGHT: 13px; FLOAT: left; PADDING-TOP: 45px
+}
+#top-menu1 .storead-iframe {
+	WIDTH: 855px; FLOAT: right; HEIGHT: 72px; PADDING-TOP: 8px
+}
+#top-menu1 .storead-iframe IMG {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; WIDTH: 160px; HEIGHT: 60px; BORDER-TOP: #fff 1px solid; MARGIN-RIGHT: 9px; BORDER-RIGHT: #fff 1px solid
+}
+#nov-bar {
+	FONT-FAMILY: Arial; HEIGHT: 25px; COLOR: #3e3e3e; MARGIN-LEFT: 10px; FONT-SIZE: 13px
+}
+#nov-bar SPAN {
+	FONT-WEIGHT: bold
+}
+#nov-bar A {
+	COLOR: #3e3e3e; TEXT-DECORATION: none
+}
+.twoColFixLtHdr #sidebar1 {
+	WIDTH: 180px; FLOAT: left; PADDING-TOP: 30px
+}
+.twoColFixLtHdr #sidebar2 {
+	FLOAT: left
+}
+#myaccount {
+	MARGIN-TOP: 5px; WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#myaccount .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/myacc_tit.gif); HEIGHT: 42px
+}
+#myaccount .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/myacc_bg.gif); TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-POSITION: left bottom; FONT-SIZE: 12px; PADDING-TOP: 2px
+}
+#myaccount .con A {
+	FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+#myaccount IMG {
+	MARGIN: 7px 0px
+}
+#today-only {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#today-only .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_only_tit.gif); HEIGHT: 44px
+}
+#today-only .tit SPAN {
+	LINE-HEIGHT: 28px; PADDING-LEFT: 68px; COLOR: #fff; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+#today-only .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_only_con.gif); TEXT-ALIGN: center; PADDING-BOTTOM: 2px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-POSITION: left bottom; FONT-SIZE: 12px; PADDING-TOP: 2px
+}
+#today-only .con A {
+	FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+#today-only .con-in {
+	LINE-HEIGHT: 18px; MARGIN: 0px 8px; COLOR: #2f2f2f; FONT-SIZE: 13px
+}
+#today-only .con-in-cost {
+	COLOR: #d70000; FONT-WEIGHT: bold
+}
+#today-only .con-in-cost SPAN {
+	FONT-SIZE: 18px
+}
+#today-only IMG {
+	MARGIN: 3px 0px 5px
+}
+#today-only .imgborder {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
+}
+#today-only .line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_only_line.gif); HEIGHT: 12px
+}
+#today-coupon {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#today-coupon .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/today_coupon_tit.gif); HEIGHT: 53px
+}
+#today-coupon .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/today_coupon_con.gif); TEXT-ALIGN: center; BACKGROUND-POSITION: 50% bottom; FONT-SIZE: 12px
+}
+#today-coupon .con A {
+	FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+#today-coupon .con-in {
+	LINE-HEIGHT: 18px; COLOR: #2f2f2f; FONT-SIZE: 13px
+}
+#today-coupon .con-in-cost {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/today_coupon_cut.gif); MARGIN: 0px -7px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 50% top; COLOR: #4b4b4b; FONT-SIZE: 15px; FONT-WEIGHT: bold; PADDING-TOP: 13px
+}
+#today-coupon .con-in-cost SPAN {
+	COLOR: #f82b5e; FONT-SIZE: 18px
+}
+#today-coupon IMG {
+	MARGIN: 3px 0px 5px
+}
+#today-coupon .line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_only_line.gif); HEIGHT: 12px
+}
+#item-org {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#item-org .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/item_tit.gif); LINE-HEIGHT: 34px; PADDING-LEFT: 11px; COLOR: #fff; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#item-org .tit SPAN {
+	COLOR: #fffc00
+}
+#item-org .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/item_con.gif); PADDING-BOTTOM: 10px; LINE-HEIGHT: 15px; PADDING-LEFT: 2px; PADDING-RIGHT: 4px; BACKGROUND-POSITION: left bottom; FONT-SIZE: 12px; PADDING-TOP: 4px
+}
+#item-org .con A {
+	COLOR: #636363; TEXT-DECORATION: none
+}
+#item-org .con A:hover {
+	COLOR: #1689ff; TEXT-DECORATION: none
+}
+#item-org .con-des {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/des_bg.gif); TEXT-ALIGN: center; LINE-HEIGHT: 16px; MARGIN: 0px 4px 3px 3px; WIDTH: 67px; DISPLAY: block; FLOAT: left; HEIGHT: 16px; COLOR: #fff; FONT-SIZE: 10px; FONT-WEIGHT: bold
+}
+#item-org .con-in {
+	MARGIN: 7px 0px 5px; CLEAR: both
+}
+#item-org .con-big-font {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/arrow_4.gif); PADDING-BOTTOM: 5px; MARGIN: 2px 0px 0px 5px; PADDING-LEFT: 25px; PADDING-RIGHT: 0px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; FONT-SIZE: 16px; FONT-WEIGHT: bold; PADDING-TOP: 7px
+}
+#item-org .con-big-font A {
+	COLOR: #000
+}
+#item-org .con-in-font {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/arrow_5.gif); PADDING-BOTTOM: 0px; MARGIN: 4px 0px 4px 7px; PADDING-LEFT: 20px; PADDING-RIGHT: 3px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; PADDING-TOP: 4px
+}
+#item-org .con-in-font A {
+	COLOR: #1689ff
+}
+#item-org .con-in-font SPAN {
+	FONT-SIZE: 11px
+}
+#item-org .con-up-font {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/arrow_4_1.gif); PADDING-BOTTOM: 5px; MARGIN: 2px 0px 0px 5px; PADDING-LEFT: 25px; PADDING-RIGHT: 0px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; FONT-SIZE: 16px; FONT-WEIGHT: bold; PADDING-TOP: 7px
+}
+#item-org .con-up-font A {
+	COLOR: #000
+}
+#item-org .line {
+	BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/paper_line.gif); HEIGHT: 9px
+}
+#item-org .search {
+	LINE-HEIGHT: 28px; COLOR: #3e3e3e; MARGIN-LEFT: 12px
+}
+#sub_paper {
+	MARGIN-BOTTOM: 7px
+}
+#sub_paper .con {
+	MARGIN-TOP: 9px; FONT-SIZE: 12px
+}
+#sub_paper .con SPAN {
+	PADDING-LEFT: 5px
+}
+#sub_paper .con-img {
+	MARGIN: 0px 5px
+}
+#item-w {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#item-w .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/item1_tit.gif); HEIGHT: 11px; COLOR: #fff; FONT-SIZE: 0px; FONT-WEIGHT: bold
+}
+#item-w .tit SPAN {
+	COLOR: #fffc00
+}
+#item-w .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/item1_con.gif); PADDING-BOTTOM: 10px; PADDING-LEFT: 6px; BACKGROUND-POSITION: left bottom
+}
+.twoColFixLtHdr #mainContent {
+	MARGIN-LEFT: 179px
+}
+.twoColFixLtHdr #footer_b {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; COLOR: #545454; FONT-SIZE: 11px; BORDER-TOP: #ff9415 3px solid; PADDING-TOP: 10px
+}
+.twoColFixLtHdr #footer_b P {
+	PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 10px
+}
+.fltrt {
+	FLOAT: right; MARGIN-LEFT: 8px
+}
+.fltlft {
+	FLOAT: left; MARGIN-RIGHT: 8px
+}
+.clearfloat {
+	LINE-HEIGHT: 0px; HEIGHT: 0px; CLEAR: both; FONT-SIZE: 1px
+}
+.t11 {
+	COLOR: #6b6b6b; FONT-SIZE: 11px
+}
+INPUT {
+	FONT-FAMILY: Arial; FONT-SIZE: 12px
+}
+.t12b {
+	FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+#main-top {
+	PADDING-BOTTOM: 10px
+}
+#main-top .left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_left_bg.gif); TEXT-ALIGN: center; WIDTH: 184px; FLOAT: left; HEIGHT: 241px; MARGIN-RIGHT: 5px
+}
+#main-top .left-con {
+	MARGIN-TOP: 7px
+}
+#main-top .right {
+	WIDTH: 183px; HEIGHT: 241px
+}
+#main-top .right-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_tit.gif); LINE-HEIGHT: 38px; HEIGHT: 44px; COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#main-top .right-tit SPAN {
+	PADDING-LEFT: 55px
+}
+#main-top .right-con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_con.gif); BACKGROUND-POSITION: left bottom; HEIGHT: 197px
+}
+#main-top .right-con-in {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; PADDING-LEFT: 5px; FONT-SIZE: 13px
+}
+#main-top .right-con-in A {
+	COLOR: #393939; TEXT-DECORATION: none
+}
+#main-top .right-con-line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_line.gif); HEIGHT: 15px; FONT-SIZE: 0px
+}
+#main-top .con {
+	MARGIN-TOP: 2px; WIDTH: 418px; FLOAT: left
+}
+#main-top .con-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_tbg.gif); PADDING-BOTTOM: 0px; PADDING-LEFT: 1px; WIDTH: 416px; PADDING-RIGHT: 1px; HEIGHT: 24px; PADDING-TOP: 0px
+}
+#main-top .con-tit SPAN {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; WIDTH: 83px; FLOAT: left; HEIGHT: 24px; FONT-SIZE: 10px
+}
+#main-top .con-tit A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_a.gif); DISPLAY: block; COLOR: #fff; TEXT-DECORATION: none
+}
+#main-top .con-tit A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000
+}
+#main-top .con-tit-on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000
+}
+#main-top .con-in {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_gbg.gif); TEXT-ALIGN: center; HEIGHT: 215px
+}
+#main-top .con-in IMG {
+	MARGIN-TOP: 5px
+}
+#main-top1 {
+	MARGIN-BOTTOM: 5px; HEIGHT: 305px
+}
+#main-top1 .left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/bigc_top_ad_bg.gif); TEXT-ALIGN: center; WIDTH: 608px; HEIGHT: 310px
+}
+#main-top1 .left-con {
+	MARGIN-TOP: 35px; FLOAT: left
+}
+#main-top1 .left-con-left {
+	PADDING-LEFT: 13px; FLOAT: left
+}
+#main-top1 .left-con-right {
+	MARGIN-RIGHT: 15px
+}
+#main-top1 .right {
+	WIDTH: 183px; HEIGHT: 310px
+}
+#main-top1 .right-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_tit.gif); LINE-HEIGHT: 38px; HEIGHT: 44px; COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#main-top1 .right-tit SPAN {
+	PADDING-LEFT: 55px
+}
+#main-top1 .right-con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_con.gif); BACKGROUND-POSITION: left bottom; HEIGHT: 197px
+}
+#main-top1 .right-con-in {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; PADDING-LEFT: 5px; FONT-SIZE: 13px
+}
+#main-top1 .right-con-in A {
+	COLOR: #393939; TEXT-DECORATION: none
+}
+#main-top1 .right-con-line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_text_ad_line.gif); WIDTH: 183px; HEIGHT: 15px; FONT-SIZE: 0px
+}
+#main-top1 .con {
+	MARGIN-TOP: 2px; FLOAT: left
+}
+#main-top1 .con-tit {
+	MARGIN-TOP: 15px; PADDING-LEFT: 135px
+}
+#main-top1 .con-in {
+	TEXT-ALIGN: center
+}
+#main-top1 .con-in IMG {
+	MARGIN-TOP: 6px; WIDTH: 160px; HEIGHT: 60px; MARGIN-LEFT: 24px
+}
+#open-info {
+	HEIGHT: 40px; CLEAR: right; PADDING-TOP: 10px
+}
+#open-info .boss {
+	WIDTH: 395px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/boss_store_bg.gif) no-repeat; FLOAT: left; HEIGHT: 34px; FONT-SIZE: 12px
+}
+#open-info .boss SPAN {
+	PADDING-LEFT: 87px; FONT-WEIGHT: bold
+}
+#open-info .media {
+	WIDTH: 395px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/media_bg.gif) no-repeat; FLOAT: right; HEIGHT: 34px; COLOR: #3b3b3b; FONT-SIZE: 12px
+}
+#open-info .media SPAN {
+	PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #e89717; MARGIN: 0px 5px 0px 71px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; COLOR: #fff; FONT-SIZE: 11px; PADDING-TOP: 2px
+}
+#open-info A {
+	COLOR: #3b3b3b; TEXT-DECORATION: none
+}
+#open-info1 {
+	PADDING-TOP: 5px
+}
+#open-info1 .media {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/media_bg_1.gif); TEXT-ALIGN: center; HEIGHT: 57px; COLOR: #3b3b3b; FONT-SIZE: 12px
+}
+#open-info1 .media DIV {
+	HEIGHT: 25px; PADDING-TOP: 32px
+}
+#open-info1 A {
+	TEXT-DECORATION: none
+}
+#main-product {
+	HEIGHT: 505px
+}
+#main-product .con {
+	PADDING-BOTTOM: 8px; PADDING-LEFT: 4px; WIDTH: 256px; PADDING-RIGHT: 4px; FLOAT: left; HEIGHT: 109px; PADDING-TOP: 8px
+}
+#main-product .con1 {
+	PADDING-BOTTOM: 8px; MARGIN: 6px 3px 0px; PADDING-LEFT: 4px; WIDTH: 249px; PADDING-RIGHT: 4px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 109px; PADDING-TOP: 8px
+}
+#main-product .con-in {
+	FONT-SIZE: 12px
+}
+#main-product .con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#main-product .con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+#main-product .con-in-cost {
+	MARGIN-TOP: 2px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+#main-product .con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#main-product .con-in-store {
+	LINE-HEIGHT: 14px; MARGIN-TOP: 5px; FONT-SIZE: 11px
+}
+#main-product .con-in-store A {
+	COLOR: #888
+}
+#main-product .con-in-store IMG {
+	FLOAT: left; MARGIN-RIGHT: 2px
+}
+#main-class {
+	WIDTH: 796px
+}
+#main-class .con-in1 {
+	PADDING-BOTTOM: 10px
+}
+#main-class .con-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_bg.gif); HEIGHT: 57px
+}
+#main-class .con-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_bg_1.gif); HEIGHT: 57px
+}
+#main-class .con-tit-left {
+	TEXT-ALIGN: center; LINE-HEIGHT: 23px; MARGIN-TOP: 28px; PADDING-LEFT: 120px; FLOAT: left; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#main-class .con-tit-left-m1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left-m1 A {
+	COLOR: #e8804d; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m1 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1.gif); WIDTH: 76px; DISPLAY: block; HEIGHT: 28px; COLOR: #fff
+}
+#main-class .con-tit-left-m1on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left-m2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left-m2 A {
+	COLOR: #7dbc21; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m2 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m2.gif); WIDTH: 76px; DISPLAY: block; HEIGHT: 28px; COLOR: #fff
+}
+#main-class .con-tit-left-m2on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m2.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left-m3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left-m3 A {
+	COLOR: #6ab1c3; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m3 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m3.gif); WIDTH: 76px; DISPLAY: block; HEIGHT: 28px; COLOR: #fff
+}
+#main-class .con-tit-left-mon {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m3.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class .con-tit-left1 {
+	LINE-HEIGHT: 23px; MARGIN-TOP: 28px; FLOAT: left; MARGIN-LEFT: 10px; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#main-class .con-tit-left1 SPAN {
+	COLOR: #ff3f00
+}
+#main-class .con-tit-right {
+	MARGIN-TOP: 34px; FLOAT: right; FONT-SIZE: 12px
+}
+#main-class .con-tit-right SPAN {
+	MARGIN-LEFT: 10px
+}
+#main-class .con-tit-right A {
+	TEXT-DECORATION: none
+}
+#main-class .con-tit-right A:hover {
+	TEXT-DECORATION: underline
+}
+#main-class .con-tit-right1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/icon_hot_1_bg.gif); LINE-HEIGHT: 18px; MARGIN-TOP: 28px; PADDING-RIGHT: 10px; BACKGROUND-POSITION: right 50%; FLOAT: right; FONT-SIZE: 12px
+}
+#main-class .con-tit-right1 SPAN {
+	MARGIN-LEFT: 10px
+}
+#main-class .con-tit-right1 A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-class .con-tit-right1 A:hover {
+	TEXT-DECORATION: underline
+}
+#main-class .con-in {
+	
+}
+#main-class .con-in-sty1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_con_bg1.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top; HEIGHT: 200px; PADDING-TOP: 10px
+}
+#main-class .con-in-sty2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_con_bg2.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top; HEIGHT: 200px; PADDING-TOP: 10px
+}
+#main-class .con-in-sty3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_con_bg3.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top; HEIGHT: 200px; PADDING-TOP: 10px
+}
+#main-class .con-in-sty4 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_con_bg4.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left top; HEIGHT: 100px; PADDING-TOP: 10px
+}
+#main-class .con-in-text {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_gdot.gif); LINE-HEIGHT: 27px; PADDING-LEFT: 14px; WIDTH: 145px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; FLOAT: left; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#main-class .con-in-text-span-s {
+	MARGIN-LEFT: 5px; FONT-SIZE: 11px; FONT-WEIGHT: normal
+}
+#main-class .con-in-text A {
+	TEXT-DECORATION: none
+}
+#main-class .con-in-text-u {
+	COLOR: #ff3f00
+}
+#main-class .con-in-text IMG {
+	MARGIN: 3px 0px
+}
+#main-class_bigclass {
+	
+}
+#main-class_bigclass .con-tit-left {
+	TEXT-ALIGN: center; LINE-HEIGHT: 23px; MARGIN-TOP: 5px; PADDING-LEFT: 10px; HEIGHT: 25px; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+#main-class_bigclass .con-tit-left-m1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px; MARGIN-RIGHT: 6px
+}
+#main-class_bigclass .con-tit-left-m1 A {
+	COLOR: #e8804d; TEXT-DECORATION: none
+}
+#main-class_bigclass .con-tit-left-m1 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1_s.gif); WIDTH: 46px; DISPLAY: block; HEIGHT: 23px; COLOR: #fff
+}
+#main-class_bigclass .con-tit-left-m1on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class_bigclass .con-tit-left-m2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px; MARGIN-RIGHT: 6px
+}
+#main-class_bigclass .con-tit-left-m2 A {
+	COLOR: #7dbc21; TEXT-DECORATION: none
+}
+#main-class_bigclass .con-tit-left-m2 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m2_s.gif); WIDTH: 46px; DISPLAY: block; HEIGHT: 23px; COLOR: #fff
+}
+#main-class_bigclass .con-tit-left-m2on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m2_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class_bigclass .con-tit-left-m3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px
+}
+#main-class_bigclass .con-tit-left-m3 A {
+	COLOR: #6ab1c3; TEXT-DECORATION: none
+}
+#main-class_bigclass .con-tit-left-m3 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m3_s.gif); WIDTH: 46px; DISPLAY: block; HEIGHT: 23px; COLOR: #fff
+}
+#main-class_bigclass .con-tit-left-m3on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m3_s.gif); WIDTH: 46px; DISPLAY: block; FLOAT: left; HEIGHT: 23px; COLOR: #fff; MARGIN-RIGHT: 6px
+}
+#main-class_bigclass .con-tit-left1 {
+	LINE-HEIGHT: 23px; MARGIN-TOP: 28px; FLOAT: left; MARGIN-LEFT: 10px; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#main-class_bigclass .con-tit-left1 SPAN {
+	COLOR: #ff3f00
+}
+#main-bottom {
+	MARGIN-TOP: 20px; WIDTH: 796px
+}
+#main-bottom .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_bottom_tit.gif); DISPLAY: block; HEIGHT: 25px
+}
+#main-bottom .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_bottom_con.gif); PADDING-LEFT: 11px; BACKGROUND-POSITION: left bottom; HEIGHT: 860px
+}
+#main-bottom .con-left {
+	WIDTH: 372px; MARGIN-BOTTOM: 25px; FLOAT: left; HEIGHT: 250px; MARGIN-RIGHT: 28px
+}
+#main-bottom .con-left-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit1.gif); HEIGHT: 25px
+}
+#main-bottom .con-left-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom .con-left-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#main-bottom .con-left-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom .con-left-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit2.gif); HEIGHT: 25px
+}
+#main-bottom .con-left-tit2-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom .con-left-tit2-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#main-bottom .con-left-tit2-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom .con-left-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit5.gif); HEIGHT: 25px
+}
+#main-bottom .con-right {
+	WIDTH: 372px; MARGIN-BOTTOM: 35px; FLOAT: left; HEIGHT: 250px
+}
+#main-bottom .con-right-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit3.gif); HEIGHT: 25px
+}
+#main-bottom .con-right-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom .con-right-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; COLOR: #fff; FONT-SIZE: 11px
+}
+#main-bottom .con-right-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom .con-right-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit4.gif); HEIGHT: 25px
+}
+#main-bottom .con-right-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit6.gif); HEIGHT: 25px
+}
+.main-bottom-in1-con {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; HEIGHT: 95px; PADDING-TOP: 5px
+}
+.main-bottom-in1-con-in {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+.main-bottom-in1-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.main-bottom-in1-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in1-con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+.main-bottom-in1-con-in-cost {
+	MARGIN-TOP: 5px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+.main-bottom-in1-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in1-con-in-line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_line.gif); HEIGHT: 11px; FONT-SIZE: 0px
+}
+.main-bottom-in2-con {
+	HEIGHT: 20px
+}
+.main-bottom-in2-con-in {
+	LINE-HEIGHT: 18px; FLOAT: left; FONT-SIZE: 12px
+}
+.main-bottom-in2-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.main-bottom-in2-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in2-con-in IMG {
+	MARGIN-TOP: 3px; FLOAT: left; MARGIN-RIGHT: 5px
+}
+.main-bottom-in2-con-in-cost {
+	MARGIN-TOP: 5px; FONT-FAMILY: Verdana; COLOR: #d70000; MARGIN-LEFT: 5px
+}
+.main-bottom-in2-con-in-cost-span {
+	FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.main-bottom-in2-con-in-cost-g {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #d7d7d7; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-FAMILY: Verdana; COLOR: #fff; MARGIN-LEFT: 5px; FONT-SIZE: 11px; PADDING-TOP: 0px
+}
+.main-bottom-in3-con {
+	MARGIN: 5px 0px 0px 3px; WIDTH: 119px; FLOAT: left
+}
+.main-bottom-in3-con-in {
+	TEXT-ALIGN: center; LINE-HEIGHT: 16px; FONT-SIZE: 12px
+}
+.main-bottom-in3-con-in IMG {
+	MARGIN: 4px 0px
+}
+.main-bottom-in3-con-in-b {
+	BORDER-BOTTOM: #eaeaea 1px solid; BORDER-LEFT: #eaeaea 1px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; MARGIN-BOTTOM: 5px; BORDER-TOP: #eaeaea 1px solid; BORDER-RIGHT: #eaeaea 1px solid; PADDING-TOP: 1px
+}
+.main-bottom-in3-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.main-bottom-in3-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in3-con-in-cost {
+	MARGIN-TOP: 3px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+.main-bottom-in3-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in3-con-in-time {
+	LINE-HEIGHT: 20px; BACKGROUND-COLOR: #f3f3f3; FONT-FAMILY: Verdana; HEIGHT: 23px; COLOR: #819f00; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.main-bottom-in3-con-in-dot {
+	LINE-HEIGHT: 20px; MARGIN-TOP: 3px; FONT-FAMILY: Verdana; COLOR: #ff5900; FONT-SIZE: 12px
+}
+.main-bottom-in3-con-in-dot SPAN {
+	FONT-FAMILY: Verdana; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in4-con {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 4px; WIDTH: 176px; PADDING-RIGHT: 4px; FLOAT: left; HEIGHT: 67px; PADDING-TOP: 5px
+}
+.main-bottom-in4-con-in {
+	LINE-HEIGHT: 16px; FONT-SIZE: 12px
+}
+.main-bottom-in4-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.main-bottom-in4-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in4-con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+.main-bottom-in4-con-in-cost {
+	MARGIN-TOP: 4px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+.main-bottom-in4-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in4-con-in-cost-g {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #f3f3f3; MARGIN: 0px 0px 2px 70px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-FAMILY: Verdana; COLOR: #ff923a; FONT-SIZE: 11px; PADDING-TOP: 0px
+}
+.main-bottom-in5-con {
+	MARGIN: 7px
+}
+.main-bottom-in5-con-in {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+.main-bottom-in5-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.main-bottom-in5-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in5-con-in-img {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+.main-bottom-in5-con-in-p {
+	MARGIN-TOP: 7px; HEIGHT: 17px; COLOR: #a9a9a9; FONT-SIZE: 11px
+}
+.main-bottom-in5-con-in-p A {
+	TEXT-DECORATION: none
+}
+.main-bottom-in5-con-in-line {
+	BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/button_con_tit6-line.gif); HEIGHT: 11px; FONT-SIZE: 0px
+}
+.main-bottom-in6-con {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; MARGIN: 8px 2px 0px; WIDTH: 150px; FLOAT: left; HEIGHT: 243px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid
+}
+.main-bottom-in6-con-in {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px; LINE-HEIGHT: 16px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-SIZE: 12px; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}
+.main-bottom-in6-con-in IMG {
+	MARGIN: 6px 0px
+}
+.main-bottom-in6-con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.main-bottom-in6-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in6-con-in-cost {
+	MARGIN-TOP: 3px; FONT-FAMILY: Verdana; COLOR: #d70000; FONT-WEIGHT: normal
+}
+.main-bottom-in6-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in6-con-in-store {
+	TEXT-ALIGN: left; MARGIN-TOP: 8px; FONT-SIZE: 10px; BORDER-TOP: #ddd 1px solid; FONT-WEIGHT: normal; PADDING-TOP: 5px
+}
+.main-bottom-in6-con-in-store A {
+	COLOR: #888
+}
+.main-bottom-in6-con-in-store IMG {
+	MARGIN-TOP: 0px; FLOAT: left; MARGIN-RIGHT: 3px
+}
+.main-bottom-in7-con {
+	TEXT-ALIGN: left; MARGIN: 3px 0px 3px 175px; WIDTH: 220px
+}
+.main-bottom-in7-con-in {
+	LINE-HEIGHT: 14px; FONT-SIZE: 11px
+}
+.main-bottom-in7-con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.main-bottom-in7-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in7-con-in-img {
+	FLOAT: left; MARGIN-RIGHT: 5px
+}
+.main-bottom-in7-con-in-line {
+	LINE-HEIGHT: 0px; MARGIN-TOP: 3px; HEIGHT: 1px; FONT-SIZE: 0px; BORDER-TOP: #ddd 1px solid
+}
+.main-bottom-in7-con-in-cost {
+	FONT-FAMILY: Verdana; COLOR: #d70000; FONT-SIZE: 10px
+}
+.main-bottom-in7-con-in-cost SPAN {
+	FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+.main-bottom-in7-con-in-store {
+	FONT-SIZE: 10px; FONT-WEIGHT: normal
+}
+.main-bottom-in7-con-in-store A {
+	COLOR: #888; TEXT-DECORATION: none
+}
+.main-bottom-in7-con-in-store IMG {
+	MARGIN-TOP: 0px; FLOAT: left; MARGIN-RIGHT: 3px
+}
+#apDiv1 {
+	Z-INDEX: 1; POSITION: absolute; WIDTH: 140px; HEIGHT: 100px
+}
+#apDiv1 .con {
+	BORDER-BOTTOM: #ff7f0b 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #ff7f0b 1px solid; PADDING-BOTTOM: 7px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-SIZE: 12px; BORDER-TOP: #ff7f0b 1px solid; BORDER-RIGHT: #ff7f0b 1px solid; PADDING-TOP: 7px
+}
+#apDiv1 .con A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/dot_org_g.gif); PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 15px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+#apDiv1 .con A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/dot_org.gif); PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 15px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left 50%; COLOR: #222; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+#apDiv1 .line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/menu_line.gif); HEIGHT: 11px
+}
+#apcoupen {
+	Z-INDEX: 1; POSITION: absolute; WIDTH: 240px
+}
+#apcoupen .con {
+	BORDER-BOTTOM: #ff7f0b 5px solid; TEXT-ALIGN: left; BORDER-LEFT: #ff7f0b 5px solid; PADDING-BOTTOM: 5px; LINE-HEIGHT: 16px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 9px; PADDING-RIGHT: 5px; FONT-SIZE: 12px; BORDER-TOP: #ff7f0b 5px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ff7f0b 5px solid; PADDING-TOP: 5px
+}
+#apcoupen .line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/menu_line.gif); HEIGHT: 11px
+}
+#apcoupen SPAN {
+	COLOR: #f00; FONT-WEIGHT: normal
+}
+#pmc {
+	HEIGHT: 430px; CLEAR: right
+}
+#pmc .top-left {
+	FLOAT: left
+}
+#pmc .top-right {
+	FLOAT: left
+}
+#pmc .b-left {
+	WIDTH: 265px; FLOAT: left
+}
+#pmc .b-right {
+	WIDTH: 265px; FLOAT: left
+}
+#pmc .b-con {
+	WIDTH: 265px; FLOAT: left
+}
+#pmc .epaper {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/ad_265x173_2.jpg); DISPLAY: block; BACKGROUND-POSITION: left 50%; HEIGHT: 173px
+}
+#pmc .epaper-tit {
+	LINE-HEIGHT: 39px; COLOR: #fff; FONT-SIZE: 11px
+}
+#pmc .epaper-tit SPAN {
+	COLOR: #000; MARGIN-LEFT: 45px; FONT-SIZE: 12px; FONT-WEIGHT: bold; MARGIN-RIGHT: 5px
+}
+#pmc .epaper-con {
+	PADDING-BOTTOM: 5px; LINE-HEIGHT: 18px; PADDING-LEFT: 12px; PADDING-RIGHT: 18px; FONT-SIZE: 12px; PADDING-TOP: 4px
+}
+#pmc .epaper-con A {
+	TEXT-DECORATION: none
+}
+#big-bottom {
+	MARGIN-TOP: 10px; WIDTH: 796px
+}
+#big-bottom .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/big_buttom_tit.gif); TEXT-ALIGN: center; LINE-HEIGHT: 34px; DISPLAY: block; HEIGHT: 34px; COLOR: #ff6d27; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#big-bottom .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/big_buttom_con.gif); TEXT-ALIGN: center; PADDING-BOTTOM: 13px; PADDING-LEFT: 11px; DISPLAY: inline-block; BACKGROUND-POSITION: left bottom
+}
+#big-bottom .con IMG {
+	MARGIN: 3px 6px 3px 4px; WIDTH: 115px; HEIGHT: 55px
+}
+#big-bottom .con SPAN {
+	TEXT-ALIGN: center; MARGIN: 6px 7px; WIDTH: 140px; FLOAT: left; HEIGHT: 130px
+}
+#big-bottom .con A {
+	COLOR: #7f7f7f; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+#big-bottom .con A:hover {
+	COLOR: #1689ff
+}
+#big-bottom .con1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/big_buttom_con.gif); TEXT-ALIGN: center; PADDING-BOTTOM: 13px; PADDING-LEFT: 11px; DISPLAY: inline-block; BACKGROUND-POSITION: left bottom; MARGIN-BOTTOM: 20px
+}
+#big-bottom .con1 IMG {
+	MARGIN: 3px 6px 3px 4px; WIDTH: 115px; HEIGHT: 55px
+}
+#big-bottom .con1 SPAN {
+	TEXT-ALIGN: center; MARGIN: 6px 7px; WIDTH: 140px; FLOAT: left; HEIGHT: 130px
+}
+#big-bottom .con1 A {
+	COLOR: #7f7f7f; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+#big-bottom .con1 A:hover {
+	COLOR: #1689ff
+}
+.goldsup_div_marquee2 {
+	PADDING-BOTTOM: 1px; MARGIN: auto; PADDING-LEFT: 1px; WIDTH: 855px; PADDING-RIGHT: 1px; HEIGHT: 72px; OVERFLOW: hidden; PADDING-TOP: 8px
+}
+.goldsup_div_marquee2 IMG {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; WIDTH: 160px; HEIGHT: 60px; BORDER-TOP: #fff 1px solid; MARGIN-RIGHT: 9px; BORDER-RIGHT: #fff 1px solid
+}
+#main-top .top_ad_font_con_tit_off {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_a.gif); DISPLAY: block; COLOR: #fff; TEXT-DECORATION: none
+}
+#main-top .top_ad_font_con_tit_on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000; CURSOR: pointer
+}
+#main-class .con-tit-left-m1off-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; MARGIN-RIGHT: 6px; TEXT-DECORATION: none; OLOR: #e8804d
+}
+#main-class .con-tit-left-m1on-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; CURSOR: pointer; MARGIN-RIGHT: 6px; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m2off-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #7dbc21; MARGIN-RIGHT: 6px; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m2on-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m2.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; CURSOR: pointer; MARGIN-RIGHT: 6px; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m3off-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m1o.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #6ab1c3; MARGIN-RIGHT: 6px; TEXT-DECORATION: none
+}
+#main-class .con-tit-left-m3on-v3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_class_top_m3.gif); WIDTH: 76px; DISPLAY: block; FLOAT: left; HEIGHT: 28px; COLOR: #fff; CURSOR: pointer; MARGIN-RIGHT: 6px; TEXT-DECORATION: none
+}
+#myaccount_logo {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#myaccount_logo .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/myacc_tit_login_top.gif); LINE-HEIGHT: 15px; PADDING-LEFT: 15px; PADDING-RIGHT: 25px; BACKGROUND-POSITION: 50% top; COLOR: #fa380e; PADDING-TOP: 15px
+}
+#myaccount_logo .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/myacc_bg.gif); TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND-POSITION: left bottom; FONT-SIZE: 12px; PADDING-TOP: 2px
+}
+#myaccount_logo .con A {
+	TEXT-DECORATION: none
+}
+OL.fav_list1 {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 16px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 0px; FONT-SIZE: 15px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+OL.fav_list1 A {
+	COLOR: #232323; TEXT-DECORATION: none
+}
+OL.fav_list1 A:hover {
+	COLOR: #7e7e7e; TEXT-DECORATION: none
+}
+.fav_list1_v3 {
+	MARGIN-TOP: 5px; WIDTH: 145px; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+HR.fav_list1 {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BACKGROUND-COLOR: #ffba00; WIDTH: 145px; BORDER-TOP-STYLE: none; HEIGHT: 1px; COLOR: #ffba00; MARGIN-LEFT: 0px; BORDER-LEFT-STYLE: none
+}
+#top-tech {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_thch_bg.gif); MARGIN-TOP: 10px; WIDTH: 305px; BACKGROUND-POSITION: right 50%; FLOAT: left; MARGIN-LEFT: 70px; MARGIN-RIGHT: 20px
+}
+#top-tech .left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/top_thch.gif); WIDTH: 13px; HEIGHT: 44px
+}
+#top-tech .right {
+	WIDTH: 290px; HEIGHT: 44px
+}
+#top-tech .con {
+	MARGIN: 12px 15px 0px 0px; COLOR: #fa380e; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#main-bottom1 {
+	MARGIN-TOP: 20px; WIDTH: 796px
+}
+#main-bottom1 .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_bottom_tit.gif); DISPLAY: block; HEIGHT: 25px
+}
+#main-bottom1 .con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_bottom_con.gif); PADDING-LEFT: 11px; BACKGROUND-POSITION: left bottom; HEIGHT: 560px
+}
+#main-bottom1 .con-left {
+	WIDTH: 372px; MARGIN-BOTTOM: 25px; FLOAT: left; HEIGHT: 250px; MARGIN-RIGHT: 28px
+}
+#main-bottom1 .con-left-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit1.gif); HEIGHT: 25px
+}
+#main-bottom1 .con-left-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom1 .con-left-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#main-bottom1 .con-left-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom1 .con-left-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit2.gif); HEIGHT: 25px
+}
+#main-bottom1 .con-left-tit2-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom1 .con-left-tit2-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#main-bottom1 .con-left-tit2-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom1 .con-left-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit5.gif); HEIGHT: 25px
+}
+#main-bottom1 .con-right {
+	WIDTH: 372px; MARGIN-BOTTOM: 35px; FLOAT: left; HEIGHT: 250px
+}
+#main-bottom1 .con-right-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit3.gif); HEIGHT: 25px
+}
+#main-bottom1 .con-right-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#main-bottom1 .con-right-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; COLOR: #fff; FONT-SIZE: 11px
+}
+#main-bottom1 .con-right-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#main-bottom1 .con-right-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit4.gif); HEIGHT: 25px
+}
+#main-bottom1 .con-right-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit6.gif); HEIGHT: 25px
+}
+#pmc1 {
+	WIDTH: 798px; HEIGHT: 250px; CLEAR: right
+}
+#pmc1 .top-left {
+	FLOAT: left
+}
+#pmc1 .top-right {
+	FLOAT: left
+}
+#pmc2 {
+	WIDTH: 798px; HEIGHT: 174px; CLEAR: right
+}
+#pmc2 .b-left {
+	WIDTH: 266px; FLOAT: left
+}
+#pmc2 .b-right {
+	WIDTH: 266px; FLOAT: left
+}
+#pmc2 .b-con {
+	WIDTH: 266px; FLOAT: left
+}
+#pmc2 .epaper {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/ad_265x173_3.jpg); DISPLAY: block; BACKGROUND-POSITION: left 50%; HEIGHT: 174px
+}
+#pmc2 .epaper-tit {
+	LINE-HEIGHT: 35px; COLOR: #fff; FONT-SIZE: 11px
+}
+#pmc2 .epaper-tit SPAN {
+	COLOR: #000; MARGIN-LEFT: 45px; FONT-SIZE: 12px; FONT-WEIGHT: bold; MARGIN-RIGHT: 5px
+}
+#pmc2 .epaper-con {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-LEFT: 12px; PADDING-RIGHT: 18px; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+#pmc2 .epaper-con A {
+	TEXT-DECORATION: none
+}
+.main-bottom-in8-con {
+	BORDER-BOTTOM: #ddd 1px solid; TEXT-ALIGN: left; MARGIN: 3px 0px 4px 175px; WIDTH: 220px; HEIGHT: 82px
+}
+.main-bottom-in8-con-in {
+	LINE-HEIGHT: 15px; FONT-SIZE: 12px
+}
+.main-bottom-in8-con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.main-bottom-in8-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in8-con-in-img {
+	MARGIN: 2px 5px 2px 0px; FLOAT: left
+}
+.main-bottom-in8-con-in-line {
+	MARGIN-TOP: 2px; HEIGHT: 1px; CLEAR: right; FONT-SIZE: 0px; BORDER-TOP: #ddd 1px solid
+}
+.main-bottom-in8-con-in-cost {
+	FONT-FAMILY: Verdana; MARGIN-BOTTOM: 1px; COLOR: #d70000; MARGIN-LEFT: 75px; FONT-SIZE: 10px
+}
+.main-bottom-in8-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in8-con-in-store {
+	LINE-HEIGHT: 14px; MARGIN-TOP: 3px; MARGIN-LEFT: 75px; FONT-SIZE: 10px; FONT-WEIGHT: normal
+}
+.main-bottom-in8-con-in-store A {
+	COLOR: #888; TEXT-DECORATION: none
+}
+.main-bottom-in8-con-in-store IMG {
+	MARGIN-TOP: 0px; FLOAT: left; MARGIN-RIGHT: 3px
+}
+.main-bottom-in9-con {
+	TEXT-ALIGN: left; MARGIN: 3px 0px 3px 175px; WIDTH: 220px; HEIGHT: 82px
+}
+.main-bottom-in9-con-in {
+	LINE-HEIGHT: 15px; FONT-SIZE: 12px
+}
+.main-bottom-in9-con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.main-bottom-in9-con-in A:hover {
+	COLOR: #1689ff
+}
+.main-bottom-in9-con-in-img {
+	MARGIN: 2px 5px 2px 0px; FLOAT: left
+}
+.main-bottom-in9-con-in-cost {
+	FONT-FAMILY: Verdana; MARGIN-BOTTOM: 1px; COLOR: #d70000; MARGIN-LEFT: 75px; FONT-SIZE: 10px
+}
+.main-bottom-in9-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.main-bottom-in9-con-in-store {
+	LINE-HEIGHT: 14px; MARGIN-TOP: 2px; MARGIN-LEFT: 75px; FONT-SIZE: 10px; FONT-WEIGHT: normal
+}
+.main-bottom-in9-con-in-store A {
+	COLOR: #888; TEXT-DECORATION: none
+}
+.main-bottom-in9-con-in-store IMG {
+	MARGIN-TOP: 0px; FLOAT: left; MARGIN-RIGHT: 3px
+}
+#main-newstorep {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/newstore_prod_bg.gif); WIDTH: 796px; BACKGROUND-REPEAT: repeat-x
+}
+.twoColFixLtHdr #sidebar3 {
+	FLOAT: right
+}
+.twoColFixLtHdr #mainContent1 {
+	MARGIN-RIGHT: 190px
+}
+#nov-bar-keyad {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; FONT-FAMILY: Arial; MARGIN-BOTTOM: 15px; BACKGROUND: #f0f0f0; HEIGHT: 25px; COLOR: #3e3e3e; FONT-SIZE: 13px; PADDING-TOP: 7px
+}
+#nov-bar-keyad SPAN {
+	FONT-WEIGHT: bold
+}
+#nov-bar-keyad A {
+	COLOR: #3e3e3e; TEXT-DECORATION: none
+}
+#keyad-right {
+	MARGIN-BOTTOM: 10px
+}
+#keyad-right .tit {
+	WIDTH: 179px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/focus_r_t.gif); HEIGHT: 32px
+}
+#keyad-right .con {
+	PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #ffffd2; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+#keyad-in {
+	
+}
+#keyad-in A {
+	FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+#keyad-in .tit {
+	LINE-HEIGHT: 24px; FONT-FAMILY: Arial; COLOR: #3f3f3f; FONT-SIZE: 15px
+}
+#keyad-in .tit IMG {
+	MARGIN: 0px 5px 2px
+}
+#keyad-in .tit SPAN {
+	FONT-FAMILY: Verdana; COLOR: #f00; FONT-WEIGHT: bold
+}
+#keyad-in .tit-all {
+	
+}
+#keyad-in .tit-all A {
+	PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #ebebeb; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #000; FONT-SIZE: 11px; PADDING-TOP: 2px
+}
+#keyad-in .about {
+	PADDING-BOTTOM: 5px; MARGIN: 10px 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #ffffd2; PADDING-TOP: 5px
+}
+#keyad-in .tool {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/keyad_s_tool.gif); PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #f0f0f0; MARGIN-TOP: 10px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND-REPEAT: no-repeat; MARGIN-BOTTOM: 10px; FONT-SIZE: 11px; PADDING-TOP: 5px
+}
+#keyad-in .tool INPUT {
+	FONT-SIZE: 11px
+}
+#keyad-in .tool-in-left {
+	LINE-HEIGHT: 25px; MARGIN: 5px 0px 0px 65px; WIDTH: 180px; FLOAT: left
+}
+#keyad-in .tool-in-right {
+	LINE-HEIGHT: 25px; MARGIN: 5px 0px 0px
+}
+.psearchsort {
+	BORDER-BOTTOM: #cecece 5px solid; PADDING-BOTTOM: 7px; MARGIN-TOP: 20px; FONT-FAMILY: Arial; MARGIN-BOTTOM: 10px
+}
+.psearchsort SPAN {
+	FONT-WEIGHT: bold
+}
+.psearchsort A {
+	TEXT-DECORATION: none
+}
+#keyad-pro {
+	MARGIN-TOP: 5px; WIDTH: 127px; MARGIN-LEFT: 15px; MARGIN-RIGHT: 15px
+}
+#keyad-pro A {
+	TEXT-DECORATION: none
+}
+#keyad-pro .tit {
+	LINE-HEIGHT: 18px; MARGIN-TOP: 3px; MARGIN-BOTTOM: 3px; HEIGHT: 53px; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: bold
+}
+#keyad-pro .tit SPAN {
+	COLOR: red
+}
+#keyad-pro .tit A {
+	COLOR: #3b3b3b
+}
+#keyad-pro .cost {
+	MARGIN-TOP: 5px; FONT-FAMILY: Verdana; COLOR: red; FONT-WEIGHT: bold
+}
+#keyad-pro .cost SPAN {
+	FONT-SIZE: 18px
+}
+#keyad-pro .icon IMG {
+	MARGIN-BOTTOM: 2px; MARGIN-RIGHT: 3px
+}
+#keyad-pro .store1 {
+	LINE-HEIGHT: 13px; MARGIN-TOP: 2px; MARGIN-BOTTOM: 10px; FONT-SIZE: 11px
+}
+#keyad-pro .store1 SPAN {
+	FONT-SIZE: 10px
+}
+.keyad-pro-page {
+	BORDER-BOTTOM: #cecece 5px solid; TEXT-ALIGN: center; PADDING-BOTTOM: 15px; MARGIN-TOP: 10px; WIDTH: auto; MARGIN-BOTTOM: 10px; BORDER-TOP: #cecece 1px solid; PADDING-TOP: 15px
+}
+.keyad-pro-page A {
+	
+}
+.keyad-pro-page SPAN {
+	FONT-WEIGHT: bold
+}
+.addtracking {
+	MARGIN-BOTTOM: 10px
+}
+.addtracking IMG {
+	MARGIN: 0px 5px
+}
+.addtracking SPAN {
+	COLOR: red; FONT-WEIGHT: bold
+}
+#keyad-pro-right {
+	TEXT-ALIGN: center; WIDTH: 160px
+}
+#keyad-pro-right A {
+	TEXT-DECORATION: none
+}
+#keyad-pro-right .tit1 {
+	LINE-HEIGHT: 17px; MARGIN-TOP: 3px; HEIGHT: 53px; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: bold
+}
+#keyad-pro-right .tit1 SPAN {
+	COLOR: red
+}
+#keyad-pro-right .tit1 A {
+	COLOR: #3b3b3b
+}
+#keyad-pro-right .cost {
+	MARGIN-TOP: 5px; FONT-FAMILY: Verdana; COLOR: red; FONT-WEIGHT: bold
+}
+#keyad-pro-right .cost SPAN {
+	FONT-SIZE: 18px
+}
+#keyad-pro-right .store1 {
+	MARGIN-BOTTOM: 17px; FONT-SIZE: 11px
+}
+#keyad-pro-right .store1 SPAN {
+	FONT-SIZE: 10px
+}
+#keyad-event {
+	TEXT-ALIGN: center; MARGIN-BOTTOM: 10px
+}
+#keyad-event .tit {
+	MARGIN-TOP: 20px; COLOR: #c1c1c1
+}
+#keyad-event IMG {
+	MARGIN: 5px; WIDTH: 160px; HEIGHT: 120px
+}
+#keyad-pro-right2-1 {
+	HEIGHT: 116px; CLEAR: left
+}
+#keyad-pro-right2-1 IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+#keyad-pro-right2-1 .pic1 {
+	PADDING-BOTTOM: 13px; PADDING-LEFT: 13px; PADDING-RIGHT: 13px; FLOAT: left; PADDING-TOP: 13px
+}
+#keyad-pro-right2-1 .pic1 IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 90px; HEIGHT: 90px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+#keyad-pro-right2-1 .pic2 {
+	WIDTH: 440px; FLOAT: left
+}
+#keyad-pro-right2-1 .pic2t {
+	LINE-HEIGHT: 19px; MARGIN-TOP: 10px; MARGIN-BOTTOM: 3px; MAX-HEIGHT: 40px; FONT-SIZE: 13px; OVERFLOW: hidden; FONT-WEIGHT: bold
+}
+#keyad-pro-right2-1 .pic2t A:hover {
+	COLOR: #333; TEXT-DECORATION: underline
+}
+#keyad-pro-right2-1 .pic2t A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#keyad-pro-right2-1 .pic2icon {
+	MARGIN-BOTTOM: 2px
+}
+#keyad-pro-right2-1 .pic2icon IMG {
+	MARGIN-BOTTOM: 2px; MARGIN-RIGHT: 3px
+}
+#keyad-pro-right2-1 .pic2ti {
+	COLOR: #7f7f7f; FONT-SIZE: 11px
+}
+#keyad-pro-right2-1 .pic2ti A {
+	COLOR: #7f7f7f; TEXT-DECORATION: none
+}
+#keyad-pro-right2-1 .pic2ti A:hover {
+	COLOR: #09f; TEXT-DECORATION: underline
+}
+#keyad-pro-right2-1 .pic3 {
+	TEXT-ALIGN: right; MARGIN-TOP: 40px; WIDTH: 135px; FONT-FAMILY: Verdana; FLOAT: right; COLOR: red; FONT-WEIGHT: bold
+}
+#keyad-pro-right2-1 .pic3 SPAN {
+	FONT-SIZE: 18px
+}
+#keyad-pro-right2-1 .pic4 {
+	TEXT-ALIGN: right; FLOAT: right; MARGIN-LEFT: 20px
+}
+#keyad-pro-right2-1 .pic4 IMG {
+	MARGIN: 35px 10px 0px 0px
+}
+#keyad-pro-right2-1 .pic5t {
+	LINE-HEIGHT: 21px; MARGIN-TOP: 13px; MARGIN-BOTTOM: 3px; MAX-HEIGHT: 45px; FONT-SIZE: 15px; OVERFLOW: hidden; FONT-WEIGHT: bold
+}
+#keyad-pro-right2-1 .pic5t A:hover {
+	COLOR: #333; TEXT-DECORATION: underline
+}
+#keyad-pro-right2-1 .pic5t A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#keyad-pro-right2-1 .pic6 {
+	PADDING-LEFT: 13px; WIDTH: 545px; FLOAT: left
+}
+.bggray {
+	PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #f1f1f1
+}
+.kortit {
+	FONT-SIZE: 18px
+}
+#epaper_ad {
+	TEXT-ALIGN: center; BACKGROUND: #eeeeee
+}
+#epaper_ad IMG {
+	MARGIN: 7px 3px
+}
+#counter-nov-bar {
+	PADDING-BOTTOM: 0px; MARGIN-TOP: -13px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial; BACKGROUND: #fff4c9; HEIGHT: 27px; COLOR: #3e3e3e; FONT-SIZE: 12px; PADDING-TOP: 8px
+}
+#counter-nov-bar SPAN {
+	FONT-WEIGHT: bold
+}
+#counter-nov-bar A {
+	COLOR: #3e3e3e; TEXT-DECORATION: none
+}
+.counter-line {
+	MARGIN-BOTTOM: 5px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/conuter_line1.gif); HEIGHT: 35px
+}
+.twoColFixLtHdr #sidebar4 {
+	WIDTH: 180px; FLOAT: left
+}
+#counter-product {
+	HEIGHT: 365px
+}
+#counter-product .con {
+	PADDING-BOTTOM: 8px; PADDING-LEFT: 4px; WIDTH: 256px; PADDING-RIGHT: 4px; FLOAT: left; HEIGHT: 109px; PADDING-TOP: 8px
+}
+#counter-product .con1 {
+	PADDING-BOTTOM: 8px; MARGIN: 6px 3px 0px; PADDING-LEFT: 4px; WIDTH: 249px; PADDING-RIGHT: 4px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 109px; PADDING-TOP: 8px
+}
+#counter-product .con-in {
+	FONT-SIZE: 12px
+}
+#counter-product .con-in A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#counter-product .con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+#counter-product .con-in-cost {
+	MARGIN-TOP: 2px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+#counter-product .con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#counter-product .con-in-store {
+	LINE-HEIGHT: 14px; MARGIN-TOP: 5px; FONT-SIZE: 11px
+}
+#counter-product .con-in-store A {
+	COLOR: #888
+}
+#counter-product .con-in-store IMG {
+	FLOAT: left; MARGIN-RIGHT: 2px
+}
+#counter-bottom {
+	MARGIN-TOP: 20px; WIDTH: 796px; MARGIN-BOTTOM: 30px; FLOAT: right
+}
+#counter-bottom .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_bottom_tit.gif); DISPLAY: block; HEIGHT: 25px
+}
+#counter-bottom .con-left-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit5.gif); HEIGHT: 25px
+}
+.counter-bottom-in1-con-in-line {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_line.gif); HEIGHT: 11px; FONT-SIZE: 0px
+}
+#counter-bottom .con {
+	PADDING-LEFT: 11px
+}
+#counter-bottom .con-left {
+	WIDTH: 372px; MARGIN-BOTTOM: 25px; FLOAT: left; HEIGHT: 250px; MARGIN-RIGHT: 28px
+}
+#counter-bottom .con-left-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit1.gif); HEIGHT: 25px
+}
+#counter-bottom .con-left-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#counter-bottom .con-left-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#counter-bottom .con-left-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#counter-bottom .con-left-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit2.gif); HEIGHT: 25px
+}
+#counter-bottom .con-left-tit2-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#counter-bottom .con-left-tit2-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; FONT-SIZE: 11px
+}
+#counter-bottom .con-left-tit2-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#counter-bottom .con-right {
+	WIDTH: 372px; MARGIN-BOTTOM: 35px; FLOAT: left; HEIGHT: 250px
+}
+#counter-bottom .con-right-tit1 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit3.gif); HEIGHT: 25px
+}
+#counter-bottom .con-right-tit1-left {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Verdana; FLOAT: left; COLOR: #ed2100; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+#counter-bottom .con-right-tit1-right {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 112px; FLOAT: right; COLOR: #fff; FONT-SIZE: 11px
+}
+#counter-bottom .con-right-tit1-right A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+#counter-bottom .con-right-tit2 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit4.gif); HEIGHT: 25px
+}
+#counter-bottom .con-right-tit3 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/button_con_tit6.gif); HEIGHT: 25px
+}
+.counter-bottom-in1-con {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; HEIGHT: 95px; PADDING-TOP: 5px
+}
+.counter-bottom-in1-con-in {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+.counter-bottom-in1-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.counter-bottom-in1-con-in A:hover {
+	COLOR: #1689ff
+}
+.counter-bottom-in1-con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+.counter-bottom-in2-con {
+	HEIGHT: 20px
+}
+.counter-bottom-in2-con-in {
+	LINE-HEIGHT: 18px; FLOAT: left; FONT-SIZE: 12px
+}
+.counter-bottom-in2-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.counter-bottom-in2-con-in A:hover {
+	COLOR: #1689ff
+}
+.counter-bottom-in2-con-in IMG {
+	MARGIN-TOP: 3px; FLOAT: left; MARGIN-RIGHT: 5px
+}
+.counter-bottom-in2-con-in-cost {
+	MARGIN-TOP: 5px; FONT-FAMILY: Verdana; COLOR: #d70000; MARGIN-LEFT: 5px
+}
+.counter-bottom-in2-con-in-cost-span {
+	FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.counter-bottom-in2-con-in-cost-g {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #d7d7d7; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-FAMILY: Verdana; COLOR: #fff; MARGIN-LEFT: 5px; FONT-SIZE: 11px; PADDING-TOP: 0px
+}
+.counter-bottom-in3-con {
+	MARGIN: 5px 0px 0px 3px; WIDTH: 119px; FLOAT: left
+}
+.counter-bottom-in3-con-in {
+	TEXT-ALIGN: center; LINE-HEIGHT: 16px; FONT-SIZE: 12px
+}
+.counter-bottom-in3-con-in IMG {
+	MARGIN: 4px 0px
+}
+.counter-bottom-in3-con-in-b {
+	BORDER-BOTTOM: #eaeaea 1px solid; BORDER-LEFT: #eaeaea 1px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; MARGIN-BOTTOM: 5px; BORDER-TOP: #eaeaea 1px solid; BORDER-RIGHT: #eaeaea 1px solid; PADDING-TOP: 1px
+}
+.counter-bottom-in3-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.counter-bottom-in3-con-in A:hover {
+	COLOR: #1689ff
+}
+.counter-bottom-in3-con-in-cost {
+	MARGIN-TOP: 3px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+.counter-bottom-in3-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.counter-bottom-in3-con-in-time {
+	LINE-HEIGHT: 20px; BACKGROUND-COLOR: #f3f3f3; FONT-FAMILY: Verdana; HEIGHT: 23px; COLOR: #819f00; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.counter-bottom-in3-con-in-dot {
+	LINE-HEIGHT: 20px; MARGIN-TOP: 3px; FONT-FAMILY: Verdana; COLOR: #ff5900; FONT-SIZE: 12px
+}
+.counter-bottom-in3-con-in-dot SPAN {
+	FONT-FAMILY: Verdana; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.counter-bottom-in4-con {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 4px; WIDTH: 176px; PADDING-RIGHT: 4px; FLOAT: left; HEIGHT: 67px; PADDING-TOP: 5px
+}
+.counter-bottom-in4-con-in {
+	LINE-HEIGHT: 16px; FONT-SIZE: 12px
+}
+.counter-bottom-in4-con-in A {
+	COLOR: #787878; TEXT-DECORATION: none
+}
+.counter-bottom-in4-con-in A:hover {
+	COLOR: #1689ff
+}
+.counter-bottom-in4-con-in IMG {
+	FLOAT: left; MARGIN-RIGHT: 7px
+}
+.counter-bottom-in4-con-in-cost {
+	MARGIN-TOP: 4px; FONT-FAMILY: Verdana; COLOR: #d70000
+}
+.counter-bottom-in4-con-in-cost SPAN {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.counter-bottom-in4-con-in-cost-g {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #f3f3f3; MARGIN: 0px 0px 2px 70px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-FAMILY: Verdana; COLOR: #ff923a; FONT-SIZE: 11px; PADDING-TOP: 0px
+}
+#counter-top {
+	PADDING-BOTTOM: 7px; HEIGHT: 245px
+}
+#counter-top .left {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/counter_ad117_bg.gif); TEXT-ALIGN: center; WIDTH: 191px; FLOAT: right; HEIGHT: 241px
+}
+#counter-top .left-con {
+	MARGIN-TOP: 7px
+}
+#counter-top .right {
+	WIDTH: 182px; HEIGHT: 241px
+}
+#counter-top .right-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/counter_ad_txt_tit.gif); MARGIN-TOP: 2px; HEIGHT: 56px; FONT-WEIGHT: bold
+}
+#counter-top .right-tit SPAN {
+	PADDING-LEFT: 55px
+}
+#counter-top .right-con {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/counter_ad_txt_bg.gif); BACKGROUND-POSITION: left bottom; HEIGHT: 183px
+}
+#counter-top .right-con-in {
+	LINE-HEIGHT: 20px; PADDING-LEFT: 7px; PADDING-RIGHT: 7px; FONT-SIZE: 12px
+}
+#counter-top .right-con-in A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+#counter-top .right-con-in IMG {
+	
+}
+#counter-top .right-con-in SPAN {
+	
+}
+#counter-top .right-con-line {
+	MARGIN: 1px 0px 4px
+}
+#counter-top .con {
+	MARGIN-TOP: 2px; WIDTH: 418px; FLOAT: right; MARGIN-LEFT: 1px
+}
+#counter-top .con-tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_tbg.gif); PADDING-BOTTOM: 0px; PADDING-LEFT: 1px; WIDTH: 416px; PADDING-RIGHT: 1px; HEIGHT: 24px; PADDING-TOP: 0px
+}
+#counter-top .con-tit SPAN {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; WIDTH: 83px; FLOAT: left; HEIGHT: 24px; FONT-SIZE: 10px
+}
+#counter-top .con-tit A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_a.gif); DISPLAY: block; COLOR: #fff; TEXT-DECORATION: none
+}
+#counter-top .con-tit A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000
+}
+#counter-top .con-tit-on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000
+}
+#counter-top .con-in {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_gbg.gif); TEXT-ALIGN: center; HEIGHT: 215px
+}
+#counter-top .con-in IMG {
+	MARGIN-TOP: 5px
+}
+#counter-top .top_ad_font_con_tit_off {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_a.gif); DISPLAY: block; COLOR: #fff; TEXT-DECORATION: none
+}
+#counter-top .top_ad_font_con_tit_on {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/main_top_con_ad_b.gif); DISPLAY: block; COLOR: #ff5000; CURSOR: pointer
+}
+#counter_edm_ad {
+	MARGIN: 10px 0px
+}
+#counter_item-org {
+	WIDTH: 173px; MARGIN-BOTTOM: 7px
+}
+#counter_item-org .tit {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/counter_store_list_tit.gif); HEIGHT: 45px
+}
+#counter_item-org .tit SPAN {
+	COLOR: #fffc00
+}
+#counter_item-org .con {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 13px; PADDING-LEFT: 2px; PADDING-RIGHT: 4px; FONT-SIZE: 12px
+}
+#counter_item-org .con A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+#counter_item-org .con A:hover {
+	COLOR: #1689ff; TEXT-DECORATION: none
+}
+#counter_item-org .con-des {
+	LINE-HEIGHT: 14px; MARGIN-BOTTOM: 9px; HEIGHT: 13px; OVERFLOW: hidden
+}
+#counter_item-org TR {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/paper_line.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 50% bottom
+}
+#counter_hotsale {
+	TEXT-ALIGN: right; WIDTH: 792px; MARGIN-BOTTOM: 10px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/counter_hot_sale_bg.gif); FLOAT: right; HEIGHT: 360px; PADDING-TOP: 55px
+}
+#counter_hotsale .in {
+	
+}
+#counter_hotsale .con {
+	TEXT-ALIGN: center; LINE-HEIGHT: 16px; PADDING-LEFT: 26px; WIDTH: 128px; MARGIN-BOTTOM: 12px; FLOAT: left; HEIGHT: 164px; FONT-SIZE: 12px
+}
+#counter_hotsale .con IMG {
+	BORDER-BOTTOM: #bdbdbd 1px solid; BORDER-LEFT: #bdbdbd 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; BACKGROUND: #fff; BORDER-TOP: #bdbdbd 1px solid; BORDER-RIGHT: #bdbdbd 1px solid; PADDING-TOP: 3px
+}
+#counter_hotsale .con A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#counter_hotsale .con A:hover {
+	COLOR: #666
+}
+#counter_leftsale {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/counter_leftsale_bg.gif); PADDING-BOTTOM: 8px; WIDTH: 175px; BACKGROUND-POSITION: 50% bottom; MARGIN-BOTTOM: 10px; HEIGHT: 250px
+}
+#counter_leftsale .tit {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 30px; BACKGROUND: url(http://img.pcstore.com.tw/web_img/st/counter_leftsale_tit.gif); COLOR: #fff; FONT-SIZE: 13px; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}
+#counter_leftsale .con {
+	
+}
+#counter_leftsale .in {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 3px; LINE-HEIGHT: 16px; PADDING-LEFT: 7px; PADDING-RIGHT: 7px; HEIGHT: 90px; COLOR: #000; FONT-SIZE: 11px; PADDING-TOP: 3px
+}
+#counter_leftsale .in SPAN {
+	COLOR: #d70000
+}
+#counter_leftsale .in IMG {
+	FLOAT: left
+}
+#counter_leftsale .cost {
+	FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+#counter_leftsale .in1 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 16px; PADDING-LEFT: 9px; WIDTH: 75px; FLOAT: left; FONT-SIZE: 10px
+}
+#counter_leftsale .in1 IMG {
+	MARGIN-BOTTOM: 3px
+}
+#counter_leftsale .in1 SPAN {
+	COLOR: #d70000
+}
+#mnu_bar {
+	HEIGHT: 42px
+}
+#mnu_bar .mnu_home {
+	
+}
+#mnu_bar .mnu_home DIV {
+	
+}
+#mnu_bar .mnu_home A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_03.gif); WIDTH: 102px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_home A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar1_03.gif)
+}
+#mnu_bar .mnu_best {
+	
+}
+#mnu_bar .mnu_best A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_04.gif); WIDTH: 102px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_best A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar1_04.gif)
+}
+#mnu_bar .mnu_boss {
+	
+}
+#mnu_bar .mnu_boss A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_05.gif); WIDTH: 103px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_boss A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar1_05.gif)
+}
+#mnu_bar .mnu_express {
+	
+}
+#mnu_bar .mnu_express A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_06.gif); WIDTH: 105px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_express A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar1_06.gif)
+}
+#mnu_bar .mnu_share {
+	
+}
+#mnu_bar .mnu_share A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_07.gif); WIDTH: 108px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_share A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar1_07.gif)
+}
+#mnu_bar .mnu_sup_gprod A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_08.gif); WIDTH: 82px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_draw_exh A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_09.gif); WIDTH: 81px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_prod_point A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_10.gif); WIDTH: 92px; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_discount A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_11.gif); WIDTH: 96px; BACKGROUND-POSITION: right 50%; FLOAT: left; HEIGHT: 42px
+}
+#mnu_bar .mnu_7-11 A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/mnu_bar_12.gif); WIDTH: 109px; BACKGROUND-POSITION: right 50%; FLOAT: left; HEIGHT: 42px
+}
+.cb_top10px {
+	CLEAR: both; PADDING-TOP: 10px
+}
+.head4_tit {
+	CLEAR: right
+}
+.head4_tit DIV {
+	TEXT-ALIGN: center; WIDTH: 200px; FLOAT: left; HEIGHT: 34px
+}
+.head4_tit DIV A {
+	LINE-HEIGHT: 24px; FONT-SIZE: 15px; TEXT-DECORATION: none
+}
+.head4_tit DIV A:hover {
+	TEXT-DECORATION: underline
+}
+.head4_tit DIV.red A {
+	COLOR: #f00
+}
+.head_tbar {
+	TEXT-ALIGN: left; FONT-SIZE: 11px
+}
+.head_tbar .head_tbar_l {
+	WIDTH: 455px; FLOAT: left
+}
+.head_tbar .head_tbar_l2 {
+	BORDER-BOTTOM: #bbb 1px solid; WIDTH: 163px; FLOAT: left; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+.head_tbar .head_tbar_l2 DIV A {
+	COLOR: #727272; TEXT-DECORATION: none
+}
+.head_tbar .head_tbar_l2 DIV A:hover {
+	COLOR: #898989
+}
+.head_tbar .head_tbar_l2 .tag01 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_tbar_19.jpg); WIDTH: 163px; HEIGHT: 42px
+}
+.head_tbar .head_tbar_l2 .tag01 A {
+	PADDING-LEFT: 15px; WIDTH: 148px; FLOAT: left; HEIGHT: 42px; CURSOR: pointer
+}
+.head_tbar .head_tbar_l2 .tag00 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_tbar_22.jpg); WIDTH: 163px; HEIGHT: 42px
+}
+.head_tbar .head_tbar_l2 .tag00 A {
+	PADDING-LEFT: 15px; WIDTH: 148px; FLOAT: left; HEIGHT: 42px; CURSOR: pointer
+}
+.head_tbar .head_tbar_l2 .tag00 A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_tbar_19.jpg)
+}
+.head_tbar .head_tbar_l2 .ad {
+	BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right bottom; HEIGHT: 30px; PADDING-TOP: 12px
+}
+.tbarback A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/roll_back.jpg); WIDTH: 79px; FLOAT: left; HEIGHT: 16px
+}
+.tbarback A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/roll_back1.jpg)
+}
+.tbarnext A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/roll_next.jpg); WIDTH: 84px; FLOAT: left; HEIGHT: 16px
+}
+.tbarnext A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/roll_next1.jpg)
+}
+.head_tbar .head_tbar_r {
+	WIDTH: 170px; FLOAT: right; HEIGHT: 228px
+}
+#tag_clasific {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific_bg_48.jpg); BACKGROUND-COLOR: #fff; PADDING-LEFT: 4px; BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: 0px 69px; HEIGHT: 715px; PADDING-TOP: 16px
+}
+#tag_clasific .tit05 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_casific_tit_37.jpg); TEXT-ALIGN: left; PADDING-LEFT: 107px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 24px; PADDING-TOP: 2px
+}
+#tag_clasific .tit05 A {
+	TEXT-DECORATION: none
+}
+#tag_clasific .tit05 A:hover {
+	TEXT-DECORATION: underline
+}
+#tag_clasific .tags {
+	
+}
+#tag_clasific .tags DIV A {
+	WIDTH: 51px; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 27px
+}
+#tag_clasific .tags .tag_all A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific_03.gif)
+}
+#tag_clasific .tags .tag_all A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific1_03.gif)
+}
+#tag_clasific .tags .tag_conv_stor A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific_05.gif)
+}
+#tag_clasific .tags .tag_conv_stor A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific1_05.gif)
+}
+#tag_clasific .tags .tag_express A {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific_07.gif)
+}
+#tag_clasific .tags .tag_express A:hover {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/tag_clasific1_07.gif)
+}
+#tag_clasific .tooth2 {
+	TEXT-ALIGN: left; HEIGHT: 22px; COLOR: #292929; CLEAR: both; FONT-SIZE: 15px; FONT-WEIGHT: bold; PADDING-TOP: 15px
+}
+#tag_clasific .tooth2 DIV {
+	BACKGROUND-REPEAT: no-repeat
+}
+#tag_clasific .tooth2 .clasifc_01 {
+	MARGIN-TOP: 15px; PADDING-LEFT: 25px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 24px
+}
+#tag_clasific .tooth2 .toose A {
+	LINE-HEIGHT: 20px; PADDING-LEFT: 1px; PADDING-RIGHT: 5px; FONT-SIZE: 13px; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+.bestshop_head {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/bestshop_head_33.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-POSITION: 0px 1px; HEIGHT: 30px; CLEAR: right
+}
+.bestshop_head .tit01 {
+	BACKGROUND-IMAGE: url(http://img.pcstore.com.tw/web_img/st/bestshop_head_30.gif); LINE-HEIGHT: 31px; PADDING-LEFT: 25px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Verdana, Geneva, sans-serif; HEIGHT: 31px; COLOR: #fff; FONT-SIZE: 15px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.bestshop_head .tit01 .yellow {
+	COLOR: #fff000
+}
+.bestshop_ad {
+	TEXT-ALIGN: right; HEIGHT: 216px; MARGIN-LEFT: 2px; PADDING-TOP: 4px
+}
+.bestshop_ad DIV {
+	TEXT-ALIGN: center; WIDTH: 159px; FLOAT: left
+}
+.bestshop_ad IMG {
+	BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid
+}
+.cr_10px {
+	HEIGHT: 10px; CLEAR: right
+}
+.cps9 {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 8px; BACKGROUND-COLOR: #dedede; MARGIN: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; CLEAR: right; PADDING-TOP: 8px
+}
+.cps9 .bo_rb {
+	BORDER-BOTTOM: #999 1px dotted; BORDER-RIGHT: #999 1px dotted
+}
+.cps9 .bo_b {
+	BORDER-BOTTOM: #999 1px dotted
+}
+.cps9 .bo_r {
+	BORDER-RIGHT: #999 1px dotted
+}
+.coupon_lic04 {
+	BORDER-BOTTOM: #999 1px dotted; TEXT-ALIGN: left
+}
+.coupon_lic04 UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+.coupon_lic04 UL LI {
+	LIST-STYLE-POSITION: inside
+}
+.coupon_lic04 UL LI SPAN.red {
+	COLOR: #f33
+}
+.coupon_lic05 TABLE TR TD {
+	LINE-HEIGHT: 24px; FONT-SIZE: 16px
+}
+.couponbuy {
+	TEXT-ALIGN: center; WIDTH: 100%; HEIGHT: 70px; BORDER-TOP: #999 0px dotted; PADDING-TOP: 8px
+}
+.coupon_list_a01 {
+	BORDER-BOTTOM: #666 1px dotted; PADDING-BOTTOM: 5px; LINE-HEIGHT: 20px; MARGIN: 5px 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 16px; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}
+.coupon_link {
+	TEXT-ALIGN: center; MARGIN: auto; WIDTH: 100%
+}
+.coupon_link A {
+	LINE-HEIGHT: 24px; HEIGHT: 50px; CLEAR: both; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.coupon_rule {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; PADDING-BOTTOM: 10px; MARGIN: 6px 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid; PADDING-TOP: 10px
+}
+.coupon_rule DIV.cp_num {
+	BORDER-BOTTOM: #999 1px dotted; PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 10px; COLOR: #525252; FONT-WEIGHT: bold; PADDING-TOP: 5px
+}
+.coupon_rule DIV.cpspec {
+	
+}
+.coupon_rule DIV.cpspec SPAN {
+	FONT-FAMILY: Verdana, Geneva, sans-serif; COLOR: #f39; FONT-SIZE: 15px; FONT-WEIGHT: bold
+}
+.coupon_rule UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.coupon_rule UL LI {
+	LIST-STYLE-POSITION: inside; MARGIN-LEFT: 5px
+}
+.coupon_rule {
+	
+}
+.coupon_rule DIV.cp_num SPAN {
+	PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, Geneva, sans-serif; COLOR: #f39; FONT-SIZE: 20px
+}
+#oneday {
+	HEIGHT: 30px; PADDING-TOP: 3px
+}
+#common {
+	HEIGHT: 30px; PADDING-TOP: 3px
+}
+#record {
+	HEIGHT: 30px; PADDING-TOP: 3px
+}
+.area {
+	BORDER-BOTTOM: #a8a8a8 1px solid; BORDER-LEFT: #a8a8a8 1px solid; BACKGROUND-COLOR: #ffffff; WIDTH: 755px; HEIGHT: 3px; BORDER-TOP: #a8a8a8 1px solid; BORDER-RIGHT: #a8a8a8 1px solid
+}
+.os_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #ff7f00; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #ff7f00; FONT-SIZE: 11px; FONT-WEIGHT: bold; BORDER-RIGHT: #fff 5px solid
+}
+.os_bar DIV {
+	PADDING-TOP: 5px
+}
+.os_end_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #ff7f00; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #ff7f00; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.os_end_bar DIV {
+	PADDING-TOP: 3px
+}
+.cs_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #13dcee; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #308d95; FONT-SIZE: 11px; FONT-WEIGHT: bold; BORDER-RIGHT: #fff 5px solid
+}
+.cs_bar DIV {
+	PADDING-TOP: 3px
+}
+.cs_end_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #13dcee; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #308d95; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.cs_end_bar DIV {
+	PADDING-TOP: 3px
+}
+.rs_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #dddddd; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #8b8b8b; FONT-SIZE: 11px; FONT-WEIGHT: bold; BORDER-RIGHT: #fff 5px solid
+}
+.rs_bar DIV {
+	PADDING-TOP: 3px
+}
+.rs_end_bar {
+	LINE-HEIGHT: 22px; BACKGROUND-COLOR: #dddddd; WIDTH: 185px; FONT-FAMILY: Arial; FLOAT: left; HEIGHT: 3px; COLOR: #8b8b8b; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.rs_end_bar DIV {
+	PADDING-TOP: 3px
+}
+.send_rs {
+	TEXT-ALIGN: center; LINE-HEIGHT: 13px; FONT-FAMILY: Arial; COLOR: #ff0000; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.send_rs2 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 13px; FONT-FAMILY: Arial; LETTER-SPACING: -2px; COLOR: #ff0000; FONT-SIZE: 19px
+}

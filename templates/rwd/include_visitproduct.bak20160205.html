@@ -1,0 +1,55 @@
+<div class="owl-carousel featured nomargin owl-padding-10" data-plugin-options='{"singleItem": false, "items": "4", "stopOnHover":false, "autoHeight": false, "navigation": true, "pagination": false}'>
+
+
+								<{ section name=list loop=$viewProductArray max=6}>
+								<div class="shop-item nomargin">
+
+                                <div class="thumbnail noborder nopadding">
+
+									<div class="img-container">
+										<!-- 相關商品圖片 -->
+								<!--促銷中ICON-->
+                                <!--<{if $LinkProduct_array[abProduct].ifsaleoff eq 1 }>
+                                <div style="display:block;position:absolute;top:1px;right:1px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></div>
+                                <{/if}>-->
+                                <a class="shop-item-image" href="<{ $Site_Url }>/product/detail<{ $viewProductArray[list].gid }>"><img class="img-responsive" src="<{if $viewProductArray[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/UploadFile/GoodPic/<{ $viewProductArray[list].smallimg }>
+<{/if}>" border="0" alt="shop first image" align="top"></a>
+										<!-- /相關商品圖片 -->
+
+									</div>
+											<!-- 加入追蹤 -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="gid<{ $viewProductArray[list].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $viewProductArray[list].gid }>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單"><i class="fa fa-heart nopadding<{if $viewProductArray[list].heartColor eq 1}> heartColor<{/if}>"></i></a>
+
+											</div>
+											<!-- /加入追蹤  -->
+
+											<!-- 特惠標示 -->
+											<div class="shop-item-info  text-left">
+												<{if $viewProductArray[list].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+												<{if $viewProductArray[list].ifsaleoff eq 1}><span class="label label-danger">促銷中</span><{/if}>
+											<!--<span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+											</div>
+											<!-- 特惠標示 -->
+
+                                <!-- 右上購物車按鈕
+
+								<div class="shop-option-over">
+
+									<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus size-18"></i></a>
+
+								</div>
+
+								 /右上購物車按鈕 -->
+									</div>
+								</div>
+							<{ /section }>
+
+							</div>
+<script language="javascript">
+					function buy(id){
+						myobj = document.getElementById("detail_id");
+						myobj.value = id;
+						document.getElementById("form_goods").submit();
+					}
+</script>

@@ -1,0 +1,48 @@
+#sosuo2 {
+	POSITION: relative
+}
+.inputmenu {
+	BORDER-RIGHT: #8f8f8f 1px solid; BORDER-TOP: #8f8f8f 1px; FONT-SIZE: 12px; BACKGROUND: #fff; LEFT: 0px; BORDER-LEFT: #8f8f8f 1px solid; WIDTH: 412px; BORDER-BOTTOM: #8f8f8f 1px solid; POSITION: absolute; TOP: 0px; TEXT-ALIGN: left
+}
+#sosuo2 .inputmenu A {
+	FONT-SIZE: 12px; COLOR: #363837; TEXT-DECORATION: none
+}
+.menubar1 {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 7px; BORDER-TOP: #fff 1px; PADDING-LEFT: 7px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #ededed; PADDING-BOTTOM: 0px; BORDER-LEFT: #fff 1px solid; LINE-HEIGHT: 22px; PADDING-TOP: 0px; BORDER-BOTTOM: #fff 1px solid
+}
+.menubar1 SPAN {
+	FONT-WEIGHT: normal; FLOAT: right; COLOR: #5c5c5c
+}
+.menubar1 SPAN A {
+	COLOR: #363837
+}
+.menubar1 SPAN A:hover {
+	COLOR: #707070
+}
+.inputmenu UL {
+	PADDING-RIGHT: 0px; BORDER-TOP: #d3d3d3 1px solid; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #ebebeb; PADDING-BOTTOM: 0px; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #fff; SCROLLBAR-SHADOW-COLOR: #fff; LINE-HEIGHT: 20px; SCROLLBAR-ARROW-COLOR: #8f8f8f; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: #f7f7f7; SCROLLBAR-DARKSHADOW-COLOR: #fff; SCROLLBAR-BASE-COLOR: #fff; LIST-STYLE-TYPE: none; ; HEIGHT: expression(this.scrollHeight > 100? "100px" : "auto" ); max-height: 100px
+}
+.inputmenu UL LI A {
+	PADDING-RIGHT: 7px; DISPLAY: block; PADDING-LEFT: 7px; PADDING-BOTTOM: 0px; MARGIN: 0px 1px; PADDING-TOP: 0px; HEIGHT: 1%
+}
+.inputmenu UL LI A:hover {
+	BACKGROUND: #f4f4f4
+}
+.inputmenu UL LI SPAN {
+	FLOAT: right; CURSOR: pointer; COLOR: #5c5c5c
+}
+.inputmenu UL LI STRONG {
+	FONT-WEIGHT: bold; COLOR: #ff7800
+}
+.menubar2 {
+	PADDING-RIGHT: 7px; BORDER-TOP: #d9dada 1px solid; PADDING-LEFT: 7px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; MARGIN: 0px 3px; LINE-HEIGHT: 24px; PADDING-TOP: 0px
+}
+.inputmenu .menubar2 A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 14px; BACKGROUND: url(../images/suggest_icon_t.gif) no-repeat left 6px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.inputmenu .menubar2 A:hover {
+	BACKGROUND: url(../images/suggest_icon_t.gif) no-repeat left 6px
+}
+.sarrow {
+	MARGIN-LEFT: -22px
+}

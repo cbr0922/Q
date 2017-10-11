@@ -1,0 +1,369 @@
+img {vertical-align:top}
+
+/** 按鈕樣式 **/
+.btn01 .leftbk {background:transparent url(/ecm/img/cmm/main/btn01leftimg.gif) no-repeat; height:22px; line-height:22px; padding-left:2px; display:inline-block}
+.btn01 .leftbk .rightbk {background:transparent url(/ecm/img/cmm/main/btn01rightimg.gif) no-repeat right top; height:22px; line-height:22px; padding-right:2px; display:inline-block}
+.btn01 .leftbk .rightbk .bkimg {background:transparent url(/ecm/img/cmm/main/btn01bkimg.gif) repeat-x; height:22px; line-height:22px; padding:0px 10px; display:inline-block; font-weight:normal}
+
+.BodyBase {width:980px; position:relative; margin:0px auto; text-align:left}
+
+.topArea {width:980px; display:inline-block}
+
+#bt_0_100_01 {float:right; line-height:19px; width:980px; text-align:right; padding-top:6px}
+#bt_0_100_01 img {margin:0px 2px}
+#bt_0_100_01 dt, #bt_0_100_01 dd {display:inline}
+#bt_0_100_01 dt a, #bt_0_100_01 dd a {color:#333333; font-size:13px} /** 0725翔宇新增 **/
+#bt_0_100_01 dt {margin-left:10px}
+#bt_0_100_01 dt a {background:transparent url(/ecm/img/de/0/bt_0_100/collectionimg.gif) no-repeat 0px 2px; padding-left:15px}
+#bt_0_100_01 .freeregistration {color:#E40480}
+#bt_0_100_01 .freeregistration:hover {color:#0159A3; text-decoration:underline}
+#bt_0_100_01 a:hover {color:#E40480; text-decoration:underline}
+#bt_0_100_01 .membername {margin-left:10px; display:none; margin:0px; width:465px; text-align:right; color:#EC0A8F}
+
+#bt_0_layout_b201 {float:left; width:161px; margin-top:0px}
+#bt_0_101_01 {margin-top:0px}
+
+#hotkw {float:left; width:380px; margin-top:11px}
+#bt_0_102_01 {width:350px; margin:0px 0px 6px 20px; display:inline-block}
+#bt_0_102_01 b {float:left; font-size:13px; color:#E40480; font-weight:normal} /** 0725翔宇修改 **/
+#bt_0_102_01 ul {color:#E40480}
+#bt_0_102_01 li {float:left; margin-right:7px}
+#bt_0_102_01 span {font-size:13px; color:#333333} /** 0725翔宇新增 **/
+#bt_0_102_01 a:hover span {color:#E40480; text-decoration:underline}
+
+#bt_0_103_01 {width:350px; margin:0px 0px 0px 20px; background:transparent url(/ecm/img/de/0/bt_0_103/searchinputbk.gif?t=2012011201) no-repeat; display:inline-block}
+#bt_0_103_01 .inputArea {background:transparent url(/ecm/img/de/0/bt_0_103/searchbk.gif); width:115px; height:29px; line-height:29px; font-size:13px; border:0px; margin-left:25px; padding:0px 5px 0px 0px; overflow:hidden; position:absolute} /** 0725翔宇修改 **/
+#bt_0_103_01 select {float:right; font-size:13px; margin:6px 5px 0px 0px; border:0px; width: 135px; #margin:4px 4px 0px 0px} /** 0725翔宇修改 **/
+#bt_0_103_01 option {font-size:13px} /** 0725翔宇修改 **/
+#bt_0_103_01 .inputbtn {float:right; background:transparent url(/ecm/img/de/0/bt_0_103/searchbtn.gif) no-repeat; width:57px; height:29px; border:0px; vertical-align:bottom; margin-left:3px; cursor:pointer}
+
+#bt_0_104_01 {float:right; margin:12px 0px 0px 0px; width:432px; height:60px; overflow:hidden}
+#bt_0_104_01 li {float:right}
+
+/** 頁籤設定 **/
+#bt_0_layout_b205 {width:980px; margin-bottom:10px}
+
+/*
+#bt_0_105_01 .TabMenu {background:transparent url(/ecm/img/de/0/bt_0_105/mainbavArea.jpg) repeat-x; height:42px; line-height:42px}
+#bt_0_105_01 .TabMenu li {float:left}
+#bt_0_105_01 .TabMenu a {font-size:13px; font-family:sans-serif; color:#FFFFFF}
+#bt_0_105_01 .TabMenu .home a, #bt_0_105_01 .TabMenu .home a:hover, #bt_0_105_01 #bt_0_105_01 home.selected a:hover {background:transparent url(/ecm/img/de/0/bt_0_105/bt_0_105_home.jpg) no-repeat; margin:0px; padding:0px; border:0px; width:48px; height:42px; display:inline-block; text-align:center}
+#bt_0_105_01 .TabMenu li {margin:0px 3px; height:42px}
+#bt_0_105_01 .TabMenu li a {padding:0px 6px 0px; line-height:38px; font-size:13px; #font-size:97%; font-family:Arial, Helvetica, sans-serif; display:inline-block}
+#bt_0_105_01 .TabMenu li a:hover, #bt_0_105_01 .TabMenu .selected a {background:transparent url(/ecm/img/de/0/bt_0_105/mainbavliAbk.jpg) repeat-x; border:1px solid #D5256E; border-bottom:0px; color:#000000; padding:0px 5px 0px; margin:0px 0px}
+*/
+#bt_0_105_01 .TabMenu {width:980px; background:#000000 url(/ecm/img/de/0/bt_0_105/bt_0_105_TabMenubk.png) repeat-x; height:40px; line-height:40px; overflow:hidden}
+#bt_0_105_01 .TabMenu li {float:left}
+#bt_0_105_01 .TabMenu a {font-size:13px; font-family:sans-serif; color:#FFFFFF}
+#bt_0_layout_b205 #bt_0_105_01 .TabMenu .home a, #bt_0_layout_b205 #bt_0_105_01 .TabMenu .home a:hover, #bt_0_layout_b205 #bt_0_105_01 #bt_0_105_01 home.selected a:hover {background:transparent url(/ecm/img/de/0/bt_0_105/bt_0_105_homebk.png) no-repeat; margin:0px; padding:0px; border:0px; width:48px; height:42px; display:inline-block; text-align:center}
+#bt_0_layout_b205 #bt_0_105_01 .TabMenu .home a span {display:inline-block; padding-top:13px; cursor:pointer} /** 新增20111122 **/
+#bt_0_layout_b205 #bt_0_105_01 .TabMenu .home a:hover span {color:#FFFFFF; cursor:pointer} /** 新增20111122 **/
+#bt_0_105_01 .TabMenu li {width:68px; height:42px}
+#bt_0_105_01 .TabMenu li a {line-height:38px; font-size:13px; #font-size:97%; font-family:Arial, Helvetica, sans-serif; display:inline-block; padding:0px 5px} /** 0725翔宇修改 **/
+#bt_0_105_01 .TabMenu li a:hover, #bt_0_105_01 .TabMenu .selected a {border:1px solid #D5256E; border-bottom:0px; color:#000000; padding:0px 5px 0px; margin:0px 0px; text-decoration: none;}
+
+.subMenu {background-color:#FFFFFF; border:3px solid #D5256E; position:absolute; line-height:26px; z-index:200; display:none}
+.subMenu .TabContentD {width:170px}
+.subMenu .TabContentD ul {margin:10px}
+.subMenu .TabContentD a span {font-size:13px; color:#333333} /** 0725翔宇修改 **/
+.subMenu .TabContentD a .Fast {color:Red} 
+.subMenu .TabContentD a:hover {color:#E40480; text-decoration:underline}
+.subMenu .TabContentD li {margin:0px; padding:0px; height:24px; float:left}
+.subMenu .TabContentD li a {width:140px; height:24px; line-height:24px; padding:0px 5px; display:inline-block; overflow:hidden}
+.subMenu .TabContentD li a:hover {background-color:#F5CADD; text-decoration:none; color:#FFFFFF}
+.subMenu .TabContentD li a:hover span {font-size:13px} /** 0725翔宇修改 **/
+.subMenu .TabContentD li a img{margin:5px 0 0 3px; margin:2px 0px 0px 3px \9; #margin-top:-2px;_margin-top:-1px}
+.subMenu .btleft {border-right:1px solid #D5256E; background-color:#F5F5F5}
+.subMenu .btright {background:transparent url(/ecm/img/de/0/bt_0_105/bt_0_140_rightbk.jpg) repeat-x}
+.subMenu .btright h3 {margin:10px 0 0 10px;font-size:13px; color:#FF0066}
+.subMenu .btright ul {margin-top:0px;}
+.subMenu .btright li {font-weight:bold; color:#000000}
+.subMenu .btright li a {font-weight:normal; color:#333333}
+
+/** 電視購物 **/
+.ft24 #bt_0_105_01 .TabMenu {background-color:#D62672} /** 新增20111122 **/
+.ft24 #bt_0_105_01 .TabMenu li a:hover, .ft24 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D62672; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 快速到貨 **/
+.ft22 #bt_0_105_01 .TabMenu {background-color:#C40909} /** 新增20111122 **/
+.ft22 #bt_0_105_01 .TabMenu li a:hover, .ft22 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFEBEB; color:#000000; border:1px solid #C40909; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 美妝 **/
+.ft11 #bt_0_105_01 .TabMenu {background-color:#D74F7D} /** 新增20111122 **/
+.ft11 #bt_0_105_01 .TabMenu li a:hover, .ft11 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 保健 **/
+.ft12 #bt_0_105_01 .TabMenu {background-color:#74A000} /** 新增20111122 **/
+.ft12 #bt_0_105_01 .TabMenu li a:hover, .ft12 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 美食 **/
+.ft20 #bt_0_105_01 .TabMenu {background-color:#EAA729} /** 新增20111122 **/
+.ft20 #bt_0_105_01 .TabMenu li a:hover, .ft20 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FAEBD1; color:#000000; border:1px solid #EAA729; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 服飾 **/
+.ft13 #bt_0_105_01 .TabMenu {background-color:#D74F7D} /** 新增20111122 **/
+.ft13 #bt_0_105_01 .TabMenu li a:hover, .ft13 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 內塑衣 **/
+.ft14 #bt_0_105_01 .TabMenu {background-color:#D74F7D} /** 新增20111122 **/
+.ft14 #bt_0_105_01 .TabMenu li a:hover, .ft14 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 錶/飾品 **/
+.ft26 #bt_0_105_01 .TabMenu {background-color:#4E0000} /** 新增20111122 **/
+.ft26 #bt_0_105_01 .TabMenu li a:hover, .ft26 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE3E3; color:#000000; border:1px solid #4E0000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 精品/鞋包 **/
+.ft15 #bt_0_105_01 .TabMenu {background-color:#4E0000} /** 新增20111122 **/
+.ft15 #bt_0_105_01 .TabMenu li a:hover, .ft15 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE3E3; color:#000000; border:1px solid #4E0000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 3C **/
+.ft19 #bt_0_105_01 .TabMenu {background-color:#556BF6} /** 新增20111122 **/
+.ft19 #bt_0_105_01 .TabMenu li a:hover, .ft19 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#DCE6FC; color:#000000; border:1px solid #556BF6; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 家電 **/
+.ft29 #bt_0_105_01 .TabMenu {background-color:#556BF6} /** 新增20111122 **/
+.ft29 #bt_0_105_01 .TabMenu li a:hover, .ft29 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#DCE6FC; color:#000000; border:1px solid #556BF6; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 生活用品 **/
+.ft17 #bt_0_105_01 .TabMenu {background-color:#74A000} /** 新增20111122 **/
+.ft17 #bt_0_105_01 .TabMenu li a:hover, .ft17 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 傢俱寢飾 **/
+.ft18 #bt_0_105_01 .TabMenu {background-color:#74A000} /** 新增20111122 **/
+.ft18 #bt_0_105_01 .TabMenu li a:hover, .ft18 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 親子/文教 **/
+.ft27 #bt_0_105_01 .TabMenu {background-color:#D74F7D} /** 修改20111122 **/
+.ft27 #bt_0_105_01 .TabMenu li a:hover, .ft27 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 宗教/藝術 **/
+.ft28 #bt_0_105_01 .TabMenu {background-color:#74A000} /** 新增20111122 **/
+.ft28 #bt_0_105_01 .TabMenu li a:hover, .ft28 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 旅遊/車類 **/
+.ft16 #bt_0_105_01 .TabMenu {background-color:#74A000} /** 新增20111122 **/
+.ft16 #bt_0_105_01 .TabMenu li a:hover, .ft16 #bt_0_105_01 .TabMenu .selected a {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:3px 0px 0px 0px}
+
+/** 精品名店(已刪除) **/
+.ft21 #bt_0_105_01 .TabMenu {background:transparent url(http://www.momoshop.com.tw/ecm/img/de/0/bt_0_105/bt_0_105_ft21bk.jpg) no-repeat}
+.ft21 #bt_0_105_01 .TabMenu li a:hover, .ft21 #bt_0_105_01 .TabMenu .selected a {background:transparent url(http://www.momoshop.com.tw/ecm/img/de/0/bt_0_105/bt_0_105_ft21selectbk.jpg) repeat-x; color:#000000; border:1px solid #A0A0A0; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+.ft21 #bt_0_105_01 .TabMenu .home a, .ft21 #bt_0_105_01 .TabMenu .home a:hover, .ft21 #bt_0_105_01 home.selected a:hover {background:transparent url(http://www.momoshop.com.tw/ecm/img/de/0/bt_0_105/bt_0_105_ft21home.jpg) no-repeat; margin:0px; padding:0px; border:0px}
+
+#bt_0_105_01 .TabMenu #C22 .BGO {background-image:inherit; background-color:#FFEBEB; color:#000000; border:1px solid #C40909; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C11 .BGO {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C12 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C13 .BGO {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C14 .BGO {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C15 .BGO {background-image:inherit; background-color:#FFE3E3; color:#000000; border:1px solid #4E0000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C16 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C17 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C18 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C19 .BGO {background-image:inherit; background-color:#DCE6FC; color:#000000; border:1px solid #556BF6; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C20 .BGO {background-image:inherit; background-color:#FAEBD1; color:#000000; border:1px solid #EAA729; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C21 .BGO {background:transparent url(http://www.momoshop.com.tw/ecm/img/de/0/bt_0_105/bt_0_105_ft21selectbk.jpg) repeat-x; color:#000000; border:1px solid #A0A0A0; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C24 .BGO {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D62672; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C25 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C26 .BGO {background-image:inherit; background-color:#FFE3E3; color:#000000; border:1px solid #4E0000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C27 .BGO {background-image:inherit; background-color:#FFE7F2; color:#000000; border:1px solid #D74F7D; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C28 .BGO {background-image:inherit; background-color:#EEFBE9; color:#000000; border:1px solid #74A000; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+#bt_0_105_01 .TabMenu #C29 .BGO {background-image:inherit; background-color:#DCE6FC; color:#000000; border:1px solid #556BF6; border-bottom:0px; padding:0px 5px 0px; margin:2px 0px 0px 0px}
+
+/** 基本區塊設定 **/
+.bt200leftclass {float:left; width:200px; margin:0px 10px 10px 0px; display:inline-block}
+.bt200rightclass {float:right; width:200px; margin:0px 0px 10px 0px; display:inline-block}
+.bt560class {float:left; width:560px; margin:0px 10px 10px 0px; display:inline-block}
+.bt560class .bt345class {float:left; width:345px; margin:0px 5px 0px 0px; display:inline-block}
+.bt560class .bt210class {float:right; width:210px; margin:0px; display:inline-block}
+.bt770class {float:right; width:770px; margin:0px 0px 10px 0px; display:inline-block}
+.bt980class {float:left; width:980px; margin:0px 0px 10px 0px; display:inline-block}
+.btleft {float:left}
+.btright {float:right}
+
+/** 右側購物車區塊設定 **/
+.bnav {width:62px; z-index:999; position:fixed; top:150px; left:expression(documentElement.scrollleft); margin-left:985px; _margin-left:0px; _left:985px; _position:absolute;/* for IE7,IE6 */ _top:expression(documentElement.scrollTop+150+"px");/* for IE7,IE6 */ overflow:visible}
+.shoppingcart {display:none}
+.shoppingcart h2 {background-color:#B0B0B0; color:#FFFFFF; font-weight:normal; height:24px; line-height:24px; text-align:center}
+.shoppingcart ul {border:1px solid #DDDDDD; border-bottom:0px; margin-top:2px}
+.shoppingcart li {border-bottom:1px solid #DDDDDD; line-height:22px; text-align:center; display:none}
+.shoppingcart li span {color:#CC0000; font-family:Verdana}
+.shoppingcart a:hover {text-decoration:underline; color:#D62672}
+.shoppingcart input {border:0px; background:transparent url(/ecm/img/cmm/shopcar/checkoutbtn.jpg) no-repeat; width:60px; height:25px; margin-top:1px; cursor:pointer}
+
+.historyArea dl {border-top:1px solid #DDDDDD; margin-top:5px; text-align:center}
+.historyArea dt a {background:transparent url(/ecm/img/cmm/shopcar/topbkimg.gif) no-repeat 10px 5px; width:60px; color:999999; font-size:11px; font-weight:bold; display:block; margin:2px;font-family:Arial; color:#999999}
+.historyArea dd {border:1px solid #DDDDDD; border-top:0px; padding-top:5px; display:none}
+.historyArea dd  a img{width:60px;height:60px}
+.historyArea .tips {padding-top:0px}
+.historyArea b {color:#000000; height:21px; line-height:21px; font-weight:normal}
+
+/** GoodsDetail **/
+.summaryArea img {vertical-align:middle}
+.summaryArea b, .summaryArea u, .summaryArea a {font-size:15px}
+.summaryArea .titleArea {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#666666; font-weight:bold}
+.summaryArea .momo_color14B {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#F23B97; font-weight:bold}
+.summaryArea .tips01 {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#FF6600; font-weight:bold; line-height:20px}
+.summaryArea .tips02 {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#CC0000; font-weight:bold}
+.summaryArea .tips03 {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#333333}
+.summaryArea .tips03 b {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭}
+.summaryArea .activityLink {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#003399; cursor:pointer; font-weight:bold; padding-right:5px}
+.summaryArea .activityArea {background-color:#FFFFFF; border:1px solid #778899; overflow:hidden; position:absolute; width:320px; z-index:1000; display:none}
+.summaryArea .activityArea .titletxt {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#666666; font-weight:bold}
+.summaryArea .activityArea .closebtn {cursor: pointer}
+.summaryArea .activityArea .noteArea {font-size:15px; font-family:Arial,嚙編嚙諉抬蕭嚙踝蕭; color:#666666; word-wrap:break-word}
+.summaryArea .GoodsDtColBC, .summaryArea .distribution {font-size:15px}
+/** GoodsDetail END**/
+
+
+/** Menu201109 Start **/
+/** 電視購物 **/
+#bt_0_143_24 {border:3px solid #D62672} /** 邊框 **/
+#bt_0_143_24 .TabContentD a:hover span, .ft24 #bt_0_105_01 #subnav li a:hover, .ft24 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_24 .TabContentD li a:hover, .ft24 #bt_0_105_01 #subnav li a:hover, .ft24 #bt_0_105_01 #subnav .selected {background-color:#D62672; text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_24 .btleft {background-color:#FFE7F2} /** 左背景色 **/
+.ft24 #subnav a:hover, .ft24 #subnav .selected a {background-color:#D62672; color:#FFFFFF}
+
+/** 快速到貨 **/
+#bt_0_143_22 {border:3px solid #C40909} /** 邊框 **/
+#bt_0_143_22 .TabContentD a:hover span,.ft22 #bt_0_105_01 #subnav li a:hover,.ft22 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_22 .TabContentD li a:hover,.ft22 #bt_0_105_01 #subnav li a:hover,.ft22 #bt_0_105_01 #subnav .selected {background-color:#C40909;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_22 .btleft {background-color:#ffffff} /** 左背景色 **/
+.ft22 #subnav a:hover, .ft22 #subnav .selected a {background-color:#C40909; color:#FFFFFF}
+
+/** 美妝 **/
+#bt_0_143_11 {border:3px solid #D74F7D} /** 邊框 **/
+#bt_0_143_11 .TabContentD a:hover span,.ft11 #bt_0_105_01 #subnav li a:hover,.ft11 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_11 .TabContentD li a:hover ,.ft11 #bt_0_105_01 #subnav li a:hover,.ft11 #bt_0_105_01 #subnav .selected{background-color:#D74F7D;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_11 .btleft {background-color:#ffffff} /** 左背景色 **/
+.ft11 #subnav a:hover, .ft11 #subnav .selected a {background-color:#D74F7D; color:#FFFFFF}
+
+/** 保健 **/
+#bt_0_143_12 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_12 .TabContentD a:hover span,.ft12 #bt_0_105_01 #subnav li a:hover,.ft12 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_12 .TabContentD li a:hover,.ft12 #bt_0_105_01 #subnav li a:hover,.ft12 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_12 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft12 #subnav a:hover, .ft12 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 食品 **/
+#bt_0_143_20 {border:3px solid #EAA729} /** 邊框 **/
+#bt_0_143_20 .TabContentD a:hover span,.ft20 #bt_0_105_01 #subnav li a:hover,.ft20 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_20 .TabContentD li a:hover,.ft20 #bt_0_105_01 #subnav li a:hover,.ft20 #bt_0_105_01 #subnav .selected {background-color:#EAA729;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_20 .btleft {background-color:#FAEBD1} /** 左背景色 **/
+.ft20 #subnav a:hover, .ft20 #subnav .selected a {background-color:#EAA729; color:#FFFFFF}
+
+/** 服飾 **/
+#bt_0_143_13 {border:3px solid #D74F7D} /** 邊框 **/
+#bt_0_143_13 .TabContentD a:hover span,.ft13 #bt_0_105_01 #subnav li a:hover,.ft13 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_13 .TabContentD li a:hover ,.ft13 #bt_0_105_01 #subnav li a:hover,.ft13 #bt_0_105_01 #subnav .selected{background-color:#D74F7D;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_13 .btleft {background-color:#FFE7F2} /** 左背景色 **/
+.ft13 #subnav a:hover, .ft13 #subnav .selected a {background-color:#D74F7D; color:#FFFFFF}
+
+/** 內塑衣 **/
+#bt_0_143_14 {border:3px solid #D74F7D} /** 邊框 **/
+#bt_0_143_14 .TabContentD a:hover span,.ft14 #bt_0_105_01 #subnav li a:hover,.ft14 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_14 .TabContentD li a:hover ,.ft14 #bt_0_105_01 #subnav li a:hover,.ft14 #bt_0_105_01 #subnav .selected{background-color:#D74F7D;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_14 .btleft {background-color:#FFE7F2} /** 左背景色 **/
+.ft14 #subnav a:hover, .ft14 #subnav .selected a {background-color:#D74F7D; color:#FFFFFF}
+
+/** 錶/飾品 **/
+#bt_0_143_26 {border:3px solid #4E0000} /** 邊框 **/
+#bt_0_143_26 .TabContentD a:hover span,.ft26 #bt_0_105_01 #subnav li a:hover,.ft26 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_26 .TabContentD li a:hover,.ft26 #bt_0_105_01 #subnav li a:hover,.ft26 #bt_0_105_01 #subnav .selected {background-color:#4E0000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_26 .btleft {background-color:#FFE3E3} /** 左背景色 **/
+.ft26 #subnav a:hover, .ft26 #subnav .selected a {background-color:#4E0000; color:#FFFFFF}
+
+/** 精品/鞋包 **/
+#bt_0_143_15 {border:3px solid #4E0000} /** 邊框 **/
+#bt_0_143_15 .TabContentD a:hover span,.ft15 #bt_0_105_01 #subnav li a:hover,.ft15 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_15 .TabContentD li a:hover,.ft15 #bt_0_105_01 #subnav li a:hover,.ft15 #bt_0_105_01 #subnav .selected {background-color:#4E0000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_15 .btleft {background-color:#FFE3E3} /** 左背景色 **/
+.ft15 #subnav a:hover, .ft15 #subnav .selected a {background-color:#4E0000; color:#FFFFFF}
+
+/** 3C **/
+#bt_0_143_19 {border:3px solid #556BF6} /** 邊框 **/
+#bt_0_143_19 .TabContentD a:hover span,.ft19 #bt_0_105_01 #subnav li a:hover,.ft19 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_19 .TabContentD li a:hover,.ft19 #bt_0_105_01 #subnav li a:hover,.ft19 #bt_0_105_01 #subnav .selected {background-color:#556BF6;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_19 .btleft {background-color:#DCE6FC} /** 左背景色 **/
+.ft19 #subnav a:hover, .ft19 #subnav .selected a {background-color:#556BF6; color:#FFFFFF}
+
+/** 生活用品 **/
+#bt_0_143_17 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_17 .TabContentD a:hover span,.ft17 #bt_0_105_01 #subnav li a:hover,.ft17 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_17 .TabContentD li a:hover,.ft17 #bt_0_105_01 #subnav li a:hover,.ft17 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_17 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft17 #subnav a:hover, .ft17 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 傢俱寢飾 **/
+#bt_0_143_18 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_18 .TabContentD a:hover span,.ft18 #bt_0_105_01 #subnav li a:hover,.ft18 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_18 .TabContentD li a:hover,.ft18 #bt_0_105_01 #subnav li a:hover,.ft18 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_18 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft18 #subnav a:hover, .ft18 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 親子/文教 **/
+#bt_0_143_27 {border:3px solid #D74F7D} /** 邊框 **/
+#bt_0_143_27 .TabContentD a:hover span,.ft27 #bt_0_105_01 #subnav li a:hover,.ft27 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_27 .TabContentD li a:hover,.ft27 #bt_0_105_01 #subnav li a:hover,.ft27 #bt_0_105_01 #subnav .selected {background-color:#D74F7D;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_27 .btleft {background-color:#FFE7F2} /** 左背景色 **/
+.ft27 #subnav a:hover, .ft27 #subnav .selected a {background-color:#D74F7D; color:#FFFFFF}
+
+/** 宗教/藝術 **/
+#bt_0_143_28 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_28 .TabContentD a:hover span,.ft28 #bt_0_105_01 #subnav li a:hover,.ft28 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_28 .TabContentD li a:hover,.ft28 #bt_0_105_01 #subnav li a:hover,.ft28 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_28 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft28 #subnav a:hover, .ft28 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 運動/車類 **/
+#bt_0_143_16 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_16 .TabContentD a:hover span,.ft16 #bt_0_105_01 #subnav li a:hover,.ft16 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_16 .TabContentD li a:hover,.ft16 #bt_0_105_01 #subnav li a:hover,.ft16 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_16 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft16 #subnav a:hover, .ft16 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 旅遊 **/
+#bt_0_143_25 {border:3px solid #74A000} /** 邊框 **/
+#bt_0_143_25 .TabContentD a:hover span,.ft25 #bt_0_105_01 #subnav li a:hover,.ft25 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_25 .TabContentD li a:hover,.ft25 #bt_0_105_01 #subnav li a:hover,.ft25 #bt_0_105_01 #subnav .selected {background-color:#74A000;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_25 .btleft {background-color:#EEFAE9} /** 左背景色 **/
+.ft25 #subnav a:hover, .ft25 #subnav .selected a {background-color:#74A000; color:#FFFFFF}
+
+/** 家電 **/
+#bt_0_143_29 {border:3px solid #556BF6} /** 邊框 **/
+#bt_0_143_29 .TabContentD a:hover span,.ft29 #bt_0_105_01 #subnav li a:hover,.ft29 #bt_0_105_01 #subnav .selected {color:#FFFFFF} /** 滑鼠當下字顏色 **/
+#bt_0_143_29 .TabContentD li a:hover,.ft29 #bt_0_105_01 #subnav li a:hover,.ft29 #bt_0_105_01 #subnav .selected {background-color:#556BF6;text-decoration: none;} /** 滑鼠當下背景色 **/
+#bt_0_143_29 .btleft {background-color:#DCE6FC} /** 左背景色 **/
+.ft29 #subnav a:hover, .ft29 #subnav .selected a {background-color:#556BF6; color:#FFFFFF}
+
+.subMenu1109 {height:214px;width:340px;;display:none;background:#FFFFFF url(/ecm/img/de/0/bt_0_105/bt_0_140_rightbk.jpg) repeat-x;position:absolute;z-index:200}
+.subMenu1109 .TabContentD {width:170px;}
+.subMenu1109 .TabContentD ul {margin:5px}
+.subMenu1109 .TabContentD li {height:24px;float:left;margin:0px;padding:0px;}
+.subMenu1109 .TabContentD li a {width:120px; height:24px; line-height:24px; padding:0px 5px;display:inline-block}
+.subMenu1109 .TabContentD li a span{color:#000000; font-size:13px}
+.subMenu1109 .TabContentD li a .Fast {color:Red} 
+.subMenu1109 .btleft {height:214px;}
+.subMenu1109 .btright {float:right; height:84px; overflow:hidden; background:none}
+.subMenu1109 .btrightbottom {float:right; height:130px; overflow:hidden}
+.subMenu1109 .btleft h3, .subMenu1109 .btright h3, .subMenu1109 .btrightbottom h3 {color:#FF0066; font-size:13px; margin:5px 0px 0px 10px}
+.subMenu1109 .btright ul, .subMenu1109 .btrightbottom ul {margin:5px 10px 5px 15px}
+.subMenu1109 .btright li, .subMenu1109 .btrightbottom li {color:#000000; height:24px; line-height:24px;background:url(/ecm/img/de/0/bt_0_143/subMenu1109libk.gif) no-repeat 0px 9px}
+.subMenu1109 .btright li a, .subMenu1109 .btrightbottom li a {width:120px;color:#333333; height:24px; line-height:24px; margin-left:5px;}
+/** Menu201109 END **/
+
+/** subnav START**/
+#subnav {background-color:#E6E6E6; line-height:38px}
+#subnav ul {display:inline-block; padding:5px 0px; background:transparent url(/ecm/img/cmm/main/subnavline.gif) no-repeat 7px 9px; padding-left:9px}
+#subnav li {float:left; background:transparent url(/ecm/img/cmm/main/subnavline.gif) no-repeat right; line-height:27px; margin:0px 0px 0px 0px; padding-right:1px; #white-space:nowrap}
+#subnav a {white-space:nowrap;font-size:13px; color:#000000; line-height:24px; height:22px; padding:0px 9px 0px 8px; display:inline-block}
+/** subnav END**/
+
+/**bt_0_142**/
+#bt_0_042_01 .b1 {float:left; width:auto; height:auto; overflow:hidden; margin:5px 10px}
+#bt_0_042_01 .b2 {float:left; width:530px; height:auto; color:#666666; margin-top:5px; overflow:hidden}
+#bt_0_042_01 .b2 a {color:#666666; text-decoration:underline; font-family:Arial, Helvetica, sans-serif}
+#bt_0_042_01 .b2 span {font-family:Arial, Helvetica, sans-serif}
+#bt_0_042_01 .b2 .relationship {color:#0066CC}
+#bt_0_042_01 .b2 .isotxt {margin-top:5px}
+
+
+

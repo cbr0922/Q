@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{ $HtmlTitle }> -- 帳上餘額記錄</title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27311679-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{if $smarty.get.hometype eq "groupon"}>
+<{ include_php file="menu_groupon.php" }>
+<{else}>
+<{ include_php file="include/menu.php" }>
+<{/if}>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+  <div id="body_center">
+    <div id="body_left">
+      <!--左邊開始-->
+      <{ include_php file="member/left.php" }> </div>
+    <!--左邊結束-->
+    <div id="body_right" >
+      <!--右邊邊開始-->
+      <div id="title_s">
+        <div id="title_s_left">
+          <h1>購物金記錄</h1>
+        </div>
+        <div id="title_s_right"><a href="<{ $Site_Url }>?hometype=<{$smarty.get.hometype}>">首頁</a> <span class="style100">／</span> <a href="<{$Site_Url}>/member/?hometype=<{$smarty.get.hometype}>">會員中心</a> <span class="style100">／</span> 購物金記錄</div>
+      </div>
+	 <div class="content">
+	 <div style="clear:both;"></div>
+	  <ul style="display: block;">
+        <li class="qian2">購物金記錄</li>
+        <li class="qian1"><a href="buypointrefund.php">我要退款</a></li>
+      </ul>
+      <div style=" float:left">您目前有 <span class="price"><{$sumpoint}></span> 購物金可用<br>
+      </div>
+      <br>
+      <div style="clear:both;"></div>
+      <{ if $OrderTotalNum != 0 }> <br>
+      <TABLE  cellSpacing=1 cellPadding=4 width="98%" align=center  border=0 class="member" id="table_me">
+        <TBODY>
+          <TR>
+            <TD width="" align="center" valign="middle" nowrap class="head">建檔日期</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">金額變動原因</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">訂單編號</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">存入金額</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">支出金額</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">帳戶結餘</TD>
+            <TD width="" align="center" valign="middle" nowrap class="head">備註</TD>
+          </TR>
+        <{ section name=list loop=$OrderList }>
+        <TR>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class="member"><{ $OrderList[list].addtime}></TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class="member"><{ $OrderList[list].groupname}></TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ if $OrderList[list].orderid>0 }> <A  href="javascript:temp=window.open('ViewOrder.php?order_id=<{ $OrderList[list].orderid }>&hometype=<{$smarty.get.hometype}>','MyOrder','width=850,height=500,scrollbars=yes');temp.focus()"><{ $OrderList[list].order_serial}></A>
+            <{/if}></TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ if $OrderList[list].type eq 0 }><{ $OrderList[list].point}><{else}>0<{/if}></TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ if $OrderList[list].type eq 1 }><{ $OrderList[list].point}><{else}>0<{/if}></TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ $OrderList[list].total}>&nbsp;</TD>
+          <TD align="center" nowrap bgcolor="#FFFFFF" class=p9v><{ $OrderList[list].content}></TD>
+        </TR>
+        <{ /section }>
+      </TABLE>
+      <table width="98%"  border="0" align="center">
+        <tr>
+          <td align="left"><{ $Nav_banner }></td>
+        </tr>
+      </table>
+      <{ else }>
+      <div align="center">
+        <p></p><br><br>
+        <p>尚無任何使用記錄!!</p>
+      </div>
+    <{ /if }> </div>
+	</div>
+    <div style="clear:both;"></div>
+    <!--右邊邊結束-->
+  </div>
+  <!--身體結束-->
+</div>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

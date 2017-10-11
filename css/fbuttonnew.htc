@@ -1,0 +1,42 @@
+<meta http-equiv="Expires" content="0">
+
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="over()">
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="out()">
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="down()">
+<PUBLIC:ATTACH EVENT="onmouseup" ONEVENT="over()">
+<PUBLIC:ATTACH EVENT="onClick" ONEVENT="click()">
+
+<SCRIPT LANGUAGE="JScript">
+
+ function over(){
+    
+  element.runtimeStyle.borderLeftColor = element.runtimeStyle.borderTopColor = "#CCCCCC";
+  element.runtimeStyle.borderBottomColor = element.runtimeStyle.borderRightColor = "#666666";
+  //element.runtimeStyle.borderBottomColor = element.runtimeStyle.backgroundColor = "#3399FF";
+	//element.runtimeStyle.backgroundColor="#C6E3FF";
+	//element.runtimeStyle.filter="Alpha(Opacity=20)";
+        //element.runtimeStyle.borderColor = "#003c9c";
+  element.runtimeStyle.cursor = "hand";
+
+ }
+
+ function out(){
+   element.runtimeStyle.borderLeftColor = element.runtimeStyle.borderTopColor = "#ffffff";
+  element.runtimeStyle.borderBottomColor = element.runtimeStyle.borderRightColor = "#ffffff";
+//element.runtimeStyle.borderColor = "";
+  //element.runtimeStyle.backgroundColor="";
+ }
+
+ function down(){
+
+  element.runtimeStyle.borderLeftColor = element.runtimeStyle.borderTopColor = "#666666";
+  element.runtimeStyle.borderBottomColor = element.runtimeStyle.borderRightColor = "#CCCCCC";
+  if(event.button==1)
+  {
+        linkact_htc.href = element.link;
+ 	linkact_htc.click();
+  }
+ }
+ 
+
+</SCRIPT>

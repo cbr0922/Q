@@ -1,0 +1,31 @@
+<!--meta http-equiv="Expires" content="0"-->
+
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="over()">
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="out()">
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="down()">
+<PUBLIC:ATTACH EVENT="onmouseup" ONEVENT="over()">
+
+<SCRIPT LANGUAGE="JScript">
+
+ function over(){
+ element.runtimeStyle.borderLeftColor = element.runtimeStyle.borderTopColor = "#E6E6E6";
+  //element.runtimeStyle.borderBottomColor = element.runtimeStyle.borderRightColor = "#A2A2A2";
+  //element.runtimeStyle.borderBottomColor = element.runtimeStyle.background-color = #3399FF
+    element.runtimeStyle.backgroundColor="#CCFFCC";
+    element.runtimeStyle.filter="Alpha(Opacity=20)";
+    element.runtimeStyle.borderColor = "#003c9c";
+    element.runtimeStyle.cursor = "default";
+
+ }
+
+ function out(){
+  element.runtimeStyle.borderColor = "";
+  element.runtimeStyle.backgroundColor="";
+ }
+
+ function down(){
+  element.runtimeStyle.borderLeftColor = element.runtimeStyle.borderTopColor = "#003c9c";
+  element.runtimeStyle.borderBottomColor = element.runtimeStyle.borderRightColor = "#003c9c";
+ }
+
+</SCRIPT>

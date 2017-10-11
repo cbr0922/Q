@@ -1,0 +1,38 @@
+[27-Nov-2012 12:22:15] PHP Warning:  include(../configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 3
+[27-Nov-2012 12:22:15] PHP Warning:  include(../configs.inc.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 3
+[27-Nov-2012 12:22:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '../configs.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/message/message.php on line 3
+[27-Nov-2012 12:22:15] PHP Warning:  include(RootDocumentAdmin/inc/global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 4
+[27-Nov-2012 12:22:15] PHP Warning:  include(RootDocumentAdmin/inc/global.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 4
+[27-Nov-2012 12:22:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'RootDocumentAdmin/inc/global.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/message/message.php on line 4
+[27-Nov-2012 12:22:15] PHP Warning:  include(RootDocumentAdmin/inc/PageNav.class.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 16
+[27-Nov-2012 12:22:15] PHP Warning:  include(RootDocumentAdmin/inc/PageNav.class.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/ddcscom/public_html/1838/modules/message/message.php on line 16
+[27-Nov-2012 12:22:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'RootDocumentAdmin/inc/PageNav.class.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ddcscom/public_html/1838/modules/message/message.php on line 16
+[27-Nov-2012 12:22:15] PHP Fatal error:  Class 'PageItem' not found in /home/ddcscom/public_html/1838/modules/message/message.php on line 18
+[17-Dec-2014 20:44:42 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[17-Dec-2014 20:44:42 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[17-Dec-2014 20:44:42 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[17-Dec-2014 20:44:42 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:17:53 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[18-Dec-2014 10:17:53 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:17:53 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[18-Dec-2014 10:17:53 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:20:10 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[18-Dec-2014 10:20:10 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:20:10 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[18-Dec-2014 10:20:10 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:21:07 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[18-Dec-2014 10:21:07 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[18-Dec-2014 10:21:07 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[18-Dec-2014 10:21:07 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[22-Dec-2014 16:27:45 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[22-Dec-2014 16:27:45 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[22-Dec-2014 16:27:45 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[22-Dec-2014 16:27:45 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[22-Dec-2014 16:28:33 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[22-Dec-2014 16:28:33 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[22-Dec-2014 16:28:33 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[22-Dec-2014 16:28:33 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[23-Dec-2014 15:56:57 Asia/Chongqing] PHP Deprecated:  Function session_register() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 4
+[23-Dec-2014 15:56:57 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39
+[23-Dec-2014 15:56:57 Asia/Chongqing] PHP Notice:  Undefined variable: code in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 22
+[23-Dec-2014 15:56:57 Asia/Chongqing] PHP Deprecated:  Function eregi_replace() is deprecated in /home/ddcscom/public_html/smartshop5/modules/message/verify.php on line 39

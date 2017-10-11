@@ -1,0 +1,108 @@
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<!--
+	Used By:
+		shortcode-lightbox.html
+-->
+<style>
+p{margin-bottom: 10px !important;}
+</style>
+<div class="lightbox-ajax">
+
+	<!-- title -->
+	<h4><{ $P_goodsname }></h4>
+	
+	<!-- body -->
+	<div class="lightbox-ajax-body">
+
+		<div class="col-md-6 col-sm-6 text-center">
+        <img class="img-responsive" src="<{if $P_middleimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$P_middleimg}>
+<{/if}>" />
+        </div>
+		<div class="col-md-6 col-sm-6">
+        
+        <{ if $P_sale_name neq "" }>
+        <div style="font-size:15px; color:<{ $P_salename_color }>"><{ $P_sale_name }></div>
+        <{/if}>
+		
+		<h3><{ $P_goodsname }></h3>
+        <{ if $P_intro neq "" }>
+        <p><{ $P_intro }></p>
+        <{/if}>
+        <{ if $P_brandname neq "" }>
+        <p>品牌：<{ $P_brandname }></p>
+        <{/if}>
+        <{ if $P_bn neq "" }>
+        <p>貨號：<{ $P_bn }></p>
+        <{/if}>
+		<!-- 商品價格 --><{$P_changegoods}>
+		<{ if $P_changegoods.count>0 }>
+			<{if $P_price neq $P_pricedesc}>
+                <{ if $P_price neq 0 }>
+					<p>免稅價：<!--建議售價--><span class="line-through nopadding-left">NT$ <{ $P_price }></span></p>
+				<{ /if}>
+			<{ /if}>
+			<{ if $P_pricedesc neq "" }>
+			<p>加購價：NT$ <{ $P_pricedesc }></p>
+			<{/if}>
+		<{/if}>
+		
+
+		<!-- 商品價格 -->
+									
+
+									
+		
+		
+        <!--<{ if $P_goodsno neq "" }>
+        <p>賣場編號：<{ $P_goodsno }></p>
+        <{/if}>-->
+        <{ if $P_guojima neq "" }>
+        <p>國際碼：<{ $P_guojima }></p>
+        <{/if}>
+        <{ if $P_xinghao neq "" }>
+        <p>型號：<{ $P_xinghao }></p>
+        <{/if}>
+        <{ if $P_unit>0 }>
+        <p>計量單位：<{ $P_unit }></p>
+        <{/if}>
+        <{ if $P_weight>0 }>
+        <p>重量：<{ $P_weight }>KG</p>
+        <{/if}>
+        <{ if $P_chandi neq "" }>
+        <p>產地：<{ $P_chandi }></p>
+        <{/if}>
+		
+		
+		<div class="col-lg-12 margin-top-30 nopadding margin-bottom-10 infotext">
+
+								<{ if $P_body neq "" }>
+								<div class="nopadding it">商品介紹</div>
+								<div class="nopadding ic"><{ $P_body }></div>
+								<{/if}>
+								<{ if $P_cap_des neq "" }>
+								<div class="nopadding it">商品規格</div>
+								<div class="nopadding ic"><{ $P_cap_des }></div>
+								<{/if}>
+								<{ if $P_alarmcontent neq "" }>
+								<div class="nopadding it">注意事項</div>
+								<div class="nopadding ic"><{ $P_alarmcontent }></div>
+								<{/if}>
+
+
+
+								</div>
+        <div style="clear:both"></div>
+        </div>
+<div style="clear:both"></div>
+	</div>
+	<!-- /body -->
+</div>
+<script language="javascript">
+$(document).ready(function() {
+		$('body').on('hidden.bs.modal', '.modal', function () {
+    	$(this).removeData('bs.modal');
+});
+		});
+</script>

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<link href="<{ $template_dir }>/css/css.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #000000
+}
+.style2 {
+	color: #996600
+}
+.style3 {
+	font-size: 14px
+}
+.style5 {
+	font-size: 14px;
+	color: #518C22;
+}
+-->
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<BODY leftMargin=0 topMargin=0>
+<{ include_php file="include/menu.php" }>
+<table width=960 border="0" align="center" cellpadding="0" cellspacing="0">
+  <TR>
+    <TD align="center"><table width="98%" border="0" cellspacing="0" cellpadding="0"  class=>
+        <tr>
+          <td height="27" ><{ $OrderInfo_say }>
+            <!--訂單資訊--></td>
+        </tr>
+      </table>
+      <table width="98%" height="98%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td bgcolor="#CCCCCC"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="p9v">
+              <tr bgcolor="#FFFFFF">
+                <td width="160" class="p9black" bgcolor="#EEEEEE"><{ $Order_serial_say }></td>
+                <td width="200"><{ $order_serial }></td>
+                <td width="80" class="p9black" bgcolor="#EEEEEE"><{ $Order_state_say }> </td>
+                <td width="240"><{ $order_state }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE">支付狀態</td>
+                <td align="left"><{ $Pay_state }></td>
+                <td class="p9black" bgcolor="#EEEEEE">配送狀態</td>
+                <td align="left"><{ $Transport_state }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $Order_time_say }></td>
+                <td><{ $createtime }></td>
+                <td class="p9black" bgcolor="#EEEEEE"><{ $Product_totalprice_say }></td>
+                <td><{ $Product_totalprice }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $send_type_say }></td>
+                <td><{ $paymentname }></td>
+                <td class="p9black" bgcolor="#EEEEEE"><!--定单状态-->
+                  <{ $send_money_say }></td>
+                <td><{ $transport_price }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" nowrap bgcolor="#EEEEEE">折價券</td>
+                <td><{$ticket_discount_money}></td>
+                <td align="left" nowrap bgcolor="#EEEEEE" class="p9black">折扣後金額</td>
+                <td><{$discount_totalPrices}>&nbsp;</td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" nowrap bgcolor="#EEEEEE">紅利使用點數</td>
+                <td><{ $bonuspoint }></td>
+                <td align="left" nowrap bgcolor="#EEEEEE" class="p9black">消費總金額</td>
+                <td><{$tot}></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $Pay_type }></td>
+                <td><{ $deliveryname }></td>
+                <td bgcolor="#EEEEEE" class="p9black">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td bgcolor="#EEEEEE" class="p9black"><{ $Need_invoice_say }></td>
+                <td><{ $Ifinvoice }>&nbsp;</td>
+                <td bgcolor="#EEEEEE" class="p9black"><{ $Top_invoice_say }></td>
+                <td><{ $invoiceform }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $ATM_say }></td>
+                <td><{ $atm }></td>
+                <td nowrap bgcolor="#EEEEEE" class="p9black"><{ $Invoice_num_say }></td>
+                <td><{ $TheOneNum }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE">掛號單號</td>
+                <td align="left"><{ $piaocode }></td>
+                <td nowrap bgcolor="#EEEEEE" class="p9black">超商繳款編號</td>
+                <td align="left"><{$paycode}></td>
+              </tr>
+               <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE">取貨門市</td>
+                <td align="left"><{ $storename }></td>
+                <td nowrap bgcolor="#EEEEEE" class="p9black"></td>
+                <td align="left"></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br>
+      <table width="96%" border="0" align="center">
+        <tr>
+          <td width="12%" valign="top" nowrap  class="p9black"><{ $PaytypeContent }></td>
+          <td width="91%"  class="p9black"><{ $paycontent }></td>
+        </tr>
+        <tr>
+          <td valign="top" nowrap  class="p9black"><{ $SendtypeContent }></td>
+          <td  class="p9black"><{ $transport_content }></td>
+        </tr>
+      </table>
+      <br>
+      <table width="98%" border="0" cellspacing="0" cellpadding="0"   class=>
+        <tr>
+          <td height="27"><span class="style5"><{ $Getpersoninfo }>
+            <!--收货人信息-->
+            </span></td>
+        </tr>
+      </table>
+      <table width="98%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#CCCCCC"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="p9v">
+              <tr bgcolor="#FFFFFF">
+                <td width="80" nowrap bgcolor="#EEEEEE" class="p9black"><{ $name_say }></td>
+                <td width="200"><{ $receiver_name }></td>
+                <td width="80" align="left" nowrap bgcolor="#EEEEEE" class="p9black"><{ $email_say }></td>
+                <td width="320"><{ $receiver_email }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td nowrap bgcolor="#EEEEEE" class="p9black"><{ $mobile_say }></td>
+                <td><{ $receiver_mobile }></td>
+                <td class="p9black" nowrap bgcolor="#EEEEEE"><{ $tel_say }></td>
+                <td><{ $receiver_tele }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $addr_say }></td>
+                <td colspan="3"><{ $receiver_post }><{ $receiver_address }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $HomeSend_TimeType }></td>
+                <td colspan="3"><{ $transtime_name }></td>
+              </tr>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#EEEEEE"><{ $content_say }>：</td>
+                <td colspan="3"><{ $receiver_memo }>&nbsp;&nbsp;&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br>
+      <table width="98%" border="0" cellspacing="0" cellpadding="0" class=>
+        <tr>
+          <td height="27"><span class="style5"> <{ $ProductInfo }>
+            <!--商品資訊-->
+            </span></td>
+        </tr>
+      </table>
+      <table width="98%" height="98%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td bgcolor="#CCCCCC"><table width="100%" height="100%" border="0" cellpadding="4" cellspacing="1" class="p9v">
+              <tr bgcolor="#E4E3E1" align="center">
+                <td width="12%" nowrap class="p9blue"><{ $Bn_name }>
+                  <!--商品编号--></td>
+                <td class="p9blue" width="42%" bgcolor="#E4E3E1"><{  $Product_Name }>
+                  <!--商品名称--></td>
+                <td width="18%" bgcolor="#E4E3E1" class="p9blue">顔色/尺寸</td>
+                <td class="p9blue" width="14%"><{ $Pricedesc_say }>
+                  <!--网购价格--></td>
+                <td class="p9blue" width="14%"><{ $JianNum_say }>
+                  <!--数量--></td>
+              </tr>
+              <{ section name=list loop=$order_detail }>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#FFFFFF" align="CENTER"><{ $order_detail[list].bn }></td>
+                <td class="p9black" bgcolor="#FFFFFF"><{if $order_detail[list].detail_id eq 0 && $order_detail[list].detail_name eq "額滿禮"}><{ $order_detail[list].detail_name }><br>
+                  <{ $order_detail[list].goodsname }><br>
+                  <{ $order_detail[list].detail_bn }><br>
+                  <{ $order_detail[list].detail_name }><br>
+                  <{ $order_detail[list].detail_des }><{else}><{ $order_detail[list].goodsname }><{/if}></td>
+                <td align="center" bgcolor="#FFFFFF" class="p9black"><{ $order_detail[list].good_color }>/<{ $order_detail[list].good_size }></td>
+                <td class="p14red" bgcolor="#FFFFFF" align="center"><span class="p9black"><{ $order_detail[list].price }></span></td>
+                <td class="p9black" bgcolor="#FFFFFF" align="center"><{ $order_detail[list].goodscount }></td>
+              </tr>
+              <{ /section }>
+            </table></td>
+        </tr>
+      </table>
+      <br></TD>
+  </TR>
+</TABLE>
+<{ include_php file="include/bottom.php" }>
+</BODY>
+</HTML>

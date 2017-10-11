@@ -1,0 +1,126 @@
+<html>
+<head>
+  <title>Campaign scheduler for nuevoMailer</title>
+</head>
+<body>
+   <div align="center">
+     <table style="WIDTH: 850px; BORDER-COLLAPSE: collapse">
+       <tbody>
+         <tr>
+           <td>
+                <div><span style="FONT-FAMILY: Century Gothic; FONT-SIZE: 18pt; FONT-WEIGHT: bold;">nuevo Campaign Scheduler v.3.70</span>
+                    <br /><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;color:#666;">April 26, 2014</span>
+                </div>
+                <div style="PADDING-TOP: 20px"><span style="FONT-FAMILY: Century Gothic;FONT-WEIGHT: bold;">How to install</span></div>
+                <div style="PADDING-TOP: 10px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If you have purchased the bundle first set up nuevoMailer and then return here and continue reading.</span></div>
+                <div style="PADDING-TOP: 10px">
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Upload only these files in the <strong>admin</strong> folder of your nuevoMailer installation. Overwrite the old ones if asked.<br />
+        			  <span style="color:#800000;">_schedulerCreateTaskExec.php<br />
+        			  _schedulerCreateTaskForm.php<br />
+        			  _schedulerEditTaskExec.php<br />
+                      _schedulerEditTaskForm.php<br />
+                      _schedulerSend.php<br />
+                      _schedulerStart.php<br />
+                      _schedulerTaskNotes.php<br />
+                      _schedulerTasks.php</span>
+                      <div style="PADDING-TOP: 10px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">You must give "modify" and "write" permissions to the <strong>data_files</strong> folder.</span></div>
+					</span>
+                </div>
+                <div style="PADDING-TOP: 7px">
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Then login and go Menu>Tools>Campaign scheduler.<br />
+                    First you create a campaign and then you schedule it by creating a task for this campaign.</span>
+                </div>
+            </td>
+        </tr>
+         <tr>
+           <td>
+                <div style="PADDING-TOP: 20px"><span style="FONT-FAMILY: Century Gothic; FONT-WEIGHT: bold;">Notes</span></div>
+                <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>Batch settings</strong>: the global batch settings do not apply when using the scheduler. But you can define batch settings specific to a task.<br />
+                The <strong>pause</strong> between batches (batch interval) is related to the <strong>cron timer</strong> in this manner: if you set a batch interval of 10 minutes but the cron hits every 30 minutes it is evident that sending will start every 30 minutes. So the cron timer should be set to a value close to the batch pause. Lower is fine.</span></div>
+                <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>SMTP anti-flood</strong> settings will be used if defined for an smtp server.</span></div>
+            </td>
+        </tr>
+		 <tr>
+           <td>
+             <div style="PADDING-TOP: 30px"><span style="FONT-FAMILY: Century Gothic; FONT-WEIGHT: bold;">Cron set-up</span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Two alternatives are provided.</span>
+             </div>
+             
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;FONT-WEIGHT: bold;">Alternative 1</span>  <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">(easier and recommended)</span></div>
+             <div>
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Alternative 1 is simpler and easier to set up. Use it when you are not limited by the number of cron jobs that you can set up using your Host's control panel. You create one cron job only for the purpose of campaign scheduling.</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">This is the command to run:<br />
+                    GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_schedulerStart.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Replace in the line above with your own domain, folder name, administrator username and password.<br />
+                The username and password must be separated with an underscore: _</span></div>
+			 <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>The GET command</strong>: if the alias command <strong>GET</strong> is not recognized by your server replace <strong>GET</strong> with <strong>curl -L -s</strong>  or <strong>WGET</strong>. </span></div>             
+             
+			 <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;FONT-WEIGHT: bold;">Alternative 2</span></div>
+             <div>
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">With the second alternative you create one cron job but the file you hit can be used for more than one tasks.<br />
+                    Example: it can also be used for bounce processing when using the Bounce Manager.</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Open the file taskChecker.php. You will see this line:<br />
+                    GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_schedulerStart.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"> 
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt; color:#666;">You may also see this line used for bounce processing (and this is the main benefit of alternative 2):<br />
+                GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_bmProcessCron.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Replace in the line above with your own domain, folder name, administrator username and password.<br />
+                The username and password must be separated with an underscore: _</span></div>  
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>For security</strong>, the file taskChecker.php must be placed outside public_html or anywhere not accessible to others. </span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Permission for taskChecker.php should be 755</span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">The Cron command is:</span><br />
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">/home/<span style="BACKGROUND-COLOR: yellow">username/etc</span>/taskChecker.php</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Adjust the path accordingly and replace in the above the username and folder name: /username/etc/<br />
+                Examples:<br />
+                /home/jim/etc/taskChecker.php<br />
+                /home/jim/cron/taskChecker.php</span>
+             </div>
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>Cron timing</strong></span></div>
+             <div>
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Depends on your needs.<br />
+                if you have several mailings scheduled throughout the day then you can set it to run every 10 minutes or so. 
+                It is not resource intensive. First it checks for tasks. if it finds any it process them, otherwise it stops. The log file provides extensive details about each step.
+                </span>
+             </div>
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>Set up via command line</strong></span></div>
+             <div><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If you do not have a friendly interface to enter the command and timing then you can refer here for details or contact us. <a target="_blank" href="http://en.wikipedia.org/wiki/Crontab">http://en.wikipedia.org/wiki/Crontab</a>.<br />
+             You may also use this free service to create your cron command <a target="_blank" href="http://www.htmlbasix.com/crontab.shtml">http://www.htmlbasix.com/crontab.shtml</a>.</span></div>
+             
+			 <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Century Gothic; FONT-WEIGHT: bold;">Troubleshooting</span></div>
+             <div>
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">The first place to look is the scheduler log file. You will find a direct link to this file at the <i>scheduler tasks</i> page in your administration panel.<br />
+                If you don't see (or cannot find) this file then most likely the data_files folder does not have write permissions.<br>
+				To verify this, copy the whole cron command, paste it in your browser's address bar and hit it. You will get a descriptive message.
+                </span>
+             </div>
+
+         </td>
+        </tr>
+         <tr>
+           <td>
+                <div  style="PADDING-TOP: 7px"> <hr /></div>     
+                <div>
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">© Copyright 2014 DesignerFreeSolutions.com</span>
+                </div>
+                <div>
+                    <a href="http://www.nuevomailer.com/"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">http://www.nuevomailer.com/</span></a>
+                </div>
+                <div>
+                   <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Support: </span><a href="http://www.nuevomailer.com/customerAuthForm.php?redirectUrl=customerSupportForm.php" target="blank"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Create a support ticket</span></a>
+                </div>
+           </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	Monoslideshow configuration file
+	Please visit http://www.monoslideshow.com for more info
+-->
+
+<slideshow>
+
+	<preferences
+
+		backgroundColor = "000000"
+		showLoadingIcon = "false"
+		showImageInfo = "always"
+		viewport = "5,40,645,370"
+		imageTransition = "fadeInOut"
+		kenBurnsMode = "random"
+		kenBurnsVariationPercent = "20"
+		imageInfoAlpha = "0"
+		imageInfoAlign = "topRight"
+		imageInfoTransitionTime = "0.2"
+		imageInfoWidth = "380"
+		imageInfoMaxSize = "false"
+		imageInfoPadding = "0"
+		imageInfoTextAlign = "right"
+		imageInfoTitleFont = "helvetica"
+		imageInfoDescriptionFont = "unibody"
+		imageInfoDescriptionSize = "8"
+		imageInfoDescriptionMargin = "-2"
+		thumbnailWindowAlwaysOn = "true"
+		thumbnailWindowAlpha = "0"
+		thumbnailWindowShadowSize = "0"
+		thumbnailWindowShadowAlpha = "0"
+		thumbnailWindowLineWidth = "0"
+		thumbnailWindowAlign = "bottomLeft"
+		thumbnailWindowRows = "1"
+		thumbnailWindowColumns = "11"
+		thumbnailWindowAutoSize = "false"
+		thumbnailWindowPadding = "5"
+		thumbnailWindowIconMargin = "4"
+		thumbnailWindowIconSize = "10"
+		thumbnailWindowIconRollOverColor = "FF4B1F"
+		thumbnailWindowInfoFont = "unibody"
+		thumbnailWindowInfoSize = "8"
+		thumbnailWidth = "39"
+		thumbnailHeight = "28"
+		thumbnailRoundedCorners = "8"
+		thumbnailSpacing = "4"
+		thumbnailHoverDistance = "5"
+		thumbnailHoverShadowSize = "5"
+		albumWindowAlpha = "100"
+		albumWindowShadowSize = "0"
+		albumWindowShadowAlpha = "0"
+		albumWindowLineWidth = "0"
+		albumWindowRoundedCorners = "0"
+		albumWindowPadding = "10"
+		albumWindowIconMargin = "10"
+		albumWindowIconSize = "10"
+		albumWindowIconRollOverColor = "FF4B1F"
+		albumWindowInfoFont = "unibody"
+		albumWindowInfoSize = "8"
+		albumRoundedCorners = "5"
+		albumSpacing = "4"
+		albumShadowSize = "0"
+		albumShadowAlpha = "0"
+		albumInfoWidth = "180"
+		albumInfoMargin = "4"
+		albumInfoPadding = "4"
+		albumInfoRoundedCorners = "4"
+		albumInfoColor = "444444"
+		albumInfoTitleFont = "helvetica"
+		albumInfoTitleColor = "FF4B1F"
+		albumInfoTitleContainsNumber = "false"
+		albumInfoDescriptionFont = "unibody"
+		albumInfoDescriptionSize = "8"
+		albumInfoDescriptionColor = "999999"
+		controlAlign = "topLeft"
+		controlRoundedCorners = "0"
+		controlAlpha = "100"
+		controlLineWidth = "0"
+		controlShadowSize = "0"
+		controlIconRollOverColor = "FF4B1F"
+		controlPadding = "4"
+		controlIconSize = "10"
+		controlIconSpacing = "10"
+		autoPause = "false"
+		markFile = ""
+		markAlign = "topLeft"
+		markMarginX = "285"
+		markMarginY = "275"
+
+	/>
+
+	
+	<album thumbnail="" title="" description="" imagePath="images" thumbnailPath="images"></album>
+	
+</slideshow>

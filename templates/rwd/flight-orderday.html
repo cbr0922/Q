@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>航班確認 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<style>
+
+.flight-calenderday button:hover {
+    /*background: #EFF0F0;*/
+    color: #000000;
+    border: 1px solid #929292;
+    box-shadow: 2px 2px 2px #c5c5c5​;
+}
+.flight-calenderweek {
+    padding: 20px 0 10px;
+}
+.flight-calenderweek li {
+    text-align: center;
+    font-size: 12px;
+    color: #91918F;
+	font-size: 20px;
+}
+.flight-calenderweek li:nth-child(7n),.flight-calenderday li:nth-child(7n){
+
+    margin-right: 0!important;
+  
+}
+.flight-calender li {
+    width: 12.5%;
+    float: left;
+    margin-right: 2%;
+}
+.flight-calenderday li button:disabled {
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
+}
+
+.flight-calenderday li button {
+    text-align: center;
+    font-weight: 300;
+}
+.flight-calenderday button, .flight-info__code-selection button {
+    width: 100%;
+    color: #91918F;
+	border: 1px solid #91918F;
+    box-shadow: 2px 2px 2px #f3f3f3;
+    transition: all .2s;
+    border-radius: 4px;
+}
+.flight-calender ol, ul {
+    list-style: none;
+	/*margin: 0;*/
+    padding: 0;
+}
+
+@media (min-width: 768px){
+.flight-calenderday li {
+    margin-bottom: 15px;
+}
+.flight-calenderday li button {
+    font-size: 50px;
+    padding: 10px 0;
+}
+
+}
+@media (max-width: 767px){
+
+.flight-head h3 {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.flight-calenderday li button {
+    font-size: 20px;
+    padding: 10px 0;
+}
+.flight-calenderday li {
+    margin-bottom: 10px;
+}
+}
+@media (max-width: 480px){
+.flight-calenderday li button {
+    font-size: 20px;
+    padding: 5px 0;
+}
+}
+@media (max-width: 420px){
+.flight-calenderday li button {
+    font-size: 20px;
+    padding: 0px 0;
+}
+}
+
+
+</style>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<script type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>
+			<section class="page-header page-header-xs">
+				<div class="container">
+
+					<h1 class="bfont size-18 hidden">商品確認</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">首頁</a></li>
+                        <li><a href="<{ $Site_Url }>/shopping/shopping.php">購物車</a></li>
+						<li class="active">航班確認</li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+            <!-- 內容 -->
+<section>
+	<div class="container">
+     <div class="row">
+      <div class="col-md-12">
+
+      <div class="shopping_steps">
+         <div class="step_normal"><div class="step_normal_number">1</div>商品確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_over"><div class="step_number">2</div>航班確認</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">3</div>填寫資料</div>
+         <div class="step_arrow"><i class="icon-caret-right"></i></div>
+         <div class="step_normal"><div class="step_normal_number">4</div>訂單完成</div>
+       </div>
+
+		<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+			<form action="flight-order.php?key=<{$smarty.get.key}>" method="post" id="shopform">
+ 				<input type="hidden" name="flight-time" id="flight-time">
+			</form>
+
+
+
+
+											<div class="flight-head text-center margin-bottom-40">
+												<h3><i class="fa fa-plane"></i> 請選擇離開台灣的班機日期</h3>
+											</div>
+											<{ section name=list loop=$days }>
+											<div class="flight-calender">
+												<div class="flight-calender__month text-center">
+													<h3><{ $days[list].month }></h3>
+												</div>
+												<div class="flight-calenderweek">
+													<ul>
+														<li>日</li>
+														<li>一</li>
+														<li>二</li>
+														<li>三</li>
+														<li>四</li>
+														<li>五</li>
+														<li>六</li>
+													</ul>
+												</div>
+												<div class="flight-calenderday">
+													<ul>
+														<{section name=week start=0 loop=$days[list].week}>
+													  <li class="other-monthes"></li>
+														<{/section}>
+
+														<{ section name=list2 loop=$days[list].sub }>
+														<li><button value="<{ $days[list].sub[list2].date }>" <{ if $days[list].sub[list2].show eq 0 }>disabled<{/if}>><{ $smarty.section.list2.index+1 }></button></li>
+														<{ /section }>
+
+													</ul>
+												</div>
+												
+											</div>
+											<div class="margin-bottom-60" style="clear:both;"></div>
+											<{ /section }>
+		</div>		
+					
+			</div>
+        </div>
+   </div>
+</section>
+
+
+<div id="show_product" style="display:none;cursor:default;"></div>
+<script language="javascript">
+//var D = new Date();
+//alert(d);
+//document.getElementById("flight-date").value = d.getFullYear()+ "-" + addZero((d.getMonth()+1)) + "-" + addZero(d.getDate());
+//$('#flight-date').datepicker({ dateFormat: 'dd/mm/yyyy' });
+$('#button').click(function() {
+<{$InitiateCheckout_js}>
+});
+function getshowcollection(page){
+	var ajaxurl = "../member/ajax_collection.php";
+	document.getElementById("showshopping").style.display = "none";
+	document.getElementById("showcollection").style.display = "block";
+	$.ajax({
+				url: ajaxurl,
+				daga: 'page=' + page,
+				type:'get',
+				dataType:"html",
+				success: function(msg){
+				//alert(msg);
+				    $('#showcollection').html(msg);
+					//$('#classcount').attr("value",counts+1);
+					//$(msg).appendTo('#extclass')
+				}
+	});
+}
+function getshowshopping(){
+	document.getElementById("showshopping").style.display = "block";
+	document.getElementById("showcollection").style.display = "none";
+}
+
+$('li button').click(function() {
+	$('#flight-time').val($(this).val());
+	$("#shopform").submit();
+});
+
+</script>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+<div class="side-nav margin-bottom-30">
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4>文章分類</h4>
+		</div>
+        <ul class="list-group list-group-bordered list-group-noicon uppercase">
+            <{ section name=list loop=$Ncat }>
+				<li class="list-group-item<{if $Ncat[list].ncid eq $smarty.get.ncid}> active<{/if}>  size-16"><a href="<{if $Ncat[list].ncid eq 11}><{ $Site_Url }>/article/faq.php<{else}><{ $Site_Url }>/article/<{ $Ncat[list].ncid }><{/if}>"><{ $Ncat[list].ncname }></a></li>
+			<{ /section }>
+		</ul>
+</div>
+
+

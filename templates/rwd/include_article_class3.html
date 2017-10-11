@@ -1,0 +1,6 @@
+<div style="padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #e8e8e8;text-align: left;"><h1>內容總覽</h1></div>
+<div id="left_menu">
+ <{ section name=list loop=$Ncat}>
+  <div>   <ul class="<{if $Ncat[list].ncid eq $smarty.get.ncid}>level2_cur<{else}>level2<{/if}>" style="padding-left:0px;margin-top:0px">   <a href="<{ $Site_Url }>/article/article_index.php?ncid=<{ $Ncat[list].ncid }>"><{ $Ncat[list].ncname }></a>   </ul>     <div>       <{ section name=list1 loop=$Ncat[list].sub}>      <ul class="<{if $Ncat[list].sub[list1].ncid eq $smarty.get.ncid}>level2_cur<{else}>level2<{/if}>" style="padding-left:10px;margin-top:0px">      <a href="<{ $Site_Url }>/article/<{ $Ncat[list].sub[list1].ncid }>"><{ $Ncat[list].sub[list1].ncname }>&nbsp;&nbsp;(<{ $Ncat[list].sub[list1].count1 }>)</a>      </ul>      <{ /section }>     </div>  </div>
+ <{ /section }>
+</div>

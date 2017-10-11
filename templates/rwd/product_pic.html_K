@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }> -- <{ $Goodsname }> </title><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="<{ $template_dir }>/css/css.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <script language="javascript">
+	function showpic(filename){
+//		document.show_mod.src='/GoodPic/'+filename ;		
+		document.show_mod.src= filename ;		
+	}
+  </script>
+  
+  
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td colspan="2" align="center"><table width="100%" height="37" border="0" cellpadding="0" cellspacing="0" id="table_me">
+              <tr> 
+                <td width="5%" align="center" class="head">&nbsp;</td>
+              <td align="center" nowrap class="head"><strong><{ $Goodsname }></strong></td>
+                <td align="left" class="head">&nbsp;<a href="javascript:$.unblockUI();"><{ $Close}></a><!--返回-->
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td width="143" align="center" valign="top"><table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td bgcolor="">
+                <div style="height:350px;overflow-y:auto;">
+                <table border="0" align="center" cellpadding="5" cellspacing="10" bgcolor="#FFFFFF">
+                     <{ section name=Comm loop=$Goodpic }>
+                      <tr><td width="91">
+					  <div style="border:1px solid #ccc;padding:5px;">
+					  <a href='javascript:showpic("<{ $Site_Url }>/<{ $good_pic_path }>/<{$Goodpic[Comm].pic}>")'><img width=80 src= '<{ $Site_Url }>/<{ $good_pic_path }>/<{$Goodpic[Comm].pic}>' border=1 style="border:#999; border:thin"></a>
+					  </div>
+					  </td>
+                      </tr><{/section}> <{ if $Big_pic!='' }> <{ /if }> 
+                  </table>
+                  </div>
+                  </td>
+              </tr>
+            </table></td>
+          <td width="642" align="center" valign="middle" style="padding:15px;"> <img src='<{ $Big_pic }>' name="show_mod"></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

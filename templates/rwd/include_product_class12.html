@@ -1,0 +1,26 @@
+<!--一二級分類全部展開-->
+<{if $banner neq ""}> <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$banner}>"> <{/if}>
+<table width="200" align="left" cellpadding="0" cellspacing="0" style="margin-bottom:15px;  ">
+  <tr>
+    <td valign="top" style="padding-top:2px;"><table width="187"  border="0" cellspacing="0" cellpadding="0" style="padding-top:10px">
+        <{ section name=list loop=$ProductListAll start=0 }>
+        <tr>
+          <td align="left" valign="top" ><div ><span class="<{if $ProductListAll[list].bid eq $smarty.get.bid || $stop_id eq $ProductListAll[list].bid}>level2_cur<{else}>level2<{/if}>" style="padding-left:0px;margin-top:0px"><a href="<{if $ProductListAll[list].subject_id>0}><{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $ProductListAll[list].subject_id }><{elseif $ProductListAll[list].subject_id2>0}><{ $Site_Url }>/modules/sale/product_sale.php?subject_id=<{ $ProductListAll[list].subject_id2 }><{else}><{ $Site_Url }>/product/index.php?bid=<{$ProductListAll[list].bid}><{/if}>"> <{if $ProductListAll[list].pic1 neq ""}> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>"  border="0" title="<{$ProductListAll[list].catname}>" id="imgclass<{$ProductListAll[list].bid}>" onmouseover="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic2  }>';" onmouseout="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>';" /> <{else}> <!--<img src="<{ $template_dir }>/images/garyarr.gif" border="0"> --><{$ProductListAll[list].catname}> <{/if}> </a> </span></div>
+            <table width="160" border="0" align="center" cellpadding="0" cellspacing="0"  >
+              <{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+              <{if $ProductListAll[list].sub[list1].catname neq ""}>
+              <tr>
+                <td height="12" align="left" style=" padding-top:5px"><span  class="<{if $ProductListAll[list].sub[list1].bid eq $smarty.get.bid}>level3_cur<{else}>level3<{/if}>" ><a href="<{ $Site_Url }>/product/<{$ProductListAll[list].sub[list1].bid}>">   <{if $ProductListAll[list].sub[list1].manyunfei>0}><img src="<{ $template_dir }>/images/icon-bag.gif" border="0"><{else}><{if $ProductListAll[list].sub[list1].color eq 1}> <img src="<{ $template_dir }>/images/an0.gif" width="12" height="16" border="0"> <{/if}> <{/if}> 
+                  <{$ProductListAll[list].sub[list1].catname}>  </a></span></td>
+              </tr>
+              <tr>
+                <td height="1"></td>
+              </tr>
+              <{/if}>
+              <{/section}>
+            </table></td>
+        </tr>
+        <{/section}>
+      </table></td>
+  </tr>
+</table>

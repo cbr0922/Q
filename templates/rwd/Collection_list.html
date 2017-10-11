@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+
+<title><{  $Collection_say }> - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+
+
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+        
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+<{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }> 
+ <!-- PAGE HEADER -->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="bfont size-18 hidden"><{ $Collection_say }></h1>
+					
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li><a href="<{$Site_Url}>/member/">會員中心</a></li>
+                         <li class="active"><{ $Collection_say }></li>                       
+					</ol><!-- /breadcrumbs -->
+
+                </div>
+			</section>
+<!-- /PAGE HEADER -->
+<!--身體開始-->
+<section>
+<div class="container">
+	<div class="row">
+		<!--左邊開始-->
+			<div class="col-md-3 col-sm-3 margin-bottom-30 product_left border_all_left_side">
+                <{ include_php file="member/left.php" }>
+			</div>
+		<!--左邊結束-->
+		<!--右邊開始-->
+		<div class="col-md-9 col-sm-9 margin-bottom-30 product_right border_left minheight">
+       <!--我的追蹤清單開始 -->  
+       <{ section name=list loop=$goods_array }>
+       <div  class="blog-post-item">		
+	   <div class="form-group">			
+		<div class="col-md-3 col-xs-5">
+             <figure class="margin-bottom-20">
+              <a href="../product/detail<{$goods_array[list].gid}>" >
+              <img class="img-responsive" src="<{if $goods_array[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/UploadFile/GoodPic/<{$goods_array[list].smallimg}><{/if}>" alt="<{$goods_array[list].goodsname}>">
+              </a>
+             </figure>			
+		</div>			
+		<div class="col-md-9 col-xs-7">
+             <div class="blog-item-small-content">
+			 <{ section name=list1 loop=$goods_array[list].goods }>
+				<a href="<{ $Site_Url }>/brand/<{$goods_array[list].goods[list1].brand_id}>"><{$goods_array[list].goods[list1].brandname}></a>
+			 <{ /section }>
+              <h2><a href="../product/detail<{$goods_array[list].gid}>" rel="external"><{$goods_array[list].goodsname}></a></h2>
+									<ul class="blog-post-info list-inline">									</ul>             
+             <p><{$goods_array[list].intro}></p>
+
+               <a href="../product/Collection.php?collection_id=<{$goods_array[list].collection_id}>&Action=Del" class="btn btn-primary btn-xs"><i class="fa fa-times"></i> 刪 除</a> 
+             </div>			
+		</div>		
+		<div style="clear:both;"></div>
+        </div>	   
+		</div>
+       <{ /section }>
+	<!-- /我的追蹤清單結束 -->
+     <{$Nav_banner}>
+			</div>
+		</div>
+	<!--右邊結束-->
+	</div>
+  </div>
+</section>
+			
+
+
+<!--身體結束--> 
+
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

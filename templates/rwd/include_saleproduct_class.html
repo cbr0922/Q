@@ -1,0 +1,35 @@
+<{ if $View_product_Num != 0 }>
+							<!-- FEATURED -->
+							<div class="margin-bottom-60">
+                                <div class="side-nav-head border_title_bottom">
+								<h4>暢銷排行</h4>
+                                </div>
+								<div class="owl-carousel featured" data-plugin-options='{"singleItem": true, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}'>
+
+									<div><!-- SLIDE 1 -->
+										<ul class="list-unstyled nomargin nopadding text-left">
+										 <{ section name=i loop=$View_product max=5}>
+									<{ if $View_product[i].gid neq '' }>
+											<li class="clearfix margin-bottom-10"><!-- item -->
+												<div class="thumbnail featured clearfix pull-left radius-0" style=" margin-right:10px !important;">
+													<a href='<{ $Site_Url }>/product/detail<{ $View_product[i].gid }>'>
+														<img class="img-50" src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $View_product[i].smallimg }>" alt="<{ $View_product[i].goodsname }>">
+													</a>
+												</div>
+
+												<a class="block size-14" href="<{ $Site_Url }>/product/detail<{ $View_product[i].gid }>"><{ $View_product[i].goodsname }></a>
+												
+												<div class="size-14 text-left margin-top-10">NT. <{ $View_product[i].pricedesc }></div>
+											</li><!-- /item -->
+									<{/if}>
+									<{/section}>
+									</ul>
+										
+									</div><!-- /SLIDE 1 -->
+
+
+								</div>
+
+							</div>
+							<!-- /FEATURED -->
+<{/if}>							

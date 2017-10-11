@@ -1,0 +1,33 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="3"  style="border: solid 1px #CCCCCC">
+  <tr>
+    <td>收件人記錄本<input name="button" type="button" value="新增收件人" onclick="showWin('url','shopping_ajax_receiverinfo.php?act=add','',550,250);">
+      <a href="javascript:void(0);" onclick="$('#showreceiver').html('');">關閉</a></td>
+  </tr>
+  <tr>
+    <td><TABLE  cellSpacing=1 cellPadding=4 width="98%" align=center  border=0 style="border: solid 1px #CCCCCC" >
+        <TR >
+          <TD width="" align=center vAlign=middle nowrap bgcolor="#EEEEEE" class=p9rednothrough>收貨人
+            <!--订单编号--></TD>
+          <TD width="" align="center" valign="middle" nowrap bgcolor="#EEEEEE"><span class="p9rednothrough">聯fff絡電話
+            <!--下单日期-->
+            </span></TD>
+          <TD width="" align="center" nowrap bgcolor="#EEEEEE">地址
+            <!--定单状态--></TD>
+          <TD width="" colspan="3" align="center" nowrap bgcolor="#EEEEEE">操作
+          <!--状态/操作--></TD>
+           </TR>
+        <{ section name=list loop=$OrderList }>
+        <TR  bgcolor="#FFFFFF">
+          <TD align=center vAlign=top nowrap><{ $OrderList[list].receiver_name }></TD>
+          <TD align="center" nowrap class=p9v><{ $OrderList[list].receiver_tele }></TD>
+          <TD class=p9v><div align="center"><{ $OrderList[list].county }><{ $OrderList[list].province }><{ $OrderList[list].city }><{ $OrderList[list].addr }>&nbsp;</div></TD>
+          <TD align="center" class=p9v><a href="javascript:void(0);" onclick="showWin('url','shopping_ajax_receiverinfo.php?act=modify&reid=<{ $OrderList[list].reid }>','',550,250);" >修改</a></TD>
+          <TD align="center" class=p9v><a href="javascript:void(0);" onclick='showpage("shopping_g_ajax_shoppingreceiver.php","op=receiverinfo&reid=<{ $OrderList[list].reid }>","showshoppingreceiver");' >選中</a></TD>
+        </TR>
+        <{ /section }>
+    </TABLE></Td>
+  </Tr>
+</Table><Br>
+<script language="javascript">
+
+</script>

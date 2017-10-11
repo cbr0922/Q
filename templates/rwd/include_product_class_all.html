@@ -1,0 +1,41 @@
+<!--全部分類展開-->
+<img src="<{ $template_dir }>/images/product.gif" />
+<div id="left_menu">
+<table width="100%">
+  <tr>
+    <td valign="top" style="padding-top:2px;"><table  border="0" cellspacing="0" cellpadding="0" style="margin-left:5px; padding-left:15px">
+        <{ section name=list loop=$ProductListAll start=0 }>
+        <tr>
+          <td align="left" valign="top">
+          <div style="height:30px"><a href="<{ $Site_Url }>/product/<{$ProductListAll[list].bid}>"> 
+          <{if $ProductListAll[list].pic1 neq ""}> 
+          <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>"  border="0" title="<{$ProductListAll[list].catname}>" id="imgclass<{$ProductListAll[list].bid}>" onmouseover="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic2  }>';" onmouseout="this.src='<{ $Site_Url }>/UploadFile/GoodPic/<{ $ProductListAll[list].pic1  }>';" />
+           <{else}> 
+           <span class="<{if $ProductListAll[list].bid eq $smarty.get.bid || $stop_id eq $ProductListAll[list].bid}>level2_cur<{else}>level2<{/if}>" style="padding-left:10px;margin-top:0px"><img src="<{ $template_dir }>/images/garyarr.gif" border="0">  <strong><span class="font15"><{$ProductListAll[list].catname}></span></strong></span> 
+           <{/if}> </a> </div>
+           <tableborder="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px" >
+            
+            <{ section name=list1 loop=$ProductListAll[list].sub start=0 }>
+            
+            <{if $ProductListAll[list].sub[list1].catname neq ""}> 
+        <tr>
+          <td height="12" align="left" style="padding-left:15px; padding-bottom:10px"><a href="<{ $Site_Url }>/product/<{$ProductListAll[list].sub[list1].bid}>"> <span  class="<{if $ProductListAll[list].sub[list1].color eq 1}>level3_cur<{else}>level3<{/if}>">
+            
+            <{if $ProductListAll[list].sub[list1].color eq 1}> <img src="<{ $template_dir }>/images/an0.gif" width="12" height="16" border="0"> <{/if}> 
+            
+            <{$ProductListAll[list].sub[list1].catname}> </span> </a></td>
+        </tr>
+        <tr>
+          <td height="1"></td>
+        </tr>
+        <{/if}>
+        
+        <{/section}>
+      </table></td>
+  </tr>
+  <{/section}>
+</table>
+</td>
+</tr>
+</table>
+</div>

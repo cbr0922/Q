@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title>Bounce Manager for nuevoMailer</title>
+</head>
+<body>
+   <div align="center">
+     <table style="WIDTH: 850px; BORDER-COLLAPSE: collapse">
+       <tbody>
+         <tr>
+           <td>
+                <div><span style="FONT-FAMILY: Century Gothic; FONT-SIZE: 18pt; FONT-WEIGHT: bold;">nuevo Bounce Manager v.3.70</span>
+                    <br /><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;color:#666;">April 22, 2014</span>
+                </div>
+                <div style="PADDING-TOP: 20px"><span style="FONT-FAMILY: Century Gothic;FONT-WEIGHT: bold;">How to install</span></div>
+                <div style="PADDING-TOP: 10px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If you have purchased the bundle first set up nuevoMailer and then return here and continue reading.</span></div>
+                <div style="PADDING-TOP: 10px">
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Upload only these files in the admin folder of your nuevoMailer installation. Overwrite the old ones if asked.</span><br />
+                      <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;color:#800000;">_bm.php<br />
+        			  _bmProcess.php<br />
+        			  _bmProcessAdmin.php<br />
+        			  _bmProcessCron.php<br />
+                      _bmRemove.php<br />
+                      _bmSigs.xml</span>
+                </div>
+
+            </td>
+        </tr>
+         <tr>
+           <td>
+                <div style="PADDING-TOP: 20px"><span style="FONT-FAMILY: Century Gothic; FONT-WEIGHT: bold;">How to use</span></div>
+                <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Before sending a campaign go to <span style="color:#800000;">Menu>Tools>Configuration & settings</span> and define the email account were bounces will be sent. At the bottom of the same page complete all the required credentials so that bounce manager can login and read this email account.<br>
+				These credentials are similar to what you would use to set-up this email account in your email program.<br>
+				The bounce manager reads this mailbox.</span></div>
+				<div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><b>To test your settings</b> set the "<i>Number of messages to process in a single run</i>" to 0.<br>
+					Then go <span style="color:#800000;">Menu>Tools>Process bounced emails</span> and click on "<i>Click here to process bounced emails</i>".<br>
+					You will understand from the message that you will see if it works or not.<br>In case of a problem double check your settings and also experiment with port numbers 110 or 143.
+				</span>
+				</div>
+                <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">The bounce manager only flags the subscribers with soft or hard bounces but it does not automatically delete them. You must do that manually using the available functions in nuevoMailer. Or instead of deleting them you may want to set them as un-verified or add them to the suppression list.</span></div>
+				<div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Using filters you can view these subscribers before deleting them.</span></div>
+                <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If you want the bounce manager for an earlier version of nuevoMailer then contact DesignerFreeSolutions.</span></div>
+				<!--div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If your version of nuevoMailer is 1.00 or 1.10 then you need also to update two fields in one table. Please refer to the file table_update.sql.</span></div-->
+            </td>
+        </tr>
+		 <tr>
+           <td>
+             <div style="PADDING-TOP: 20px"><span style="FONT-FAMILY: Century Gothic; FONT-WEIGHT: bold;">Bounce processing with Cron</span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">This is optional and may come handy. You do not have to set it up.
+                You can always do manual processing from your admin panel. It will be very useful for processing large volumes of bounces.
+                Two alternatives are provided.</span>
+             </div>
+             
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;FONT-WEIGHT: bold;">Alternative 1</span>  <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">(easier and recommended)</span></div>
+             <div>
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Alternative 1 is simpler and easier to set up. Use it when you are not limited by the number of cron jobs that you can set up using your Host's control panel. You create one cron job only for the purpose of bounce processing. How often this job should run depends on the volume and frequency of your campaigns.</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">This is the command to run:<br />
+                    GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_bmProcessCron.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Replace in the line above with your own domain, folder name, administrator username and password.<br />
+                The username and password must be separated with an underscore: _</span></div>
+			<div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>The GET command</strong>: if the alias command <strong>GET</strong> is not recognized by your server replace <strong>GET</strong> with <strong>curl -L -s</strong>  or <strong>WGET</strong>. </span></div>
+             
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt;FONT-WEIGHT: bold;">Alternative 2</span></div>
+             <div>
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">With the second alternative you create one cron job but the file you hit can be used for more than one tasks.<br />
+                    Example: it can also be used for scheduling when using the Campaign Scheduler.</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Open the file taskChecker.php. You will see this line:<br />
+                    GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_bmProcessCron.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"> 
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt; color:#666;">You may also see this line used for scheduling (and this is the main benefit of alternative 2):<br />
+                GET http://<span style="BACKGROUND-COLOR: yellow">www.domain.com/nuevoMailer</span>/admin/_schedulerStart.php?admin=<span style="BACKGROUND-COLOR: yellow">yourUsername</span>_<span style="BACKGROUND-COLOR: yellow">yourPassword</span></span>
+             </div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Replace in the line above with your own domain, folder name, administrator username and password.<br />
+                The username and password must be separated with an underscore: _</span></div>  
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>For security</strong>, the file taskChecker.php must be placed outside public_html or anywhere not accessible to others. </span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Permission for taskChecker.php should be 755</span></div>
+             <div style="PADDING-TOP: 7px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">The Cron command is:</span><br />
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">/home/<span style="BACKGROUND-COLOR: yellow">username/etc</span>/taskChecker.php</span>
+             </div>
+             <div style="PADDING-TOP: 7px">
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Adjust the path accordingly and replace in the above the username and folder name: /username/etc/<br />
+                Examples:<br />
+                /home/jim/etc/taskChecker.php<br />
+                /home/jim/cron/taskChecker.php</span>
+             </div>
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>Cron timing</strong></span></div>
+             <div>
+                <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Depends on how often and how big your mailings are.<br />
+                Since bounces do not always return instantly you can have it run every 30 minutes or more. It is better to activate it after a mailing has finished. 
+				For large volumes of bounced emails it is advised to set a low pop3 batch size (in your configuration settings) and a shorter time interval (for the CRON period).</span>
+             </div>
+             <div style="PADDING-TOP: 12px"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><strong>Set up via command line</strong></span></div>
+             <div><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">If you do not have a friendly interface to enter the command and timing then you can refer here for details or contact us. <a target="_blank" href="http://en.wikipedia.org/wiki/Crontab">http://en.wikipedia.org/wiki/Crontab</a>.<br />
+             You may also use this free service to create your cron command <a target="_blank" href="http://www.htmlbasix.com/crontab.shtml">http://www.htmlbasix.com/crontab.shtml</a>.</span></div>
+         </td>
+        </tr>
+         <tr>
+           <td>
+                <div  style="PADDING-TOP: 7px"> <hr /></div>
+               <div>
+                    <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">© Copyright 2014 DesignerFreeSolutions.com</span>
+                </div>
+                <div>
+                    <a href="http://www.nuevomailer.com/"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">http://www.nuevomailer.com/</span></a>
+                </div>
+                <div>
+                   <span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Support: </span><a href="http://www.nuevomailer.com/customerAuthForm.php?redirectUrl=customerSupportForm.php" target="blank"><span style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Create a support ticket</span></a>
+                </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</body>
+</html>

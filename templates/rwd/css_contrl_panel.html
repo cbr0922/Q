@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>css contrl panel</title>
+
+<link href="css/fire.css" rel="stylesheet" type="text/css" />
+
+<LINK href="../../css/font-awesome/css/font-awesome-ie7.css" type=text/css rel=stylesheet>
+
+<LINK href="../../css/font-awesome/css/font-awesome.css" type=text/css rel=stylesheet>
+
+</head>
+
+<body>
+
+<div id="body_out"><!--身體外圍開始-->
+
+<div id="body_center"><!--身體中央開始-->
+
+ <div id="title_l">
+
+ <div id="title_l_left">
+
+ <a href="#">首頁</a>&nbsp;<span class="style100">></span> &nbsp;分類
+
+ </div>
+
+ </div>
+
+ <div id="body_left" ><!--左邊開始-->
+
+  <img src="images/product.gif" />
+
+  <img src="images/present.gif" />
+
+  <img src="images/discountsubject.gif" />
+
+  <img src="images/brand.gif" />
+
+  <img src="images/title-ncid.gif" />
+
+  <img src="images/member.gif" />
+  <img src="images/title-xuangou.gif" />
+   <div id="left_menu">
+
+    <ul class="level2_cur" ><li><a href="#">我的電子折價券</a></li></ul>
+
+     <div>
+
+     <ul style="margin:0px 0px 0px 0px; padding-left:30px" class="level3_cur" ><li><a href="#">小分類1</a></li></ul>
+
+     </div>
+
+     <div>
+
+     <ul style="margin:0px 0px 0px 0px; padding-left:30px" class="level3" ><li><a href="#">小分類2</a></li></ul>
+
+     </div>
+
+    <ul class="level2" ><li><a href="#">紅利紀錄查詢</a></li></ul>
+
+   </div>
+
+   <table width="97%" border="0" cellspacing="0" cellpadding="0">
+
+     <tr>
+
+       <td align="left">
+
+          <div class="input_bottom" id="showbuy<{$product_array.info[list].gid}>" style="width:80px;height:14px;margin-top:15px;font-weight:bold">我要兌換</div> <br />
+
+          <input type="button" value="登入" onclick="location.href='../../member/reg_rule.php'" class="input_bottom_member" /> 
+
+          <input type="button" value="註冊" onclick="location.href='../../member/reg_rule.php'" class="input_bottom_member" /><br />
+
+   <img src="images/icon-lock.png"><br />
+
+   <a href="../shopping/shopping2.php?key=<{$smarty.get.key}>" title="第一次消費後即可直接加入會員！"><div class="input_bottom_member" style="width:120px;height:18px;">首次購物加入會員</div></a>
+
+   <br /><input type="button" value="同意" onclick="location.href='reg_detail.php'" class="input_bottom" /> <input type="button" value="再考慮" onclick="location.href='<{$Site_Url}>/index.php'" class="input_bottom" />
+
+   <br />
+
+訂閱電子報 
+
+<input type="submit" name="Submit" value="訂閱 / 取消" class="input_bottom">
+
+<br />
+
+聯絡我們
+
+<input type="submit" name="Submit2" value="送出" class="input_bottom"><br />
+
+加入會員 <input type="submit" value="註冊" class="input_bottom">
+
+<br />
+
+轉寄好友
+
+<input type="submit" name="Submit" value="傳送" class="input_bottom"> 
+
+<input type="reset" name="Submit" value="清除" class="input_bottom">
+
+<br />
+
+ 進階搜尋 <input type="submit" value="送出查詢" name="Submit" class="input_bottom">
+
+ 
+
+ <br />
+
+ 忘記密碼 <input type="submit" value="確定" name="Submit" class="input_bottom">
+
+ <br />
+
+ 文章評論<input name="submit" type="submit" value="確定送出" class="input_bottom">
+
+ <br />
+
+ 以及其他會員中心按鈕<br />
+
+       </td>
+
+     </tr>
+
+     <tr>
+
+       <td align="left"><br />
+
+       <input type="image" value="用 Facebook 帳號登入" src="images/button-f-login.gif">
+
+       <input type="image" value="用 Yahoo 帳號登入" src="images/button-y-login.gif">
+
+       <input type="image" value="用 google 帳號登入" src="images/button-g-login.gif">
+
+         <br /></td>
+
+     </tr>
+
+     <tr>
+
+       <td align="left">
+
+       <img src="images/lbut1.png" alt="上一篇" border="0">
+
+       <img src="images/lbut5.png" alt="上一篇" border="0">
+
+       <img src="images/lbut2.png" alt="上一篇" border="0">
+
+       <img src="images/lbut3.png" alt="上一篇" border="0">
+
+       <img src="images/lbut4.png" alt="上一篇" border="0">
+
+       </td>
+
+     </tr>
+
+     <tr>
+
+       <td align="left">
+
+       <img src="images/add-cart.gif" width="19" height="10" border="0"> <a href="#">放入購物車</a>
+
+       <div class="discount_addcart"><a href="#" class="addcart"><i class="icon-shopping-cart"></i>&nbsp;選 購</a></div>
+
+       </td>
+
+     </tr>
+
+   </table>
+
+
+
+</div><!--左邊結束-->
+
+ <div id="body_right"><!--右邊開始-->
+
+ <div style="clear:both;"></div>
+
+ <div class="content"><!--右邊內容開始-->
+
+ &lt;html,body&gt;文字&lt;/html,/body&gt;&lt;html,body&gt;<a href="#">文字連結</a>&lt;/html,/body&gt;
+
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+   <tr>
+
+    <td width="25%" valign="top">
+
+     <h1>&lt;h1&gt;</h1>
+
+     <h2>&lt;h2&gt;<a href="#">連結文字</a>&lt;/h2&gt;</h2>
+
+     <h3>&lt;h3&gt;</h3>
+
+    </td>
+
+    <td width="75%" valign="top">&lt;td&gt;文字&lt;/td&gt;<br />
+
+      &lt;td&gt;<a href="#">文字連結</a>&lt;/td&gt;</td>
+
+  </tr>
+
+ </table>
+
+ <table width="100%" border="0" cellspacing="0" cellpadding="0" id="product_list">
+
+  <tr>
+
+   <td width="50%" align="left" valign="middle" class="product_all"><div class="product-title"><h1>商品區</h1></div></td>
+
+   <td width="50%" class="product_skill">
+
+    <ul class="asc_desc">
+
+     <li class="asc_desc_cur"><a href="#">優先推薦</a></li>
+
+     <li><a href="#">價格▲</a></li>
+
+     <li><a href="#">上架▲</a></li>
+
+     <li><a href="#">人氣▲</a></li>
+
+    </ul>
+
+   </td>
+
+  </tr>
+
+</table>
+
+
+
+ <div id="product_list">
+
+<ul class="ulstyle">
+
+  <li class="box">
+
+    <div class="picture3" style="margin-bottom:20px;z-index:1;">
+
+    <a href="#"><img src="images/pd_sample.png" width="135" height="135" border="0" /></a></div>
+
+    <div style="height:20px;overflow:hidden; text-align:left">廣告標題買四送一感恩回饋</div>
+
+    <div style="height:35px;overflow: hidden; text-align:left;margin-bottom:5px;"><a href="#">[活動]買四送一德國numis樂美思尿素加倍滋潤日霜50ml</a></div>
+
+    <div style="text-align:left">市價：<S>900</S></div>
+
+    <div style="text-align:left">網購價：<span class="price">675</span></div>
+
+    <div align="center" style="margin-top:5px;"></div>
+
+    <div align="center">缺貨</div>
+
+  </li>
+
+  <li class="box">
+
+    <div class="picture3" style="margin-bottom:20px;z-index:1;">
+
+    <a href="#"><img src="images/pd_sample.png" width="135" height="135" border="0" /></a></div>
+
+    <div style="height:20px;overflow:hidden; text-align:left">廣告標題買四送一感恩回饋</div>
+
+    <div style="height:35px;overflow: hidden; text-align:left;margin-bottom:5px;"><a href="#">[活動]買四送一德國numis樂美思尿素加倍滋潤日霜50ml</a></div>
+
+    <div style="text-align:left">市價：<S>900</S></div>
+
+    <div style="text-align:left">網購價：<span class="price">675</span></div>
+
+    <div align="center" style="margin-top:5px;"></div>
+
+    <div align="center">缺貨</div>
+
+  </li>
+
+  <li class="box">
+
+    <div class="picture3" style="margin-bottom:20px;z-index:1;">
+
+    <a href="#"><img src="images/pd_sample.png" width="135" height="135" border="0" /></a></div>
+
+    <div style="height:20px;overflow:hidden; text-align:left">廣告標題買四送一感恩回饋</div>
+
+    <div style="height:35px;overflow: hidden; text-align:left;margin-bottom:5px;"><a href="#">[活動]買四送一德國numis樂美思尿素加倍滋潤日霜50ml</a></div>
+
+    <div style="text-align:left">市價：<S>900</S></div>
+
+    <div style="text-align:left">網購價：<span class="price">675</span></div>
+
+    <div align="center" style="margin-top:5px;"></div>
+
+    <div align="center">缺貨</div>
+
+  </li>
+
+  <li class="box">
+
+    <div class="picture3" style="margin-bottom:20px;z-index:1;">
+
+    <a href="#"><img src="images/pd_sample.png" width="135" height="135" border="0" /></a></div>
+
+    <div style="height:20px;overflow:hidden; text-align:left">廣告標題買四送一感恩回饋</div>
+
+    <div style="height:35px;overflow: hidden; text-align:left;margin-bottom:5px;"><a href="#">[活動]買四送一德國numis樂美思尿素加倍滋潤日霜50ml</a></div>
+
+    <div style="text-align:left">市價：<S>900</S></div>
+
+    <div style="text-align:left">網購價：<span class="price">675</span></div>
+
+    <div align="center" style="margin-top:5px;"></div>
+
+    <div align="center">缺貨</div>
+
+  </li>
+
+</ul>
+
+</div>
+
+<div style="clear:both;"></div>
+
+  <ul>
+
+   <li class="qian2">會員折價券</li>
+
+   <li class="qian1"><a href="#">通用折價券使用</a></li>
+
+  </ul><br><br />
+
+ <table cellspacing="1" cellpadding="4" width="100%" align="center" border="0" id="table_me">
+
+   <tbody>
+
+     <tr>
+
+       <td width="" align="center" class="head">折價券名稱</td>
+
+       <td width="" align="center" class="head">抵用金額</td>
+
+       <td width="" align="center" class="head">可使用次數</td>
+
+       <td width="" align="center" class="head">使用日期</td>
+
+       <td width="" align="center" class="head">使用情況</td>
+
+     </tr>
+
+     <tr>
+
+       <td align="center">123</td>
+
+       <td align="center">80%</td>
+
+       <td align="center">13 </td>
+
+       <td align="center">2013-08-05 ～ 2014-08-31</td>
+
+       <td align="center"><a href="http://smartshop5.ddcs.com.tw/member/useticket.php?ticketid=5">瀏覽</a></td>
+
+     </tr>
+
+   </tbody>
+
+ </table>
+
+ <table width="100%" height="37" border="0" cellpadding="0" cellspacing="0" id="table_me">
+
+   <tr>
+
+     <td width="5%" align="center" class="head">&nbsp;</td>
+
+     <td width="81%" align="center" nowrap class="head">商品燈箱</td>
+
+     <td width="14%" align="center" class="head">&nbsp;<a href="javascript:$.unblockUI();">關閉</a></td>
+
+   </tr>
+
+  </table>
+
+ <table width="90%" border="0" cellspacing="0" cellpadding="0">
+
+   <tr>
+
+     <td width="15%" class="f15">重　　量：</td>
+
+     <td width="85%" class="f15">0.05KG</td>
+
+   </tr>
+
+   <tr>
+
+     <td class="f15">建議售價：</td>
+
+     <td class="f15"><s>$420</s></td>
+
+   </tr>
+
+   <tr>
+
+     <td class="f15">優惠活動：</td>
+
+     <td class="job4"><a href="#">二件598元</a></td>
+
+   </tr>
+
+   <tr>
+
+     <td align="left" class="f15" width="70" style="font-weight:bold;">促銷狀態：</td>
+
+     <td align="left" style="font-weight:bold;font-size:14px;" class="prices">已過期</td>
+
+   </tr>
+
+ </table>
+
+ <br />
+
+ <div style="clear:both;"></div>
+
+ <img src="images/but1.png" width="142" height="48" /><img src="images/but3.png" width="142" height="48" /><img src="images/but7.png" width="142" height="48" /><img src="images/but5.png" width="142" height="48" />
+
+   <ul style="margin-top:15px;margin-left:0px; padding-left:0px" class="tag">
+
+    <li><a href="#">保濕</a></li>
+
+    <li><a href="#">美白</a></li>
+
+   </ul>
+
+   <img src="images/P_changegoods.jpg" border="0">
+
+   <img src="images/product_Activity.jpg">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td width="5%"><img src="images/icon-save.gif"></td>
+
+    <td width="95%" class="sale_infor">開館感恩活動</td>
+
+  </tr>
+
+</table>
+
+
+
+ <!-- 頁籤開始 -->
+
+  <table width="100%" height="33" border="0"  align="left" cellpadding="0" cellspacing="0" background="images/page_3.gif"  style="margin-top:20px;" >
+
+   <tr>
+
+    <td width="89" height="21"><a href="javascript:" onClick="MM_swapImage('Image19','','images/q1.png',1);showcontent('1');"><img src="images/q12.png" name="Image19"  border="0" id="imgfour1"></a></td>
+
+    <td width="89"><a href="javascript:" onClick="MM_swapImage('Image23','','images/q2.png',1);showcontent('2');"><img src="images/q22.png" name="Image23" border="0" id="imgfour2"></a></td>
+
+    <td width="89"><a href="javascript:" onClick="MM_swapImage('Image20','','images/q3.png',1);showcontent('3');"><img src="images/q32.png" name="Image20"  border="0" id="imgfour3"></a></td>
+
+    <td width="89"><a href="javascript:" onClick="MM_swapImage('Image21','','images/q4.png',1);showcontent('4');"><img src="images/q42.png" name="Image21"  border="0" id="imgfour4"></a></td>
+
+    <td>&nbsp;</td>
+
+   </tr>
+
+  </table>
+
+   <div style="clear:both;"></div>
+
+   <div class="page1">
+
+    <div align="left" id="showfour1">內容一</div>
+
+    <div align="left" id="showfour2">內容二</div>
+
+    <div align="left" id="showfour3">內容三</div>
+
+    <div align="left" id="showfour4">內容四</div>
+
+   </div><!-- 頁籤結束 -->
+
+   <!-- 相關商品開始 -->
+
+   <DIV style="border:1PX solid #dbdbdb; height:300px; margin-top:15px">
+
+    <div style="height:30px; margin-bottom:15px"><img  src="images/Related.jpg"  border="0" ></div>
+
+     <div align="left" style="clear:both; padding:10px" >
+
+      <ul class="viewed">
+
+       <li align="middle" >
+
+        <table border="0"  width="144"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px; border-right:1px dashed #ffb0cc;">
+
+         <tr>
+
+          <td align="center" valign="top">
+
+           <table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+
+            <tr>
+
+             <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+
+               <!--促銷中ICON-->
+
+               <div style="display:block;position:absolute;top:1px;right:1px;z-index:5;"><img src="images/olock.png" border="0" /></div>
+
+               <a href="#"><img src="images/pd_sample.png" width="130" border="0" align="top"></a>
+
+             </td>
+
+            </tr>
+
+           </table>
+
+            </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" >
+
+              <a href="#">
+
+              <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px">
+
+               商品名稱商品名稱商品名稱商品名稱商品名稱商品名稱
+
+              </div>
+
+              </a>
+
+             </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price">1050</span></td>
+
+            </tr>
+
+           </table>
+
+          </li>
+
+          <li align="middle" >
+
+        <table border="0"  width="144"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px; border-right:1px dashed #ffb0cc;">
+
+         <tr>
+
+          <td align="center" valign="top">
+
+           <table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+
+            <tr>
+
+             <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+
+               <!--促銷中ICON-->
+
+               <a href="#"><img src="images/pd_sample.png" width="130" border="0" align="top"></a>
+
+             </td>
+
+            </tr>
+
+           </table>
+
+            </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" >
+
+              <a href="#">
+
+              <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px">
+
+               商品名稱商品名稱
+
+              </div>
+
+              </a>
+
+             </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price">1050</span></td>
+
+            </tr>
+
+           </table>
+
+          </li>
+
+          <li align="middle" >
+
+        <table border="0"  width="144"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px; border-right:1px dashed #ffb0cc;">
+
+         <tr>
+
+          <td align="center" valign="top">
+
+           <table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+
+            <tr>
+
+             <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+
+               <!--促銷中ICON-->
+
+               <a href="#"><img src="images/pd_sample.png" width="130" border="0" align="top"></a>
+
+             </td>
+
+            </tr>
+
+           </table>
+
+            </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" >
+
+              <a href="#">
+
+              <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px">
+
+               商品名稱商品名稱
+
+              </div>
+
+              </a>
+
+             </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price">1050</span></td>
+
+            </tr>
+
+           </table>
+
+          </li>
+
+          <li align="middle" >
+
+        <table border="0"  width="144"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px; border-right:1px dashed #ffb0cc;">
+
+         <tr>
+
+          <td align="center" valign="top">
+
+           <table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+
+            <tr>
+
+             <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+
+               <!--促銷中ICON-->
+
+               <a href="#"><img src="images/pd_sample.png" width="130" border="0" align="top"></a>
+
+             </td>
+
+            </tr>
+
+           </table>
+
+            </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" >
+
+              <a href="#">
+
+              <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px">
+
+               商品名稱商品名稱
+
+              </div>
+
+              </a>
+
+             </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price">1050</span></td>
+
+            </tr>
+
+           </table>
+
+          </li>
+
+          <li align="middle" >
+
+        <table border="0"  width="144"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px;">
+
+         <tr>
+
+          <td align="center" valign="top">
+
+           <table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+
+            <tr>
+
+             <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+
+               <!--促銷中ICON-->
+
+               <div style="display:block;position:absolute;top:1px;right:1px;z-index:5;"><img src="images/olock.png" border="0" /></div>
+
+               <a href="#"><img src="images/pd_sample.png" width="130" border="0" align="top"></a>
+
+             </td>
+
+            </tr>
+
+           </table>
+
+            </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" >
+
+              <a href="#">
+
+              <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px">
+
+               商品名稱商品名稱
+
+              </div>
+
+              </a>
+
+             </td>
+
+            </tr>
+
+            <tr>
+
+             <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price">1050</span></td>
+
+            </tr>
+
+           </table>
+
+          </li>
+
+         </ul>
+
+        </div>
+
+       </DIV><!-- 相關商品結束 --><br />
+
+   <img src="images/title-dengru.png">
+
+   <img src="images/title-tixing.png"><br />
+
+   <img src="images/title-zhuce.png"><br />
+
+   <br />
+
+   <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0" style="margin-bottom:20px;">
+
+     <tr>
+
+       <td width="200" rowspan="2" align="left" valign="top" style="padding-bottom:20px;padding-right:10px;" id="underline">
+
+         <div class="picture_a5"><img src="images/article_sample.jpg" border="0" width="180"></div>
+
+         </td>
+
+       <td height="23" align="left" valign="bottom"><h2><a href="#">文章標題連結(article_classindex5)</a></h2></td>
+
+       </tr>
+
+    <tr>
+
+     <td height="74" align="left" valign="top"id="underline">旋開蓋子後，罐子上還有鋁膜封著，一開封就聞到很濃厚的味道，也不算不好聞，但很明顯就是草本的味道XD~取一點在手上，咖啡色的凝膠質地很稠。</td>
+
+      </tr>
+
+   </table>
+
+  <table width="90%" border="0"  valign="top" align="center" cellpadding="0" cellspacing="0" style="padding-bottom:20px; ">
+
+   <tr>
+
+    <td width="24%"height="120" rowspan="2" align="left" valign="top" id="underline" style="padding-top:15px;padding-right:10px;padding-bottom:15px">
+
+     <div class="article_calender_box">
+
+      <span class="article_calender_date">28<br /></span>
+
+      <span class="article_calender">Jul 2014</span>
+
+     </div>
+
+	</td>
+
+    <td width="76%" height="41" align="left" valign="middle" style="padding-top:15px;"><h2><a href="#">文章標題連結(article_classindex1)</a></h2></td>
+
+    </tr>
+
+    <tr>
+
+    <td height="90" align="left" valign="top" id="underline" style="padding-bottom:10px" >旋開蓋子後，罐子上還有鋁膜封著，一開封就聞到很濃厚的味道，也不算不好聞，但很明顯就是草本的味道XD~取一點在手上，咖啡色的凝膠質地很稠。
+
+     <div class="article_views"><span>101</span> Views</div>     
+
+    </td>
+
+   </tr>
+
+  </table>
+
+ <br />
+
+ <br />
+
+ </div><!--右邊內容結束-->
+
+ </div><!--右邊結束-->
+
+</div><!--身體中央結束-->
+
+</div><!--身體外圍結束-->
+
+<script language="JavaScript" type="text/JavaScript">
+
+function MM_findObj(n, d) { //v4.01
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+}
+
+function MM_swapImage() { //v3.0
+
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+
+}
+
+function showcontent(showname){
+
+		var obj,showobj,imgobj,myobj;
+
+		i = 4;
+
+		for (j=0;j<i;j++){
+
+				myobj = document.getElementById("showfour" + (j+1));
+
+				myobj.style.display = "none";
+
+				imgobj = document.getElementById("imgfour" + (j+1));
+
+				if (showname ==  (j+1)){
+
+					imgobj.src = "images/q" + (j+1) + ".png";
+
+					myobj.style.display = "";
+
+				}else{
+
+					imgobj.src = "images/q" + (j+1) + "2.png";
+
+				}
+
+		}
+
+	}
+
+</script>
+
+<script language="javascript">
+
+showcontent("1");
+
+</script>
+
+</body>
+
+</html>
+

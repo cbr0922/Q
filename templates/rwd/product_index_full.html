@@ -1,0 +1,75 @@
+<section class="noborder padding-0">
+<div class="container">
+	<div class="row">
+		<!-- 右邊開始 -->
+	
+			<!-- 圖片輪播 -->			
+            <{ include_php file="modules/advertising/adv_banner_p.php" }>			
+			<!-- /圖片輪播 -->
+			<{if $classinfo_array.catcontent neq ""}>
+           <div class="product_banner"  style="margin: 30px 0;"><{if $classinfo_array.catcontent neq ""}><{ $classinfo_array.catcontent }><{/if}><!--brandcontent-->
+            </div>
+			<{ /if }>
+			
+			<{if $classinfo_array.top_id eq 0 && $smarty.get.type eq "" && $smarty.get.skey eq "" && $smarty.get.Action eq ""}>
+          	<{if $smarty.get.brand_id eq 0}><{ if $pic_news != '' }>
+          	<!--若無指定分類文章則不出現館別活動-->
+         	<div valign="top"  align="left" class="thumbnail featured clearfix radius-0 border-1 padding-20 margin-top-20" >
+				<h4><i class="fa fa-caret-down"></i>本館活動</h4>
+		  		<{ section name=i loop=$pic_news }>
+            	<{ if $pic_news[i].title != '' }>
+            	<div>
+              	<!--tr>
+                  <td align="center"><img src="<{ $Site_Url }>/UploadFile/NewsPic/<{ $pic_news[i].nimg }>" width=80 height="80"></td>
+                </tr-->
+                <{ $pic_news[i].ltitle }>
+            	</div>
+            	<{ /if }>
+            	<{ /section  }>
+            </div>
+          	<{/if}>
+            <{/if}>
+            <{/if}>
+</div>
+</div>
+</section>	
+
+
+
+
+
+
+		
+		
+
+			<!-- 篩選開始 --><!--ESHOP左側篩選-->
+			<{ if $product_filter eq 1 }>
+            	<{ if $smarty.get.type eq 'bonus'}>
+                <div style=" display:none">
+				<{ include file="include_product_attr2.html" }>
+                </div>
+                <{else}>
+                <{ include file="include_product_attr2.html" }>
+                <{/if}>
+			<{ /if }><!-- 篩選結束 -->		
+		
+			<!--商品列表-->
+            <{if $classinfo_array.top_id eq 0}>	
+			<!--只有大分類出現推薦商品-->							  
+			<!--<{ include file="include_product_index_recommend.html" }>-->							  			
+			<{ include file="include_product_index_hot.html" }>	
+			<{/if}>
+
+<section class="noborder indexgraybg nopadding">
+<div class="container">
+	<div class="row">
+
+			<div id="productlist" class="col-lg-12 col-md-12 col-sm-12 padding-0">
+            <div style="clear:both"></div>
+            </div>
+			<!--/商品列表-->
+		
+        <!-- 右邊結束-->
+	</div>
+</div>
+</section>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+
+
+<meta content="<{ $Meta_keyword }>" name="keywords"><title><{ $HtmlTitle }></title>
+
+
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+
+
+
+
+
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+
+
+
+
+
+
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+
+<{ include_php file="include/menu.php" }>
+
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+
+      <tr>
+
+        <td width="207" height="400" valign="top" style="padding-right:9px;"><table width="198" border="0" align="center" cellpadding="0" cellspacing="0" class="border" style="margin-bottom:15px;">
+
+
+
+
+
+
+
+        <tr>
+
+
+
+
+
+
+
+          <td align="center" class="backcolor">會員中心</td>
+
+
+
+
+
+
+
+        </tr>
+
+        <tr>
+
+
+
+
+
+
+
+          <td align="center"><{ include_php file="member/left.php" }></td>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+
+
+
+
+
+
+          <td></td>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+
+
+
+
+</table>
+
+		</td>
+
+        <td width="753" valign="top"><div class="title_blue_s">
+
+            <div class="title_blue_s_left">
+
+    <h1><{ $BonusCollection_say }></h1>
+
+  </div>
+
+  <div class="title_blue_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <{ $BonusCollection_say }>
+
+    </div>
+
+</div>
+
+          <table width="96%"  border="0" align="center" cellpadding="0" cellspacing="0">
+
+            <tr>
+
+              <td height="40"><strong><{ $Currentpoint_say }>： </strong><span class="p9red"><{ $Member_Point }></span></td>
+
+            </tr>
+
+          </table>
+
+          <table width="96%"  border="0" align="center" cellpadding="0" cellspacing="0">
+
+            <tr>
+
+              <td><{ $BonusCollection_list }> </td>
+
+            </tr>
+
+          </table>
+
+          <br>
+
+          <table width="660"  border="0" align="center" cellpadding="0" cellspacing="0" class=p9navyblue>
+
+            <TR  bgcolor="">
+
+              <TD width="50" align=center vAlign=middle nowrap class=p9rednothrough><{ $SNo_say }>
+
+                  <!--订单编号-->
+
+              </TD>
+
+              <TD width="230" align="center" valign="middle" nowrap><span class="p9rednothrough"><{ $ProductName_say }>
+
+                    <!--下单日期-->
+
+              </span></TD>
+
+              <TD width="280" align="center" nowrap><{ $State_say }>
+
+                  <!--定单状态-->
+
+              </TD>
+
+              <TD width="100" align="center" nowrap><{ $Idate_say }>
+
+                  <!--订单总金额-->
+
+              </TD>
+
+              <TD width="2%" align="center" nowrap>&nbsp;</TD>
+
+            </TR>
+
+            <tr>
+
+              <td colspan="5"><IFRAME name=top marginWidth=0 marginHeight=0  src="<{ $Site_Url }>/member/Bonus_history_list.php" frameBorder=no width="660"   scrolling=yes height=200 topmargin="0" leftmargin="0"></IFRAME></td>
+
+            </tr>
+
+          </table></td>
+
+      </tr>
+
+    </table>
+
+
+
+      <{ include_php file="include/bottom.php" }>
+
+</body>
+
+
+
+</html>
+
+
+

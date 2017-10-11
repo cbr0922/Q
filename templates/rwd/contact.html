@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8" />
+	<title><{ $Contact_title }> - <{ $HtmlTitle }></title>
+	<meta content="<{ $Meta_desc }>" name="description"/>
+	<meta content="<{ $Meta_keyword }>" name="keywords"/>
+	<meta name="Author" content="ESIT" />
+
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+
+	<!-- CORE CSS -->
+	<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+	<!-- THEME CSS -->
+
+	<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+    <{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+
+	<{ include_php file="include/menu.php" }>
+
+	<!--耳朵廣告-->
+
+	<{ if $Ear_radio eq 1 }>
+
+		<{ include_php file="modules/advertising/ear.php" }>
+
+	<{ /if }>
+
+	<!--/耳朵廣告-->
+
+	<!--導覽列-->
+
+	<section class="page-header page-header-xs">
+
+		<div class="container">
+
+			<h1 class="bfont size-18 hidden"><{ $Contact_title }></h1>
+
+			<!-- breadcrumbs -->
+
+			<ol class="breadcrumb breadcrumb-inverse">
+
+				<li><a href="<{ $Site_Url }>">Home</a></li>
+
+                <li class="active"><{ $Contact_title }></li>
+
+			</ol><!-- /breadcrumbs -->
+
+		</div>
+
+	</section>
+
+	<!-- /導覽列 -->
+
+	<section class="padding-40">
+
+		<div class="container">
+
+			<div class="row">
+
+				<!-- 說明 -->
+
+				<div class="col-xs-10 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-1 col-xs-offset-1 margin-bottom-40">
+
+                    <h2><span class="bfont size-25 weight-300"><{ $Contact_title }></span></h2>
+
+					<{ $Content }>
+
+				</div>
+
+				<!-- /說明 -->
+
+				<!-- FORM -->
+
+				<div class="col-xs-10 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-1 col-xs-offset-1 margin-bottom-50">
+
+					<form name="form1" id="regform" method="post" action="<{ $Site_Url }>/help/contact.php" class="form-horizontal" role="form" encType=multipart/form-data>
+                        <input type="hidden" name="action" value="insert">
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* <{$Lxr_say}><!--聯 絡 人--></label>
+									<input type="name" name="companyname" id="companyname" class="form-control radius-0" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* <{$Email_say}><!--電子信箱--></label>
+									<input name="email" class="form-control radius-0" type="email" id="email"/>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* <{$Tel_say}><!--電話號碼--></label>
+									<input name="tel_two" type="phone" id="tel_two" class="form-control radius-0" placeholder="<{$Please_tel}>" /><!--填入市話或手機號碼-->
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* <{$Hz_say}><!--聯絡事項--></label>
+									<select class="form-control select radius-0" name="type">
+										<option value=""><{$Please_select}><!--請選擇--></option>
+										<{ section name=i loop=$type_array }>
+											<option value="<{$type_array[i].type}>"><{$type_array[i].type}></option>
+										<{/section}>
+									</select>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* <{$Content_say}><!--聯絡內容--></label>
+									<textarea maxlength="10000" class="form-control radius-0" name="content" cols="40" rows="5" id="content"><{ $Goodstext }></textarea>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label><{$Attach_file}><!--附件--></label>
+									<input type="file" name="file" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>*<{ $Code_say }><!--驗證碼--></label>
+									<input type="text" name="inputcode"  id="inputcode"  class="form-control radius-0" />
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-xs-6 col-sm-6 nopadding margin-bottom-20">
+								<img id="responsive" class="img-responsive" src="<{ $Site_Url }>/Resources/securimage/securimage_show.php?sid=<{$sid}>" style="max-width:130px"/>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<a href="javascript:void(0);" onclick="document.getElementById('responsive').src = document.getElementById('responsive').src+'?';"><i class="fa fa-refresh size-20"></i></a>
+							</div>
+							<div class="col-xs-12 col-sm-12 nopadding">
+								<button type="submit" name="Submit2" class="col-xs-12 col-sm-4 btn btn-black"> <{ $Submit_say }></button>
+							</div>
+
+					</form>
+				</div>
+
+				<!-- /FORM -->
+			</div>
+
+		</div>
+
+	</section>
+
+<{ include_php file="include/bottom.php" }>
+</body>
+<!--驗證欄位-->
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#regform').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			company: {
+                validators: {
+                    notEmpty: {
+                        message: '<{$PleaseinputCompany}>'<!--請輸入公司名稱，不可空白-->
+                    }
+                }
+            },
+            username: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+						message: '<{$Pleaseinputtwo}>'<!--請輸入至少2個字數-->
+                    },
+                        notEmpty: {
+                        message: '<{$PleaseinputName}>'<!--請輸入真實姓名，不可空白-->
+                    }
+                }
+            },
+			companyname: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+						message: '<{$PleaseinputName}>'
+                    },
+                        notEmpty: {
+                        message: '<{$PleaseinputName}>'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: '<{$PleaseinputEmail}>'<!--請輸入Email，不可空白-->
+                    },
+                    emailAddress: {
+                        message: '<{$EmailisBad}>'<!--您輸入的Email格式錯誤-->
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: '<{$Please_tel}>'<!--您輸入的Email格式錯誤-->
+                    },
+                }
+            },
+			tel_two: {
+                validators: {
+                    notEmpty: {
+                        message: '<{$Please_tel}>'
+                    },
+                }
+            },
+			mobile:	{
+                validators: {
+                    notEmpty: {
+                        message: '<{$Please_mobile}>'<!--請輸入手機，不可空白-->
+                    },
+                    /*phone: {
+                        message: 'Please supply a vaild phone number with area code'
+                    }*/
+                }
+            },
+			content: {
+                validators: {
+                     stringLength: {
+                        min: 4,
+						message: '<{$Please_content4}>'<!--請填寫聯絡內容，不可少於4個字-->
+                    },
+                    notEmpty: {
+                        message: '<{$Please_content}>'<!--請填寫聯絡內容-->
+                    }
+                }
+            },
+			
+			remark: {
+                validators: {
+                     stringLength: {
+                        min: 4,
+						message: '<{$Please_remark4}>'<!--請輸入至少4個數字-->
+                    },
+                    notEmpty: {
+                        message: '<{$Please_remark}>'<!--請輸入備註內容-->
+                    }
+                }
+            },
+			type: {
+                validators: {
+                    notEmpty: {
+                        message: '<{$Please_type}>'<!--請選擇聯絡事項-->
+                    }
+                }
+            },
+			needcount: {
+                validators: {
+                    regexp: {
+                        regexp: /^[0-9]+$/,
+                        message: '<{$Pleaseinputnumber}>'<!--請填寫數字-->
+                    }
+                }
+            },
+            inputcode: {
+                validators: {
+                      stringLength: {
+                        min: 5,
+                        max: 5,
+                        message:'<{$Pleaseinput5}>'<!--請輸入5個字數-->
+                    },
+                    notEmpty: {
+                        message: '<{$PleaseinputCode}>'<!--請輸入驗證碼，不可空白-->
+                    }
+                }
+            }
+			
+		}
+
+        })
+});
+</script>
+</html>

@@ -1,0 +1,17 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top" height="175"><{ section name=i loop=$pic_news }>
+      
+      <{ if $pic_news[i].title != '' }>
+      <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0" >
+        <tr>
+          <td width="11" valign="top" align="left" style="padding-top:5px"><img src="<{ $template_dir }>/images/dot_news.gif"></td>
+          <td><{ $pic_news[i].ltitle }> </td>
+        </tr>
+      </table>
+      <{ /if }>
+      
+      <{ /section  }></td>
+  </tr>
+  
+</table>

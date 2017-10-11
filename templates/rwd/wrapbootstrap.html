@@ -1,0 +1,65 @@
+	<!-- Template core CSS -->
+	<link href="<{ $Site_Url }>/assets/css/wrapbootstrap.css" rel="stylesheet">
+		<!-- PORTFOLIO -->
+		<section id="portfolio" class="module padding-top-20" style="border-bottom:none;">
+			
+			<div class="container">
+
+				<!-- WORKS GRID -->
+				<div class="row">
+
+					<div id="works-grid" class="works-grid works-hover-w">
+
+						<!-- DO NOT DELETE THIS DIV -->
+						<div class="grid-sizer"></div>
+						<{ section name=i loop=$img_array }>
+						<!-- PORTFOLIO ITEM -->						
+                        <{if $img_array[i].n%10 == 0 }>
+						<div class="work-item tall branding photo web">
+						<{elseif $img_array[i].n%10 == 5}>
+						<div class="work-item wide-tall branding photo web">
+						<{elseif $img_array[i].n%10 == 6 || $img_array[i].n%10 == 9}>
+						<div class="work-item wide branding photo web">
+						<{else}>
+						<div class="work-item branding photo web">
+						<{/if}>
+
+							<a href="<{ $img_array[i].url }>">
+								<img src="<{ $Site_Url }>/UploadFile/photo_img/<{ $img_array[i].pid }>/images/<{ $img_array[i].pic }>" alt="">								<div class="work-caption font-alt">
+									<h3 class="work-title"><{ $img_array[i].title }></h3>									<div class="work-descr">										<{ $img_array[i].content }>									</div>								</div>
+							</a>
+						</div>
+						<!-- /PORTFOLIO ITEM -->
+                        <{ /section }>
+					</div>
+
+				</div>
+				<!-- /WORKS GRID -->
+
+				<!-- SHOW MORE -->
+				<div class="row m-t-70 text-center wow fadeInUp">
+					<div class="col-sm-12 padding-bottom-10">
+
+						<button id="show-more">MORE</button><br />
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+					</div>
+				</div>
+				<!-- /SHOW MORE -->
+			<hr>
+			</div>
+           
+            
+		
+		</section>
+		<!-- /PORTFOLIO -->
+	<!-- Javascript files -->
+	<script src="assets/js/wrapbootstrap/jquery-2.1.3.min.js"></script>
+	<script src="assets/js/wrapbootstrap/jquery.superslides.min.js"></script>
+	<script src="assets/js/wrapbootstrap/imagesloaded.pkgd.js"></script>
+	<script src="assets/js/wrapbootstrap/isotope.pkgd.min.js"></script>
+	<script src="assets/js/wrapbootstrap/packery-mode.pkgd.min.js"></script>
+	<script src="assets/js/wrapbootstrap/jquery.fitvids.js"></script>
+	<script src="assets/js/wrapbootstrap/jquery.parallax-1.1.3.js"></script>
+	<script src="assets/js/wrapbootstrap/custom.js"></script>
+    

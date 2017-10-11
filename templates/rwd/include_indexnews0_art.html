@@ -1,0 +1,10 @@
+<font style="color: #f464b7;font-size: 22px;font-weight: bold;">文章推薦</font>
+<div class="paihang-block20_a"> <{ section name=i loop=$pic_news start=3 }>
+  <{ if $pic_news[i].title != '' }>
+  <ul class="paihang-list0_a">
+    <li><div style=" float:left;width:206px; height:30px; overflow:hidden;"><i class="icon-comments-alt" style="color: #ca387e;"></i>&nbsp;<{ $pic_news[i].ltitle }></div><br /><span></span></li>
+  </ul>
+  <{ /if }>
+  <{ /section  }> 
+  <div style="clear:both;"></div>
+  </div>

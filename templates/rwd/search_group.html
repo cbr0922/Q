@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords">
+
+<title><{ $SearchResult_say }> - <{ $HtmlTitle }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<{ include_php file="menu_groupon.php" }>
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2" align="left" valign="bottom" style="padding-bottom:10px;"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:1px solid #f15a24;">
+      <tr>
+        <td><font color="#a82800">目前位置：</font><{ $SearchResult_say }></td>
+        <td align="right" valign="bottom"> <!--<table width="250" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7"><img src="<{ $template_dir }>/images/g-r-left.gif" width="7" height="15"></td>
+          <td align="center" background="<{ $template_dir }>/images/g-r-back.gif" id="nav-word">排序：<a href="#">最熱門</a> | <a href="#">人氣度</a> | <a href="#">依最新</a> | <a href="#">剩餘時間</a></td>
+          <td width="12"><img src="<{ $template_dir }>/images/g-r-right.gif" width="12" height="15"></td>
+        </tr>
+      </table>--></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="258" valign="top"><table width="258" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td background="<{ $template_dir }>/images/g-leftback.gif"><{ include_php file="search/search_banner_group.php" }>
+          <{ include_php file="include/include_group_viewlist.php" }>
+                <{ include_php file="include/include_group_salelist.php" }>
+          </td>
+      </tr>
+      <tr>
+        <td><img src="<{ $template_dir }>/images/g-leftfoot.gif" width="258" height="12"></td>
+      </tr>
+    </table></td>
+    <td width="702" valign="top" style="padding-left:10px;padding-right:7px;">
+          <table width="700"  border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="233" align="center" valign="top" style="padding-left:10px">
+                  <div align="center"> <{ section name=Comm loop=$sale_p_array }>
+              <div style="float:left;margin-left:00px; height:280px"  class="border-b-r">
+                <table width="220" border="0" cellpadding="5" cellspacing="0" id="xygoodstb<{ $sale_p_array[Comm].gid }>" style="background:#FFF" >
+                  <tr>
+                    <td height="150" align="center"><a href="<{ $Site_Url }>/product/groupdetail.php?goods_id=<{ $sale_p_array[Comm].gdid }>" target='_blank'><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{ $sale_p_array[Comm].smallimg }>' border=0 name="goodpic"></a></td>
+                  </tr>
+                  <tr>
+                    <td height="50" align="left" valign="top"><a href="<{ $Site_Url }>/product/groupdetail.php?goods_id=<{ $sale_p_array[Comm].gdid }>" target='_blank'><{ $sale_p_array[Comm].groupname }></a>
+                      
+                      
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="" valign="top">團購價：<{$sale_p_array[Comm].groupprice }></td>
+                  </tr>
+                </table>
+              </div>
+              <{/section}> </div>
+                  <br></td>
+              </tr>
+      </table>
+      <div align="center"><span class="p9black"><br>
+        <{ $ProductPageItem }></span></div>
+
+
+        <{ if $productNum eq 0 }> <{ $zero_search_result }> <{ /if }> 
+</td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

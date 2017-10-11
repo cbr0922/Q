@@ -1,0 +1,20 @@
+<!-- 
+	controlls-over		= navigation buttons over the image 
+	buttons-autohide 	= navigation buttons visible on mouse hover only
+	
+	data-plugin-options:
+		"singleItem": true
+		"autoPlay": true (or ms. eg: 4000)
+		"navigation": true
+		"pagination": true
+-->
+<div class="text-center margin-top-30 margin-bottom-30">
+	<div class="owl-carousel owl-padding-3 nomargin" data-plugin-options='{"singleItem": false, "autoPlay": true, "items": "5","itemsDesktopSmall":[768,3],"itemsTablet":[480,2],"itemsMobile": false,"lazyLoad":true}'>
+    <{ section name=brandlistname loop=$brandArray 
+      }>
+		<div>
+        	<a class="job3" href="<{ $Site_Url }>/brand/<{ $brandArray[brandlistname].brand_id }>"><img class="img-responsive lazyOwl" data-src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $brandArray[brandlistname].logopic }>" alt="<{ $brandArray[brandlistname].brandname }>" /></a>
+		</div>
+	<{ /section }>	
+	</div>
+</div>

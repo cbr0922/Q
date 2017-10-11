@@ -1,0 +1,22 @@
+<div class="side-nav margin-bottom-20">
+		<div class="side-nav-head border_title_bottom">
+			<button class="fa fa-bars"></button>
+			<h4 class="bfont"><{ $Member_center}><!--會員中心--></h4>
+		</div>
+
+		<ul class="list-group list-group-bordered list-group-noicon uppercase">
+			<li class="list-group-item"><a href="AccountInformation.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-pencil-square-o"></i> <{ $Memberinfo_say }><!--會員資訊--></a></li>
+						<li class="list-group-item"><a href="MyOrder.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-list"></i> <{ $Myorder_say }><!--訂單查詢--></a></li>
+						<li class="list-group-item"><a href="Collection_list.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-heart"></i> <{ $Collection_say }><!--我的追蹤清單--></a></li>
+						<li class="list-group-item"><a href="myticket.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-ticket"></i>  <{ $Myticket_say }><!--我的電子折價券--></a></li>
+						<li class="list-group-item"><a href="bonuspointrecord.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-calculator"></i> <{ $Bonuspointrecord_say }><!--紅利紀錄查詢--></a></a></li>
+						<!--<li class="list-group-item"><a href="myscore.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-star"></i> <{ $Myscore_say }>使用心得</a></li>-->
+						<li class="list-group-item"><a href="recommendpoint.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-thumbs-o-up"></i> <{ $Recommendpoint_say }><!--推薦分紅--></a></li>
+
+						<{ if $login_mode eq 0 }><li class="list-group-item"><a href="ChangePwd.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-key"></i> <{ $ModiPassword_say }><!--修改密碼--></a></li><{ /if }>
+						<!--<li class="list-group-item"><a href="receiver_list.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-truck"></i> <{ $Receiver_list_say }>收貨人資料管理</a></li>-->
+						<li class="list-group-item"><a href="kefu_add.php?hometype=<{$smarty.get.hometype}>"><i class="fa fa-commenting"></i> <{ $Kefu_add_say }><!--問答中心--></a></li>
+						<li class="list-group-item"><a href="member_login.php?Action=Logout&hometype=<{$smarty.get.hometype}>"><i class="glyphicon glyphicon-off"></i> <{ $LogoutSta_say }><!--登出--></a></li>
+		</ul>
+
+</div>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>新增收件人資料 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- WEB FONTS : use %7C instead of | (pipe) -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+<!-- THEME CSS -->
+<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+<!-- PAGE LEVEL SCRIPTS -->
+<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }> 
+
+  <!-- PAGE HEADER -->
+  <section class="page-header page-header-xs">
+  <div class="container">
+      <h1 class="bfont size-18 hidden">新增收件人資料</h1>
+      
+      <!-- breadcrumbs -->
+      <ol class="breadcrumb breadcrumb-inverse">
+      <li><a href="<{ $Site_Url }>">Home</a></li>
+      <li><a href="<{$Site_Url}>/member/">會員中心</a></li>
+      <li class="active">新增收件人資料</li>
+    </ol>
+      <!-- /breadcrumbs --> 
+      
+    </div>
+</section>
+  <!-- /PAGE HEADER --> 
+  <!--身體開始-->
+  <section>
+  <div class="container">
+      <div class="row"> 
+      <!--左邊開始-->
+      <div class="col-md-3 col-sm-3 margin-bottom-0 product_left border_all_left_side"> <{ include_php file="member/left.php" }> </div>
+      <!--左邊結束--> 
+      <!--右邊開始-->
+      <div class="col-xs-12 col-sm-9 margin-bottom-30 product_right border_left minheight">
+				<!--新增收件人資料開始 -->
+				<form action="receiver_save.php" method="post" name="receiverinfoform" id="receiverinfoform" class="form-horizontal" role="form">
+					<input value="<{$act}>" type="hidden" name="act"/>
+					<input value="<{$reid}>" type="hidden" name="reid"/>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 padding-0">
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="col-xs-12 col-sm-3 control-label">*<{ $email_say }></label>
+									<div class="col-xs-12 col-sm-9">
+										<input name="receiver_email" id="receiver_email" type="text" value="<{ $receiver_email }>" placeholder="<{ $impro7 }> "class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-xs-12 col-sm-3"><{ $name_say }><!--姓名--></label>
+									<div class="col-xs-12 col-sm-9">
+										<input type="text" name="receiver_name" id="receiver_name" class="form-control" value="<{ $receiver_name }>" /> 
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-xs-12 col-sm-3"><{ $mobile_say }><!--手機--></label>
+									<div class="col-xs-12 col-sm-9">
+										<input type="phone" name="receiver_mobile" id="receiver_mobile" class="form-control" value="<{ $receiver_mobile }>"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-xs-12 col-sm-3"><{ $tel_say }><!--電話--></label>
+									<div class="col-xs-12 col-sm-9">
+										<input type="phone" name="receiver_tele" id="receiver_tele" class="form-control" value="<{ $receiver_tele }> "/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 padding-0">
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group margin-bottom-10">
+									<label class="control-label col-xs-12 col-sm-3">地區</label>
+									<div class="col-xs-12 col-sm-9">
+										<select id="county"		name="county" 	class="form-control select"></select>
+									</div>
+								</div>
+								<div class="form-group margin-bottom-10">
+									<div class="col-xs-12 col-sm-9 col-sm-offset-3">
+										<select id="province" 	name="province" class="form-control select"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-xs-12 col-sm-9 col-sm-offset-3 ">
+										<select id="city"		name="city" 	class="form-control select"></select>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-xs-12 col-sm-3">郵遞區號</label>
+									<div class="col-xs-12 col-sm-9">
+										<input name="othercity" id="othercity" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-xs-12 col-sm-3">聯絡地址</label>
+									<div class="col-xs-12 col-sm-9">
+										<input name="addr" type="text" id="addr" value="<{ $addr }>"  class="form-control"/> 
+									</div>
+								</div>
+							</div>
+						</div>
+<div class="col-xs-12 col-sm-12">
+						<button type="submit" name="Submit" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black margin-top-10"> 確定</button>
+						<button type="button" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black  margin-top-10" onclick="history.back()">返回</button>
+					</div>
+					</div>
+				</form>
+          <!-- /新增收件人資料結束 -->
+        </div>
+    </div>
+      <!--右邊結束--> 
+    </div>
+</section>  
+  <!--身體結束--> 
+<{ include_php file="include/bottom.php" }>
+
+</body>
+  <script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/language/receiveraddValidator-zh_TW.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/js/area.js" type="text/javascript" charset="utf-8"></script>
+  <script language="javascript">
+
+iniArea("",1,"<{$county}>","<{$province}>","<{$city}>");
+
+</script> 
+</html>

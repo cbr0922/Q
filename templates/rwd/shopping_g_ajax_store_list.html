@@ -1,0 +1,31 @@
+<table width="96%" border="0" cellspacing="0" cellpadding="0">
+<{ section name=list loop=$store_array }>
+  <tr>
+    <td><a href="javascript:showstore(<{$store_array[list].store_id}>);"><{$store_array[list].store_name}></a></td>
+    <td><{$store_array[list].store_province}><{$store_array[list].store_city}><{$store_array[list].store_address}></td>
+  </tr>
+<{ /section }>
+</table>
+<script language="javascript">
+function showstore(id){
+	$.ajax({
+
+				url: "shopping_g_ajax_store_info.php",
+
+				data: "storeid=" + id + "&type=id&key=<{$smarty.get.key}>",
+
+				type:'get',
+
+				dataType:"html",
+
+				success: function(msg){
+
+					//alert(msg);
+
+				    $('#showstore').html(msg);
+
+				}
+
+	});
+}
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>問答中心 - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript">		
+function CheckKeFu()
+{
+ if (!isEmpty(KeFuForm.title,       '<{ $kefu_Js_input_title }>'   ))     return false; //'请输入簡單標題！
+ if (!isEmpty(KeFuForm.realname,    '<{ $kefu_Js_input_name }>'    ))     return false; //'请输入姓名！
+ if (!isEmpty(KeFuForm.email,       '<{ $kefu_Js_input_email }>'   ))     return false; //'请输入電子郵件地址！
+ if (!isEmpty(KeFuForm.k_kefu_con,  '<{ $kefu_Js_input_content }>' ))     return false; //'请输入留言內容！
+}
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<div id="body_out">
+<div id="body_center"> <div id="title_l"  >
+            <div id="title_l_left">
+   <a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span> <{ $Submit_Result }> <!--h1><{ $Submit_Result }></h1-->
+  </div>
+  <div id="title_l_right">
+    </div>
+</div>
+ <div id="body_left"><!--左邊開始-->
+  <{ include_php file="member/left.php" }>
+ </div><!--左邊結束-->
+ <div id="body_right"  ><!--右邊邊開始-->
+ 
+    <div class="content">
+	<div style="clear:both;"></div>
+      <br><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td height="25" align="center">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="25" align="center"><{ $Result_say }></td>
+              </tr>
+              <tr>
+                <td height="25" align="center"><{ $Submit_Result_Js }>
+                  <script language="javascript">
+					  setTimeout("location.href='index.php'",2000);
+					                </script>
+                </td>
+              </tr>
+            </table>
+	</div>
+ </div><div style="clear:both;"></div><!--右邊邊結束-->
+</div><!--身體結束-->
+</div>
+<!--身體置中結束-->
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

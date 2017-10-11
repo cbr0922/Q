@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="10">
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<title></title>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body>
+<TABLE  cellSpacing=1 cellPadding=4 width="100%" align=center  border=0  bgcolor="#BEC1C2" class=p9navyblue>
+      <TBODY>
+        <TR  bgcolor="#E4E3E1">
+          <TD width="80%" align=left nowrap bgcolor="#E4E3E1" class=p9rednothrough><{ $Isay_say }><hr><br> 
+		  <{ $Isay }> <!--提问内容--></TD>
+          <TD align="left" valign="top" nowrap><{ $Isaytime_say }><{ $Idate }><!--提问时间：--></TD>
+        </TR>
+        <TR  bgcolor="#FFFFFF">
+          <TD align=left nowrap bgcolor="#FFFFFF"><{ $Ssay_say }>：<hr><{ $Ssay }><!--店主回复--></TD>
+          <TD align=left valign="top" nowrap bgcolor="#FFFFFF"><{ $Ssaytime_say }>：<{ $Sdate }><!--回复时间：--></TD>
+        </TR>
+      
+	  </TABLE>
+</body>
+</html>

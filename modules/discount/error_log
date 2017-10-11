@@ -1,0 +1,5 @@
+[01-Aug-2014 17:05:58] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92
+[01-Aug-2014 17:06:05] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92
+[01-Aug-2014 17:06:21] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92
+[01-Aug-2014 17:06:41] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92
+[01-Aug-2014 17:12:59] PHP Fatal error:  Call to undefined function mysql_connect() in /home/ddcscom/public_html/smartshop5/Classes/mysql.php on line 92

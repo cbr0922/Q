@@ -1,0 +1,77 @@
+   <div class="shop-left-block">
+   <table width="150" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><{if $shoppic neq ""}><img src="../UploadFile/ShopPic/<{$shoppic}>" width="150" height="70"><{/if}></td>
+  </tr>
+</table>
+  <br />
+  <table width="150" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+    <tr>
+      <td align="left"><a href="#">加入我的最愛商店</a><br />
+<span class="pink">．今日商品數 <strong><{$goodscount}></strong> 件<br />
+．<a href="<{ $Site_Url }>/modules/shop/shop_score_list.php?sid=<{$smarty.get.sid}>">評價分數</a> <strong>(<{$allscore}>)</strong><br />
+．<a href="<{ $Site_Url }>/modules/shop/shop_comment.php?sid=<{$smarty.get.sid}>">留言版</a><strong> (<{$commentcount}>)</strong><br />
+．瀏覽人次 <strong>(<{$view_num}>)</strong><br />
+．購買人次 <strong>(<{$ordercount}>)</strong><br />
+．平均出貨天數 <strong>(<{$transday}>)</strong></span> </td>
+    </tr>
+  </table>
+</div>
+                       
+<div class="shop-left-block">
+      <div class="shop-left-title">商店滿意度</div>
+      <table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="35" align="center" class="pink-tit"><a href="<{ $Site_Url }>/modules/shop/shop_score_list.php?sid=<{$smarty.get.sid}>">商店滿意度：<{$total}></a></td>
+    </tr>
+  <tr>
+    <td height="35"><div style="height:15px; background:url(<{ $template_dir }>/images/satisfaction2.gif); width:143px; float:left;" align="left"><div style="height:15px; background:url(<{ $template_dir }>/images/satisfaction1.gif); width:<{$total*14.4}>px; float:left;" align="left"></div></div></td>
+    </tr>
+</table>
+</div>   
+   
+<div class="shop-left-block">
+      <div class="shop-left-title">商店公告</div>
+           <table width="165" border="0" align="center" cellpadding="0" cellspacing="0">
+                     <{ section name=list loop=$NewsArray }> <tr>
+                        <td width="15"><img src="<{ $template_dir }>/images/an2.gif" width="10" height="10" /></td>
+                        <td height="30" align="left" valign="bottom"><a href="<{ $Site_Url }>/modules/shop/shop_news.php?snid=<{$NewsArray[list].snid}>&sid=<{$smarty.get.sid}>"><{$NewsArray[list].title}></a></td>
+                      </tr><{ /section }>
+  </table>
+  </div>           
+   
+  <!--<div class="shop-left-block">
+      <div class="shop-left-title">訂閱EDM</div>
+    
+   </div>-->        
+   
+      <div class="shop-left-block">
+      <div class="shop-left-title">店家商品分類</div>
+    <table width="165" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+    <{ section name=list loop=$class_array }>
+    <tr>
+      <td width="25" height="25"><img src="<{ $template_dir }>/images/garyarr.gif" /></td>
+      <td height="25" align="left"><a href="shop_product.php?sgcid=<{ $class_array[list].sgcid }>&sid=<{ $shopid }>" class="pink-category"><strong><{ $class_array[list].classname }></strong></a></td>
+    </tr>
+    <tr>
+      <td height="25" colspan="2" align="left" style="padding-left:25px;"><{ section name=list2 loop=$class_array[list].sub }><a href="shop_product.php?sgcid=<{ $class_array[list].sub[list2].sgcid }>&sid=<{ $shopid }>"><{ $class_array[list].sub[list2].classname }></a><br /><{/section}></td>
+    </tr>
+    <{/section}>
+  </table>
+   </div>   
+         <div class="shop-left-block">
+      <div class="shop-left-title">商店街平台說明</div>
+      <table width="150" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+    <tr>
+      <td align="left" style="line-height:24px;">
+‧<a href="#">商店總覽</a><br />
+‧<a href="#">館別總覽</a><br /> 
+‧<a href="#">服務說明</a><br /> 
+‧<a href="#">廣告刊登</a><br /> 
+‧<a href="#">購物安全</a><br /> 
+‧<a href="#">常見問題</a><br /> 
+      </td>
+    </tr>
+  </table>
+    
+   </div>

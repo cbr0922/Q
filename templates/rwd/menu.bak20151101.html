@@ -1,0 +1,376 @@
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="<{ $Site_Url }>/js/autocomplete/jquery-ui.css">
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery-1.7.2.min.js"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.easing.1.3.js"></script>
+
+<script language="javascript" src="<{ $Site_Url }>/js/autocomplete/jquery-ui.min.js"></script>  
+
+<script language="javascript" src="<{ $template_dir }>/js/HTML5.js"></script>  
+
+<style>
+
+#sddm {margin: 0;padding: 0; z-index:9999;}   
+
+#sddm li {margin: 0;padding: 0;list-style: none;float:left;font-size:12px;}   
+
+#sddm li a { display: block;margin: 0 1px 0 0;padding: 1px 8px;text-align: center;text-decoration: none}  
+
+#sddm li a:hover {
+
+	color:#D11F27;
+
+}   
+
+.sddm a:link,.sddm a:active,.sddm a:visited { display: block;margin: 0 1px 0 0;padding: 4px 10px;color: #ffffff;text-align: center;text-decoration: none} 
+
+.sddm a:hover {
+
+	color:#333333;
+
+	background-color: #FFCCFF;
+
+}   
+
+#sddm div {
+
+	min-width:140px;
+
+	position: absolute;
+
+	visibility: hidden;
+
+	margin: 0;
+
+	padding: 0;
+
+	background: #ffffff;
+
+	
+
+	z-index:9999;
+
+	color: #333333;
+
+	padding-bottom:10px;
+
+	border:1px solid  #EBEBEB;
+
+}  
+
+#sddm div a {
+
+	position: relative;
+
+	display: block;
+
+	margin: 0;
+
+	padding: 5px 10px;
+
+	white-space: nowrap;
+
+	text-align: left;
+
+	text-decoration: none;
+
+	font: 12px arial;
+
+	border-bottom:;
+
+	border-bottom: 1px dashed #ffb0cc;
+
+}       
+
+#sddm div a:hover {
+
+	color: #FFFFFF;
+
+	border-bottom: 1px dashed #ffb0cc;
+
+	background-color: #EC6596;
+
+} 
+
+</style>
+
+<!-- dd menu  下拉js控制-->
+
+<script type="text/javascript"> 
+
+<!--
+
+var timeout         = 500;
+
+var closetimer		= 0;
+
+var ddmenuitem      = 0;
+
+ 
+
+// open hidden layer
+
+function mopen(id)
+
+{	
+
+	// cancel close timer
+
+	mcancelclosetime();
+
+ 
+
+	// close old layer
+
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+ 
+
+	// get new layer and show it
+
+	ddmenuitem = document.getElementById(id);
+
+	ddmenuitem.style.visibility = 'visible';
+
+ 
+
+}
+
+// close showed layer
+
+function mclose()
+
+{
+
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+}
+
+ 
+
+// go close timer
+
+function mclosetime()
+
+{
+
+	closetimer = window.setTimeout(mclose, timeout);
+
+}
+
+ 
+
+// cancel close timer
+
+function mcancelclosetime()
+
+{
+
+	if(closetimer)
+
+	{
+
+		window.clearTimeout(closetimer);
+
+		closetimer = null;
+
+	}
+
+}
+
+ 
+
+// close layer when click-out
+
+document.onclick = mclose; 
+
+// -->
+
+</script>
+
+<div style="background-position: bottom;background-image:url(<{ $template_dir }>/images/meun_background.gif); background-repeat: repeat-x; width:100%;height:179px;">
+
+    <div style="width:975px;margin:auto;height:179px;">
+
+    	<div style="float:left;width:207px;">
+
+        <!--大LOGO-->
+
+        	<a href="<{$Site_Url}>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_logo }>" border="0" /></a>
+
+        </div>
+
+        <div style="float:left;width:768px;">
+
+        	
+
+            <!--購物車-->
+
+            <span id="showcart" style="float:right;"></span >
+
+            
+
+            <!--最上方導覽列-->
+
+            <div style="float:right;padding-top:10px;height:27px;min-width: 475px;text-align: right;">
+
+                <{ if $MemberState eq "0" }>
+
+                    <a href="<{ $Site_Url }>/member/" target="_parent">Hi！歡迎來到1838My保養館&nbsp;&nbsp;登入</a>&nbsp;<{ elseif $MemberState eq "1" }> 
+
+                    <a href="<{$Site_Url}>/member" target="_parent">歡迎您,<{ $Session_truename }>&nbsp;&nbsp;<{ $Session_userlevel }></a>&nbsp; |&nbsp; 
+
+                    <a href="<{ $Site_Url }>/member/member_login.php?Action=Logout" target="_parent" class="top">登出</a>&nbsp;| &nbsp;
+
+                    <a href="<{ $Site_Url }>/member">會員中心</a>
+
+                <{ /if }>&nbsp;| &nbsp;
+
+                <a href="<{ $Site_Url }>/member/reg_detail.php">加入會員</a>&nbsp; |&nbsp;  
+
+                <a href="<{$Site_Url}>">首頁</a> &nbsp;  |&nbsp;&nbsp;&nbsp;
+
+            </div>
+
+            
+
+            <!--中間跑馬燈與選單-->
+
+            <div style="float:left;height:41px;background-image:url(<{ $template_dir }>/images/meun_background2.gif);">
+
+                <div style="width:290px;float:left;"><{ include_php file="modules/advertising/horse.php" }></div>
+
+                <div style="width:470px;float:left;"><a href="<{$Site_Url}>/article/1"><img src="<{ $template_dir }>/images/meun1.gif"  border="0" width="82" height="26"/></a><a href="<{$Site_Url}>/brand/index.php"><img src="<{ $template_dir }>/images/meun2.gif"  border="0" width="83" height="26"/></a><a href="<{$Site_Url}>/product/index.php?type=bonus"><img src="<{ $template_dir }>/images/meun3.gif"  border="0" width="76" height="26"/></a><a href="<{$Site_Url}>/product/present.php"><img src="<{ $template_dir }>/images/meun4.gif"  border="0" width="79" height="26"/></a><a href="http://www.facebook.com/1838My"><img src="<{ $template_dir }>/images/meun5.gif"  border="0"  width="106" height="26"/></a><a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('<{ $Site_Url }>')) ));"><img src="<{ $template_dir }>/images/icon_s01.png"  border="0" width="20"  height="20"/></a> <a href="<{$Site_Url}>/product/share_discount.php"><img src="<{ $template_dir }>/images/rebate.png"  border="0"  width="20" height="20"/></a></div>
+
+            </div>
+
+            
+
+            <!--類別選單-->
+
+            <div style="float:left;height:52px;padding-left:25px;">
+
+                <ul id="sddm">
+
+                    <{ section name=list loop=$ClassArray }>
+
+                        <li><a href="<{ $Site_Url }>/product/<{$ClassArray[list].bid}>" onMouseOver="mopen('m<{$smarty.section.list.index+1}>')" onMouseOut="mclosetime()"><{$ClassArray[list].classname}></a>
+
+                        <{if $ClassArray[list].sub neq "" }><!--子類商品分類判斷，如錯誤請立即拿掉-->
+
+                            <div id="m<{$smarty.section.list.index+1}>" onMouseOver="mcancelclosetime()" onMouseOut="mclosetime()">
+
+                                <{ section name=list1 loop=$ClassArray[list].sub }>
+
+                                    <a href="<{ $Site_Url }>/product/<{$ClassArray[list].sub[list1].bid}>"><{$ClassArray[list].sub[list1].catname}></a> 
+
+                                <{/section}>	
+
+                            </div>
+
+                        <{/if}>
+
+                    </li>
+
+                    <{/section}>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <!--關鍵字與搜尋-->
+
+   		<div style="float:left;width:975px;height:37px;margin:auto;margin-bottom:12px;background-image:url(<{ $template_dir }>/images/meun_background1.gif);">
+
+            <div style="float:left; padding-left:92px; padding-top:7px"><{ include_php file="modules/advertising/round_broadcast.php" }></div>
+
+            <div style="float:right; padding-right:68px; margin-top:5px"><{ include_php file="search/search_box.php" }></div>
+
+    	</div>
+
+    </div>
+
+</div>
+
+<script language="javascript">
+
+		$.ajax({
+
+				url: '<{$Site_Url}>/shopping/shopping_windows.php',
+
+				data: 'type=goods',
+
+				type:'get',
+
+				dataType:"html",
+
+				cache: false,
+
+				success: function(msg){
+
+					//alert(msg);
+
+					$('#showcart').html(msg);
+
+				}
+
+		});
+
+
+
+		var url = "<{ $Site_Url }>/include/search_menu_autocomplate.php";
+
+	
+
+			$( "#skey3" ).autocomplete({
+
+				source: url,
+
+				autoFocus: true,
+
+				focus: function(event, ui) {
+
+					//$(this).val(ui.item.label);
+
+					return false;
+
+				},
+
+				select: function( event, ui ) {
+
+					var value=ui.item.value;
+
+					var label=ui.item.label;
+
+					
+
+					$(this).val(ui.item.label);
+
+					if( value!=label ){
+
+						window.location="<{ $Site_Url }>/product/detail"+value;
+
+					}
+
+					else{
+
+						document.getElementById("searchbanner").submit();
+
+					}
+
+					return false;
+
+				}
+
+			});
+
+
+
+</script>
+

@@ -1,0 +1,655 @@
+body {margin:0px;padding:0px;}
+
+body,table,tr,button,th,form,p,select, input {
+	font-family:verdana,·新細明體;
+	font-size:12px;
+	line-height:20px;
+	color: #3B3B3B;
+}
+
+
+
+input textarea{font-size:13px; font-family:verdana,·新細明體;}
+
+
+a { color: #0048FF;text-decoration:underline;}
+/*a:link { color: #0048FF;text-decoration: none;}*/
+a:hover {text-decoration:  none;}
+
+a.none { color: #0048FF;text-decoration: none}
+a.none:hover {text-decoration:underline;}
+
+a.t11 {font-size:11px;color: #0048FF;font-weight:100;}
+a.t11:visited {font-size:11px;color: #0048FF;font-weight:100;}
+a.t11:hover {font-size:11px;color: #0048FF;font-weight:100;}
+
+a.t10 {font-size:10px;color: #0048FF;-webkit-text-size-adjust:none;}
+a.t10:hover {color: red;}
+
+#wrapper {
+width:970px;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+
+/*【header】*/
+
+#header {
+	
+}
+
+#logo {
+	margin:10px 0 0 0;
+	float:left;
+	}
+	
+#search {
+	background-color:#FFF701;
+	width:313px;
+	height:27px;
+	padding:9px 0 0 2px;
+	margin:16px 0 17px 16px;
+	float:left;
+	font-size: 11px;
+	color: #565656;
+	background-image:url(http://img.pcstore.com.tw/web_img/st/bg_search.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#todayno{
+	padding:5px 0 0 0;
+	text-align:right;
+	float:right;
+	font-size:11px;
+	padding-right:5px;
+	}
+	
+#todayno a { color: #464646;text-decoration: none;}
+#todayno a:hover {text-decoration: underline;}
+
+.todayno_bold {
+	color:red;
+	font-size:13px;
+	font-weight:700;
+	}
+
+
+.channel {
+	/*width:338px;*/
+	float:right;
+	background-color:#F1F1F1;
+	padding-right:5px;
+	font-size: 11px;
+	background-image: url(http://img.pcstore.com.tw/web_img/st/bg_channel.gif);
+	background-position: left top;
+	background-repeat: no-repeat;
+	}
+
+.channel a { color: #464646;text-decoration: none;}
+.channel a:hover {text-decoration: underline;}
+
+/* 20070205 標住
+#head_ad{
+	padding:0 2px 0 0px;
+	float:left;}
+
+#tooth{
+	float:right;
+	width:970;
+	margin-top:5px;
+	border-bottom: 5px solid #FA3B0E;
+}
+*/
+
+/* 20070205 修改開始*/
+#head_ad {
+	PADDING-RIGHT:3px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+
+#tooth {
+	MARGIN-TOP: 5px; FLOAT:left; BORDER-BOTTOM: #fa3b0e 5px solid;width:970px;
+}
+/* 20070205 修改結束*/
+	
+.tooth {
+	float:left;
+	
+	text-align:center;
+	color:#FFFFFF;
+	width:77px;
+	background:url(../img/bg_tooth.gif);
+	/*clear:both;display:inline;*/
+	line-height: 30px;
+	padding-top:5px;
+	font-size: 16px;
+	/*font-weight: bold;*/
+	text-decoration: none;
+	}
+
+
+.tooth a {/* color: #ffffff;text-decoration: none;*/}
+.tooth a:hover {/*  color: #ffffff;text-decoration: none;*/}
+
+
+#path{
+	float:left;
+	width:960px;
+	background-image:url(http://img.pcstore.com.tw/web_img/st/bg_path.gif);
+	height:30px;
+	padding-left:10px;
+	line-height:28px;
+	font-size:15px;
+	color:#FA3B0E;
+	background-repeat: repeat-x;
+	}
+	
+#path a{color:#FA3B0E;text-decoration:underline;}
+#path a:hover {text-decoration: none;}
+
+
+#textadbar{
+	padding-top:10px;
+	text-align:center;
+	float:left;
+	width:970px;
+	}
+#textadbar a{font-size:16px;color: #0048FF;}
+#textadbar a:hover{color: red;}
+
+.clear{clear:both;}
+
+/*#side1{
+	float:right;
+	width:175px;
+	background-color:#F4F4F4;
+	}*/
+	
+
+.category {
+	margin:8px 0 5px 15px;
+	padding-left:12px;
+	line-height:30px;
+	font-size:16px;
+	font-weight:bold;
+	list-style-type:none;
+	
+}
+
+a.category_list {
+	margin-left:-20px;
+	padding-left:25px;
+	background-image: url(http://img.pcstore.com.tw/web_img/st/dottree.gif);
+	background-repeat: no-repeat;
+	background-position: left center;/**/
+	color: #0048FF; }
+	
+a.category_list :hover {color: #FF0000;}
+
+ul.category_lo{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	line-height:24px;
+	margin:5px 8px 10px 30px;
+	padding:0px 3px 0px 20px;
+	list-style-image:url(http://img.pcstore.com.tw/web_img/st/bn_a.gif);
+	}
+	
+ul.category_lo a{
+	text-decoration:none;
+	color: #0048FF; 
+	}
+	
+ul.category_lo a:hover {
+	/*list-style-image:url(arrow_b_over.gif);*/
+	color: #FF0000;
+	text-decoration:underline;
+	}
+
+.cate_s{
+	font-size:18px;
+	font-family:Verdana;
+	padding:10px 0 0 8px;
+	font-weight:700;
+	}
+	
+.cate_s a{
+	text-decoration:none;
+	color: #0048FF; 
+	}
+
+.cate_s a:hover {
+	/*list-style-image:url(arrow_b_over.gif);*/
+	color: #FF0000;
+	text-decoration:underline;
+	}
+
+.cost16 {
+	font-family: "Verdana";
+	font-size: 18px;
+	font-weight: bold;
+	color: #FF0000;
+	margin-left: 1px;
+}
+
+.allcate a{font-size:16px; color: #0048FF; padding-left:12px;}
+.allcate a:hover {color: #FF0000;}
+
+.sideboximg{
+	text-align:center;
+	margin:6px 0 0px 0;}
+
+	
+ul.side1box{
+	margin:5px 0 0px 12px;
+	padding:0 10px 8px 12px;
+	list-style-image:url(http://img.pcstore.com.tw/web_img/st/dot_gray.gif);
+	}
+	
+ul.info{
+	margin:5px 0 20px -10px;
+	padding:0 10px 0 20px;
+	list-style-type:none;
+	}
+
+ul.info a{font-size:16px; color: #0048FF; padding-left:12px;}
+ul.info a:hover {color: #FF0000;}
+
+/* ---------------  ● 20070427 修改部份開始↓ ●  --------------------- */
+
+UL.side1box {
+	PADDING-RIGHT: 10px;
+	color:#3b3b3b;
+	PADDING-LEFT: 12px; 
+	LIST-STYLE-IMAGE: url(http://img.pcstore.com.tw/web_img/st/dot_gray.gif); 
+	PADDING-BOTTOM: 8px; 
+	MARGIN: 5px 0px 0px 12px; 
+	PADDING-TOP: 0px;
+	TEXT-DECORATION: none;
+}
+
+UL.side1box A{COLOR: #3b3b3b;TEXT-DECORATION: none;}
+UL.side1box a:hover{COLOR: #3b3b3b;TEXT-DECORATION: underline;}
+
+/* ---------------  ● 20070427 修改部份結束↑ ●  --------------------- */
+
+#content{
+	float:right;
+	/*width:auto;background-color:#FFCC00;margin:0px 0px 0px 20px;*/
+	/*width:770px;*/
+	width:786px;
+	}
+	
+#ad_content{
+	border:1px solid #E3E3E3;
+	/*width:750px;*/
+	}
+
+#side2{
+	margin-top:-10px;
+	float:left;
+	/*padding-bottom:40px;*/
+	width:175px;
+	}
+	
+	
+#side_s{
+	float:left;
+	background-color:#FFFFD2;
+	/*background-image: url(../img/sidetitle_cate.gif);
+	background-repeat: no-repeat;
+	background-position: top;*/
+	width:175px;
+	margin-bottom:10px;
+	}
+	
+
+#login_box{
+	margin:0 10px 0 15px;
+	}
+	
+#login_head{
+	background-image: url(http://img.pcstore.com.tw/web_img/st/login_border_01.gif);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-color:#FFDE00;
+	}
+
+#hello{
+	padding:0px 5px 2px 5px;
+	color:#FA390E;
+	font-size:15px;
+	background-color:#FFFFFF ;
+	}
+.hello_hi {font-size:12px;}
+
+#comsumer{
+	padding:19px 30px 5px 11px;
+	color:#FA390E;
+	font-size:15px;
+	}
+.comsumer_hi {font-size:12px;}
+
+#login{
+		background-image: url(http://img.pcstore.com.tw/web_img/st/login_border_03.gif);
+	background-repeat: repeat-y;
+	}
+	
+.sidetitle{
+	height:30px;
+	background-image:url(http://img.pcstore.com.tw/web_img/st/sidetitle_edm.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding:5px 2px 2px 5px;
+	font-size:16px;
+	font-weight:700;
+	color:#FFFFFF;
+	
+	}
+
+.sidetitle_b{
+	height:25px;
+	background-image:url(http://img.pcstore.com.tw/web_img/st/sidetitle_b.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding:5px 2px 2px 5px;
+	font-size:16px;
+	font-weight:700;
+	color:#FFFFFF;
+	}
+
+.side2box{
+	/*background-image: url(../img/sidetitle_b01_06.gif);background-position: bottom;*/
+	background-repeat: no-repeat;
+	background-color:#F4F4F4;
+	
+	}
+
+
+	
+.side2box_in{
+	margin:0 7px 0 7px;
+	padding:0 10px 10px 10px;
+	/*width:140px;*/
+	background-image: url(http://img.pcstore.com.tw/web_img/st/side2box_in_dn.gif);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color:#FFFFFF;
+}
+
+.point_black{
+	color:#000000;
+	font-weight:700;
+	}
+	
+.po {text-align:center;}
+.po a{font-weight:700;color:#000000;text-decoration: none;}
+.po a:hover{text-decoration:underline;}
+
+.side2box_txt{
+	margin:0 5px 0 5px;
+	padding:8px 8px 8px 8px;
+	
+}
+
+/*.side2box_txt a{color: #3B3B3B;text-decoration: none;}
+.side2box_txt a:hover {color:#0048FF;text-decoration:underline;}*/
+
+
+#cont_s{
+	float:right;
+	/*width:auto;background-color:#FFCC00;*/
+	width:777px;
+	margin:0px 0px 0 0px;
+	
+	}
+
+.goods{
+	/*background-color:#ff0000;*/
+	float:left;
+	
+	}
+
+.cont_box{
+	/*background-color:#206106;*/
+	float:left;
+	width:180px;
+	margin:10px 12px 0 0px;
+	}
+
+/* ---------------  ● 20070430 修改部份開始↓ ●  --------------------- */
+
+.cont_box {
+	FLOAT: left; MARGIN: 10px 10px 0px 0px; WIDTH: 180px
+}
+
+/* ---------------  ● 20070430 修改部份結束↑ ●  --------------------- */
+
+.cont_box_lo{
+	/*background-color:#206106;*/
+	float:left;
+	width:250px;
+	margin:10px 5px 0 0px;
+	}
+	
+	
+.box-r{
+	float:right;
+	width:180px;
+	height:202px;
+	background-image:url(http://img.pcstore.com.tw/web_img/st/box-r.gif);
+	background-repeat: no-repeat;
+	background-position: center top;	
+	}
+
+
+.cont_box_s{
+	/*background-color:#206106;*/
+	float:left;
+	width:178px;
+	padding:10px 10px 0 6px;
+	}
+
+.goodsname {
+	font-size:12px;
+	line-height:17px;
+	color: #3B3B3B;
+	padding-bottom:5px;
+	}
+
+.goodsname a{
+	color: #3B3B3B;
+	}
+
+.goodsname a:hover {color: #0048FF;text-decoration:none;}
+
+.price_txt{color:#D70000;}
+.price_sale{font-size:17px; color:#D70000; font-weight:bold;}
+
+
+.store{float:left;clear:both;}
+.store a{color: #7D7D7D;text-decoration:none;}
+.store a:hover {color: #7D7D7D;text-decoration:underline;}
+
+.img_left{
+	float:left;
+	margin:0 5px 3px 0;
+	height:auto;
+	}
+	
+
+#tag{
+	float:left;
+	margin-top:15px;
+	background-color:#FFBA00;
+	width:775px;
+	background-image: url(http://img.pcstore.com.tw/web_img/st/tag_title_bn.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	/**/
+	}
+
+#tag_title{
+	float:left;
+	width:27px;
+	}
+
+.tag_con{
+	background-color:#FAFAFA;
+	background-image: url(http://img.pcstore.com.tw/web_img/st/tag_03.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+	/**/
+	}
+	
+
+
+.tag_con_body{
+	margin:0 5px 0 10px;
+	font-size:13px;
+	line-height:28px;
+}
+
+
+a.tag_01 {font-size:20px;color:#D70000;font-weight:bold;text-decoration: none;}
+a.tag_01:hover {border-bottom: 1px dashed #993300;background-color:#FEFFAD;}
+
+a.tag_02 {font-size:18px;color:#FF7400;font-weight:bold;text-decoration: none;}
+a.tag_02:hover {border-bottom: 1px dashed #993300;color:#D70000;background-color:#FEFFAD;}
+
+a.tag_03 {font-size:15px;color:#538200;text-decoration: none;}
+a.tag_03:hover {border-bottom: 1px dashed #993300;color:#D70000;background-color:#FEFFAD;}
+
+a.tag_04 {color:#5D5D5D;text-decoration: none;}
+a.tag_04:hover {border-bottom: 1px dashed #993300;color:#D70000;background-color:#FEFFAD;}
+
+#tag_exp{
+	float:right;
+	margin:-23px 20px 0 0;
+	font-size:10px;
+	color:#999999;
+}
+
+#tag_exp a{color:#AFAFAF;}
+
+#footer {
+	color:#000000;
+	text-align:center;
+	font-size:12px;
+	line-height:18px;
+	padding:0px 0 20px 0;
+	clear:both;
+	width:970px;
+}
+
+
+/*【login】*/
+
+ol.fav_list{
+	list-style-type:none;
+	margin:6px 0 0 0;
+	padding:0;
+	line-height:16px;
+}
+
+ol.fav_list a{
+	padding-left:16px;
+	font-size: 15px;
+	/*margin-bottom:-80px;*/
+	font-weight: bold;
+	font-size: 15px;
+	color: #232323;
+	text-decoration:none;}
+	
+ol.fav_list a:hover {color: #7E7E7E;text-decoration:none;}
+
+
+ul.fav_sec_list{
+	margin:5px 5px 0 10px;
+	padding:0 3px 0 29px;
+	/**/
+	list-style-image:url(http://img.pcstore.com.tw/web_img/st/dot_gray.gif);
+	
+	}
+	
+ul.fav_sec_list a{
+	/**/
+	margin:3px 0 0 0px;
+	padding:0 10px 0 0px;
+	font-weight:normal;
+	font-size: 12px;
+	line-height: 18px;
+	color: #0048FF;
+	text-decoration: none}
+	
+ul.fav_sec_list a:hover {color: #0048FF;text-decoration:underline;}
+
+
+hr.fav_list{
+	/*margin-top:-6px;
+	margin-bottom:-8px;*/
+	width:145px;
+	border:none;
+	height:1px;
+	color:#FFBA00;
+	background-color:#FFBA00;
+	/*將color與background-color設同值是為了使 FX 與IE皆可用*/
+	}
+
+ul.mytag_list{
+	/*margin-left:10px; margin-right:10px;
+	padding-left:0px; padding-right:0px;*/
+	margin:0px 0 0 0px;
+	padding:0 10px 0 0px;
+	list-style-type:none;
+	}
+	
+ul.mytag_list a{
+	font-weight:normal;
+	font-size: 12px;
+	line-height: 18px;
+	color: #0048FF;
+	text-decoration: none}
+	
+ul.mytag_list a:hover {color: #0048FF;text-decoration:underline;}
+
+
+/*【login】*/
+
+.top{
+	font-size:10px;
+	}
+
+.top a {color:#464646;text-decoration:underline;}
+.top a:hover {color:#464646;text-decoration:none;}
+
+.hotline{
+	color:#353535;
+	font-weight:700;
+	font-size:16px;
+	margin-top:8px;
+	}
+
+.hotline a {color:red;text-decoration:underline;}
+.hotline a:hover {color:red;text-decoration:none;}
+
+.cont_box_lo_date{
+	font-size:11px;
+	color:#F04949;
+	}
+
+.cont_box_lot{
+	color:#F04949;
+	font-weight:700;
+	}
+
+.gbox{
+	margin:6px 3px -8px -18px;
+	font-size:15px;
+	line-height:24px;
+	}
+	
+.gbox a{text-decoration: none}
+.gbox a:hover {color:red;text-decoration:underline;}

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<title></title>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body>
+<TABLE  cellSpacing=1 cellPadding=2 width="100%" align=center  border=0  bgcolor="#BEC1C2" class=p9navyblue>
+  <TBODY>
+    <!--
+	    <TR  bgcolor="#E4E3E1">
+          <TD width="3%" align=center vAlign=middle nowrap bgcolor="#E4E3E1" class=p9rednothrough><{ $SNo_say }><!--订单编号-->
+    <!--</TD>
+          <TD align="center" valign="middle" nowrap><span class="p9rednothrough"><{ $ProductName_say }><!--下单日期-->
+    <!--</TD>
+          <TD align="center" nowrap><{ $State_say }><!--定单状态-->
+    <!--</TD>
+          <TD align="center" nowrap><{ $Idate_say }><!--订单总金额-->
+    <!--</TD>
+        </TR>
+	  -->
+  <{ section name=list loop=$BonusHistory }>
+  <TR  bgcolor="#FFFFFF">
+    <TD width="50" align=center nowrap bgcolor="#FFFFFF"><{ $BonusHistory[list].j }></TD>
+    <TD width="230" align="left" nowrap bgcolor="#FFFFFF" class=p9v><{ $BonusHistory[list].goodsname }></TD>
+    <TD width="280" nowrap bgcolor="#FFFFFF" class=p9v><A  href="javascript:temp=window.open('<{ $Site_Url }>/member/AffirmBonus.php?abc_id=<{ $BonusHistory[list].abc_id }>','shopcat','width=520,height=480,scrollbars=yes');temp.focus()"> <{ $BonusHistory[list].askfor }></a>&nbsp;</TD>
+    <TD width="100" align="center" bgcolor="#FFFFFF" class=p9v><{ $BonusHistory[list].idate }> </TD>
+  </TR>
+<{ /section }>
+</TABLE>
+</body>
+</html>

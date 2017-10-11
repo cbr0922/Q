@@ -1,0 +1,11 @@
+<table width="150" border="0" cellspacing="0" cellpadding="0">
+  <{ section name=list loop=$class_array }>
+  <tr>
+    <td width="25" height="25"><img src="<{ $template_dir }>/images/black-icon.gif" width="18" height="18" /></td>
+    <td><a href="<{ $Site_Url }>/shop/shoplist.php?scid=<{ $class_array[list].scid }>" class="pink-category"><strong><{ $class_array[list].classname }></strong></a></td>
+  </tr>
+  <tr>
+    <td height="25" colspan="2"><{ section name=list2 loop=$class_array[list].sub }><a href="<{ $Site_Url }>/shop/shoplist.php?scid=<{ $class_array[list].sub[list2].scid }>"><{ $class_array[list].sub[list2].classname }></a>&nbsp;&nbsp;|&nbsp;&nbsp;<{/section}></td>
+  </tr>
+  <{/section}>
+</table>

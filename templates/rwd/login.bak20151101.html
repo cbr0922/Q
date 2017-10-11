@@ -1,0 +1,75 @@
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script><div style="width:502px">
+<div align="right" style="z-index:3; position:relative; top:60px"><a href="javascript:void(0);" onclick=" $.unblockUI();"><img src="<{ $template_dir }>/images/reg_close.png" width="36" height="36" border="0" style="margin-right:30px;"/></a></div>
+<table width="502" height="324" border="0" cellspacing="0" cellpadding="0" background="<{ $template_dir }>/images/reg_bk.png" style="position:static; float:right; z-index:1;background-repeat:no-repeat">
+  <tr>
+    <td  style="padding-top:35px; padding-bottom:47px; padding-left:30px; padding-right:30px;" >
+    <table width="441" height="226" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="25" colspan="3" align="left" class="login" style="padding-bottom:10px;">推薦使用Facebook登入!</td>
+        </tr>
+        <tr>
+          <td colspan="3" bgcolor="#f8b9d4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="50%" height="46" align="right" style="padding-right:17px;"><form action="<{$Site_Url}>/member/login_facebook.php" method="get" ><input type=image value='用 Facebook 帳號登入' src="<{ $template_dir }>/images/reg_fb.jpg" ></form></td>
+                <td width="50%" height="46" align="left" style="padding-left:17px;"><form action="<{$Site_Url}>/member/login_yahoo.php" method="get" ><input type=image value='用 Yahoo 帳號登入' src="<{ $template_dir }>/images/reg_yahoo.jpg" ></form></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td height="13" colspan="3" style="border-bottom:#e5e5e5 1px solid;"></td>
+        </tr>
+        <tr>
+          <td height="28" colspan="3" align="left" valign="bottom" class="login" style="padding-bottom:8px;padding-top:8px">使用你的qBeauty帳號登入</td>
+        </tr>
+        <form action="<{ $Site_Url }>/member/member_login.php" method="post" name="form_login" id="form_login"  >
+                      <input type="hidden" name="Action" value="ajaxLogin">
+                      <input type="hidden" name="key" value="<{ $smarty.get.key }>">
+                      <input type="hidden" name="from" value="<{ $smarty.get.from }>">
+                      <input type="hidden" name="type" value="<{ $smarty.get.type }>">
+                      <input type="hidden" name="Url" value="<{ $Url }>">
+        <tr>
+          <td width="89" height="37" align="left" valign="middle" nowrap="nowrap" bgcolor="#f8b9d4" class="login" style="padding-left:10px;">您的Email：</td>
+          <td width="247" align="left" valign="middle" bgcolor="#f8b9d4"><INPUT style="border-width:1px; border-color:#e7196e; border-style:solid" name=username class=inputstyle id="username" size=35></td>
+          <td width="105" rowspan="2" align="right" valign="middle" bgcolor="#f8b9d4" style="padding-right:17px;"><img style="cursor:hand" id="imglogin"  value='<{ $Login }>' name=Submit2 src="<{ $template_dir }>/images/reg_logoinbox.gif" /></td>
+        </tr>
+        <tr>
+          <td height="29" align="left" valign="middle" bgcolor="#f8b9d4" class="login" style="padding-left:10px;">您的密碼：</td>
+          <td align="left" valign="middle" bgcolor="#f8b9d4"><INPUT style="border-width:1px; border-color:#e7196e; border-style:solid" name=passwd type=password class=inputstyle id="passwd" size=35></td>
+          </tr>
+        </form>
+        <tr>
+          <td height="41" bgcolor="#f8b9d4">&nbsp;</td>
+          <td align="left" valign="top" bgcolor="#f8b9d4" class="login"><a href="<{ $Site_Url }>/member/forget_password.php"><{ $ForgetPassword }>？</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<{ $Site_Url }>/member/reg_detail.php"><{ $Regedit }>qBeauty&nbsp;帳號？</a></td>
+          <td width="105" align="right" valign="bottom" bgcolor="#f8b9d4">&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+</table></div>
+<script>
+jQuery(document).ready(function(){
+	var options_newGroup = {
+		success:       function(msg){
+						if (msg==1){
+							window.location.reload(true); 
+						}else{
+							alert("用戶名密碼錯誤");	
+						}
+					},
+		type:      'post',
+		dataType:  'html',
+		clearForm: false
+	};
+	$("#imglogin").click(function(){
+								 
+								 if($('#username').val()==""){
+										alert("請填寫您的Email"); 
+										return false;
+								  }
+								  if($('#passwd').val()==""){
+										alert("請填寫您的密碼"); 
+										return false;
+								  }
+									  $('#form_login').ajaxSubmit(options_newGroup);
+	});
+});
+</script>

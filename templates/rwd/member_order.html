@@ -1,0 +1,38 @@
+<{ include file="head.html" }>
+<script type="text/javascript" src="<{ $Site_Url }>/js/alter.js"></script>
+<script language="javascript">
+function changeOrderState(state_values,state_types,order_id){
+	location.href='order_showact.php?state_value='+state_values+'&state_type='+state_types+'&order_id='+order_id+'&optype=1';
+}
+</script>
+<body>
+<!-- 全體 -->
+<div class="container">
+  <!--頭部(含左側彈出視窗)↓-->
+  <{ include file="menu.html" }>
+  <!--頭部(含左側彈出視窗)↑-->
+  <div id="member_order">
+    <div class="center">
+      <div class="center_inside">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <{ section name=list loop=$OrderList }>
+          <tr>
+            <td align="left"><div class="total"><span class="title"><a href="member_order_detail.php?order_id=<{ $OrderList[list].order_id }>"><i class="icon-zoom-in"></i>&nbsp;訂單編號：<{ $OrderList[list].order_serial }></a></span><{ section name=list1 loop=$OrderList[list].opList }>
+          <a href="<{ $OrderList[list].opList[list1].1 }>"><{ $OrderList[list].opList[list1].0 }></a>
+          <{ /section }>
+          </div>
+          <div style="clear:both"></div>
+              <div class="status">訂單狀態：<{ $OrderList[list].order_state }>／<{ $OrderList[list].pay_state }>／<{ $OrderList[list].transport_state }>
+                <div class="total">折扣後金額：<span><{ $OrderList[list].tot }></span>元 </div>
+                </td>
+          </tr>
+          <{ /section }>
+        </table>
+        <{$Nav_banner}>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /pusher -->
+<!-- /container -->
+<{ include file="bottom.html" }>

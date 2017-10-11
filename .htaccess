@@ -1,0 +1,113 @@
+Options -Indexes
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 150.70.
+deny from 14.156.
+deny from 14.221.
+
+RewriteEngine On
+
+RewriteBase /
+
+# Rewrite
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^product/([0-9]+)_?([0-9]*)$ product/index.php?bid=$1&brand_id=$2
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^brand/([0-9]+)_?([0-9]*)$ product/index.php?brand_id=$1&brand_class=$2
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^product/detail([0-9]+)_?([0-9A-Z]*)$ product/goods_detail.php?goods_id=$1&u=$2
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^article$ article/index.php
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^article/([0-9]+)$ article/index.php?ncid=$1
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^article/article([0-9]+)$ article/article.php?articleid=$1
+
+# URL for https
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{REQUEST_URI} ^.*$ [OR]
+#RewriteCond "TrueOrFalse" "^false" [NC]
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+AddDefaultCharset UTF-8
+
+<Files ~ "\.(htm|html|css|js|php)$">
+AddDefaultCharset UTF-8
+DefaultLanguage en-US
+
+</Files>
+
+<IfModule mod_headers.c>
+<FilesMatch ".(js|css|xml|gz|html)$">
+ Header append Vary: Accept-Encoding
+</FilesMatch>
+</IfModule>
+
+# mod_gzip�G
+<ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>
+
+<IfModule mod_deflate.c>
+    #The following line is enough for .js and .css
+    AddOutputFilter DEFLATE js css
+
+    #The following line also enables compression by file content type, for the following list of Content-Type:s
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml
+
+    #The following lines are to avoid bugs with some browsers
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 day"
+ExpiresByType image/jpeg "access plus 1 day"
+ExpiresByType image/gif "access plus 1 day"
+ExpiresByType image/png "access plus 1 day"
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType text/html "access plus 1 day"
+ExpiresByType application/pdf "access plus 1 day"
+ExpiresByType text/x-javascript "access plus 1 day"
+ExpiresByType application/x-shockwave-flash "access plus 1 day"
+ExpiresByType image/x-icon "access plus 1 day"
+ExpiresDefault "access plus 1 day"
+</IfModule>
+## EXPIRES CACHING ##
+deny from 61.216.5.188
+deny from 193.0.200.93
+deny from 185.57.82.29
+deny from 5.79.80.1
+deny from 5.79.80.2/31
+deny from 5.79.80.4/30
+deny from 5.79.80.8/29
+deny from 5.79.80.16/28
+deny from 5.79.80.32/27
+deny from 5.79.80.64/26
+deny from 5.79.80.128/25
+RewriteCond %{HTTP_HOST} ^dutyfree\.ddcs\.com\.tw$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dutyfree\.ddcs\.com\.tw$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "http\:\/\/test\.tasameng\.com\.tw\/" [R=301,L]

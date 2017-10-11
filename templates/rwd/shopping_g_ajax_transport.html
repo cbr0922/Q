@@ -1,0 +1,74 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="3" style="border: 1px solid #cccccc;">
+        <tr>
+          <td>配送方式及運費：
+            
+            
+            
+            <{$transname}> <br>
+            <!--普通配送-->
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" class="p9v">
+              <{ section name=sendname loop=$SendType }>
+              <tr bgcolor="#FFFFFF">
+                <td width="12%" align="CENTER" bgcolor="#FFFFFF" class="p9v"><input type="radio" name="transport_id" value="<{ $SendType[sendname].transport_id }>" <{if $Cart_nomal_trans_type eq $SendType[sendname].transport_id}> checked <{/if}> <{if $SendType[sendname].transport_id neq 15}>onclick='setNomalTrans("<{$smarty.get.key}>","<{ $SendType[sendname].transport_id }>");' <{else}>onclick='showWin("url","shopping_g_ajax_store.php?key=<{$smarty.get.key}>","",500,350);'<{/if}>>
+                  
+                  
+                  
+                  &nbsp;</td>
+                <td width="15%"  align="left" bgcolor="#FFFFFF" class="p9v"><{ $SendType[sendname].transport_name }> </td>
+                <td width="50%" align="left"  bgcolor="#FFFFFF" class="p9black"><{ $SendType[sendname].transport_content }> </td>
+                <td width="18%" bgcolor="#FFFFFF" class="p9black" align="left"><!--费用-->
+                  運費:
+                  <{if $SendType[sendname].money>0}>首重<{ $SendType[sendname].money }>元<{else}><{ $SendType[sendname].transport_price }>元<{/if}>
+                  <{if $SendType[sendname].permoney>0}>續重（每公斤）<{ $SendType[sendname].permoney }>元<{/if}></td>
+              </tr>
+              <{ /section }>
+            </table>
+            <!--特殊配送-->
+            <{if $man_trans_type eq 1}>
+            <table width="300" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>商品</td>
+                <td width="100">配送費用</td>
+              </tr>
+              <{ section name=list loop=$Cart_item }>
+              
+              
+              
+              <{ if $Cart_item[list].ifpresent neq "1"}>
+              <tr>
+                <td><{ $Cart_item[list].goodsname }></td>
+                <td><{ $Cart_item[list].special_trans_money }>元</td>
+              </tr>
+              <{/if}>
+              
+              
+              
+              <{ /section }>
+            </table>
+            <{/if}> </td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td height="35" align="right"><{if $smarty.get.key neq "T2"}>運費：<{ $Cart_transmoney  }>元<{/if}></td>
+  </tr>
+  <tr>
+    <td height="78" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="3" style="border: 1px solid #cccccc;">
+        <tr>
+          <td height="76" align="right">商品總計：<{$Cart_totalPrices}>元<{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}><br>
+            <{if $smarty.get.key neq "T2"}>
+            
+            
+            
+            運費：<{ $Cart_transmoney  }>元<span class="price"><br>
+            <{/if}>
+            
+            
+            
+            消費總金額：NT $ <{ $Cart_transmoney+$Cart_totalPrices  }>元<{if $Cart_totalGrouppoint>0}>+<{$Cart_totalGrouppoint}>團購點<{/if}></span></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>

@@ -1,0 +1,78 @@
+<form name="receiverinfoform" id="receiverinfoform" action="shopping_ajax_receiverinfo.php" method="post" class="form-horizontal" role="form">
+    <input value="<{$act}>" type="hidden" name="act" />
+    <input value="<{$reid}>" type="hidden" name="reid" />
+	<div class="row padding-30">
+		<div class="col-xs-12 col-sm-12">
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 control-label"><{ $email_say }></label>
+					<div class="col-xs-12 col-sm-9">
+						<input name="receiver_email" type="email" class="form-control" placeholder="<{ $impro7 }>" value="<{ $receiver_email }>"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 control-label"><{ $name_say }></label>
+					<div class="col-xs-12 col-sm-9">
+						<input type="text" name="receiver_name" class="form-control" placeholder="<{ $impro8 }>" value="<{ $receiver_name }>"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="control-label col-xs-12 col-sm-3"><{ $addr_say }></label>
+					<div class="col-xs-12 col-sm-9 margin-bottom-10">
+						<select id="county3"		name="county2" 	class="form-control select"></select>
+					</div>
+					<div class="col-xs-12 col-sm-9 col-sm-offset-3 margin-bottom-10">
+						<select id="province3" 	name="province2" class="form-control select"></select>
+					</div>
+					<div class="col-xs-12 col-sm-9 col-sm-offset-3">
+						<select id="city3"		name="city2" 	class="form-control select"></select>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="control-label col-xs-12 col-sm-3">詳細地址</label>
+					<div class="col-xs-12 col-sm-9 margin-bottom-10">
+						<input type="text" name="othercity2" id="othercity3" placeholder="郵遞區號" class="form-control" />
+					</div>
+					<div class="col-xs-12 col-sm-9 col-sm-offset-3">
+						<input type="text" name="addr" 	id="addr" value="<{ $addr }>"	class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="control-label col-xs-12 col-sm-3"><{ $tel_say }><!--電話--></label>
+					<div class="col-xs-12 col-sm-9">
+						<input type="text" name="receiver_tele" class="form-control" value="<{ $receiver_tele }>" />
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label class="control-label col-xs-12 col-sm-3"><{ $mobile_say }><!--手機--></label>
+					<div class="col-xs-12 col-sm-9">
+						<input type="text" name="receiver_mobile" class="form-control" value="<{ $receiver_mobile }>" />
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+				<button type="button" name="receiversave" id="receiversave" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black margin-bottom-20">存檔</button>
+				
+                <button type="button" class="col-xs-12 col-sm-3 col-sm-offset-2 btn btn-black "
+               data-dismiss="modal">關閉</button>
+			</div>
+		</div>
+	</div>
+</form>
+<!--驗證欄位-->
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/language/receiverValidator-zh_TW.js" type="text/javascript" charset="utf-8"></script>
+<script language="javascript">
+iniArea("3","1","<{ $county }>","<{ $province }>","<{ $city }>");
+
+</script>

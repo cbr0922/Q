@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+	
+	<meta charset="utf-8" />
+	<title><{ $Contenttitle }></title>
+	<meta content="<{ $Meta_desc }>" name="description"/>
+	<meta content="<{ $Meta_keyword }>" name="keywords"/>
+	<meta name="Author" content="ESIT" />
+	
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+	
+	<!-- CORE CSS -->
+	<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+	<!-- THEME CSS -->
+	
+	<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+    
+<{ include_php file="include/include_ga.php" }>
+<style>
+.radio, .checkbox {
+    display: block;
+    margin: 0 15px 3px 0;
+    padding-left: 27px;
+    font-size: 15px;
+    line-height: 27px;
+    color: #404040;
+    cursor: pointer;
+}
+</style>	
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> <{ if $use_pattern eq 1 }>pattern<{$pattern_id}><{ /if }>" <{ if $use_background eq 1 }> data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>" <{ /if }> >
+	<{ include_php file="include/menu.php" }>
+	
+	<!--耳朵廣告-->
+	
+	<{ if $Ear_radio eq 1 }>	
+	
+		<{ include_php file="modules/advertising/ear.php" }>
+	
+	<{ /if }>  
+	
+	<!--/耳朵廣告-->
+	
+	<!--導覽列-->
+	
+	<section class="page-header page-header-xs">
+		
+		<div class="container">
+			<h1 class="bfont size-18 hidden"><{ $Title }></h1>
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb breadcrumb-inverse">
+				<li><a href="<{ $Site_Url }>">Home</a></li>
+                <li class="active"><{ $Contenttitle }></li>
+			</ol><!-- /breadcrumbs -->
+		</div>
+	</section>
+	<!-- /導覽列 -->
+	<section style="border-bottom:0;">
+		<div class="container">
+			<div class="row">	
+							<ul class="shop-item-list row list-inline nomargin">
+							
+								<!-- 商品資訊 -->
+                                <{ section name=list loop=$group_array start=0 }>
+								<li class="col-md-3 col-sm-4 col-xs-6  padding-bottom-20 product_float">
+									<div class="shop-item" style="border: 1px solid #B5B1B1;padding: 0 5px 0 5px;">
+										<div class="shop-item-summary text-center">                                        
+											<div style="height:40px; overflow:hidden;"><h2><a class="lightbox" href="" data-target="#ajax" data-toggle="modal"><{$group_array[list].title}></a></h2></div>
+										</div>									
+										<div class="thumbnail noborder nopadding">
+											<!-- 商品圖片fix在div內 -->
+                                            
+                                            <div class="thumbnail_container_fix">
+                                            <div class="thumbnail_fix">
+												<a class="lightbox" href=""  data-target="#ajax" data-toggle="modal" >
+												<img class="lazy" id="showbonus" src="<{ $Site_Url }>/UploadFile/GroupPic/<{$group_array[list].img}>" data-original="<{ $template_dir }>/UploadFile/GroupPic/<{$group_array[list].img}>" border=0 name="goodpic" alt=""></a>                                       
+                                            </div>
+                                            </div>                                            
+											<!-- /商品圖片 -->						
+										</div>
+										<div class="shop-item-summary">
+											<div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px;">商品內容<{$group_array[list].content}></div>
+										</div>
+									</div>
+								
+								</li>
+                                <{/section}>
+								<!-- /商品資訊 -->
+							</ul>			
+			<hr>
+			</div>
+		</div>
+	</section>
+	
+	<section style="padding-top:0;">
+		<div class="container">
+			<div class="row">
+
+			
+			
+				<!--說明 -->
+				<div class="col-xs-12 col-sm-12 col-md-12 margin-bottom-50">
+                    <h2><span class="bfont size-25 weight-300">客製化說明</span></h2>
+					<{ $Content }>
+				</div>	
+                <form name="form1" id="regform" method="post" action="<{ $Site_Url }>/groupbuying/customize.php" class="form-horizontal" role="form" >				<input type="hidden" name="action" value="insert">
+				<div class="col-xs-10 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-1 col-xs-offset-1 nopadding">
+
+						
+							<div class="col-xs-12 col-sm-12">
+							<div class="form-group">
+									<label>您如果有送禮的特殊需求或是企業團購單，我們有提供客製化服務 : 精緻禮盒包裝/紙袋/貼心小卡片，請先確認您的單盒預算</label>
+									<label class="radio" style="padding-top:2px"><input type="radio" name="budget" id="budget" value="800~10,00" checked="" onclick="$('#other').val('');$('#other').attr('disabled',true);"><i></i>800~10,00</label>
+									<label class="radio" style="padding-top:2px"><input type="radio" name="budget" id="budget" value="1,001~2,000" onclick="$('#other').val('');$('#other').attr('disabled',true);"><i></i>1,001~2,000</label>
+									<label class="radio" style="padding-top:2px"><input type="radio" name="budget" id="budget" value="2,001~2,500" onclick="$('#other').val('');$('#other').attr('disabled',true);"><i></i>2,001~2,500</label>
+									<label class="radio" style="padding-top:2px"><input type="radio" name="budget" id="budget" value="3,000以上" onclick="$('#other').val('');$('#other').attr('disabled',true);"><i></i>3,000以上</label>
+									<div class="form-group margin-top-10 margin-bottom-50">
+										<div  class="col-xs-4 col-sm-4 padding-0"><label class="radio" style="padding-top:2px"><input type="radio" name="budget" id="budget" value="其他" onclick="$('#other').attr('disabled',false);"><i></i>其他</label></div>
+										<div  class="col-xs-8 col-sm-8 padding-0"><input name="other" type="txt" id="other" class="form-control radius-0 height-30" disabled="disabled"/></div>
+									</div>
+							</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 margin-top-10">
+								<div class="form-group">
+									<label>禮盒需求數量</label>
+									<input type="text" name="needcount" id="needcount" class="form-control radius-0 height-30">
+								</div>
+							</div>								
+							<div class="col-xs-12 col-sm-12 margin-top-10">
+								<div class="form-group">
+									<label>商品預計到貨時間 (預設今天以後的15個工作日)</label>
+									<input type="date" name="arrivaldate" id="arrivaldate" class="form-control radius-0 height-30" readonly>
+								</div>
+							</div>
+							<!--<div class="col-xs-12 col-sm-12 margin-top-10">
+							<div class="form-group">
+									<label>商品挑選(可複選)</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>主題套組編號1</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>主題套組編號2</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>主題套組編號3</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>主題套組編號4</label>
+									<div class="form-group margin-top-10 margin-bottom-50">
+										<div  class="col-xs-4 col-sm-4 padding-0"><label class="checkbox" style="padding-top:2px"><input type="checkbox" name="1" id="" value=""><i></i>其他</label></div>
+										<div  class="col-xs-8 col-sm-8 padding-0"><input name="" type="txt" id="" class="form-control radius-0 height-30"/></div>
+									</div>									
+									
+							</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 margin-top-10">
+							<div class="form-group">
+									<label>客製化內容(可複選)</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>禮盒</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>紙袋</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>小卡片</label>
+									<label class="checkbox" style="padding-top:2px"><input type="checkbox" name="" id="" value=""><i></i>緞帶</label>
+									<div class="form-group margin-top-10 margin-bottom-50">
+										<div  class="col-xs-4 col-sm-4 padding-0"><label class="checkbox" style="padding-top:2px"><input type="checkbox" name="1" id="" value=""><i></i>其他</label></div>
+										<div  class="col-xs-8 col-sm-8 padding-0"><input name="" type="txt" id="" class="form-control radius-0 height-30"/></div>
+									</div>										
+							</div>
+							</div>							
+							<div class="col-xs-12 col-sm-12 margin-top-10">
+							<div class="form-group">
+									<label>備註</label>
+									<textarea maxlength="10000" class="form-control radius-0" name="content" cols="40" rows="5" id="content"></textarea>
+							</div>
+							</div>	-->						
+				</div>
+				<!-- /說明 -->
+				<!-- FORM -->
+				<div class="col-xs-10 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-1 col-xs-offset-1 margin-bottom-50">
+					
+						
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 姓名</label>
+									<input type="name" name="username" id="username" class="form-control radius-0 height-30" placeholder="姓名">
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 公司名稱</label>
+									<input type="name" name="company" id="company" class="form-control radius-0 height-30" placeholder="公司名稱">
+								</div>
+							</div>							
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 市內電話</label>
+									<input name="phone" type="phone" id="phone" class="form-control radius-0 height-30" placeholder="市內電話" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 手機號碼</label>
+									<input name="mobile" type="mobile" id="mobile" class="form-control radius-0 height-30" placeholder="手機號碼" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 電子信箱</label>
+									<input name="email" class="form-control height-30 radius-0" type="email" id="email" placeholder="電子信箱">
+								</div>
+							</div>							
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">
+									<label>* 備註</label>
+									<textarea maxlength="10000" class="form-control radius-0" name="remark" cols="40" rows="5" id="remark" placeholder="可填寫你想要的客製化內容~小卡片/包裝/紙袋/其他"></textarea>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-6 ">
+								<div class="form-group">
+									<label>*<{ $Code_say }><!--驗證碼--></label>
+									<input type="text" name="inputcode"  id="inputcode"  class="form-control radius-0 height-30" />
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-6 margin-top-20">
+								<img class="img-responsive" src="<{ $Site_Url }>/Resources/securimage/securimage_show.php?sid=<{$sid}>" style="max-width:130px"/>
+							</div>
+							<div class="col-xs-12 col-sm-12 nopadding">
+								<button type="submit" name="Submit2" class="col-xs-12 col-sm-4 btn btn-black"> 確定<{ $Submit_say }></button>
+							</div>
+						
+					
+				</div>
+				<!-- /FORM -->
+			</form></div>
+		
+		</div>
+	</section>
+<{ include_php file="include/bottom.php" }>
+</body>
+<!--驗證欄位-->
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<{ $Site_Url }>/assets/plugins/bootstrapvalidator/language/contactValidator-zh_TW.js" type="text/javascript" charset="utf-8"></script>
+<script language="javascript">
+$( "#arrivaldate" ).datepicker({
+	minDate: +15,
+	dateFormat: "yy-mm-dd"
+});
+</script>
+</html>

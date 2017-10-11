@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<style type="text/css">
+body {
+	margin:0px;
+}
+#fullBg {
+	background-color: Black;
+	display:none;
+	z-index:30;
+	position:absolute;
+	left:0px;
+	top:0px;
+	filter:Alpha(Opacity=30);
+	/* IE */
+-moz-opacity:0.4;
+	/* Moz + FF */
+opacity: 0.4;
+}
+#msg {
+	position:absolute;
+	z-index:40;
+	display:none;
+	background-color:#FFFFFF;
+	border:1px solid #6633CC;
+}
+#msg #close {
+	height:30px;
+	text-align:right;
+	padding-top:8px;
+	padding-right:15px;
+}
+#msg #ctt {
+	text-align:center;
+	font-size:12px;
+	padding-bottom:15px;
+}
+#cPic {
+	cursor:pointer;
+}
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="fullBg"></div>
+<div id="msg">
+  <div id="close"></div>
+  <div id="ctt"></div>
+</div>
+<script language="javascript">
+ function pay_one(){
+   var obj = document.getElementById("payform_one");  
+   //alert(obj);
+   obj.submit(); 
+}
+</script>
+<script language="javascript">
+ function pay_two(){
+	var obj = document.getElementById("payform_two");  
+   obj.submit();
+}
+ function pay_four(){
+   payform_four.submit(); 
+}
+ function pay_seven1(){
+   payform_seven1.submit(); 
+}
+function pay_seven2(){
+   payform_seven2.submit(); 
+}
+function pay_seven3(){
+   payform_seven3.submit(); 
+}
+ function pay_three(){
+   payform_three.submit(); 
+}
+</script>
+<{ if $Action neq 'insert' or ($Action eq 'insert' and $paytype eq 1) }>
+<{ include_php file="menu_groupon.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td valign="top"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><br>
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+              <tr>
+                <td><p align="center"><{if $Action neq "insert"}><img src="<{ $template_dir }>/images/step4.gif" width="479" height="65"><{else}><img src="<{ $template_dir }>/images/step5.gif" width="479" height="65"><{/if}><br>
+                    <br>
+                    <br>
+                  </p></td>
+              </tr>
+              <tr>
+                <td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+              <tr>
+                <td align="center" bgcolor="#EEEEEE">序號</td>
+                <td align="center" bgcolor="#EEEEEE">圖片</td>
+                <td align="center" bgcolor="#EEEEEE">商品名稱</td>
+                <!--td align="center" bgcolor="#EEEEEE">優惠活動</td-->
+                <td align="center" bgcolor="#EEEEEE">團購價 NT$ </td>
+                <td align="center" bgcolor="#EEEEEE">團購點</td>
+                <td align="center" bgcolor="#EEEEEE">數量</td>
+                <td align="center" bgcolor="#EEEEEE">小計</td>
+              </tr>
+              <{ section name=list loop=$Cart_item }>
+                <tr>
+                  <td align="center" bgcolor="#FFFFFF"><{math equation="(x+y)" x=$smarty.section.list.index y=1 }></td>
+                  <td align="center" bgcolor="#FFFFFF"><a href="<{ $Site_Url }>/product/goods_detail_groupon.php?goods_id=<{ $Cart_item[list].gid }>"><img src='../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }>' width=80 border=0></a></td>
+                  <td align="left" bgcolor="#FFFFFF"><{ $Cart_item[list].goodsname }>
+                    </td>
+                  <!--td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].subjectcontent }></td-->
+                  <td align="center" bgcolor="#FFFFFF">
+                  <{ if $Cart_item[list].buytype eq 0 }><{ $Cart_item[list].price }><{else}><{ $Cart_item[list].memberprice }><{/if}></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ if $Cart_item[list].buytype eq 1 }><{ $Cart_item[list].grouppoint }><{/if}></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].count }></td>
+                  <td align="center" bgcolor="#FFFFFF"><{ $Cart_item[list].total }><{ if $Cart_item[list].totalpoint>0 }>+<{ $Cart_item[list].totalpoint }>團購點<{/if}></td>
+                </tr>
+              <{ /section }>
+            </table>
+                  <br></td>
+              </tr>
+              <tr>
+                <td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+                    <tr>
+                      <td colspan="4" align="left" bgcolor="#FFFFFF" class="p9black">訂單資訊</td>
+                    </tr>
+                    <tr>
+                      <td width="12%" align="center" bgcolor="#FFFFFF" class="p9black">訂購人姓名</td>
+                      <td width="38%" bgcolor="#FFFFFF"></td>
+                      <td width="12%" align="center" bgcolor="#FFFFFF" class="p9black">&nbsp;</td>
+                      <td width="38%" bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">訂單編號</td>
+                      <td width="38%" bgcolor="#FFFFFF"><{ $Order_serial }></td>
+                      <td width="12%" align="center" bgcolor="#FFFFFF" class="p9black">商品總金額</td>
+                      <td width="38%" bgcolor="#FFFFFF"><{ $Cart_totalPrices }></td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">訂貨時間</td>
+                      <td bgcolor="#FFFFFF"><{ $Order_overtime }></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">配送費用</td>
+                      <td bgcolor="#FFFFFF"><{ $Cart_transmoney }>元</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">配送方式</td>
+                      <td bgcolor="#FFFFFF"><{ $Cart_special_trans_name }></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">帳上餘額</td>
+                      <td bgcolor="#FFFFFF"><{ $Cart_buypoint }>元</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">團購點</td>
+                      <td bgcolor="#FFFFFF"><{$Cart_totalGrouppoint}></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">消費總金額</td>
+                      <td bgcolor="#FFFFFF"><{$Cart_totalPrices+$Cart_transmoney-$Cart_buypoint}>元</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">付款方式</td>
+                      <td bgcolor="#FFFFFF"><{ $paymentname }></td>
+                      
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">支付現金</td>
+                      <td bgcolor="#FFFFFF">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">發票格式</td>
+                      <td bgcolor="#FFFFFF"><{ $yesifinvoice }></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">發票抬頭</td>
+                      <td bgcolor="#FFFFFF"><{ $invoiceform }></td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">ATM虛擬帳號</td>
+                      <td bgcolor="#FFFFFF"><{ $ATM }></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black">統一編號</td>
+                      <td bgcolor="#FFFFFF"><{ $invoice_num }></td>
+                    </tr>
+                  </table>
+                <br></td>
+              </tr>
+              <tr>
+                <td align="center"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#CCCCCC" class="p9v">
+                    <tr bgcolor="#FFFFFF">
+                      <td width="12%" align="center" nowrap bgcolor="#FFFFFF" class="p9black"><{ $name_say }>
+                        <!--收貨人姓名--></td>
+                      <td width="38%" bgcolor="#FFFFFF"><{ $receiver_name }></td>
+                      <td width="12%" align="center" nowrap bgcolor="#FFFFFF" class="p9black"><{ $email_say }>
+                        <!--Email信箱--></td>
+                      <td width="38%" bgcolor="#FFFFFF"><{ $receiver_email }></td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td align="center" nowrap bgcolor="#FFFFFF" class="p9black"><{ $mobile_say }></td>
+                      <td bgcolor="#FFFFFF"><{ $receiver_mobile }></td>
+                      <td align="center" nowrap bgcolor="#FFFFFF" class="p9black"><{ $tel_say }>
+                        <!--聯絡電話--></td>
+                      <td bgcolor="#FFFFFF"><{ $receiver_tele }></td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td align="center" bgcolor="#FFFFFF" class="p9black"><{ $addr_say }>
+                        <!--收貨人地址--></td>
+                      <td bgcolor="#FFFFFF"><{ $receiver_post }><{ $receiver_address }></td>
+                      <td align="center" bgcolor="#FFFFFF" class="p9black"><!--宅配時間-->
+                        <{ $HomeSend_TimeType }></td>
+                      <td bgcolor="#FFFFFF"><{ $transtime64decode_name }></td>
+                    </tr>
+                    <td align="center" bgcolor="#FFFFFF" class="p9black"><{ $content_say }>
+                        <!--訂單備註--></td>
+                      <td colspan="3" bgcolor="#FFFFFF"><{ $receiver_memo }></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td align="center"><table width="100%" border="0" align="left" cellpadding="3" cellspacing="0">
+                    <tr>
+                      <td width="12%" valign="top" nowrap class="p9black"><{ $PaytypeContent }>:</td>
+                      <td width="91%"  class="p9black"><{ $payment }></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" nowrap  class="p9black"><{ $SendtypeContent }>:</td>
+                      <td  class="p9black"><{ $transport_content }></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td align="center"><form name="orderform" method="post" action="" id="orderform" onSubmit="saveorder(this)">
+                    <input type="hidden" name="Action" value="insert">
+                    <input type="hidden" name="key" value="<{$key}>">
+                    <input type="hidden" name="iid" value="<{ $Pay_iid }>">
+                    <input type="hidden" name="pay_id"  value="<{ $pay_id }>">
+                    <input type="hidden" name="ATM"  value="<{ $ATM }>">
+                    <input type="hidden" name="transport_id"  value="<{ $transport_id }>">
+                    <input type="hidden" name="ifinvoice"  value="<{ $ifinvoice }>">
+                    <input type="hidden" name="invoice_num"  value="<{ $invoice_num }>">
+                    <input type="hidden" name="invoiceform"  value="<{ $invoiceform }>">
+                    <input type="hidden" name="county"  value="<{ $Country }>">
+                    <input type="hidden" name="province"  value="<{ $province }>">
+                    <input type="hidden" name="city"  value="<{ $city }>">
+                    <input type="hidden" name="addr"  value="<{ $addr }>">
+                    <input type=hidden name='total_member_price' value='<{ $Cart_discount_totalPrices }>'>
+                    <input type="hidden" name="receiver_name"  value="<{ $receiver_name }>">
+                    <input type="hidden" name="receiver_email"  value="<{ $receiver_email }>">
+                    <input type="hidden" name="othercity"       value="<{ $othercity }>">
+                    <input type="hidden" name="receiver_tele"  value="<{ $receiver_tele }>">
+                    <input type="hidden" name="receiver_id" value="<{ $Pay_receiver_id }>">
+                    <input type="hidden" name="receiver_mobile"  value="<{ $receiver_mobile }>">
+                    <input type="hidden" name="receiver_memo"  value="<{ $receiver_memo }>">
+                    <input type="hidden" name="HomeTimeType" value="<{ $transtime_id }>(&)<{ $transtime64encode_name }>">
+                    
+                    <input name="email" type="hidden" class="inputstyle" value="<{ $email }>" size="32">
+                    <input type="hidden" name="true_name" class="inputstyle" value="<{ $true_name }>">
+                    <input type="hidden" name="othercity2" id="othercity2" size="5" value="<{ $post }>">
+                      <input type="hidden" id="county2" name="county2" value="<{ $county2 }>">
+                      <input type="hidden" id="province2" name="province2" value="<{ $province2 }>">
+                      <input type="hidden" id="city2" name="city2" value="<{ $city2 }>">
+                      <input name="addr2" type="hidden" id="addr2" size="40" maxlength="200" value="<{ $addr }>">
+                    <input type="hidden" name="tel" class="inputstyle" value="<{ $tel }>">
+                    <input type="hidden" name="other_tel" class="inputstyle" value="<{ $other_tel }>">
+                    <{ if $Action neq 'insert' and  $paytype eq 1 }>
+                    <input type="Submit" name="Submit" value="<{ $ActionSubmitOrder }>" >
+                    <{/if}>
+                  </form></td>
+              </tr>
+            </table></td>
+        </tr>
+        <{ if $Action=='insert' }>
+        <tr>
+          <td height="26"  align="center" nowrap><{ $Welcome }>
+            <!--您已经完成本次购物的全部过程，随後我们及时提供产品和服务，欢迎您再次光临! --></td>
+        </tr>
+        <tr>
+          <td height="36"  align="center"><a href="javascript:print();"><img src="<{ $template_dir }>/images/Print_order.jpg" width="105" height="32"><!--<{ $Print_order }>-->
+            <!--列印訂單-->
+            </a>&nbsp;</td>
+        </tr>
+        <{/if}>
+      </table></td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+<{/if}>
+<{$payform}>
+<script language="javascript">
+function saveorder(myform){
+	myform.Submit.value = "請稍後...";
+	myform.Submit.disabled='disabled';
+}
+</script>
+</body>
+</html>

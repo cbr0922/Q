@@ -1,0 +1,55 @@
+label { cursor: pointer; }
+.tips {
+	position: absolute;
+	font-size: 12px;
+	border-top: 1px solid #00B800;
+	background: url(../img/tips_icon.gif) no-repeat bottom;
+	margin: 0;
+	width: 290px;
+	display: none;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 15px;
+	padding-left: 5px;
+}
+.tips_big {
+	position: absolute;
+	font-size: 12px;
+	background: url(../img/tips_icon2.gif) no-repeat bottom;
+	margin: 3;
+	width: 426px;
+	display: none;
+	padding-top: 6px;
+	padding-right: 17px;
+	padding-bottom: 15px;
+	padding-left: 17px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #00B800;
+}
+
+textarea { font-family: Arial, Helvetica, sans-serif, "宋体"; font-size: 14px; background: #F9F9F9 url(../img/input_bg.gif) no-repeat; border:1px solid #A1A1A1; padding: 0.4em;}
+input:focus, textarea:focus, input.focus, textarea.focus { background-color: #FFF; background-position: 0 -300px; border-color: #00B800; }
+g
+input{ height:20px;font-family: Arial, Helvetica, sans-serif, "宋体"; font-size: 14px; background: #F9F9F9 url(../img/input_bg.gif) no-repeat; border:1px solid #A1A1A1; padding: 0.4em;}
+input:focus, textarea:focus, input.focus, textarea.focus { background-color: #FFF; background-position: 0 -300px; border-color: #00B800; }
+
+botton, textarea { font-family: Arial, Helvetica, sans-serif, "宋体"; font-size: 14px; background: #F9F9F9 url(../img/input_bg.gif) no-repeat; border:1px solid #A1A1A1; padding: 0.4em;}
+		input:focus, textarea:focus, input.focus, textarea.focus { background-color: #FFF; background-position: 0 -300px; border-color: #00B800;}
+.submit {
+	font-weight: bold;
+	color: #099;
+	letter-spacing: 0.1em;
+	border: 1px solid #30999c;
+	border-bottom-width: 1px;
+	padding-right: 5px;
+	padding-left: 5px;
+	background-color: #ddfff3;
+}
+.botton_green { background: #ffffff; font-weight: bold; letter-spacing: 0.2em; color:green; border: 1px solid #00B800; border-bottom-width: 1px; }
+.adv_rwd_img img {
+	width: expression(this.width > 115 ? 115: true);
+	max-width: 115px;
+    height: expression(this.height > 115 ? 115: true);
+	max-height: 115px;
+	}

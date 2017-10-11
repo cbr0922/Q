@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]--><head>
+<meta charset="utf-8" />
+<title>推薦的好友 - <{ $HtmlTitle }></title>
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<meta name="Author" content="ESIT" />
+<!-- mobile settings -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<!-- CORE CSS -->
+		<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+        
+		<!-- THEME CSS -->
+		<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+        
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<{ include_php file="include/include_ga.php" }>
+</head>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<{ include_php file="include/menu.php" }>
+  <{ if $Ear_radio eq 1 }>	
+	  <{ include_php file="modules/advertising/ear.php" }>
+  <{ /if }>  
+<!-- PAGE HEADER -->
+			<section class="page-header page-header-xs">
+				<div class="container">
+					<h1 class="bfont size-18 hidden">推薦的好友</h1>
+					
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb breadcrumb-inverse">
+						<li><a href="<{ $Site_Url }>">Home</a></li>
+                        <li><a href="<{$Site_Url}>/member/?hometype=<{$smarty.get.hometype}>">會員中心</a></li>
+                         <li class="active">推薦的好友</li>                       
+					</ol><!-- /breadcrumbs -->
+                </div>
+			</section>
+<!-- /PAGE HEADER -->
+<!--身體開始-->
+			<section>
+				<div class="container">
+					<div class="row">
+						<!--左邊開始-->
+						<div class="col-md-3 col-sm-3 margin-bottom-0 product_left border_all_left_side">
+                          <{ include_php file="member/left.php" }>
+					   </div>
+						<!--左邊結束-->
+						<!--右邊開始-->
+						<div class="col-md-9 col-sm-9 margin-bottom-30 product_right border_left minheight">
+                              <!--推薦的好友開始 -->  
+									<ul class="nav nav-tabs nav-button-tabs margin-bottom-20">
+       									<li><a href="recommendpoint.php">推薦成效查詢</a></li>
+     									<li class="active"><a href="#">推薦的好友</a></li>
+        								<li><a href="recomendfriend.php">邀請好友</a></li>
+      								</ul>
+								<div  class="table-responsive">
+									<{ if $recommend_true_name neq ''}><br><br>
+									推薦我的人：<{ $recommend_true_name }>(<{ $recommend_username }>)<{/if}>
+									<br><br>
+									我推薦的人：<br><br>
+  						          <TABLE class="table table-hover">
+  						            <TBODY>
+						                <TR>
+     						             	<th>編號<!--订单编号--></th>
+        	  					         	<th>會員帳號</th>
+        						         	<th>會員暱稱</th>
+      							         	<th>會員加入時間<!--订单总金额--></th>
+              							</TR>
+           							<{ section name=list loop=$User_array }>
+             							<TR>
+                							<TD><{ $User_array[list].id }></TD>
+                							<TD><{ $User_array[list].username}></TD>
+                							<TD><{ $User_array[list].true_name}></TD>
+                							<TD><{ $User_array[list].reg_date}></TD>
+              							</TR>
+									<{ /section }>
+     						       </TABLE>
+       							   <table class="table table-hover">
+            							<tr>
+            							    <td align="left"><{ $Nav_banner }></td>
+        							    </tr>
+    						       </table>
+
+							
+							<!-- /推薦的好友結束 -->
+							</div>
+						</div>
+						<!--右邊結束-->
+					</div>
+			</section>
+<!--身體結束-->
+
+<!--身體置中結束-->
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>
+
+
+
+
+
+
+  

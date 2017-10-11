@@ -1,0 +1,24 @@
+<SCRIPT language=JavaScript type=text/JavaScript>
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</SCRIPT>
+                  <SCRIPT language=JavaScript> 
+ function swapImgRestore() { //v3.0 
+ 	 var i,x,a=document.sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc; 
+ } 
+</SCRIPT><table width=150 border=0 align="center" cellpadding=0  cellspacing=0>
+<{ section name=listBclass loop=$ProductListAll start=0 }>
+  <tr>
+    <td width="25" valign="middle"  ><img src="<{ $template_dir }>/images/black-icon.gif" width="18" height="18" /></td>
+    <td height="30" > <a href="<{ $Site_Url }>/product/product_class_detail.php?bid=<{ $ProductListAll[listBclass].bid  }>"  class="pink-category" > <{ $ProductListAll[listBclass].catname }></a></td>
+  </tr>
+  <tr bgcolor="#E3E3E3">
+    <td height="1" colspan="2" valign="top"> </td>
+  </tr>
+<{ /section }>
+                          </table>

@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><{ $HtmlTitle }></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords"><link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.bgrepeat {
+	BACKGROUND-POSITION: center top;
+	BACKGROUND-REPEAT: repeat-x;
+	background-image: url(<{ $template_dir }>/images/top_back.jpg);
+}
+.style5 {font-size: 14px; color: #518C22; }
+.style1 {color: #FF0000}
+-->
+</style>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<body leftmargin="0" topmargin="0" marginheight="0">
+<script language="javascript">
+ function pay_one(){
+   payform_one.submit(); 
+}
+</script>
+<script language="javascript">
+ function pay_two(){
+   payform_two.submit(); 
+}
+</script>
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="135" valign="top"><span style="padding-top:8px;"><{ include_php file="include/menu.php" }> </span>
+         
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+      <table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="910" height="22" bgcolor="#ffa90e" style="padding-left:20px;"><h1><{ $title }></h1></td>
+          </tr>
+          <tr>
+            <td><br>
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tr>
+                  <td><div align="center"> <{ if $Action != 'insert' }> <img src="<{ $template_dir }>/images/step3.jpg" width="488" height="57"> <{ else }> <img src="<{ $template_dir }>/images/step4.jpg" width="488" height="57"> <{ /if }> </div></td>
+                </tr>
+                <tr>
+                  <td><br>
+                      <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tr>
+                          <td bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="1" cellpadding="4" class="p9v">
+                              <tr bgcolor="#E4E3E1" align="center">
+                                <td width="7%" class="p9blue"><{ $Bn_say }>
+                                    <!--编号-->                                </td>
+                                <td class="p9blue" width="30%" bgcolor="#E4E3E1" align="center"><{ $ProductName_say }>
+                                    <!--商品名称-->                                </td>
+                                <td width="17%" nowrap bgcolor="#E4E3E1" class="p9blue"  align="center"><{ $Product_Color_Size }>&nbsp;</td>
+                                <td width="12%"  align="center" nowrap bgcolor="#E4E3E1" class="p9blue"><{ $ProductPrice_say }>
+                                    <!--市场价格-->                                </td>
+                                <td width="14%"  align="center" nowrap class="p9blue"><{ $items_tprice_say }>
+                                    <!--优惠价格-->                                </td>
+                                <td width="9%"  align="center" nowrap class="p9blue">分期數</td>
+                                <td width="9%"  align="center" nowrap class="p9blue"><{ $ProductNum_say }>
+                                    <!--数量-->                                </td>
+                              </tr>
+                            <{ section name=Product_sname loop=$Product_s }>
+                            <tr bgcolor="#FFFFFF">
+                              <td class="p9black" width="7%" bgcolor="#FFFFFF" align="CENTER"><{ $Product_s[Product_sname].bn }></td>
+                              <td width="30%" align="center" nowrap bgcolor="#FFFFFF" class="p9black"><{ if $Product_s[Product_sname].detail_id eq 0 && $Product_s[Product_sname].detail_name eq "額滿禮" }><{ $Product_s[Product_sname].detail_name }><br>
+                                <{ $Product_s[Product_sname].goodsname }><{else}><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Product_s[Product_sname].gid }>"><{ $Product_s[Product_sname].goodsname }></a><{if $Product_s[Product_sname].detail_bn neq ""}> <br>
+                                <{ $Product_s[Product_sname].detail_bn }>
+                                
+                                <{/if}>
+                                
+                                <{if $Product_s[Product_sname].detail_name neq ""}> <br>
+                                <{ $Product_s[Product_sname].detail_name }>
+                                
+                                <{/if}>
+                                
+                                <{if $Product_s[Product_sname].detail_des neq ""}> <br>
+                                <{ $Product_s[Product_sname].detail_des }>
+                                
+                                <{/if}>
+                                
+                                
+                                
+                                <{ /if }> </td>
+                              <td width="17%" bgcolor="#FFFFFF" class="p9black" align="center"><{ $Product_s[Product_sname].good_color }>/<{ $Product_s[Product_sname].good_size }></td>
+                              <td class="p9black" width="12%" bgcolor="#FFFFFF" align="center"><s><{ $Product_s[Product_sname].temp_price }></s></td>
+                              <td class="p14red" width="14%" bgcolor="#FFFFFF" align="center"><{ $Product_s[Product_sname].MemberPice }> <{ if $Product_s[Product_sname].Js_price gt 0 }><img src="<{ $Site_Url }>/images/co-price.gif" align="absbottom"><{ /if }> </td>
+                              <td class="p9black" width="9%" bgcolor="#FFFFFF" align="center"><{ if $Product_s[Product_sname].month eq 0}>不分期<{ else }>分<{ $Product_s[Product_sname].month }>期<{ /if }></td>
+                              <td class="p9black" width="9%" bgcolor="#FFFFFF" align="center"><{ $Product_s[Product_sname].count }></td>
+                            </tr>
+                            <{ /section }>
+                          </table></td>
+                        </tr>
+                      </table>
+                    <br>
+                      <table width="98%" height="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td bgcolor="#CCCCCC"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="p9v">
+                              <tr bgcolor="#FFFFFF">
+                                <td width="15%" bgcolor="#EEEEEE" class="p9black"><{ $Order_serial_say }>：
+                                  <!--订单编号-->                                </td>
+                                <td width="35%"><{ $Order_serial }></td>
+                                <td width="15%" bgcolor="#EEEEEE" class="p9black"><{ $Order_time_say }>：
+                                  <!--下单日期 -->                                </td>
+                                <td width="35%"><{ $Order_overtime }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $Product_totalprice_say }>：
+                                  <!--商品总金额-->                                </td>
+                                <td><{ $totalPrices }><{ if $Ticket_MemberPice_total_T ne "" }>[折價<span class="p9black">後</span>價格：<{ $Ticket_MemberPice_total }><{ $Yuan }>]<{ /if }></td>
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $Pay_type }>：
+                                  <!--定单状态-->                                </td>
+                                <td><{ $paymentname }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" nowrap bgcolor="#EEEEEE"><{ $send_money_say }>：
+                                  <!--商品运费-->                                </td>
+                                <td><{ $transport_price }></td>
+                                <td align="left" nowrap bgcolor="#EEEEEE" class="p9black"><{ $send_type_say }>：
+                                  <!--配送方式-->                                </td>
+                                <td><{ $deliveryname }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $TotalPrice_say }>：
+                                  <!--订单总金额-->                                </td>
+                                <td><{ $Total_member_all}><{ if $Ticket_MemberPice_total_T ne "" }>[折價<span class="p9black">後</span>價格：<{ $Ticket_MemberPice_total_T }><{ $Yuan }>]<{ /if }></td>
+                                <td bgcolor="#EEEEEE" class="p9black"><{ $Need_invoice_say }>：
+                                  <!--需要发票-->                                </td>
+                                <td><{ $yesifinvoice }>&nbsp;</td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td bgcolor="#EEEEEE" class="p9black">紅利折抵點數：</td>
+                                <td><{ $bonus_point }> </td>
+                                <td bgcolor="#EEEEEE" class="p9black">折價後總金額：</td>
+                                <td><{ if $Ticket_MemberPice_total_T ne "" }><{ $Ticket_MemberPice_total_T }><{ $Yuan }><{ /if }>
+                                  
+                                  <{ if $Bonus_MemberPice_total_T ne "" }><{ $Bonus_MemberPice_total_T }><{ /if }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td bgcolor="#EEEEEE" class="p9black"><{ $Invoice_num_say }>：</td>
+                                <td><{ $invoice_num }></td>
+                                <td bgcolor="#EEEEEE" class="p9black"><{ $Top_invoice_say }>：</td>
+                                <td><{ $invoiceform }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $ATM_say }>：
+                                  <!--支付方式-->                                </td>
+                                <td colspan="3"><{ $atm }></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                    <br>
+                      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td bgcolor="#CCCCCC"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="p9v">
+                              <tr bgcolor="#FFFFFF">
+                                <td width="15%" nowrap bgcolor="#EEEEEE" class="p9black"><{ $name_say }>：
+                                  <!--收货人姓名-->                                </td>
+                                <td width="35%"><{ $receiver_name }></td>
+                                <td width="15%" align="left" nowrap bgcolor="#EEEEEE" class="p9black"><{ $email_say }>：
+                                  <!--Email地址-->                                </td>
+                                <td width="35%"><{ $receiver_email }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td nowrap bgcolor="#EEEEEE" class="p9black"><{ $mobile_say }>：</td>
+                                <td><{ $receiver_mobile }></td>
+                                <td class="p9black" nowrap bgcolor="#EEEEEE"><{ $tel_say }>：
+                                  <!--联系电话-->                                </td>
+                                <td><{ $receiver_tele }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $addr_say }>：
+                                  <!--收货人地址-->                                </td>
+                                <td colspan="3"><{ $receiver_post }><{ $receiver_address }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $HomeSend_TimeType }>：
+                                  <!--宅配時間-->                                </td>
+                                <td colspan="3"><{ $transtime64decode_name }></td>
+                              </tr>
+                              <tr bgcolor="#FFFFFF">
+                                <td class="p9black" bgcolor="#EEEEEE"><{ $content_say }>：
+                                  <!--订单附言-->                                </td>
+                                <td colspan="3"><{ $receiver_memo }>&nbsp;&nbsp;&nbsp;</td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                    <br>
+                      <table width="96%" border="0" align="center">
+                        <tr>
+                          <td width="12%" valign="top" nowrap  class="p9black"><{ $PaytypeContent }>:</td>
+                          <td width="91%"  class="p9black"><{ $payment }></td>
+                        </tr>
+                        <tr>
+                          <td valign="top" nowrap  class="p9black"><{ $SendtypeContent }>:</td>
+                          <td  class="p9black"><{ $transport_content }></td>
+                        </tr>
+                      </table>
+                    <p><{ if $Action=='view' }> </p>
+                    <table align="CENTER" class="p12co" width="98%" border="0" cellspacing="0" cellpadding="0" height="15">
+                        <tr>
+                          <td height="26"  align="center" nowrap><form name="form1" method="post" action="">
+                              <input type="hidden" name="Action" value="insert">
+                              <input type="hidden" name="iid2" value="<{ $Pay_iid }>">
+                              <input type="hidden" name="pay_id"  value="<{ $pay_id }>">
+                              <input type="hidden" name="ATM"  value="<{ $ATM }>">
+                              <input type="hidden" name="transport_id"  value="<{ $transport_id }>">
+                              <input type="hidden" name="ifinvoice"  value="<{ $ifinvoice }>">
+                              <input type="hidden" name="invoice_num"  value="<{ $invoice_num }>">
+                              <input type="hidden" name="invoiceform"  value="<{ $invoiceform }>">
+                              <input type="hidden" name="county"  value="<{ $county }>">
+                              <input type="hidden" name="province"  value="<{ $province }>">
+                              <input type="hidden" name="city"  value="<{ $city }>">
+                              <input type="hidden" name="addr"  value="<{ $addr }>">
+                              <input type=hidden name='total_member_price' value='<{ $buy_total_price }>'>
+                              <input type="hidden" name="receiver_name"  value="<{ $receiver_name }>">
+                              <input type="hidden" name="receiver_email"  value="<{ $receiver_email }>">
+                              <input type="hidden" name="othercity"       value="<{ $othercity }>">
+                              <input type="hidden" name="receiver_tele"  value="<{ $receiver_tele }>">
+                              <input type="hidden" name="receiver_id" value="<{ $Pay_receiver_id }>">
+                              <input type="hidden" name="receiver_mobile"  value="<{ $receiver_mobile }>">
+                              <input type="hidden" name="receiver_memo"  value="<{ $receiver_memo }>">
+                              <input type="hidden" name="HomeTimeType" value="<{ $transtime_id }>(&)<{ $transtime64encode_name }>">
+                              <input type="submit" name="Submit" value="<{ $ActionSubmitOrder }>">
+                          </form></td>
+                        </tr>
+                      </table>
+                    <{ /if }> <{ if $Action=='insert' }>
+                      <table align="CENTER" class="p12co" width="98%" border="0" cellspacing="0" cellpadding="0" height="15">
+                        <tr>
+                          <td height="26"  align="center" nowrap><table width="90%" border="0">
+                              <tr>
+                                <td align="center"><{ if $PayPay==1 }>
+                                    <!--{ $TwPayInfo }-->
+                                    <script language="javascript">
+alert('請稍後，轉到台灣里付款系統頁面');
+					                       setTimeout("pay_one()",2000);
+					                     </script>
+                                  <{ /if }> <{ if $PayPay==2 }>
+                                  <!--{ $TwPayInfo }-->
+                                  <script language="javascript">
+alert('請稍後，轉到信用卡付款頁面');
+					                       setTimeout("pay_two()",2000);
+					                      </script>
+                                  <{ /if }> </td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td height="26"  align="center" nowrap><{ $Welcome }>
+                              <!--您已经完成本次购物的全部过程，随後我们及时提供产品和服务，欢迎您再次光临! -->                          </td>
+                        </tr>
+                        <tr>
+                          <td height="36"  align="center"><a href="javascript:print();"><{ $Print_order }>
+                                <!--列印訂單-->
+                          </a>&nbsp;</td>
+                        </tr>
+                      </table>
+                    <{ /if }> </td>
+                </tr>
+              </table>
+              <p>&nbsp;</p></td>
+          </tr>
+        </table>
+      <{ include_php file="include/bottom.php" }>
+        <map name="Map">
+          <area shape="rect" coords="578,6,660,40" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Special">
+        </map>
+        <map name="Map2">
+          <area shape="rect" coords="579,7,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=NewProduct">
+        </map>
+        <map name="Map3">
+          <area shape="rect" coords="581,5,663,41" href="<{ $Site_Url }>/product/product_list_detail.php?Type=Recommend">
+        </map>
+        <!--Float advertising Start-->
+      <{ if $Float_radio eq  1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/float.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Float advertising End -->
+            <!--Ear advertising Start -->
+      <{ if $Ear_radio eq 1 }>
+      
+      
+      
+      <{ include_php file="modules/advertising/ear.php" }>
+      
+      
+      
+      <{ /if }>
+            <!--Ear advertising End -->
+            <!-- 统计部分代码开始 --></td>
+  </tr>
+</table>
+</body>
+</html>
+<!-- 以下部分是增加在线支付的表单部分。-->
+<!-- 以下部分是增加在线支付的表单部分。-->
+<form name="payform_one" method="post" action="https://www.twv.com.tw/openpay/pay.php" >
+									     <!--付款介面版本-->
+										 <input type="hidden" name="version" value="1.0">
+										 <!--商店代号-->
+										 <input type="hidden" name="mid" value="<{ $Pay_Shopcode }>">
+										 <!--分期贷款  ０为不分期-->
+										 <input type="hidden" name="iid" value="<{ $Pay_iid }>">
+										 <!--定单号-->
+										 <input type="hidden" name="txid" value="<{ $Order_serial }>">
+										 <!--总金额-->
+										 <input type="hidden" name="amount" value="<{ $buy_total_price }>">
+										 <!--页面编码-->
+										  <input type="hidden" name="charset" value="UTF-8">
+										 <!--验证码-->
+										 <input type="hidden" name="verify" value="<{ $Pay_verify }>">
+										 <!--回传地址-->
+										 <input type="hidden" name="return_url" value="<{ $Pay_url }>">
+										 <!--建议付款方式-->
+										<input type="hidden" name="select_paymethod" value="<{ $prefer_paymethod }>">
+										 <input type="hidden" name="prefer_paymethod" value="<{ $prefer_paymethod }>">
+										 <!--消费者名称-->
+										 <input type="hidden" name="cname" value="<{ $Pay_cname }>">
+                                         <input type="hidden" name="caddress" value="<{ $Pay_caddress }>">
+                                         <input type="hidden" name="ctel" value="<{ $Pay_ctel }>">
+										 <!--收货人名称-->
+										 <input type="hidden" name="xname" value="<{ $receiver_name }>">
+										 <!--收货人地址-->
+										 <input type="hidden" name="xaddress" value="<{ $receiver_address }>">
+                                         <input type="hidden" name="xtel" value="<{ $receiver_tele }>">
+                                         <input type="hidden" name="cemail" value="<{ $receiver_email }>">
+										 <input type="hidden" name="language" value="tchinese">
+										 <!--项目描述-->
+										 <input type="hidden" name="description" value="">
+                                         
+										<input type="hidden" name="mode" value="1">
+                                        <input type="hidden" name="charset" value="UTF-8">
+									</form>
+									
+									<form name="payform_two" method="post" action="https://www.paynow.com.tw/service/etopm.aspx" >
+									<input type="hidden" name="WebNo" value="<{ $Pay_WebNo }>">
+									<input type="hidden" name="PassCode" value="<{ $Pay_PassCode }>">
+									<input type="hidden" name="OrderNo" value="<{ $Order_serial }>">
+									<input type="hidden" name="ECPlatform" value="<{ $Pay_ECPlatform }>">
+									<input type="hidden" name="TotalPrice" value="<{ $buy_total_price }>">
+									<input type="hidden" name="OrderInfo" value="orderno:<{ $Order_serial }>">
+									<input type="hidden" name="ReceiverTel" value="<{ $Pay_receiver_tele }>">
+									<input type="hidden" name="ReceiverName" value="<{ $Pay_receiver_name }>">
+									<input type="hidden" name="ReceiverEmail" value="<{ $Pay_receiver_email }>">
+									<input type="hidden" name="ReceiverID" value="<{ $Pay_receiver_id }>">
+									<input type="hidden" name="Note1" value="">
+									<input type="hidden" name="Note2" value="">
+									<input type="hidden" name="PayType" value="<{ $prefer_paymethod }>">
+									<input type="hidden" name="GoodsoutLimit" value="0">
+									<input type="hidden" name="Packagekind" value="0000">
+									<input type="hidden" name="AtmRespost" Value="1">
+									</form>

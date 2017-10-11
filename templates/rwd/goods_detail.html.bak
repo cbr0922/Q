@@ -1,0 +1,1164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $meta_desc }>" name="description">
+<meta content="<{ $P_keywords }>" name="keywords">
+<title><{ $P_goodsname|strip_tags }> - <{$Bname}> - <{ $HtmlTitle }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome-ie7.css" type=text/css rel=stylesheet>
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome.css" type=text/css rel=stylesheet>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<link rel="canonical" href="http://www.example.com" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+</script>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script type="text/javascript">
+	document.write('<style>.noscript { display: none; }</style>');
+</script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+<!--商品圖展示,記得內容id="photos"換成id="myGallery"，span都不用了，參考下載的sample檔-->
+<script type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery-ui.min.1.8.18.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.galleryview-3.0-dev.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.timers-1.2.js"></script>
+<link type="text/css" rel="stylesheet" href="<{ $Site_Url }>/js/jquery/jquery.galleryview-3.0-dev.css" />
+<script type="text/javascript">
+	$(function(){
+		$('#myGallery').galleryView();
+	});
+</script>
+<!--商品圖展示-->
+<script language="javascript" type="text/javascript" src="/js/jquery/jquery.form.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.blockUI.js"></script>
+<div id="body_out">
+<div id="body_center">
+  <div id="title_l" >
+    <div id="title_l_left"><a href="<{ $Site_Url }>">首頁</a> <{ section name=list loop=$class_banner }>  &nbsp;<span class="style100">></span> &nbsp; <a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{/section}>  &nbsp;<span class="style100">></span> &nbsp; <{ $P_goodsname }></div>
+    <div id="title_l_right">
+      <!-- <a href="<{ $Site_Url }>">首頁</a> <{ section name=list loop=$class_banner }>  &nbsp;<span class="style100">／</span> &nbsp; <a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{/section}><{if $brandname neq ""}><span class="style100">／</span> <{ $brandname }><{/if}>-->
+    </div>
+  </div>
+ 
+    <div id="body_left">
+      <!--左邊開始-->
+      <{if $banner neq ""}> <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$banner}>"> <{/if}><{ include_php file="include/include_product_class.php" }></div>
+    <!--左邊結束-->
+    <div id="body_right">
+      <div style="margin-bottom:15px">
+        <script  language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=product" type="text/javascript" ></script>
+      </div>
+      <form action="<{ $Site_Url }>/shopping/cart.php" name="form_goods" id="form_goods" method='get' >
+        <input name="Action" value="Add" type="hidden">
+        <input name="Type" id="Type" value="" type="hidden">
+        <input name="goods_id" value="<{ $P_gid }>" type="hidden">
+        <input name="detail_id" id="detail_id" value="" type="hidden">
+        <!--input name="count" id="count" value="1" type="hidden">
+        <input name="good_color" id="good_color" value="" type="hidden">
+        <input name="good_size" id="good_size" value="" type="hidden"-->
+        <table width="100%" border="0"  cellpadding="0" cellspacing="0" style="clear:both">
+          <tr>
+            <td width="350" rowspan="2" valign="top" style="padding-bottom:20px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="330"><!--顯示圖片-->
+                   <ul id="myGallery">
+  <{ section name=Comm loop=$Goodpic }>
+ <li> <{$Goodpic[Comm].title}>
+  <img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$Goodpic[Comm].pic}>" />
+                                  </li>
+                                  <{/section}>
+                                </ul></td>
+                </tr>
+                <tr>
+                  <td height="35" valign="middle"><{if $UpProduct_array.gid>0}><a href="goods_detail.php?goods_id=<{$UpProduct_array.gid}>" title="<{$UpProduct_array.goodsname}>"><img src="<{ $template_dir }>/images/page1.gif" border="0"></a>&nbsp;<{/if}><a href="javascript:void(0);" id="linkpic">&nbsp;<img id="linkimg" src="<{ $template_dir }>/images/page.gif" border="0">&nbsp;</a><{if $DownProduct_array.gid>0}>&nbsp;<a href="goods_detail.php?goods_id=<{$DownProduct_array.gid}>" title="<{$DownProduct_array.goodsname}>"><img src="<{ $template_dir }>/images/page2.gif" border="0"></a><{/if}></td>
+                </tr>
+                <tr>
+                  <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <!-- <td class="blue-line"><a href="<{ $Site_Url }>/product/product_class_detail.php?bid=<{ $P_bid }>">同類商品</a> 分享:</td>-->
+<td >
+分享商品：
+</td>
+                        <td width="25">
+                       <a href="http://line.naver.jp/R/msg/text/?<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $P_gid }>"><img src="<{ $template_dir }>/images/line.png" border="0" title="分享至Line"></a>
+                        </td>
+                        <td width="25">
+                        <a href="https://plus.google.com/share?url={<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $P_gid }>}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="<{ $template_dir }>/images/googleadd.png" alt="Share on Google+" border="0" title="分享至Google+"/></a>
+                        </td>
+                        
+                        <td width="25"><A href="javascript: void(window.open('http://www.facebook.com/share.php?u=' .concat(encodeURIComponent(location.href+'&u=<{$recommendno}>')) ));"><img src="<{ $template_dir }>/images/icon_s01.jpg" border="0" title="分享至Facebook"></A></td>
+                        
+                         
+                        
+                        <td width="25"><A href="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&status=' .concat(encodeURIComponent(location.href+'&u=<{$recommendno}>')) ));"><img src="<{ $template_dir }>/images/icon_s02.jpg" border="0" title="分享至Plurk"></A></td>
+                        <td width="25"><A href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)) .concat(' ') .concat(encodeURIComponent(location.href+'&u=<{$recommendno}>'))));"><img src="<{ $template_dir }>/images/icon_s03.jpg" border="0" title="分享至Twitter"></A></td>
+						<td width="25"><A onclick='$("#cpl_text").attr("value",location.href+"&u=<{$recommendno}>");$("#cpl").attr("style","display:block");$("#cpl_text").select();' href="javascript:void(0);"><img src="<{ $template_dir }>/images/icon_s04.jpg" border="0" title="分享商品連結"></A></td>
+                        <td width="25">
+                        <a href="<{ $Site_Url }>/member/mailtofriend.php?action=sendto&Articleid=<{ $P_gid }>"><img src="<{ $template_dir }>/images/mailto.gif" border="0" title="轉寄好友"></a>
+                        </td><td width="25">
+                        <A href="<{ $Site_Url }>/member/myscore.php?hometype="><img src="<{ $template_dir }>/images/icong.gif" border="0" title="分享使用心得"></a>
+                        </td>
+                       
+                      </tr>
+                    </table><br />
+ <DIV style="DISPLAY: none" id=cpl>
+                                          <TEXTAREA id=cpl_text style="width:90%; float:none;"></TEXTAREA>
+                                          <BR>
+                                        複製以上網址分享給你的好友 </DIV>
+                                    </td>
+                </tr>
+              </table></td>
+            <td valign="top" style="padding-bottom:20px"><table width="90%" border="0" align="left" cellpadding="2" cellspacing="0" style="margin-left:20px">
+                <{ if $P_sale_name neq "" }>
+                <tr>
+                  <td colspan="2"  align="left" class="salename"><{ if $P_salename_color neq "" }><font color="<{ $P_salename_color }>"><{/if}><{ $P_sale_name }><{ if $P_salename_color neq "" }></font><{/if}></td>
+                </tr>
+                <{/if}>
+                <tr>
+                  <td colspan="2"  align="left" class="goodsname" ><h1><{ $P_goodsname }></h1></td>
+                </tr>
+                <{ if $P_intro neq "" }>
+                <tr>
+                  <td colspan="2"  align="left" class="intro"><{ $P_intro }>
+                    <!--簡介--></td>
+                </tr>
+                <{/if}>
+               
+                <tr>
+                <td colspan="2"  align="right" style="border-bottom:1px solid #cccccc;"><div class="goodsno">
+<{ if $P_bn neq "" }>商品編號：<{ $P_bn }> ｜ <{/if}><{ if $P_goodsno neq "" }>賣場編號：<{ $P_goodsno }><{/if}> ｜ <A href="<{ $Site_Url }>/product/Collection.php?Action=Insert&gid=<{ $P_gid }>"><i class="icon-heart"></i>&nbsp;加入追蹤清單</A></td>
+                </tr>
+                
+<{ if $avgscoreimg neq "" }>
+            <tr>
+                  <td  align="left" nowrap="nowrap"  class="f15">商品評價：</td>
+                  <td  align="left" class="f15" ><{$avgscoreimg}></td>
+                </tr>
+                <tr>
+<{/if}>
+                <{ if $P_brandname neq "" }>
+                
+                  <td  align="left" nowrap="nowrap" width="66"  class="f15">品　　牌：</td>
+                  <td  align="left" class="f15" ><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$P_brand_id}>"><{ $P_brandname }></a></td>
+                </tr>
+                <{/if}>
+                
+                
+                <tr>
+                  <td width="66"  align="left" nowrap="nowrap"   class="f15"></td>
+                  <td align="left" class="f15"><!--<{ $P_goodsno }>商品編號--></td>
+                </tr>
+               
+                  
+                <{ if $P_xinghao neq "" }>
+                <tr>
+                  <td width="66"  align="left" class="f15">型　　號：</td>
+                  <td align="left" class="f15"><{ $P_xinghao }></td>
+                </tr>
+                <{/if}>
+                <{ if $P_unit>0 }>
+                <tr>
+                  <td width="66"  align="left" class="f15">計量單位：</td>
+                  <td align="left" class="f15"><{ $P_unit }></td>
+                </tr>
+                <{/if}>
+                <{ if $P_weight>0 }>
+                <tr>
+                  <td  align="left" class="f15">重　　量：</td>
+                  <td align="left" class="f15"><{ $P_weight }>KG</td>
+                </tr>
+                <{/if}>
+                <{ if $P_chandi neq "" }>
+                <tr>
+                  <td  align="left" class="f15">產　　地：</td>
+                  <td align="left" class="f15"><{ $P_chandi }></td>
+                </tr>
+                <{/if}>
+                <{ if $P_attr neq "" }>
+                <!--分類擴展字段-->
+                <{ section name=list loop=$P_ClassField }>
+                <tr>
+                  <td   align="left" valign="top" class="f15"><{$P_ClassField[list].Fieldname}></td>
+
+                  <td  align="left" class="f15"><{$P_ClassField[list].Fieldvalue}></td>
+                </tr>
+                <{/section}>
+                <{/if}>
+                <{ if $P_ERP neq "" }>
+                <tr>
+                  <td  align="left" class="f15">ERP：</td>
+                  <td align="left" class="f15"><{ $P_ERP }></td>
+                </tr>
+                <{/if}>
+            <tr>
+                  <td colspan="2"   >
+                  
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                      
+              <{ if $P_productdetail.count lte 0 }><!--有詳細資料就不要有主價格-->
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <{ if $P_price neq "" }>
+                <tr>
+                  <td  align="left" class="f15" width="70">建議售價：</td>
+                  <td align="left" class="f15"><s>$<{ $P_price }></s></td>
+                </tr>
+                <{/if}>
+                <{ if $P_ifbonus eq 1 }>
+                 <tr>
+                  <td align="left" class="f15" nowrap="nowrap" width="70">所需積分：</td>
+                  <td align="left" nowrap="nowrap" class=" price"><span style="font-size:20px">$<{ $P_bonusnum }></span>
+                      </td>
+                </tr>
+                <{else}>
+                
+
+                
+                <tr>
+                  <td colspan="2" width="70" align="left" class="f15" >
+                  
+                  <{ if $P_pricedesc>0 }><!--如果網購價大於1-->
+                 <span style="letter-spacing: 6px;"><{if $P_iftimesale>0}>促銷<{else}>網購<{/if}></span>價：<span class="f15<{ if $P_levelprice>0 }><{else}>  price<{/if}>" style="<{ if $P_levelprice>0 }><{else}>font-size:20px<{/if}>">&nbsp;&nbsp;$<{if $P_iftimesale>0}><{$P_timesale.price}><{else}><{ $P_pricedesc }><{/if}></span><br />
+
+                  <{/if}>
+                  
+                  <{ if $P_levelprice>0 }><!--如果會員價大於1-->
+                  <{if $P_iftimesale>0}><span style="letter-spacing: 6px;">促銷</span><{else}><{ $P_level_name }><{/if}>價<!--會員價（會員登入後按等級享優惠價格）-->：<span style="font-size:20px" class="f15  price">&nbsp;$<{if $P_iftimesale>0}><{$P_timesale.price}><{else}><{ $P_levelprice }><{/if}></span>
+                  <{/if}>
+                 </td>
+                </tr>
+                
+                <{ if $P_memberprice>0 }>
+                <tr>
+                  <td  align="left" class="f15" nowrap="nowrap" width="70"><span style="letter-spacing: 5px; float:left; width:36px">網購價</span> ：</td>
+                  <td align="left"><{ $P_memberprice }><{ if $P_combipoint>0 }>+<{$P_combipoint}>紅利<{/if}></td>
+                </tr>
+                <{/if}>
+                <{/if}>
+                  </table>
+                  
+                  <{/if}>
+                  
+                  
+					  </td>
+                     
+                    </tr>
+                  </table></td>
+                </tr>
+                <{ if $P_if_monthprice eq "1" }>
+                <tr>
+                  <td  align="left" >分期付款：</td>
+                  <td  align="left"><!--分期-->
+                    <table width="100%"    cellspacing="0" style="margin-top:10px; margin-bottom:10px" >
+                      <tr bgcolor="#FFFFFF">
+                        <td>分期</td>
+                        <td>價格</td>
+                      </tr>
+                      <{ section name=list loop=$P_month_array }>
+                      <tr bgcolor="#FFFFFF" >
+                        <td width="30%"><{$P_month_array[list].name}></td>
+                        <td width="70%"><{$P_month_array[list].price}></td>
+                      </tr>
+                      <{/section}>
+                    </table></td>
+                </tr>
+                <{/if}>
+                 <{ if $P_ifsaleoff>0 }>
+                <tr>
+                    <td align="left" class="f15" nowrap="nowrap" width="70" style="font-weight:bold;">促銷時間：</td>
+                    <td align="left" style="font-weight:bold;font-size:14px;"><{$P_saleoff.startdate}> ~ <{$P_saleoff.enddate}></td>
+                </tr>
+                <tr>
+                    <td align="left" class="f15" nowrap="nowrap" width="70" style="font-weight:bold;">促銷狀態：</td>
+                    <td align="left" style="font-weight:bold;font-size:14px;" class="prices"><{if $P_saleoff.ifsaleoff eq 1}>正在促銷<{elseif $P_saleoff.nobuytime eq 1}>已過期<{elseif $P_saleoff.havebuytime>0}>還未到促銷時間<{else}>未達促銷時間或已過期<{/if}></td>
+                </tr>
+                <{/if}>
+                <{ if $P_iftimesale>0 }>
+                <tr>          
+                    <td align="left" class="f15" nowrap="nowrap" width="70" style="font-weight:bold;">促銷時間：</td>
+                    <td align="left" style="font-weight:bold;font-size:15px;"><{$P_timesale.startdate}> ~ <{$P_timesale.enddate}></td>
+                </tr>
+                <tr>
+                    <td align="left" class="f15" nowrap="nowrap" width="70" style="font-weight:bold;">促銷狀態：</td>
+                    <td align="left" style="font-weight:bold;font-size:14px;" class="prices"><{if $P_timesale.iftimesale eq 1}>正在促銷<{elseif $P_timesale.nobuytime eq 1}>已過期<{elseif $P_timesale.havebuytime>0}>還未到促銷時間<{else}>未達促銷時間或已過期<{/if}></td>
+                </tr>
+                <{/if}>
+                <{ if $P_ifappoint eq 1}>
+                <tr>
+                  <td  align="left" >商品預購：</td>
+                  <td  align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="25%">預購時間：</td>
+                        <td width="75%"><{$P_appoint.startdate}>-<{$P_appoint.enddate}></td>
+                      </tr>
+                      <tr>
+                        <td>出貨時間：</td>
+                        <td><{$P_appoint.sendtime}></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <{/if}>
+                <{ if $P_buymore.count>0 }>
+             <!-- 買越多-->
+              <tr>
+                <td colspan="2"  align="left">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="buymore_box">
+                    <tr>
+                      <td class="buymore_head">&nbsp;購買數量</td>
+                      <td class="buymore_head">&nbsp;優惠價格(單價)</td>
+                    </tr>
+                    <{ section name=list loop=$P_buymore.info }>
+                    <tr>
+                      <td class="buymore_count">&nbsp;<{$P_buymore.info[list].mincount}>~<{$P_buymore.info[list].maxcount}></td>
+                      <td class="buymore_count">&nbsp;$ <{$P_buymore.info[list].price}></td>
+                    </tr>
+                    <{/section}>
+                  </table></td>
+              </tr>
+              <{/if}>
+                
+                <{ if $P_ifjs eq 1 }>
+                <tr>
+                  <td  align="left" nowrap="nowrap" >集殺活動時間</td>
+                  <td  align="left"><{$P_JS.js_begtime}>~<{$P_JS.js_endtime}></td>
+                </tr>
+                <tr>
+                  <td  colspan="2"  align="left"><table width="100%" border="0"  cellpadding="0" cellspacing="1"  bgcolor="EEE2C9">
+                      <tr>
+                        <td align="left" bgcolor="#FFFFFF" >集殺數量</td>
+                        <td bgcolor="#FFFFFF" >集殺價格</td>
+                      </tr>
+                      <{ section name=list loop=$P_JS.Js_open }>
+                      <tr>
+                        <td bgcolor="#FFFFFF" ><{$P_JS.Js_open[list].js_count}></td>
+                        <td bgcolor="#FFFFFF" ><{$P_JS.Js_open[list].js_num}></td>
+                      </tr>
+                      <{/section}>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><{ if $P_JS.DoAction eq "Yes" }> <A  href="<{ $Site_Url }>/product/js_pop.php?Action=Add&goods_id=<{ $P_gid }>"><img src="<{ $template_dir }>/images/ym_click_group_go1.gif" width="107" height="31" border="0" ></a> <{ /if }> </td>
+                </tr>
+                <{/if}>
+                
+                  <{ if $P_good_color neq "" }>
+                <tr>
+                  <td  align="left"  class="f15">規　　格：</td>
+                  <td  align="left"><select name="good_color" id="good_color" onChange="checkStorage(<{$P_gid}>,$('#good_color').val(),$('#good_size').val(),0,'Img_productBuy','showstorage');">
+                      <{ section name=list loop=$P_color }>
+                      <option value="<{$P_color[list].color}>"><{$P_color[list].color}></option>
+                      <{ /section}>
+                    </select></td>
+                </tr>
+                <{/if}>
+                <{ if $P_good_size neq "" }>
+                <tr>
+                  <td  align="left" class="f15">尺　　寸：</td>
+                  <td  align="left"><select name="good_size" id="good_size" onChange="checkStorage(<{$P_gid}>,$('#good_color').val(),$('#good_size').val(),0,'Img_productBuy','showstorage');">
+                      <{ section name=list loop=$P_size }>
+                      <option value="<{$P_size[list].size}>"><{$P_size[list].size}></option>
+                      <{ /section}>
+                    </select></td>
+                </tr>
+                <{/if}>
+
+                <{ if ($P_productdetail.count<=0 && $P_ifjs neq 1) || ($P_saleoff.ifsaleoff eq 1 && $P_ifsaleoff eq 1) || ($P_ifappoint eq 1 && $P_appoint.ifappoint eq 1 )}>
+                <!--可購買-->
+                <{ if $P_ifsaleoff>0 && $P_saleoff.ifsaleoff neq 1 }> 
+                	<!--整點促銷時間未到達或已過期則不出現數量-->
+                <{else}>
+                <tr>
+                  <td align="left" class="f15">數　　量：</td>
+                  <td align="left" valign="middle" class="f15" nowrap="nowrap"><div>
+                      <div style="float:left; width:120px">
+                        <select name="count" id="count">
+                        </select>
+                      </div>
+                      
+                    </div></td>
+                </tr>
+              
+               
+                <tr>
+                  <td colspan="2" align="left"><table width="366" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td colspan="2" style="padding-top:10px;padding-bottom:15px;"><div style=" float:left"><a href="#"><img onclick="gotoshopping(0,1);" id="Img_productBuy" border="0" src="<{ $template_dir }>/images/<{if $P_ifappoint eq 1 && $P_appoint.ifappoint eq 1}>but7.png<{else}>but1.png<{/if}>  " title="立刻結帳" <{if !($P_ifappoint eq 1 && $P_appoint.ifappoint eq 1)}> style="display:none; margin-right:5px" <{/if}>></a>
+                            <div id="showstorage"></div>
+                          </div>
+                          <div style="float:left"><a href="#"><img id="Img_cartAdd" src="<{ $template_dir }>/images/but3.png" title="放入購物車" style="display:none;cursor:hand; margin-right:5px"  border="0"  ></a></div></td>
+                        <!--<td style="padding-top:10px"><{ if $Ifbonus !=1 }><a href='<{ $Site_Url }>/product/Collection.php?Action=Insert&gid=<{ $P_gid }>'><img src="<{ $template_dir }>/images/but8.gif" border="0"></a><{ /if }></td>-->
+                      </tr>
+                    </table>
+                    <div id="showstorage_info"></div>
+                    <!--庫存提醒--></td>
+                </tr>
+                
+<{ if $P_changegoods.count>0 }>
+          <!--加購商品-->
+          <tr>
+            <td colspan="2" align="left" style="border:1px solid #dbdbdb; padding-bottom:5px;"><div align="left" ><img src="<{ $template_dir }>/images/P_changegoods.jpg"  border="0" /></div>
+              <{ section name=list loop=$P_changegoods.info }>
+              <div style="float:left; width:100%;border-bottom:1px dashed #ffb0cc;">
+                <table width="100%" border="0" cellspacing="0" align="center" cellpadding="0">
+                  <tr>
+                    <td align="center"><div style="width:50px;"><input type="checkbox" value="<{$P_changegoods.info[list].changegid}>" id="changegid<{$P_changegoods.info[list].changegid}>" name="changegid[]"></div><!--<div class="picture4"><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$P_changegoods.info[list].smallimg}>" border="0" width="65" /></div>--></td>
+                    <!--加購商品名稱-->
+                    <td style="padding:5px;"><div style="width:200px;height:35px;overflow:hidden;display:table-cell;vertical-align:middle;"><a href="javascript:void(0);" onClick="showProduct(<{ $P_changegoods.info[list].changegid }>);"><{$P_changegoods.info[list].goodsname}></a></div>
+                    <{if $P_changegoods.info[list].good_color neq ""}>
+                      <div style="float:left;">顏色：
+                      
+                      <select name="changecolor<{$P_changegoods.info[list].changegid}>" id="changecolor<{$P_changegoods.info[list].changegid}>" onChange="checkStorage(<{$P_changegoods.info[list].changegid}>,'changecolor<{$P_changegoods.info[list].changegid}>','changesize<{$P_changegoods.info[list].changegid}>',0,'changegid<{$P_changegoods.info[list].changegid}>','');">
+                          <{ section name=list2 loop=$P_changegoods.info[list].color }>
+                          <option value="<{$P_changegoods.info[list].color[list2].color}>"><{$P_changegoods.info[list].color[list2].color}></option>
+                          <{ /section}>
+                        </select>
+                      </div>
+                      <{/if}>
+                      
+                      
+                      <{if $P_changegoods.info[list].good_size neq ""}>
+                      <div style="margin-left:10px;">尺寸：
+                        <select name="changesize<{$P_changegoods.info[list].changegid}>" id="changesize<{$P_changegoods.info[list].changegid}>" onChange="checkStorage(<{$P_changegoods.info[list].changegid}>,'changecolor<{$P_changegoods.info[list].changegid}>','changesize<{$P_changegoods.info[list].changegid}>',0,'changegid<{$P_changegoods.info[list].changegid}>','');">
+                          <{ section name=list2 loop=$P_changegoods.info[list].size }>
+                          <option value="<{$P_changegoods.info[list].size[list2].size}>"><{$P_changegoods.info[list].size[list2].size}></option>
+                          <{ /section}>
+                        </select>
+                      <{/if}>
+                      </td>
+                      
+                      <td align="center"><div style="width:76px;">特價：<span class="price"><br /><{$P_changegoods.info[list].price}></span></div></td>
+                  </tr>
+                </table>
+              </div>
+              
+              <{/section}></td>
+          </tr>
+          <{/if}>
+          <{/if}>
+                <{ if $P_Attrs neq "" }>
+                <!--產品分類屬性-->
+                <tr>
+                  <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <{ section name=list loop=$P_Attr }>
+                      <tr>
+                        <td><{$P_Attr[list].attributename}></td>
+                        <td><{ section name=list2 loop=$P_Attr[list].value }><{$P_Attr[list].value[list2].value}><{/section}></td>
+                      </tr>
+                      <{/section}>
+                    </table></td>
+                </tr>
+                <{/if}>
+                <tr>
+                  <td colspan="2" align="left"><ul style="margin-top:15px;margin-left:0px; padding-left:0px" class="tag">
+                      <{ section name=list loop=$P_Attr }>
+                      
+                      <{ section name=list2 loop=$P_Attr[list].value }>
+                      <li><a href="<{ $Site_Url }>/product/product_attr.php?attrid=<{$P_Attr[list].attrid}>&bid=&valueid=<{$P_Attr[list].value[list2].valueid}>"><{$P_Attr[list].value[list2].value}></a></li>
+                      <{/section}>
+                      
+                      <{/section}>
+                    </ul></td>
+                </tr>
+                <{/if}>
+                 <{ if $P_subjectcontent neq "" }>
+                <tr>
+                  <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="40" height="55" ><img src="<{ $template_dir }>/images/icon-save.gif" /></td>
+                        <td align="left" valign="middle" class="sale_infor"><{$P_subjectcontent}></td>
+                      </tr>
+                  </table></td>
+                </tr>
+                <{/if}>
+                <{ if $P_ifsales eq 1 }>
+                <tr>
+                  <td  align="right" class="f15" >優惠活動：</td>
+                  <td align="left" class=" job4"><a href="<{ $Site_Url }>/modules/sale/product_sale.php?subject_id=<{$P_salesubject.subject_id}>"><{$P_salesubject.subject_name}></a><!--，每件<{$P_sale_price}>元--></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td align="left" class="f15"></td>
+                </tr>
+                <{/if}>
+                
+                <{ section name=list loop=$P_discountsubject.info }>
+                <tr>
+                  <td  align="right" class="f15" >優惠活動：</td>
+                  <td align="left"  class="  job4"><a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{$P_discountsubject.info[list].dsid}>"><{$P_discountsubject.info[list].subject_name}></a><!--，活動價格<{$P_discountsubject.info[list].price}>--></td>
+                  <br />
+                </tr>
+                <tr>
+                  <td></td>
+                  <td align="left" class="f15"></td>
+                </tr>
+                <{/section}>
+            </table></td>
+          </tr>
+
+          <tr><td>
+          <{if $bNum>0 }> <!--判斷是否有相關文章-->
+          <div style="float:left;text-align:left;border:1px solid #cccccc;margin-left: 20px;padding: 15px;"> 
+          相關文章：<br />
+          <{ section name=i loop=$books_array }> 
+          <a href="<{ $Site_Url }>/article/article.php?articleid=<{ $books_array[i].news_id }>" target="_blank"><{ $books_array[i].ntitle }></a><br />
+           <{ /section  }>
+            </div>
+            <{/if}></td></tr>
+
+          <{ if $P_packgoods.count>0 }>
+          <!--組合商品-->
+          <!--tr>
+            <td  width="760" colspan="2"  align="left" style="border:1px solid #dbdbdb; padding-bottom:5px;"><div align="left" ><img src="<{ $template_dir }>/images/P_changegoods.jpg"  border="0" /></div>
+              <{ section name=list loop=$P_packgoods.info }>
+              <div style="float:left; width:120x;padding:10px 0px 10px 0px; margin:10px 0px 10px 0px;<{if $smarty.section.list.index%5 eq 4}> <{else}> border-right:1px dashed #ffb0cc;<{/if}>">
+                <table width="120" border="0" cellspacing="0" align="center" cellpadding="0" >
+                  <tr>
+                    <td style="padding-top:2px; padding-bottom:2px; padding-right:8px; padding-left:8px" height="130" ><div class="picture4  "><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$P_packgoods.info[list].smallimg}>"  /></div></td>
+                  </tr>
+                  <tr>
+                    <td width="120px"  style=" padding-right:8px; "><a href="javascript:void(0);" onClick="showProduct(<{ $P_packgoods.info[list].packgid }>);"><{$P_packgoods.info[list].goodsname}></a>
+                    <input type="hidden" value="<{$P_packgoods.info[list].packgid}>" id="packgid<{$P_packgoods.info[list].packgid}>" name="packgid[]">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  style=" padding-right:8px; "><{if $P_packgoods.info[list].good_color neq ""}>
+                      <div style="padding-bottom:5px; padding-top:5px">顏色：
+                        <select name="packecolor<{$P_packgoods.info[list].packgid}>" id="packecolor<{$P_packgoods.info[list].packgid}>" onChange="checkStorage(<{$P_packgoods.info[list].packgid}>,'packecolor<{$P_packgoods.info[list].packgid}>','packsize<{$P_packgoods.info[list].packgid}>',0,'packgid<{$P_packgoods.info[list].packgid}>','');">
+                          <{ section name=list2 loop=$P_packgoods.info[list].color }>
+                          <option value="<{$P_packgoods.info[list].color[list2].color}>"><{$P_packgoods.info[list].color[list2].color}></option>
+                          <{ /section}>
+                        </select>
+                      </div>
+                      <{/if}>
+                      
+                      <{if $P_changegoods.info[list].good_size neq ""}>
+                      <div style="padding-bottom:5px">尺寸：
+                        <select name="packsize<{$P_packgoods.info[list].packgid}>" id="packsize<{$P_packgoods.info[list].packgid}>" onChange="checkStorage(<{$P_packgoods.info[list].packgid}>,'packecolor<{$P_packgoods.info[list].packgid}>','packsize<{$P_packgoods.info[list].packgid}>',0,'packgid<{$P_packgoods.info[list].packgid}>','');">
+                          <{ section name=list2 loop=$P_packgoods.info[list].size }>
+                          <option value="<{$P_packgoods.info[list].size[list2].size}>"><{$P_changegoods.info[list].size[list2].size}></option>
+                          <{ /section}>
+                        </select>
+                      </div>
+                      <{/if}></td>
+                  </tr>
+                  <tr>
+                    <td >特價：<span class="price"><{$P_packgoods.info[list].price}></span></td>
+                  </tr>
+                </table>
+              </div>
+              
+              <{/section}></td>
+          </tr-->
+          <{/if}>
+          
+          
+          
+          <{ if $P_productdetail.count>0 }>
+          <!--商品詳細規格-->
+          <tr>
+            <td  colspan="2"  align="left"  style="border:1px solid #dbdbdb; padding-bottom:10px; padding-left:5px; padding-right:5px"><div align="left"><img src="<{ $template_dir }>/images/P_productdetail.jpg"  border="0" /></div>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2" align="center"><!--商品名稱--></td>
+                  <td width="100">建議售價</td>
+                  <td width="100">網購價</td>
+                  <td></td>
+                </tr>
+                <{ section name=list loop=$P_productdetail.info }>
+                <tr>
+                  <td width="140"  style="background:#FFF; border-bottom: 1px dashed #dbdbdb;margin-bottom:10px" class="picture4 "><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{if $P_productdetail.info[list].detail_pic eq ""}><{$P_middleimg}><{else}><{$P_productdetail.info[list].detail_pic}><{/if}>"  /></td>
+                  <td width="400" style="background:#FFF; border-bottom: 1px dashed #dbdbdb; margin-bottom:10px;padding-left:10px;"><h1><{$P_productdetail.info[list].detail_name}></h1></td>
+                  <td style="background:#FFF; border-bottom: 1px dashed #dbdbdb; margin-bottom:10px"><{$P_productdetail.info[list].detail_price}></td>
+                  <td class="price" style="background:#FFF; border-bottom: 1px dashed #dbdbdb; margin-bottom:10px"><{$P_productdetail.info[list].member_price}></td>
+                  <td style="background:#FFF; border-bottom: 1px dashed #dbdbdb; padding-right:30px; margin-bottom:10px"><input value="" style="display:none;background:url(<{ $template_dir }>/images/but1.png); width:142px; height:48px;border:0px; cursor:pointer;" type="button" id="Btn_detailBuy<{$P_productdetail.info[list].detail_id}>" onClick="gotoshopping(<{$P_productdetail.info[list].detail_id}>,1);" />
+                    <div id="showstorage<{$P_productdetail.info[list].detail_id}>"></div>
+                    <!--庫存提醒--></td>
+                </tr>
+                <tr>
+                  <td style="height:10px"></td>
+                </tr>
+                <{/section}>
+              </table></td>
+          </tr>
+          <{/if}>          
+          <{ if $P_ifjs eq 1 }>
+          <tr>
+            <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+                <tr>
+                  <td><table width=100% height=100% border="0"  cellspacing="0" class=sbody>
+                      <tr align="center" valign="baseline" bgcolor="#f1eee7">
+                        <td width="12%" valign="middle" bgcolor="#E2E9ED">殺價金額</td>
+                        <{ section name=list loop=$P_JS.Js_open }>
+                        <td width="11%" valign="bottom" bgcolor="#E2E9ED"><br>
+                          <font face="Arial, Helvetica, sans-serif" size="2"><{ $P_JS.Js_open[list].js_num }>TWD</font><br>
+                          <img src="<{ $template_dir }>/images/gdgroup18x3.gif" width="18" height="<{ $P_JS.Js_open[list].js_height*300 }>"></td>
+                        <{/section}> </tr>
+                      <tr align="center" bgcolor="#f1eee7">
+                        <td height="1" colspan="6" bgcolor="#E2E9ED"></td>
+                      </tr>
+                      <tr align="center" bgcolor="#f1eee7">
+                        <td bgcolor="#E2E9ED">件數
+                          <!--件數--></td>
+                        <{ section name=list loop=$P_JS.Js_open }>
+                        <td bgcolor="#E2E9ED"><{$P_JS.Js_open[list].js_count}>件</td>
+                        <{/section}> </tr>
+                    </table></td>
+                  <td><table width=130 height=100% border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#7E93AC" class=sbody>
+                      <tr align="center" bgcolor="#f1eee7">
+                        <td bgcolor="#E2E9ED"><strong>件數</strong></td>
+                        <td bgcolor="#E2E9ED"><strong>現金</strong></td>
+                      </tr>
+                      <{ section name=list loop=$P_JS.Js_open }>
+                      <tr  align="center" bgcolor="#f1eee7">
+                        <td bgcolor="#E2E9ED"><{$P_JS.Js_open[list].js_count}>件</td>
+                        <td bgcolor="#E2E9ED"><{ $P_JS.Js_open[list].js_num }>TWD</td>
+                      </tr>
+                      <{/section}>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+          <{/if}>
+          <!--紅綠標活動-->
+          <{if $P_redgreengoods.ifhave eq 1}>
+          <tr>
+            <td colspan="2" style="border:1px solid #dbdbdb; ">
+              <div style=" padding-bottom:5px; padding-left:15px">
+              <input name="rgid" type="hidden" value="<{ $P_redgreengoods.rgid }>" />
+              <div style="width:100%; text-align:left;font-size:14px; font-weight:bold;line-height:35px;">活動：<{ $P_redgreengoods.subject_name }></div>
+              <{ section name=list loop=$P_redgreengoods.green }>
+                <div style="float:left; margin-bottom:20PX; ">
+                  <table width="140" border="0" cellspacing="0" cellpadding="2" id="redgoodstb<{ $P_redgreengoods.green[list].gid }>" style="background:#FFF; padding-left:5px ; padding-right:5px; <{if $smarty.section.list.index%5 eq 4}> <{else}> border-right:1px dashed #ffb0cc;<{/if}>">
+                    <tr>
+                      <td width="140" align="center" class="picture4 " heigh="140"><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$P_redgreengoods.green[list].smallimg}>"  /></td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top"><{$P_redgreengoods.green[list].sale_name}></td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top"><input type="checkbox" value="<{ $P_redgreengoods.green[list].gid }>|" name="greengid" id="greengid<{ $P_redgreengoods.green[list].gid }>" onClick="showtds('<{ $P_redgreengoods.green[list].gid }>',this);">                        <a href="javascript:void(0);" onClick="showProduct(<{ $P_redgreengoods.green[list].gid }>);"><{$P_redgreengoods.green[list].goodsname}></a></td>
+                    </tr>
+                    <tr>
+                      <td align="left"><{if $P_redgreengoods.green[list].good_color neq ""}>
+                        <select name="greencolor<{$P_redgreengoods.green[list].gid}>" id="greencolor<{$P_redgreengoods.green[list].gid}>" onChange="checkStorage(<{$P_redgreengoods.green[list].gid}>,$('#greencolor<{$P_redgreengoods.green[list].gid}>').val(),$('#greensize<{$P_redgreengoods.green[list].gid}>').val(),0,'greengid<{$P_redgreengoods.green[list].gid}>','','disable');">
+                          <{ section name=list2 loop=$P_redgreengoods.green[list].color }>
+                          <option value="<{$P_redgreengoods.green[list].color[list2].color}>"><{$P_redgreengoods.green[list].color[list2].color}></option>
+                          <{ /section}>
+                        </select>
+                        <{/if}>
+                        <{if $P_redgreengoods.green[list].good_size neq ""}>
+                        <select name="greensize<{$P_redgreengoods.green[list].gid}>" id="greensize<{$P_redgreengoods.green[list].gid}>" onChange="checkStorage(<{$P_redgreengoods.green[list].gid}>,$('#greencolor<{$P_redgreengoods.green[list].gid}>').val(),$('#greensize<{$P_redgreengoods.green[list].gid}>').val(),0,'greengid<{$P_redgreengoods.green[list].gid}>','','disable');">
+                          <{ section name=list2 loop=$P_redgreengoods.green[list].size }>
+                          <option value="<{$P_redgreengoods.green[list].size[list2].size}>"><{$P_redgreengoods.green[list].size[list2].size}></option>
+                          <{ /section}>
+                        </select>
+                      <{/if}> </td>
+                    </tr>
+                    <tr><td align="left">價格：<{$P_redgreengoods.green[list].pricedesc}><br />
+                      活動價格：<{$P_redgreengoods.green[list].saleprice}></td>
+                    </tr>
+                  </table>
+                </div>
+                <{/section}></div></td>
+          </tr>
+          <{/if}>
+          <!--超值任選-->
+          <{if $P_ifxygoods eq 1}>
+          <tr>
+            <td colspan="2" style="border:1px solid #dbdbdb; "><div align="left" style="margin-bottom:10px; margin-left:0px"><img src="<{ $template_dir }>/images/P_ifxygoods.jpg"  border="0" /></div>
+              <div style=" padding-bottom:5px; padding-left:15px"><{ section name=list loop=$P_XY }>
+                <div style="float:left; margin-bottom:20PX; ">
+                  <table width="140" border="0" cellspacing="0" cellpadding="2" id="xygoodstb<{ $P_XY[list].xygid }>" style="background:#FFF; padding-left:5px ; padding-right:5px; <{if $smarty.section.list.index%5 eq 4}> <{else}> border-right:1px dashed #ffb0cc;<{/if}>">
+                    <tr>
+                      <td width="140" colspan="2" class="picture4 "><img src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$P_XY[list].smallimg}>"  /></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" width="13"><input type="checkbox" value="<{ $P_XY[list].xygid }>|" name="xygid[]" id="xygid<{$P_XY[list].xygid }>" onClick="showtd('<{ $P_XY[list].xygid }>',this);"></td>
+                      <td align="left" width="137"><a href="javascript:void(0);" onClick="showProduct(<{ $P_XY[list].xygid }>);"><{$P_XY[list].goodsname}></a></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td align="left"><{if $P_XY[list].good_color neq ""}>
+                        <select name="xycolor<{$P_XY[list].xygid }>" id="xycolor<{$P_XY[list].xygid }>" onChange="checkStorage(<{$P_XY[list].xygid}>,$('#xycolor<{$P_XY[list].xygid}>').val(),$('#xysize<{$P_XY[list].xygid}>').val(),0,'xygid<{$P_XY[list].xygid}>','');">
+                          <{ section name=list2 loop=$P_XY[list].color }>
+                          <option value="<{$P_XY[list].color[list2].color}>"><{$P_XY[list].color[list2].color}></option>
+                          <{ /section}>
+                        </select>
+                        <{/if}>
+                        <{if $P_XY[list].good_size neq ""}>
+                        <select name="xysize<{$P_XY[list].changegid}>" id="xysize<{$P_XY[list].changegid}>" onChange="checkStorage(<{$P_XY[list].xygid}>,$('#xycolor<{$P_XY[list].xygid}>').val(),$('#xysize<{$P_XY[list].xygid}>').val(),0,'xygid<{$P_XY[list].xygid}>','');">
+                          <{ section name=list2 loop=$P_XY[list].size }>
+                          <option value="<{$P_XY[list].size[list2].size}>"><{$P_XY[list].size[list2].size}></option>
+                          <{ /section}>
+                        </select>
+                        <{/if}> </td>
+                    </tr>
+                  </table>
+                </div>
+                
+                <{/section}></div></td>
+          </tr>
+          <{/if}>
+          <!--超值任選結束-->
+          <tr>
+            <td colspan="2" align="left" style="padding-top:15px">
+            <!-- 頁籤開始 -->
+              <table width="100%" height="33" border="0"  align="left" cellpadding="0" cellspacing="0" background="<{ $template_dir }>/images/page_3.gif"  style="margin-top:20px;" >
+                <tr>
+                  <td width="89" height="21"><a href="javascript:" onClick="MM_swapImage('Image19','','<{ $template_dir }>/images/q1.png',1);showcontent('1');"><img src="<{ $template_dir }>/images/q12.png" name="Image19"  border="0" id="imgfour1"></a></td>
+                  <td width="89"><a href="javascript:" onClick="MM_swapImage('Image23','','<{ $template_dir }>/images/q2.png',1);showcontent('2');"><img src="<{ $template_dir }>/images/q22.png" name="Image23" border="0" id="imgfour2"></a></td>
+                  <td width="89"><a href="javascript:" onClick="MM_swapImage('Image20','','<{ $template_dir }>/images/q3.png',1);showcontent('3');"><img src="<{ $template_dir }>/images/q32.png" name="Image20"  border="0" id="imgfour3"></a></td>
+                  <td width="89"><a href="javascript:" onClick="MM_swapImage('Image21','','<{ $template_dir }>/images/q4.png',1);showcontent('4');"><img src="<{ $template_dir }>/images/q42.png" name="Image21"  border="0" id="imgfour4"></a></td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+                <div class="page1">
+                 <div align="left" id="showfour1"  ><{ $P_body }></div>
+                 <div align="left" id="showfour2"  ><{ $P_cap_des }></div>
+                 <div align="left" id="showfour3"   ><{ $P_alarmcontent }></div>
+                 <div align="left" id="showfour4"   >
+                   <{if $OrderNum<=0}>
+                    這款優質的產品正等待有緣人替它寫篇使用心得，歡迎已購買本產品的會員踴躍分享您的使用心得，讓其他會員更容易找到適合自己的產品(如果您還不是會員，請加入會員立即購買來分享使用心得)！！
+                    <{else}>
+                   <{ section name=list loop=$OrderList }>
+    <div id="goods_stars">
+<div class="box_left"><{$OrderList[list].true_name}>/<{$OrderList[list].sex }></div>
+<div class="box_right"><{$OrderList[list].scoretime}></div><br />
+<div class="box_stars">評分：<{$OrderList[list].score1}><br />
+<div class="box_say"><{$OrderList[list].content}></div></div>
+    </div>
+    <{ /section }>
+                    <{/if}>
+                 </div>
+               </div>
+               <!-- 頁籤結束 -->
+               <!-- 相關商品開始 -->
+              <DIV style="border:1PX solid #dbdbdb; height:300px; margin-top:15px">
+                <div style="height:30px; margin-bottom:15px"><img  src="<{ $template_dir }>/images/Related.jpg"  border="0" ></div>
+                <div align="left" style="clear:both; padding:10px" >
+                  <ul class="viewed">
+                    <{ section name=abProduct loop=$LinkProduct_array }>
+                    <li align="middle" >
+                      <table  border="0"  width="145"cellspacing="0" cellpadding="0"  style="padding:0px 0px 0px 4px; <{if $smarty.section.abProduct.index%5 eq 4}> <{else}> border-right:1px dashed #ffb0cc;<{/if}>">
+                        <tr>
+                          <td align="center" valign="top"><table width="135" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="" bgcolor="#FFFFFF">
+                              <tr>
+                                <td align="center" height="130"  valign="top" style=" padding:3px" class="picture4">
+                                <!--促銷中ICON-->
+                                <{if $LinkProduct_array[abProduct].ifsaleoff eq 1 }>
+                                <div style="display:block;position:absolute;top:1px;right:1px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></div>
+                                <{/if}>
+                                <a href="goods_detail.php?goods_id=<{  $LinkProduct_array[abProduct].gid  }>"><img src="<{ $Site_Url }>/<{ $good_pic_path }>/<{ $LinkProduct_array[abProduct].smallimg }>" border="0" align="top"></a></td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                        <tr>
+                          <td align="left" valign="top" ><a href="goods_detail.php?goods_id=<{  $LinkProduct_array[abProduct].gid  }>">
+                            <div align="left" style="height:38px; overflow: hidden; float:left; padding-right:5px; padding-left:5px"> <{ $LinkProduct_array[abProduct].goodsname }></div>
+                            </a></td>
+                        </tr>
+                        <tr>
+                          <td align="left" valign="top" height="40" style="padding-left:5px"> 網購價：<span style="font-size:20px"class="f15  price"><{ $LinkProduct_array[abProduct].pricedesc }></span></td>
+                        </tr>
+                      </table>
+                    </li>
+                    <{ /section }>
+                  </ul>
+                </div>
+              </DIV>
+              <!-- 相關商品結束 -->
+              </td>
+          </tr>
+        </table>
+      </form>
+      
+      </div>
+    </div>
+    <!--右邊邊結束-->
+  </div>
+  <!--身體結束-->
+
+<!--身體置中結束-->
+<{ include_php file="include/bottom.php" }>
+<div id="bigpid" style="display:none"></div>
+<div id="show_shopping" style="display:none;cursor:default;"></div>
+<div id="show_product" style="display:none;cursor:default;"></div>
+<script language="JavaScript" type="text/JavaScript">
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function showcontent(showname){
+		var obj,showobj,imgobj,myobj;
+		i = 4;
+		for (j=0;j<i;j++){
+				myobj = document.getElementById("showfour" + (j+1));
+				myobj.style.display = "none";
+				imgobj = document.getElementById("imgfour" + (j+1));
+				if (showname ==  (j+1)){
+					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + ".png";
+					myobj.style.display = "";
+				}else{
+					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + "2.png";
+				}
+		}
+	}
+</script>
+<script language="javascript">
+showcontent("1");
+</script>
+<script language="javascript">
+//標籤
+//判斷庫存
+function checkStorage(id,color,size,detail_id,Element,Element_storage,showtype){
+	//alert("id"+id);
+	$.ajax({
+			url: "checkProduct.php",
+			data: 'gid='+ id +'&color=' + encodeURIComponent(color) + "&size=" + encodeURIComponent(size) + '&act=checkstorage&detail_id=' + detail_id,
+			type:'get',
+			dataType:"html",
+			success: function(msg){
+				//alert(msg);
+				if(showtype!="disable"){
+				$('#' + Element_storage).html("");
+				$('#' + Element_storage + "_info").html("");
+				}
+				//alert(showtype);
+				if (msg <= 0 || msg == ""){	
+				
+					if(showtype=="disable"){
+						$('#' + Element).attr("disabled","disabled");
+						//alert(Element);
+					}else{
+						$('#' + Element).css("display","none");
+						$('#' + Element + '2').attr("disabled","none");
+						$('#count').find("option").remove();
+					//	$('#count1').append( "<option value=\"0\">0</option>" );
+						//$('#count2').find("option").remove();
+						//$('#count2').append( "<option value=\"0\">0</option>" );
+					}
+					if(Element=="Img_productBuy" || Element=="Btn_detailBuy"+detail_id){
+						$('#count').find("option").remove();
+						$('#Img_cartAdd').css("display","none");//放入購物車
+						//$('#Img_cartAdd2').css("display","none");//放入購物車
+						<{if $P_ifalarm eq 1}>//貨到通知
+							$('#count').append( "<option value=\"0\">0</option>" );
+								$('#count').val("0");
+							$('#' + Element_storage).html("<a href='waitbuy.php?gid=<{$P_gid}>'><img  src='<{ $template_dir }>/images/but5.png'  border='0' title='貨到通知'></a>");//這部份可以根據需要改成圖片等
+						//	$('#' + Element_storage + '2').html("<a href='waitbuy.php?gid=<{$P_gid}>'><img  src='<{ $template_dir }>/images/but5.png'  border='0' title='貨到通知' border='0></a>");//這部份可以根據需要改成圖片等
+						<{else}>//開放預購
+							$('#' + Element_storage).html("<a href='javascript:gotoshopping(" + detail_id + ",1);'><img  src='<{ $template_dir }>/images/but7.png'  border='0' title='開放預購'></a>");//這部份可以根據需要改成圖片等
+						//	$('#' + Element_storage + '2').html("<a href='javascript:gotoshopping(0,2);'><img  src='<{ $template_dir }>/images/but7.png'  border='0' title='開放預購' border='0'></a>");//這部份可以根據需要改成圖片等
+						
+							for(i=1;i<=<{ $maxbuyCount }>;i++){
+								$('#count').append( "<option value=\""+i+"\">"+i+"</option>" );
+								$('#count').val("1");
+							//	$('#count2').append( "<option value=\""+i+"\">"+i+"</option>" );
+							//	$('#count2').val("1");
+							}
+						<{/if}>
+						if(msg==0)
+						<{if $P_ifalarm eq 1}>
+							$('#' + Element_storage + "_info").html("");
+					    <{else}>
+							$('#' + Element_storage + "_info").html("<font color='#ff0000'>【目前已無庫存，您可以預買，出貨日期會另行通知】");
+						<{/if}>
+						else if(msg<= <{ $P_alarmnum }>){
+							$('#' + Element_storage + "_info").html("【庫存已不多，欲購從速】");
+						}
+					}else{
+						if(msg==0){
+							$('#' + Element_storage).html("<FONT COLOR=red>【目前已無庫存，到貨請通知我】</FONT>");
+						//	$('#' + Element_storage+'2').html("【缺貨中】</font><FONT COLOR=red>【目前已無存貨，到貨請通知我】</FONT>");
+						}else if(msg<= <{ $P_alarmnum }>){
+							$('#' + Element_storage).html("【庫存不多，欲購從速】");
+							//$('#' + Element_storage+'2').html("【庫存已不多，欲購從速】");
+						}
+					}
+				}else{
+					if(showtype=="disable")
+						$('#' + Element).attr("disabled","");
+					else{
+						$('#' + Element).css("display","block");
+					//	$('#' + Element + '2').css("display","block");
+					}
+					if(Element=="Img_productBuy"){
+						$('#count').find("option").remove();
+						$('#Img_cartAdd').css("display","block");//放入購物車
+						//$('#Img_cartAdd2').css("display","block");//放入購物車
+						for(i=1;i<=msg && i<=<{ $maxbuyCount }>;i++){
+								$('#count').append( "<option value=\""+i+"\">"+i+"</option>" );
+								$('#count').val("1");
+							//	$('#count2').append( "<option value=\""+i+"\">"+i+"</option>" );
+							//	$('#count2').val("1");
+							}
+						//if(msg<= <{ $P_alarmnum }>){
+						//	$('#' + Element_storage + "_info").html("【庫存已不多，欲購從速】");
+						//}
+					}else{
+						//if(msg<= <{ $P_alarmnum }>){
+						//	$('#' + Element_storage).html("【庫存已不多，欲購從速】");
+						//}	
+					}
+				}
+				<{if $P_appoint.ifappoint eq 2}>$('#' + Element_storage).append("【預購時間已結束】");<{/if}>
+			}
+	});
+}
+//去購買
+function gotoshopping(detail_id,buytype){
+	$('#count').attr('value',$('#count' + buytype).attr('value'));
+	$('#good_size').attr('value',$('#size' + buytype).attr('value'));
+	$('#good_color').attr('value',$('#color' + buytype).attr('value'));
+	<{if $P_ifxygoods eq 1}>
+	if (checkxycount() == false)
+		return false;
+	<{/if}>
+	$('#Type').attr("value",'');
+	$('#detail_id').attr("value",detail_id);
+	$('#form_goods').submit();
+}
+//選中變色
+function showtd(id,myform){
+	var obj;
+	obj = $("#xygoodstb" + id);
+	if (myform.checked == true){
+		obj.css("background-color","#fde2ea");
+	}else{
+		obj.css("background-color","#ffffff");
+	}
+}
+//選中變色
+function showtds(id,myform){
+	var obj;
+	obj = $("#redgoodstb" + id);
+	if (myform.checked == true){
+		obj.css("background-color","#fde2ea");
+	}else{
+		obj.css("background-color","#ffffff");
+	}
+}
+//判斷任選商品
+function checkxycount(){
+	var xyobj,len,xycount;
+	xyobj = document.getElementsByName("xygid[]");
+	xycount = 0;
+	len = xyobj.length;
+	for(i=0;i<len;i++){
+		if(xyobj[i].checked == true){
+			xycount++;
+		}
+	}
+	//alert(len);
+	if(xycount!=<{$P_xycount}>){
+		alert("請選擇<{$P_xycount}>種商品");
+		return false;
+	}
+	return true;
+}
+//顯示超值任選，加購商品內容
+function showProduct(gid){
+	$.ajax({
+       url: 'showProduct.php',
+       data: 'goods_id=' + gid,
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					$('#show_product').html(msg);
+				}
+	});
+	$.blockUI({ overlayCSS:{cursor:'default'},
+			message: $('#show_product'),
+			css: { 
+            width: '640px' ,
+			height:'auto',
+			margin: '0',
+			cursor:'default',
+			top:  '20px',
+            left: ($(window).width() - 640) /2 + 'px'
+        }
+	});
+}
+$(document).ready(function() { 
+	<{if $P_ifxygoods eq 1}>
+	<{ section name=list loop=$P_XY }>
+	checkStorage(<{$P_XY[list].xygid}>,$('#xycolor<{$P_XY[list].xygid}>').val(),$('#xysize<{$P_XY[list].xygid}>').val(),0,"xygid<{$P_XY[list].xygid}>","","disable");//判斷任選商品是否有庫存
+	<{/section}>
+	<{/if}>
+	<{ section name=list loop=$P_changegoods.info }>
+	checkStorage(<{$P_changegoods.info[list].changegid}>,$('#changecolor<{$P_changegoods.info[list].changegid}>').val(),$('#changesize<{$P_changegoods.info[list].changegid}>').val(),0,"changegid<{$P_changegoods.info[list].changegid}>","","disable");
+	<{/section}>
+	<{ section name=list loop=$P_redgreengoods.green }>
+	checkStorage(<{$P_redgreengoods.green[list].gid}>,$('#greencolor<{$P_redgreengoods.green[list].gid}>').val(),$('#greensize<{$P_redgreengoods.green[list].gid}>').val(),0,"greengid<{$P_redgreengoods.green[list].gid}>","","disable");
+	<{/section}>
+	
+	<{ if ($P_ifjs neq 1 && (($P_saleoff.ifsaleoff eq 1 && $P_ifsaleoff eq 1) || $P_ifsaleoff eq 0)) && (($P_ifappoint eq 1 && $P_appoint.ifappoint eq 1) || $P_ifappoint eq 0)}>
+	<{ if $P_productdetail.count<=0}>
+	checkStorage(<{$P_gid}>,$('#good_color').val(),$('#good_size').val(),0,"Img_productBuy","showstorage");//判斷商品是否有庫存
+	<{else}>
+	<{ section name=list loop=$P_productdetail.info }>
+	checkStorage(<{$P_gid}>,"","",<{$P_productdetail.info[list].detail_id}>,"Btn_detailBuy<{$P_productdetail.info[list].detail_id}>","showstorage<{$P_productdetail.info[list].detail_id}>");//判斷規格商品是否有庫存
+	<{/section}>
+	<{/if}>
+	<{/if}>
+	//圖片效果
+	$('#photos').galleryView({
+            panel_width: 350,
+            panel_height: 350,
+            frame_width: 80,
+            frame_height: 80,
+            easing: 'swing',
+            pause_on_hover: false,
+            nav_theme: 'light',
+            overlay_opacity: 0.5,
+            overlay_height: 10
+			
+    });
+	//放大圖片
+	$.ajax({
+       url: 'product_pic.php',
+       data: 'goods_id=<{ $P_gid }>',
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					//alert(msg);
+					$('#bigpid').html(msg);
+				}
+	});
+    $('#linkpic').click(function() { 
+	 $.blockUI({ overlayCSS:{cursor:'default'},
+			message: $('#bigpid'),
+			css: { 
+            width: '780px' ,
+			height:'auto',
+			margin: '0',
+			cursor:'default',
+			top:  '20px',
+            left: ($(window).width() - 780) /2 + 'px',
+    		"z-index": '9999'
+        } 
+ 	 });
+	 $('.blockOverlay').css({
+	 	"z-index": '9999'
+	 });
+	});
+	//點擊空白處關閉視窗
+	 $(function(){
+		$('body').click(function(evt) {
+			if($(evt.target).parents(".blockUI").length==0 && 
+			evt.target.class != "blockUI" && evt.target.id != "linkimg" && evt.target.id != "Img_cartAdd") {
+				$('#bigpid').hide();
+				$('.blockOverlay').hide();
+				$('.blockPage').hide();
+				$('.blockMsg').hide();
+			}
+		});
+     });
+	 
+	//顯示購物車介面
+	function getShopping(){
+		$.ajax({
+				url: '../shopping/shopping.php',
+				data: 'type=goods',
+				type:'get',
+				dataType:"html",
+				cache: false,
+				success: function(msg){
+					//alert(msg);
+					$('#show_shopping').html(msg);
+					//$('#show_shopping').css("display","block");
+				}
+		});	
+	}
+	var options_shop = {
+		success: function(msg){
+			getShopping();
+			$('body').block({ message: $('#show_shopping'),
+			css: { 
+			  border:"none",
+			  "z-index": '9999',
+			  width:"0",
+			  top:  '20px',
+			  left:   ($(window).width() - 780) /2 + 'px'
+			},
+			overlayCSS:  { 
+			backgroundColor: '#000000',
+			"z-index": '9999', 
+			opacity:         0.6 ,
+			border:"none",
+			cursor:         'default' 
+		},  
+			centerX: false,
+			centerY: false
+			});
+		},
+		type:      'get',
+		dataType:  'html',
+		clearForm: false
+	};
+	$("#Img_cartAdd").click(function(){
+		//$('#count').attr('value',$('#count1').attr('value'));
+		//$('#good_size').attr('value',$('#size1').attr('value'));
+	//	$('#good_color').attr('value',$('#color1').attr('value'));
+		 <{if $P_ifxygoods eq 1}>
+			if (checkxycount() == false)
+				return false;
+		<{/if}>
+		$('#Type').attr("value",'goods');
+		$("#form_goods").ajaxSubmit(options_shop);
+	});
+	$("#Img_cartAdd2").click(function(){
+		//$('#count').attr('value',$('#count2').attr('value'));
+		//$('#good_size').attr('value',$('#size2').attr('value'));
+		//$('#good_color').attr('value',$('#color2').attr('value'));
+		 <{if $P_ifxygoods eq 1}>
+			if (checkxycount() == false)
+				return false;
+		<{/if}>
+		$('#Type').attr("value",'goods');
+		$("#form_goods").ajaxSubmit(options_shop);
+	});
+	
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+*                                       { margin: 0; padding: 0; }
+body                                    { font: 12px Arial, Helvetica, sans-serif; }
+
+#page-wrap                              { width: 100%px; padding: 0px; margin: 0px auto 0px; position: relative; }
+#col1                                   { width: 49%; float: left;  }
+#col2                                   { width: 49%; float: right; }
+
+h1                                      { font: bold 60px Helvetica, Sans-Serif; letter-spacing: -2px; margin: 0px 0; text-align: center; }
+h2                                      { font: bold 30px Helvetica, Sans-Serif; letter-spacing: -1px; margin: 0 0 00px 0; }
+h3                                      { font: 13px Arial, Helvetica, sans-serif; margin: 0 0 0px 0;color:#000;font-weight:bold; }  
+h4                                      { font: 13px Arial, Helvetica, sans-serif; margin: 0 0 0px 0; color:#f00;}  
+h5                                      { font: 15px Arial, Helvetica, sans-serif; text-align: center; }
+pre                                     { font: 13px/1.8 Monaco, MonoSpace; margin: 0 0 0px 0; }
+
+ul                                      { }
+ul li                                   { font: 15px Arial, Helvetica, sans-serif;  }
+
+#dl                                     { position: absolute; top: 10px; right: 0; background: black; color: white; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 0px 0px; }
+#dl:hover                               { background: #666; }
+
+/*
+    This stuff is for the TitleBlock Plugin
+*/
+.image                                  { position: relative; margin-bottom: 20px; width: 100%; }
+.image h2                               { position: absolute; top: 220px; left: 0; width: 100%; }
+.image h2 span                          { color: white; font: bold 30px/40px Helvetica, Sans-Serif; letter-spacing: -1px; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); padding: 0px 0px; }
+.image h2 span.spacer                   { padding: 0 2px; background: none; }
+
+
+/*
+    For Specific Slides
+*/
+#textSlide                              { padding: 00px 00px;font-size:13px;color:#696969; }
+#textSlide h3                           { font: 13px Arial, Helvetica, sans-serif; margin: 0 0 0px 0;color:#000;font-weight:bold; }
+#textSlide h4                           { font: 13px Arial, Helvetica, sans-serif; margin: 0 0 0px 0; color:#f00;}
+#textSlide ul                           { list-style: disc; margin: 0 0 0 0px; }
+#textSlide ul li                        { display: list-item; }
+
+#quoteSlide                             { padding: 0px; }
+#quoteSlide blockquote                  { font: italic 24px/1.5 Arial, Helvetica, sans-serif; text-align: center; color: #444; margin: 0 0 00px 0; }
+#quoteSlide p                           { text-align: center; }
+.center {width:977px;display:block;margin-left:auto;margin-right:auto;}
+.center2 {width:960px;display:block;margin-left:auto;margin-right:auto;}

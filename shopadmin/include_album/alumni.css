@@ -1,0 +1,99 @@
+TD {
+	FONT-SIZE: 12px
+}
+BODY {
+	FONT-SIZE: 12px
+}
+.black {
+	COLOR: #000000; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+A.black:hover {
+	COLOR: #ff0000
+}
+.white {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.white:hover {
+	COLOR: #ffefa5; TEXT-DECORATION: underline
+}
+.eng {
+	FONT-SIZE: 12px; FONT-FAMILY: arial
+}
+.cn {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.copyright {
+	FONT-SIZE: 11px; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.input1 {
+	BORDER-RIGHT: #acacac 1px solid; BORDER-TOP: #acacac 1px solid; BORDER-LEFT: #acacac 1px solid; BORDER-BOTTOM: #acacac 1px solid
+}
+.input2 {
+	BORDER-RIGHT: #acacac 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #acacac 1px solid
+}
+.input3 {
+	BORDER-RIGHT: #fbaf0c 1px solid; BORDER-TOP: #fbaf0c 1px solid; BORDER-LEFT: #fbaf0c 1px solid; BORDER-BOTTOM: #fbaf0c 1px solid
+}
+.input4 {
+	BORDER-RIGHT: #d699fa 1px solid; BORDER-TOP: #d699fa 1px solid; BORDER-LEFT: #d699fa 1px solid; BORDER-BOTTOM: #d699fa 1px solid
+}
+.input5 {
+	BORDER-RIGHT: #d89f29 1px solid; BORDER-TOP: #d89f29 1px solid; BORDER-LEFT: #d89f29 1px solid; BORDER-BOTTOM: #d89f29 1px solid
+}
+.cr2 {
+	FONT-SIZE: 12px; COLOR: #606060; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.cr2lk {
+	FONT-SIZE: 12px; COLOR: #606060; LINE-HEIGHT: 18px; TEXT-DECORATION: underline
+}
+.cr3 {
+	FONT-SIZE: 12px; COLOR: #ff7110; LINE-HEIGHT: 21px; TEXT-DECORATION: none
+}
+.cr4 {
+	FONT-SIZE: 12px; COLOR: #0066cc; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.cr5 {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.td {
+	BORDER-RIGHT: #000000 0px solid; BORDER-TOP: #000000 0px solid; BORDER-LEFT: #000000 0px solid; BORDER-BOTTOM: #000000 0px solid
+}
+.td2 {
+	BORDER-RIGHT: #336699 0px solid; BORDER-TOP: #336699 0px solid; BORDER-LEFT: #336699 0px solid; BORDER-BOTTOM: #336699 0px solid; BACKGROUND-COLOR: #e2f9ff
+}
+.cnn {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+A.cnn:hover {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.cla1 {
+	FONT-SIZE: 12px; COLOR: #4b4b4b; TEXT-DECORATION: none
+}
+.cla2 {
+	FONT-SIZE: 12px; COLOR: #ff6600; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.green1 {
+	FONT-SIZE: 12px; COLOR: #46a718; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.green2 {
+	FONT-SIZE: 12px; COLOR: #246f00; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.bg1 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-IMAGE: url(http://images.sohu.com/cs/sms/alumni3/images/test3.gif); BACKGROUND-REPEAT: repeat
+}
+.blue1 {
+	FONT-SIZE: 12px; COLOR: #004bcc; TEXT-DECORATION: none
+}
+.blue2 {
+	FONT-SIZE: 12px; COLOR: #0069a6; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.cs {
+	FONT-SIZE: 12px; COLOR: #a334e4; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.down:hover {
+	RIGHT: 0px; POSITION: relative; TOP: 1px; TEXT-DECORATION: none
+}

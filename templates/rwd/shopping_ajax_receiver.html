@@ -1,0 +1,90 @@
+<div class="shopping_border margin-bottom-20 padding-15">
+<div style="width:100%; float:left">
+收件人記錄本
+      <div class="turn_off">
+      <a class="lightbox" href="shopping_ajax_receiverinfo.php?act=add"  data-target="#ajax" data-toggle="modal">
+
+    <i class="fa fa-plus-circle" aria-hidden="true"></i> 新增收件人</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="$('#showreceiver').html('');"><i class="icon-remove-sign"></i> 關閉</a></div>
+</div>
+<div style="width:100%; float:left">
+<table id="demo-table" class="hide-column">
+				<thead>
+					<tr>
+						<th>收貨人</th>
+						<th class="small">聯絡電話</th>
+						<th>地址</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+                <{ section name=list loop=$OrderList }>
+					<tr>
+                    <input type="hidden" id="sel_name<{ $OrderList[list].reid }>" value="<{ $OrderList[list].receiver_name }>">
+
+          <input type="hidden" id="sel_email<{ $OrderList[list].reid }>" value="<{ $OrderList[list].receiver_email }>">
+
+          <input type="hidden" id="sel_tele<{ $OrderList[list].reid }>" value="<{ $OrderList[list].receiver_tele }>">
+
+          <input type="hidden" id="sel_mobile<{ $OrderList[list].reid }>" value="<{ $OrderList[list].receiver_mobile }>">
+
+          <input type="hidden" id="sel_county<{ $OrderList[list].reid }>" value="<{ $OrderList[list].county }>">
+
+          <input type="hidden" id="sel_province<{ $OrderList[list].reid }>" value="<{ $OrderList[list].province }>">
+
+          <input type="hidden" id="sel_city<{ $OrderList[list].reid }>" value="<{ $OrderList[list].city }>">
+
+          <input type="hidden" id="sel_post<{ $OrderList[list].reid }>" value="<{ $OrderList[list].post }>">
+
+          <input type="hidden" id="sel_addr<{ $OrderList[list].reid }>" value="<{ $OrderList[list].addr }>">
+						<td data-title="收貨人"><{ $OrderList[list].receiver_name }></td>
+						<td data-title="聯絡電話" class="small"><{ $OrderList[list].receiver_tele }></td>
+						<td data-title="地址"><div align="left"><{ $OrderList[list].county }><{ $OrderList[list].province }><{ $OrderList[list].city }><{ $OrderList[list].addr }>&nbsp;</div></td>
+						<td data-title="操作">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-0 text-center margin-bottom-10"><a class="lightbox receiver_icon" href="shopping_ajax_receiverinfo.php?act=modify&reid=<{ $OrderList[list].reid }>"  data-target="#ajax" data-toggle="modal">
+
+          改</a></div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding-0 text-center">
+          <a href="javascript:void(0);" id="receiver" class="receiver receiver_icon" onclick='selreceiver(<{ $OrderList[list].reid }>);' >選</a>
+          </div></td>
+					</tr>
+                  <{ /section }>   
+				</tbody>
+			</table>
+</div>
+<div style="clear:both"></div>
+</div>
+
+<script language="javascript">
+function selreceiver(reid){
+  $('#shoppingform').data('bootstrapValidator').resetForm();
+
+  $("#receiver_name").val($("#sel_name"+reid).val());
+
+  $("#receiver_email").val($("#sel_email"+reid).val());
+
+  $("#receiver_tele").val($("#sel_tele"+reid).val());
+
+  $("#receiver_mobile").val($("#sel_mobile"+reid).val());
+
+  //$("#county").val($("#sel_county"+reid).val());
+
+  if($("#province").val() == $("#sel_province"+reid).val()){
+
+    $("#city").val($("#sel_city"+reid).val());
+
+    $("#othercity").val($("#sel_post"+reid).val());
+
+  }else{
+
+    $("#city").val("");
+
+    $("#othercity").val("");
+
+  }
+
+
+
+  $("#addr").val($("#sel_addr"+reid).val());
+}
+</script>

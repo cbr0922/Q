@@ -1,0 +1,358 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml">-->
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta content="<{ $Meta_desc }>" name="description">
+
+<meta content="<{ $Meta_keyword }>" name="keywords"><title><{ $HtmlTitle }></title>
+
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>	
+
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+
+<script src="../Resources/FCKeditor/fckeditor.js" type="text/javascript"></script>
+
+<script language="javascript">
+
+function checkform(){
+
+	if ($('#username').val()==""){
+
+		alert("請填寫登錄名");
+
+		return false;
+
+	}
+
+	if ($('#shopname').val()==""){
+
+		alert("請填寫商店名稱");
+
+		return false;
+
+	}	
+
+}
+
+</script>	
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<{ include_php file="shop_menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" style="padding:7px;">
+
+      <tr>
+
+        <td width="" height="400" valign="top">
+
+        <div class="title_l">
+
+            <div class="title_l_left">
+
+    <!--h1>修改店鋪</h1--><a href="<{ $Site_Url }>">首頁</a> <span class="style100">></span>修改店鋪
+
+  </div>
+
+  <div class="title_l_right"></div>
+
+</div>
+
+        <br>
+
+        <form action="<{ $Site_Url }>/member/reg_shop_save.php" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="act" id="act" value="update">
+
+          <table width="90%"  border="0" align="center" style="margin-top:20px;margin-bottom:20px;">
+
+            <tr>
+
+              <td align="left">登錄名</td>
+
+              <td align="left"><input type="text" name="username" id="username"  value="<{$username}>" readonly></td>
+
+            </tr>
+
+            <tr>
+
+              <td width="10%" align="left">商店名稱</td>
+
+              <td width="90%" align="left"><input type="text" name="shopname" id="shopname" value="<{$shopname}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>聯繫人</td>
+
+              <td><input type="text" name="lxr" id="lxr" value="<{$lxr}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>固定電話</td>
+
+              <td><input type="text" name="tel" id="tel" value="<{$tel}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>移動電話</td>
+
+              <td><input type="text" name="mobile" id="mobile" value="<{$mobile}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>傳真</td>
+
+              <td><input type="text" name="fax" id="fax" value="<{$fax}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Email</td>
+
+              <td><input type="text" name="email" id="email" value="<{$email}>"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>地址</td>
+
+              <td><input type="text" name="addr" id="addr" value="<{$addr}>"></td>
+
+            </tr>
+
+            <TR>
+
+            <TD  align=left>商店圖片</TD>
+
+            <TD class=p9rednothrough> <INPUT  id="pic"  type="file" size="40" name="pic" ><INPUT type=hidden   name='old_pic'  value="<{$shoppic}>">         </TD>
+
+          </TR>
+
+          <{if $shoppic neq ""}>
+
+          <TR>
+
+            <TD  align=right></TD>
+
+            <TD class=p9rednothrough><img src="../UploadFile/ShopPic/<{$shoppic}>"></TD>
+
+          </TR>
+
+          <{/if}>
+
+           <TR>
+
+            <TD  align=left>LOGO</TD>
+
+            <TD class=p9rednothrough> <INPUT  id="logo"  type="file" size="40" name="logo" ><INPUT type=hidden   name='old_logo'  value="<{$logo}>">         </TD>
+
+          </TR>
+
+          <{if $logo neq ""}>
+
+          <TR>
+
+            <TD  align=right></TD>
+
+            <TD class=p9rednothrough><img src="../UploadFile/ShopPic/<{$logo}>"></TD>
+
+          </TR>
+
+          <{/if}>
+
+          <tr>
+
+              <td height="21">meta description</td>
+
+              <td><textarea name="shop_description" id="shop_description" cols="45" rows="5"><{$shop_description}></textarea></td>
+
+            </tr>
+
+            <tr>
+
+              <td height="21">meta keywords</td>
+
+              <td><textarea name="shop_keywords" id="shop_keywords" cols="45" rows="5"><{$shop_keywords}></textarea></td>
+
+            </tr>
+
+            <tr>
+
+              <td>店家介紹</td>
+
+              <td></textarea>
+
+              <script language="javascript">
+
+		var oFck=new FCKeditor("content");
+
+              oFck.BasePath="../Resources/FCKeditor/";
+
+			  oFck.Config['LinkBrowser'] = false ; 
+
+			oFck.Config['ImageBrowser'] = false ; 
+
+			oFck.Config['FlashBrowser'] = false ; 
+
+			oFck.Config['LinkUpload'] = false; 
+
+			oFck.Config['ImageUpload'] = false ; 
+
+			oFck.Config['FlashUpload'] = false ; 
+
+              oFck.ToolbarSet="Angel";
+
+			  oFck.Value="<{$content}>";
+
+			  oFck.Width=700;
+
+			  oFck.Height=400;
+
+              oFck.Create()
+
+
+
+		</script>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td align="left">購買說明</td>
+
+              <td align="left">
+
+              <script language="javascript">
+
+		var oFck=new FCKeditor("buycontent");
+
+              oFck.BasePath="../Resources/FCKeditor/";
+
+			  oFck.Config['LinkBrowser'] = false ; 
+
+			oFck.Config['ImageBrowser'] = false ; 
+
+			oFck.Config['FlashBrowser'] = false ; 
+
+			oFck.Config['LinkUpload'] = false; 
+
+			oFck.Config['ImageUpload'] = false ; 
+
+			oFck.Config['FlashUpload'] = false ; 
+
+              oFck.ToolbarSet="Angel";
+
+			  oFck.Value="<{$buycontent}>";
+
+			  oFck.Width=700;
+
+			  oFck.Height=400;
+
+              oFck.Create()
+
+
+
+		</script>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td align="left">常見問題</td>
+
+              <td align="left">
+
+              <script language="javascript">
+
+		var oFck=new FCKeditor("askcontent");
+
+              oFck.BasePath="../Resources/FCKeditor/";
+
+			  oFck.Config['LinkBrowser'] = false ; 
+
+			oFck.Config['ImageBrowser'] = false ; 
+
+			oFck.Config['FlashBrowser'] = false ; 
+
+			oFck.Config['LinkUpload'] = false; 
+
+			oFck.Config['ImageUpload'] = false ; 
+
+			oFck.Config['FlashUpload'] = false ; 
+
+              oFck.ToolbarSet="Angel";
+
+			  oFck.Value="<{$askcontent}>";
+
+			  oFck.Width=700;
+
+			  oFck.Height=400;
+
+              oFck.Create()
+
+
+
+		</script>
+
+              </td>
+
+            </tr>
+
+            
+
+            <tr>
+
+              <td height="21">&nbsp;</td>
+
+              <td><input type="submit" name="button" id="button" value="提交"></td>
+
+            </tr>
+
+          </table>
+
+          </form>
+
+        <br></td>
+
+      </tr>
+
+    </table>
+
+      <{ include_php file="include/bottom.php" }>
+
+</body>
+
+</html>
+

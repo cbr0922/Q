@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ $Meta_desc }>" name="description">
+<meta content="<{ $Meta_keyword }>" name="keywords">
+<title><{ $HtmlTitle }> --  <{  $Myorder }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<LINK href="<{ $Site_Url }>/css/theme.css" type=text/css rel=stylesheet>
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="<{ $Site_Url }>/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="<{ $Site_Url }>/js/alter.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<style type="text/css">
+body{
+margin:0px;
+}
+#fullBg{
+background-color: Black;
+display:none;
+z-index:30;
+position:absolute;
+left:0px;
+top:0px;
+filter:Alpha(Opacity=30);
+/* IE */
+-moz-opacity:0.4; 
+/* Moz + FF */
+opacity: 0.4; 
+}
+#msg{
+	position:absolute;
+	z-index:40;
+	display:none;
+	background-color:#FFFFFF;
+	border:1px solid #6633CC;
+}
+#msg #close{
+height:30px;
+text-align:right;
+padding-top:8px;
+padding-right:15px;
+}
+#msg #ctt{
+text-align:center;
+font-size:12px;
+padding-bottom:15px;
+}
+#cPic{
+cursor:pointer;
+}
+</style>
+<div id="fullBg"></div>
+<div id="msg">
+  <div id="close"></div>
+  <div id="ctt"></div>
+</div>
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+  <tr>
+    <td width="207" height="400" valign="top" style="padding-right:9px;padding-left:23px;"><table width="198" border="0" align="center" cellpadding="0" cellspacing="0" class="border" style="margin-bottom:15px;">
+        <tr>
+          <td align="center" class="backcolor">会员中心</td>
+        </tr>
+        <tr>
+          <td align="center"><{ include_php file="member/left.php" }></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table></td>
+    <td width="753" valign="top"><div id="title_s">
+        <div id="title_s_left">
+          <h1>滿意度</h1>
+        </div>
+        <div id="title_s_right"><a href="<{ $Site_Url }>">首頁</a> <span class="style100">／</span> <a href="<{$Site_Url}>/member/">會員中心</a> <span class="style100">／</span> 滿意度</div>
+      </div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>訂單編號：<{$order_serial}></td>
+        </tr>
+        <tr>
+          <td>下單時間：<{$createtime}></td>
+        </tr>
+        <tr>
+          <td>支付金額：<{$discount_totalPrices}></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>
+          <form action="score_save.php" method="post" name="scoreform" id="scoreform">
+		  <input type="hidden" name="order_id" id="order_id" value="<{$smarty.get.order_id}>">
+          <table width="100%" height="100%" border="0" cellpadding="4" cellspacing="1" class="member">
+              <tr align="center">
+                <td width="11%" nowrap class="head">商品編號<!--商品编号--></td>
+                <td class="head" width="46%">商品名稱<!--商品名称--></td>
+                <td width="43%" class="head">滿意度
+                  <input type="submit" name="button" id="button" value="保存評價"></td>
+              </tr>
+              <{ section name=list loop=$order_detail }>
+              <tr bgcolor="#FFFFFF">
+                <td class="p9black" bgcolor="#FFFFFF" align="CENTER"><{ $order_detail[list].bn }></td>
+                <td align="left" bgcolor="#FFFFFF" class="p9black"><{if $order_detail[list].detail_id eq 0 && $order_detail[list].detail_name eq "額滿禮"}><{ $order_detail[list].detail_name }><br>
+                  <{ $order_detail[list].goodsname }><br>
+                  <{ $order_detail[list].detail_bn }><br>
+                  <{ $order_detail[list].detail_name }><br>
+                  <{ $order_detail[list].detail_des }><{else}><{ $order_detail[list].goodsname }><{/if}></td>
+                <td align="center" bgcolor="#FFFFFF" class="p9black"><table width="200" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="71">商品品質</td>
+                      <td width="129"><select name="score1_<{ $order_detail[list].gid }>" id="score1_<{ $order_detail[list].gid }>">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        分</td>
+                    </tr>
+                    <tr>
+                      <td>出貨速度</td>
+                      <td><select name="score2_<{ $order_detail[list].gid }>" id="score2_<{ $order_detail[list].gid }>">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        分</td>
+                    </tr>
+                    <tr>
+                      <td>售後服務</td>
+                      <td><select name="score3_<{ $order_detail[list].gid }>" id="score3_<{ $order_detail[list].gid }>">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        分</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <{ /section }>
+            </table></form></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

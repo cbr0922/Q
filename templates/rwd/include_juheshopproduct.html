@@ -1,0 +1,164 @@
+<style>
+li {
+	list-style:none;
+}
+#tab1, #tab2 {
+	width:952px;
+	height:24px;
+	font-size:13px;
+	font-weight:normal;
+}
+#tab1 ul, #tab2 ul {
+	margin:0;
+	padding:0;
+}
+#tab1 li {
+	width:136px;
+	float:left;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:bold;
+	background-image:url(<{$template_dir}>/images/pinkback1.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+#tab2 li {
+	width:136px;
+	float:left;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:bold;
+	background-image:url(<{$template_dir}>/images/pinkback1.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+*+html#tab1 li {
+	width:136px;
+	float:left;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:bold;
+	background-image:url(<{$template_dir}>/images/pinkback1.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+"*+html#tab2 li {
+	width:136px;
+	float:left;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:bold;
+	background-image:url(<{$template_dir}>/images/pinkback1.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+#tab1 li.now {
+	background-image:url(<{$template_dir}>/images/pinkback2.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+#tab2 li.now {
+	background-image:url(<{$template_dir}>/images/pinkback2.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+}
+#tab2 li.last {
+	border-left:1px #dadada solid;
+	border-right:1px #dadada solid;
+	border-top:1px #dadada solid;
+	border-bottom:0px #dadada solid;	
+}
+#tab2 li.last.now {
+	border-left:1px #dadada solid;
+	border-right:1px #dadada solid;
+	border-top:1px #dadada solid;
+	border-bottom:0px #dadada solid;	
+}
+.tablist {
+	width:952px;
+	height:350px;
+	font-size:12px;
+	line-height:27px;
+	display:none;
+	float:left;
+}
+.tablist2 {
+	width:952px;
+	height:350px;
+	font-size:12px;
+	line-height:27px;
+	border-left:1px #dadada solid;
+	border-right:1px #dadada solid;
+	border-bottom:1px #dadada solid;
+	display:none;
+}
+.block {
+	display:block;
+	float:left;
+}
+</style>
+<table width="952" border="0" cellspacing="0" cellpadding="0" bgcolor="#fffdf4" style="border:1px solid #9a9a9a;">
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td><div id="tab2">
+        <ul>
+        <{section name=list loop=$qk_goods_array}>
+          <li onMouseOver="setTab(2,<{$qk_goods_array[list].i}>)" class="now"><{$qk_goods_array[list].tag}></li>
+          <{/section}>
+        </ul> </div>
+                  
+      <div id="tablist2">
+      <{section name=list loop=$qk_goods_array}>
+        <div class="tablist <{if $qk_goods_array[list].i eq 0}>block<{/if}>">
+<ul class="shop-juhe">
+              <{section name=list2 loop=$qk_goods_array[list].goods}>
+                <li style="FLOAT: left;DISPLAY: inline; height:174px;width:315px;">
+                  <table width="270" border="0" cellpadding="3" cellspacing="0" style="margin:10px">
+                    <tr>
+                      <td align="center" valign="top" widt="150"><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $qk_goods_array[list].goods[list2].gid }>"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $qk_goods_array[list].goods[list2].smallimg }>" border=0></a></td>
+                      <td align="left" valign="top" widt="290"><span style=""><a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $qk_goods_array[list].goods[list2].gid }>"><{ $qk_goods_array[list].goods[list2].goodsname }></a><br>
+                      <a href="<{ $Site_Url }>/shop/shopdetail.php?sid=<{ $qk_goods_array[list].goods[list2].sid }>"><{ $qk_goods_array[list].goods[list2].shopname }></a><br>
+                        <{if $qk_goods_array[list].goods[list2].ifhidden eq 0 }>
+                        價格：<span class="price"><{ $qk_goods_array[list].goods[list2].pricedesc }></span> <{/if}> </span></td>
+                    </tr>
+                  </table>
+                </li>
+              <{ /section }>
+</ul></div>
+          <{/section}>
+      </div></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<script type="text/javascript">
+//m选项卡数目
+//n当前选项卡编号
+function setTab(m,n){
+	
+	var menu=document.getElementById("tab"+m).getElementsByTagName("li");   //获取ID为tab+m标签下的li标签
+	var showdiv=document.getElementById("tablist"+m).getElementsByTagName("div");   //获取ID为tablist+m标签下的div标签
+	//alert(showdiv.length);
+	for(i=0;i<menu.length;i++)
+	{
+		menu[i].className=i==n?"now":"";   //如果i=n;那么menu[i].classname为now
+		//alert(showdiv[i].innerHTML);
+		showdiv[i].style.display=i==n?"block":"none";   //如果如果i=n;那么showdiv[i].style.display为block"
+	}
+}
+</script>

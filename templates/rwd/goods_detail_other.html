@@ -1,0 +1,134 @@
+<!--
+	Used By:
+		portfolio-loading-ajax-modal.html
+-->
+<div class="lightbox-ajax">
+
+	<!-- title -->
+	<h4><{ $Goodsname }></h4>
+	
+	<!-- body -->
+	<div class="lightbox-ajax-body">
+
+		<div class="row">
+
+			<!-- left column -->
+			<div class="col-md-7 col-sm-7">
+
+			<!-- CAROUSEL -->
+			<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": true, "pagination": true, "transitionStyle":"backSlide"}'>
+            <{ section name=Comm loop=$Goodpic }>
+				<div>
+					<img class="img-responsive" src="<{if $Goodpic[Comm].pic eq ''}><{ $Site_Url }>/images/pic.png<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$Goodpic[Comm].pic}>
+<{/if}>" width="800" height="553" alt="">
+				</div>
+            <{/section}>
+			</div>
+			<!-- /CAROUSEL -->
+			
+			<script type="text/javascript">
+				_owl_carousel();
+			</script>
+
+			
+
+			</div>
+
+			<!-- right column -->
+			<div class="col-md-5 col-sm-7">
+				
+				<!-- description -->
+                <{ if $sale_name!="" }>
+				<div class="margin-bottom-10"><{ $sale_name }></div>
+                <{ /if }> 
+                <{ if $Intro!="" }>
+				<div><{ $Intro }></div>
+                <{ /if }> 
+                <hr />
+                <{ if $Brand!="" }>
+                <div class="margin-bottom-10"><{ $Brand_name }>：<{ $Brand }></div>
+                <{ /if }> 
+                <{ if $Bn!="" }>
+                <div class="margin-bottom-10"><{ $Bn_name }>：<{ $Bn }></div>
+                <{ /if }>
+                <{ if $goodsno!="" }>
+                <div class="margin-bottom-10">賣場編號：<{ $goodsno }></div>
+                <{ /if }>
+                <{ if $Unit!="" }>
+                <div class="margin-bottom-10"><{ $Unit_name }>：<{ $Unit }></div>
+                <{ /if }>
+                <{ if $item!="" }>
+                <div class="margin-bottom-10"><{ $key }><{ $item }></div>
+                <{ /if }>
+                <{ if $NoCarriage ne 0 }>
+                <div class="margin-bottom-10"><{ $NoCar_name }>：<{ $NoCarriage }></div>
+                <{ /if }>
+                <{ if $Good_Color_Option !="" }>
+                <div class="margin-bottom-10"><{ $Product_Color }>：<select name="good_color" class="p9navyblue" onChange="javascript: <{ if $Good_Size_Option !="" }>ChangeStorage(this.value,document.all.good_size.value,this.value)<{ else }>ChangeStorage(this.value,'')<{ /if }>;"> <{ $Good_Color_Option }>
+                                      </select></div>
+                <{ /if }>
+                <{ if $Good_Size_Option !="" }>                      
+                <div class="margin-bottom-10"><{ $Product_Size }>：<select name="good_size" class="p9navyblue" onChange="javascript:<{ if $Good_Color_Option !="" }>ChangeStorage(document.all.good_color.value,this.value)<{ else }>ChangeStorage('',this.value)<{ /if }>;"> <{ $Good_Size_Option }>
+                                      </select></div>
+                <{ /if }>
+                <{if $detail_num <=0 }>                      
+                <div class="margin-bottom-10">建議售價：<s>NT <{$Price}></s></div>
+                <div class="margin-bottom-10">會&nbsp;員&nbsp;價：NT <{$Pricedesc}></div>
+                <{ /if }>
+                <{ if $Point gt 0 }>
+                <div class="margin-bottom-10"><{ $ProductPoint_say }>：<{ $Point }></div>
+                <{ /if }>
+			</div>
+            
+            
+            <!--div class="col-md-12 col-sm-12">
+
+							<ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
+								<li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">商品介紹</a></li>
+								<li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">成份</a></li>
+								<li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">注意事項</a></li>
+								<li role="presentation"><a href="#tab4" role="tab" data-toggle="tab">使用心得</a></li>
+								<li role="presentation"><a href="#tab5" role="tab" data-toggle="tab">問與答</a></li>
+							</ul>
+
+						<div class="tab-content padding-top-20">
+
+								<div role="tabpanel" class="tab-pane fade in active product_banner" id="tab1"><{ $Body }></div>
+								<div role="tabpanel" class="tab-pane fade product_banner" id="tab2"><{ $cap_des }></div>								
+								<div role="tabpanel" class="tab-pane fade product_banner" id="tab3"><{ $alarmcontent }></div>								
+								<div role="tabpanel" class="tab-pane fade" id="tab4">
+								<{if $OrderNum<=0}>
+									歡迎已購買本產品的會員踴躍分享您的使用心得，讓其他會員更容易找到適合自己的產品(如果您還不是會員，請加入會員立即購買來分享使用心得)！！
+								<{else}>
+								  <{ section name=list loop=$OrderList }>
+								  <table class="table table-bordered">
+									<tr>
+										<td><{$OrderList[list].true_name}><{$OrderList[list].sex }></td>
+										<td><{$OrderList[list].scoretime}></td>
+									</tr>
+									<tr>
+										
+										<td colspan="2">評分：<div class="rating rating-<{$OrderList[list].score}> size-16 width-100"></div>
+											<div><{$OrderList[list].content}></div>
+										</td>
+									</tr>
+									<{if $OrderList[list].answer neq ""}>
+									<tr>
+										<td colspan="2">回覆：<{$OrderList[list].answer}></td>
+									</tr>
+									<{/if}>
+								  </table>
+								  <{ /section }>
+								<{/if}>
+								</div>							
+								<div role="tabpanel" class="tab-pane fade" id="tab5"><{ include_php file="include/include_productcomment.php" }></div>
+
+            
+            </div-->
+
+		</div>
+
+	</div>
+	<!-- /body -->
+
+</div>

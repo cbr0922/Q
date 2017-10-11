@@ -1,0 +1,327 @@
+<!--
+	Used By:
+		shortcode-lightbox.html
+-->
+<div class="lightbox-ajax">
+	<!-- title -->
+	<h4><{ $OrderSerial_say }><!--訂單編號-->：<b><{ $order_serial }></b></h4>
+
+	<!-- body -->
+	<div class="lightbox-ajax-body">
+		<div class="col-md-12 col-sm-12 padding-0">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-left padding-0 margin-bottom-10 bold">
+            <{ $OrderSerial_say }><!--訂單編號-->：<{ $order_serial }><!--（<{ $order_state }> <{ $Pay_state }> <{ $Transport_state }>）-->
+
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right padding-0 margin-bottom-10 bold">
+  			<{ $OrderCreatetime_say}><!--訂購時間-->：<{ $createtime }>
+            </div>
+<{if $ifgroup eq 1}>
+<table class="table-hover responsive">
+  <thead>
+    <tr>
+      <th><{ $Bn_name }></th>
+      <th><{  $Product_Name }></th>
+      <th>優惠</th>
+      <th>團購價</th>
+      <th>團購金</th>
+      <th><{ $JianNum_say }></th>
+      <th width="90">狀態</th>
+    </tr>
+  </thead>
+  <tbody>
+  <{ section name=list loop=$order_detail }>
+    <tr>
+      <td data-label="<{ $Bn_name }>">
+      &nbsp;<{ $order_detail[list].groupbn }>
+</td>
+      <td data-label="<{  $Product_Name }>">
+      <{ $order_detail[list].groupname }></td>
+      <td data-label="優惠">
+      <{ $order_detail[list].subjectcontent }></td>
+      <td data-label="團購價">
+      <{ $order_detail[list].groupprice }></td>
+      <td data-label="團購金">
+      <{ $order_detail[list].grouppoint }></td>
+      <td data-label="<{ $JianNum_say }>">
+      <{ $order_detail[list].count }></td>
+      <td data-label="狀態" class="t0">
+      <{ $order_detail[list].order_state }>
+      </td>
+    </tr>
+    <{ /section }>
+ </tbody>
+</table>
+<{else}>
+<table class="table-hover responsive">
+  <thead>
+    <tr>
+      <th><{ $ProductNum_say }><!--商品編號--></th>
+      <th><{  $ProductName_say }><!--商品名稱--></th>
+      <th><{  $UnitPrice_say }><!--單價--></th>
+      <th><{  $Unit_say }><!--數量--></th>
+      <th><{  $Items_xj_say }><!--小計--></th>
+      <th width="150"><{  $State_say }><!--狀態--></th>
+    </tr>
+  </thead>
+  <tbody>
+  <{ section name=list loop=$order_detail }>
+    <tr>
+      <td data-label="<{ $Bn_name }>">
+      &nbsp;<{ $order_detail[list].bn }>
+</td>
+      <td data-label="<{  $Product_Name }>" class="receivePay_text">
+      <{if $order_detail[list].detail_id>0}>
+                  <{ $order_detail[list].goodsname }><br>
+                  <{ $order_detail[list].detail_bn }><br>
+                  <{ $order_detail[list].detail_name }><br>
+                  <{ $order_detail[list].detail_des }><{else}><{ $order_detail[list].goodsname }> <{ if $order_detail[list].packgid>0 }>[<{  $Merchandise_mix_say }><!--組合商品-->]<{/if}><{/if}>
+                 <{if $order_detail[list].ifxygoods eq 1}>
+                	<br />
+                     <{ section name=list2 loop=$order_detail[list].xygoodslist }>
+                    	 <{ $order_detail[list].xygoodslist[list2].goodsname }>1 <{ $order_detail[list].xygoodslist[list2].good_color }>2 <{ $order_detail[list].xygoodslist[list2].good_size }>3<br />
+                     <{ /section }>
+                <{/if}>
+                <{if $order_detail[list].good_color neq ""}><br>
+                <{  $Color_say }><!--顏色-->：<{ $order_detail[list].good_color }>
+                <{/if}>
+                <{if $order_detail[list].good_size neq ""}><br>
+                <{  $Size_say }><!--尺寸-->：<{ $order_detail[list].good_size }>
+                <{/if}>
+                <{if $order_detail[list].detail_name neq ""}><br>
+               <{  $Specification_say }><!--規格--> ：<{ $order_detail[list].detail_name }>
+                <{/if}>
+
+                 </td>
+      <td data-label="<{ $Pricedesc_say }>">
+      <{ if $order_detail[list].packgid eq 0 }><span><{ $order_detail[list].buyprice }></span><{/if}></td>
+      <td data-label="<{  $Unit_say }>"><!--數量-->
+      <{ $order_detail[list].goodscount }></td>
+      <td data-label="<{  $Items_xj_say }>"><!--小計--><{ $order_detail[list].goodstotal }>&nbsp;
+      </td>
+      <td data-label="<{  $State_say }>" class="t0"><!--狀態-->
+      <{ if $order_detail[list].packgid eq 0 }><{ $order_detail[list].order_state }><{/if}>
+      </td>
+    </tr>
+    <{ /section }>
+ </tbody>
+</table>
+<{/if}>
+<div class="col-md-12 col-sm-12 padding-0">
+<table align="right">
+                          <tr >
+                            <td colspan="2" align="right">商品總金額：</td>
+                            <td align="right"><{ $Product_totalprice }><{  $Dollar_say }><!--元--></td>
+                          </tr>
+                          <!--tr >
+                            <td colspan="2" align="right">配送費用：</td>
+                            <td align="right"><{ $transport_price }><{  $Dollar_say }></td>
+                          </tr>
+                          <tr >
+                            <td colspan="2" align="right"><{ $TotalPrice_say }>：</td>
+                            <td align="right"><{ $Order_totalprice }><{  $Dollar_say }></td>
+                          </tr-->
+                          <tr >
+                            <td colspan="2" align="right"><{  $RewardPoints_ecoupon_say }><!--使用紅利點數/折價券折扣金額-->：</td>
+                            <td align="right">- <{if $ticket_discount_money > 0}><{$ticket_discount_money}><{else}><{if $bonuspoint > 0}><{ $bonuspoint }><{else}>0<{/if}><{/if}><{  $Dollar_say }><!--元--></td>
+                          </tr>
+                          <tr >
+                            <td colspan="2" align="right" class="price"><{  $TotalPrice_say }><!--消費總金額-->：</td>
+                            <td align="right" class="price"> <{ $tot }><{  $Dollar_say }><!--元--></td>
+                          </tr>
+                     </table>
+                     <div style="clear:both"></div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 margin-bottom-10 margin-top-10 trans_name">
+	<i class="icon-circle-arrow-right"></i> <{  $DiscountInfo_say }><!--折扣資訊-->
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding table_all" style="border: 1px solid #ddd;">
+<{if $ifgroup eq 1}>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold">
+團購點
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{ $totalGrouppoint }>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold">
+帳上餘額
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{$buyPoint}>
+</div>
+<{else}>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold nobottom bottom">
+<{  $UseCoupon_say }><!--使用折價券-->
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white nobottom bottom">
+<{$ticket_discount_money}><{  $Dollar_say }><!--元-->
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_bo noleft bold nobottom">
+<{  $PointUsed_say }><!--紅利折抵點數-->
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white nobottom">
+<{if $bonuspoint neq "" }><{ $bonuspoint }><{else}>0<{/if}><{  $Point_say }><!--點-->
+</div>
+<{/if}>
+<!--
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold nobottom">
+<{  $PointUsed_say_one }>紅利兌換點數--
+</div>
+<div class="col-lg-10 col-md-10 col-sm-6 col-xs-6 text-left table_bo nobottom table_white">
+<{ $totalbonuspoint }><{  $Point_say }><!--點
+</div>-->
+</div>
+
+
+
+<!--取貨人資訊<{ $Getpersoninfo }>-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 margin-bottom-10 margin-top-10 trans_name">
+	<i class="icon-circle-arrow-right"></i> 取貨人資訊
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding margin-bottom-20 table_all" style="border: 1px solid #ddd;">
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold nobottom bottom">
+英文姓名
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white nobottom bottom">
+<{$en_firstname}> <{$en_secondname}>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_bo noleft bold nobottom">
+<{ $ReceiveMobile_say }>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white nobottom">
+<{$Mobile}>
+</div>
+
+</div>
+
+<!--提貨資訊-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 margin-bottom-10 margin-top-10 trans_name">
+	<i class="icon-circle-arrow-right"></i> 提貨資訊
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding margin-bottom-80 table_all" style="border: 1px solid #ddd;">
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold">
+班機號碼
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{$flightid}> <{$flightno}>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_bo noleft bold">
+目的地
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{$Departure}>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold">
+直飛/轉機
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{if $flightstyle eq "direct"}>直飛<{else}>轉機<{/if}>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_bo bold noleft">
+班機時間
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{$flightdate}>
+<!--
+<{if $order_detail[list].detail_transport_state neq 0 }>
+<{else}>
+<select name="transport" id="transport" class="form-control select"></select>
+<{/if}>
+-->
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold">
+提貨時間
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+您登機時間前1-2小時
+</div>
+
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_bo bold noleft">
+護照號碼
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-left table_bo table_white">
+<{$certcode}>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-left table_title bold nobottom">
+提貨地點
+</div>
+<div class="col-lg-10 col-md-10 col-sm-6 col-xs-6 text-left table_bo table_white nobottom">
+桃園國際機場  第二航廈 采盟免稅預訂網
+</div>
+</div>
+        </div>
+<div style="clear:both"></div>
+	</div>
+	<!-- /body -->
+</div>
+
+<script type="text/javascript">
+function addZero(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
+}
+function setDatetime(i,j) {
+	var iDate = i.split("-");
+	var jDate = j.split(":");
+	return new Date(iDate[0],iDate[1]-1,iDate[2],jDate[0],jDate[1]);
+}
+/*var Datearray = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+var D = new Date(), S = new Date(), E = new Date();
+var W = D.getDay();
+var i = 0, msg = "";
+S.setDate(S.getDate() + (0-((W!=0?W:7)-1)));
+S.setHours(0,0,0);
+E.setDate(E.getDate() + (7-(W!=0?W:7)));
+E.setHours(23,59,59);
+//console.log(D+"-"+S+"-"+E);
+
+msg += '<option value="<{$flightdate}>"><{$flightdate}></option>';
+for (var i=0;i<=7;i++){
+	//console.log(D.getFullYear()+ "/" + addZero((D.getMonth()+1)) + "/" + addZero(D.getDate()+i) + " " + addZero(D.getHours()) + ":" + addZero(D.getMinutes()));
+	msg += '<option value="' + D.getFullYear()+ '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()+i) + '">' +
+	D.getFullYear() + '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()+i) + '</option>';
+}
+//$('#transport').html(msg);
+
+
+var ajaxurl = "//ptx.transportdata.tw/MOTC/v2/Air/GeneralSchedule/International?$filter=FlightNumber%20eq%20'<{$flightid}><{$flightno}>'%20and%20DepartureAirportID%20eq%20'TPE'%20and%20ArrivalAirportID%20eq%20'<{$Departure}>'&$orderby=ScheduleStartDate&$top=2&$format=JSON";
+$.ajax({
+			url: ajaxurl,
+			type:'get',
+			async: false,
+			dataType:"json",
+			success: function(result){
+				//console.log(result.length);
+				$.each(result, function(ifield, field){
+					//console.log(ifield);
+					var fS = setDatetime(field.ScheduleStartDate,field.DepartureTime), fE = setDatetime(field.ScheduleEndDate,field.DepartureTime);
+					//console.log(fS+"-"+fE);
+					if(fS >= S && fE <= E){
+						for (;i<7 && D >= S && D <= E;i++){
+							if(field[Datearray[W%7]] == true){
+								//console.log(D.getFullYear()+ "/" + addZero((D.getMonth()+1)) + "/" + addZero(D.getDate()) + " " + addZero(D.getHours()) + ":" + addZero(D.getMinutes()) + ' ' + field.DepartureTime);
+								//console.log(field[Datearray[W%7]]  + " " +  Datearray[W%7]);
+								msg += '<option value="' + D.getFullYear()+ '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()) + ' ' + field.DepartureTime + '">' +
+								D.getFullYear() + '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()) + ' ' + field.DepartureTime + '</option>';
+							}
+							D.setDate(D.getDate() + 1);
+							W = D.getDay();
+						}
+						S.setDate(S.getDate() + 7);
+						E.setDate(E.getDate() + 7);
+					}
+				});
+				//console.log(msg);
+				$('#transport').html(msg);
+			}
+});*/
+</script>
+<script language="javascript">
+$(document).ready(function() {
+		$('body').on('hidden.bs.modal', '.modal', function () {
+    	$(this).removeData('bs.modal');
+});
+		});
+</script>

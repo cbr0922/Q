@@ -1,0 +1,87 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="3" style="border: 1px solid #cccccc;">
+  <tr>
+    <td width="12%" align="right" class="p9blue"><{ $email_say }>
+      <!--电子信箱--></td>
+    <td width="88%" class="p9rednothrough"><input name="receiver_email" id="receiver_email" type="text" class="inputstyle" value="<{ $receiver_email }>" size="32">
+      * <{ $impro7 }></td>
+  </tr>
+  <tr>
+    <td width="12%" align="right" nowrap class="p9blue"><{ $name_say }>
+      <!--收货人姓名--></td>
+    <td width="88%" class="p9rednothrough"><input type="text" name="receiver_name" id="receiver_name" class="inputstyle" value="<{ $receiver_name }>">
+      * <{ $impro8 }></td>
+  </tr>
+  <tr id="bankid" style="display:none">
+    <td align="right" class="p9blue">PayNow帳號</td>
+    <td class="p9rednothrough"><input name="receiver_id" type="text" class="inputstyle" id="receiver_id" value="<{ $id }>" size="32">
+      *若您已經是PayNow的會員請填寫您的帳號，若您還不是PayNow的會員則不需填寫，結帳時會請做簡單的申請動作。</td>
+  </tr>
+  <tr id="showiid" style="display:none">
+    <td align="right" class="p9blue">付款期數</td>
+    <td class="p9rednothrough"><input type="hidden" name="iid" value="<{ $iid }>"></td>
+  </tr>
+  <tr>
+    <td width="12%" align="right" class="p9blue"><{ $addr_say }>
+      <!--收货人地址--></td>
+    <td width="88%" class="p9rednothrough"><input name="othercity" id="othercity" size="5">
+      <select id="county" name="county">
+      </select>
+      <select id="province" name="province">
+      </select>
+      <select id="city" name="city">
+      </select>
+      <input name="addr" type="text" id="addr" size="40" maxlength="200" value="<{ $addr }>"></td>
+  </tr>
+  <tr>
+    <td width="12%" align="right" class="p9blue"><{ $tel_say }>
+      <!--联系电话--></td>
+    <td width="88%" class="p9rednothrough"><input type="text" name="receiver_tele" id="receiver_tele" class="inputstyle" value="<{ $receiver_tele }>"></td>
+  <tr>
+    <td width="12%" align="right" class="p9blue"><{ $mobile_say }>
+      <!--联系手机--></td>
+    <td width="88%" class="p9rednothrough"><input type="text" name="receiver_mobile" id="receiver_mobile" class="inputstyle" value="<{ $receiver_mobile }>"></td>
+  </tr>
+  <tr>
+  <tr bgcolor="#FFFFFF">
+    <td align="right" nowrap class="p9blue"><{ $HomeSend_TimeType }></td>
+    <td class="p9rednothrough"><!--宅配時間部分-->
+      <{ section name='homesendtimetype' loop=$HomeTimeType }>
+      <input type="radio"  value="<{ $HomeTimeType[homesendtimetype].transtime_id }>(&)<{ $HomeTimeType[homesendtimetype].transtime64encode_name }>" name='HomeTimeType' id='HomeTimeType'>
+      <{ $HomeTimeType[homesendtimetype].transtime64decode_name }>&nbsp; <{ /section }> </td>
+  </tr>
+  <td width="12%" align="right" nowrap class="p9blue"><{ $content_say }>
+      <!--备注--></td>
+    <td width="88%" class="p9rednothrough"><textarea name="receiver_memo" id="receiver_memo" rows="6" cols="80" class="p9v"></textarea></td>
+  </tr>
+</table>
+<script language="JavaScript">
+$(function(){
+    $("select").css("width","100px");
+	var area;
+	$.ajax({
+		url: "../area.php",
+		type:'get',
+		dataType:"json",
+		success: function(msg){
+			//$('#showsize').html(msg);
+			area = msg;
+			//alert("<{$transname_area}>");
+			
+			 $.area(area);
+			 
+			 
+			 $('#county').val("<{$transname_area}>");$("#county").trigger('change');
+			 
+			 $('#county').attr("disabled","disabled");
+			 
+			 $('#province').val("<{$transname_area2}>");$("#province").trigger('change');
+			 
+			 $('#province').attr("disabled","disabled");
+			 <{if $city neq ""}>
+			 $('#city').val("<{$city}>");$("#city").trigger('change');
+			 <{/if}>			 
+			
+		}
+	});
+});
+</script>

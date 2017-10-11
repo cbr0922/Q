@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/*
+
+    anythingSlider v1.2
+
+    
+
+    By Chris Coyier: http://css-tricks.com
+
+    with major improvements by Doug Neiner: http://pixelgraphics.us/
+
+    based on work by Remy Sharp: http://jqueryfordesigners.com/
+
+*/
+
+
+
+
+
+.anythingSlider                         { width: 696px; height: 288px; position: relative;*top:0px;
+*top:-7px;!important }
+
+.anythingSlider .wrapper                { width: 696px; overflow:hidden; height: 288px; position: absolute; }
+
+.anythingSlider .wrapper ul {padding:0px;margin:0px;}
+
+                                       /* Width below is max for Opera */
+
+.anythingSlider .wrapper ul             { width: 32700px; list-style: none; position: absolute; top: 0; left: 0; background: #fff; border-top: 0px solid #e0a213; border-bottom: 0px solid #e0a213; margin: 0;}
+
+.anythingSlider ul li                   { display: block; float: left; padding: 0; height: 288px; width: 696px; margin: 0; }
+
+.anythingSlider .arrow                  { display: block; height: 205px; width: 33px; background: url(../images/arrows2.png) no-repeat 0 0; text-indent: -9999px; position: absolute; top:30px; cursor: pointer; }
+
+.anythingSlider .forward                { background-position: 0 0; right: 0px; }/*右箭頭*/
+
+.anythingSlider .back                   { background-position: -33px 0; left: 0px; }/*左箭頭*/
+
+.anythingSlider .forward:hover          { background-position: 0 -200px; }
+
+.anythingSlider .back:hover             { background-position: -33px -200px; }
+
+
+
+#thumbNav                               { position: relative; top: 323px; text-align: center; }
+
+#thumbNav a                             { color: black; font: 11px/18px Century Gothic; display: inline-block; padding: 2px 8px; height: 18px; margin: 0 5px 0 0; background: #fff; text-align: center; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+
+#thumbNav a:hover                       { background-image: none; }
+
+#thumbNav a.cur                         {
+
+	background-color: #FFFFFF;
+
+}
+
+
+
+#start-stop                             { background: green; background-image: url(../images/cellshade.png); background-repeat: repeat-x; color: white; padding: 0px 0px; width: 0px; text-align: center; position: absolute; right: 45px; top: 323px; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+
+#start-stop.playing                     { background-color: red; }
+
+#start-stop:hover                       { background-image: none; }
+
+
+
+/*
+
+#start-stop                             { background: green; background-image: url(../images/cellshade.png); background-repeat: repeat-x; color: white; padding: 2px 5px; width: 0px; text-align: center; position: absolute; right: 45px; top: 323px; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+
+#start-stop.playing                     { background-color: red; }
+
+#start-stop:hover                       { background-image: none; }
+
+*/
+
+/*
+
+  Prevents
+
+*/
+
+.anythingSlider .wrapper ul ul          { position: static; margin: 0; background: none; overflow: visible; width: auto; border: 0; }
+
+.anythingSlider .wrapper ul ul li       { float: none; height: auto; width: auto; background: none; }

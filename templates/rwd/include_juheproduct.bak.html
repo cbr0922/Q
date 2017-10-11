@@ -1,0 +1,959 @@
+<style>
+li {list-style:none;}
+#tab3 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab3 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab3 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-1.gif);color:#666;}
+#tab3 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist3 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab4 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab4 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab4 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-2.gif);color:#666;}
+#tab4 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist4 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab5 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab5 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab5 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-3.gif);color:#666;}
+#tab5 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist5 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab6 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab6 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab6 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-4.gif);color:#666;}
+#tab6 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist6 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab7 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab7 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab7 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-5.gif);color:#666;}
+#tab7 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist7 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab8 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab8 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab8 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-6.gif);color:#666;}
+#tab8 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist8 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab9 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab9 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab9 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-7.gif);color:#666;}
+#tab9 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist9 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab10 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab10 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab10 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-8.gif);color:#666;}
+#tab10 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist10 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab11 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab11 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab11 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-9.gif);color:#666;}
+#tab11 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist11 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+#tab12 {	width:313px;height:33px;font-size:12px;font-weight:normal;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab12 ul {margin:0;padding:0;background-position:right;background-repeat:no-repeat;background:url(<{$template_dir}>/images/tab-back000.gif);}
+#tab12 li {width:78px;float:left;height:33px;line-height:33px;text-align:center;border-right:0px #ebf7ff solid;cursor:pointer;background:url(<{$template_dir}>/images/tab-back2-9.gif);color:#666;}
+#tab12 li.now {color:#666;font-weight:bold;background:url(<{$template_dir}>/images/tab-back1.jpg);}
+.tablist12 {width:311px;height:255px;font-size:12px;line-height:33px;border-left:1px #b3a89f solid;border-right:1px #b3a89f solid;border-bottom:1px #b3a89f solid;display:none;overflow:hidden;}
+.block {display:block;}
+</style>
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab3">
+        <ul>
+          <li onMouseOver="setTab(3,0)" class="now">智能网通</li>
+          <li onMouseOver="setTab(3,1)">住宅监控</li>
+          <li onMouseOver="setTab(3,2)">家庭视讯</li>
+          <li onMouseOver="setTab(3,3)">平板电脑</li>
+        </ul>
+  
+      </div>
+      <div id="tablist3">
+        <div class="tablist3 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link1 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic1 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_1 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_1[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_1[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_1[list].gid }>" class="green"><{ $qk_goods_array_1[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist3"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link2 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic2 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_2 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_2[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_2[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_2[list].gid }>" class="green"><{ $qk_goods_array_2[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist3"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link3 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic3 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_3 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_3[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_3[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_3[list].gid }>" class="green"><{ $qk_goods_array_3[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist3"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link4 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic4 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_4 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_4[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_4[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_4[list].gid }>" class="green"><{ $qk_goods_array_4[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="center" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab4">
+        <ul>
+          <li onMouseOver="setTab(4,0)" class="now">茶之物语</li>
+          <li onMouseOver="setTab(4,1)">好茶茗品</li>
+          <li onMouseOver="setTab(4,2)">休闲茗品</li>
+          <li onMouseOver="setTab(4,3)">茶具</li>
+        </ul>
+  
+      </div>
+      <div id="tablist4">
+        <div class="tablist4 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link5 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic5 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_5 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_5[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_5[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_5[list].gid }>" class="green"><{ $qk_goods_array_5[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist4"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link6 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic6 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_6 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_6[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_6[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_6[list].gid }>" class="green"><{ $qk_goods_array_6[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist4"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link7 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic7 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_7 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_7[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_7[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_7[list].gid }>" class="green"><{ $qk_goods_array_7[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist4"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link8 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic8 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_8 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_8[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_8[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_8[list].gid }>" class="green"><{ $qk_goods_array_8[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="right" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab5">
+        <ul>
+          <li onMouseOver="setTab(5,0)" class="now">地方特色</li>
+          <li onMouseOver="setTab(5,1)">臭豆腐</li>
+          <li onMouseOver="setTab(5,2)">凤梨酥</li>
+          <li onMouseOver="setTab(5,3)">糕点</li>
+        </ul>
+  
+      </div>
+      <div id="tablist5">
+        <div class="tablist5 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link9 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic9 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_9 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_9[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_9[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_9[list].gid }>" class="green"><{ $qk_goods_array_9[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist5"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link10 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic10 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_10 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_10[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_10[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_10[list].gid }>" class="green"><{ $qk_goods_array_10[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist5"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link11 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic11 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_11 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_11[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_11[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_11[list].gid }>" class="green"><{ $qk_goods_array_11[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist5"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link12 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic12 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_12 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_12[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_12[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_12[list].gid }>" class="green"><{ $qk_goods_array_12[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab6">
+        <ul>
+          <li onMouseOver="setTab(6,0)" class="now">台湾食尚</li>
+          <li onMouseOver="setTab(6,1)">小吃</li>
+          <li onMouseOver="setTab(6,2)">果干</li>
+          <li onMouseOver="setTab(6,3)">礼盒</li>
+        </ul>
+  
+      </div>
+      <div id="tablist6">
+        <div class="tablist6 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link13 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic13 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_13 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_13[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_13[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_13[list].gid }>" class="green"><{ $qk_goods_array_13[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist6"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link14 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic14 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_14 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_14[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_14[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_14[list].gid }>" class="green"><{ $qk_goods_array_14[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist6"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link15 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic15 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_15 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_15[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_15[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_15[list].gid }>" class="green"><{ $qk_goods_array_15[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist6"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link16 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic16 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_16 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_16[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_16[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_16[list].gid }>" class="green"><{ $qk_goods_array_16[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="center" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab7">
+        <ul>
+          <li onMouseOver="setTab(7,0)" class="now">美妆保养</li>
+          <li onMouseOver="setTab(7,1)">彩妆</li>
+          <li onMouseOver="setTab(7,2)">保养</li>
+          <li onMouseOver="setTab(7,3)">美体</li>
+        </ul>
+  
+      </div>
+      <div id="tablist7">
+        <div class="tablist7 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link17 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic17 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_17 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_17[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_17[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_17[list].gid }>" class="green"><{ $qk_goods_array_17[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist7"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link18 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic18 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_18 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_18[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_18[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_18[list].gid }>" class="green"><{ $qk_goods_array_18[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist7"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link19 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic19 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_19 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_19[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_19[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_19[list].gid }>" class="green"><{ $qk_goods_array_19[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist7"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link20 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic20 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_20 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_20[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_20[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_20[list].gid }>" class="green"><{ $qk_goods_array_20[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="right" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab8">
+        <ul>
+          <li onMouseOver="setTab(8,0)" class="now">名店精品</li>
+          <li onMouseOver="setTab(8,1)">珠宝</li>
+          <li onMouseOver="setTab(8,2)">配件</li>
+          <li onMouseOver="setTab(8,3)">精品</li>
+        </ul>
+  
+      </div>
+      <div id="tablist8">
+        <div class="tablist8 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link21 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic21 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_21 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_21[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_21[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_21[list].gid }>" class="green"><{ $qk_goods_array_21[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist8"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link22 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic22 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_22 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_22[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_22[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_22[list].gid }>" class="green"><{ $qk_goods_array_22[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist8"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link23 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic23 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_23 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_23[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_23[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_23[list].gid }>" class="green"><{ $qk_goods_array_23[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist8"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link24 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic24 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_24 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_24[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_24[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_24[list].gid }>" class="green"><{ $qk_goods_array_24[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab9">
+        <ul>
+          <li onMouseOver="setTab(9,0)" class="now">服饰配件</li>
+          <li onMouseOver="setTab(9,1)">包包</li>
+          <li onMouseOver="setTab(9,2)">饰品</li>
+          <li onMouseOver="setTab(9,3)">服饰</li>
+        </ul>
+  
+      </div>
+      <div id="tablist9">
+        <div class="tablist9 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link25 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic25 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_25 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_25[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_25[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_25[list].gid }>" class="green"><{ $qk_goods_array_25[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist9"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link26 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic26 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_26 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_26[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_26[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_26[list].gid }>" class="green"><{ $qk_goods_array_26[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist9"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link27 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic27 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_27 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_27[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_27[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_27[list].gid }>" class="green"><{ $qk_goods_array_27[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist9"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link28 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic28 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_28 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_28[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_28[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_28[list].gid }>" class="green"><{ $qk_goods_array_28[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="center" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab10">
+        <ul>
+          <li onMouseOver="setTab(10,0)" class="now">居家亲子</li>
+          <li onMouseOver="setTab(10,1)">生活百货</li>
+          <li onMouseOver="setTab(10,2)">3C家电</li>
+          <li onMouseOver="setTab(10,3)">亲子用品</li>
+        </ul>
+  
+      </div>
+      <div id="tablist10">
+        <div class="tablist10 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link29 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic29 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_29 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_29[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_29[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_29[list].gid }>" class="green"><{ $qk_goods_array_29[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist10"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link30 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic30 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_30 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_30[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_30[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_30[list].gid }>" class="green"><{ $qk_goods_array_30[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist10"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link31 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic31 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_31 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_31[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_31[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_31[list].gid }>" class="green"><{ $qk_goods_array_31[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist10"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link32 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic32 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_32 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_32[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_32[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_32[list].gid }>" class="green"><{ $qk_goods_array_32[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+    <td align="right" valign="top">
+    <table width="315" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="310" valign="top"><div id="tab11">
+        <ul>
+          <li onMouseOver="setTab(11,0)" class="now">运动休闲</li>
+          <li onMouseOver="setTab(11,1)">运动器材</li>
+          <li onMouseOver="setTab(11,2)">休闲用品</li>
+          <li onMouseOver="setTab(11,3)">汽机百货</li>
+        </ul>
+  
+      </div>
+      <div id="tablist11">
+        <div class="tablist11 block"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link33 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic33 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_33 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_33[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_33[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_33[list].gid }>" class="green"><{ $qk_goods_array_33[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist11"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link34 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic34 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_34 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_34[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_34[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_34[list].gid }>" class="green"><{ $qk_goods_array_34[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+<div class="tablist11"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link35 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic35 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_35 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_35[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_35[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_35[list].gid }>" class="green"><{ $qk_goods_array_35[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+        <div class="tablist11"> <span>
+<table width="100%" height="196"  border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="180" align="center" valign="top" style="padding:2px;"><a href="<{ $gc_link36 }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_pic36 }>" width=200 border="0"></a></td>
+                    <td align="center" valign="top" style="padding-top:3px;"><!--商品循環-->
+                      <table width="98%" border="0" cellpadding="1" cellspacing="0">
+                        <{ section name=list loop=$qk_goods_array_36 }>
+                        <tr>
+                          
+                          <td height="75" valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_36[list].gid }>"><img src="UploadFile/GoodPic/<{ $qk_goods_array_36[list].smallimg }>" width=75 height="75" border=0></a></td>
+                        </tr>
+                        <tr>
+                          <td valign="top"><a href="product/goods_detail.php?goods_id=<{ $qk_goods_array_36[list].gid }>" class="green"><{ $qk_goods_array_36[list].goodsname }></a></td>
+                        </tr>
+                        <{ /section }>
+                      </table>
+                    <!--END商品循環--></td>
+                  </tr>
+                </table>
+        </span> </div>
+      </div></td>
+    <td width="13"></td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+//m选项卡数目
+//n当前选项卡编号
+function setTab(m,n){
+	
+	var menu=document.getElementById("tab"+m).getElementsByTagName("li");   //获取ID为tab+m标签下的li标签
+	var showdiv=document.getElementById("tablist"+m).getElementsByTagName("div");   //获取ID为tablist+m标签下的div标签
+	//alert(showdiv.length);
+	for(i=0;i<menu.length;i++)
+	{
+		menu[i].className=i==n?"now":"";   //如果i=n;那么menu[i].classname为now
+		showdiv[i].style.display=i==n?"block":"none";   //如果如果i=n;那么showdiv[i].style.display为block"
+	}
+}
+</script>

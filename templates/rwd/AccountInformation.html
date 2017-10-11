@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{ $HtmlTitle }> -- <{  $Info_modi }> </title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<{ include_php file="include/include_ga.php" }>
+
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>		
+<script language="javascript" src="<{ $Site_Url }>/js/area_gb.js"></script>		
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="createMenus('<{ $province_value }>','<{ $city_value }>','','')">
+<{ include_php file="include/menu.php" }>
+
+  <{ if $Ear_radio eq 1 }>	
+
+	  <{ include_php file="modules/advertising/ear.php" }>
+
+  <{ /if }>  
+
+<table width="899" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="234" valign="top" background="<{ $template_dir }>/images/kevin05_01_57.jpg" bgcolor="CB1238"> <span class="leftback"><{
+        include_php file="member/left.php" }></span></td>
+    <td width="665" valign="top"><table width="665" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="38" background="<{ $template_dir }>/images/tit_in.jpg"><span class="p9white">    <{
+              $Info_modi }></span></td>
+        </tr>
+        <tr>
+          <td><br>
+            <form action="member_save.php" name="form1" method="post" onSubmit="return updateuser(this,'<{ $PleaseinputEmail }>','<{ $PleaseinputName }>','<{ $PleaseinputBorn }>');">
+              <input type="hidden" name="user_id" value="<{ $Sessid }>">
+              <input type="hidden" name="Action" value="Update">
+              <TABLE class=p9black cellSpacing=0 cellPadding=3 width="100%"  align=center border=0>
+                <TBODY>
+                  <TR>
+                    <TD align=right width="12%"><{ $Username_say }>：
+                        <!--用户名-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle  name=username value="<{ $Username }>" disabled></TD>
+                  </TR>
+                  <TR>
+                    <TD  align=right width="12%"><{ $Email_say }>：
+                        <!--E-mail地址-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle  name=email value="<{ $Email }>">
+          * <{ $Email_exsay }>
+          <!--很重要！订单、发货等信息都会发送到此信箱。-->
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD width="12%"  align=right nowrap><{ $True_say }>：
+                        <!--真实姓名-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle  name=truename value="<{ $True_name }>"></TD>
+                  </TR>
+                  <TR>
+                    <TD  align=right width="12%"><{ $Sex_say }>：
+                        <!--性别-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT type=radio  value='0' name=sex <{ if $Sex==0 }> checked <{ /if }>> <{ $Men_say }>
+                      <!--男-->
+                      <INPUT type=radio  value='1' name="sex" <{ if $Sex==1 }> checked <{ /if }>> <{ $Women_say }>
+                      <!--女-->
+                              </TR>
+                  <TR>
+                    <TD  align=right><{ $Borndate_say }>：
+                        <!--出生日期-->
+                    </TD>
+                    <TD class=p9rednothrough>
+                      <select name="byear">
+                        <{ $Born_year }>
+                      </select>
+<{ $Born_month }><{ $Born_day }> </TD>
+                  </TR>
+                  <TR>
+                    <TD width="12%" align=right valign="top" ><{ $Area_say }>：
+                        <!--地区名称-->
+                    </TD>
+                    <TD width="88%" nowrap class=p9rednothrough>
+                      <input name="modicity" type="hidden" id="modicity" value="1">
+                      <select name="province" onChange=updateMenus(this)>
+                      </select>
+                      <select name="city" id="select2">
+                      </select>
+<{ $Canton }>:
+          <input name="othercity" type="text" size="6" value="<{ $othercity_value }>">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD  align=right width="12%"><{ $Address_say }>：
+                        <!--联系地址-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle  size=40 name=address value="<{ $Address }>">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD  align=right width="12%"><{ $Post_say }>：
+                        <!--邮政编码-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT name=post class=inputstyle id="post" value="<{ $Post }>">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD align=right width="12%"><{ $Mobile_say }>：
+                        <!--移动电话-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle  name=mobile value="<{ $Mobile }>">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD  align=right width="12%"><{ $Phone_say }>：
+                        <!--固定电话-->
+                    </TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle name=phone value="<{ $Phone }>">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD class=p9blue align=right width="12%">&nbsp;</TD>
+                    <TD class=p9rednothrough width="88%"><INPUT class=inputstyle type=submit name='Submit' value='<{$Submit_day }>' >
+                    </TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+            </form>
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

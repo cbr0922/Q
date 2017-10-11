@@ -1,0 +1,10 @@
+
+
+<div class="form-group">
+
+	<div class="col-md-7 col-xs-7">目前選購 <span class="font16"><{$havecount}></span> 件,差 <font color="#ff6600"><span class="font16"><{$haveyunfei}></span></font> 元<br>
+	滿額價 <{if $haveyunfei eq 0}><span class="font18"><{$total_price}></span><{else}><span class="font18">未達</span><{/if}>
+	</div>
+	<div class="col-md-5 col-xs-5"><{if $haveyunfei eq 0}><a type="image" onclick='location.href="../shopping/cart.php?Action=Add&type=manyunfei&bid=<{$smarty.get.bid}>&time1=<{$times}>";' value="我要購買" class="btn btn-primary margin-bottom-10 margin-top-10" >我要購買</a><{/if}></div>
+
+</div>

@@ -1,0 +1,203 @@
+.popupMask {
+    table-layout: fixed;
+    height: 100%!important;
+    min-height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: opacity .2s linear 0s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000);
+}.popupWindow.customZone {
+    border: none;
+    display: inline-block;
+}
+.popupMask_cover{
+	table-layout: fixed;
+    display:inline-table;
+    height: 100%!important;
+    min-height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: opacity .2s linear 0s;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+}.popupMask_center{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+}
+.ad_menu_button{
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 8;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #000;
+    opacity: .5;
+    font-size: 20px;
+}.ad_menu_button:hover{
+	color:#fff;
+}
+.ad_menu_button_cover{
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 8;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    opacity: .5;
+    font-size: 20px;
+}
+#topMain>li>a {
+/*	height:96px;
+	line-height:76px;*/
+}
+#topMain.nav-pills>li>a {
+	color:#fff;
+	font-weight:400;
+	background-color:transparent;
+} 
+#topMain.nav-pills>li:hover>a, 
+#topMain.nav-pills>li:focus>a {
+	color:rgba(255, 255, 255, 0.8);
+	background-color:rgba(0,0,0,0.03);
+}
+#topMain.nav-pills>li.active>a {
+	color:#687482;
+}
+
+#topMain.nav-pills>li>a.dropdown-toggle {
+	padding-right:25px;
+
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+			border-radius: 0;
+}
+#topMain.nav-pills>li>a.dropdown-toggle:after {
+	display: block;
+	content: "\f107";
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin: -5px 0 0;
+	font-family: FontAwesome;
+	font-size: 12px;
+	opacity: .3;
+	line-height: 1em;
+
+	-webkit-transition: -webkit-transform .2s ease-in;
+	-moz-transition: -moz-transform .2s ease-in;
+	-ms-transition: -ms-transform .2s ease-in;
+	-o-transition: -o-transform .2s ease-in;
+	transition: transform .2s ease-in;
+}
+#header.bottom.dropup #topMain.nav-pills>li>a.dropdown-toggle:after {
+	content: "\f106";
+}
+
+#topNav .navbar-collapse {
+	float:right;
+}
+
+#topNav a.logo {
+	height:90px;
+	line-height:97px;
+	overflow:hidden;
+	display:inline-block;
+}
+@media (min-width: 1024px){
+/*	#header.header-sm #topNav #topMain>li>a {
+		height:97px;
+		line-height:97px;
+	}*/
+	#header.fixed.header-sm #topNav #topMain>li>a {
+		height:70px;
+		line-height:70px;
+	}
+	#menuhidden{
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+}
+
+
+@media only screen and (max-width: 1215px) {
+	#topMain.nav-pills>li>a {
+		font-size:14px;
+	}
+	.wsmenu-list > li > a {
+		padding: 0px 15px !important;
+	}
+}
+
+@media only screen and (max-width: 1023px) {
+	/* Force 60px 
+	#header {
+		height:60px !important;
+	} */
+	#header #topNav a.logo,#header #topNav a.logo2 {
+		height:60px !important;
+		line-height:60px !important;
+		vertical-align: middle;
+	}
+	#header #topNav a.logo>img,#header #topNav a.logo2>img {
+		max-height:55px !important;
+	}
+	#header #topNav #topMain>li>a {
+		/*height:40px !important;
+		line-height:40px !important;*/
+		height:40px ;
+		line-height:40px;
+		padding-top:0;
+	}#menudown{
+		padding:0 !important;
+		height: 0 !important;
+	}#topMain.nav-pills>li>a.dropdown-toggle:after{
+		display:none;
+	}
+
+
+	#topMain>li {
+		border-bottom:rgba(0,0,0,0.1) 1px solid;
+	}
+	#topMain>li:last-child {
+		border-bottom:0;
+	}
+
+		#header li.search .search-box {
+			margin:0 !important;
+			position:fixed;
+			left:0; right:0;
+			top:60px !important;
+			width:100%;
+			background-color:#fff;
+			border-top:rgba(0,0,0,0.1) 1px solid;
+		}.menu_3{
+			padding: 7px 52px !important;
+		}.menu_4{
+			padding: 7px 64px !important;
+		}
+	.menu_5
+	{
+		text-align:center;
+	}.menu_5_s
+	{
+		margin-top:0 !important;
+	}
+}

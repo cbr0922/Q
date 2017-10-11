@@ -1,0 +1,126 @@
+<!--
+	Used By:
+		shortcode-lightbox.html
+-->
+
+<div class="lightbox-ajax">
+	<!-- title -->
+	<h4>轉讓現金券號碼</h4>
+
+	<!-- body -->
+	<div class="lightbox-ajax-body">
+		<div class="col-md-12 col-sm-12">
+			
+			<!--邀請好友開始 -->
+						
+					<!--email邀請&分享功能↓-->
+					<p class="margin-top-20 size-16">現金券號碼：<b><{ $smarty.get.ticketcode }></b></p>
+					<p class="margin-top-20 size-16">現金券抵用金額/百分比：<span class="price"><{if $smarty.get.money > 1}><{ $smarty.get.money }>元<{else}><{ $smarty.get.money*100 }>% off<{/if}></span></p>
+					<form action="transfercode.php" method="post" class="form-horizontal" role="form">
+						<input type="hidden" name="act" value="send" />
+						<input type="hidden" id="ticketid" name="ticketid" value="<{$smarty.get.ticketid}>" />
+						<input type="hidden" id="ticketcode" name="ticketcode" value="<{$smarty.get.ticketcode}>" />
+						<div class="">
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-group">	
+									<label>輸入您朋友的e-mail</label>	
+									<input type="email" id="email_input" name="email_input" class="form-control margin-bottom-10" />
+									<div id="showinput"></div>	
+								</div>	
+									
+							</div>
+						</div>	
+						<div class="">
+							<div class="col-xs-12 col-sm-12">	
+								<div class="form-group">
+									<label>留言給朋友</label>
+									<textarea class="form-control" id="email_text" name="email_text" cols="100%" rows="5">Hi!</textarea>
+								</div>
+							</div>
+						</div>
+						<div class="">
+							<button type="submit" name="button" class="col-xs-12 col-md-offset-4 col-sm-4 btn btn-black"> 發送現金券號碼 </button>
+						</div>
+						
+						
+					</form>	
+					
+					<!--email邀請&分享功能↑-->	
+					<!-- /邀請好友結束 -->	
+			
+        </div>
+<div style="clear:both"></div>
+	</div>
+	<!-- /body -->
+</div>
+
+<script type="text/javascript">
+function addZero(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
+}
+function setDatetime(i,j) {
+	var iDate = i.split("-");
+	var jDate = j.split(":");
+	return new Date(iDate[0],iDate[1]-1,iDate[2],jDate[0],jDate[1]);
+}
+/*var Datearray = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+var D = new Date(), S = new Date(), E = new Date();
+var W = D.getDay();
+var i = 0, msg = "";
+S.setDate(S.getDate() + (0-((W!=0?W:7)-1)));
+S.setHours(0,0,0);
+E.setDate(E.getDate() + (7-(W!=0?W:7)));
+E.setHours(23,59,59);
+//console.log(D+"-"+S+"-"+E);
+
+msg += '<option value="<{$flightdate}>"><{$flightdate}></option>';
+for (var i=0;i<=7;i++){
+	//console.log(D.getFullYear()+ "/" + addZero((D.getMonth()+1)) + "/" + addZero(D.getDate()+i) + " " + addZero(D.getHours()) + ":" + addZero(D.getMinutes()));
+	msg += '<option value="' + D.getFullYear()+ '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()+i) + '">' +
+	D.getFullYear() + '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()+i) + '</option>';
+}
+//$('#transport').html(msg);
+
+
+var ajaxurl = "//ptx.transportdata.tw/MOTC/v2/Air/GeneralSchedule/International?$filter=FlightNumber%20eq%20'<{$flightid}><{$flightno}>'%20and%20DepartureAirportID%20eq%20'TPE'%20and%20ArrivalAirportID%20eq%20'<{$Departure}>'&$orderby=ScheduleStartDate&$top=2&$format=JSON";
+$.ajax({
+			url: ajaxurl,
+			type:'get',
+			async: false,
+			dataType:"json",
+			success: function(result){
+				//console.log(result.length);
+				$.each(result, function(ifield, field){
+					//console.log(ifield);
+					var fS = setDatetime(field.ScheduleStartDate,field.DepartureTime), fE = setDatetime(field.ScheduleEndDate,field.DepartureTime);
+					//console.log(fS+"-"+fE);
+					if(fS >= S && fE <= E){
+						for (;i<7 && D >= S && D <= E;i++){
+							if(field[Datearray[W%7]] == true){
+								//console.log(D.getFullYear()+ "/" + addZero((D.getMonth()+1)) + "/" + addZero(D.getDate()) + " " + addZero(D.getHours()) + ":" + addZero(D.getMinutes()) + ' ' + field.DepartureTime);
+								//console.log(field[Datearray[W%7]]  + " " +  Datearray[W%7]);
+								msg += '<option value="' + D.getFullYear()+ '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()) + ' ' + field.DepartureTime + '">' +
+								D.getFullYear() + '/' + addZero((D.getMonth()+1)) + '/' + addZero(D.getDate()) + ' ' + field.DepartureTime + '</option>';
+							}
+							D.setDate(D.getDate() + 1);
+							W = D.getDay();
+						}
+						S.setDate(S.getDate() + 7);
+						E.setDate(E.getDate() + 7);
+					}
+				});
+				//console.log(msg);
+				$('#transport').html(msg);
+			}
+});*/
+</script>
+<script language="javascript">
+$(document).ready(function() {
+		$('body').on('hidden.bs.modal', '.modal', function () {
+    	$(this).removeData('bs.modal');
+});
+		});
+</script>

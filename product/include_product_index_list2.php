@@ -1,0 +1,76 @@
+<?php
+error_reporting(7);
+@header("Content-type: text/html; charset=utf-8");
+
+include_once ("../configs.inc.php");
+include("global.php");
+
+include_once ("Char.class.php");
+$Char_Class = new Char_class();
+
+include("product.class.php");
+$PRODUCT = new PRODUCT();
+
+$bid = intval($_GET['bid']);
+
+$_GET['ordertype'] = intval($_GET['ordertype']);
+	//商品列表
+	$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1);
+	//屬性
+
+$classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
+	$type = $_GET['type'];
+	switch($type){
+			case "bonus":
+				$title = "紅利商品";
+				break;
+			case "xy":
+				$title = "任選商品";
+				break;
+			case "present":
+				$title = "額滿禮商品";
+				break;
+			case "change":
+				$title = "加購商品";
+				break;
+			case "js":
+				$title = "集殺商品";
+				break;
+			case "recommend":
+				$title = "推薦商品";
+				break;
+			case "hot":
+				$title = "熱賣商品";
+				break;
+			case "special":
+				$title = "特價商品";
+				break;
+			case "new":
+				$title = "最新商品";
+				break;
+		}
+//品牌
+if(intval($_GET['brand_id'])>0){
+	$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id=".intval($_GET['brand_id'])." limit 0,1");
+	$Num   = $DB->num_rows($Query);
+
+	if ($Num>0){
+		$Result= $DB->fetch_array($Query);
+		$brandname    =  trim($Result['brandname']);
+		$brandcontent    =  trim($Result['brandcontent']);
+		$logopic    =  trim($Result['logopic']);
+		$content    =  trim($Result['content']);
+		$meta_des    =  trim($Result['meta_des']);
+		$meta_key    =  trim($Result['meta_key']);
+		$tpl->assign("meta_key",       $meta_key);
+		$tpl->assign("meta_des",       $meta_des);
+	}
+}
+$tpl->assign("title",       $title);
+$tpl->assign("content",       $content);
+$tpl->assign("classinfo_array",     $classinfo_array);
+$tpl->assign("brandname",  $brandname);
+$tpl->assign("brandcontent",  $brandcontent);
+$tpl->assign("product_array",     $product_array);
+$tpl->display("include_product_index_list2.html");
+?>

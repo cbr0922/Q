@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="<{ if $classinfo_array.meta_des neq "" }><{ $classinfo_array.meta_des }><{else}><{ $meta_des }><{/if}>" name="description">
+<meta content="<{ if $classinfo_array.meta_key neq "" }><{ $classinfo_array.meta_key }><{else}><{ $meta_key }><{/if}>" name="keywords">
+<title><{if $title neq ""}><{ $title }><{else}><{ $brandname }><{ $classinfo_array.catname }><{/if}> - <{ $site_name }></title>
+<link href="<{ $template_dir }>/css/fire.css" rel="stylesheet" type="text/css">
+<link href="<{ $template_dir }>/css/menu_a.css" rel="stylesheet" type="text/css">
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome-ie7.css" type=text/css rel=stylesheet>
+<LINK href="<{ $Site_Url }>/css/font-awesome/css/font-awesome.css" type=text/css rel=stylesheet>
+
+<{ include_php file="include/include_ga.php" }>
+</head>
+<script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<{ include_php file="include/menu.php" }>
+<script language="javascript" type="text/javascript" src="../js/jquery/jquery.form.js"></script>
+<script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.blockUI.js"></script>
+<div id="body_out">
+  <div id="body_center">
+   <div id="title_l">
+        <div id="title_l_left">
+        <a href="<{ $Site_Url }>">首頁</a><{if $title neq ""}>&nbsp;<span class="style100">></span>&nbsp;<{ $title }><{elseif $smarty.get.brand_id>0}>&nbsp;<span class="style100">></span> &nbsp;商品品牌<{if $brandname neq ""}>&nbsp;<span class="style100">></span> &nbsp;<{ $brandname }><{/if}><{else}><{if $smarty.get.bid eq "" }>&nbsp;<span class="style100">></span>&nbsp;全部商品<{/if}><{/if}><{ section name=list loop=$class_banner }>&nbsp;<span class="style100">></span>&nbsp;<a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a><{/section}>
+		 
+         <!-- <a href="<{ $Site_Url }>">首頁</a> <{ section name=list loop=$class_banner }>  &nbsp;<span class="style100">></span> &nbsp; <a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{/section}><{if $brandname neq ""}><span class="style100">></span> <{ $brandname }><{/if}><br />
+<h1><{if $title neq ""}><{ $title }><{else}> <{/if}>  </h1>-->
+       </div>
+       <div id="title_l_right"><!-- <a href="<{ $Site_Url }>">首頁</a> <{ section name=list loop=$class_banner }>  &nbsp;<span class="style100">／</span> &nbsp; <a href="index.php?bid=<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a> <{/section}><{if $brandname neq ""}><span class="style100">／</span> <{ $brandname }><{/if}>--></div>
+      </div>
+    <div id="body_left" >
+      <!--左邊開始-->
+      <{if  $banner!="" }> <img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$banner}>" /> <{/if}>
+      <DIV style="float:left" class="brand_img"><{if $smarty.get.brand_id>0}><img src="../UploadFile/LogoPic/<{$logopic}>" />
+      <div class="brand_content"><{$content}></div>
+	  	<{/if}>
+	    <img src="<{ $template_dir }>/images/discountsubject.gif"  />
+   <div id="left_menu">
+   <{ section name=sub_list loop=$Array_sub }>
+   <ul  class="<{if $Array_sub[sub_list].dsid eq $smarty.get.subject_id}>level2_cur<{else}>level2<{/if}>">
+   
+   <a href="<{ $Site_Url }>/modules/discount/discountsubject.php?subject_id=<{ $Array_sub[sub_list].dsid }>" ><li><{ $Array_sub[sub_list].subject_name }></li></a>
+   </ul>
+   <{ /section }>
+   </div>
+     <{if $smarty.get.bid>0 }><{ include_php file="include/include_product_class.php" }><!--一般商品分類(三級分類)，若須二級全部展開需要提換-->
+     <{elseif $smarty.get.brand_id>0 }><{ include_php file="include/include_product_class1.php" }><!--保留品牌分類給id=1-->
+     <{else}><{ include_php file="include/include_product_class2.php" }><{/if}><!--沒有id或其他頁面使用全部大分類沒有子分類-->
+     <{ include_php file="include/include_saleproduct_class.php" }>
+   </DIV>
+</div>
+    <!--左邊結束-->
+    <div id="body_right">
+      <!--右邊邊開始-->
+     
+      <table width="760" border="0" align="left" cellpadding="0" cellspacing="0"  style="margin-bottom:15px" >
+        <tr>
+          <td width="760" colspan="2"  align="left" ><div style="margin-bottom:15px"> <script  language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=product" type="text/javascript" ></script></div></td>
+        </tr>
+		<tr>
+          <td width="525"  align="left"><{if $classinfo_array.catcontent neq ""}><{ $classinfo_array.catcontent }><{else}><{ include_php file="modules/advertising/adv_product.php" }><{/if}><{$brandcontent}></td> <{if $classinfo_array.top_id eq 0 && $smarty.get.type eq "" && $smarty.get.skey eq "" && $smarty.get.Action eq ""}>
+      <{if $smarty.get.brand_id eq 0}>
+          <td width="224" valign="top"  align="right" ><div style="border:1px solid #dbdbdb; height:227px; width:224px;overflow: hidden;  "><img align="left"  src="<{ $template_dir }>/images/product_Activity.jpg" >
+          <{ section name=i loop=$pic_news }>
+            <{ if $pic_news[i].title != '' }>
+            <div style="width:224px;display:block;float:left">
+              <table width="224" border="0" cellpadding="0" cellspacing="0">
+                <!--tr>
+                  <td align="center"><img src="<{ $Site_Url }>/UploadFile/NewsPic/<{ $pic_news[i].nimg }>" width=80 height="80"></td>
+                </tr-->
+                <tr>
+                  <td align="left" style="padding-left:10px; padding-right:8px;  line-height:16px"><{ $pic_news[i].ltitle }> </td>
+                </tr>
+              </table>
+            </div>
+            <{ /if }>
+            <{ /section  }>
+          </div></td>
+          <{/if}> <{/if}>
+        </tr>
+      </table>
+      <{if $smarty.get.type neq "" || $smarty.get.skey neq ""}>
+      <{ include file="include_product_index_list.html" }>
+      <!--搜索的商品列表-->
+      <{else}>
+      <{if $classinfo_array.manyunfei eq 0}>
+      <!-- <{ include file="include_product_index_recommend.html" }>推荐商品列表-->
+      <{/if}>
+      <{ include file="include_product_index_list.html" }>
+      <!--商品列表-->
+      <{/if}><br>
+      <br>
+    </div>
+  </div>
+  <!--右邊邊結束-->
+</div>
+<!--身體結束-->
+</div>
+<{ include_php file="include/bottom.php" }>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<style>
+li1 {
+	list-style:none;
+}
+#tab11, #tab21 {
+display:inline;
+	font-size:16px;
+}
+#tab11 ul, #tab21 ul {
+	margin:0;
+	padding:0;
+}
+#tab21 li {
+display:inline-table;
+	line-height:27px;
+	text-align:center;
+	border-right:0px #ebf7ff solid;
+	cursor:pointer;
+	color:#333333;
+	width:101px;
+	height:34px;
+	background-image: url(<{$template_dir}>/images/gray-arr.png);
+	background-repeat: no-repeat;
+	font-family: "微軟正黑體";
+	font-size: 15px;
+}
+#tab21 li.now {
+display:inline-table;
+	width:101px;
+	height:34px;
+	color:#333333;
+	font-weight:lighter;
+	background:url(<{$template_dir}>/images/gray-arr1.png);
+	font-family: "微軟正黑體";
+	font-size: 15px;
+	
+}
+#tab21 li a:link,#tab21 li a:active,#tab21 li a:visited,#tab21 li a:hover {display:inline;}
+.tablist21 {
+	width:755px;
+	font-size:14px;
+	line-height:32px;
+	display:none;
+	border-bottom:1px solid #dbdbdb;
+	border-left:1px solid #dbdbdb;
+	border-right:1px solid #dbdbdb;
+}
+.block21 {
+	display:block;
+}
+.style1 {
+	font-size: 16px
+}
+</style>
+<!--不可用div去區分欄位-->
+<table width="755" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px">
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="left" height="34" style="background-image:url(<{ $template_dir }>/images/index01_03.gif);background-repeat: no-repeat;background-position:left  top; " ><div id="tab21">
+        <ul>
+          <{ section name=list loop=$gc_array }> <li <{if $gc_array[list].i eq 0}>class="now"<{/if}> onMouseOver="setTab(21,<{$gc_array[list].i}>)" ><strong><{$gc_array[list].gc_name}></strong>
+          </li>
+          <{ /section }>
+        </ul>
+      </div>
+      <div id="tablist21"> <{ section name=list loop=$gc_array }>
+        <div class="tablist21 <{if $gc_array[list].i eq 0}>block21<{/if}>"> <span>
+          <table height="205" width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <!--td  valign="top" style="padding-top:15px; padding-bottom:15px; padding-left:15px"><a href="<{ $gc_array[list].gc_link }>"><img src="<{ $Site_Url }>/UploadFile/LogoPic/<{ $gc_array[list].gc_pic }>"  border="0"></a></td-->
+              <td width="100%" align="center" valign="top" bgcolor="#ffffff" style="padding:13px 0px 13px 0px; "><{ section name=list2 loop=$gc_array[list].goods }>
+                <li style="FLOAT: left;DISPLAY: inline;">
+                  <table width="150" border="0" cellpadding="3" cellspacing="0" style=" padding-left:5px ; padding-right:8px;<{if $smarty.section.list2.index%5 eq 4}> <{else}> border-right:1px dashed #ffb0cc;<{/if}>"  >
+                    <tr>
+                      <td align="center" valign="top" class="picture2" style="padding-left:10px;z-index:1;">
+                      <{if $gc_array[list].goods[list2].ifsaleoff eq 1 }>
+                      <span style="display:block;position:absolute;top:5px;right:5px;z-index:5;"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>
+                      <{/if}>
+                      <a href="product/goods_detail.php?goods_id=<{ $gc_array[list].goods[list2].gid }>"><img width="115" src="UploadFile/GoodPic/<{ $gc_array[list].goods[list2].smallimg }>"     border=0  ></a></td></tr><tr>
+                      <td align="left" valign="bottom"  style="padding-left:10px;">
+					  <p style="margin:0px; padding:0px; height:25px; width:98%;overflow: hidden; color:#FF0000;" ><{ $gc_array[list].goods[list2].sale_name }></p>
+					  <p style="margin:0px; padding:0px; height:35px; width:98%;overflow: hidden"><a href="product/goods_detail.php?goods_id=<{ $gc_array[list].goods[list2].gid }>"><{ $gc_array[list].goods[list2].goodsname }></a></p>
+                        <{if $gc_array[list].goods[list2].ifhidden eq 0 }>
+                        <!--{ $gc_array[list].goods[list2].intro }-->
+						<p style="margin:0px; padding:0px; height:21px"> 市價：<span  style="padding-top:2px"><S><{ $gc_array[list].goods[list2].price }></S></span></p>
+                        <p style="margin:0px; padding:0px; height:21px">網購價：<span class="price" style="padding-top:2px"><{ $gc_array[list].goods[list2].pricedesc }></span> <{/if}></p> </td>
+                    </tr>
+                    <tr> </tr>
+                  </table>
+                </li>
+                <{ /section }></td>
+            </tr>
+          </table>
+          </span> </div>
+        <{ /section }> </div></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<script type="text/javascript">
+
+
+
+//m选项卡数目
+
+
+
+//n当前选项卡编号
+
+
+
+function setTab(m,n){
+
+	
+
+	var menu=document.getElementById("tab"+m).getElementsByTagName("li");   //获取ID为tab+m标签下的li标签
+
+
+
+	var showdiv=document.getElementById("tablist"+m).getElementsByTagName("div");   //获取ID为tablist+m标签下的div标签
+
+	//alert(showdiv.length);
+
+	for(i=0;i<menu.length;i++)
+
+
+
+	{
+
+
+
+		menu[i].className=i==n?"now":"";   //如果i=n;那么menu[i].classname为now
+
+
+
+		showdiv[i].style.display=i==n?"block":"none";   //如果如果i=n;那么showdiv[i].style.display为block"
+
+
+
+	}
+
+
+
+}
+
+
+
+</script>

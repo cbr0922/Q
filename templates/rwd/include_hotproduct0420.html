@@ -1,0 +1,43 @@
+<style type="text/css">
+<!--
+.hotpro {
+	width: 140px;
+	overflow:hidden;
+	height:220px;
+	margin-left: 13px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+.hotimg {
+	margin-left:auto;
+	margin-right:auto
+}
+.picture img {width: expression(this.width > 100 ? 100: true); max-width: 100px;height: expression(this.height > 100 ? 135: true); max-height: 100px;margin-left:auto;margin-right:auto;}   
+.hotpro1 {
+	width: 140px;
+	height:220px;
+	overflow:hidden;
+	margin-left: 5px;
+	margin-right: 5px;	
+	margin-bottom: 5px;
+	padding-top: 5px;
+	float:left;
+}
+-->
+</style>
+<table width="753" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-bottom:5px;margin-top:5px;">
+  <tr>
+    <td height="30" align="left" class="title1"><h3>本館熱賣商品</h3></td>
+  </tr>
+  <tr>
+    <td align="left" style="padding-top:10px"><{ section name=hotlistname loop=$Hot_product }>
+      <div class="hotpro1">
+        <div class="picture"> <a class="job3" href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Hot_product[hotlistname].gid }>"><img src="<{ $Site_Url }>/UploadFile/GoodPic/<{ $Hot_product[hotlistname].smallimg }>" border="0"/></a></div>
+        <br />
+        <span class="salename2"><{ $Hot_product[hotlistname].sale_name }></span><br /> 
+        <a href="<{ $Site_Url }>/product/goods_detail.php?goods_id=<{ $Hot_product[hotlistname].gid }>" class="green"><{ $Hot_product[hotlistname].goodsname }></a><br />
+        <{ $Pricedesc_say }>：<span class="prices">$</span><span class="price"><{ $Hot_product[hotlistname].pricedesc }></span> </div>
+      <{ /section }></td>
+  </tr>
+</table>

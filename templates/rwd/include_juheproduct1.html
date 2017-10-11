@@ -1,0 +1,76 @@
+<section class="padding-top-10 noborder" style=" padding-bottom:10px;">
+<div class="container">
+<ul class="nav nav-tabs nav-bottom-border margin-bottom-20" style="display:table; margin-left: auto!important; margin-right: auto !important;">
+	<{ section name=list loop=$gc_array }>
+    <li  class="<{if $gc_array[list].i eq 0}>active<{/if}> nav-tabs_index"><a href="#home<{$gc_array[list].i}>" data-toggle="tab" style="border-radius:0 !important"><{$gc_array[list].gc_name}></a></i>
+    </li>
+    <{ /section }>
+</ul>
+<div class="tab-content padding-0" style="overflow: hidden;">
+<{ section name=list loop=$gc_array }>
+	<div class="tab-pane fade in <{if $gc_array[list].i eq 0}>active<{/if}>" id="home<{$gc_array[list].i}>">
+
+    <ul class=" row list-inline nomargin">
+    <{ section name=list2 loop=$gc_array[list].goods }>
+		<li class="<{ if $cell_num eq 1 }> col-md-4 col-sm-4 col-xs-6<{/if}><{ if $cell_num eq 2 }>col-md-3 col-sm-3 col-xs-6<{/if}><{ if $cell_num eq 3 }>col-sm-4 col-md-5th col-xs-6<{/if}>" >
+			<div class="shop-item margin-bottom-30">
+          		<div class="thumbnail noborder nopadding">
+
+                  <!-- 商品圖片fix在div內 -->
+                      <{if $pic_fix eq 1}>
+                      <div class="thumbnail_container_fix">
+                      <div class="thumbnail_fix">
+                      <{/if}>
+        		     <a href="product/detail<{ $gc_array[list].goods[list2].gid }>">
+                     <img class="img-responsive lazy2" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $gc_array[list].goods[list2].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}>UploadFile/GoodPic/<{ $gc_array[list].goods[list2].smallimg }><{/if}>"  alt="<{ $gc_array[list].goods[list2].goodsname }>"  />
+                    </a>
+<{if $pic_fix eq 1}>
+                      </div>
+                      </div>
+                     <{/if}>
+		     	<!-- /商品圖片 -->
+
+ 					<!-- 加入追蹤 -->
+                    <div class="shop-option-over"<{if $gc_array[list].goods[list2].heartColor eq 1}> style="opacity: 1;"<{/if}>><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+                    <a class="gid<{ $gc_array[list].goods[list2].gid }> btn btn-default add-wishlist href-reset" href="javascript:void(0);" onclick="clickHeart(<{ $gc_array[list].goods[list2].gid }>);" data-item-id="1" data-toggle="tooltip"><i class="fa fa-heart nopadding<{if $gc_array[list].goods[list2].heartColor eq 1}> heartColor<{/if}>"></i></a></div>
+                    <!-- /加入追蹤  -->
+                    <!-- 特惠標示 -->
+                    <div class="shop-item-info  text-left">
+                    <{if $gc_array[list].goods[list2].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
+                    <{if $gc_array[list].goods[list2].ifsaleoff eq 1}><span class="label label-danger">促銷中</span><{/if}>
+                    <!--<span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
+                    </div>
+                    <!-- 特惠標示 -->
+            		</div>
+
+                            <div class="shop-item-summary">
+                                <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $gc_array[list].goods[list2].sale_name }></div>
+								<div style="height:40px; overflow:hidden; text-align: left !important;">
+                                <h2><a href="<{ $Site_Url }>/product/detail<{ $gc_array[list].goods[list2].gid }>"><{ $gc_array[list].goods[list2].goodsname }></a></h2>
+                                </div>								<div style="height:20px; overflow:hidden; margin-top:5px; text-align: left !important;"><{ $gc_array[list].goods[list2].showstorage }></div>
+								<!-- price -->
+								<div class="shop-item-price text-left" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+                                 <{ if $gc_array[list].goods[list2].price neq 0 }>
+									<span class="line-through">NT. <{ $gc_array[list].goods[list2].price }></span> <{/if}>NT. <{ $gc_array[list].goods[list2].pricedesc }>
+								</div>
+
+								<!-- /price -->
+				       </div>
+
+    		</div>
+		</li>
+         <{ /section }>
+         </ul>
+	</div>
+    <{ /section }>
+</div>
+<!--hr-->
+</div>
+</section>
+<script type="text/javascript">
+$("img.lazy2").lazyload({
+    effect : "fadeIn",
+	threshold :200,
+	skip_invisible: false,
+});
+</script>

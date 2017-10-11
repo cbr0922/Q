@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>註冊完成 - <{ $HtmlTitle }></title>
+	<meta content="<{ $Meta_desc }>" name="description" />
+	<meta content="<{ $Meta_keyword }>" name="keywords" />
+	<meta name="Author" content="ESIT" />
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<link rel="shortcut icon" href="<{ $Site_Url }>/images/favicon.ico" />
+	<!-- CORE CSS -->
+	<link href="<{ $Site_Url }>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+	<!-- THEME CSS -->
+	<link href="<{ $Site_Url }>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
+	<{ include_php file="include/include_ga.php" }>
+	<{$CompleteRegistration_js}>
+</head>
+
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> <{ if $use_pattern eq 1 }>pattern<{$pattern_id}><{ /if }>" <{ if $use_background eq 1 }> data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>" <{ /if }> >	
+
+	<{ include_php file="include/menu.php" }>
+	<!--浮動廣告-->
+	<{ if $Ear_radio eq 1 }>	
+		<{ include_php file="modules/advertising/ear.php" }>
+	<{ /if }>
+	<!--/浮動廣告-->
+	<!--導覽-->
+	<section class="page-header page-header-xs">
+		<div class="container">
+
+			<h1 class="hidden">註冊完成<!--<{ $Member_center }>--></h1>
+
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb breadcrumb-inverse">
+				<li><a href="<{ $Site_Url }>">Home</a></li>
+				<li class="active">註冊完成<!--<{ $Member_center }>--></li>
+			</ol><!-- /breadcrumbs -->
+
+		</div>
+	</section>
+	<!--/導覽-->
+	<!-- 註冊完成 -->
+	<section class="noborder">
+		<div class="container">
+			<div class="row"><div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 margin-bottom-60"><{ $Content }></div></div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 ">
+					<h2 class="size-16 text-center">繼續購物</h2>
+					<p><{ $Content1 }></p>
+					<a href="<{$Site_Url}>" class="col-xs-12 col-sm-12 btn btn-black margin-bottom-20">首頁</a>
+					<a href="../shopping/shopping.php" class="col-xs-12 col-sm-12 btn btn-black margin-bottom-20">購物車</a>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<h2 class="size-16 text-center">填寫會員資料</h2>
+					<p>您可以至會員中心修改會員資料：</p>
+					<ul>
+						<li>性別</li>
+						<li>出生日期</li>
+						<li>地區名稱</li>
+						<li>聯絡地址</li>
+						<li>手機</li>
+						<li>市話</li>
+					</ul>
+					<a href="AccountInformation.php" class="col-xs-12 col-sm-12 btn btn-black margin-bottom-20">會員中心</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /註冊完成 -->
+    <{ include_php file="include/bottom.php" }>
+	<{$googleadservices3_js}>
+</body>
+</html>
