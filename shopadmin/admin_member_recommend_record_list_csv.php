@@ -17,7 +17,7 @@ $TotalPrice    = 0;
 $Num = $DB->num_rows($Query_Excel);
 if ($Num>0){
 	while ($RS_Excel = $DB->fetch_array($Query_Excel)){
-		$content .= $RS_Excel['memberno'].",".$RS_Excel['username'].",".$RS_Excel['true_name'].$RS_Excel['en_firstname'].",".$RS_Excel['ordercount'].",".$RS_Excel['totalprice']."\n";
+		$content .= $RS_Excel['memberno'].",".$RS_Excel['username'].",".$RS_Excel['true_name'].$RS_Excel['en_firstname'].$Rs['en_secondname'].",".$RS_Excel['ordercount'].",".$RS_Excel['totalprice']."\n";
 	}
 }
 

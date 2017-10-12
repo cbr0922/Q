@@ -52,7 +52,7 @@ $Result_b = $DB->fetch_array($Query_b);
                    // $.cookie('sort', $('#sortable').sortable("toArray").join(","), { expire: 7 });
 					mlists = $('#sortable').sortable("toArray").join(",");
 					$.ajax({
-							url: "admin_pcat_save.php",
+							url: "admin_brand_class_save.php",
 							data: "act=sort&list=" + mlists,
 							type:'post',
 							dataType:"html",

@@ -113,7 +113,7 @@ function toExprot(){
                             <TR class=row0>
                               <TD height="26" align="left" noWrap><?php echo $Rs['memberno']?></TD>
 															<TD align="left" noWrap><?php echo $Rs['username']?></TD>
-                              <TD align="left" noWrap><?php echo $Rs['true_name']?><?php echo $Rs['en_firstname']?></TD>
+                              <TD align="left" noWrap><?php echo $Rs['true_name']?><?php echo $Rs['en_firstname'].$Rs['en_secondname']?></TD>
                               <TD align="center" noWrap><?php echo $Rs['ordercount']?></TD>
 															<TD align="center" noWrap><?php echo $Rs['totalprice']?></TD>
 															<TD align="center" noWrap><div class="link_box"><a href="admin_member_recommend_record.php?<?php echo "memberno=" . $Rs['memberno'] . "&goods_starttime=" . $goods_starttime . "&goods_endtime=" . $goods_endtime; ?>">明細查詢</a></div></TD>
