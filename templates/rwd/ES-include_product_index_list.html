@@ -842,12 +842,14 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 								<div class="shop-item product-shop-item shop-item<{$product_array.info[list].gid}>" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
 									<div class="thumbnail noborder nopadding">
 										<a href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();"><img class="mpp_lipstick_close" src="<{ $Site_Url }>/images/mpp_lipstick_close.png"></a>
-									<div id="line3">
+									<div id="line2">
 										<!-- 商品圖片fix在div內 -->
-										<div id="color1">
+										<div id="color">
 
 										<a href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>">
-											<img class="lazy" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{ $Site_Url }>/images/Loading.svg" border="0" name="goodpic">
+											<{ section name=list1 loop=$product_array.info[list].pic_array start=1}>
+											<img class="pic_array <{$product_array.info[list].pic_array[list1].sort}>" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" data-original="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" border="0" name="goodpic" <{if $smarty.section.list1.index neq 2}>style="display: none;"<{/if}>>
+											<{ /section}>
 										</a>
 
 										</div>
@@ -887,7 +889,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 											<div class="pull-left" style="margin-right:5px;">
 											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].color[list1].sort}>');">
-												<div class="good_color" id="showcolor<{$smarty.section.list1.index}>">
+												<div class="<{if $smarty.section.list1.index eq 0}>good_color_select<{else}>good_color<{/if}>" id="showcolor<{$smarty.section.list1.index}>">
 													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="28" height="28">
 												</div>
 											</a>
@@ -1021,12 +1023,11 @@ function changeColor(color){
 	<{ /section}>
 <{ /section}>
 
+}
 
-
-
-
-
-
+function changeImgs(sort){
+	$('.pic_array').css('display','none');
+	$('.'+sort).eq(1).css('display','block');
 }
 
 </script>

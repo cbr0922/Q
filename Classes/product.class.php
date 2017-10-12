@@ -415,6 +415,18 @@ class PRODUCT{
 
 				$pic_array = $this->getProductPic($Result['gid']);
 				$result_array['info'][$i]['smallimg2'] = $pic_array[1]['pic'];
+				//print_r($result_array['info'][$i]['color']);
+				if($Result['good_color']!=""){
+					foreach($result_array['info'][$i]['color'] as $k=>$v){
+						foreach($pic_array as $k1=>$v1){
+							if($pic_array[$k1]['color'] == $result_array['info'][$i]['color'][$k]['color']){
+								$pic_array[$k1]['sort'] = $result_array['info'][$i]['color'][$k]['sort'];
+							}
+						}
+					}
+				}
+				$result_array['info'][$i]['pic_array'] = $pic_array;
+				//print_r($result_array['info'][$i]['pic_array']);
 
 				if($_SESSION['user_id']>0){
 					$collection_sql = "select * from `{$INFO[DBPrefix]}collection_goods` as c where c.gid ='" .$Result['gid']. "' and c.user_id=".intval($_SESSION['user_id'])." order by c.gid desc limit 0,1";
