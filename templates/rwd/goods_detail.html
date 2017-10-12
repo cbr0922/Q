@@ -31,29 +31,7 @@
 
 <{ include_php file="include/include_ga.php" }>
 <{ $ViewContent_js }>
-<script language="JavaScript" type="text/JavaScript">
-<!--
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-//-->
-</script>
+
 </head>
 <script language="javascript" src="<{ $Site_Url }>/js/function.js"></script>
 <style>
@@ -199,6 +177,7 @@ div.good_color {
 
 </style>
 <body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+
 
 <div class="belateMask" style="display: none;">
  <div class="belateMask_cover">
@@ -399,9 +378,13 @@ div.good_color {
 									<div id="top_g" class="text-muted" style="line-height:25px;">
 										<!--<{ if $avgscoreimg neq "" }>商品評價：<{$avgscoreimg}><{/if}>-->
                                         <!--<div class="gtitle_size  nopadding">賣場編號</div><div class="nopadding gname_size"><{ $P_goodsno }></div>-->
-										<{ if $P_bn neq "" }><div class="gtitle_size  nopadding">商品編號</div><div class="nopadding gname_size"><span id="showspanbn"><{ $P_bn }></span>&nbsp;</div><{/if}>
-										<{ if $P_guojima neq "" }><div class="gtitle_size  nopadding">國際條碼</div><div class="nopadding gname_size"><span id="showspanguojima"><{ $P_guojima }></span>&nbsp;</div><{/if}>
-										<{ if $P_orgno neq "" }><div class="gtitle_size  nopadding">原廠條碼</div><div class="nopadding gname_size"><span id="showspanorgno"><{ $P_orgno }></span>&nbsp;</div><{/if}>
+										<{ if $P_bn neq "" }><!--<div class="gtitle_size  nopadding">商品編號</div><div class="nopadding gname_size"><span id="showspanbn"><{ $P_bn }></span>&nbsp;</div>--><{/if}>
+										<div id="guojima"style="<{ if $P_guojima eq '' }>display:none<{/if}>">
+										<div class="gtitle_size  nopadding">國際條碼</div><div class="nopadding gname_size"><span id="showspanguojima" ><{ $P_guojima }></span>&nbsp;</div>
+										</div>
+										<div id="orgno" style="<{ if $P_orgno eq '' }>display:none<{/if}>">
+										<div class="gtitle_size  nopadding" >原廠條碼</div><div class="nopadding gname_size"><span id="showspanorgno"><{ $P_orgno }></span>&nbsp;</div>
+										</div>
 										<{ if $P_color neq "" }><div class="gtitle_size  nopadding">顏色</div><div class="nopadding gname_size"><span id="showspancolor"><{ $P_color }></span>&nbsp;</div><{/if}>
                                         <{ if $P_xinghao neq "" }><div class="gtitle_size  nopadding">型號</div><div class="nopadding gname_size"><{ $P_xinghao }></div><{/if}>
                                         <{ if $P_unit neq "" }><div class=" gtitle_size nopadding">計量單位</div><div class="nopadding gname_size"><{ $P_unit }></div><{/if}>
@@ -1108,34 +1091,6 @@ div.good_color {
 <{/if}>
 </body>
 <script language="javascript" src="<{ $Site_Url }>/js/jquery/jquery.countdown.js"></script>
-<script language="JavaScript" type="text/JavaScript">
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-function showcontent(showname){
-		var obj,showobj,imgobj,myobj;
-		i = 5;
-		for (j=0;j<i;j++){
-				myobj = document.getElementById("showfour" + (j+1));
-				myobj.style.display = "none";
-				imgobj = document.getElementById("imgfour" + (j+1));
-				if (showname ==  (j+1)){
-					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + ".png";
-					myobj.style.display = "";
-				}else{
-					imgobj.src = "<{ $template_dir }>/images/q" + (j+1) + "2.png";
-				}
-		}
-	}
-</script>
 <script language="javascript">
 showcontent("1");
 </script>
@@ -1143,8 +1098,8 @@ showcontent("1");
 function changeproductdetail(detail_id){
 	<{ section name=list loop=$P_productdetail.info }>
 		if(detail_id == "<{$P_productdetail.info[list].detail_id}>"){
-
-
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_productdetail.info[list].detail_bn}>");
 			$('#showspanguojima').html("<{$P_productdetail.info[list].guojima}>");
 			$('#showspanorgno').html("<{$P_productdetail.info[list].orgno}>");
@@ -1686,7 +1641,8 @@ function changeColor(color){
 	<{ section name=i loop=$P_color }>
 		if(color == "<{$P_color[i].color}>"){
 			$('#showcolor<{$smarty.section.i.index}>').attr("class","good_color_select");
-
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_color[i].bn}>");
 			$('#showspanguojima').html("<{$P_color[i].guojima}>");
 			$('#showspanorgno').html("<{$P_color[i].orgno}>");
@@ -1696,6 +1652,8 @@ function changeColor(color){
 	<{ /section }>
 	<{ section name=i loop=$goodcolor_array }>
 		if(color == "<{$goodcolor_array[i].color}>"){
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$goodcolor_array[i].goodsno}>");
 			$('#showspanguojima').html("<{$goodcolor_array[i].guojima}>");
 			$('#showspanorgno').html("<{$goodcolor_array[i].orgno}>");
