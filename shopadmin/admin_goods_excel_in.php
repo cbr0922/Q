@@ -10,42 +10,71 @@ while ($datastr = fgets ($handle, 1024)) {
 	$data = explode(",",$datastr);
 	//echo $i;
 	if ($i>0){
-		$sql = "select * from `{$INFO[DBPrefix]}goods` where bn = '" . $data[0] . "'";
-		$Query_goods    = $DB->query($sql);
-		$Num_trans      = $DB->num_rows($Query_goods);
-		if ($Num_trans > 0){
-			$Rs = $DB->fetch_array($Query_goods);
-			$Result = $DB->query("update `{$INFO[DBPrefix]}goods` set storage='" . $data[1] . "' where bn = '" . $data[0] . "'");	
+		
+		$goods_Sql = "select * from `{$INFO[DBPrefix]}attributeno` where goodsno='" . trim($data[0]) . "' ";
+		$goods_Query =  $DB->query($goods_Sql);
+		 $goods_Num   =  $DB->num_rows($goods_Query );
+		if ($goods_Num>0){
+			$Rs_g = $DB->fetch_array($goods_Query);
+			$gid = $Rs_g['gid'];
+			$size_Sql = "select * from `{$INFO[DBPrefix]}storage` where size='" . trim($Rs_g['size'])  . "' and color='" . trim($Rs_g['color']) . "' and goods_id='" . trim($Rs_g['gid']) . "'";
+			$size_Query =  $DB->query($size_Sql);
+			$size_Num   =  $DB->num_rows($size_Query );
+			if ($size_Num>0){
+				$Rs_s = $DB->fetch_array($size_Query);
+				$storage_id=$Rs_s['storage_id'];
+				$update_Sql = "update `{$INFO[DBPrefix]}storage` set storage='" . $data[1] . "' where size='" . trim($Rs_g['size']) . "' and color='" . trim($Rs_g['color']) . "' and goods_id='" . trim($Rs_g['gid']) . "'";
+				$Result = $DB->query($update_Sql);
+			}else{
+				$update_Sql = "insert into `{$INFO[DBPrefix]}storage` (color,size,goods_id,storage) values ('" . trim($Rs_g['color']) . "','" . trim($Rs_g['size']) . "','" . trim($Rs_g['gid']) . "','" . $data[1] ."')";
+				$Result = $DB->query($update_Sql);
+			}
+			$size_Sql = "select sum(storage) as totalstorage from `{$INFO[DBPrefix]}storage` where goods_id='" .  trim($Rs_g['gid']) . "'";
+			$size_Query =  $DB->query($size_Sql);
+			$size_Num   =  $DB->num_rows($size_Query );
+			if ($size_Num>0){
+				$size_Rs = $DB->fetch_array($size_Query);
+				$update_Sql_g = "update `{$INFO[DBPrefix]}goods` set storage='" . $size_Rs['totalstorage'] . "' where gid='" . trim($Rs_g['gid']) . "'";
+				$DB->query($update_Sql_g);
+			}
+
 		}else{
-				$goods_Sql = "select * from `{$INFO[DBPrefix]}attributeno` where goodsno='" . trim($data[0]) . "' ";
-				$goods_Query =  $DB->query($goods_Sql);
-				 $goods_Num   =  $DB->num_rows($goods_Query );
-				if ($goods_Num>0){
-					$Rs_g = $DB->fetch_array($goods_Query);
-					$size_Sql = "select * from `{$INFO[DBPrefix]}storage` where size='" . trim($Rs_g['size'])  . "' and color='" . trim($Rs_g['color']) . "' and goods_id='" . trim($Rs_g['gid']) . "'";
-					$size_Query =  $DB->query($size_Sql);
-					$size_Num   =  $DB->num_rows($size_Query );
-					if ($size_Num>0){
-						$update_Sql = "update `{$INFO[DBPrefix]}storage` set storage='" . $data[1] . "' where size='" . trim($Rs_g['size']) . "' and color='" . trim($Rs_g['color']) . "' and goods_id='" . trim($Rs_g['gid']) . "'";
-						$Result = $DB->query($update_Sql);
-					}else{
-						$update_Sql = "insert into `{$INFO[DBPrefix]}storage` (color,size,goods_id,storage) values ('" . trim($Rs_g['color']) . "','" . trim($Rs_g['size']) . "','" . trim($Rs_g['gid']) . "','" . $data[1] ."')";
-						$Result = $DB->query($update_Sql);
-					}
-					$size_Sql = "select sum(storage) as totalstorage from `{$INFO[DBPrefix]}storage` where goods_id='" .  trim($Rs_g['gid']) . "'";
-					$size_Query =  $DB->query($size_Sql);
-					$size_Num   =  $DB->num_rows($size_Query );
-					if ($size_Num>0){
-						$size_Rs = $DB->fetch_array($size_Query);
-						$update_Sql_g = "update `{$INFO[DBPrefix]}goods` set storage='" . $size_Rs['totalstorage'] . "' where gid='" . trim($Rs_g['gid']) . "'";
-						$DB->query($update_Sql_g);
-					}
-					
+			$goods_Sql = "select * from `{$INFO[DBPrefix]}goods_detail` where detail_bn='" . $data[0] . "' ";
+			$goods_Query =  $DB->query($goods_Sql);
+			$goods_Num   =  $DB->num_rows($goods_Query );
+			if($goods_Num>0){
+				$Rs_g = $DB->fetch_array($goods_Query);
+				$gid = $Rs_g['gid'];
+				$detail_id = $Rs_g['detail_id'];
+				$update_Sql = "update `{$INFO[DBPrefix]}goods_detail` set storage='" . intval($data[1]) . "' where detail_bn='" . $data[0] . "'";
+				$DB->query($update_Sql);
+				$size_Sql = "select sum(storage) as totalstorage from `{$INFO[DBPrefix]}goods_detail` where gid='" .  trim($Rs_g['gid']) . "'";
+				$size_Query =  $DB->query($size_Sql);
+				$size_Num   =  $DB->num_rows($size_Query );
+				if ($size_Num>0){
+					$size_Rs = $DB->fetch_array($size_Query);
+					$update_Sql_g = "update `{$INFO[DBPrefix]}goods` set storage='" . $size_Rs['totalstorage'] . "' where gid='" . trim($Rs_g['gid']) . "'";
+					$DB->query($update_Sql_g);
 				}
-			
-			
-			
+			}else{
+				$sql = "select * from `{$INFO[DBPrefix]}goods` where bn = '" . $data[0] . "'";
+				$Query_goods    = $DB->query($sql);
+				$Num_trans      = $DB->num_rows($Query_goods);
+				if ($Num_trans > 0){
+					$Rs = $DB->fetch_array($Query_goods);
+					$gid = $Rs['gid'];
+					$Result = $DB->query("update `{$INFO[DBPrefix]}goods` set storage='" . $data[1] . "' where bn = '" . $data[0] . "'");	
+				}
+			}
 		}
+		/*
+		if($gid>0){
+			$insert_Sql = "insert into `{$INFO[DBPrefix]}storagelog`(gid,detail_id,storage_id,changes,counts,storagetype,content,user_id,user_type,datetime,auto,order_id) values ('" . $gid . "','" . $detail_id . "','" . $storage_id . "','" . $data[1] . "','" . $newstorage . "','" . $storagetype . "','" . $content . "','" . $user_id . "','" . $usertype . "','" . time() . "','" . $auto . "','" . $order_id . "')";
+			$DB->query($insert_Sql);
+		}
+		*/
+			
+		
 	}
 	$i++;
 }

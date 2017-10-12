@@ -4,14 +4,14 @@ include_once "Check_Admin.php";
 
 $gid = intval($_GET['gid']);
 
-$Query = $DB->query("select goodsname,good_color,good_size from `{$INFO[DBPrefix]}goods` where gid=".intval($gid)." limit 0,1");
+$Query = $DB->query("select goodsname,good_color,good_size,storage from `{$INFO[DBPrefix]}goods` where gid=".intval($gid)." limit 0,1");
 
 $Num   = $DB->num_rows($Query);
 
 $Result= $DB->fetch_array($Query);
 
 $good_color       =  $Result['good_color'];
-
+$storage       =  $Result['storage'];
 $good_size        =  $Result['good_size'];
 
 ?>
@@ -39,7 +39,7 @@ $good_size        =  $Result['good_size'];
                 （調整屬性庫存或詳細資料庫存會同時自動調整商品庫存） </td>
             </tr>
             <tr>
-              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowcolor">顏    色
+              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowcolor" style="display:none">顏    色
                   <select name="color" id="storage_color" onChange="getStorage()">
                     <?php
 
@@ -82,7 +82,7 @@ $good_size        =  $Result['good_size'];
                 </div></td>
             </tr>
             <tr>
-              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowsize">尺    寸
+              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowsize" style="display:none">尺    寸
                   <select name="size" id="storage_size" onChange="getStorage()">
                     <?php
 
@@ -123,7 +123,7 @@ $good_size        =  $Result['good_size'];
                 </div></td>
             </tr>
             <tr>
-              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowdetail">詳細資料
+              <td colspan="2" align="left" bgcolor="#FFFFFF"><div id="divshowdetail" style="display:none">詳細資料
                   <select name="detail_id" id="storage_detail_id" onChange="getStorage()">
                     <?php
 
@@ -153,7 +153,7 @@ $good_size        =  $Result['good_size'];
             </tr>
             <tr>
               <td align="right" bgcolor="#FFFFFF">現有庫存</td>
-              <td align="left" bgcolor="#FFFFFF"><div id="divshowstorage"></div></td>
+              <td align="left" bgcolor="#FFFFFF"><div id="divshowstorage"><?php echo $storage;?></div></td>
             </tr>
             <tr>
               <td align="right" bgcolor="#FFFFFF">調整類型</td>
@@ -337,7 +337,7 @@ function getStorage(){
 
 }
 
-showGoods();
+//showGoods();
 
 var options_s = {
 
