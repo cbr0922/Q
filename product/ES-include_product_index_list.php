@@ -62,6 +62,7 @@ if(intval($_GET['brand_id'])>0){
 		$content    =  trim($Result['content']);
 		$meta_des    =  trim($Result['meta_des']);
 		$meta_key    =  trim($Result['meta_key']);
+
 		$tpl->assign("meta_key",       $meta_key);
 		$tpl->assign("meta_des",       $meta_des);
 	}
@@ -75,11 +76,12 @@ if(intval($_GET['brand_id'])>0){
 			}
 		}
 	}
+	$tpl->assign("brand_id",     intval($_GET['brand_id']));
 }
 $class_banner = array();
 $list = 0;
-if ($bid>0){
-	$PRODUCT->getBanner($bid);   //導航
+if (intval($_GET['brand_class'])>0){
+	$PRODUCT->getTopBrandBidList(intval($_GET['brand_class']));   //導航
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
 }

@@ -48,7 +48,7 @@ class PRODUCT{
 			return 0;
 		}else{
 			$Result_goods = $DB->fetch_array($Query);
-			
+
 			if($Result_goods['salestartdate']<=date("Y-m-d") && $Result_goods['saleenddate']>=date("Y-m-d")){
 				$Result_goods['salecontent'] = $FUNCTIONS->strUrlEncode($Result_goods['salecontent']);
 			}else{
@@ -763,6 +763,7 @@ class PRODUCT{
 		if ($Num>0){
 			$Result     =  $DB->fetch_array($Query);
 			$class_banner[$list]['bid'] = $Result['bid'];
+			$class_banner[$list]['catname'] = $Result['catname'];
 			$list++;
 			if ($Result['top_id']>0)
 				$this->getTopBrandBidList($Result['top_id']);

@@ -409,19 +409,21 @@ div.good_color {
                    <{ else }>
 					<h3 class="size-18 hidden"><{ $Nclass_name }></h3>
                   <{/if}>
+					<{if $smarty.get.brand_id>0 }>
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
-						<li><a href="<{ $Site_Url }>">主頁</a></li>
-                        <li class=""><a href="<{ $Site_Url }>/">彩妝系列</a></li>
-                        <li class=""><a href="<{ $Site_Url }>/">唇彩</a></li>
-						<li class="active">唇膏</li>
+						<li><a href="<{ $Site_Url }>/brand/<{ $brand_id }>">主頁</a></li>
+						<{ section name=list loop=$class_banner }>
+              <li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li>
+						<{/section}>
 					</ol><!-- /breadcrumbs -->
+					<{/if}>
 				</div>
 			</section>
 			<!-- /PAGE HEADER -->
 		</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs hidden-sm">
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}>品牌分類名稱<{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
+			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$class_banner[0].catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
 			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
 			<div class="col-md-4 col-sm-4 col-xs-6">
 								<!-- LIST OPTIONS -->
