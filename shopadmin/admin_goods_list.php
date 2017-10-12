@@ -469,7 +469,7 @@ function toNoCheck(){
                           <table>
                             <tbody>
                               <tr>
-                                <td valign=bottom nowrap class="link_buttom"><a href="javascript:toCheckprice();"><img src="images/<?php echo $INFO[IS]?>/icon_pre_check.gif"   border=0>&nbsp;審核價格</a></td>
+                                <td valign=bottom nowrap class="link_buttom"><!--<a href="javascript:toCheckprice();"><img src="images/<?php echo $INFO[IS]?>/icon_pre_check.gif"   border=0>&nbsp;審核價格</a>--><a href="../modules/ap/ap_goods_price.php"><img src="images/<?php echo $INFO[IS]?>/icon_pre_check.gif"   border=0>&nbsp;變價</a></td>
                               </tr>
                             </tbody>
                           </table>
@@ -660,8 +660,8 @@ function toNoCheck(){
                               <!--TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif class=p9black>詳細資料</TD-->
                               <TD width="7%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>到貨通知</TD>
                               <TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>審核狀態</TD>
-                              <TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>待審免稅價</TD>
-                              <TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>待審促銷價</TD>
+                              <!--<TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>待審免稅價</TD>
+                              <TD width="5%" align="center" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif style="background-repeat:repeat-x" class=p9black>待審促銷價</TD>-->
                             </TR>
                             <?php
 					$i=0;
@@ -724,7 +724,7 @@ function toNoCheck(){
 					  elseif($Rs['checkstate']==3)
 					  	echo "<font color=#003399><i class='icon-info-sign'></i> 已退審<br>（原因：" . $Rs['nocheckreason'] . "）</font>";
 					  ?></TD>
-                             <TD align=center nowrap>
+                             <!--<TD align=center nowrap>
                              	<?php
 								 $goods_Sql = "select * from `{$INFO[DBPrefix]}goods_price_cach` where gid='" . $Rs['gid'] . "' and state=0 and org_price='" . $Rs['price'] . "' and org_pricedesc='" . $Rs['pricedesc'] . "' order by pubtime limit 0,1";
 								$goods_Query =  $DB->query($goods_Sql);
@@ -735,7 +735,7 @@ function toNoCheck(){
 
 								 ?>
                              </TD>
-                             <TD align=center nowrap><?php echo $goods_Rs['new_pricedesc'];?></TD>
+                             <TD align=center nowrap><?php echo $goods_Rs['new_pricedesc'];?></TD>-->
                               </TR></tbody>
                           <?php
 					$i++;

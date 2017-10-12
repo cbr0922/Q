@@ -103,8 +103,7 @@
               </td>
               <td  data-label="商品名稱" class="receivePay_text shopping_gn">
 			  
-			  <{if $Cart_item[list].goods[list1].ifchange eq 1 || $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 }>
-				<{ $Cart_item[list].goods[list1].goodsname }>
+			   <{if $Cart_item[list].goods[list1].ifchange eq 1 || $Cart_item[list].goods[list1].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 || $Cart_item[list].goods[list1].ifgoodspresent eq 1 || $Cart_item[list].goods[list1].ifadd eq 1}>	<a class="lightbox" href="<{ $Site_Url_link }>/product/showProduct.php?goods_id=<{ $Cart_item[list].goods[list1].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'><{ $Cart_item[list].goods[list1].goodsname }></a>
 				<!--<{if $Cart_item[list].goods[list1].ifchange eq 1}>[加購商品]<{/if}><{if $Cart_item[list].goods[list1].ifpresent eq 1}>[滿額禮]<{/if}>-->
 			  
                 <{else}><a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].goods[list1].gid }>"><{ $Cart_item[list].goods[list1].goodsname }></a><{/if}><{if $Cart_item[list].goods[list1].xygoods_des neq ""}><{ $Cart_item[list].goods[list1].xygoods_des }><{/if}>

@@ -81,7 +81,7 @@
 										<img src='<{if $Cart_item[list].smallimg eq ''}><{ $Site_Url }>/images/pic.png<{else}>../<{ $Gpicpath }>/<{ $Cart_item[list].smallimg }><{/if}>' width="70" alt="<{ $Cart_item[list].goodsname }>" />
 									</a></td>
 									<td data-label="商品名稱" class="receivePay_text">
-										<{if $Cart_item[list].ifchange eq 1 || $Cart_item[list].ifpresent eq 1 || $Cart_item[list].goods[list1].ifbonus eq 1 }><{ $Cart_item[list].goodsname }>
+										<{if $Cart_item[list].ifchange eq 1 || $Cart_item[list].ifpresent eq 1 || $Cart_item[list].ifbonus eq 1 || $Cart_item[list].ifgoodspresent eq 1 || $Cart_item[list].ifadd eq 1}>	<a class="lightbox" href="<{ $Site_Url_link }>/product/showProduct.php?goods_id=<{ $Cart_item[list].gid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'><{ $Cart_item[list].goodsname }></a>
 										<!--<{if $Cart_item[list].ifchange eq 1}>[加購商品]<{/if}>
 										<{if $Cart_item[list].ifpresent eq 1}>[滿額禮]<{/if}>-->
 										<{else}> <a href="<{ $Site_Url }>/product/detail<{ $Cart_item[list].gid }>"><{ $Cart_item[list].goodsname }></a> <{if $Cart_item[list].packgid>0}>[組合商品]<{/if}>
