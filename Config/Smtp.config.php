@@ -10,7 +10,7 @@
  $mailtype       = "HTML";
  $sel_mail_enc   = "UTF-8";
  $sel_mail_lang  = "zh";
- $mail_type      = "smtp";
+ $mail_type      = "mailto";
  $ssl      = "";
  $sel_mail_tar_lang      = "BIG5";
 
