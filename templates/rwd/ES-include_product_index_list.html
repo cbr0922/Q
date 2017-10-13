@@ -847,8 +847,8 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 										<div id="color">
 
 										<a href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>">
-											<{ section name=list1 loop=$product_array.info[list].pic_array start=1}>
-											<img class="pic_array <{$product_array.info[list].pic_array[list1].sort}>" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" data-original="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" border="0" name="goodpic" <{if $smarty.section.list1.index neq 2}>style="display: none;"<{/if}>>
+											<{ section name=list1 loop=$product_array.info[list].pic_array}>
+											<img class="pic_array<{$product_array.info[list].gid}> <{$product_array.info[list].pic_array[list1].sort}>_<{$product_array.info[list].gid}>" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" data-original="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" border="0" name="goodpic" style="display: none;">
 											<{ /section}>
 										</a>
 
@@ -888,8 +888,8 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 											<{ section name=list1 loop=$product_array.info[list].color start=0}>
 
 											<div class="pull-left" style="margin-right:5px;">
-											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].color[list1].sort}>');">
-												<div class="<{if $smarty.section.list1.index eq 0}>good_color_select<{else}>good_color<{/if}>" id="showcolor<{$smarty.section.list1.index}>">
+											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].sort}>');">
+												<div class="good_color" id="showcolor<{$product_array.info[list].gid}>_<{$smarty.section.list1.index}>">
 													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="28" height="28">
 												</div>
 											</a>
@@ -992,16 +992,22 @@ showsaleshopping();
 </script>
 <{/if}>
 <script language="javascript">
+
+<{ section name=list loop=$product_array.info }>
+	<{ if $product_array.info[list].color neq "" }>
+		changeColor("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].color}>");
+	　changeImgs("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].sort}>");
+	<{/if}>
+<{ /section}>
+
 $("img.lazy").lazyload({
     effect : "fadeIn",
 	threshold :700,
 	skip_invisible: false
 });
 
-
-
 /**多屬性圖片尺寸切換**/
-function changeColor(color){
+function changeColor(gid,color){
 
 	$('#good_color').attr("value",color);
 
@@ -1011,23 +1017,22 @@ function changeColor(color){
 
 <{ section name=list loop=$product_array.info start=0 }>
 	<{ section name=list1 loop=$product_array.info[list].color }>
-		$('#showcolor<{$smarty.section.list1.index}>').attr("class","good_color");
+		$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color");
 	<{ /section}>
 <{ /section}>
 <{ section name=list loop=$product_array.info start=0 }>
 	<{ section name=list1 loop=$product_array.info[list].color }>
 		if(color == "<{$product_array.info[list].color[list1].color}>"){
-			$('#showcolor<{$smarty.section.list1.index}>').attr("class","good_color_select");
-
+			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color_select");
 		}
 	<{ /section}>
 <{ /section}>
 
 }
 
-function changeImgs(sort){
-	$('.pic_array').css('display','none');
-	$('.'+sort).eq(1).css('display','block');
+function changeImgs(gid,sort){
+	$('.pic_array'+gid).css('display','none');
+	$('.'+sort+'_'+gid).eq(1).css('display','block');
 }
 
 </script>

@@ -425,7 +425,7 @@ class PRODUCT{
 						}
 					}
 				}
-				$result_array['info'][$i]['pic_array'] = $pic_array;
+				$result_array['info'][$i]['pic_array'] = array_values($pic_array);
 				//print_r($result_array['info'][$i]['pic_array']);
 
 				if($_SESSION['user_id']>0){
