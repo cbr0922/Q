@@ -46,7 +46,7 @@
 	  <{ include_php file="modules/advertising/ear.php" }>
 
   <{ /if }>
-    <{ include file="ES-include_brandclass.html" }>
+    <{ include file="LM-include_brandclass.html" }>
 			<!-- PAGE HEADER -->
 			<section class="page-header page-header-xs">
 				<div class="container">
@@ -95,7 +95,7 @@
 						
 						
 						
-                        <h1 class="barNtitle"><{ $Ntitle_first }></h1>
+                        <!--<h1 class="barNtitle"><{ $Ntitle_first }></h1>-->
 							<div id="article"><{ $Nbody }></div>
 
 
@@ -179,8 +179,8 @@
 
 	<{if $abProductArrayCount neq 0}>
 <!-- 相關商品開始 -->
-							<h2 class="bfont owl-featured border_bottom margin-top-40"><strong>相關商品 :</strong></h2>
-							<div class="owl-carousel featured nomargin owl-padding-10" data-plugin-options='{"singleItem": false, "items": "4", "stopOnHover":false, "autoPlay":4500, "autoHeight": false, "navigation": true, "pagination": false}'>
+							<h2 class="bfont owl-featured LM-ab-h2"><strong>開啟愈顏賦活奇蹟</strong></h2>
+							<div class="owl-carousel featured nomargin owl-padding-10" data-plugin-options='{"singleItem": false, "items": "5", "stopOnHover":false, "autoPlay":4500, "autoHeight": false, "navigation": true, "pagination": false}'>
 
 
 								<{ section name=abProduct loop=$abProductArray }>
@@ -194,20 +194,7 @@
 										<!-- /相關商品圖片 -->
 
 									</div>
-											<!-- 加入追蹤 -->
-											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
-												<a class="gid<{ $abProductArray[abProduct].gid }> btn btn-default add-wishlist" href="javascript:void(0);" onclick="clickHeart(<{ $abProductArray[abProduct].gid }>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單"><i class="fa fa-heart nopadding<{if $abProductArray[abProduct].heartColor eq 1}> heartColor<{/if}>"></i></a>
-
-											</div>
-											<!-- /加入追蹤  -->
-
-											<!-- 特惠標示 -->
-											<div class="shop-item-info  text-left">
-											<{if $abProductArray[abProduct].ifappoint eq 1}><span class="label label-success">預購中</span><{/if}>
-											<{if $abProductArray[abProduct].ifsaleoff eq 1}><span class="label label-danger">促銷中</span><{/if}>
-											<!--<span class="label"><img src="<{ $template_dir }>/images/olock.png" border="0" /></span>-->
-											</div>
-											<!-- 特惠標示 -->
+									
 
                                 <!-- 右上購物車按鈕
 
@@ -220,14 +207,15 @@
 								 /右上購物車按鈕 -->
 									</div>
 
-                                <div class="text-left height-90" style="overflow:hidden;padding:5px 0 5px 0">
-									<div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $abProductArray[abProduct].sale_name }></div>
-									<div class="shop-item-summary text-left height-50 line-height-15" style="overflow:hidden;padding:5px 0 5px 0">
+                                <div class="text-center height-90" style="overflow:hidden;padding:5px 0 5px 0">
+									<!--<div class="text-left height-30 line-height-18" style="overflow:hidden;padding:5px 0 5px 0"><{ $abProductArray[abProduct].sale_name }></div>-->
+									<div class="shop-item-summary text-center height-50 line-height-15" style="overflow:hidden;padding:5px 0 5px 0">
 									<h3><a href="<{ $Site_Url }>/product/detail<{  $abProductArray[abProduct].gid  }>"><{ $abProductArray[abProduct].goodsname }></a></h3>
-									</div>
+									</div><br>
+									<a href="<{ $Site_Url }>/product/detail<{  $abProductArray[abProduct].gid  }>" class="LM-article-btn">立即購買<em class="fa fa-angle-right"></em></a>
 
 
-									<!-- 相關商品價格 -->
+									<!-- 相關商品價格 --
 
 									<div class="shop-item-price text-left" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
                                     <{ if $abProductArray[abProduct].price neq 0 }>

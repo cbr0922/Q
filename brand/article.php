@@ -221,7 +221,54 @@ $i = 0;
 
 //print_r($pic_news);
 
+ // 相关产品
 
+	$Sql   = "select g.gid,g.goodsname,g.price,g.smallimg,g.middleimg,g.intro,g.pricedesc,g.iftimesale,g.timesale_starttime,g.timesale_endtime,g.saleoffprice,g.ifsaleoff,g.saleoff_starttime,g.saleoff_endtime,g.ifappoint,g.appoint_starttime,g.appoint_endtime,gl.gid from `{$INFO[DBPrefix]}goods` g left join `{$INFO[DBPrefix]}news_link` gl  on (g.gid=gl.gid) where g.ifpub=1 and g.checkstate=2 and g.ifpresent!=1 and gl.nid=".$Articleid;
+
+	$Query = $DB->query($Sql);
+	$i=1;
+	$j=0;
+	$abProductArray = array();
+
+	while ($Rs =  $DB->fetch_array($Query)){
+		$abProductArray[$j]['autonum']    = $i;
+		$abProductArray[$j]['Bgcolor']    = $i%2==0 ?  "#FAFAFA" : 'white';
+		$abProductArray[$j]['goodsname']  = $Rs['goodsname'];
+		$abProductArray[$j]['gid']        = $Rs['gid'];
+		$abProductArray[$j]['price']      = $Rs['price'];
+		$abProductArray[$j]['pricedesc']  = $Rs['pricedesc'];
+		$abProductArray[$j]['smallimg']   = $Rs['smallimg'];
+		$abProductArray[$j]['middleimg']  = $Rs['middleimg'];
+		$abProductArray[$j]['intro']      = nl2br($Rs['intro']);
+
+		if ($Rs['ifappoint']==1 && $Rs['appoint_starttime']<=time() && $Rs['appoint_endtime']>=time()){
+						$abProductArray[$j]['ifappoint']  = 1;
+		}
+
+		if ($Rs['iftimesale']==1 && $Rs['timesale_starttime']<=time() && $Rs['timesale_endtime']>=time()){
+			$abProductArray[$j]['pricedesc']  = $Rs['saleoffprice'];
+			$abProductArray[$j]['ifsaleoff']  = 1;
+		}
+
+		if ($Rs['ifsaleoff']==1 && $Rs['saleoff_starttime']<=time() && $Rs['saleoff_endtime']>=time()){
+			$abProductArray[$j]['ifsaleoff']  = 1;
+		}
+
+		if($_SESSION['user_id']>0){
+			$collection_sql = "select * from `{$INFO[DBPrefix]}collection_goods` as c where c.gid ='" .$Rs['gid']. "' and c.user_id=".intval($_SESSION['user_id'])." order by c.gid desc limit 0,1";
+			$collection_Query    = $DB->query($collection_sql);
+			$collection_Num   = $DB->num_rows($collection_Query);
+			if($collection_Num>0){
+				$abProductArray[$j]['heartColor'] = 1;
+			}
+		}else{
+			$abProductArray[$j]['heartColor'] = 0;
+		}
+		$i++;
+		$j++;
+	}
+	$tpl->assign("abProductArray",      $abProductArray);    //相关产品数组
+	$tpl->assign("abProductArrayCount", count($abProductArray));
 
  
  $update = "update `{$INFO[DBPrefix]}news` set viewnum=viewnum+1 where news_id=' ". intval($Articleid) . "'";
@@ -287,8 +334,10 @@ $Query = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id=".int
 $_GET['brand_id']=intval($brand_id);
 if($brand_id==136){
 	$tpl->display("ES-article.html");
+}elseif($brand_id==184){
+	$tpl->display("LM-article.html");
 }elseif($brand_id>0){
-	$tpl->display("brand-article.html");
+	$tpl->display("brand_article.html");
 }else{
 	$tpl->display("article.html");
 }

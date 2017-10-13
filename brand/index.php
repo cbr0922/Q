@@ -107,7 +107,7 @@ if(intval($_GET['brand_id'])>0){
 			$i++;
 		}
 		if($i==0){
-			//$FUNCTIONS->header_location("../brand/" . intval($_GET['brand_id']));
+			$FUNCTIONS->header_location("../brand/" . intval($_GET['brand_id']));
 		}
 
 		$tpl->assign("indexAdv_array",$indexAdv_array);
