@@ -237,17 +237,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	$tpl->assign("googleTagManager_js",   $track_Js);
 }
 /*結束GTM碼 */
-$Sql = "select sum(ut.count) as count,ut.ticketid,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}userticket` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.userid=".intval($_SESSION['user_id'])." group by ut.ticketid";
+$Sql = "select sum(ut.count) as count,ut.ticketid,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}userticket` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where t.use_starttime<='" . date("Y-m-d",time()) . "' and t.use_endtime>='" . date("Y-m-d",time()) . "' and ut.userid=".intval($_SESSION['user_id'])." group by ut.ticketid";
 $Query =  $DB->query($Sql);
 $Num   =  $DB->num_rows($Query);
 $ticketcount = 0;
 while ( $Rs = $DB->fetch_array($Query)){
 		$ticketcount+=intval($Rs['count']);
 }
-$Sql = "select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and ut.userid =0  and t.use_endtime>='" . date("Y-m-d",time()) . "'";
+$Sql = "select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and ut.userid =0 and  t.use_endtime>='" . date("Y-m-d",time()) . "'";
 $Query =  $DB->query($Sql);
 $Num   =  $DB->num_rows($Query);
+
 $ticketcount+=intval($Num);
+
 $tpl->assign("ticketcount",               $ticketcount);
 if($INFO['headerStyle'] ==0)
 	$tpl->display("menu1.html");
