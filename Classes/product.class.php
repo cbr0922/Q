@@ -329,11 +329,12 @@ class PRODUCT{
 			}
 		}
 		if($type == "new"){
-			$showcount = 10;
-			$orderby[0]=="pubtime";
-			$orderby[1]=="1";
+			//if($showcount==0)
+			//	$showcount = 10;
+			$orderby[0]="pubtime";
+			$orderby[1]="0";
 		}
-		//print_r($orderby);
+		//print_r($showcount);
 		if($showcount>0)
 			$limitSql = " limit 0," . $showcount . " ";
 		if($orderby[0]=="")
@@ -342,7 +343,7 @@ class PRODUCT{
 			if ($orderby[0]=="price")
 				$orderSql  = "  order by g.pricedesc ";
 			elseif ($orderby[0]=="pubtime")
-				$orderSql  = "  order by g.idate ";
+				$orderSql  = "  order by g.gid ";
 			elseif ($orderby[0]=="visit")
 				$orderSql  = "  order by g.view_num ";
 			if(trim($orderSql) !=""){
@@ -363,7 +364,7 @@ class PRODUCT{
 			$Query  = $DB->query($Sql);
 			$Num   = $DB->num_rows($Query);
 		}
-		//echo $Sql;
+		
 		$result_array['count'] = $Num;
 		if ($Num>0){
 			if($ifpage==1){
