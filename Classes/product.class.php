@@ -329,9 +329,9 @@ class PRODUCT{
 			}
 		}
 		if($type == "new"){
-			$showcount = 10;
+			//$showcount = 10;
 			$orderby[0]=="pubtime";
-			$orderby[1]=="1";
+			$orderby[1]=="0";
 		}
 		//print_r($orderby);
 		if($showcount>0)
@@ -342,7 +342,7 @@ class PRODUCT{
 			if ($orderby[0]=="price")
 				$orderSql  = "  order by g.pricedesc ";
 			elseif ($orderby[0]=="pubtime")
-				$orderSql  = "  order by g.idate ";
+				$orderSql  = "  order by g.gid ";
 			elseif ($orderby[0]=="visit")
 				$orderSql  = "  order by g.view_num ";
 			if(trim($orderSql) !=""){

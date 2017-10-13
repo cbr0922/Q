@@ -13,13 +13,23 @@ $PRODUCT = new PRODUCT();
 
 $bid = intval($_GET['bid']);
 
+$type = $_GET['type'];
+if($type=="new"){
+	$showcount = 9;
+	$ifpage = 0;
+}else{
+	$showcount = 0;
+	$ifpage = 1;
+}
+
 $_GET['ordertype'] = intval($_GET['ordertype']);
 	//商品列表
-	$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1);
+	$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),$showcount,$ifpage,1,0,1);
+	//$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1);
 	//屬性
 
 $classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
-	$type = $_GET['type'];
+	
 	switch($type){
 			case "bonus":
 				$title = "紅利商品";
