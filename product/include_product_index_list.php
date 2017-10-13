@@ -12,6 +12,7 @@ include("product.class.php");
 $PRODUCT = new PRODUCT();
 
 $bid = intval($_GET['bid']);
+$type = $_GET['type'];
 
 $_GET['ordertype'] = intval($_GET['ordertype']);
 	//商品列表
@@ -19,7 +20,7 @@ $_GET['ordertype'] = intval($_GET['ordertype']);
 	//屬性
 
 $classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
-	$type = $_GET['type'];
+
 	switch($type){
 			case "bonus":
 				$title = "紅利商品";
