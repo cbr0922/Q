@@ -244,7 +244,7 @@ $ticketcount = 0;
 while ( $Rs = $DB->fetch_array($Query)){
 		$ticketcount+=intval($Rs['count']);
 }
-$Sql = "select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and (ut.usetime='' or ut.usetime is null)";
+$Sql = "select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and ut.userid =0  and t.use_endtime>='" . date("Y-m-d",time()) . "'";
 $Query =  $DB->query($Sql);
 $Num   =  $DB->num_rows($Query);
 $ticketcount+=intval($Num);
