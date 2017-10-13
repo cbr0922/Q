@@ -237,7 +237,7 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 4px;">
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>-->
-									<li class="dropdown"><a>新品上市</a></li>
+									<li class="dropdown"><a href="<{ $Site_Url }>/product/index.php?brand_id=136&type=new">新品上市</a></li>
 									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>
 
 									<{ section name=list loop=$brandclass_array }>
@@ -336,7 +336,7 @@
     padding-bottom: 6px;">      
 			<ul id="nav-main1">
 				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></li>-->
-				<li class="gnbsub_top"><a>新品上市</a></li>
+				<li class="gnbsub_top"><a href="<{ $Site_Url }>/product/index.php?brand_id=136&type=new">新品上市</a></li>
 				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
                 <{ section name=list loop=$brandclass_array }>
                   <{if $brandclass_array[list].totalcount neq 0}>

@@ -32,11 +32,20 @@ if ($Num>0){
 		$OrderList[$i]['use_starttime']     = $Rs['use_starttime'];
 		$OrderList[$i]['use_endtime']     = $Rs['use_endtime'];
 		$OrderList[$i]['moneytype']     = $Rs['moneytype'];
+		if($Rs['use_starttime']<=date("Y-m-d",time()) && $Rs['use_endtime']>=date("Y-m-d",time()) ){
+			$ticketcount+=intval($Rs['count']);
+		}
 		$i++;
 	}
 }else{
 	$Nav_banner = $Basic_Command['NullDate'] ; // "無相關資料！" ;
 }
+$Sql_count ="select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and ut.userid =0  and t.use_endtime>='" . date("Y-m-d",time()) . "'";
+$Query_count =  $DB->query($Sql_count);
+$Num_count  =  $DB->num_rows($Query_count);
+
+$tpl->assign("Num",     $Num_count);
+$tpl->assign("ticketcount",     $ticketcount);
 $tpl->assign("adv_array",     $adv_array);
 $tpl->assign("Float_radio",               intval($INFO['float_radio']));                    //浮动广告开关
 $tpl->assign("Ear_radio",                 intval($INFO['ear_radio']));                      //耳朵广告开关
