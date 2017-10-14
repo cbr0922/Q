@@ -76,9 +76,15 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 
 		$('#showstorage' + id).html("<div class='col-md-8 col-sm-6 col-xs-6 nopadding'><div class='noborder margin-top-10' style='border: solid #999 1px;width:100%'><a href='<{ $Site_Url }>/help/contact.php?gid="+id+"' class='btn btn-sm margin-top-10 list_b nomargin' >請電洽</a></div></div>");
 
+		$('#showstorage1' + id).html("<div class='col-md-8 col-sm-6 col-xs-6 nopadding'><div class='noborder margin-top-10' style='border: solid #999 1px;width:100%'><a href='<{ $Site_Url }>/help/contact.php?gid="+id+"' class='btn btn-sm margin-top-10 list_b nomargin' >請電洽</a></div></div>");
+
 		$('#nobtn' + id).css("display","none");
 
 		$('#showbuy' + id).css("display","none");
+
+		$('#nobtn1' + id).css("display","none");
+
+		$('#showbuy1' + id).css("display","none");
 
 		$('.showbuy' + id).css("display","none");
 
@@ -97,14 +103,28 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 					//alert(msg);
 					  if (msg <= 0 || msg == ""){
 							if(ifalarm == 2){
-					   		$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>已售完</div></div>");
+								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>已售完</div></div>");
+								$('#showstorage1' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>已售完</div></div>");
 								$('#nobtn' + id).css("display","none");
 								$('#showbuy' + id).css("display","none");
+								$('#nobtn1' + id).css("display","none");
+								$('#showbuy1' + id).css("display","none");
 								$('#count' + id).find("option").remove();
 								$('#count' + id).append( "<option value=\"0\">0</option>" );
-							}else if(ifalarm == 1){								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");								$('#nobtn' + id).css("display","none");								$('#showbuy' + id).css("display","none");								$('#count' + id).find("option").remove();								$('#count' + id).append( "<option value=\"0\">0</option>" );							}else{
+							}else if(ifalarm == 1){
+								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
+								$('#showstorage1' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
+								$('#nobtn' + id).css("display","none");
+								$('#showbuy' + id).css("display","none");
+								$('#nobtn1' + id).css("display","none");
+								$('#showbuy1' + id).css("display","none");
+								$('#count' + id).find("option").remove();
+								$('#count' + id).append( "<option value=\"0\">0</option>" );
+							}else{
 								$('#showstorage' + id).html("");
+								$('#showstorage1' + id).html("");
 								$('#showbuy' + id).css("display","block");
+								$('#showbuy1' + id).css("display","block");
 								$('#count' + id).find("option").remove();
 								for(i=1;i<=<{$buy_product_max_num}>;i++){
 									$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
@@ -113,6 +133,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 							}
 					  }else{
 							$('#showstorage' + id).html("");
+							$('#showstorage1' + id).html("");
 
 							$('#count' + id).find("option").remove();
 							if (msg><{$buy_product_max_num}>)
@@ -125,6 +146,8 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 							}
 							$('#showbuy' + id).css("display","block");
 							$('#nobtn' + id).css("display","block");
+							$('#showbuy1' + id).css("display","block");
+							$('#nobtn1' + id).css("display","block");
 					}
 				}
 		});
@@ -703,9 +726,9 @@ div.good_color {
 										    <{if $product_array.info[list].good_color neq ""}>
 											<div  class="col-md-9 col-sm-9 col-xs-9 clearfix shop-list-options margin-top-10 ES-color">
 
-											顏色：<select class="nopadding" style="width:60%;border-radius: 0px;height:26px;" name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
+											顏色：<select class="nopadding" style="width:60%;border-radius: 0px;height:26px;" name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="changeColor('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor<{$product_array.info[list].gid}> :selected').val()<{else}>''<{/if}>);changeImgs('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor<{$product_array.info[list].gid}> :selected').attr('sort')<{else}>''<{/if}>);checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
 											<{ section name=list1 loop=$product_array.info[list].color }>
-												  <option value="<{$product_array.info[list].color[list1].color}>" data-icon="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>"><{$product_array.info[list].color[list1].color}></option>
+												  <option value="<{$product_array.info[list].color[list1].color}>" sort="<{$product_array.info[list].color[list1].sort}>" data-icon="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>"><{$product_array.info[list].color[list1].color}></option>
 
 											  <{ /section}>
 
@@ -873,9 +896,9 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 										 <!---->
 										<div class="col-md-9 col-sm-9 col-xs-9 clearfix shop-list-options margin-top-10">
 
-										顏色：<select class="nopadding" style="width:60%;border-radius: 0px;height:26px;" name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
+										顏色：<select class="nopadding" style="width:60%;border-radius: 0px;height:26px;" name="xycolor1<{$product_array.info[list].gid}>" id="xycolor1<{$product_array.info[list].gid}>" onChange="changeColor('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}> :selected').val()<{else}>''<{/if}>);changeImgs('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}> :selected').attr('sort')<{else}>''<{/if}>);checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
 										<{ section name=list1 loop=$product_array.info[list].color }>
-												<option value="<{$product_array.info[list].color[list1].color}>" data-icon="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>"><{$product_array.info[list].color[list1].color}></option>
+												<option value="<{$product_array.info[list].color[list1].color}>" sort="<{$product_array.info[list].color[list1].sort}>" data-icon="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>"><{$product_array.info[list].color[list1].color}></option>
 
 											<{ /section}>
 
@@ -888,7 +911,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 											<{ section name=list1 loop=$product_array.info[list].color start=0}>
 
 											<div class="pull-left" style="margin-right:5px;">
-											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].sort}>');">
+											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].sort}>');checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
 												<div class="good_color" id="showcolor<{$product_array.info[list].gid}>_<{$smarty.section.list1.index}>">
 													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="28" height="28">
 												</div>
@@ -899,15 +922,13 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 
 											</div>
-											<div class="showbuy col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center">
-											<a id="nobtn" class="btn btn-sm margin-top-10 list_b" href="javascript:void(0);" onclick="">
-													<div id="showbuy"><span class="hidden-list">加入</span><span class="hidden-list2"><i class="icon-plus" style="line-height: 20px;"></i>&nbsp;</span>購物車</div>
+											<div class="showbuy<{$product_array.info[list].gid}> col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center">
+											<a id="nobtn1<{$product_array.info[list].gid}>" class="btn btn-sm margin-top-10 list_b" href="javascript:void(0);" onclick="buyProduct(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,<{if $product_array.info[list].good_size neq ""}>$('#xysize<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,$('#count<{$product_array.info[list].gid}>').val(),<{if $product_array.info[list].productdetail.count gt 0}>$('#xydetail<{$product_array.info[list].gid}> :selected').val()<{else}>0<{/if}>);$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();">
+													<div id="showbuy1<{$product_array.info[list].gid}>"><span class="hidden-list">加入</span><span class="hidden-list2"><i class="icon-plus" style="line-height: 20px;"></i>&nbsp;</span>購物車</div>
 
 											</a>
-
-
 											</div>
-
+											<div id="showstorage1<{$product_array.info[list].gid}>"></div>
 
 								</div>
 
@@ -994,7 +1015,7 @@ showsaleshopping();
 <script language="javascript">
 
 <{ section name=list loop=$product_array.info }>
-	<{ if $product_array.info[list].color neq "" }>
+	<{ if $product_array.info[list].good_color neq "" }>
 		changeColor("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].color}>");
 	　changeImgs("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].sort}>");
 	<{/if}>
@@ -1009,23 +1030,24 @@ $("img.lazy").lazyload({
 /**多屬性圖片尺寸切換**/
 function changeColor(gid,color){
 
-	$('#good_color').attr("value",color);
-
-	//$('#good_size').attr("value","");
-
-
+	$('#xycolor'+gid).val(color);
+	$('#xycolor1'+gid).val(color);
 
 <{ section name=list loop=$product_array.info start=0 }>
-	<{ section name=list1 loop=$product_array.info[list].color }>
-		$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color");
-	<{ /section}>
+	if(gid == "<{$product_array.info[list].gid}>"){
+		<{ section name=list1 loop=$product_array.info[list].color }>
+			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color");
+		<{ /section}>
+	}
 <{ /section}>
 <{ section name=list loop=$product_array.info start=0 }>
-	<{ section name=list1 loop=$product_array.info[list].color }>
-		if(color == "<{$product_array.info[list].color[list1].color}>"){
-			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color_select");
-		}
-	<{ /section}>
+	if(gid == "<{$product_array.info[list].gid}>"){
+		<{ section name=list1 loop=$product_array.info[list].color }>
+			if(color == "<{$product_array.info[list].color[list1].color}>"){
+				$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color_select");
+			}
+		<{ /section}>
+	}
 <{ /section}>
 
 }
