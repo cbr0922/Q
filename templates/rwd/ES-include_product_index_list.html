@@ -111,6 +111,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 								$('#showbuy1' + id).css("display","none");
 								$('#count' + id).find("option").remove();
 								$('#count' + id).append( "<option value=\"0\">0</option>" );
+								$('#count' + id).attr({"value":"0","min":"0","max":"0","disabled":true});
 							}else if(ifalarm == 1){
 								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
 								$('#showstorage1' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
@@ -120,16 +121,19 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 								$('#showbuy1' + id).css("display","none");
 								$('#count' + id).find("option").remove();
 								$('#count' + id).append( "<option value=\"0\">0</option>" );
+								$('#count' + id).attr({"value":"0","min":"0","max":"0","disabled":true});
 							}else{
 								$('#showstorage' + id).html("");
 								$('#showstorage1' + id).html("");
 								$('#showbuy' + id).css("display","block");
 								$('#showbuy1' + id).css("display","block");
 								$('#count' + id).find("option").remove();
-								for(i=1;i<=<{$buy_product_max_num}>;i++){
+								/*for(i=1;i<=<{$buy_product_max_num}>;i++){
 									$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
 									$('#count' + id).val("1");
-								}
+								}*/
+								$('#count' + id).val("1");
+								$('#count' + id).attr({"value":"1","min":"1","max":"<{ $buy_product_max_num }>","disabled":false});
 							}
 					  }else{
 							$('#showstorage' + id).html("");
@@ -140,10 +144,12 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 								count = <{$buy_product_max_num}>
 							else
 								count = msg
-							for(i=1;i<=count;i++){
+							/*for(i=1;i<=count;i++){
 								$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
 								$('#count' + id).val("1");
-							}
+							}*/
+							$('#count' + id).val("1");
+							$('#count' + id).attr({"value":"1","min":"1","max":count,"disabled":false});
 							$('#showbuy' + id).css("display","block");
 							$('#nobtn' + id).css("display","block");
 							$('#showbuy1' + id).css("display","block");
@@ -308,7 +314,7 @@ div.good_color {
 }
 .ES-num {
     /*float: left;*/
-    width: 52px;
+    width: 60px;
     margin-top: 0px;
     line-height: 30px;
 	display: inline-block;
@@ -324,11 +330,11 @@ div.good_color {
 }
 .ES-num .ES-input_num {
     float: left;
-    width: 34px;
+    width: 40px;
     height: 28px;
 }
 .ES-num .ES-input_num input {
-    width: 34px;
+    width: 40px;
     height: 28px;
     border: 1px solid #ddd;
     border-right: none;
@@ -446,7 +452,7 @@ div.good_color {
 			<!-- /PAGE HEADER -->
 		</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs hidden-sm">
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$class_banner[0].catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
+			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
 			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
 			<div class="col-md-4 col-sm-4 col-xs-6">
 								<!-- LIST OPTIONS -->
@@ -494,7 +500,7 @@ div.good_color {
 							<!-- /LIST OPTIONS -->
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 hidden-lg hidden-md">
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}>品牌分類名稱<{/if}></h1>
+			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}></h1>
 			</div>
 
 		</div>
@@ -612,7 +618,9 @@ div.good_color {
 
 
 										<div class="margin-bottom-0 margin-top-10 TAGdiv">
-										<a class="hidden-md hidden-lg" style="float:right;"><img src="<{ $Site_Url }>/images/colorcircle1.png"></a>
+										<{if $product_array.info[list].good_color neq ""}>
+										<a class="hidden-md hidden-lg" style="float:right;" href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').show();"><img src="<{ $Site_Url }>/images/colorcircle1.png"></a>
+										<{/if}>
 										<div class="TAGsm">
 										<{ section name=attri loop=$product_array.info[list].attr }>
 											<{ if $product_array.info[list].attr neq ''}>
@@ -803,16 +811,16 @@ div.good_color {
 	<div class="ES-num">
 		    <div class="ES-input_num">
 
-		        <input id="" value="1">
+		        <input type="text" name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" class="form-control input-number" value="0" min="0" max="0">
 
 			</div>
 			<div class="ES-prdiv">
-				<div href="javascript:void(0);" class="ES-pr ES-numred">+</div>
-				<div href="javascript:void(0);" class="ES-pr ES-numplus">-</div>
+				<div href="javascript:void(0);" class="ES-pr ES-numred btn-number" data-type="plus" data-field="count<{$product_array.info[list].gid}>">+</div>
+				<div href="javascript:void(0);" class="ES-pr ES-numplus btn-number" disabled="disabled" data-type="minus" data-field="count<{$product_array.info[list].gid}>">-</div>
 			</div>
 	</div>
-	<select class="nopadding hide" style="width:100%;border-radius: 0px;height:26px;" name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" onChange="buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val());$('#ibuy<{$product_array.info[list].gid}>').attr('checked','true');">
-	</select>
+	<!--select class="nopadding hide" style="width:100%;border-radius: 0px;height:26px;" name="count<{$product_array.info[list].gid}>" id="count<{$product_array.info[list].gid}>" onChange="buysale(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$product_array.info[list].gid}>').val());$('#ibuy<{$product_array.info[list].gid}>').attr('checked','true');">
+	</select-->
 	</div>
 <{/if}>
 	<div class=<{if $smarty.get.type neq 'bonus'}> "showbuy<{$product_array.info[list].gid}> col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3<{else}> col-md-12 col-sm-12 col-xs-12<{/if}>">
@@ -862,7 +870,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 									-->
 								</div>
 								<{if $product_array.info[list].good_color neq ""}>
-								<div class="shop-item product-shop-item shop-item<{$product_array.info[list].gid}>" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
+								<div class="shop-item product-shop-item product-shop-item1 shop-item<{$product_array.info[list].gid}>" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
 									<div class="thumbnail noborder nopadding">
 										<a href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();"><img class="mpp_lipstick_close" src="<{ $Site_Url }>/images/mpp_lipstick_close.png"></a>
 									<div id="line2">
@@ -1016,8 +1024,8 @@ showsaleshopping();
 
 <{ section name=list loop=$product_array.info }>
 	<{ if $product_array.info[list].good_color neq "" }>
-		changeColor("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].color}>");
-	　changeImgs("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].sort}>");
+	changeColor("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].color}>");
+	changeImgs("<{$product_array.info[list].gid}>","<{$product_array.info[list].color[0].sort}>");
 	<{/if}>
 <{ /section}>
 
@@ -1057,7 +1065,17 @@ function changeImgs(gid,sort){
 	$('.'+sort+'_'+gid).eq(1).css('display','block');
 }
 
+$(window).resize(function(){
+	var wdth=$(window).width();
+	if(wdth > 768){
+		$('.product-shop-item1').css('width','100%');
+	}else{
+		$('.product-shop-item1').css('width','200%');
+	}
+});
+
 </script>
+<script language="javascript" src="<{ $Site_Url }>/js/spinner.js"></script>
 <!--下拉圖片效果-->
 <link rel="Stylesheet" type="text/css" href="<{ $template_dir }>/css/wSelect.css" />
 <script type="text/javascript" src="<{ $template_dir }>/js/wSelect.min.js"></script>

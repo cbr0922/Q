@@ -29,7 +29,7 @@ $_GET['ordertype'] = intval($_GET['ordertype']);
 	//屬性
 
 $classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
-	
+
 	switch($type){
 			case "bonus":
 				$title = "紅利商品";
@@ -92,6 +92,7 @@ $class_banner = array();
 $list = 0;
 if (intval($_GET['brand_class'])>0){
 	$PRODUCT->getTopBrandBidList(intval($_GET['brand_class']));   //導航
+	$catname = $class_banner[0][catname];
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
 }
@@ -101,6 +102,7 @@ if($menutype == "all")
 else
 	$showbid = $class_banner[0][bid];
 $tpl->assign("showbid",     $showbid);
+$tpl->assign("catname",     $catname);
 $tpl->assign("class_banner",     $class_banner);
 $tpl->assign("title",       $title);
 $tpl->assign("content",       $content);
