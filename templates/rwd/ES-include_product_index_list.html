@@ -658,7 +658,7 @@ div.good_color {
 											<{$product_array.info[list].ERP}><{$product_array.info[list].goodsname}></a></h2>
 
 
-											<div class="size-12 margin-top-10">為肌膚注入年輕活力</div>
+											<div class="size-12 margin-top-10"><{$product_array.info[list].intro}></div>
 
 											<{if $showbid neq 6 && $showalert neq 1}><{$product_array.info[list].showstorage}><{/if}>
 											</div>
@@ -1067,10 +1067,10 @@ function changeImgs(gid,sort){
 
 $(window).resize(function(){
 	var wdth=$(window).width();
-	if(wdth > 768){
-		$('.product-shop-item1').css('width','100%');
+	if(wdth > 800){
+		$('.product-shop-item1').css({'position' : 'absolute', 'width' : '100%', 'top' : '0px'});
 	}else{
-		$('.product-shop-item1').css('width','200%');
+		$('.product-shop-item1').css({'position' : 'fixed', 'width' : '90%', 'top' : '50px'});
 	}
 });
 

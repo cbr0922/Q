@@ -389,6 +389,7 @@ class PRODUCT{
 
 				$result_array['info'][$i] = $Result;
 				$result_array['info'][$i]['goodsname1'] = $FUNCTIONS->strUrlEncode($Result['goodsname']);
+				$result_array['info'][$i]['intro'] = nl2br($Result['intro']);
 
 				if($ifshowcolor==1){
 					$result_array['info'][$i]['color'] = $this->getProductColor($Result);//商品顏色
