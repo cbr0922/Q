@@ -13,13 +13,23 @@ $PRODUCT = new PRODUCT();
 
 $bid = intval($_GET['bid']);
 
+$type = $_GET['type'];
+if($type=="new"){
+	$showcount = 9;
+	$ifpage = 0;
+}else{
+	$showcount = 0;
+	$ifpage = 1;
+}
+
 $_GET['ordertype'] = intval($_GET['ordertype']);
 	//商品列表
-	$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1);
+	$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),$showcount,$ifpage,1,0,1);
+	//$product_array = $PRODUCT->getProductList($bid,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1);
 	//屬性
 
 $classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
-	$type = $_GET['type'];
+
 	switch($type){
 			case "bonus":
 				$title = "紅利商品";
@@ -62,6 +72,7 @@ if(intval($_GET['brand_id'])>0){
 		$content    =  trim($Result['content']);
 		$meta_des    =  trim($Result['meta_des']);
 		$meta_key    =  trim($Result['meta_key']);
+
 		$tpl->assign("meta_key",       $meta_key);
 		$tpl->assign("meta_des",       $meta_des);
 	}
@@ -75,11 +86,13 @@ if(intval($_GET['brand_id'])>0){
 			}
 		}
 	}
+	$tpl->assign("brand_id",     intval($_GET['brand_id']));
 }
 $class_banner = array();
 $list = 0;
-if ($bid>0){
-	$PRODUCT->getBanner($bid);   //導航
+if (intval($_GET['brand_class'])>0){
+	$PRODUCT->getTopBrandBidList(intval($_GET['brand_class']));   //導航
+	$catname = $class_banner[0][catname];
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
 }
@@ -88,7 +101,22 @@ if($menutype == "all")
 	$showbid = 0;
 else
 	$showbid = $class_banner[0][bid];
+
+
+$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand_class` where bid=".intval($_GET['brand_class'])." limit 0,1");
+		$Num   = $DB->num_rows($Query);
+		if ($Num>0){
+			$Result= $DB->fetch_array($Query);
+			$Catcontent = $Result['catcontent'];
+			$tpl->assign("catcontent",$Catcontent);
+		}
+
+
+
+
+
 $tpl->assign("showbid",     $showbid);
+$tpl->assign("catname",     $catname);
 $tpl->assign("class_banner",     $class_banner);
 $tpl->assign("title",       $title);
 $tpl->assign("content",       $content);
@@ -96,5 +124,5 @@ $tpl->assign("classinfo_array",     $classinfo_array);
 $tpl->assign("brandname",  $brandname);
 $tpl->assign("brandcontent",  $brandcontent);
 $tpl->assign("product_array",     $product_array);
-$tpl->display("ES-include_product_index_list.html");
+$tpl->display("LM-include_product_index_list.html");
 ?>

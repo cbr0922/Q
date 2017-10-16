@@ -11081,12 +11081,21 @@ padding: 0px;
 border: 0px; 
 vertical-align: middle;
 }
+.col-md-push-9.LM-article-img{
+	text-align:right;
+}
 @media (max-width: 991px) {
 	
 	p.LM-article-img{
-		text-align:center;
+		text-align:center!important;
 	}	
 }
-
+.breadcrumb-align .breadcrumb{
+	right: 0!important;
+    left: auto!important;
+}
+.orderby{
+	text-align:right;	
+}
 
 /*LM-article*/

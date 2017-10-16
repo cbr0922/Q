@@ -15,9 +15,18 @@
 }
 .gnbsub{
 	position: absolute;
-    background-color: #fff;
-    z-index: 3;
-	margin-top: 3px;
+    background-color: #f6f6f6;
+    z-index: 20;
+	margin-top: 10px;
+	width: 100%;
+    left: 0px;
+    position: absolute;
+    color: #000;
+    text-align: center;
+    padding: 0;
+    font-size: 14px;
+	
+	
 }.gnbsub_top:hover {
 	border-bottom:3px solid #000;
 }.gnbsub_top{
@@ -43,7 +52,7 @@
 }
 #nav-main li, #nav-main1 li {
 	margin:0;
-	padding:0;
+	padding:0 0 6px 0;
 	float:left;
 	/*width:100px;*/
 }
@@ -54,6 +63,7 @@
 	margin: 0 1px 0 0;
 	padding: 1px 15px;
 	text-align:center;
+	font-weight: bold;
 
 }
 
@@ -94,11 +104,17 @@
 
 #subClass, #subClass h4 a, #subClass1, #subClass1 h4 a{
 	font-size:14px;
-	width:200px;
-	float:left;
+	/*width:200px;
+	float:left;*/
+	display: inline-block;
+	text-align: left;
 }
 #subClass1 h4 a{
 	font-weight:bold;
+}
+#subClass1 h4 a:hover{
+	border-bottom: 3px solid #000;
+	color:#000;
 }
 #nav-main div a,#nav-main1 div a {
 	position: relative;
@@ -108,7 +124,10 @@
 	white-space: nowrap;
 	text-align: left;
 	text-decoration: none;
-	float: left;	    width: 150px;	}
+	float: left;	    
+	/*width: 150px;	*/
+    border-bottom: 3px solid #f6f6f6;
+}
 .brandclass #topMain>li>a {
     height: 40px;
     line-height: 20px;
@@ -210,8 +229,11 @@
 }section.page-header.page-header-xs{
 	display:none;
 }
+.brandclass.LM {
+    border-bottom: 1px solid #000;
+}
 </style>
-<div id="header brandheader" class="brandsticky sticky clearfix dark brandclass hidden_menu_l" style="z-index: 11;">
+<div id="header brandheader" class="brandsticky sticky clearfix dark brandclass hidden_menu_l LM" style="z-index: 11;">
 
 				<!-- TOP NAV -->
 				<header id="topNav">
@@ -237,7 +259,7 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 4px;">
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>-->
-									<li class="dropdown"><a>新品上市</a></li>
+							
 									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>
 
 									<{ section name=list loop=$brandclass_array }>
@@ -328,15 +350,14 @@
 	</div>
     <div class="padding-bottom-10 margin-bottom-10" style="width:100%; float:left;border-bottom: 1px solid #000;">
 			<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a>&nbsp;|&nbsp;</div>
-			<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線商品</a></div>
+			<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線產品</a></div>
 			<!--<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1">品牌介紹</a></div>-->
 		</ul>
     </div>
-      <div style=" width:100%; float:left;border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;">      
+      <div style=" width:100%; float:left;border-bottom: 1px solid #ccc;">      
 			<ul id="nav-main1">
 				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></li>-->
-				<li class="gnbsub_top"><a>新品上市</a></li>
+			
 				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
                 <{ section name=list loop=$brandclass_array }>
                   <{if $brandclass_array[list].totalcount neq 0}>
@@ -346,9 +367,9 @@
 				<div class="gnbsub" style="display:none">
 				<{if $brandclass_array[list].url neq "#"}>
                 <a href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}>" style="width: 100%;padding: 0;">
-                <div style="width:100%; float:left;padding: 10px 20px;background-color: #f3f3f3;font-weight: bold;color: #000;font-size: 16px;">
+                <!--<div style="width:100%; float:left;padding: 10px 20px;background-color: #f3f3f3;font-weight: bold;color: #000;font-size: 16px;">
                     瀏覽全線商品&nbsp;<i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div>
+                </div>-->
                 </a>
 				<{/if}>
 					<div style="padding:10px;">

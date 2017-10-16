@@ -1,0 +1,49 @@
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
+<{ section name=list loop=$class_product_array start=0 }>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_banner class_center_m margin-bottom-20">
+ <{if $smarty.section.list.index neq 0}>
+ <div style="width:100%; height:1px; background-color:#a0a0a0; float:left"></div>
+ <{/if}>
+  <h1 class="size-25 weight-500 shop-item-title" style="width: 100%;float: left;"><{$class_product_array[list].catname}></h1><br />
+  <div style="width:100%; float:left"><{$class_product_array[list].catcontent}></div>
+ </div> 
+ <div style="width:100%; float:left">
+<ul class="shop-item-list row list-inline shop-item-margin">
+<{ section name=list2 loop=$class_product_array[list].product start=0 }>
+        <li class="<{ if $productlist_type eq 1 }> col-md-4 col-sm-5th col-xs-6<{ elseif $cell_num eq 1 }> col-md-4 col-sm-4 col-xs-6 <{ elseif $cell_num eq 2 }>col-md-3 col-sm-4 col-xs-6<{ else $cell_num eq 3 }>col-sm-4 col-md-5th col-xs-6<{/if}><{ if $productlist_type neq 1 && $cell_num eq 3 }> cellnum5<{/if}>">
+        <div class="shop-item">
+                                     <div class="thumbnail noborder nopadding">
+
+											<!-- 商品圖片fix在div內 -->
+                                            <{if $pic_fix eq 1}>
+                                              <div class="thumbnail_container_fix">
+                                              <div class="thumbnail_fix">
+                                            <{/if}>
+        <a href="detail<{$class_product_array[list].product[list2].gid}>"><img src='<{ $Site_Url }>/<{ $good_pic_path}>/<{$class_product_array[list].product[list2].smallimg}>' border=0 name="goodpic"></a>
+        <{if $pic_fix eq 1}>
+                                            </div>
+                                            </div>
+                                            <{/if}>
+											<!-- /商品圖片 -->
+                                            </div>
+                                            </div>
+                                            <div style="padding: 5px 0;" class="shop-item-summary<{ if $productlist_type neq 1 && $cell_num eq 3 }> cellnum5<{/if}>">
+          <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px;"><{$class_product_array[list].product[list2].sale_name}></div>
+         <div style="height:auto; overflow:hidden;"><h2>
+        <a href="detail<{$class_product_array[list].product[list2].gid}>"><{$class_product_array[list].product[list2].goodsname}></a></h2></div>
+        
+        <!-- 價格 -->
+											<div id="shop-item-price<{$product_array.info[list].gid}>" class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
+												<span class="line-through"><!-- NT. <{$class_product_array[list].product[list2].price}> --></span><{if $smarty.get.type eq 'bonus'}>所需點數： <{$class_product_array[list].product[list2].bonusnum}><{else}>$<{$class_product_array[list].product[list2].pricedesc}><{/if}></div>
+											<!-- /價格 -->
+                                           
+        
+        
+        </div>
+         </li>
+         <{/section}></ul>
+         </div>
+
+<{/section}>
+</div>
