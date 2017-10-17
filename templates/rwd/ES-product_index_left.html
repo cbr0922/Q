@@ -60,7 +60,11 @@
             <{/if}>
             <{/if}>
 			<!--商品列表-->
-      <{if $classinfo_array.top_id eq 0}>			<!--只有大分類出現推薦商品-->			<!--<{ include file="include_product_index_recommend.html" }>-->			<{ include file="include_product_index_hot.html" }>			<{/if}>
+      <{if $classinfo_array.top_id eq 0}>
+			<!--只有大分類出現推薦商品-->
+			<!--<{ include file="include_product_index_recommend.html" }>-->
+			<!--<{ include file="include_product_index_hot.html" }>-->			
+			<{/if}>
 			<div id="productlist"></div>
 
 

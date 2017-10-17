@@ -2,9 +2,9 @@
 <div class="container">
 	<div class="row">
 		<!-- 右邊開始 -->
-	
-			<!-- 圖片輪播 -->			
-            <{ include_php file="modules/advertising/adv_banner_p.php" }>			
+
+			<!-- 圖片輪播 -->
+            <{ include_php file="modules/advertising/adv_banner_p.php" }>
 			<!-- /圖片輪播 -->
 			<{if $classinfo_array.catcontent neq ""}>
            <div class="product_banner"  style="margin: 30px 0;"><{if $classinfo_array.catcontent neq ""}><{ $classinfo_array.catcontent }><{/if}><!--brandcontent-->
@@ -31,23 +31,23 @@
             <{/if}>
 </div>
 </div>
-</section>	
+</section>
 
 
 
 
 
 
-		
-		
 
-			
-		
+
+
+
+
 			<!--商品列表-->
-            <{if $classinfo_array.top_id eq 0}>	
-			<!--只有大分類出現推薦商品-->							  
-			<!--<{ include file="include_product_index_recommend.html" }>-->							  			
-			<{ include file="include_product_index_hot.html" }>	
+            <{if $classinfo_array.top_id eq 0}>
+			<!--只有大分類出現推薦商品-->
+			<!--<{ include file="include_product_index_recommend.html" }>-->
+			<!--<{ include file="include_product_index_hot.html" }>	-->	
 			<{/if}>
 
 <section class="noborder nopadding">
@@ -58,7 +58,7 @@
             <div style="clear:both"></div>
             </div>
 			<!--/商品列表-->
-		
+
         <!-- 右邊結束-->
 	</div>
 </div>

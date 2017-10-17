@@ -1065,13 +1065,18 @@ function changeImgs(gid,sort){
 	$('.'+sort+'_'+gid).eq(1).css('display','block');
 }
 
-$(window).resize(function(){
+function resize(){
 	var wdth=$(window).width();
 	if(wdth > 800){
-		$('.product-shop-item1').css({'position' : 'absolute', 'width' : '100%', 'top' : '0px'});
+		$('.product-shop-item1').css({'position' : 'absolute', 'width' : '100%', 'top' : '0px', 'left' : '0px'});
 	}else{
-		$('.product-shop-item1').css({'position' : 'fixed', 'width' : '90%', 'top' : '50px'});
+		$('.product-shop-item1').css({'position' : 'fixed', 'width' : '90%', 'top' : '50px', 'left' : '5%'});
 	}
+}
+
+resize();
+$(window).resize(function(){
+	resize();
 });
 
 </script>
