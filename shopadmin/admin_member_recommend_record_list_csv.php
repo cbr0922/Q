@@ -4,7 +4,7 @@ include_once "Check_Admin.php";
 $goods_starttime  = $_GET['goods_starttime']!="" ? $_GET['goods_starttime'] : date("Y-m-d",time()-7*24*60*60);
 $goods_endtime  = $_GET['goods_endtime']!="" ? $_GET['goods_endtime'] : date("Y-m-d",time());
 
-$Sql      = "select u.memberno,u.user_id,u.username,u.true_name,u.en_firstname,COUNT(t.order_serial) ordercount,SUM(t.totalprice) totalprice from `{$INFO[DBPrefix]}user` u left join `{$INFO[DBPrefix]}order_table` t on u.`memberno`=t.`recommendno` WHERE `createtime` BETWEEN UNIX_TIMESTAMP('".$goods_starttime."') AND UNIX_TIMESTAMP('".$goods_endtime." 23:59:59') AND t.order_state!=3 AND t.pay_state!=2 GROUP BY u.user_id ORDER BY t.order_serial desc";
+$Sql      = "select u.memberno,u.user_id,u.username,u.true_name,u.en_firstname,COUNT(t.order_serial) ordercount,SUM(t.totalprice) totalprice from `{$INFO[DBPrefix]}user` u left join `{$INFO[DBPrefix]}order_table` t on u.`memberno`=t.`recommendno` WHERE `createtime` BETWEEN UNIX_TIMESTAMP('".$goods_starttime."') AND UNIX_TIMESTAMP('".$goods_endtime." 23:59:59') AND t.order_state!=3 AND t.pay_state!=2 GROUP BY u.user_id ORDER BY totalprice desc";
 
 //echo $Sql;
 
