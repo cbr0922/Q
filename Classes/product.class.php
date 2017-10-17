@@ -148,10 +148,16 @@ class PRODUCT{
 			if($type=="phone"){
 				include_once("PageNav.class_phone.php");
 				$type = $_GET['type'];
-			}elseif($pagetype==1)
-				include_once("PageNav_ajax.class.php");
-			else
+			}elseif($pagetype==1){
+				if($_GET['brand_id']==136)
+					include_once("PageNav_ajax.class-ES.php");
+				elseif($_GET['brand_id']==184)
+					include_once("PageNav_ajax.class-LM.php");
+				else
+					include_once("PageNav_ajax.class.php");
+			}else{
 				include_once("PageNav.class.php");
+			}
 		}
 
 		$goods_array = array();

@@ -32,19 +32,43 @@
 		<link href="<{ $Site_Url }>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="<{ $Site_Url }>/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
 		
-		<!-- LAYER SLIDER
-		<link href="<{ $Site_Url }>/assets/plugins/slider.layerslider/css/layerslider.css" rel="stylesheet" type="text/css" /> -->
-		
-		<!--輪播-->
-		<link rel="stylesheet" href="<{ $template_dir }>/ES/ES-banner.css">
-		<script type="text/javascript" src="<{ $template_dir }>/ES/ES-banner.js"></script>
-		<!--<script src="<{ $template_dir }>/js/jquery-1.4.4.min.js"></script>-->
-		<script type="text/javascript" src="<{ $template_dir }>/ES/jquery-1.4.3.min.js"></script>
+	
 		
 
 <{ include_php file="include/ga.php" }>
 </head>
-
+<style>
+.owl-theme.controlls-over .owl-controls .owl-page span {
+    background: #e6e2e9;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #e6e2e9;
+}
+.owl-theme.controlls-over .owl-controls .owl-page.active span {
+    background: #00674e;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #e6e2e9;
+}
+.owl-theme .owl-controls .owl-page span{
+	opacity:1;
+}
+.controlls-over .owl-pagination {
+    text-align: right;
+    position: absolute;
+    width: 97%;
+    margin: auto;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.owl-theme .owl-controls .owl-page span {
+	
+	margin: 5px 2.5px;
+	
+}
+</style>
 <body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
 <{ include_php file="include/menu.php" }>
@@ -75,40 +99,7 @@
 <!--身體開始-->
 
 
-<!--
-			<section>
-				<div class="container product_banner">
-				 <div class="brand-main">
-				<div class="brand-carousel clear">
-								 <ul class="brand-img clear"> 
-								
-										<li style="display: list-item;">
-											<a href="" >
-												<img alt="" src="https://test.tasameng.com.tw/UploadFile/AdvPic/149991853728086.jpg">
-											</a>
-										</li>
-										<li style="display: none;">
-											<a href="" >
-												<img alt="" src="https://test.tasameng.com.tw/UploadFile/AdvPic/150633322412049.jpg">
-											</a>
-										</li>										
-						
-								 </ul>
-								 <div class="brand-btn-wrap clear fr">
-									 <i class="stoped fl"></i>
-									 <i class="opened fl"></i>
-									 <ul class="brand-btn fl clear">				 
-									
-										<li class="select"></li>
-										<li class=""></li>
-								
-									 </ul>
-								 </div>
-							 </div> </div>
-				
-				</div>
-			</section>
--->				
+	
 				<section>
 				<div class="container">
 					<div class="row">
@@ -124,7 +115,8 @@
            <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-20">
                    <{if $indexAdv_array[list].adv[j].adv_type eq 21}>
 
-					<{if $indexAdv_array[list].adv[j].Num eq 1}>
+				   
+				   <{if $indexAdv_array[list].adv[j].Num eq 1}>
 						 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
                           <a href="<{$indexAdv_array[list].adv[j].img[z].adv_left_url}>">
                             <img class="img-responsive" src="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].img[z].adv_left_img}>" alt="">
@@ -132,47 +124,6 @@
                           <{ /section }>
 
 					<{else}>
-							<!-- 轮播图 --
-							<div class="brand-carousel clear">
-								 <ul class="brand-img clear"> 
-								 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-										<li style="<{if $smarty.section.z.index eq 0 }>display: list-item;<{else}>display: none;<{/if}>">
-											<a href="<{$indexAdv_array[list].adv[j].img[z].adv_left_url}>" >
-												<img alt="" src="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].img[z].adv_left_img}>">
-											</a>
-										</li>	
-								<{ /section }>
-								 </ul>
-								 <div class="brand-btn-wrap clear fr">
-									 <i class="stoped fl"></i>
-									 <i class="opened fl"></i>
-									 <ul class="brand-btn fl clear">				 
-									 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-										<li class="<{if $smarty.section.z.index eq 0 }>select<{else}><{/if}>"></li>
-									 <{ /section }>
-									 </ul>
-								 </div>
-							 </div>
-							<!-- 轮播图结束 -->
-							
-					<!--		
-					<div class="layerslider height-500">
-
-						
-						 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-						<div class="ls-slide" >
-						
-							<img src="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].img[z].adv_left_img}>" class="ls-bg" alt="Slide background"/>							
-						</div>
-						 <{ /section }>
-						
-					
-						
-
-					</div>-->
-
-					
-					
                        <!-- OWL SLIDER -->
 						 <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fade", "progressBar":"false"}'>
                           <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
@@ -181,10 +132,10 @@
                           </a>
                           <{ /section }>
                          </div>
-						 <a class="button secondary play">Play</a>
-						 <a class="button secondary stop">Stop</a>
                        <!-- /OWL SLIDER -->
 					<{/if}>
+				   
+					
                   <{elseif $indexAdv_array[list].adv[j].adv_type eq 22}>
                   <div class="hovereffect margin-bottom-20">
                             <img class="img-responsive lazy" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].adv_left_img}>" alt="">
@@ -206,7 +157,7 @@
 
 
                  <{else}>
-                    <div class="margin-bottom-20" <{if $indexAdv_array[list].adv[j].adv_type eq 24}>style="width: 100%;  float: left;"<{/if}>>
+                    <div class="margin-bottom-<{if $indexAdv_array[list].adv[j].adv_type eq 23}>10<{else}>20<{/if}>" <{if $indexAdv_array[list].adv[j].adv_type eq 24}>style="width: 100%;  float: left;"<{/if}>>
                        <{$indexAdv_array[list].adv[j].adv_content}>
                     </div>
                  <{/if}>
@@ -218,15 +169,7 @@
     </section>
     <{ /section }>
   <!--/萬用格-->
-  					<!--<script type="text/javascript">
-						var layer_options = {
-							responsive: 		false,
-							responsiveUnder: 	1280,
-							layersContainer: 	1280,
-							hoverPrevNext: 		true,
-							skinsPath: 			'<{ $Site_Url }>/assets/plugins/slider.layerslider/skins/'
-						}
-					</script>-->
+  					
 							</div>
 						</div>
 						<!--右邊結束-->
@@ -248,30 +191,7 @@
 </div>
 <{/if}>
 
-
-<!-- LAYER SLIDER
-
-		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slider.layerslider/js/layerslider_pack.js"></script>
-		<script type="text/javascript" src="<{ $Site_Url }>/assets/js/view/demo.layerslider_slider.js"></script>--> 
-<script type="text/javascript">
-$(document).ready(function() {
-              var owl = $('.owl-carousel');
-              owl.owlCarousel({
-                items: 4,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 1000,
-                autoplayHoverPause: true
-              });
-              $('.play').on('click', function() {
-                owl.trigger('play.owl.autoplay', [1000])
-              })
-              $('.stop').on('click', function() {
-                owl.trigger('stop.owl.autoplay')
-              })
-            })	
-</script>	
+	
 </body>
 
 </html>
