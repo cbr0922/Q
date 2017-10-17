@@ -112,13 +112,15 @@
 			<!-- /品牌分類詳細描述 -->
 
 			<!-- Product List-->
-
+			<{if $smarty.get.brand_class eq 283}>
+            	<{ include file="LM-include_product_index_class.html" }>
+             <{else}>
                 <{ if $productlist_type eq 1 }>
 			    	        <{ include file="LM-product_index_left.html" }>
                 <{else}>
                     <{ include file="LM-product_index_full.html" }>
                 <{/if}>
-
+			<{/if}>
 
 
       <{ include_php file="include/bottom.php" }>

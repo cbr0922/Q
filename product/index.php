@@ -49,13 +49,19 @@ if($bid == 0){
 				break;
 		}
 	//商品列表
-	$product_array = $PRODUCT->getProductList(0,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1,$INFO['product_filter']);
+	if($_GET['brand_class']==283){
+		$class_product_array = $PRODUCT->getBrandClassList($_GET['brand_class'],1);
+		//print_r($class_product_array);
+	}else{
+		$product_array = $PRODUCT->getProductList(0,$type,array('key'=>$_GET['skey']),array($_GET['orderby'],$_GET['ordertype']),0,1,1,0,1,$INFO['product_filter']);
+	}
 	//屬性
 
 }else{
 	$type = "hot";
 	//if ($classinfo_array['manyunfei']>0)
 		$ifshowcolor = 1;
+	
 	//else
 	//	$ifshowcolor = 0;
 	//if($classinfo_array['top_id']>0){
@@ -66,8 +72,9 @@ if($bid == 0){
 		//商品列表
 		$product_array = $PRODUCT->getProductList($bid,"",array(),array($_GET['orderby'],$_GET['ordertype']),0,1,$ifshowcolor,0,1,$INFO['product_filter']);
 	//}else{
-	//	$class_product_array = $PRODUCT->getClassList($bid,1);
+	//	
 	//}
+	
 }
 $attrvalue_array = $PRODUCT->getLikeAttribute($bid);
 /*if(intval($_GET['ordertype'])<=1){

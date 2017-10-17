@@ -293,7 +293,7 @@ class PRODUCT{
 							if(count($catesql)>0)
 							$searchSql .= " and (" . implode("or",$catesql) . ")";
 						break;
-					case "brand_class":
+					case "brand_class0":
 							$cate_array = explode("-",$v);
 							foreach($cate_array as $k=>$value){
 								if($value>0)
@@ -301,6 +301,17 @@ class PRODUCT{
 							}
 							if(count($catesql)>0)
 							$searchSql .= " and (" . implode("or",$catesql) . ")";
+						break;
+					case "brand_class":
+						if($_GET['brand_class0']==0){
+							$cate_array = explode("-",$v);
+							foreach($cate_array as $k=>$value){
+								if($value>0)
+									$catesql[$k] .= " g.brandbids like '%\"".$value."\"%' or g.brand_bid='" . $value . "'";
+							}
+							if(count($catesql)>0)
+							$searchSql .= " and (" . implode("or",$catesql) . ")";
+						}
 						break;
 				}
 				if(substr($k,0,4)=="attr" && $k!="attr2" && $k!="attr3"){
@@ -464,6 +475,29 @@ class PRODUCT{
 				$result_array[$i] = $Rs;
 				if ($ifshowproduct==1){
 					$product_array = $this->getProductList($Rs['bid'],"ifrecommend",array(),4,0,0,0,1);
+					$result_array[$i]['product'] = $product_array['info'];
+					$result_array[$i]['count'] = $product_array['count'];
+				}
+				$i++;
+			}
+		}
+		return $result_array;
+	}
+	/**
+	得到品牌商品分類列表
+	**/
+	function getBrandClassList($bid,$ifshowproduct=0){
+		global $DB,$INFO;
+		$result_array = array();
+		$Query  = $DB->query("select * from `{$INFO[DBPrefix]}brand_class` where top_id=".intval($bid)." ");
+		$Num   = $DB->num_rows($Query);
+		if ($Num>0){
+			$i = 0;
+			while($Rs=$DB->fetch_array($Query)){
+				$result_array[$i] = $Rs;
+				if ($ifshowproduct==1){
+					$_GET['brand_class0'] = $Rs['bid'];
+					$product_array = $this->getProductList(0,"ifrecommend",array("brand_id"=>$_GET['brand_id'],"brand_class"=>$Rs['bid']),4,0,0,0,1);
 					$result_array[$i]['product'] = $product_array['info'];
 					$result_array[$i]['count'] = $product_array['count'];
 				}
