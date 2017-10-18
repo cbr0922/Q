@@ -276,6 +276,10 @@ class PRODUCT{
 						if($v>0)
 							$searchSql .= " and g.brand_id = '".intval($v)."'";
 						break;
+					case "brand_id":
+						if($v>0)
+							$searchSql .= " and g.brand_id = '".intval($v)."'";
+						break;
 					case "attr2":
 							$color_array = explode("-",$v);
 							foreach($color_array as $k=>$value){
@@ -371,7 +375,7 @@ class PRODUCT{
 			}
 		}
 
-	 	  $Sql = "select g.*,br.brandname from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}bclass` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on ( g.brand_id=br.brand_id ) " . $linkSql . " where b.catiffb='1' and g.ifpub='1' and (g.pubstarttime='' or g.pubstarttime<='" . time() . "') and (g.pubendtime='' or g.pubendtime>='" . time() . "') " . $searchSql . $subSql . $bidSql . $orderSql . " " . $limitSql;
+	 	$Sql = "select g.*,br.brandname from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}bclass` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on ( g.brand_id=br.brand_id ) " . $linkSql . " where b.catiffb='1' and g.ifpub='1' and (g.pubstarttime='' or g.pubstarttime<='" . time() . "') and (g.pubendtime='' or g.pubendtime>='" . time() . "') " . $searchSql . $subSql . $bidSql . $orderSql . " " . $limitSql;
 		if($ifpage==1){
 			$PageNav    = new PageItem($Sql,intval($INFO['MaxProductNumForList']));
 			//$PageNav    = new PageItem($Sql,2);
@@ -503,13 +507,15 @@ class PRODUCT{
 				$result_array[$i] = $Rs;
 				if ($ifshowproduct==1){
 					$_GET['brand_class0'] = $Rs['bid'];
-					$product_array = $this->getProductList(0,"ifrecommend",array("brand_id"=>$_GET['brand_id'],"brand_class"=>$Rs['bid']),4,0,0,0,1);
+					//getProductList($bid=0,$type="",$search_array=array(),$orderby = array(),$showcount=0,$ifpage=0,$ifshowcolor=0,$ifshowmemberprice=0,$ifshowsale=0,$pagetype="1")
+					$product_array = $this->getProductList(0,"",array(),array(),4,0,1,0,0,1);
 					$result_array[$i]['product'] = $product_array['info'];
 					$result_array[$i]['count'] = $product_array['count'];
 				}
 				$i++;
 			}
 		}
+		
 		return $result_array;
 	}
 
