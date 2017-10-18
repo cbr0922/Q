@@ -326,7 +326,7 @@ div.good_color {
     vertical-align: middle;
 }
 .ES-num .ES-prdiv{
-	margin-top:1px;
+	/*margin-top:1px;*/
 }
 .ES-num .ES-input_num {
     float: left;
@@ -341,6 +341,7 @@ div.good_color {
     text-align: center;
     line-height: 28px;
     overflow: hidden;
+	border-radius: 0;
 }
 .ES-num .ES-pr {
     float: left;
@@ -666,7 +667,7 @@ div.shop-item-summary{
 		<{if $class_product_array[list].product[list2].ifsaleoff eq 0 || ($class_product_array[list].product[list2].ifsaleoff eq 1 && $class_product_array[list].product[list2].saleoff.ifsaleoff eq 1)}>
        <div class="col-md-12 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10">
 	   <label class="checkbox">
-			<input style="display:none" type="checkbox" name="ibuy<{$class_product_array[list].product[list2].gid}>" id="ibuy<{$class_product_array[list].product[list2].gid}>" value="1" onClick="if (this.checked==true) buysale(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$class_product_array[list].product[list2].gid}>').val()); else {deletsale(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,'<{$product_array.ino[list].buykey}>');}" <{if $goods_array[list].buykey neq ""}>checked <{/if}>>
+			<input style="display:none" type="checkbox" name="ibuy<{$class_product_array[list].product[list2].gid}>" id="ibuy<{$class_product_array[list].product[list2].gid}>" value="1" onClick="if (this.checked==true) buysale(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$class_product_array[list].product[list2].gid}>').val()); else {deletsale(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,'<{$class_product_array[list].product[list2].buykey}>');}" <{if $goods_array[list].buykey neq ""}>checked <{/if}>>
 		    <i></i> 我要選購
 		</label>
 			<select class="nopadding height-30" style="border-radius: 0px;" name="count<{$class_product_array[list].product[list2].gid}>" id="count<{$class_product_array[list].product[list2].gid}>" onChange="buysale(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,$('#count<{$class_product_array[list].product[list2].gid}>').val());$('#ibuy<{$class_product_array[list].product[list2].gid}>').attr('checked','true');">
@@ -695,7 +696,7 @@ div.shop-item-summary{
 <{if $smarty.get.type neq 'bonus' }>
 
 
-	<div  class="col-md-<{if $class_product_array[list].product[list2].good_color neq ""}>12<{else}>6<{/if}> col-sm-12 col-xs-12 margin-top-10 text-center">
+	<div  class="col-md-<{if $class_product_array[list].product[list2].productdetail.count gt 0}>6<{else}>12<{/if}> col-sm-12 col-xs-12 margin-top-10 text-center col-1290-12">
 	<div class="numtitle">
 	數量：
 	</div>
@@ -889,12 +890,13 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 </section>
 
 <script language="javascript">
-
-<{ section name=list loop=$product_array.info }>
+<{ section name=list loop=$class_product_array start=0 }>
+<{ section name=list2 loop=$class_product_array[list].product }>
 	<{ if $class_product_array[list].product[list2].good_color neq "" }>
 	changeColor("<{$class_product_array[list].product[list2].gid}>","<{$class_product_array[list].product[list2].color[0].color}>");
 	changeImgs("<{$class_product_array[list].product[list2].gid}>","<{$class_product_array[list].product[list2].color[0].sort}>");
 	<{/if}>
+<{ /section}>
 <{ /section}>
 
 $("img.lazy").lazyload({
@@ -908,15 +910,15 @@ function changeColor(gid,color){
 
 	$('#xycolor'+gid).val(color);
 	$('#xycolor1'+gid).val(color);
-
-<{ section name=list loop=$product_array.info start=0 }>
+<{ section name=list loop=$class_product_array start=0 }>
+<{ section name=list2 loop=$class_product_array[list].product start=0 }>
 	if(gid == "<{$class_product_array[list].product[list2].gid}>"){
 		<{ section name=list1 loop=$class_product_array[list].product[list2].color }>
 			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color");
 		<{ /section}>
 	}
 <{ /section}>
-<{ section name=list loop=$product_array.info start=0 }>
+<{ section name=list2 loop=$class_product_array[list].product start=0 }>
 	if(gid == "<{$class_product_array[list].product[list2].gid}>"){
 		<{ section name=list1 loop=$class_product_array[list].product[list2].color }>
 			if(color == "<{$class_product_array[list].product[list2].color[list1].color}>"){
@@ -924,6 +926,7 @@ function changeColor(gid,color){
 			}
 		<{ /section}>
 	}
+<{ /section}>
 <{ /section}>
 
 }

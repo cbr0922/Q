@@ -256,35 +256,6 @@ function bonusProduct(gid,color,size,detail_id){
 }
 </script>
 <style>
-.simplepage .simplenone{
-	display:none;
-}
-.simplepage p{
-	display:none;
-}
-.simplepage{
-	text-align:right !important;
-	/*margin-top: 30px;*/
-}
-.simplepage .simplediv{
-	text-align:right !important;
-    display: inline-block;
-	vertical-align: middle;
-}
-.simplepage ul.pagination{
-	margin:0 !important;
-}
-.simplediv .fa{
-	padding: 2px 8px;
-    font-size: 13px;
-    color: #000;
-
-}
-.simplepage .pagination.pagination-simple>li>a{
-	padding: 0 5px !important;
-}
-
-
 /*多屬性*/
 
 div.good_color_select {
@@ -327,7 +298,7 @@ div.good_color {
     vertical-align: middle;
 }
 .ES-num .ES-prdiv{
-	margin-top:1px;
+	/*margin-top:1px;*/
 }
 .ES-num .ES-input_num {
     float: left;
@@ -342,6 +313,7 @@ div.good_color {
     text-align: center;
     line-height: 28px;
     overflow: hidden;
+	border-radius: 0;
 }
 .ES-num .ES-pr {
     float: left;
@@ -471,11 +443,7 @@ div.shop-item-summary{
 			<div class="col-md-12 col-sm-12 col-xs-12 nopadding orderby">					
 								<!-- LIST OPTIONS -->
 							<div class="clearfix shop-list-options margin-bottom-10 sortbox">
-<!-- 簡易頁數 
-<div class="simplepage">
-<{if $smarty.get.page eq ""}>1 <{else}><{$smarty.get.page }><{/if}>頁 <{$product_array.page}>
-</div>
--->
+
 								<!-- 排序下拉-->
 								<div class="options">
 								<{ if $product_filter eq 1 }>
@@ -726,7 +694,7 @@ div.shop-item-summary{
 <!--非酒類才顯示-->
 
 											 <{if $product_array.info[list].productdetail.count gt 0}>
-										 <div  class="col-md-6 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10">
+										 <div  class="col-md-6 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10 col-1290-12">
 											 <select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="xydetail<{$product_array.info[list].gid}>" id="xydetail<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);">
 											 <{ section name=list1 loop=$product_array.info[list].productdetail.info }>
 												 <option price="<{$product_array.info[list].productdetail.info[list1].member_price}>" value="<{$product_array.info[list].productdetail.info[list1].detail_id}>"><{$product_array.info[list].productdetail.info[list1].detail_name}></option>
@@ -805,7 +773,7 @@ div.shop-item-summary{
 <{if $smarty.get.type neq 'bonus' }>
 
 
-	<div  class="col-md-<{if $product_array.info[list].good_color neq ""}>12<{else}>6<{/if}> col-sm-12 col-xs-12 margin-top-10 text-center">
+	<div  class="col-md-<{if $product_array.info[list].productdetail.count gt 0}>6<{else}>12<{/if}> col-sm-12 col-xs-12 margin-top-10 text-center col-1290-12">
 	<div class="numtitle">
 	數量：
 	</div>
@@ -1005,7 +973,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 
 <div style="clear:both"></div>
-<{$product_array.page}>
+<div class="LM-page"><{$product_array.page}></div>
 <{if $classinfo_array.manyunfei>0}>
 
 
