@@ -21,17 +21,17 @@ $Gid = intval($_REQUEST['goods_id'])==0 ? $Gid : intval($_REQUEST['goods_id']);
                       <TD width="20%" align="center" ><strong>安全庫存量</strong></TD>
                       </TR>
    				<?php
-                $Sql_action = "select oa.* from `{$INFO[DBPrefix]}goods_price_cach` as oa where oa.gid='" . $Gid . "' order by oa.pubtime desc";
+                $Sql_action = "select oa.* from `{$INFO[DBPrefix]}goods_price_cach` as oa where oa.gid='" . $Gid . "' order by oa.pubtime desc,pcid desc";
 				$Query_action    = $DB->query($Sql_action);
 				while($Rs_action=$DB->fetch_array($Query_action)){
 				?>						
 				    <TR>
                       <TD width="12%" align=center valign="top" noWrap><?php echo $Rs_action['checktime'];?></TD>
                       <TD align="center" ><?php echo date("Y-m-d H:i:s",$Rs_action['pubtime']);?></TD>
-                      <TD >
+                      <TD align="center" >
                       <?php echo $Rs_action['bn'];?>
                       </TD>
-                      <TD >
+                      <TD align="center" >
                       <?php echo $Rs_action['org_price'];?>
                       </TD>
                       <TD align="center" ><?php echo $Rs_action['org_pricedesc'];?></TD>
