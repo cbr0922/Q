@@ -242,8 +242,6 @@ a.cur{
     -ms-transition: -ms-transform .2s ease-in;
     -o-transition: -o-transform .2s ease-in;
     transition: transform .2s ease-in;
-}section.page-header.page-header-xs{
-	display:none;
 }
 .brandclass.LM {
     border-bottom: 1px solid #000;
@@ -361,14 +359,14 @@ a.cur{
 
     <div class="margin-bottom-10" style="width:100%; float:left;border-bottom: 1px solid #000;">
 	
-			<div class="col-md-3 col-sm-3" style="margin-top: 40px;padding-left: 0;">
+			<div class="col-md-4 col-sm-3" style="margin-top: 40px;padding-left: 0;">
 				<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a>&nbsp;|&nbsp;</div>
 				<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線產品</a></div>
 			</div>
-			<div class="col-md-6 col-sm-6 product_banner text-center" style="margin: 15px 0;">
+			<div class="col-md-4 col-sm-6 product_banner text-center" style="margin: 15px 0;">
 									<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
 			</div>
-			<div  class="col-md-3 col-sm-3 text-right" style="">
+			<div  class="col-md-4 col-sm-3 text-right" style="padding-right: 0;">
 			  <script  language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=LM-AD" type="text/javascript"></script>
 
 			</div>
