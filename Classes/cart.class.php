@@ -1319,7 +1319,7 @@ class Cart{
 			}
 		}elseif($ticketid==-1 || $ticketcode!=""){
 			//通用折價券
-			$Sql = "select t.money,t.moneytype,t.type,t.goods_ids,t.ordertotal,t.canmove,tc.* from `{$INFO[DBPrefix]}ticketcode` as tc inner join `{$INFO[DBPrefix]}ticket` as t on tc.ticketid=t.ticketid where tc.ticketcode='" . $ticketcode . "' and t.use_starttime<='" . date('Y-m-d',time()) . "' and t.use_endtime>='" . date('Y-m-d',time()) . "'";
+			$Sql = "select t.money,t.moneytype,t.type,t.goods_ids,t.ordertotal,t.canmove,tc.*,t.count from `{$INFO[DBPrefix]}ticketcode` as tc inner join `{$INFO[DBPrefix]}ticket` as t on tc.ticketid=t.ticketid where tc.ticketcode='" . $ticketcode . "' and t.use_starttime<='" . date('Y-m-d',time()) . "' and t.use_endtime>='" . date('Y-m-d',time()) . "'";
 			$Query =  $DB->query($Sql);
 			$Num   =  $DB->num_rows($Query);
 			if ($Num>0){
@@ -1331,15 +1331,24 @@ class Cart{
 					return array(-1);
 				}
 				
-				if (intval($_SESSION['user_id']) > 0){
-					//每張通用折價券只能使用一次
-					$use_sql = "select * from `{$INFO[DBPrefix]}use_ticket` where userid='" . intval($_SESSION['user_id']) . "' and ticketid='" . $Rs['ticketid'] . "' and ticketcode='" . $ticketcode . "'";
+				if($Rs['count']>0){
+					$use_sql = "select * from `{$INFO[DBPrefix]}use_ticket` where ticketid='" . $Rs['ticketid'] . "' and ticketcode='" . $ticketcode . "'";
 					$user_Query =  $DB->query($use_sql);
 					$user_Num   =  $DB->num_rows($user_Query);
-					if ($user_Num > 0){
-						return array(-1);
+					if ($user_Num >= $Rs['count']){
+						return array(-4);
 					}
 				}
+					if (intval($_SESSION['user_id']) > 0){
+						//每張通用折價券只能使用一次
+						$use_sql = "select * from `{$INFO[DBPrefix]}use_ticket` where userid='" . intval($_SESSION['user_id']) . "' and ticketid='" . $Rs['ticketid'] . "' and ticketcode='" . $ticketcode . "'";
+						$user_Query =  $DB->query($use_sql);
+						$user_Num   =  $DB->num_rows($user_Query);
+						if ($user_Num > 0){
+							return array(-1);
+						}
+					}
+				
 				if($this->setCheckTicket($Rs['goods_ids'],$key)==false)
 					return array(-3);
 				$ticket['id'] = $Rs['ticketid'];

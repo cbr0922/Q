@@ -204,10 +204,13 @@ switch($_GET['Action']){
 	case "ticket":
 	//折價券
 		$result = $cart->setTicket(intval($_GET['ticketid']),$_GET['key'],$_GET['ticketcode']);
+		//print_r($result);
 		if($result[0]==0){
 			echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><script language='javascript'>alert('需要購買" . $result[1] . "商品才能使用此折價券');location.href='shopping3.php?key=" . $_POST['key'] . "';</script>";exit;
 		}elseif($result[0]==-1){
 			echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><script language='javascript'>alert('此現金券已使用過，每張現金券只能只用一次');location.href='shopping3.php?key=" . $_GET['key'] . "';</script>";exit;
+		}elseif($result[0]==-4){
+			echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><script language='javascript'>alert('您已經的優惠券號碼已超過使用次數');location.href='shopping2.php?key=" . $_GET['key'] . "';</script>";exit;
 		}elseif($result[0]==-2){
 			echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><script language='javascript'>alert('您使用的是無效現金券');location.href='shopping3.php?key=" . $_GET['key'] . "';</script>";exit;
 		}elseif($result[0]==-3){

@@ -32,6 +32,7 @@ if ($_GET['ticketid']!="" && $_GET['Action']=='Modi'){
 		$goods_ids       =  $Result['goods_ids'];
 		$ordertotal       =  $Result['ordertotal'];
 		$canmove       =  $Result['canmove'];
+		$count       =  $Result['count'];
 	}else{
 		echo "<script language=javascript>javascript:window.history.back();</script>";
 		exit;
@@ -180,6 +181,10 @@ if ($_GET['ticketid']!="" && $_GET['Action']=='Modi'){
           電子折價券（發放給站內會員）
           <input type="radio" name="type" value="1" <?php if ($type == 1){?>checked="checked"<?php }?> />
           通用折價券（離線）</TD>
+      </TR>
+      <TR>
+        <TD noWrap align=right>通用折價券使用次數：</TD>
+        <TD align=left noWrap><?php echo $FUNCTIONS->Input_Box('text','count',$count,"  maxLength=20 size=10  ")?>次</TD>
       </TR>
       <TR>
         <TD noWrap align=right>發放日期                        ： </TD>

@@ -20,6 +20,7 @@ if ($_POST['Action']=='Insert' ) {
 	'goods_ids'          => ($_POST['goods_ids']),
 	'ordertotal'          => intval($_POST['ordertotal']),
 	'canmove'          => intval($_POST['canmove']),	
+	'count'          => intval($_POST['count']),	
 	)      );
 	$Sql="INSERT INTO `{$INFO[DBPrefix]}ticket` (".$db_string['FIELD_NAMES'].") VALUES (".$db_string['FIELD_VALUES'].")";
 	$Result_Insert=$DB->query($Sql);
@@ -56,6 +57,7 @@ if ($_POST['Action']=='Update' ) {
 	'goods_ids'          => ($_POST['goods_ids']),
 	'ordertotal'          => intval($_POST['ordertotal']),
 	'canmove'          => intval($_POST['canmove']),	
+	'count'          => intval($_POST['count']),	
 	)      );
 	$Sql = "UPDATE `{$INFO[DBPrefix]}ticket` SET $db_string WHERE ticketid=".intval($_POST['ticketid']);
 	$Result_Insert = $DB->query($Sql);
