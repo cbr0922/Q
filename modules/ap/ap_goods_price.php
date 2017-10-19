@@ -34,7 +34,9 @@ foreach($filelist as $file){
 		$handle = fopen ($download_dir . $path[1],"r");
 		$pm_array = array();
 		$p = 0;
+		
 		while ($datastr = fgets ($handle, 1024)) {
+			$gid = 0;
 			$bn = trim(substr($datastr,0,20));
 			$price = intval(substr($datastr,20,8));
 			$pricedesc = intval(substr($datastr,28,8));
