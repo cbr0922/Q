@@ -11046,6 +11046,7 @@ h1.barabout{
 }
 /*ES-article*/
 
+/*LM-CSS*/
 /*LM-article*/
 .LM-article-btn {
     font-size: 12px;
@@ -11149,13 +11150,17 @@ vertical-align: middle;
 	}	
 }
 
-/*LM-article*/
+
 
 /*LM-index*/
+
 .LM-index h1{
 	text-align:center;
 	font-size:46px;
 	font-weight:bold;	
+}
+.LM-index-bg {
+	background: url(../../images/LM-homepage_bg.jpg) center top no-repeat;
 }
 .LM-index-bg .short img{
 	padding-top: 155px;
@@ -11175,6 +11180,86 @@ vertical-align: middle;
 	.LM-index-bg .short img{
 		padding-top: 0;
 	}	
+	.LM-index-bg {
+		background: none;
+	}
+}
+/*LM-bestseller*/
+.LM-bestseller .bg{
+	width: 90%;
+    height: auto;
+    padding: 60px 0 0 10%;
+    background: url(../../images/LM-best-seller_bg.jpg) center bottom no-repeat;
+	border: 0;
+}
+.LM-bestseller h3{
+	font-size:38px;
+	margin: 0 0 20px 0;
+}
+.LM-bestseller p{
+	font-size:16px;
+}
+/*.LM-bestseller .LM-article-txt-right{
+	text-align:right;
+}*/
+@media (max-width: 1289px) {
+	.LM-bestseller .bg{	
+		background-size: 80% !important;
+	}	
 }
 
-/*LM-index*/
+@media (max-width: 991px) {
+	.LM-bestseller .bg{	
+		
+		background: none!important;
+	}
+	.LM-bestseller .LM-article-img{	
+		width: 100%;
+		height: auto;
+		padding: 10px 5% 0;
+		background: url(../../images/LM-best-seller_bg.jpg) center bottom no-repeat;
+		background-size: 80% !important;
+		text-align: center;
+	}	
+	/*.LM-bestseller .LM-article-txt-right{
+		text-align:left;
+	}*/	
+}
+/*LM-porduct*/
+.shop-item.product-shop-item:hover .thumbnail {
+    border-color: #fff !important;
+}
+.LM-page a{
+	font-size: 13px!important;
+}
+
+.LM-page .pagination.pagination-simple>li>a{
+	padding: 0px!important;
+	color: #666!important;
+}
+.LM-page .pagination.pagination-simple>li>a .fa{
+	padding: 0 5px!important;
+	color: #000!important;
+}
+
+.LM-page .pagination.pagination-simple>li>a>span{
+	
+	border-right:1px solid #666!important;
+	padding: 0 10px!important;
+}
+.LM-page .pagination.pagination-simple>li.active>a{
+	border-right:1px solid #666!important;
+	padding: 0 10px!important;
+	color: #000!important;
+    text-decoration: underline!important;
+    font-weight: bold!important;
+}
+.LM-product div.shop-item-price, .shop-item-price{	
+    color: #ff5757;
+}
+@media (max-width: 1289px) {
+	.col-1290-12{
+		Width:100%;
+	}
+}
+/*LM-CSS*/

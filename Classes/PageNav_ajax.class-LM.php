@@ -119,10 +119,10 @@ class PageItem {
 	function LinktoPage($page, $msg)
 	{
 		$link = $this->PageUrl($page);
-		if($msg=="<i class='fa fa-forward'></i>" || $msg=="<i class='fa fa-backward'></i>"){
+		if($msg=="<i class='fa fa-forward'></i>" || $msg=="<i class='fa fa-backward'></i>" || $msg=="<i class='fa fa-caret-left'></i>"|| $msg=="<i class='fa fa-caret-right'></i>"){
 			return "<li class='nextpre'><A href=\"javascript:getProduct('page',$page);\">$msg</A></li>\n";
 		}else{	
-			return "<li class='simplenone'><A href=\"javascript:getProduct('page',$page);\">$msg</A></li>\n";
+			return "<li class='simplenone'><A href=\"javascript:getProduct('page',$page);\"><span>$msg</span></A></li>\n";
 		}
 	}
 	function PageUrl($page)
@@ -163,12 +163,12 @@ class PageItem {
 
 		$Pagebutton="";
 		if ($this->CPages > 1) {
-			//$Pagebutton .= $this->LinktoPage(1, "<i class='fa fa-backward'></i>");/*最前一頁*/
+			$Pagebutton .= $this->LinktoPage(1, "<i class='fa fa-backward'></i>");/*最前一頁*/
 			$Pagebutton .= "   ";
-			$Pagebutton .= $this->LinktoPage($this->CPages-1, "<i class='fa fa-backward'></i>");/*往前一頁*/
+			$Pagebutton .= $this->LinktoPage($this->CPages-1, "<i class='fa fa-caret-left'></i>");/*往前一頁*/
 		} else {
 			//$Pagebutton .= "<ul class='pagination'><li><a href='#'>&laquo;</a></li>"."   ". "<li><a href='#'>&lt;</a></li>";
-			$Pagebutton .= "<ul class='pagination pagination-simple pagination-sm'><li><a style='color: #a9a9a9 !important;'><i class='fa fa-backward'></i></a></li>";
+			$Pagebutton .= "<ul class='pagination pagination-simple pagination-sm'><li><a class='FN'><i class='fa fa-backward'></i></a></li><li><a class='FN'><i class='fa fa-caret-left'></i></a></li>";
 		}
 		
 		if ($this->CPages > 5) {
@@ -194,12 +194,12 @@ class PageItem {
 
 		if ($this->CPages < $this->iPages) {
 			//$Pagebutton .= "  ";
-			$Pagebutton .= $this->LinktoPage($this->CPages + 1, "<i class='fa fa-forward'></i>");/*往後一頁*/
+			$Pagebutton .= $this->LinktoPage($this->CPages + 1, "<i class='fa fa-caret-right'></i>");/*往後一頁*/
 			$Pagebutton .= "   ";
-			//$Pagebutton .= $this->LinktoPage($this->iPages, "<i class='fa fa-forward'></i>"); /*最後一頁*/
+			$Pagebutton .= $this->LinktoPage($this->iPages, "<i class='fa fa-forward'></i>"); /*最後一頁*/
 		} else {
 			//$Pagebutton .= "  "."<li><a href='#'>&raquo;</a></li>"."   "."<li><a href='#'>&gt;</a></li>";
-			$Pagebutton .= "  "."<li><a style='color: #a9a9a9 !important;'><i class='fa fa-forward'></i></a></li>";
+			$Pagebutton .= "  "."<li><a class='FN'><i class='fa fa-caret-right'></i></a></li><li><a class='FN'><i class='fa fa-forward'></i></a></li>";
 		}
 		$f = $this->iMaxRecord * ($this->CPages-1) + 1;
 		$e = $this->iMaxRecord * ($this->CPages);

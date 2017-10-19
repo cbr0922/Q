@@ -399,59 +399,21 @@ $(document).ready(function(){
     $(this).toggleClass("check2");
   });
 
-  <{ if $product_filter eq 1 }>
-  checkCookie();
-  <{else}>
+
   $("#indexlist").hide();
   $("#footer").hide();
-  <{/if}>
+
 });
 
-function checkCookie(){
-  var wdth=1000;//$(window).width();
 
-	if(wdth < 768){
-
-		document.getElementById("icon-filter").className = "fa fa-plus-square";
-
-    document.getElementById("demo").className = "collapse";
-
-	}else{
-
-    getcheckCookie();
-
-	}
-}
-
-$(window).resize(function(){
-  <{ if $product_filter eq 1 }>
-  //checkCookie();
-  var wdth=$(window).width();
-  var height;
-  var filter=getCookie("filter");
-  if (filter == "1") {
-    document.getElementById("icon-filter").className = "fa fa-minus-square";
-    if(wdth > 768 && wdth < 992){
-      height = "500px";
-    }else if (wdth > 992) {
-      height = "350px";
-    }
-    if(wdth > 768){
-      document.getElementById("demo_height").style.height = height;
-    }else {
-      document.getElementById("demo_height").style.height = "630px";
-    }
-  }
-  <{/if}>
-});
 
 //搬移區塊indexlist搬入productlist內
 $(window).load(function() {
-  <{ if $product_filter eq 0 }>
+
   $("#productlist").prepend( $("#indexlist") );
   $("#indexlist").show();
   $("#footer").show();
-  <{/if}>
+
 });
 </script>
 </html>

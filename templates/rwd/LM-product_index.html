@@ -57,7 +57,7 @@
 
 </style>
 
-<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> LM-product" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
 <{ include_php file="include/menu.php" }>
   <{ if $Ear_radio eq 1 }>
@@ -401,59 +401,22 @@ $(document).ready(function(){
     $(this).toggleClass("check2");
   });
 
-  <{ if $product_filter eq 1 }>
-  checkCookie();
-  <{else}>
+
   $("#indexlist").hide();
   $("#footer").hide();
-  <{/if}>
+
 });
 
-function checkCookie(){
-  var wdth=1000;//$(window).width();
 
-	if(wdth < 768){
 
-		document.getElementById("icon-filter").className = "fa fa-plus-square";
-
-    document.getElementById("demo").className = "collapse";
-
-	}else{
-
-    getcheckCookie();
-
-	}
-}
-
-$(window).resize(function(){
-  <{ if $product_filter eq 1 }>
-  //checkCookie();
-  var wdth=$(window).width();
-  var height;
-  var filter=getCookie("filter");
-  if (filter == "1") {
-    document.getElementById("icon-filter").className = "fa fa-minus-square";
-    if(wdth > 768 && wdth < 992){
-      height = "500px";
-    }else if (wdth > 992) {
-      height = "350px";
-    }
-    if(wdth > 768){
-      document.getElementById("demo_height").style.height = height;
-    }else {
-      document.getElementById("demo_height").style.height = "630px";
-    }
-  }
-  <{/if}>
-});
 
 //搬移區塊indexlist搬入productlist內
 $(window).load(function() {
-  <{ if $product_filter eq 0 }>
+
   $("#productlist").prepend( $("#indexlist") );
   $("#indexlist").show();
   $("#footer").show();
-  <{/if}>
+
 });
 </script>
 </html>
