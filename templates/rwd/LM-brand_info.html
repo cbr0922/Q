@@ -35,7 +35,7 @@
 <{ include_php file="include/ga.php" }>
 </head>
 
-<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> breadcrumb-align" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
 <{ include_php file="include/menu.php" }>
   <{ if $Ear_radio eq 1 }>	
@@ -50,19 +50,14 @@
 	<{/if}>
 <{/if}>  
   
-<section class="page-header page-header-xs">
+<section class="page-header page-header-xs brandbread">
 				<div class="container">
 
 					<h1 class="bfont size-18 hidden"><{ $BrandArea }></h1>
 
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
-						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><a href="<{ $Site_Url }>" itemprop="url">首頁</a></span></li>
-						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url">商品品牌</a></span></li>
-						
-						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>" itemprop="url"><{ $brandname }></a></span></li>
-						
-						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><span itemprop="title"><{$title}></span></li>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><a href="<{ $Site_Url }><{ $Site_Url }>/brand/<{ $smarty.get.brand_id }>" itemprop="url">主頁</a></span></li><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><span itemprop="title"><{$title}></span></li>
 					</ol><!-- /breadcrumbs -->
 
 				</div>
@@ -75,12 +70,13 @@
 			
             <!-- 內容 -->
 <!--身體開始-->
-			<section>
+			<section class="padding-top-0">
 				<div class="container">
 					<div id="article">
+					<!--
 					<{if $logopic neq ''}><img class="img-responsive image-hover" src="../UploadFile/LogoPic/<{ $logopic }>"/><{/if}>
 						<h3 class="bfont"><{$title}></h3>
-						
+					-->	
 						<{$content}>
 					</div>
 						<!--右邊結束-->

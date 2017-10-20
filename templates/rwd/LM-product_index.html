@@ -57,7 +57,7 @@
 
 </style>
 
-<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> LM-product" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> LM-product breadcrumb-align" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
 <{ include_php file="include/menu.php" }>
   <{ if $Ear_radio eq 1 }>
@@ -73,7 +73,7 @@
 	<{/if}>
 <{/if}>
 			<!-- PAGE HEADER-->
-			<section class="page-header page-header-xs">
+			<section class="page-header page-header-xs brandbread">
 				<div class="container">
 					<h1 class="size-18 hidden">
 					<{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}>
@@ -83,14 +83,14 @@
 
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
-						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>" itemprop="url"><span itemprop="title">首頁</span></a></li>
-						<{if $title neq ""}>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/<{ $brand_id }>" itemprop="url"><span itemprop="title">主頁</span></a></li><{if $title neq ""}>
 							<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $title }></span></li>
-						<{elseif $smarty.get.brand_id>0 }>
-							<{if $brandname neq ""}>
-										<!--品牌分類-->
-								<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url"><span itemprop="title">品牌導覽</span></a></li><li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $brandname }></span></li>
-							<{/if}>
+						<{elseif $smarty.get.brand_id>0 }><{if $smarty.get.brand_class eq ""}><li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>">瀏覽全線產品</a></li>
+								<{else}>
+								<{ section name=list loop=$class_banner }>
+									<li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li>
+								<{/section}>
+								<{/if}>
 						<{else}>
 							<{if $smarty.get.bid eq ""}>
 								<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/product/index.php" itemprop="url"><span itemprop="title">全部商品</span></a></li>
@@ -99,7 +99,7 @@
 							<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/product/<{$class_banner[list].bid}>" itemprop="url"><span itemprop="title"><{$class_banner[list].catname}></span></a></li>
 						<{/section}>
 						<{/if}>
-
+			
 					</ol><!-- /breadcrumbs -->
 				</div>
 			</section>

@@ -351,8 +351,8 @@ class PRODUCT{
 		}
 		if($type == "new"){
 			//$showcount = 10;
-			$orderby[0]=="pubtime";
-			$orderby[1]=="0";
+			$orderby[0]="pubtime";
+			$orderby[1]="0";
 		}
 		//print_r($orderby);
 		if($showcount>0)
@@ -515,7 +515,7 @@ class PRODUCT{
 				$i++;
 			}
 		}
-		
+
 		return $result_array;
 	}
 

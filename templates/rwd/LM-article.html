@@ -37,7 +37,7 @@
 
 </head>
 
-<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
+<body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }> breadcrumb-align" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
 <{ include_php file="include/menu.php" }>
 
@@ -56,25 +56,9 @@
 			<section class="nopadding noborder margin-bottom-30">
 				<div class="container">
 					<div class="row">
+			
 			<!-- PAGE HEADER -->
-			<section class="page-header page-header-xs">
-				<div class="container">
-                 <{if $templatetype eq 8}>
-                   <h1 class="size-18 hidden"><{ $Ntitle_first }></h1>
-                   <{ else }>
-					<h3 class="size-18 hidden"><{ $Nclass_name }></h3>
-                  <{/if}>
-					<!-- breadcrumbs --
-					<ol class="breadcrumb breadcrumb-inverse">
-						<li><a href="<{ $Site_Url }>">Home</a></li>
-                        <li class="active"><a href="<{ $Site_Url }>/article/<{$smarty.get.ncid}>"><{ $Nclass_name }></a></li>
-                        <li class="active"><{ $Ntitle_first }></li>
-					</ol><!-- /breadcrumbs -->
-				</div>
-			</section>
-			<!-- /PAGE HEADER -->
-			<!-- PAGE HEADER -->
-			<section class="page-header brandbread breadcrumb-align">
+			<section class="page-header page-header-xs brandbread breadcrumb-align">
 				<div class="container">
                  <{if $templatetype eq 8}>
                    <h1 class="size-18 hidden"><{ $Ntitle_first }></h1>

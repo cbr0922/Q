@@ -9,13 +9,26 @@ include("product.class.php");
 $PRODUCT = new PRODUCT();
 $bid = intval($_GET['bid']);
 $PRODUCT->ViewBidLevel($bid);
-$class_banner = array();
+/*$class_banner = array();
 $list = 0;
 if ($bid>0){
 	$PRODUCT->getBanner($bid);   //導航
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
+}*/
+$class_banner = array();
+$list = 0;
+if (intval($_GET['brand_class'])>0){
+	$PRODUCT->getTopBrandBidList(intval($_GET['brand_class']));   //導航
+	$catname = $class_banner[0][catname];
+	$class_banner = array_reverse($class_banner);
+	$banner = $class_banner[0][banner];
 }
+$menutype = "category";//all左側菜單顯示所有分類級別，category只顯示當前館別分類（即從第二級別分類開始顯示）
+if($menutype == "all")
+	$showbid = 0;
+else
+	$showbid = $class_banner[0][bid];
 $classinfo_array = $PRODUCT->getClassInfo($bid);   //得到分類信息
 if($bid == 0){
 	$type = $_GET['type'];
@@ -197,6 +210,7 @@ if(intval($_GET['brand_id'])>0){
 			$tpl->assign("catcontent",$Catcontent);
 		}
 	}
+	$tpl->assign("brand_id",     intval($_GET['brand_id']));
 }
 $Sql_sub   = " select * from `{$INFO[DBPrefix]}discountsubject` where subject_open=1  and start_date<='" . date("Y-m-d",time()) . "' and end_date>='" . date("Y-m-d",time()) . "' order by dsid desc";
 $Query_sub = $DB->query($Sql_sub);
