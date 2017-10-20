@@ -88,9 +88,12 @@
 							<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $title }></span></li>
 						<{elseif $smarty.get.brand_id>0 }>
 							<{if $brandname neq ""}>
-										<!--品牌分類-->
-								<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url"><span itemprop="title">品牌導覽</span></a></li><li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $brandname }></span></li>
+										<!--品牌分類
+								<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/brand/directory.php" itemprop="url"><span itemprop="title">品牌導覽</span></a></li><li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><{ $brandname }></span></li>-->
 							<{/if}>
+							<{ section name=list loop=$class_banner }>
+									<li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li>
+								<{/section}>
 						<{else}>
 							<{if $smarty.get.bid eq ""}>
 								<li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<{ $Site_Url }>/product/index.php" itemprop="url"><span itemprop="title">全部商品</span></a></li>

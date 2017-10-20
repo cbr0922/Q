@@ -48,24 +48,7 @@
   <{ /if }>
     <{ include file="ES-include_brandclass.html" }>
 			<!-- PAGE HEADER -->
-			<section class="page-header page-header-xs">
-				<div class="container">
-                 <{if $templatetype eq 8}>
-                   <h1 class="size-18 hidden"><{ $Ntitle_first }></h1>
-                   <{ else }>
-					<h3 class="size-18 hidden"><{ $Nclass_name }></h3>
-                  <{/if}>
-					<!-- breadcrumbs --
-					<ol class="breadcrumb breadcrumb-inverse">
-						<li><a href="<{ $Site_Url }>">Home</a></li>
-                        <li class="active"><a href="<{ $Site_Url }>/article/<{$smarty.get.ncid}>"><{ $Nclass_name }></a></li>
-                        <li class="active"><{ $Ntitle_first }></li>
-					</ol><!-- /breadcrumbs -->
-				</div>
-			</section>
-			<!-- /PAGE HEADER -->
-			<!-- PAGE HEADER -->
-			<section class="page-header brandbread">
+			<section class="page-header page-header-xs brandbread">
 				<div class="container">
                  <{if $templatetype eq 8}>
                    <h1 class="size-18 hidden"><{ $Ntitle_first }></h1>

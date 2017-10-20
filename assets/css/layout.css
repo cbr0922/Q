@@ -11158,7 +11158,9 @@ div.good_color {
 
 
 /*ES-CSS*/
-
+section.page-header.brandbread .breadcrumb {
+    padding: 0 15px;
+}
 
 /*ES-index*/
 .ES-index {
@@ -11285,6 +11287,34 @@ div.good_color {
 	}
 	
 }
+@media (max-width: 374px) {
+	.col-374-12{
+		width:100%;
+	}
+	.col-374-12 .shop-list-options{
+		margin-bottom:10px;
+	}
+	.col-374-12 section.page-header.brandbread {
+		padding-bottom: 10px !important;
+	}
+}
+/*ES-store*/
+.ES-store{
+	padding: 45px 0 0 60px;
+}
+.ES-store h3{
+	display: inline;
+    font-size: 18px;
+    font-weight: normal;
+	padding-right: 60px;
+}
+@media (max-width: 767px) {
+	.ES-store{
+		padding: 45px 0 0 30px;
+	}
+}
+
+
 /*ES-CSS*/
 
 /*LM-CSS*/
@@ -11351,7 +11381,7 @@ vertical-align: middle;
 .LM-story-txt{
 	text-align: center;
     margin: 8% 0;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size:17px;
 	color:#000;
 }
@@ -11365,7 +11395,7 @@ vertical-align: middle;
 	.LM-story-txt{
 		text-align: center;
 		margin: 9% 0;
-		font-weight: bold;
+		/*font-weight: bold;*/
 		font-size: 21px;
 	}	
 }
@@ -11525,7 +11555,7 @@ vertical-align: middle;
 .LM-store p{
 	color: #000000;
 	font-size: 21px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	text-align:center;
 	margin: 0;
 }

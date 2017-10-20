@@ -305,7 +305,7 @@ div.shop-item-summary {
 	 </div><{/if}>
 
 		<div class="form-group">
-		<div class="col-md-4 col-sm-4 col-xs-6">
+		<div class="col-md-4 col-sm-4 col-xs-6 col-374-12">
 		<!-- PAGE HEADER -->
 			<section class="page-header brandbread">
 				<div class="container10">
@@ -317,7 +317,7 @@ div.shop-item-summary {
 					<{if $smarty.get.brand_id>0 }>
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
-						<li><a href="<{ $Site_Url }>/brand/<{ $brand_id }>">主頁</a></li>
+						<li><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{ $brand_id }>">主頁</a></li><{if $smarty.get.type eq 'new' }><li><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{ $brand_id }>&type=new">新品上市</a></li><{else}><{if $smarty.get.brand_class eq ""}><li><a href="<{ $Site_Url }>/brand/<{ $brand_id }>">瀏覽所有產品</a></li><{/if}><{/if}>
 						<{ section name=list loop=$class_banner }>
               <li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li>
 						<{/section}>
@@ -328,11 +328,11 @@ div.shop-item-summary {
 			<!-- /PAGE HEADER -->
 		</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
+			  <h1 class="margin-bottom-10 text-center" style="margin-top:5px;font-size:22px;font-weight:normal;"><{if $smarty.get.type eq 'new' }>新品上市<{else}><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
 			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
-			<div class="col-md-4 col-sm-4 col-xs-6">
+			<div class="col-md-4 col-sm-4 col-xs-6 col-374-12">
 								<!-- LIST OPTIONS -->
-							<div class="clearfix shop-list-options margin-bottom-10 sortbox">
+							<div class="clearfix shop-list-options margin-top-10 sortbox">
 <!-- 簡易頁數
 <div class="simplepage">
 <{if $smarty.get.page eq ""}>1 <{else}><{$smarty.get.page }><{/if}>頁 <{$product_array.page}>
@@ -376,7 +376,7 @@ div.shop-item-summary {
 							<!-- /LIST OPTIONS -->
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 hidden-lg hidden-md hidden-sm">
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}></h1>
+			  <h1 class="margin-bottom-10 text-center" style="margin-top:5px;font-size:22px;font-weight:normal;"><{if $smarty.get.type eq 'new' }>新品上市<{else}><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><{/if}></h1>
 			</div>
 
 		</div>
@@ -778,7 +778,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 									<div class="shop-item-summary text-center">
 										 <!---->
-										<div class="col-md-9 col-sm-9 col-xs-9 clearfix shop-list-options margin-top-10">
+										<div class="col-md-12 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10 padding-0">
 
 										顏色：<select class="nopadding" style="width:60%;border-radius: 0px;height:30px;" name="xycolor1<{$product_array.info[list].gid}>" id="xycolor1<{$product_array.info[list].gid}>" onChange="changeColor('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}> :selected').val()<{else}>''<{/if}>);changeImgs('<{$product_array.info[list].gid}>',<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}> :selected').attr('sort')<{else}>''<{/if}>);checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
 										<{ section name=list1 loop=$product_array.info[list].color }>
@@ -808,7 +808,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 											</div>
 											<div class="showbuy<{$product_array.info[list].gid}> col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center">
 											<a id="nobtn1<{$product_array.info[list].gid}>" class="btn btn-sm margin-top-10 list_b" href="javascript:void(0);" onclick="buyProduct(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}>$('#xycolor1<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,<{if $product_array.info[list].good_size neq ""}>$('#xysize<{$product_array.info[list].gid}>').val()<{else}>''<{/if}>,$('#count<{$product_array.info[list].gid}>').val(),<{if $product_array.info[list].productdetail.count gt 0}>$('#xydetail<{$product_array.info[list].gid}> :selected').val()<{else}>0<{/if}>);$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();">
-													<div id="showbuy1<{$product_array.info[list].gid}>"><span class="hidden-list">加入</span><span class="hidden-list2"><i class="icon-plus" style="line-height: 20px;"></i>&nbsp;</span>購物車</div>
+													<div id="showbuy1<{$product_array.info[list].gid}>">加入購物車</div>
 
 											</a>
 											</div>

@@ -73,7 +73,7 @@
 	<{/if}>
 <{/if}>
 			<!-- PAGE HEADER-->
-			<section class="page-header page-header-xs">
+			<section class="page-header page-header-xs hidden">
 				<div class="container">
 					<h1 class="size-18 hidden">
 					<{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}>
@@ -104,13 +104,21 @@
 				</div>
 			</section>
 			<!-- /PAGE HEADER -->
-
+			
+	<{if $catcontent neq ''}>		
+	<section class="padding-top-0 padding-bottom-20 noborder">
+		<div class="container">
+		
 			<!-- 品牌分類詳細描述 -->
 			<div class="img-responsive">
 			<{$catcontent}>
 			</div>
 			<!-- /品牌分類詳細描述 -->
+	
 
+        </div>
+    </section>
+	<{/if}>
 			<!-- Product List-->
 
                 <{ if $productlist_type eq 1 }>
