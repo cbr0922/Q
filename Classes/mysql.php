@@ -231,7 +231,7 @@ class DB_MySQL  {
 		foreach ($data as $k => $v)
 		{
 			//$v = preg_replace( "/'/", "\\'", $v );
-			$v = preg_replace( "/'/", "&quot;", $v );
+			$v = preg_replace( "/'/", "''", $v );
 			$v = preg_replace( "/script/", "\\common", $v );
 			$v = preg_replace( "/SCRIPT/", "\\common", $v );
 			$field_names  .= "$k,";
@@ -271,7 +271,7 @@ class DB_MySQL  {
 
 		foreach ($data as $k => $v)
 		{
-			$v = preg_replace( "/'/", "&quot;", $v );
+			$v = preg_replace( "/'/", "''", $v );
 			$v = preg_replace( "/script/", "\\common", $v );
 			$v = preg_replace( "/SCRIPT/", "\\common", $v );
 			$return_string .= $k . "='".htmlspecialchars_decode($v)."',";
