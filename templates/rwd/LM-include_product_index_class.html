@@ -92,7 +92,7 @@ function checkStorage(id,color,size,ifalarm,detail_id,bid){
 								$('#count' + id).append( "<option value=\""+i+"\">"+i+"</option>" );
 								$('#count' + id).val("1");
 							}*/
-								
+
 							$('#count' + bid + "-" + id).val("1");
 							$('#count' + bid + "-" + id).attr({"value":"1","min":"1","max":count,"disabled":false});
 							//$('#showbuy' + id).css("display","block");
@@ -220,13 +220,13 @@ div.shop-item-summary{
 <section class="padding-top-0">
 <div class="container">
 	<div class="row100">
-<!--	
+<!--
 <div class="form-group margin-bottom-0">
 		<div class="col-md-12 col-sm-12 col-xs-12 nopadding breadcrumb-align">
-		 PAGE HEADER 
+		 PAGE HEADER
 			<section class="page-header brandbread">
 				<div class="container10">
-              
+
 					<{if $smarty.get.brand_id>0 }>
 					<!-- breadcrumbs --
 					<ol class="breadcrumb breadcrumb-inverse">
@@ -238,10 +238,10 @@ div.shop-item-summary{
 			</section>
 			<!-- /PAGE HEADER --
 		</div>
-</div>	
--->	
-<div class="img-responsive">	
-<{$catcontent}> 
+</div>
+-->
+<div class="img-responsive">
+<{$catcontent}>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
 <{ section name=list loop=$class_product_array start=0 }>
@@ -251,7 +251,7 @@ div.shop-item-summary{
  <{/if}>
   <h1 class="size-25 weight-500 shop-item-title" style="width: 100%;float: left;"><{$class_product_array[list].catname}></h1><br />品牌分類-->
   <div style="width:100%; float:left"><{$class_product_array[list].catcontent}></div>
- </div> 
+ </div>
  <div style="width:100%; float:left">
 <ul class="shop-item-list row list-inline nomargin">
 <{ section name=list2 loop=$class_product_array[list].product start=0 }>
@@ -306,16 +306,16 @@ div.shop-item-summary{
         <div style="padding: 5px 0;" class="shop-item-summary<{ if $productlist_type neq 1 && $cell_num eq 3 }> cellnum5<{/if}>">
          <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px;"><{$class_product_array[list].product[list2].sale_name}></div>
          <div style="height:auto; overflow:hidden;"><h2><a href="detail<{$class_product_array[list].product[list2].gid}>"><{$class_product_array[list].product[list2].goodsname}></a></h2></div>
-        
+
         <!-- 價格 --
 											<div id="shop-item-price<{$class_product_array[list].product[list2].gid}>" class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}>>
 												<span class="line-through"><!-- NT. <{$class_product_array[list].product[list2].price}> --</span><{if $smarty.get.type eq 'bonus'}>所需點數： <{$class_product_array[list].product[list2].bonusnum}><{else}>$<{$class_product_array[list].product[list2].pricedesc}><{/if}></div>
 											<!-- /價格 --
-                                           
-        
-        
+
+
+
         </div>  -->
-		
+
 <div class="item-box">
 											<figure>
 
@@ -416,7 +416,7 @@ div.shop-item-summary{
 											  <{ /section}>
 											</select>
 											</div>
-											
+
 											  <!--
 											  <div  class="col-md-12 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10">
 											  <select class="color_s nopadding height-25 size-13" style="width:100%;border-radius: 0px;display:none;" name="xycolor<{$class_product_array[list].product[list2].gid}>" id="xycolor<{$class_product_array[list].product[list2].gid}>" onChange="checkStorage(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}> 1<{else}>0<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>1<{else}>0<{/if}>,<{$class_product_array[list].product[list2].ifalarm}>,0);">
@@ -474,7 +474,7 @@ div.shop-item-summary{
 	</div>
 	<div class="ES-num">
 		    <div class="ES-input_num">
-		        <input type="text" name="count<{$class_product_array[list].product[list2].gid}>" id="count<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>" class="form-control input-number" value="0" min="0" max="0">
+		        <input type="text" name="count<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>" id="count<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>" class="form-control input-number" value="0" min="0" max="0">
 			</div>
 			<div class="ES-prdiv">
 				<div href="javascript:void(0);" class="ES-pr ES-numred btn-number" data-type="plus" data-field="count<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>">+</div>
@@ -493,7 +493,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 	<div id="showbuy<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>">我要兌換</div>
 	</a>
     <{else}>
-	<a id="nobtn<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>" class="btn btn-sm margin-top-10 list_b" href="javascript:void(0);" onclick="buyProduct(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>$('#xycolor<{$class_product_array[list].product[list2].gid}>').val()<{else}>''<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>$('#xysize<{$class_product_array[list].product[list2].gid}>').val()<{else}>''<{/if}>,$('#count<{$class_product_array[list].product[list2].gid}>').val(),<{if $class_product_array[list].product[list2].productdetail.count gt 0}>$('#xydetail<{$class_product_array[list].product[list2].gid}> :selected').val()<{else}>0<{/if}>);">
+	<a id="nobtn<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>" class="btn btn-sm margin-top-10 list_b" href="javascript:void(0);" onclick="buyProduct(<{$class_product_array[list].product[list2].gid}>,<{if $class_product_array[list].product[list2].good_color neq ""}>$('#xycolor<{$class_product_array[list].product[list2].gid}>').val()<{else}>''<{/if}>,<{if $class_product_array[list].product[list2].good_size neq ""}>$('#xysize<{$class_product_array[list].product[list2].gid}>').val()<{else}>''<{/if}>,$('#count<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>').val(),<{if $class_product_array[list].product[list2].productdetail.count gt 0}>$('#xydetail<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}> :selected').val()<{else}>0<{/if}>);">
 			<div id="showbuy<{$class_product_array[list].bid}>-<{$class_product_array[list].product[list2].gid}>"><span class="hidden-list">加入</span><span class="hidden-list2"><i class="icon-plus" style="line-height: 20px;"></i>&nbsp;</span>購物車</div>
 	</a>
     <{/if}>
@@ -514,10 +514,10 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 									</span>
 									</div>
 									</figure>
-										</div>		
-		
-		
-		
+										</div>
+
+
+
 		</div>
 		<{if $class_product_array[list].product[list2].good_color neq ""}>
 								<div class="shop-item product-shop-item product-shop-item1 shop-item<{$class_product_array[list].product[list2].gid}>" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
@@ -581,7 +581,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 							</div>
 								<{/if}>
          </li>
-		 
+
 		 	<!--重設自適應 column-->
                                 <{ if $productlist_type eq 1 }><!--有左側時的排板-->
                                 	<{if $smarty.section.list.index_next%2 eq 0}>
@@ -620,7 +620,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
                                 <{/if}>
 								<!--/重設自適應 column-->
          <{/section}></ul>
-       
+
 <{/section}>
 </div>
 
