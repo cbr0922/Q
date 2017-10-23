@@ -74,7 +74,7 @@ class PageItem {
 	function SetMaxRecord($cnt)
 	{
         global $Limit,$pType;
-         
+
 	     if (intval($Limit)>0 && $Limit<=$cnt && $pType=='NewProduct'){
 			 $this->iMaxRecord = $Limit;
 		 }else{
@@ -121,7 +121,9 @@ class PageItem {
 		$link = $this->PageUrl($page);
 		if($msg=="<i class='fa fa-forward'></i>" || $msg=="<i class='fa fa-backward'></i>" || $msg=="<i class='fa fa-caret-left'></i>"|| $msg=="<i class='fa fa-caret-right'></i>"){
 			return "<li class='nextpre'><A href=\"javascript:getProduct('page',$page);\">$msg</A></li>\n";
-		}else{	
+		}elseif($msg=="hide"){
+			return "<li class='simplenone'><A href=\"javascript:getProduct('page',$page);\"><span style='border-right:0px solid #666!important;'>$page</span></A></li>\n";
+		}else{
 			return "<li class='simplenone'><A href=\"javascript:getProduct('page',$page);\"><span>$msg</span></A></li>\n";
 		}
 	}
@@ -170,7 +172,7 @@ class PageItem {
 			//$Pagebutton .= "<ul class='pagination'><li><a href='#'>&laquo;</a></li>"."   ". "<li><a href='#'>&lt;</a></li>";
 			$Pagebutton .= "<ul class='pagination pagination-simple pagination-sm'><li><a class='FN'><i class='fa fa-backward'></i></a></li><li><a class='FN'><i class='fa fa-caret-left'></i></a></li>";
 		}
-		
+
 		if ($this->CPages > 5) {
 			 $fgp = ($this->CPages-5 > 0) ? $this->CPages-5 : 1;
 			 $egp = $this->CPages+4;
@@ -182,13 +184,17 @@ class PageItem {
 			 $fgp = 1;
 			 $egp = ($this->iPages >= 10) ? 10 : $this->iPages;
 		 }
-		
+
 		for($i=$fgp;$i<=$egp;$i++){
 			$Pagebutton .= "  ";
-			if($i == $this->CPages){
-				$Pagebutton .= "<li class='active simplenone'><a href='#'>" . $i . "</a></li>";	
+			if($i == $this->CPages && $i == $egp){
+				$Pagebutton .= "<li class='active simplenone'><a href='#' style='border-right:0px solid #666!important;'>" . $i . "</a></li>";
+			}elseif($i == $this->CPages){
+				$Pagebutton .= "<li class='active simplenone'><a href='#'>" . $i . "</a></li>";
+			}elseif($i == $egp){
+				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, "hide");
 			}else{
-				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, $i. "</li>");	
+				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, $i. "</li>");
 			}
 		}
 
