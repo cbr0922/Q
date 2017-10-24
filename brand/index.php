@@ -8,7 +8,7 @@ $PRODUCT = new PRODUCT();
 //品牌
 if(intval($_GET['brand_id'])>0){
 	$DB->query("update `{$INFO[DBPrefix]}brand` set viewcount=viewcount+1 where brand_id=".intval($_GET['brand_id']));
-	$Query = $DB->query("select * from `{$INFO[DBPrefix]}bclass` where brandlist=".intval($_GET['brand_id'])." or brandlist like '%,".intval($_GET['brand_id'])."%' or brandlist like '%".intval($_GET['brand_id']).",%' limit 0,1");
+	/*$Query = $DB->query("select * from `{$INFO[DBPrefix]}bclass` where brandlist=".intval($_GET['brand_id'])." or brandlist like '%,".intval($_GET['brand_id'])."%' or brandlist like '%".intval($_GET['brand_id']).",%' limit 0,1");
 	$Num   = $DB->num_rows($Query);
 	if ($Num>0){
 		while($Result= $DB->fetch_array($Query)){
@@ -17,7 +17,7 @@ if(intval($_GET['brand_id'])>0){
 				$tpl->assign("showalert",1);
 			}
 		}
-	}
+	}*/
 	$Query = $DB->query("SELECT * FROM `{$INFO[DBPrefix]}brand` where brand_id='".intval($_GET['brand_id'])."' AND (classid REGEXP '^6$' OR classid REGEXP '^6,' OR classid REGEXP ',6,' OR classid REGEXP ',6$')");
 	$Num   = $DB->num_rows($Query);
 	if ($Num>0){
@@ -87,7 +87,7 @@ if(intval($_GET['brand_id'])>0){
 			$indexAdv_array[$i]['col'] = 12/$Result['bannercount'];
 			for($j=1;$j<=$Result['bannercount'];$j++){
 				$Query_adv = $DB->query("select * from `{$INFO[DBPrefix]}advertising` where adv_tag='adv_home" . $Result['ib_id'] . "_" . $j . "' and (start_time='' or start_time<='" . time() . "') and (end_time='' or end_time>='" . time() . "') limit 0,1");
-				$Num_adv   = $DB->num_rows($Query_adv); 
+				$Num_adv   = $DB->num_rows($Query_adv);
 				$Result_adv= $DB->fetch_array($Query_adv);
 				if($Result_adv['adv_type']!=21)
 					$indexAdv_array[$i]['adv'][$j-1] = $Result_adv;
