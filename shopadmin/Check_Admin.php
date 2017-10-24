@@ -541,7 +541,7 @@ $goods_field['goodsno'] = "賣場編號";
 
 $goods_field['provider_id'] = "供應商";
 $goods_field['iftogether'] = "是否統倉";
-$goods_field['brand'] = "品牌";
+$goods_field['brand_id'] = "品牌";
 $goods_field['unit'] = "單位";
 $goods_field['cost'] = "成本";
 $goods_field['salecost'] = "促銷成本";

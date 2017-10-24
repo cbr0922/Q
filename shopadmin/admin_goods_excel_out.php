@@ -133,6 +133,7 @@ while ($Rs_sub = $DB->fetch_array($Query_sub)){
 						$objActSheet->setCellValueExplicit(getCellName($i,$row), $Pro_Rs[provider_name],PHPExcel_Cell_DataType::TYPE_STRING);
 					}
 					break;
+				case "brand":
 				case "brand_id":
 					$Brand_Query   = $DB->query("select b.brandname,b.brand_id from `{$INFO[DBPrefix]}brand` b  where brand_id=".intval($Rs_sub[brand_id])." limit 0,1");
 					$Brand_Num     = $DB->num_rows($Brand_Query);
