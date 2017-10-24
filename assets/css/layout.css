@@ -11033,19 +11033,25 @@ h1.barabout{
 
 /*多屬性*/
 
-div.good_color_select {
-    width: 34px;
-    height: 34px;
+div.ES-good_color_select {
+    width: 36px;
+    height: 36px;
     padding: 2px;
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
+	margin-bottom: 5px;
+	position: absolute;
+    background-image: url(../../images/ES-colorselect.png);
+}
+div.ES-good_color {
+    width: 36px;
+    height: 36px;
+    padding: 2px;
+    border: 1px solid #fff;
+	position: absolute;
 	margin-bottom: 5px;
 }
-div.good_color {
-    width: 34px;
-    height: 34px;
-    padding: 2px;
-    border: 1px solid #ccc;
-	margin-bottom: 5px;
+.colorselect img{
+	margin: 4px 0 10px 4px;
 }
 
 /*彩虹圈燈箱*/
@@ -11158,6 +11164,18 @@ div.good_color {
 
 
 /*ES-CSS*/
+/*ES-best-seller*/
+@media (max-width: 991px)  (min-width: 1289px) {
+#ES-best10{
+	padding-bottom: 200px;
+}
+
+
+
+
+}
+
+/**/
 section.page-header.brandbread .breadcrumb {
     padding: 0 15px;
 }

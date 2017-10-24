@@ -746,7 +746,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 									-->
 								</div>
 								<{if $product_array.info[list].good_color neq ""}>
-								<div class="shop-item product-shop-item product-shop-item1 shop-item<{$product_array.info[list].gid}> ES-colordiv" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
+								<div class="shop-item product-shop-item100 product-shop-item1 shop-item<{$product_array.info[list].gid}> ES-colordiv" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
 									<div class="thumbnail noborder nopadding">
 										<a href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();"><img class="mpp_lipstick_close" src="<{ $Site_Url }>/images/mpp_lipstick_close.png"></a>
 									<div id="line2">
@@ -794,9 +794,10 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 											<{ section name=list1 loop=$product_array.info[list].color start=0}>
 
-											<div class="pull-left" style="margin-right:5px;">
+											<div class="pull-left" style="margin-right:10px;">
 											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].sort}>');checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
-												<div class="good_color" id="showcolor<{$product_array.info[list].gid}>_<{$smarty.section.list1.index}>">
+												<div class="colorselect">
+													<div class="ES-good_color_select" id="showcolor<{$product_array.info[list].gid}>_<{$smarty.section.list1.index}>"></div>
 													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="28" height="28">
 												</div>
 											</a>
@@ -920,7 +921,7 @@ function changeColor(gid,color){
 <{ section name=list loop=$product_array.info start=0 }>
 	if(gid == "<{$product_array.info[list].gid}>"){
 		<{ section name=list1 loop=$product_array.info[list].color }>
-			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color");
+			$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","ES-good_color");
 		<{ /section}>
 	}
 <{ /section}>
@@ -928,7 +929,7 @@ function changeColor(gid,color){
 	if(gid == "<{$product_array.info[list].gid}>"){
 		<{ section name=list1 loop=$product_array.info[list].color }>
 			if(color == "<{$product_array.info[list].color[list1].color}>"){
-				$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","good_color_select");
+				$('#showcolor'+gid+'_<{$smarty.section.list1.index}>').attr("class","ES-good_color_select");
 			}
 		<{ /section}>
 	}
