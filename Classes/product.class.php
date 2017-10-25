@@ -524,7 +524,7 @@ class PRODUCT{
 	**/
 	function getProductPic($gid,$loop=1,$type=0){
 		global $DB,$INFO;
-		$Sql_pic    = "select middleimg,bigpic,goodpic_title,color,detail_name from `{$INFO[DBPrefix]}good_pic` where goodpic_name<>'' and type='" . $type  ."' and good_id='".intval($gid)."' order by orderby asc";
+		$Sql_pic    = "select middleimg,bigpic,goodpic_title,color,detail_name from `{$INFO[DBPrefix]}good_pic` where goodpic_name<>'' and type='" . $type  ."' and good_id='".intval($gid)."' order by orderby,goodpic_id asc";
 		$Query_pic  = $DB->query($Sql_pic);
 		$Num_pic    = $DB->num_rows($Query_pic);
 		$i = $loop;

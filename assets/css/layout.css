@@ -10756,6 +10756,7 @@ section.page-header.brandbread .breadcrumb>li+li:before{
 .barNtitle{
 	font-size: 60px;
 	margin: 0 0 10px 0;
+	font-weight:normal;
 }
 h1.barabout{
 	font-size: 60px;
@@ -10865,7 +10866,7 @@ h1.barabout{
 #ES-best10 .ES-best10-btn {
 	font-size: 12px;
     line-height: 12px;
-    font-family: "微軟正黑體";
+    font-family: "微软雅黑", Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     display: inline-block;
     padding: 5px 10px;
@@ -10879,10 +10880,11 @@ h1.barabout{
 }
 #ES-best10 .ES-best10-content {
     padding: 0 20px;
+	font-size: 20px;
 }
 
 #ES-best10 .ES-best10-EN {
-    font-family: "微軟正黑體";
+    font-family: "微软雅黑", Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
 	font-size: 12px;
     line-height: 16px;
@@ -11165,13 +11167,110 @@ div.ES-good_color {
 
 /*ES-CSS*/
 /*ES-best-seller*/
-@media (max-width: 991px)  (min-width: 1289px) {
-#ES-best10{
+@media (min-width: 991px) {
+#ES-best10.real{
 	padding-bottom: 200px;
+	margin-bottom: 100px;
+}
+.real .ES-best10-content{z-index: 1;}
+.real #ES-best10-1 .ES-best10-col,.real #ES-best10-5 .ES-best10-col,.real #ES-best10-7 .ES-best10-col,.real #ES-best10-9 .ES-best10-col{
+
+	text-align: center;
+}
+.real #ES-best10-1 .ES-best10-content{
+	position: absolute;
+    left: 32%;
+    top: 24%;
 }
 
+.real #ES-best10-2{
+	position: absolute;
+    top: 15%;
+}
+.real #ES-best10-2 .ES-best10-content{
+    position: absolute;
+    left: 58%;
+	bottom: -45px;
+}
+.real #ES-best10-2 .ES-best10-content,.real #ES-best10-4 .ES-best10-content,.real #ES-best10-6 .ES-best10-content,.real #ES-best10-8 .ES-best10-content,.real #ES-best10-10 .ES-best10-content{
+    text-align: left!important;
+}
+.real #ES-best10-2 img{
+	margin: 0 !important;
+}
 
+.real #ES-best10-3 .ES-best10-content{
+	position: absolute;
+    left: 20%;
+    bottom: -45px;
+}
 
+.real #ES-best10-4{
+	position: absolute;
+    top: 30%;
+}
+.real #ES-best10-4 .ES-best10-content{
+	position: absolute;
+    left: 63%;
+    bottom: 25px;
+}
+
+.real #ES-best10-5{
+	padding-top: 90px;
+}
+.real #ES-best10-5 .ES-best10-content{
+	position: absolute;
+    left: 29%;
+    bottom: 10px;
+}
+
+.real #ES-best10-6{
+	position: absolute;
+    top: 50%;
+}
+.real #ES-best10-6 .ES-best10-content{
+	position: absolute;
+    left: 55%;
+    bottom: -57px;
+}
+
+.real #ES-best10-7{
+	padding-top: 90px;
+}
+.real #ES-best10-7 .ES-best10-content{
+	position: absolute;
+    left: 13%;
+    bottom: -57px;
+}
+
+.real #ES-best10-8{
+	position: absolute;
+    top: 70%;
+}
+.real #ES-best10-8 .ES-best10-content{
+	position: absolute;
+    left: 60%;
+    top: 80px;
+}
+
+.real #ES-best10-9{
+	padding-top: 90px;
+}
+.real #ES-best10-9 .ES-best10-content{
+	position: absolute;
+    left: 18%;
+    bottom: -57px;
+}
+
+.real #ES-best10-10{
+	position: absolute;
+    top: 85%;
+}
+.real #ES-best10-10 .ES-best10-content{
+	position: absolute;
+    right: 20%;
+    bottom: -40px;
+}
 
 }
 
@@ -11186,26 +11285,26 @@ section.page-header.brandbread .breadcrumb {
 }
 .ES-index h1{
 	font-size:42px;
-	font-weight:normal;
+	font-weight: normal!important;
 	margin: 0;
 
 }
 .ES-index h3{
 	font-size:17px;
-	font-weight:normal;
+	font-weight: normal!important;
 	margin:20px 0;
 
 }
 .ES-index h4{
 	font-size:14px;
-	font-weight:normal;
+	font-weight: normal!important;
 	color: #636363;
 	font-weight: lighter;
 	margin: 0 0 20px 0;
 }
 .ES-index h5{
 	font-size:13px;
-	font-weight:normal;
+	font-weight: normal!important;
 	color: #636363;
 	font-weight: lighter;
 	margin: 0 0 20px 0;
@@ -11229,35 +11328,34 @@ section.page-header.brandbread .breadcrumb {
     font-size: 12px;
     padding-left: 10px;
 }
-.ES-index border{
-	border-right: 1px solid #e7ebed;
-	height: 200px;
-	position: absolute;
-	right: 0;
-	top: 45px;
+.ES-index .border{
+	border-right: 1px solid #eee;
+    height: 200px;
+    position: absolute!important;
+    top: 50px;
 }
 @media (max-width: 991px) {
-	.ES-index border{
+	.ES-index .border{
 		display:none;
-	}	
+	}
 }
 @media (max-width: 767px) {
 	.ES-index h1{
 		font-size:24px;
-		font-weight:normal;
+		font-weight: normal!important;
 		margin: 0;
 
 	}
 	.ES-index h3{
-		font-size:16px;
-		font-weight:normal;
+		font-size:12px;
+		font-weight: normal!important;
 		margin:10px 0;
 
 	}
 	
 	.ES-index h5{
-		font-size:12px;
-		font-weight:normal;
+		font-size:11px;
+		font-weight: normal!important;
 		color: #636363;
 		font-weight: lighter;
 		margin: 0 0 10px 0;

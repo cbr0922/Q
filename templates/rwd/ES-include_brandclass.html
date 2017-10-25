@@ -114,9 +114,19 @@ body,h1, h2, h3, h4, h5, h6{
 	text-decoration: none;
 	float: left;	    width: 150px;	}
 .brandclass #topMain>li>a {
-    height: 40px;
-    line-height: 20px;
+    height: 50px!important;
+    line-height: 25px!important;
+	font-size:13px!important;
+	padding: 10px 15px 10px 25px!important;
 }
+
+.brandclass .es-two a{
+    height: 50px!important;
+    line-height: 25px!important;
+	font-size:13px!important;
+	padding: 10px 15px 10px 40px!important;
+}
+
 .brandclass .navbar-collapse.collapse {
     display: block!important;
     height: auto!important;
@@ -153,14 +163,20 @@ body,h1, h2, h3, h4, h5, h6{
 	}
 
 	.brandclass #topMain.nav-pills>li>a,.brandclass #topMain.nav-pills>li:hover>a,.brandclass #topMain.nav-pills>li:focus>a {
-		color: #fff !important;
-		border-bottom: 1px solid #666;
+		color: #a4b6f4 !important;
+		border-bottom: 1px solid #535982;
 	}
 
 	.brandclass #page-menu-mobile {
 		display: inline-block;
-		background-color: #040a2c;
+		background-color: #fff;
     	text-align: center;
+	}
+	.brandclass #page-menu-mobile.active {
+		background-color: #040a2b;
+	}
+	.brandclass #page-menu-mobile.active .fa-bars{
+		color: #fff!important;
 	}
 
 	.brandclass #topNav div.nav-main-collapse {
@@ -197,7 +213,7 @@ body,h1, h2, h3, h4, h5, h6{
 }
 .brandclass #topMain.nav-pills>li>a.dropdown-toggle:after {
         display: block;
-    content: "\f107";
+    content: "\f0dd";
     position: absolute;
     top: 50%;
     right: 10px;
@@ -206,14 +222,49 @@ body,h1, h2, h3, h4, h5, h6{
     font-size: 16px;
     opacity: 0.8;
     line-height: 1em;
-    -webkit-transition: -webkit-transform .2s ease-in;
-    -moz-transition: -moz-transform .2s ease-in;
-    -ms-transition: -ms-transform .2s ease-in;
-    -o-transition: -o-transform .2s ease-in;
-    transition: transform .2s ease-in;
+	color:#fff;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+.brandclass #topMain.nav-pills>li.resp-active>a.dropdown-toggle:after {
+	transform: rotate(180deg);
+}
+
+.ES #topNav div.submenu-dark ul.dropdown-menu a.dropdown-toggle{
+	background-image:none;
+}
+.ES #topNav div.submenu-dark ul.dropdown-menu.es-two>li a.dropdown-toggle:after {
+        display: block;
+    content: "\f0dd";
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    margin: 0;
+    font-family: FontAwesome;
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1em;
+	color:#fff;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+.ES #topNav div.submenu-dark ul.dropdown-menu.es-two>li.resp-active a.dropdown-toggle:after {
+	transform: rotate(180deg);
 }
 .brandclass.ES{
 	border-bottom: 1px solid #000;
+}
+.ES #topNav div.submenu-dark ul.dropdown-menu>li a {
+    color: #a4b6f4;
+}
+.ES #topNav .submenu-dark ul.dropdown-menu li {
+    border-bottom-color: #535982;
 }
 </style>
 <div id="header brandheader" class="brandsticky sticky clearfix dark brandclass hidden_menu_l ES" style="z-index: 11;">
@@ -229,7 +280,7 @@ body,h1, h2, h3, h4, h5, h6{
                             <nav class="nav-main">
 
 
-							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" aria-hidden="true" style="color: #fff;font-size: 22px;"></i></button>
+							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" aria-hidden="true" style="color: #040a2b;font-size: 22px;"></i></button>
 								<!--
 									NOTE
 
@@ -240,27 +291,27 @@ body,h1, h2, h3, h4, h5, h6{
 										<a href="#">HOME</a>
 									</li>
 								-->
-								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 4px;">
+								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 11px;">
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>-->
 									<li class="dropdown"><a href="<{ $Site_Url }>/product/index.php?brand_id=136&type=new">新品上市</a></li>
-									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>
+									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
 
 									<{ section name=list loop=$brandclass_array }>
                   <{if $brandclass_array[list].totalcount neq 0}>
-									<li class="dropdown"><a class="<{if $brandclass_array[list].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}>"><{$brandclass_array[list].classname}></a>
+									<li class="dropdown"><a class="<{if $brandclass_array[list].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].url eq ""}><{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].url}><{/if}>"><{$brandclass_array[list].classname}></a>
 
 									<{if $brandclass_array[list].sub neq ""}>
 									<ul class="dropdown-menu es-two">
 									<{ section name=list1 loop=$brandclass_array[list].sub }>
                   <{if $brandclass_array[list].sub[list1].totalcount neq 0}>
-										<li class="dropdown"><a class="<{if $brandclass_array[list].sub[list1].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub[list1].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}>#<{/if}>"><{$brandclass_array[list].sub[list1].classname}></a>
+										<li class="dropdown"><a class="<{if $brandclass_array[list].sub[list1].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub[list1].url eq ""}><{if $brandclass_array[list].sub[list1].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].sub[list1].url}><{/if}>"><{$brandclass_array[list].sub[list1].classname}></a>
 
 										<{if $brandclass_array[list].sub[list1].sub neq ""}>
 
 										<ul class="dropdown-menu" style="background-color: #2a3263;">
 											<{ section name=list2 loop=$brandclass_array[list].sub[list1].sub }>
                       <{if $brandclass_array[list].sub[list1].sub[list2].totalcount neq 0}>
-												<li><a href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
+												<li><a style="padding-left: 55px!important;" href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
                       <{/if}>
                       <{/section}>
 										</ul>
@@ -273,6 +324,10 @@ body,h1, h2, h3, h4, h5, h6{
 									</li>
                   <{/if}>
 								<{/section}>
+								
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a></li>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線商品</a></li>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1">品牌介紹</a></li>
 									<!--<li class="dropdown"> BLOG
 										<a class="dropdown-toggle" href="#">
 											BLOG
@@ -332,8 +387,8 @@ body,h1, h2, h3, h4, h5, h6{
 							<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
 	</div>
     <div class="padding-bottom-10 margin-bottom-10" style="width:100%; float:left;border-bottom: 1px solid #000;">
-			<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a>&nbsp;|&nbsp;</div>
-			<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線商品</a>&nbsp;|&nbsp;</div>
+			<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a> &nbsp;| &nbsp;</div>
+			<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線商品</a> &nbsp;| &nbsp;</div>
 			<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1">品牌介紹</a></div>
 		</ul>
     </div>
@@ -424,3 +479,19 @@ body,h1, h2, h3, h4, h5, h6{
             <div style=" clear:both"></div>
 		</div>
         <!--/大螢幕選單-->   
+		
+		
+<script>
+$(document).ready(function() {
+	$("#page-menu-mobile").click(function() {
+	 
+	  if($("#page-menu-mobile").hasClass("active")){
+		$("#page-menu-mobile").removeClass("active");
+	  }
+	  else{
+		$("#page-menu-mobile").addClass("active");
+	  }
+
+	 });
+});
+</script>

@@ -117,11 +117,11 @@
 						
                               <!--萬用格-->
   <{ section name=list loop=$indexAdv_array }>
-    <section class="padding-bottom-0 noborder" style="padding-top:0px;">
+    <section class="padding-top-0 noborder padding-bottom-0">
 		<div class="container product_banner">
          <div class="row">
          <{ section name=j loop=$indexAdv_array[list].adv }>
-           <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-20">
+           <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-20 <{if $indexAdv_array[list].col eq 12 && $indexAdv_array[list].adv[j].adv_type eq 21}>banner-full<{/if}>">
                    <{if $indexAdv_array[list].adv[j].adv_type eq 21}>
 
 					<{if $indexAdv_array[list].adv[j].Num eq 1}>
@@ -184,7 +184,7 @@
 						 
 						 
 						 
-					<div class="owl-carousel owl-theme">
+					<div class="owl-carousel owl-theme owl-carousel1">
 						  <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
 						   <div class="item">
                           <a href="<{$indexAdv_array[list].adv[j].img[z].adv_left_url}>" data-plugin-options='{"type":"image"}'>
@@ -223,7 +223,7 @@
 
 
                  <{else}>
-                    <div class="margin-bottom-20" <{if $indexAdv_array[list].adv[j].adv_type eq 24}>style="width: 100%;  float: left;"<{/if}>>
+                    <div class="margin-bottom-10" <{if $indexAdv_array[list].adv[j].adv_type eq 24}>style="width: 100%;  float: left;"<{/if}>>
                        <{$indexAdv_array[list].adv[j].adv_content}>
                     </div>
                  <{/if}>
@@ -298,8 +298,28 @@ $(document).ready(function() {
 			
 })	
 			
-			
-</script>	
+$('.owl-carousel2').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:2,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:false
+        },
+        1000:{
+            items:3,
+            nav:true,
+            loop:false
+        }
+    }
+})			
+</script>
+	
 </body>
 
 </html>
