@@ -57,9 +57,7 @@
                   <{/if}>
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
-						<li><a href="<{ $Site_Url }>">主頁</a></li>
-                        <li class="active"><a href="<{ $Site_Url }>/article/<{$smarty.get.ncid}>"><{ $Nclass_name }></a></li>
-                        <li class="active"><{ $Ntitle_first }></li>
+						<li><a href="<{ $Site_Url }>">主頁</a></li><{ if $smarty.get.ncid eq 35}><li class="active"><a><{ $Nclass_name }></a></li><{/if}><li class="active"><{ $Ntitle_first }></li>
 					</ol><!-- /breadcrumbs -->
 				</div>
 			</section>

@@ -328,7 +328,7 @@ div.shop-item-summary{
 		</div><!-- /PAGE HEADER -->
 			<div class="col-md-12 col-sm-12 col-xs-12 nopadding catname">
 			<{if $catcontent eq ''}>
-			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽全線產品<{else}><{$catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
+			  <h1 class="margin-bottom-10 text-center"><{if $smarty.get.brand_class eq ""}>瀏覽全線產品<{else}><{$catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
 			<{else}>  
 			  <!-- 品牌分類詳細描述 -->
 			<div class="img-responsive margin-bottom-20 margin-top-10">
@@ -489,7 +489,7 @@ div.shop-item-summary{
 											<figure>
 
 
-										<div class="margin-bottom-10 margin-top-10 TAGdiv">
+										<div class="TAGdiv" style="margin: 4px 0 5px 0;">
 										<div class="TAGsm">
 										<{ section name=attri loop=$product_array.info[list].attr }>
 											<{ if $product_array.info[list].attr neq ''}>

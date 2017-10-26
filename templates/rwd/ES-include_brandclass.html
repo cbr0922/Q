@@ -196,9 +196,15 @@ body,h1, h2, h3, h4, h5, h6{
 		margin-left: 133px;
 	}
 }
+@media only screen and (max-width: 767px){
+	.es-logo img{
+		max-height:22px !important;
+	}
+}
 @media only screen and (max-width: 374px){
 	.es-logo img{
 		max-width:160px !important;
+		max-height:auto !important;
 	}
 }
 @media only screen and (max-width: 1299px) and (min-width: 1290px){
@@ -280,7 +286,7 @@ body,h1, h2, h3, h4, h5, h6{
                             <nav class="nav-main">
 
 
-							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" aria-hidden="true" style="color: #040a2b;font-size: 22px;"></i></button>
+							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" aria-hidden="true" style="color: #040a2b;font-size: 22px;padding-top: 5px;"></i></button>
 								<!--
 									NOTE
 
@@ -291,7 +297,7 @@ body,h1, h2, h3, h4, h5, h6{
 										<a href="#">HOME</a>
 									</li>
 								-->
-								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 11px;">
+								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 11px;max-height: 420px;overflow: auto;">
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>-->
 									<li class="dropdown"><a href="<{ $Site_Url }>/product/index.php?brand_id=136&type=new">新品上市</a></li>
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->

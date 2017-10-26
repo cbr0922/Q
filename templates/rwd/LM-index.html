@@ -68,6 +68,14 @@
 	margin: 5px 2.5px;
 	
 }
+@media only screen and (max-width: 600px){
+	.owl-pagination {
+		display: block;
+	}
+	.controlls-over .owl-pagination {
+		bottom: -32px;
+	}
+}
 </style>
 <body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
@@ -108,11 +116,11 @@
 						
                               <!--萬用格-->
   <{ section name=list loop=$indexAdv_array }>
-    <section class="padding-bottom-0 noborder" style="padding-top:0px;">
+    <section class="nopadding noborder">
 		<div class="container product_banner">
          <div class="row">
          <{ section name=j loop=$indexAdv_array[list].adv }>
-           <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-20">
+           <div class="col-sm-<{$indexAdv_array[list].col}> col-md-<{$indexAdv_array[list].col}> margin-bottom-20 <{if $indexAdv_array[list].col eq 12 && $indexAdv_array[list].adv[j].adv_type eq 21}>banner-full<{/if}>">
                    <{if $indexAdv_array[list].adv[j].adv_type eq 21}>
 
 				   
@@ -190,7 +198,32 @@
 	</div>
 </div>
 <{/if}>
-
+		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.js"></script>
+		 <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.min.css">
+    <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.theme.default.min.css">
+<script type="text/javascript">
+		
+$('.owl-carousel3').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:2,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:false
+        },
+        1000:{
+            items:4,
+            nav:true,
+            loop:false
+        }
+    }
+})			
+</script>
 	
 </body>
 

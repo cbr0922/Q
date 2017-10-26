@@ -119,11 +119,15 @@ class PageItem {
 	function LinktoPage($page, $msg)
 	{
 		$link = $this->PageUrl($page);
-		if($msg=="<i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i>" || $msg=="<i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i>" || $msg=="<i class='fa fa-angle-left'></i>"|| $msg=="<i class='fa fa-angle-right'></i>"){
-			return "<li class='nextpre'><A href=\"javascript:getProduct('page',$page);\">$msg</A></li>\n";
-		}else{	
-			return "<li class='simplenone'><A href=\"javascript:getProduct('page',$page);\"><span>$msg</span></A></li>\n";
+		if($msg=="&nbsp;&nbsp;<i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i>" || $msg=="<i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i>&nbsp;&nbsp;" || $msg=="<i class='fa fa-angle-left' style='padding-right: 20px;'></i>"|| $msg=="<i class='fa fa-angle-right' style='padding-left: 20px;'></i>"){
+			return "<li class='nextpre'><A class='ESpage-a' href=\"javascript:getProduct('page',$page);\">$msg</A></li>\n";
+		}elseif($msg=="hide"){
+			return "<li class='simplenone'><A class='ESpage-a' href=\"javascript:getProduct('page',$page);\"><span>$page</span></A></li>\n";
+		}else{
+			return "<li class='simplenone'><A class='ESpage-a' href=\"javascript:getProduct('page',$page);\"><span>$msg</span></A></li>\n";
 		}
+		
+		
 	}
 	function PageUrl($page)
 	{
@@ -163,12 +167,12 @@ class PageItem {
 
 		$Pagebutton="";
 		if ($this->CPages > 1) {
-			$Pagebutton .= $this->LinktoPage(1, "<i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i>");/*最前一頁*/
+			$Pagebutton .= $this->LinktoPage(1, "<i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i>&nbsp;&nbsp;");/*最前一頁*/
 			$Pagebutton .= "   ";
-			$Pagebutton .= $this->LinktoPage($this->CPages-1, "<i class='fa fa-angle-left'></i>");/*往前一頁*/
+			$Pagebutton .= $this->LinktoPage($this->CPages-1, "<i class='fa fa-angle-left' style='padding-right: 20px;'></i>");/*往前一頁*/
 		} else {
 			//$Pagebutton .= "<ul class='pagination'><li><a href='#'>&laquo;</a></li>"."   ". "<li><a href='#'>&lt;</a></li>";
-			$Pagebutton .= "<ul class='pagination pagination-simple pagination-sm'><li><a class='FN'><i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i></a></li><li><a class='FN'><i class='fa fa-angle-left'></i></a></li>";
+			$Pagebutton .= "<ul class='pagination pagination-simple pagination-sm'><li><a class='ESpage-a'><i class='fa fa-angle-left'></i><i class='fa fa-angle-left'></i>&nbsp;&nbsp;</a></li><li><a class='ESpage-a'><i class='fa fa-angle-left' style='padding-right: 20px;'></i></a></li>";
 		}
 		
 		if ($this->CPages > 5) {
@@ -185,26 +189,31 @@ class PageItem {
 		
 		for($i=$fgp;$i<=$egp;$i++){
 			$Pagebutton .= "  ";
-			if($i == $this->CPages){
-				$Pagebutton .= "<li class='active simplenone'><a href='#'>" . $i . "</a></li>";	
+			if($i == $this->CPages && $i == $egp){
+				$Pagebutton .= "<li class='active simplenone'><a class='ESpage-a' href='#'>" . $i . "</a></li>";
+			}elseif($i == $this->CPages){
+				$Pagebutton .= "<li class='active simplenone'><a class='ESpage-a' href='#'>" . $i . "</a></li><li><a style='color: #8d8d8d !important;padding: 0 8px!important;'>‧</a></li>";
+			}elseif($i == $egp){
+				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, "hide");
 			}else{
-				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, $i. "</li>");	
+				$Pagebutton .= "<li class='simplenone'>" .$this->LinktoPage($i, $i. "</li><li><a style='color: #8d8d8d !important;padding: 0 8px!important;'>‧</a></li>");
 			}
+			
 		}
 
 		if ($this->CPages < $this->iPages) {
 			//$Pagebutton .= "  ";
-			$Pagebutton .= $this->LinktoPage($this->CPages + 1, "<i class='fa fa-angle-right'></i>");/*往後一頁*/
+			$Pagebutton .= $this->LinktoPage($this->CPages + 1, "<i class='fa fa-angle-right' style='padding-left: 20px;'></i>");/*往後一頁*/
 			$Pagebutton .= "   ";
-			$Pagebutton .= $this->LinktoPage($this->iPages, "<i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i>"); /*最後一頁*/
+			$Pagebutton .= $this->LinktoPage($this->iPages, "&nbsp;&nbsp;<i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i>"); /*最後一頁*/
 		} else {
 			//$Pagebutton .= "  "."<li><a href='#'>&raquo;</a></li>"."   "."<li><a href='#'>&gt;</a></li>";
-			$Pagebutton .= "  "."<li><a class='FN'><i class='fa fa-angle-right'></i></a></li><li><a class='FN'><i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i></a></li>";
+			$Pagebutton .= "  "."<li><a class='ESpage-a'><i class='fa fa-angle-right' style='padding-left: 20px;'></i></a></li><li><a class='ESpage-a'>&nbsp;&nbsp;<i class='fa fa-angle-right'></i><i class='fa fa-angle-right'></i></a></li>";
 		}
 		$f = $this->iMaxRecord * ($this->CPages-1) + 1;
 		$e = $this->iMaxRecord * ($this->CPages);
 		$e = $e>$this->iTotal?$this->iTotal:$e;
-		return "<div class='text-center simplediv'><ul class='pagination pagination-simple pagination-sm'>" . $Pagebutton."</ul></div>";
+		return "<div class='text-center simplediv ES-page'><ul class='pagination pagination-simple pagination-sm'>" . $Pagebutton."</ul></div>";
 		/*."<p>"."共 " . $this->iTotal . " 筆，第 " . $f . "-" . $e .  " 筆"."</p>"*/
 	}
 	/*

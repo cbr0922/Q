@@ -10739,6 +10739,8 @@ a.horsetext:hover {
 }
 section.page-header.brandbread .breadcrumb>li+li:before{
 	content:"/" !important;
+	color: #000;
+    font-weight: bold;
 }
 @media only screen and (max-width: 767px){
 	section.page-header.brandbread {
@@ -10761,6 +10763,7 @@ section.page-header.brandbread .breadcrumb>li+li:before{
 h1.barabout{
 	font-size: 60px;
     text-align: center;
+	font-weight:normal;
     /* font-family: "微软雅黑"; */
     margin: 40px 0;
 }				 
@@ -10791,7 +10794,7 @@ h1.barabout{
 	}
 	h1.barabout{
 		font-size: 30px;
-		margin-bottom: 30px 0 20px 0;
+		margin: 30px 0 20px 0;
 	}	
 	.bartitle{
 		font-size: 14px;
@@ -10799,7 +10802,7 @@ h1.barabout{
 	}
 	.barmore{
 		font-size: 12px;
-		padding:5px 6px;
+		padding:5px 15px;
 		
 	}
 
@@ -11094,7 +11097,7 @@ div.ES-good_color {
     border: 1px solid #ddd;
     border-right: none;
     text-align: center;
-    line-height: 28px;
+    line-height: 0px;
     overflow: hidden;
 	border-radius: 0;
 }
@@ -11145,6 +11148,8 @@ div.ES-good_color {
 @media (max-width: 767px) {
 		.ES-table .shop-list-options select {
 			margin-right: 0px;
+			height: 22px !important;
+			font-size: 12px;
 		}
 		.ES-table .form-group{
 			margin-bottom:0px !important;
@@ -11153,7 +11158,7 @@ div.ES-good_color {
 			/*position: relative;
 			margin-right: auto;
 			margin-left: auto;*/
-			margin-top: 10px;
+			margin-top: 6px!important;
 		}
 		.sortbox .options{
 			text-align:center;
@@ -11166,8 +11171,32 @@ div.ES-good_color {
 
 
 /*ES-CSS*/
+/*ES-page*/
+.ES-page i{
+	font-weight: bold;
+}
+
+.ES-page .pagination.pagination-simple>li>a.ESpage-a{
+	padding: 0px !important;
+}
+.ES-page .simplenone a.ESpage-a{
+	padding: 0px !important;
+	color: #8d8d8d!important;
+	font-size: 9px!important;
+	line-height: 2;
+}
+.ES-page .pagination.pagination-simple>li.active.simplenone>a.ESpage-a {
+    color: #000!important;
+    font-size: 9px!important;
+    font-weight: normal!important;
+}
+.ES-page .pagination.pagination-simple>li>a.ESpage-a>span{
+	color: #8e8e8e!important;
+	font-size: 9px!important;
+    font-weight: normal!important;
+}
 /*ES-best-seller*/
-@media (min-width: 991px) {
+@media (min-width: 992px) {
 #ES-best10.real{
 	padding-bottom: 200px;
 	margin-bottom: 100px;
@@ -11273,10 +11302,37 @@ div.ES-good_color {
 }
 
 }
-
+@media (max-width: 991px) {
+	#ES-best10 img {
+		max-width: 100%;
+	}
+	.header-best10 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+}
 /**/
 section.page-header.brandbread .breadcrumb {
     padding: 0 15px;
+}
+@media (max-width: 991px) {
+	section.page-header.brandbread {
+		text-align: left;
+		padding: 10px 0 !important;
+	}
+	section.page-header.brandbread .breadcrumb {
+		padding: 0;
+		position: relative;
+		display: block;
+		margin: 0;
+	}
+}
+@media (max-width: 374px) {
+	section.page-header.brandbread {
+		text-align: center;
+		padding: 10px 0 !important;
+	}	
 }
 
 /*ES-index*/
@@ -11380,6 +11436,10 @@ section.page-header.brandbread .breadcrumb {
 	}
 }
 /*ES-product*/
+.ESlist .catname h1{
+	margin-top: 5px;
+    font-size: 50px;
+}
 .ES-product section.page-header .breadcrumb{
 	padding:0;
 }
@@ -11394,6 +11454,10 @@ section.page-header.brandbread .breadcrumb {
     text-align: center;
 }
 @media (max-width: 767px) {
+	.ESlist .catname h1{
+		margin-top: 5px;
+		font-size: 28px;
+	}
 	.ES-product .TAGdiv {
 		height: 26px;
 		line-height: 25px;
@@ -11417,20 +11481,35 @@ section.page-header.brandbread .breadcrumb {
 /*ES-store*/
 .ES-store{
 	padding: 45px 0 0 60px;
+	color: #000;
 }
 .ES-store h3{
 	display: inline;
     font-size: 18px;
     font-weight: normal;
 	padding-right: 60px;
+	
 }
 @media (max-width: 767px) {
 	.ES-store{
-		padding: 45px 0 0 30px;
+		padding: 30px 0 0 35px;
+	}
+	.ES-store li{
+		font-size: 14px;
+	}
+	.ES-store h3{
+		display: inline;
+		font-size: 15px;
+		font-weight: normal;
+		padding-right: 20px;
+	}
+
+}
+@media (max-width: 991px) {
+	.banner-full {
+		padding: 0;
 	}
 }
-
-
 /*ES-CSS*/
 
 /*LM-CSS*/
@@ -11498,9 +11577,10 @@ vertical-align: middle;
 	text-align: center;
     margin: 8% 0;
     /*font-weight: bold;*/
-    font-size:17px;
+    font-size:21px;
 	color:#000;
 }
+
 @media (min-width: 1290px) {
 	.LM-gift-img{
 		width:450px;
@@ -11526,7 +11606,11 @@ vertical-align: middle;
 		text-align:center!important;
 	}
 	.LM-gifttitle{
-		padding: 30px 0;
+		margin: 0!important;
+		border: 0!important;
+	}
+	.LM-gift-img{
+		margin: 20px 0!important;
 	}
 	.LM-gift-des{
 		text-align: center;
@@ -11535,8 +11619,22 @@ vertical-align: middle;
 	.LM-story-img-right,.LM-story-img-left{
 		text-align:center;
 	}	
+	.LM-story-banner{
+		margin:0 -15px 30px -15px;
+	}
+	.LM-story-txt{
+		font-size: 14px;
+	}
 }
+@media (max-width: 767px) {
+	.LM-article-h2{
+		font-size: 16px;
+	}
+	.LM-article-h2 img{
+		height: 17px!important;
 
+	}
+}
 
 
 /*LM-index*/
@@ -11544,13 +11642,13 @@ vertical-align: middle;
 .LM-index h1{
 	text-align:center;
 	font-size:46px;
-	font-weight:bold;	
+	font-weight:normal;	
 }
 .LM-index-bg {
 	background: url(../../images/LM-homepage_bg.jpg) center top no-repeat;
 }
 .LM-index-bg .short img{
-	padding-top: 155px;
+	padding-top: 158px;
 }
 .LM-index-bg h4{
 	font-size:24px;
@@ -11561,14 +11659,16 @@ vertical-align: middle;
 @media (max-width: 991px) {
 	.LM-index h1{
 		text-align:center;
-		font-size:30px;
-		font-weight:bold;	
+		font-size:18px;
+		font-weight:normal;	
 	}
 	.LM-index-bg .short img{
 		padding-top: 0;
 	}	
 	.LM-index-bg {
-		background: none;
+		/*background: none;*/
+		background: url(../../images/LM-homepage_bg.jpg) center center no-repeat;
+		background-size: 100%;
 	}
 }
 /*LM-bestseller*/
@@ -11596,6 +11696,9 @@ vertical-align: middle;
 }
 
 @media (max-width: 991px) {
+	.LM-bestseller{
+		text-align:center;
+	}
 	.LM-bestseller .bg{	
 		
 		background: none!important;
@@ -11607,7 +11710,10 @@ vertical-align: middle;
 		background: url(../../images/LM-best-seller_bg.jpg) center bottom no-repeat;
 		background-size: 80% !important;
 		text-align: center;
-	}	
+	}
+	.LM-article-img img	{
+		margin: 0;
+	}
 	/*.LM-bestseller .LM-article-txt-right{
 		text-align:left;
 	}*/	
@@ -11683,5 +11789,17 @@ vertical-align: middle;
 		margin-top:30px;
 	}	
 	
+}
+
+@media (max-width: 991px) {
+	section.page-header.brandbread.breadcrumb-align {
+		text-align: right;
+		padding: 10px 0 !important;
+	}
+	section.page-header.breadcrumb-align .breadcrumb {
+        position: relative;
+        display: block;
+        margin: 0;
+    }
 }
 /*LM-CSS*/

@@ -72,3 +72,26 @@
 .owl-theme .owl-nav{
 	display:none!important;
 }	
+
+
+/*owl-carousel3*/
+.owl-theme.owl-carousel3 .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #00674e;
+    border-radius: 0;
+    border: 1px solid #e6e2e9;
+}
+.owl-theme.owl-carousel3 .owl-dots {
+    margin-top: 10px!important;
+    position: relative!important;
+	right: 0!important;
+}
+.owl-theme.owl-carousel3 .owl-dots .owl-dot span {
+    background: #e6e2e9;
+    border-radius: 0;
+}
+.owl-carousel3 .owl-item img {
+    display: block;
+    width: 100%;
+    max-width: 145px!important;
+    margin: 0 auto;
+}

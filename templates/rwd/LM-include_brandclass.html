@@ -4,9 +4,9 @@ body,h1, h2, h3, h4, h5, h6{
  font-weight: normal
 }
 #topMain{
-	background-color:#040a2c;
+	background-color:#eeeeee;
 }.es-two{
-	background-color:#1d2553 !important;
+	background-color:#fafafa !important;
 }
 #page-menu-mobile{
 	width:45px;
@@ -143,14 +143,26 @@ a.cur{
 	/*width: 150px;	*/
     border-bottom: 3px solid #f6f6f6;
 }
+.brandclass #topMain>li>a {
+    height: 50px!important;
+    line-height: 25px!important;
+	font-size:13px!important;
+	padding: 10px 15px 10px 25px!important;
+}
+.brandclass .es-two a{
+    height: 50px!important;
+    line-height: 25px!important;
+	font-size:13px!important;
+	padding: 10px 15px 10px 40px!important;
+}
 #nav-main div h4 a,#nav-main1 div h4 a {
 
 	margin: 0 20px;
 	padding: 1px 0px;
 }
 .brandclass #topMain>li>a {
-    height: 40px;
-    line-height: 20px;
+    height: 56px;
+    line-height: 32px;
 }
 .brandclass .navbar-collapse.collapse {
     display: block!important;
@@ -188,14 +200,20 @@ a.cur{
 	}
 
 	.brandclass #topMain.nav-pills>li>a,.brandclass #topMain.nav-pills>li:hover>a,.brandclass #topMain.nav-pills>li:focus>a {
-		color: #fff !important;
-		border-bottom: 1px solid #666;
+		color: #000 !important;
+		border-bottom: 1px solid #cccccc;
 	}
 
 	.brandclass #page-menu-mobile {
 		display: inline-block;
-		background-color: #040a2c;
+		background-color: #fff;
     	text-align: center;
+	}
+	.brandclass #page-menu-mobile.active {
+		background-color: #eeeeee;
+	}
+	.brandclass #page-menu-mobile.active .fa-bars{
+		color: #000!important;
 	}
 
 	.brandclass #topNav div.nav-main-collapse {
@@ -215,9 +233,15 @@ a.cur{
 		margin-left: 133px;
 	}
 }
+@media only screen and (max-width: 767px){
+	.es-logo img{
+		max-height:22px !important;
+	}
+}
 @media only screen and (max-width: 374px){
 	.es-logo img{
 		max-width:160px !important;
+		max-height:auto !important;
 	}
 }
 @media only screen and (max-width: 1299px) and (min-width: 1290px){
@@ -232,7 +256,7 @@ a.cur{
 }
 .brandclass #topMain.nav-pills>li>a.dropdown-toggle:after {
         display: block;
-    content: "\f107";
+    content: "\f0dd";
     position: absolute;
     top: 50%;
     right: 10px;
@@ -247,8 +271,41 @@ a.cur{
     -o-transition: -o-transform .2s ease-in;
     transition: transform .2s ease-in;
 }
+.brandclass #topMain.nav-pills>li.resp-active>a.dropdown-toggle:after {
+	transform: rotate(180deg);
+}
+.LM #topNav div.submenu-dark ul.dropdown-menu.es-two>li a.dropdown-toggle:after {
+        display: block;
+    content: "\f0dd";
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    margin: 0;
+    font-family: FontAwesome;
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1em;
+	color:#fff;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+.LM #topNav div.submenu-dark ul.dropdown-menu.es-two>li.resp-active a.dropdown-toggle:after {
+	transform: rotate(180deg);
+}
 .brandclass.LM {
     border-bottom: 1px solid #000;
+}
+.LM #topNav div.submenu-dark ul.dropdown-menu a,#topNav div.submenu-dark ul.dropdown-menu li:hover>a{
+	color:#000;
+}
+.LM #topNav ul.dropdown-menu li a {
+    padding: 13px 15px;
+}
+.LM #topNav div.submenu-dark ul.dropdown-menu{
+	border:0;
 }
 </style>
 <div id="header brandheader" class="brandsticky sticky clearfix dark brandclass hidden_menu_l LM" style="z-index: 11;">
@@ -258,13 +315,13 @@ a.cur{
 
 
 			<div class="navbar-collapse nav-main-collapse collapse submenu-dark" style=" background-color: #fff;">
-							<div class="container">
+							<div class="container100">
 							<div class="product_banner es-logo" style=" width:100%; float:left; position:relative; text-align:center; padding-top:10px;padding-bottom:10px;">
 							<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
                             <nav class="nav-main">
 
 
-							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" aria-hidden="true" style="color: #fff;font-size: 22px;"></i></button>
+							<button style="position: absolute;top: 0;left: 0;" id="page-menu-mobile"><i class="fa fa-bars" id="LM-menu-bar" aria-hidden="true" style="color: #040a2b;font-size: 22px;padding-top: 5px;"></i></button>
 								<!--
 									NOTE
 
@@ -275,7 +332,7 @@ a.cur{
 										<a href="#">HOME</a>
 									</li>
 								-->
-								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 4px;">
+								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 11px;max-height: 420px;overflow: auto;">
 									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>
 							
 									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
@@ -309,6 +366,8 @@ a.cur{
 									</li>
                   <{/if}>
 								<{/section}>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a></li>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線產品</a></li>
 									<!--<li class="dropdown"> BLOG
 										<a class="dropdown-toggle" href="#">
 											BLOG
@@ -467,3 +526,27 @@ a.cur{
             <div style=" clear:both"></div>
 		</div>
         <!--/大螢幕選單-->   
+		
+<script>
+$(document).ready(function() {
+	$("#page-menu-mobile").click(function() {
+	 
+	  if($("#page-menu-mobile").hasClass("active")){
+		$("#page-menu-mobile").removeClass("active");
+	  }
+	  else{
+		$("#page-menu-mobile").addClass("active");
+	  }
+	  
+	  if($("#LM-menu-bar").hasClass("fa-bars")){
+		$("#LM-menu-bar").removeClass("fa-bars");
+		$("#LM-menu-bar").addClass("fa-close");
+	  }
+	  else{
+		$("#LM-menu-bar").removeClass("fa-close");
+		$("#LM-menu-bar").addClass("fa-bars");
+	  }
+
+	 });
+});
+</script>
