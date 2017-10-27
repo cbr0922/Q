@@ -6,7 +6,7 @@
 <META HTTP-EQUIV="pragma" CONTENT="no-cache">
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
 <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
-<title><{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}>全部商品<{/if}><{/if}> - <{ $site_name }></title>
+<title><{if $title neq ""}><{ $title }><{elseif $smarty.get.bid neq "" }><{ $classinfo_array.catname }><{else}><{if $smarty.get.brand_id>0 }><{if $smarty.get.brand_class eq ""}>瀏覽全線產品<{else}><{$catname}><{/if}><{/if}><{/if}> - <{ $site_name }></title>
 
 <meta name="description" content="<{ if $meta_des neq '' }><{ $meta_des }><{elseif $classinfo_array.meta_des neq "" }><{ $classinfo_array.meta_des }><{else}><{ $Meta_desc }><{/if}>" />
 <meta name="keywords" content="<{ if $meta_key neq '' }><{ $meta_key }><{elseif $classinfo_array.meta_key neq "" }><{ $classinfo_array.meta_key }><{else}><{ $Meta_keyword }><{/if}>" />

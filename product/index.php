@@ -258,6 +258,7 @@ while ($track_array  = $DB->fetch_array($Query)){
 	else $track_Js="";
 	$tpl->assign("Search_js",   $track_Js);
 }
+$tpl->assign("catname",     $catname);
 $tpl->assign("adv_array",     $adv_array);
 $tpl->assign("Float_radio",               intval($INFO['float_radio']));                    //浮动广告开关
 $tpl->assign("Ear_radio",                 intval($INFO['ear_radio']));                      //耳朵广告开关

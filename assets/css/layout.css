@@ -11585,6 +11585,9 @@ vertical-align: middle;
 	.LM-gift-img{
 		width:450px;
 	}
+	.col-md-push-7.LM-gift-img img{
+		text-align:right;
+	}
 	.LM-gift-des{
 		width:790px;
 	}
@@ -11601,13 +11604,28 @@ vertical-align: middle;
 }
 
 
+@media (min-width: 992px) {
+	.LM-article1-txt img{
+		display:none;
+	}
+	.LM-article1-txt{
+		font-size: 16px;
+	}
+}
 @media (max-width: 991px) {	
+	.container.LM{
+		padding:0;
+	}
 	p.LM-article-img{
 		text-align:center!important;
 	}
 	.LM-gifttitle{
 		margin: 0!important;
 		border: 0!important;
+		padding: 0 0 20px 0!important;
+	}
+	.LM-gifttitle .container{
+		padding: 0!important;
 	}
 	.LM-gift-img{
 		margin: 20px 0!important;
@@ -11615,6 +11633,7 @@ vertical-align: middle;
 	.LM-gift-des{
 		text-align: center;
 		margin: 0;
+		margin-bottom: 0px!important;
 	}
 	.LM-story-img-right,.LM-story-img-left{
 		text-align:center;
@@ -11625,12 +11644,24 @@ vertical-align: middle;
 	.LM-story-txt{
 		font-size: 14px;
 	}
+	.LM-article1-img{
+		display:none;
+	}
+	.LM-article1-txt img{
+		float: left;
+		margin: 4px 10px 4px 0;
+		width: 108px;
+	}
+	.LM-article1-txt{
+		padding:0;
+	}
 }
 @media (max-width: 767px) {
-	.LM-article-h2{
+	#LM-article1-h2{
 		font-size: 16px;
+		margin: 0 0 20px 0;
 	}
-	.LM-article-h2 img{
+	#LM-article1-h2 img{
 		height: 17px!important;
 
 	}
@@ -11670,6 +11701,13 @@ vertical-align: middle;
 		background: url(../../images/LM-homepage_bg.jpg) center center no-repeat;
 		background-size: 100%;
 	}
+	.LM-index-bg h4{
+		font-size:16px;
+		margin-bottom: 8px;
+	}
+	.LM-index-bg h5{
+		font-size:12px;
+	}
 }
 /*LM-bestseller*/
 .LM-bestseller .bg{
@@ -11678,6 +11716,7 @@ vertical-align: middle;
     padding: 60px 0 0 10%;
     background: url(../../images/LM-best-seller_bg.jpg) center bottom no-repeat;
 	border: 0;
+	background-size: 100%!important;
 }
 .LM-bestseller h3{
 	font-size:38px;
@@ -11717,6 +11756,13 @@ vertical-align: middle;
 	/*.LM-bestseller .LM-article-txt-right{
 		text-align:left;
 	}*/	
+	.LM-bestseller h3{
+		font-size:28px;
+		margin: 0 0 20px 0;
+	}
+	.LM-bestseller p{
+		font-size:14px;
+	}
 }
 /*LM-porduct*/
 .LM-product section.page-header .breadcrumb{
