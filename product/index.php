@@ -24,6 +24,11 @@ if (intval($_GET['brand_class'])>0){
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
 }
+if ($bid>0){
+	$PRODUCT->getBanner($bid);   //導航
+	$class_banner = array_reverse($class_banner);
+	$banner = $class_banner[0][banner];
+}
 $menutype = "category";//all左側菜單顯示所有分類級別，category只顯示當前館別分類（即從第二級別分類開始顯示）
 if($menutype == "all")
 	$showbid = 0;

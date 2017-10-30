@@ -43,7 +43,19 @@ if ($Num>0){
 }else{
 	$Nav_banner = $Basic_Command['NullDate'] ; // "無相關資料！" ;
 }
+$Sql_count1 = "select sum(ut.count) as count,ut.ticketid,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}userticket` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where t.use_starttime<='" . date("Y-m-d",time()) . "' and t.use_endtime>='" . date("Y-m-d",time()) . "' and ut.userid=".intval($_SESSION['user_id'])." group by ut.ticketid";
+$Query_count1 =  $DB->query($Sql_count1);
+$Num_count1   =  $DB->num_rows($Query_count1);
+$ticketcount = 0;
+while ( $Rs_count1 = $DB->fetch_array($Query_count1)){
+		$ticketcount += intval($Rs_count1['count']);
+}
+$Sql_count ="select ut.ticketcode,ut.ticketid,ut.userid,ut.usetime,t.money,t.ticketname,t.use_starttime,t.use_endtime,t.moneytype from `{$INFO[DBPrefix]}ticketcode` as ut inner join `{$INFO[DBPrefix]}ticket` as t on ut.ticketid=t.ticketid where  ut.ownid=".intval($_SESSION['user_id'])." and (ut.usetime='' or ut.usetime is null) and ut.userid =0 and t.use_starttime<='" . date("Y-m-d",time()) . "' and t.use_endtime>='" . date("Y-m-d",time()) . "'";
+$Query_count =  $DB->query($Sql_count);
+$Num_count   =  $DB->num_rows($Query_count);
 
+$tpl->assign("Num",               $Num_count);
+$tpl->assign("ticketcount",               $ticketcount);
 $tpl->assign("OrderList",        $OrderList);   // 订单内容列表 （数组）
 $tpl->assign("Nav_banner",       $Nav_banner);  // 数据分页导航条
 $tpl->assign("OrderTotalNum",    $Num);         // 数据总数

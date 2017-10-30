@@ -78,7 +78,7 @@
 
 <ul class="nav nav-tabs nav-button-tabs margin-bottom-20">
         <li><a href="myticket.php">會員現金券（<{$ticketcount}>）</a></li>
-        <li class="active"><a href="#">可轉讓現金券（<{$Num}>）</a></li>
+        <li class="active"><a href="#">優惠分享券（<{$Num}>）</a></li>
         <li><a href="useticket2.php">通用現金券使用</a></li>
       </ul>
 
@@ -94,7 +94,7 @@
             <th>現金劵號碼</th>
             <th>有效期限</th>
             <th>使用情況</th>
-			<th>轉讓</th>
+			<th>分享</th>
           </tr>
          </thead>
          <tbody>
@@ -105,7 +105,7 @@
           <TD><{ $OrderList[list].ticketcode }>&nbsp;</TD>
           <TD><{ $OrderList[list].use_starttime }> ～ <{ $OrderList[list].use_endtime }> </TD>
           <TD><{if $OrderList[list].userid eq 0}>未使用<{else}>已使用<{/if}></TD>
-		  <TD><{if $OrderList[list].expired eq 0 && $OrderList[list].userid eq 0}><a class="lightbox btn btn-primary" href="transfercode.php?ticketcode=<{ $OrderList[list].ticketcode }>&money=<{ $OrderList[list].money }>&ticketid=<{ $OrderList[list].ticketid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'>轉讓</a><{/if}></TD>
+		  <TD><{if $OrderList[list].expired eq 0 && $OrderList[list].userid eq 0}><a class="lightbox btn btn-primary" href="transfercode.php?ticketcode=<{ $OrderList[list].ticketcode }>&money=<{ $OrderList[list].money }>&ticketid=<{ $OrderList[list].ticketid }>" data-lightbox="iframe" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'>分享</a><{/if}></TD>
         </tr>
         <{ /section }>
         </tbody>
