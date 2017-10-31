@@ -47,11 +47,13 @@
 							<div class="shop-item-summary">
                                <!-- <div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $gc_array[list].goods[list2].sale_name }></div>-->
 							   
-							   <div class="goodbrand" <{if $gc_array[list].goods[list2].brand_id eq ""}>style="height: 33px;"<{/if}>>
+							   
 								<{ section name=list3 loop=$gc_array[list].goods[list2].br }>	
-								<a  href="<{$Site_Url}>/brand/<{$gc_array[list].goods[list2].br[list3].brand_id}>" class="namecolor"><{$gc_array[list].goods[list2].br[list3].brandname}></a>
-								<{ /section }>
+								<div class="goodbrand" <{if $gc_array[list].goods[list2].br[list3].brand_id eq ""}>style="height: 33px;"<{/if}>>
+								<a  href="<{$Site_Url}>/brand/<{$gc_array[list].goods[list2].br[list3].brand_id}>" class="namecolor"><{$gc_array[list].goods[list2].br[list3].brandname_en}> <{$gc_array[list].goods[list2].br[list3].brandname}></a>
 								</div>
+								<{ /section }>
+								
 								
 								<div>
 									<a href="<{ $Site_Url }>/product/detail<{ $gc_array[list].goods[list2].gid }>">

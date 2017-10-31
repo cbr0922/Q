@@ -96,13 +96,14 @@ $i=0;
 					
 					
 					$br = $goods_Rs['brand_id'];					
-					$Sql1 = "select brandname,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$br;
+					$Sql1 = "select brandname,brandname_en,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$br;
 					$Query1   = $DB->query($Sql1);
 					$h = 0;
 					while ( $Result1 = $DB->fetch_array($Query1)){
 				
 					$gc_array[$i]['goods'][$j]['br'][$h]['brand_id']    =  $Result1['brand_id'];
 					$gc_array[$i]['goods'][$j]['br'][$h]['brandname']    =  $Result1['brandname'];
+					$gc_array[$i]['goods'][$j]['br'][$h]['brandname_en']    =  $Result1['brandname_en'];
 					
 					$h++;
 					

@@ -67,7 +67,7 @@
                     </ul>
                     <ul class="menuscrollbar menu_h_s" data-mcs-theme="dark" style="padding: 0;">
               <{ section name=list3 loop=$ClassArray[list].brand start=0 }>
-                <li style="list-style-type: none; padding:5px 10px"><span class="wsmenu-click02"></span><a href="<{$Site_Url}>/product/<{$ClassArray[list].bid}>_<{$ClassArray[list].brand[list3].brand_id}>"><{$ClassArray[list].brand[list3].brandname}></a>
+                <li style="list-style-type: none; padding:5px 10px"><span class="wsmenu-click02"></span><a href="<{$Site_Url}>/product/<{$ClassArray[list].bid}>_<{$ClassArray[list].brand[list3].brand_id}>" style="font-size:14px;"><{$ClassArray[list].brand[list3].brandname_en}> <{$ClassArray[list].brand[list3].brandname}></a>
                 </li>
 
             <{/section}>

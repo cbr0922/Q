@@ -62,10 +62,11 @@ while ( $ClassRow = $DB->fetch_array($Query)){
 	$k=0;
 	//$class_string = "('".implode("','",explode(",",$ClassRow['brandlist']))."')";
 	//$Query_class = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id in ".$class_string." order by brand_id asc");
-	$Query_class = $DB->query("SELECT brand_id,brandname FROM `{$INFO[DBPrefix]}brand` where bdiffb=1 and classid REGEXP '^". $ClassRow['bid'] ."$' OR classid REGEXP '^". $ClassRow['bid'] .",' OR classid REGEXP ',". $ClassRow['bid'] .",' OR classid REGEXP ',". $ClassRow['bid'] ."$' order by orderby asc,brand_id asc");
+	$Query_class = $DB->query("SELECT brand_id,brandname,brandname_en FROM `{$INFO[DBPrefix]}brand` where bdiffb=1 and classid REGEXP '^". $ClassRow['bid'] ."$' OR classid REGEXP '^". $ClassRow['bid'] .",' OR classid REGEXP ',". $ClassRow['bid'] .",' OR classid REGEXP ',". $ClassRow['bid'] ."$' order by orderby asc,brand_id asc");
 	while ($Result_class = $DB->fetch_array($Query_class)){
 		$ClassArray[$i]['brand'][$k]['brand_id'] = $Result_class['brand_id'];
 		$ClassArray[$i]['brand'][$k]['brandname'] = $Result_class['brandname'];
+		$ClassArray[$i]['brand'][$k]['brandname_en'] = $Result_class['brandname_en'];
 		$k++;
 	}
 	$z=0;
