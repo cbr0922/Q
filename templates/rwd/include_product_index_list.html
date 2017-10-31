@@ -69,6 +69,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 		dvalue = dobj.value;
 		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
 		document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
+		document.getElementById("shop-item-price1" + id).innerHTML = "NT " + dprice;
 	}else{
 		dvalue = "";
 	}
@@ -595,11 +596,13 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
     </div>
     <div id="showstorage<{$product_array.info[list].gid}>"></div>
+
 		<script language="javascript">
 	checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);
 	</script>
     <div style="clear:both"></div>
 </div>
+<div id="shop-item-price1<{$product_array.info[list].gid}>" class="shop-item-price margin-top-10"></div>
 <{/if}>
 		<{/if}>
         <{/if}>

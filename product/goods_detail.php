@@ -67,12 +67,13 @@ if($product_array['good_color']!=""){
 if($product_array['good_color']=="" && $product_array['productdetail']['count']==0){
 	$pic_array[0]['pic'] = $product_array['middleimg'];
 	$pic_array[0]['bigpic'] = $product_array['bigimg'];
+
 	//$pic_array[0]['bigpic'] = $product_array['bigpic'];
 }else {
 	$pic_array = array_values($pic_array);
 }
 
-$pic_array = array_values($pic_array);
+//$pic_array = array_values($pic_array);
 $UpProduct_array = $PRODUCT->getUporDown($Goods_id,$product_array['bid'],$product_array['bname'],"up");//上一個商品
 $DownProduct_array = $PRODUCT->getUporDown($Goods_id,$product_array['bid'],$product_array['bname'],"down");//下一個商品
 $LinkProduct_array = $PRODUCT->getProductLink($Goods_id,$product_array['bid'],$product_array['ifgl']);//相關商品

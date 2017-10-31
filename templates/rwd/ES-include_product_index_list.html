@@ -69,6 +69,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 		dvalue = dobj.value;
 		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
 		document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
+		document.getElementById("shop-item-price1" + id).innerHTML = "NT " + dprice;
 	}else{
 		dvalue = "";
 	}
@@ -533,7 +534,7 @@ div.shop-item-summary {
 
 											<{$product_array.info[list].ERP}><{$product_array.info[list].goodsname}></a></h2>
 
-											
+
 											<div class="size-12 margin-top-10" style="height: 32px;overflow: hidden;"><{$product_array.info[list].intro}></div>
 
 											<div style="height: 22px;overflow: hidden;"><{if $showbid neq 6 && $showalert neq 1}><{$product_array.info[list].showstorage}><{/if}></div>
@@ -721,6 +722,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 	</script>
     <div style="clear:both"></div>
 </div>
+<div id="shop-item-price1<{$product_array.info[list].gid}>" class="shop-item-price margin-top-10"></div>
 <{/if}>
 		<{/if}>
         <{/if}>

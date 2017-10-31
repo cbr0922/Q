@@ -69,6 +69,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 		dvalue = dobj.value;
 		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
 		document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
+		document.getElementById("shop-item-price1" + id).innerHTML = "NT " + dprice;
 	}else{
 		dvalue = "";
 	}
@@ -302,9 +303,9 @@ div.shop-item-summary{
 	 </div><{/if}>
 
 				<div class="form-group margin-bottom-0">
-		<!-- PAGE HEADER --		
+		<!-- PAGE HEADER --
 		<div class="col-md-12 col-sm-12 col-xs-12 nopadding breadcrumb-align">
-		
+
 			<section class="page-header brandbread">
 				<div class="container10">
                  <{if $templatetype eq 8}>
@@ -324,12 +325,12 @@ div.shop-item-summary{
 					<{/if}>
 				</div>
 			</section>
-			
+
 		</div><!-- /PAGE HEADER -->
 			<div class="col-md-12 col-sm-12 col-xs-12 nopadding catname">
 			<{if $catcontent eq ''}>
 			  <h1 class="margin-bottom-10 text-center"><{if $smarty.get.brand_class eq ""}>瀏覽全線產品<{else}><{$catname}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
-			<{else}>  
+			<{else}>
 			  <!-- 品牌分類詳細描述 -->
 			<div class="img-responsive margin-bottom-20 margin-top-10">
 			<{$catcontent}>
@@ -337,7 +338,7 @@ div.shop-item-summary{
 			<!-- /品牌分類詳細描述 -->
 			<{/if}>
 			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
-			<div class="col-md-12 col-sm-12 col-xs-12 nopadding orderby">					
+			<div class="col-md-12 col-sm-12 col-xs-12 nopadding orderby">
 								<!-- LIST OPTIONS -->
 							<div class="clearfix shop-list-options margin-bottom-10 sortbox">
 
@@ -352,8 +353,8 @@ div.shop-item-summary{
 									  <option value="pubtime-down" <{if $smarty.get.orderby eq "pubtime"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>按上架時間排序<!--上架由新到舊--></option>
 									  <option value="price-up" <{if $smarty.get.orderby eq "price" && $smarty.get.ordertype eq "1"}>selected<{/if}>>按價格從低到高排序</option>
 									  <option value="price-down" <{if $smarty.get.orderby eq "price"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>按價格從高到低排序</option>
-									  
-									  
+
+
 									</select>
 								<{else}>
 									<select id="productMenu" class="nopadding height-30" onChange="location.href=this.value">
@@ -364,24 +365,24 @@ div.shop-item-summary{
 										<option value="index.php?orderby=pubtime&bid=<{$smarty.get.bid}>&ordertype=0&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>" <{if $smarty.get.orderby eq "pubtime"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>上架時間排序<!--上架由新到舊--></option>
 										<option value="index.php?orderby=price&bid=<{$smarty.get.bid}>&ordertype=1&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>" <{if $smarty.get.orderby eq "price" && $smarty.get.ordertype eq "1"}>selected<{/if}>>價格從低到高排序</option>
 										<option value="index.php?orderby=price&bid=<{$smarty.get.bid}>&ordertype=0&type=<{$smarty.get.type}>&skey=<{$smarty.get.skey}>&brand_id=<{$smarty.get.brand_id}>" <{if $smarty.get.orderby eq "price"  && $smarty.get.ordertype eq "0"}>selected<{/if}>>價格從高到低排序</option>
-										
-										
+
+
 									</select>
 								<{/if}>
 									<!--<select id="productMenu" class="nopadding height-30" style="width:50%;border-radius: 0px;" onChange="javascript:;">
 									  <option value="15">1次查看15個商品</option>
 									  <option value="30" >1次查看30個商品</option>
 									  <option value="45">1次查看45個商品</option>
-									  
+
 									</select>-->
 							</div>
-							</div>							
+							</div>
 							<!-- /LIST OPTIONS -->
-			</div>		
+			</div>
 			<!--<div class="col-md-4 col-sm-4 col-xs-12 hidden-lg hidden-md">
 			  <h1 class="size-18 margin-bottom-10 bold text-center" style="margin-top:5px"><{if $smarty.get.brand_class eq ""}>瀏覽全線產品<{else}><{$catname}><{/if}></h1>
-			</div>-->		
-				
+			</div>-->
+
 		</div>
 
 
@@ -416,7 +417,7 @@ div.shop-item-summary{
 
 
 
-						
+
 							<{ section name=list loop=$product_array.info start=0 }>
 								<!-- 商品資訊 -->
 								<li class="<{ if $productlist_type eq 1 }> col-md-4 col-sm-5th col-xs-6<{ elseif $cell_num eq 1 }> col-md-4 col-sm-4 col-xs-6 <{ elseif $cell_num eq 2 }>col-md-3 col-sm-4 col-xs-6<{ else $cell_num eq 3 }>col-sm-4 col-md-5th col-xs-6<{/if}><{ if $productlist_type neq 1 && $cell_num eq 3 }> cellnum5<{/if}>">
@@ -612,7 +613,7 @@ div.shop-item-summary{
 											</select>
 
 											</div>
-											
+
 											  <!--
 											  <div  class="col-md-12 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10">
 											  <select class="color_s nopadding height-25 size-13" style="width:100%;border-radius: 0px;display:none;" name="xycolor<{$product_array.info[list].gid}>" id="xycolor<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
@@ -711,6 +712,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 	</script>
     <div style="clear:both"></div>
 </div>
+<div id="shop-item-price1<{$product_array.info[list].gid}>" class="shop-item-price margin-top-10"></div>
 <{/if}>
 		<{/if}>
         <{/if}>
