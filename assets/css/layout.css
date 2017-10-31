@@ -10441,6 +10441,9 @@ a.horsetext:hover {
     z-index: 22;
     border-top: 1px solid #000 !important;
 }
+.daybox a{
+	color: #ad4c81;
+}
 
 .class_fix6 {
     width: 100%;
@@ -11125,7 +11128,7 @@ div.ES-good_color {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    background: url(../../images/selectbox.jpg) no-repeat scroll right center transparent !important;
+    background: url(../../images/selectbox.png) no-repeat scroll right center transparent !important;
     background-size: 23px !important;
     min-width: 100px;
 	max-width: 160px;
@@ -11666,7 +11669,12 @@ vertical-align: middle;
 
 	}
 }
-
+@media (max-width: 374px) {
+	.LM-story-txt{
+		font-size: 14px;
+		padding:0;
+	}
+}
 
 /*LM-index*/
 

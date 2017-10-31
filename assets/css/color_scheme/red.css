@@ -1,13 +1,13 @@
 /** Red	#DE0000
  **************************************************************** **/
 	::selection {
-		background: #DE0000;
+		background: #666;
 	}
 	::-moz-selection {
-		background: #DE0000; /* Firefox */
+		background: #666; /* Firefox */
 	}
 	::-webkit-selection {
-		background: #DE0000; /* Safari */
+		background: #666; /* Safari */
 	}
 
 
@@ -74,7 +74,7 @@
 	.box-icon.box-icon-color i,
 	.switch-primary.switch-round > input:checked + .switch-label:after,
 	section.dark .nav-tabs.nav-clean>li.active>a { 
-		color: #DE0000; 
+		color: #666; 
 	}
 	
 	#sidepanel.sidepanel-theme-color,
@@ -118,7 +118,7 @@
 	#progressBar #bar,								/* OWL */
 	#page-menu,
 	#page-menu ul,.flickity-page-dots .dot {
-		background-color:#DE0000;
+		background-color:#000;
 	}
 	svg path, svg rect {
     fill:#DE0000;
@@ -162,7 +162,7 @@
 	.btn-primary:hover
 	.pagination>.active>a,
 	.pagination>.active>a:hover {
-		border-color: #DE0000;
+		border-color: #000;
 	}
 
 	#topNav ul.dropdown-menu { /* submenu border top color */
@@ -565,4 +565,51 @@ a.list_b:hover,a.list_b:active{
     border-radius: 0px;
 
 	
+}
+
+.badge.badge-corner {
+    top: 0px !important;
+    right: -3px !important;
+    position: absolute !important;
+    color: #ffffff !important;
+    font-size: 11px;
+}
+#topBar.dark {
+    color: #ccc;
+    background-color: #d4281a;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+#footer>.copyright {
+    background-color: #000;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 60px 0 25px 0;
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+    background: -webkit-linear-gradient(#000,#000);
+    background: -o-linear-gradient(#000,#000);
+    background: -moz-linear-gradient(#000,#000);
+    background: linear-gradient(#000,#000,rgba(255, 255, 255, 0));
+    background: linear-gradient(#000,#000);
+}
+#footer a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    margin-right: 10px;
+}
+#footer {
+    color: rgba(255, 255, 255, 0.95);
+}
+.hotbg {
+    background-color: rgba(214, 117, 107, 0.25);
+}
+@media only screen and (min-width: 1024px) {
+	li.block.wsshoplink-active > a{
+		color:#555555;
+		border-left:3px solid #d4281a;
+		background-color:#fff;
+	}
+}
+.daybox a{
+	color: #d4281a;
 }

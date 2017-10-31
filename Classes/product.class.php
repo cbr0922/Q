@@ -41,7 +41,7 @@ class PRODUCT{
 		else
 			$subSql .= "  and  b.catiffb=1 and g.ifpub=1 and (g.pubstarttime='' or g.pubstarttime<='" . time() . "') and (g.pubendtime='' or g.pubendtime>='" . time() . "') " . $subSql;
 
-		$Sql = "select g.*,p.provider_name,br.brandname,br.brandcontent,br.logopic,b.attr from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}" . $bname . "` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on (g.brand_id=br.brand_id) left join `{$INFO[DBPrefix]}provider` p  on (p.provider_id=g.provider_id)  where g.gid='" . $gid . "' " . $subSql;
+		$Sql = "select g.*,p.provider_name,br.brandname,br.brandname_en,br.brandcontent,br.logopic,b.attr from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}" . $bname . "` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on (g.brand_id=br.brand_id) left join `{$INFO[DBPrefix]}provider` p  on (p.provider_id=g.provider_id)  where g.gid='" . $gid . "' " . $subSql;
 		$Query   = $DB->query($Sql);
 		$Num   = $DB->num_rows($Query);
 		if($Num<=0){
@@ -56,6 +56,8 @@ class PRODUCT{
 			}
 			$Result_goods['goodsname1'] = $FUNCTIONS->strUrlEncode($Result_goods['goodsname']);
 			$Result_goods['brandname1'] = $FUNCTIONS->strUrlEncode($Result_goods['brandname']);
+			$Result_goods['brandname_en'] = $FUNCTIONS->strUrlEncode($Result_goods['brandname_en']);
+			
 
 			$Result_goods['showstorage'] = $FUNCTIONS->Storage($Result_goods['ifalarm'],$Result_goods['storage'],$Result_goods['alarmnum']);
 
@@ -375,7 +377,7 @@ class PRODUCT{
 			}
 		}
 
-	 	$Sql = "select g.*,br.brandname from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}bclass` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on ( g.brand_id=br.brand_id ) " . $linkSql . " where b.catiffb='1' and g.ifpub='1' and (g.pubstarttime='' or g.pubstarttime<='" . time() . "') and (g.pubendtime='' or g.pubendtime>='" . time() . "') " . $searchSql . $subSql . $bidSql . $orderSql . " " . $limitSql;
+	 	$Sql = "select g.*,br.brandname,br.brandname_en from `{$INFO[DBPrefix]}goods` g inner join `{$INFO[DBPrefix]}bclass` b on ( g.bid=b.bid ) left join `{$INFO[DBPrefix]}brand` br on ( g.brand_id=br.brand_id ) " . $linkSql . " where b.catiffb='1' and g.ifpub='1' and (g.pubstarttime='' or g.pubstarttime<='" . time() . "') and (g.pubendtime='' or g.pubendtime>='" . time() . "') " . $searchSql . $subSql . $bidSql . $orderSql . " " . $limitSql;
 		if($ifpage==1){
 			$PageNav    = new PageItem($Sql,intval($INFO['MaxProductNumForList']));
 			//$PageNav    = new PageItem($Sql,2);
@@ -1007,12 +1009,13 @@ class PRODUCT{
 					$New_productarray[$j]['productdetail'] = $this->getProductDetail($NewPro['gid']);//詳細規格
 
 					$New_br = $NewPro['brand_id'];
-					$New_Sql = "select brandname,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$New_br;
+					$New_Sql = "select brandname,brandname_en,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$New_br;
 					$New_Query   = $DB->query($New_Sql);
 					$h = 0;
 					while ( $New_Result = $DB->fetch_array($New_Query)){
 						$New_productarray[$j]['br'][$h]['brand_id']    =  $New_Result['brand_id'];
 						$New_productarray[$j]['br'][$h]['brandname']   =  $New_Result['brandname'];
+						$New_productarray[$j]['br'][$h]['brandname_en']   =  $New_Result['brandname_en'];
 						$h++;
 					}
 					$j++;
@@ -1065,12 +1068,13 @@ class PRODUCT{
 				$Recommendation_productarray[$j]['productdetail'] = $this->getProductDetail($RecPro['gid']);//詳細規格
 
 				$Rec_br = $RecPro['brand_id'];
-					$Rec_Sql = "select brandname,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$Rec_br;
+					$Rec_Sql = "select brandname,brandname_en,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$Rec_br;
 					$Rec_Query   = $DB->query($Rec_Sql);
 					$h = 0;
 					while ( $Rec_Result = $DB->fetch_array($Rec_Query)){
 						$Recommendation_productarray[$j]['br'][$h]['brand_id']    =  $Rec_Result['brand_id'];
 						$Recommendation_productarray[$j]['br'][$h]['brandname']   =  $Rec_Result['brandname'];
+						$Recommendation_productarray[$j]['br'][$h]['brandname_en']   =  $Rec_Result['brandname_en'];
 						$h++;
 					}
 				$j++;
@@ -1118,12 +1122,13 @@ class PRODUCT{
 				$abProductArray[$j]['heartColor'] = 0;
 			}
 			$link_br = $Rs['brand_id'];
-			$link_Sql = "select brandname,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$link_br;
+			$link_Sql = "select brandname,brandname_en,brand_id from `{$INFO[DBPrefix]}brand` where brand_id=".$link_br;
 			$link_Query   = $DB->query($link_Sql);
 			$h = 0;
 			while ( $link_Result = $DB->fetch_array($link_Query)){
 				$abProductArray[$j]['br'][$h]['brand_id']    =  $link_Result['brand_id'];
 				$abProductArray[$j]['br'][$h]['brandname']   =  $link_Result['brandname'];
+				$abProductArray[$j]['br'][$h]['brandname_en']   =  $link_Result['brandname_en'];
 				$h++;
 			}
 			$i++;

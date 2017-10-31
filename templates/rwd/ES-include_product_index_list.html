@@ -493,7 +493,7 @@ div.shop-item-summary {
 											<figure>
 
 
-										<div class="margin-bottom-10 margin-top-10 TAGdiv">
+										<div class="TAGdiv" style="margin: 4px 0 5px 0;">
 										<{if $product_array.info[list].good_color neq ""}>
 										<a class="hidden-md hidden-lg" style="float:right;" href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').show();"><img src="<{ $Site_Url }>/images/colorcircle1.png" width="24"></a>
 										<{/if}>
@@ -533,10 +533,10 @@ div.shop-item-summary {
 
 											<{$product_array.info[list].ERP}><{$product_array.info[list].goodsname}></a></h2>
 
+											
+											<div class="size-12 margin-top-10" style="height: 32px;overflow: hidden;"><{$product_array.info[list].intro}></div>
 
-											<div class="size-12 margin-top-10"><{$product_array.info[list].intro}></div>
-
-											<{if $showbid neq 6 && $showalert neq 1}><{$product_array.info[list].showstorage}><{/if}>
+											<div style="height: 22px;overflow: hidden;"><{if $showbid neq 6 && $showalert neq 1}><{$product_array.info[list].showstorage}><{/if}></div>
 											</div>
 
 
