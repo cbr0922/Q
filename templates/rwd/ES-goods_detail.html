@@ -92,18 +92,18 @@
 /*多屬性*/
 
 div.good_color_select {
-    width: 34px;
-    height: 34px;
-    padding: 2px;
-    border: 1px solid #000;
+    width: 31px;
+    height: 31px;
+    padding: 1px;
+    border: 2px solid #000;
 	margin-bottom: 5px;
 }
 div.good_color {
-    width: 34px;
-    height: 34px;
-    padding: 2px;
-    border: 1px solid #ccc;
-	margin-bottom: 5px;
+    width: 31px;
+    height: 31px;
+    padding: 1px;
+    border: 2px solid #fff;
+    margin-bottom: 5px;
 }
 
 /*size*/
@@ -172,8 +172,63 @@ div.good_color {
 	text-align: center;
 	text-decoration:none;
 }
+/*顏色示意大圖*/
+.ES-color-img {
+	max-width:445px;
+}
+.ES-color-img .ES-color1 img{
+	width:100%;
+}
+.ES-color-img .ES-color1{
+	max-width:150px;
+	width:30%;
+}
+.ES-color-img .ES-color2{
+	width:70%;
+}
+.ES-color1,.ES-color2{
+    display: table-cell;
+    vertical-align: middle;
+}
+@media only screen and (max-width: 767px) {
+	.img-container .ES-color2{
+		max-width:100px;
+	}
+	.ES-color-img {
+		max-width:auto;
+	}
+	.ES-color-img .ES-color1{
+		max-width:100px;
+		width:25%;
+	}
+	.ES-color-img .ES-color2{
+		width:75%;
+	}
+}
 
-
+/*多圖箭頭*/
+.zoom-more .owl-controls {
+	text-align: right;
+}
+.owl-carousel.featured .owl-prev, .owl-carousel.featured .owl-next {
+    display: inline-block !important;
+    color: #999 !important;
+    width: 10px !important;
+    margin:0 2px 0 25px;
+    height: 30px !important;
+    line-height: 30px !important;
+    font-size: 20px !important;
+}
+.thumbnail {
+    margin-bottom: 0px;
+}
+/*相關箭頭*/
+.productthumb .owl-controls {
+    display: block;
+    position: absolute;
+    top: -65px;
+    right: 0;
+}
 </style>
 <body class="smoothscroll enable-animation <{ if $boxed eq 1 }>boxed<{ /if }>" <{ if $use_background eq 1 }>data-background="<{ $Site_Url }>/UploadFile/LogoPic/<{ $shop_background }>"<{ /if }> <{ if $use_pattern eq 1 }>style="background:url('<{ $Site_Url }>/UploadFile/patterns/<{ $shop_pattern }>') repeat fixed;"<{ /if }>>
 
@@ -523,29 +578,31 @@ div.good_color {
 										</div>
                 					<{/if}>-->
 									<{ if $P_good_color neq "" }>
-										<div style="width:100%; float:left;margin: 10px 0 0 0;">
+										<div class="ES-color-img" style="width:100%; float:left;margin: 10px 0 0 0;">
+										<div class="ES-color1">
 
+											<div class="img-container">
+
+												<img class="" id="leftpic" src="<{ $Site_Url }>/images/pic.svg" />
+
+											</div>
+
+										</div>
+										<div class="ES-color2">
 											<ul class="nopadding nomargin" style="list-style-type:none;">
-												<li class="pull-left" style="margin-right:5px;">
-
-													<div class="img-container">
-
-												<img style="max-width:150px;" id="leftpic" src="<{ $Site_Url }>/images/pic.svg" />
-
-													</div>
-
-													</li>
+												
 											   <{ section name=list loop=$P_color }>
 
-													<li class="pull-left" style="margin-right:5px;">
+													<li class="pull-left" style="margin-right:2px;">
 														<a href="javascript:void(0);" onClick="changeColor('<{$P_color[list].color}>');changeImgs('<{$P_color[list].sort}>');">
 														<div class="good_color" id="showcolor<{$smarty.section.list.index}>">
-															<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$P_color[list].pic}>" width="28" height="28"/>
+															<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$P_color[list].pic}>" width="25" height="25"/>
 														</div>
 														</a>
 													</li>
 												<{ /section }>
 											　</ul>
+										</div>
 										</div>
 									<{/if}>
 									<{ if $P_good_size neq "" }>
@@ -988,7 +1045,7 @@ div.good_color {
 						</div>
 				</div>
 			</section>
-			<section class="padding-top-0 noborder indexgraybg margin-top-40">
+			<section class="padding-top-0 noborder indexgraybg margin-top-40 productthumb">
 				<div class="container">
 			<!-- 相關商品開始 -->
 							<div class="col-lg-12 margin-top-80 margin-bottom-50">

@@ -48,11 +48,13 @@
               <!--<div class="size-15" style="height:20px; overflow:hidden; margin-bottom:5px; text-align: left !important;"><{ $New_productarray[hotlistname].sale_name }></div>-->
 			  
 					
+								
+								<div class="goodbrand" <{if $New_productarray[hotlistname].br[0].brand_id eq ""}>style="height: 33px;"<{/if}>>
 								<{ section name=j loop=$New_productarray[hotlistname].br }>
-								<div class="goodbrand" <{if $New_productarray[hotlistname].br[j].brand_id eq ""}>style="height: 33px;"<{/if}>>
 								<a  href="<{$Site_Url}>/brand/<{$New_productarray[hotlistname].br[j].brand_id}>" class="namecolor"><{$New_productarray[hotlistname].br[j].brandname_en}> <{$New_productarray[hotlistname].br[j].brandname}></a>
-								</div>
 								<{ /section }>
+								</div>
+								
 					
               
 					<div>
