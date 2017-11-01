@@ -68,8 +68,8 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 		dobj = document.getElementById("xydetail" + id);
 		dvalue = dobj.value;
 		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
-		document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
-		document.getElementById("shop-item-price1" + id).innerHTML = "NT " + dprice;
+		//document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
+		document.getElementById("shop-item-price1" + id).innerHTML = "NT$ " + dprice;
 	}else{
 		dvalue = "";
 	}
@@ -712,7 +712,12 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 	</script>
     <div style="clear:both"></div>
 </div>
-<div id="shop-item-price1<{$product_array.info[list].gid}>" class="shop-item-price margin-top-10"></div>
+<div class="margin-top-10">
+<{ if $product_array.info[list].price neq 0 && $product_array.info[list].price neq $product_array.info[list].pricedesc}>
+<span class="line-through">NT$ <{$product_array.info[list].price}></span>
+<{/if}>
+<span id="shop-item-price1<{$product_array.info[list].gid}>" style="color:#ff5757 !important;font-size: 17px;"></span>
+</div>
 <{/if}>
 		<{/if}>
         <{/if}>

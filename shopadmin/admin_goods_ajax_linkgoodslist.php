@@ -21,7 +21,7 @@ if (intval($_GET[top_id])!=0 ){
 		foreach($ot_class_array as $k=>$v){
 			$Next_ArrayClass  = $FUNCTIONS->Sun_pcon_class(intval($v));
 			$Next_ArrayClass  = explode(",",$Next_ArrayClass);
-			$ot_class_array  = array_merge($Next_ArrayClass,$ot_class_array);	
+			$ot_class_array  = array_merge($Next_ArrayClass,$ot_class_array);
 		}
 	}
 		if ((in_array(intval($_GET[top_id]),$ot_class_array) && $_SESSION['LOGINADMIN_TYPE']==1) || $_SESSION['LOGINADMIN_TYPE']!=1){
@@ -32,15 +32,15 @@ if (intval($_GET[top_id])!=0 ){
 			foreach ($Array_class as $k=>$v){
 				$Add .= trim($v)!="" && intval($v)>0 ? " or bid='".$v."' " : "";
 			}
-		   $AddBidtype =$S_Sql . $Add . " )";	
+		   $AddBidtype =$S_Sql . $Add . " )";
 		}
 	if (AddBidtype!=""){
 		//$AddBidtype = " and g.bid in (" . implode(",",$class_array) . ")";
 	}else{
-		$AddBidtype = " and 1<>1";	
+		$AddBidtype = " and 1<>1";
 	}
-	
-}elseif($_SESSION['LOGINADMIN_TYPE']==1){
+
+}/*elseif($_SESSION['LOGINADMIN_TYPE']==1){
 	$_GET['Action']="Search";
 	$class_array = array();
 	$i = 0;
@@ -61,13 +61,13 @@ if (intval($_GET[top_id])!=0 ){
 			}
 		}
 	}
-	
+
 	if (count($class_array)>0){
 		$AddBidtype = " and bid in (" . implode(",",$class_array) . ")";
 	}else{
-		$AddBidtype = " and 1<>1";	
+		$AddBidtype = " and 1<>1";
 	}
-}
+}*/
 $Where    =  "";
 $Where    = $_GET['skey']!="" ?  " and goodsname like '%".$_GET['skey']."%'" : $Where ;
 
@@ -104,7 +104,7 @@ if ($Num>0){
                       <TD width="50%"  height=26 align="left" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif class=p9black><?php echo $Admin_Product[ProductName];//名称?>					  </TD>
                       <TD  height=26 colspan="8" align="left" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif class=p9black><?php echo $Admin_Product[ProductPrice];//价格?>					  </TD>
                       </TR>
-					<?php               
+					<?php
 					$i=0;
 
 					while ($Rs=$DB->fetch_array($Query)) {
@@ -119,13 +119,13 @@ if ($Num>0){
 					?>
                     <TR class=row0>
                       <TD align=middle  height=20>
-					  <INPUT id='cb<?php echo $i?>'  type=checkbox value='<?php echo $Rs['gid']?>' name=cid[]> 
+					  <INPUT id='cb<?php echo $i?>'  type=checkbox value='<?php echo $Rs['gid']?>' name=cid[]>
 					  </TD>
 					  <TD align=left  height=20><IMG onMouseOver="MM_showHideLayers('imgLayer<?php echo $i?>','','show')" onMouseOut="MM_showHideLayers('imgLayer<?php echo $i?>','','hide')" height=18 src="images/<?php echo $INFO[IS]?>/icon-viewpic.gif" width=18>
                         <DIV class=shadow id=imgLayer<?php echo $i?> style="Z-INDEX: 3; VISIBILITY: hidden; WIDTH: 63px; POSITION: absolute; HEIGHT: 67px"   border="1"><IMG src="../<?php echo $INFO['good_pic_path']?>/<?php echo $Rs['smallimg']?>" ></DIV>
 					  </TD>
                       <TD height=20 align="left" noWrap><?php echo $Rs['bn']?> &nbsp;</TD>
-                      <TD  height=20 align=left nowrap> <?php echo $Rs['goodsname']?></TD> 
+                      <TD  height=20 align=left nowrap> <?php echo $Rs['goodsname']?></TD>
                       <TD height=20 colspan="8" align=left nowrap><?php echo $Rs['price']?></TD>
                       </TR>
 					<?php
@@ -139,5 +139,5 @@ if ($Num>0){
                 <tr>
                   <td valign=center align=middle background=images/<?php echo $INFO[IS]?>/03_content_backgr.png height=23><?php echo $Nav->pagenav(1,"admin_goods_ajax_linkgoodslist.php","goodslinklist")?> </td>
                 </tr>
-                
+
 </table><?php } ?>
