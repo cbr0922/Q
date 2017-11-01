@@ -65,6 +65,15 @@ background-color: #ffff99;
     	<{/if}>
 
     <{ /section }>
+		<{if  $attrvalue_array[i].attrid eq 6}>
+		<label class="checkbox size-14" style="min-width:40%; margin-top:0px;">
+		<div class="click_attr"><input onclick="javascript:getProduct('trait','new');" type="checkbox" value="new" id="traitnew" /><i style="width: 18px;height: 18px;top: 2px;"></i>最新商品</div>
+		</label><br>
+		<label class="checkbox size-14" style="min-width:40%; margin-top:0px;">
+ 		<div class="click_attr"><input onclick="javascript:getProduct('trait','sale');" type="checkbox" value="sale" id="traitsale" /><i style="width: 18px;height: 18px;top: 2px;"></i>促銷商品</div>
+ 		</label><br>
+		<{/if}>
+
     <div style="clear:both"></div>	</div>
   <{/if}>	<{/if}>
 	<{ /section }>

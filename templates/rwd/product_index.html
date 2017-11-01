@@ -274,6 +274,10 @@ function ini(){
 		orderby = $.hash("orderby");
 		$("#sort" + orderby).attr("checked",true);
 	}
+  if($.hash("trait")!=null){
+    trait = $.hash("trait");
+    $("#trait" + trait).attr("checked",true);
+  }
 /*
 	<{ section name=i loop=$attrvalue_array }>
 	if($.hash("<{$attrvalue_array[i].attrid}>")!=null){

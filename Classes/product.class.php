@@ -57,7 +57,7 @@ class PRODUCT{
 			$Result_goods['goodsname1'] = $FUNCTIONS->strUrlEncode($Result_goods['goodsname']);
 			$Result_goods['brandname1'] = $FUNCTIONS->strUrlEncode($Result_goods['brandname']);
 			$Result_goods['brandname_en'] = $FUNCTIONS->strUrlEncode($Result_goods['brandname_en']);
-			
+
 
 			$Result_goods['showstorage'] = $FUNCTIONS->Storage($Result_goods['ifalarm'],$Result_goods['storage'],$Result_goods['alarmnum']);
 

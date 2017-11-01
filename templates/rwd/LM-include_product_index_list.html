@@ -68,8 +68,13 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 		dobj = document.getElementById("xydetail" + id);
 		dvalue = dobj.value;
 		dprice = dobj.options[dobj.selectedIndex].getAttribute('price');
-		//document.getElementById("shop-item-price" + id).innerHTML = "NT " + dprice;
-		document.getElementById("shop-item-price1" + id).innerHTML = "NT$ " + dprice;
+		oprice = dobj.options[dobj.selectedIndex].getAttribute('oprice');
+		//document.getElementById("shop-item-price" + id).innerHTML = "NT$ " + dprice;
+		if(oprice != dprice){
+			document.getElementById("shop-item-price1" + id).innerHTML = "<span class='line-through'>NT$ "+oprice+"</span> <span style='color:#ff5757 !important;font-size: 17px;'>NT$ "+dprice+"</span>";
+		}else {
+			document.getElementById("shop-item-price1" + id).innerHTML = "<span style='color:#ff5757 !important;font-size: 17px;'>NT$ "+dprice+"</span>";
+		}
 	}else{
 		dvalue = "";
 	}
@@ -595,7 +600,7 @@ div.shop-item-summary{
 										 <div  class="col-md-6 col-sm-12 col-xs-12 clearfix shop-list-options margin-top-10 col-1290-12">
 											 <select class="nopadding height-30" style="width:100%;border-radius: 0px;" name="xydetail<{$product_array.info[list].gid}>" id="xydetail<{$product_array.info[list].gid}>" onChange="checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,<{if $product_array.info[list].productdetail.count gt 0}>1<{else}>0<{/if}>);">
 											 <{ section name=list1 loop=$product_array.info[list].productdetail.info }>
-												 <option price="<{$product_array.info[list].productdetail.info[list1].member_price}>" value="<{$product_array.info[list].productdetail.info[list1].detail_id}>"><{$product_array.info[list].productdetail.info[list1].detail_name}></option>
+												 <option price="<{$product_array.info[list].productdetail.info[list1].member_price}>" oprice="<{$product_array.info[list].productdetail.info[list1].detail_price}>" value="<{$product_array.info[list].productdetail.info[list1].detail_id}>"><{$product_array.info[list].productdetail.info[list1].detail_name}></option>
 											 <{ /section}>
 											 </select>
 											 </div>
@@ -712,12 +717,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 	</script>
     <div style="clear:both"></div>
 </div>
-<div class="margin-top-10">
-<{ if $product_array.info[list].price neq 0 && $product_array.info[list].price neq $product_array.info[list].pricedesc}>
-<span class="line-through">NT$ <{$product_array.info[list].price}></span>
-<{/if}>
-<span id="shop-item-price1<{$product_array.info[list].gid}>" style="color:#ff5757 !important;font-size: 17px;"></span>
-</div>
+<div id="shop-item-price1<{$product_array.info[list].gid}>" class="margin-top-10"></div>
 <{/if}>
 		<{/if}>
         <{/if}>
