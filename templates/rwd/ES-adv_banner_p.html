@@ -1,0 +1,55 @@
+<{ if $adv_Num > 0 }>
+
+                      
+						<!-- OWL SLIDER -->	
+						<div class="owl-carousel owl-theme owl-carousel1">
+						  <{ section name=list loop=$adv_array }>
+						   <div class="item">
+                          <a href="<{$adv_array[list].url}>" data-plugin-options='{"type":"image"}' title="<{$adv_array[list].title}>">
+                            <{$adv_array[list].img}>
+                          </a>
+						  </div>
+                          <{ /section }>
+  
+						
+						</div>
+						<div class="psbtn">
+						 <a class="button secondary play"><i class="fa fa-play"></i></a>
+						 <a class="button secondary stop"><i class="fa fa-pause"></i></a>
+						 </div>
+						 
+                       <!-- /OWL SLIDER -->
+							
+
+		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.js"></script>
+		 <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.min.css">
+    <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.theme.default.min.css">
+<script type="text/javascript">
+$(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay:true,
+				autoplayTimeout:5000,
+                autoplayHoverPause: true,
+				transitionStyle:fade
+              });
+              $('.play').on('click', function() {
+                $(this).hide();
+				$('.stop').show();
+				owl.trigger('play.owl.autoplay', [3000])
+              })
+              $('.stop').on('click', function() {
+				$(this).hide();
+				$('.play').show();
+                owl.trigger('stop.owl.autoplay')
+              })
+			  
+			
+})	
+		
+</script>
+
+<{ /if }>

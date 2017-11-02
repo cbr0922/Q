@@ -35,11 +35,7 @@
 		<!-- LAYER SLIDER
 		<link href="<{ $Site_Url }>/assets/plugins/slider.layerslider/css/layerslider.css" rel="stylesheet" type="text/css" /> -->
 		
-		<!--輪播-->
-		<link rel="stylesheet" href="<{ $template_dir }>/ES/ES-banner.css">
-		<script type="text/javascript" src="<{ $template_dir }>/ES/ES-banner.js"></script>
-		<!--<script src="<{ $template_dir }>/js/jquery-1.4.4.min.js"></script>-->
-		<script type="text/javascript" src="<{ $template_dir }>/ES/jquery-1.4.3.min.js"></script>
+
 		
 
 <{ include_php file="include/ga.php" }>
@@ -75,40 +71,7 @@
 <!--身體開始-->
 
 
-<!--
-			<section>
-				<div class="container product_banner">
-				 <div class="brand-main">
-				<div class="brand-carousel clear">
-								 <ul class="brand-img clear"> 
-								
-										<li style="display: list-item;">
-											<a href="" >
-												<img alt="" src="https://test.tasameng.com.tw/UploadFile/AdvPic/149991853728086.jpg">
-											</a>
-										</li>
-										<li style="display: none;">
-											<a href="" >
-												<img alt="" src="https://test.tasameng.com.tw/UploadFile/AdvPic/150633322412049.jpg">
-											</a>
-										</li>										
-						
-								 </ul>
-								 <div class="brand-btn-wrap clear fr">
-									 <i class="stoped fl"></i>
-									 <i class="opened fl"></i>
-									 <ul class="brand-btn fl clear">				 
-									
-										<li class="select"></li>
-										<li class=""></li>
-								
-									 </ul>
-								 </div>
-							 </div> </div>
-				
-				</div>
-			</section>
--->				
+			
 				<section class="padding-top-0">
 				<div class="container">
 					<div class="row">
@@ -132,44 +95,7 @@
                           <{ /section }>
 
 					<{else}>
-							<!-- 轮播图 --
-							<div class="brand-carousel clear">
-								 <ul class="brand-img clear"> 
-								 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-										<li style="<{if $smarty.section.z.index eq 0 }>display: list-item;<{else}>display: none;<{/if}>">
-											<a href="<{$indexAdv_array[list].adv[j].img[z].adv_left_url}>" >
-												<img alt="" src="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].img[z].adv_left_img}>">
-											</a>
-										</li>	
-								<{ /section }>
-								 </ul>
-								 <div class="brand-btn-wrap clear fr">
-									 <i class="stoped fl"></i>
-									 <i class="opened fl"></i>
-									 <ul class="brand-btn fl clear">				 
-									 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-										<li class="<{if $smarty.section.z.index eq 0 }>select<{else}><{/if}>"></li>
-									 <{ /section }>
-									 </ul>
-								 </div>
-							 </div>
-							<!-- 轮播图结束 -->
 							
-					<!--		
-					<div class="layerslider height-500">
-
-						
-						 <{ section name=z loop=$indexAdv_array[list].adv[j].img }>
-						<div class="ls-slide" >
-						
-							<img src="<{$Site_Url}>/UploadFile/AdvPic/<{$indexAdv_array[list].adv[j].img[z].adv_left_img}>" class="ls-bg" alt="Slide background"/>							
-						</div>
-						 <{ /section }>
-						
-					
-						
-
-					</div>-->
 
 					
 					
@@ -215,10 +141,7 @@
 								</div>
 								</div>
 					</div>
-                    <!--<div class="overlay">
-						<h2><{ $indexAdv_array[list].adv[j].adv_title }></h2>
-						<a class="info" href="<{$indexAdv_array[list].adv[j].adv_left_url}>">link here</a>
-					</div>-->
+
 				  </div>
 
 
@@ -235,15 +158,7 @@
     </section>
     <{ /section }>
   <!--/萬用格-->
-  					<!--<script type="text/javascript">
-						var layer_options = {
-							responsive: 		false,
-							responsiveUnder: 	1280,
-							layersContainer: 	1280,
-							hoverPrevNext: 		true,
-							skinsPath: 			'<{ $Site_Url }>/assets/plugins/slider.layerslider/skins/'
-						}
-					</script>-->
+  					
 							</div>
 						</div>
 						<!--右邊結束-->
@@ -266,10 +181,6 @@
 <{/if}>
 
 
-<!-- LAYER SLIDER
-
-		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/slider.layerslider/js/layerslider_pack.js"></script>
-		<script type="text/javascript" src="<{ $Site_Url }>/assets/js/view/demo.layerslider_slider.js"></script>--> 
 		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.js"></script>
 		 <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.min.css">
     <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.theme.default.min.css">
