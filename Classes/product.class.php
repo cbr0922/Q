@@ -327,11 +327,13 @@ class PRODUCT{
 						break;
 					case "trait":
 						$trait_array = explode("-",$v);
-						foreach($trait_array as $key=>$value){
+						foreach($trait_array as $k=>$value){
 							if($value=="new")
 								$searchSql .= " and g.ifnew = '1'";
 							elseif($value=="sale") {
-								//$searchSql .= " and g.pricedesc <= '".intval($v)."'";
+								$searchSql .= " and ((g.ifsaleoff = '1' and g.saleoff_starttime<='".time()."' and g.saleoff_endtime<='".time()."')";
+								$searchSql .= " or (g.iftimesale = '1' and g.timesale_starttime<='".time()."' and g.timesale_endtime<='".time()."')";
+								$searchSql .= " or (g.price != 0 and g.price != g.pricedesc))";
 							}
 						}
 						break;

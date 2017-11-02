@@ -400,6 +400,13 @@ if($.hash("5")!=null){
   }
 }
 
+if($.hash("6")!=null){
+  newcate = $.hash("6").split("-");
+  for(i=0;i<newcate.length;i++){
+    $('input[value="'+newcate[i]+'"]').attr("checked",true);
+  }
+}
+
 $(document).ready(function(){
   $(".value").click(function(){
     $(this).toggleClass("fa fa-check");

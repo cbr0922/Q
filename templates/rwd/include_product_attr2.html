@@ -60,7 +60,7 @@ background-color: #ffff99;
         	</span>
           </a-->
        <label class="checkbox size-14" style="min-width:40%; margin-top:0px;"><!--其他選項使用check box顯示-->
-    <div class="click_attr"><input onclick="javascript:getProduct('<{$attrvalue_array[i].attrid}>','<{$attrvalue_array[i].v[j].value}>');" type="checkbox" value="<{$attrvalue_array[i].v[j].value}>" name="value<{$attrvalue_array[i].attrid}>" id="value<{$attrvalue_array[i].v[j].valueid}>" /><i style="width: 18px;height: 18px;top: 2px;"></i><{$attrvalue_array[i].v[j].value}></div>
+    <div class="click_attr"><input class="<{$attrvalue_array[i].v[j].value}>" onclick="javascript:getProduct('<{$attrvalue_array[i].attrid}>','<{$attrvalue_array[i].v[j].value}>');" type="checkbox" value="<{$attrvalue_array[i].v[j].value}>" name="value<{$attrvalue_array[i].attrid}>" id="value<{$attrvalue_array[i].v[j].valueid}>" /><i style="width: 18px;height: 18px;top: 2px;"></i><{$attrvalue_array[i].v[j].value}></div>
     </label><br>
     	<{/if}>
 
@@ -107,15 +107,15 @@ background-color: #ffff99;
 
 	<div class=" col-xs-6 col-md-2 col-sm-4 col-lg-5th padding-6">
   	<div class="margin-bottom-10 size-15">排序</div><!--分類篩選顯示-->
-  <label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="checksort(0);javascript:getProduct('orderby',this.value);" value="" id="sort" /><i style="width: 18px;height: 18px;top: 2px;"></i>
+  <label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="javascript:getProduct('orderby',this.value);checksort(0);" value="" id="sort" /><i style="width: 18px;height: 18px;top: 2px;"></i>
     注目商品</label><br>
-	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="checksort(1);javascript:getProduct('orderby',this.value);" value="visit-down" id="sortvisit-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
+	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="javascript:getProduct('orderby',this.value);checksort(1);" value="visit-down" id="sortvisit-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
     購買人氣最高</label><br>
-	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="checksort(2);javascript:getProduct('orderby',this.value);" value="pubtime-down" id="sortpubtime-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
+	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="javascript:getProduct('orderby',this.value);checksort(2);" value="pubtime-down" id="sortpubtime-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
     最新上架</label><br>
-	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="checksort(3);javascript:getProduct('orderby',this.value);" value="price-up" id="sortprice-up" /><i style="width: 18px;height: 18px;top: 2px;"></i>
+	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="javascript:getProduct('orderby',this.value);checksort(3);" value="price-up" id="sortprice-up" /><i style="width: 18px;height: 18px;top: 2px;"></i>
     價格由低到高</label><br>
-	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="checksort(4);javascript:getProduct('orderby',this.value);" value="price-down" id="sortprice-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
+	<label class="checkbox size-14" style="margin-top:0px;"><input type="checkbox" class="sortMenu" onclick="javascript:getProduct('orderby',this.value);checksort(4);" value="price-down" id="sortprice-down" /><i style="width: 18px;height: 18px;top: 2px;"></i>
     價格由高到低</label><br>
 	</div>
 	<div style="clear:both"></div>
@@ -268,10 +268,15 @@ function ValidateNumber(e, pnumber)
 
 function checksort(n){
 	$(".sortMenu").each(function(index) {
-		if(index == n)
+		if(index == n){
   		$(this).prop("checked");
-		else
+			if($(this).prop("checked") == false){
+				//$.hash('orderby',null);
+				javascript:getProduct('orderby',null);
+			}
+		}else{
 			$(this).attr('checked', false);
+		}
 	});
 }
 
@@ -289,6 +294,7 @@ function removechecked(){
 	$.hash('6',null);
 	$.hash('gprice',null);
 	$.hash('orderby',null);
+	$.hash('trait',null);
 	javascript:getProduct('','');
 }
 </script>
