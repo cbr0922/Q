@@ -199,6 +199,9 @@ function getProduct(name,value){
 	if($.hash("page")!=null){
 		string = string+"&page=" + $.hash("page");
 	}
+  if($.hash("trait")!=null){
+    string = string+"&trait=" + $.hash("trait");
+  }
 	if($.hash("orderby")!=null){
 		cate = $.hash("orderby");
 		newcate = cate_array = cate.split("-");

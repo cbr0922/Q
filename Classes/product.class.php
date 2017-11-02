@@ -325,6 +325,16 @@ class PRODUCT{
 							$searchSql .= " and (" . implode("or",$catesql) . ")";
 						}
 						break;
+					case "trait":
+						$trait_array = explode("-",$v);
+						foreach($trait_array as $key=>$value){
+							if($value=="new")
+								$searchSql .= " and g.ifnew = '1'";
+							elseif($value=="sale") {
+								//$searchSql .= " and g.pricedesc <= '".intval($v)."'";
+							}
+						}
+						break;
 				}
 				if(substr($k,0,4)=="attr" && $k!="attr2" && $k!="attr3"){
 					$attrsql = array();
@@ -1226,7 +1236,9 @@ class PRODUCT{
 			if($_SESSION['user_id']>0){
 				$member_price = $this->getMemberPrice($_SESSION['user_level'],$gid,$Detail_Rs['detail_id']);
 			}
-			$result_array['info'][$i]['member_price'] = intval($member_price)==0?$Detail_Rs['detail_pricedes']:$member_price;			$result_array['info'][$i]['member_price'] = number_format($result_array['info'][$i]['member_price']);
+			$result_array['info'][$i]['detail_price'] = number_format($Detail_Rs['detail_price']);
+			$result_array['info'][$i]['member_price'] = intval($member_price)==0?$Detail_Rs['detail_pricedes']:$member_price;
+			$result_array['info'][$i]['member_price'] = number_format($result_array['info'][$i]['member_price']);
 			$i++;
 		}
 		return $result_array;
