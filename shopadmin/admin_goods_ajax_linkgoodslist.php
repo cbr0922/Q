@@ -9,7 +9,7 @@ $objClass = "9pv";
 $Nav      = new buildNav($DB,$objClass);
 
 $Gid  = $FUNCTIONS->Value_Manage($_GET['gid'],$_POST['gid'],'back','');
-$Where      = intval($_GET['bid'])!="" ? " and bid=".intval($_GET['bid'])." " : ""  ;
+$Where      = intval($_GET['top_id'])!=0 ? " and bid=".intval($_GET['top_id'])." " : ""  ;
 $Add        = "";
 $AddBidtype =  "";
 $ot_class_array = array();
@@ -68,7 +68,7 @@ if (intval($_GET[top_id])!=0 ){
 		$AddBidtype = " and 1<>1";
 	}
 }*/
-$Where    =  "";
+//$Where    =  "";
 $Where    = $_GET['skey']!="" ?  " and goodsname like '%".$_GET['skey']."%'" : $Where ;
 
 $s = $Where." and  gid!=".$Gid." ";
