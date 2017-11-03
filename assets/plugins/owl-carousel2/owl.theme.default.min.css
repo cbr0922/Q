@@ -75,7 +75,7 @@
 
 
 /*owl-carousel3*/
-.owl-theme.owl-carousel3 .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme.owl-carousel3 .owl-dots .owl-dot.active span, .owl-theme.owl-carousel3 .owl-dots .owl-dot:hover span {
     background: #00674e;
     border-radius: 0;
     border: 1px solid #e6e2e9;

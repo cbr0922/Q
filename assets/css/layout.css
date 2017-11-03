@@ -11059,7 +11059,7 @@ div.ES-good_color {
 	margin-bottom: 5px;
 }
 .colorselect img{
-	margin: 4px 0 10px 4px;
+	margin: 3px 5px 10px 3px;
 }
 
 /*彩虹圈燈箱*/
@@ -11070,8 +11070,33 @@ div.ES-good_color {
 	padding-left: 0;
 }
 .mpp_lipstick_close{
-    float: right;
+    /*float: right;*/
     padding: 10px;
+	margin-right: 0 !important;
+}
+.pic_colorbox{
+	/*margin-right: 5px;*/
+}
+
+@media (max-width: 767px) {
+
+	.pic_color{
+		width:75%;
+	}
+	.pic_colorbox{
+		/*margin-right: 3px;*/
+	}
+	
+}
+@media (min-width: 375px) and (max-width: 414px) {
+	.colorselect img{
+		margin: 3px 7px 10px 3px;
+	}
+}
+@media (max-width: 374px) {
+	.colorselect img{
+		margin: 3px 9px 10px 3px;
+	}
 }
 .ES-num {
     /*float: left;*/
@@ -11346,7 +11371,8 @@ section.page-header.brandbread .breadcrumb {
 	font-size:17px;
 	font-weight: normal!important;
 	margin:20px 0;
-
+    height: 50px;
+    overflow: hidden;
 }
 .ES-index h4{
 	font-size:14px;
@@ -11403,6 +11429,8 @@ section.page-header.brandbread .breadcrumb {
 		font-size:12px;
 		font-weight: normal!important;
 		margin:10px 0;
+		height: 36px;
+		overflow: hidden;
 
 	}
 	
@@ -11412,9 +11440,12 @@ section.page-header.brandbread .breadcrumb {
 		color: #636363;
 		font-weight: lighter;
 		margin: 0 0 10px 0;
+		height: 36px;
+		overflow: hidden;
 	}
 	
 }
+
 /*ES-article*/
 .ES-article-padding-left{
 	
@@ -11450,6 +11481,7 @@ section.page-header.brandbread .breadcrumb {
     padding: 0 15px;
     text-align: center;
 }
+
 @media (max-width: 767px) {
 	.ESlist .catname h1{
 		margin-top: 5px;
@@ -11462,7 +11494,7 @@ section.page-header.brandbread .breadcrumb {
 		padding: 0 5px;
 		text-align: center;
 	}
-	
+
 }
 @media (max-width: 374px) {
 	.col-374-12{

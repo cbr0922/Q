@@ -95,6 +95,7 @@ if (intval($_GET['brand_class'])>0){
 	$catname = $class_banner[0][catname];
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
+	$top_id = $class_banner[0][top_id];
 }
 $menutype = "category";//all左側菜單顯示所有分類級別，category只顯示當前館別分類（即從第二級別分類開始顯示）
 if($menutype == "all")
@@ -102,6 +103,7 @@ if($menutype == "all")
 else
 	$showbid = $class_banner[0][bid];
 $tpl->assign("showbid",     $showbid);
+$tpl->assign("top_id",     $top_id);
 $tpl->assign("catname",     $catname);
 $tpl->assign("class_banner",     $class_banner);
 $tpl->assign("title",       $title);

@@ -120,7 +120,7 @@ function checkStorage(id,color,size,ifalarm,detail_id){
 								$('#count' + id).attr({"value":"0","min":"0","max":"0","disabled":true});
 							}else if(ifalarm == 1){
 								$('#showstorage' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
-								$('#showstorage1' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-6 col-sm-6 col-xs-6 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
+								$('#showstorage1' + id).html("<div <{if $smarty.get.type eq 'bonus'}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{else}>class='col-md-12 col-sm-12 col-xs-12 nopadding'<{/if}>><div class='noborder margin-top-10 text-center' style='width:100%;line-height: 22px;'>缺貨中</div></div>");
 								$('#nobtn' + id).css("display","none");
 								$('#showbuy' + id).css("display","none");
 								$('#nobtn1' + id).css("display","none");
@@ -324,9 +324,8 @@ div.shop-item-summary {
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb breadcrumb-inverse">
 						<li><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{ $brand_id }>">主頁</a></li><{if $smarty.get.type eq 'new' }><li><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{ $brand_id }>&type=new">新品上市</a></li><{else}><{if $smarty.get.brand_class eq ""}><li><a href="<{ $Site_Url }>/brand/<{ $brand_id }>">瀏覽所有產品</a></li><{/if}><{/if}>
-						<{ section name=list loop=$class_banner }>
-              <li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li>
-						<{/section}>
+						<{ section name=list loop=$class_banner }><li class=""><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>"><{$class_banner[list].catname}></a></li><{if $class_banner[list].top_id eq 0 && $smarty.section.list.last eq 1}><li><a href="<{ $Site_Url }>/brand/<{ $brand_id }>_<{$class_banner[list].bid}>">瀏覽所有產品</a></li><{/if}><{/section}>
+						
 					</ol><!-- /breadcrumbs -->
 					<{/if}>
 				</div>
@@ -752,7 +751,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 									-->
 								</div>
-								<{if $product_array.info[list].good_color neq ""}>
+								<{if $product_array.info[list].good_color neq ""}><!--顏色燈箱-->
 								<div class="shop-item product-shop-item100 product-shop-item1 shop-item<{$product_array.info[list].gid}> ES-colordiv" style="background-color: #fff; position: absolute;z-index: 10000; top:0px;display: none;">
 									<div class="thumbnail noborder nopadding">
 										<a href="javascript:void(0);" onclick="$('.popupMask, .popupWindow, .shop-item<{$product_array.info[list].gid}>').hide();"><img class="mpp_lipstick_close" src="<{ $Site_Url }>/images/mpp_lipstick_close.png"></a>
@@ -762,7 +761,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 										<a href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>">
 											<{ section name=list1 loop=$product_array.info[list].pic_array}>
-											<img class="pic_array<{$product_array.info[list].gid}> <{$product_array.info[list].pic_array[list1].sort}>_<{$product_array.info[list].gid}>" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" data-original="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" border="0" name="goodpic" style="display: none;">
+											<img class="pic_color pic_array<{$product_array.info[list].gid}> <{$product_array.info[list].pic_array[list1].sort}>_<{$product_array.info[list].gid}>" id="showbonus<{$product_array.info[list].gid}>" src="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" data-original="<{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].pic_array[list1].pic}>" border="0" name="goodpic" style="display: none;">
 											<{ /section}>
 										</a>
 
@@ -797,15 +796,15 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 
 										</div>
 
-										<div  class="col-md-12 col-sm-12 col-xs-12 margin-top-20 nopadding">
+										<div  class="col-md-12 col-sm-12 col-xs-12 margin-top-20 nopadding1">
 
 											<{ section name=list1 loop=$product_array.info[list].color start=0}>
 
-											<div class="pull-left" style="margin-right:10px;">
+											<div class="pull-left pic_colorbox">
 											<a href="javascript:void(0);" onClick="changeColor('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].color}>');changeImgs('<{$product_array.info[list].gid}>','<{$product_array.info[list].color[list1].sort}>');checkStorage(<{$product_array.info[list].gid}>,<{if $product_array.info[list].good_color neq ""}> 1<{else}>0<{/if}>,<{if $product_array.info[list].good_size neq ""}>1<{else}>0<{/if}>,<{$product_array.info[list].ifalarm}>,0);">
 												<div class="colorselect">
 													<div class="ES-good_color_select" id="showcolor<{$product_array.info[list].gid}>_<{$smarty.section.list1.index}>"></div>
-													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="28" height="28">
+													<img src="<{ $Site_Url }>/UploadFile/GoodPic/<{$product_array.info[list].color[list1].pic}>" width="30" height="30">
 												</div>
 											</a>
 											</div>
@@ -951,10 +950,10 @@ function changeImgs(gid,sort){
 
 function resize(){
 	var wdth=$(window).width();
-	if(wdth > 800){
+	if(wdth > 767){
 		$('.product-shop-item1').css({'position' : 'absolute', 'width' : '100%', 'top' : '0px', 'left' : '0px'});
 	}else{
-		$('.product-shop-item1').css({'position' : 'fixed', 'width' : '90%', 'top' : '50px', 'left' : '5%'});
+		$('.product-shop-item1').css({'position' : 'fixed', 'width' : '80%', 'top' : '20px', 'left' : '10%'});
 	}
 }
 
@@ -964,6 +963,7 @@ $(window).resize(function(){
 });
 
 </script>
+
 <script language="javascript" src="<{ $Site_Url }>/js/spinner.js"></script>
 <!--下拉圖片效果-->
 <link rel="Stylesheet" type="text/css" href="<{ $template_dir }>/css/wSelect.css" />

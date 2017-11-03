@@ -23,6 +23,7 @@ if (intval($_GET['brand_class'])>0){
 	$catname = $class_banner[0][catname];
 	$class_banner = array_reverse($class_banner);
 	$banner = $class_banner[0][banner];
+	$top_id = $class_banner[0][top_id];
 }
 if ($bid>0){
 	$PRODUCT->getBanner($bid);   //導航
@@ -264,6 +265,7 @@ while ($track_array  = $DB->fetch_array($Query)){
 	$tpl->assign("Search_js",   $track_Js);
 }
 $tpl->assign("catname",     $catname);
+$tpl->assign("top_id",     $top_id);
 $tpl->assign("adv_array",     $adv_array);
 $tpl->assign("Float_radio",               intval($INFO['float_radio']));                    //浮动广告开关
 $tpl->assign("Ear_radio",                 intval($INFO['ear_radio']));                      //耳朵广告开关
