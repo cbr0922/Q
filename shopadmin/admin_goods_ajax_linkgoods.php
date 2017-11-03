@@ -46,8 +46,8 @@ function MM_showHideLayers() { //v3.0
 }
 </script>
 <div style="height:380px;overflow:auto">
-<FORM name=optForm method=get action="admin_goods_ajax_linkgoodslist.php" id="linkgoodsform">        
-		<input type="hidden" name="Action" value="Search">		 
+<FORM name=optForm method=get action="admin_goods_ajax_linkgoodslist.php" id="linkgoodsform">
+		<input type="hidden" name="Action" value="Search">
 		<INPUT type=hidden name='Goodsname' value="<?php echo $Goodsname?>" >
 		<INPUT type=hidden name='gid' value="<?php echo $Gid?>" >
       <TABLE class=p12black cellSpacing=0 cellPadding=0 width="100%"   align=center border=0>
@@ -64,21 +64,21 @@ function MM_showHideLayers() { //v3.0
                 &nbsp;&nbsp;&nbsp;</TD>
                 <TD width="205" align="right" vAlign=center class=p9black>
                   <input type="button" name="detailsave" id="detailsave" value="保存" />
-                  <input type="button" name="cPic" id="cPic" value="返回" onclick="closeWin();" />			
+                  <input type="button" name="cPic" id="cPic" value="返回" onclick="closeWin();" />
                 </TD>
         	    </TR>
 	          </TBODY>
 	        </TABLE></TD>
-           
+
 	    </TR>
-	    
+
   </TABLE>
   </FORM>
                         <FORM name=adminForm action="admin_goods_ajax_linkgoodssave.php" method=post id="selectlinkgoodsform">
 					<INPUT type=hidden name=act id="act" value="Save">
 					<INPUT type=hidden name='Goodsname' id='Goodsname' value="<?php echo $Goodsname?>" >
 					<INPUT type=hidden name='gid' id='gid' value="<?php echo $Gid?>" >
-					 <INPUT type=hidden value=0  name=boxchecked> 
+					 <INPUT type=hidden value=0  name=boxchecked>
 	<div id="goodslinklist">
 
                   <TABLE   width="95%" border=0 align="center" cellPadding=0 cellSpacing=0 class=listtable>
@@ -94,7 +94,7 @@ function MM_showHideLayers() { //v3.0
                       <TD width="50%"  height=26 align="left" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif class=p9black><?php echo $Admin_Product[ProductName];//名称?>					  </TD>
                       <TD  height=26 colspan="8" align="left" noWrap background=images/<?php echo $INFO[IS]?>/bartop.gif class=p9black><?php echo $Admin_Product[ProductPrice];//价格?>					  </TD>
                       </TR>
-					<?php               
+					<?php
 					$i=0;
 
 					while ($Rs=$DB->fetch_array($Query)) {
@@ -109,20 +109,20 @@ function MM_showHideLayers() { //v3.0
 					?>
                     <TR class=row0>
                       <TD align=middle  height=20>
-					  <INPUT id='cb<?php echo $i?>'  type=checkbox value='<?php echo $Rs['gid']?>' name=cid[]> 
+					  <INPUT id='cb<?php echo $i?>'  type=checkbox value='<?php echo $Rs['gid']?>' name=cid[]>
 					  </TD>
 					  <TD align=left  height=20><IMG onMouseOver="MM_showHideLayers('imgLayer<?php echo $i?>','','show')" onMouseOut="MM_showHideLayers('imgLayer<?php echo $i?>','','hide')" height=18 src="images/<?php echo $INFO[IS]?>/icon-viewpic.gif" width=18>
                         <DIV class=shadow id=imgLayer<?php echo $i?> style="Z-INDEX: 3; VISIBILITY: hidden; WIDTH: 135px; POSITION: absolute; HEIGHT: 135px"   border="1"><IMG src="../<?php echo $INFO['good_pic_path']?>/<?php echo $Rs['smallimg']?>" ></DIV>
 					  </TD>
                       <TD height=20 align="left" noWrap><?php echo $Rs['bn']?> &nbsp;</TD>
-                      <TD  height=20 align=left nowrap> <?php echo $Rs['goodsname']?></TD> 
+                      <TD  height=20 align=left nowrap> <?php echo $Rs['goodsname']?></TD>
                       <TD height=20 colspan="8" align=left nowrap><?php echo $Rs['price']?></TD>
                       </TR>
 					<?php
 					$i++;
 					}
 					?>
-					 
+
       </TABLE>
                      <?php if ($Num>0){ ?>
 			<table width="95%"    border=0 align="center" cellpadding=0 cellspacing=0 class=p9gray>
@@ -130,12 +130,12 @@ function MM_showHideLayers() { //v3.0
                 <tr>
                   <td valign=center align=middle background=images/<?php echo $INFO[IS]?>/03_content_backgr.png height=23><?php echo $Nav->pagenav(1,"admin_goods_ajax_linkgoodslist.php","goodslinklist")?> </td>
                 </tr>
-                
+
       </table><?php } ?>
                      </div>
                      </FORM>
 
-</div>		
+</div>
 
 <script>
 $(document).ready(function() {
@@ -143,11 +143,11 @@ var options = {
 		success:       function(msg){
 						$("#goodslinklist").html(msg);
 						//alert(msg);
-						
+
 					},
 		type:      'get',
 		dataType:  'html',
-		clearForm: true
+		clearForm: false
 	};
 var options1 = {
 		success:       function(msg){
@@ -155,7 +155,7 @@ var options1 = {
 								closeWin();
 								showtajaxfun('goodslink');
 							}
-						
+
 					},
 		type:      'post',
 		dataType:  'json',
@@ -166,6 +166,7 @@ $("#linksearch").click(function(){
 					  // $("#act").attr("value","Search");
 					  // alert($("#linkgoodsform").attr("action"));
 					   $("#linkgoodsform").ajaxSubmit(options);
+						 $("#top_id option[value="+ $('#top_id :selected').val() +"]").attr('selected', true);
 								});
 $("#detailsave").click(function(){$("#selectlinkgoodsform").ajaxSubmit(options1);});
 });
