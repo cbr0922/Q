@@ -203,38 +203,38 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 					if(intval($data[getindex("h")])>0){
 						$class_banner = array();
 						$list = 0;
-						$PRODUCT->getTopBrandBidList(intval($data[getindex("h")]));
+						$PRODUCT->getTopBrandBidList(intval($data[getindex("h")]),0);
 						$brandbid_array[0] = $class_banner;
 						//print_r($class_banner);exit;
 						//擴展類
 						if(intval($data[getindex("aj")])>0){
 							$class_banner = array();
 							$list = 0;
-							$PRODUCT->getTopBrandBidList(intval($data[getindex("aj")]));
+							$PRODUCT->getTopBrandBidList(intval($data[getindex("aj")]),0);
 							$brandbid_array[1] = $class_banner;
 						}
 						if(intval($data[getindex("ak")])>0){
 							$class_banner = array();
 							$list = 0;
-							$PRODUCT->getTopBrandBidList(intval($data[getindex("ak")]));
+							$PRODUCT->getTopBrandBidList(intval($data[getindex("ak")]),0);
 							$brandbid_array[2] = $class_banner;
 						}
 						if(intval($data[getindex("al")])>0){
 							$class_banner = array();
 							$list = 0;
-							$PRODUCT->getTopBrandBidList(intval($data[getindex("al")]));
+							$PRODUCT->getTopBrandBidList(intval($data[getindex("al")]),0);
 							$brandbid_array[3] = $class_banner;
 						}
 						if(intval($data[getindex("am")])>0){
 							$class_banner = array();
 							$list = 0;
-							$PRODUCT->getTopBrandBidList(intval($data[getindex("am")]));
+							$PRODUCT->getTopBrandBidList(intval($data[getindex("am")]),0);
 							$brandbid_array[4] = $class_banner;
 						}
 						if(intval($data[getindex("an")])>0){
 							$class_banner = array();
 							$list = 0;
-							$PRODUCT->getTopBrandBidList(intval($data[getindex("an")]));
+							$PRODUCT->getTopBrandBidList(intval($data[getindex("an")]),0);
 							$brandbid_array[5] = $class_banner;
 						}
 
@@ -312,7 +312,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 
 		}else{
 			if(trim($data[19])==""){
-				$db_string = $DB->compile_db_update_string($sql_data);
+			 	$db_string = $DB->compile_db_update_string($sql_data);
 				 $Sql = "UPDATE `{$INFO[DBPrefix]}goods` SET $db_string  WHERE gid=".intval($gid);
 				$Result=$DB->query($Sql);
 

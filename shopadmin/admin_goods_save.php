@@ -188,14 +188,14 @@ if ($_POST['Action']=='Insert' ) {
 	//分類
 	$class_banner = array();
 	$list = 0;
-	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']));
+	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']),0);
 	$brandbid_array[0] = $class_banner;
 	//擴展類
 	for($i=1;$i<=intval($_POST['brandclasscount']);$i++){
 		if (intval($_POST['brand_bid' . $i]) > 0){
 			$class_banner = array();
 			$list = 0;
-			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]));
+			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]),0);
 			$brandbid_array[$i] = $class_banner;
 		}
 	}
@@ -503,14 +503,14 @@ if ($_POST['Action']=='Copy' ) {
 	//分類
 	$class_banner = array();
 	$list = 0;
-	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']));
+	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']),0);
 	$brandbid_array[0] = $class_banner;
 	//擴展類
 	for($i=1;$i<=intval($_POST['brandclasscount']);$i++){
 		if (intval($_POST['brand_bid' . $i]) > 0){
 			$class_banner = array();
 			$list = 0;
-			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]));
+			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]),0);
 			$brandbid_array[$i] = $class_banner;
 		}
 	}
@@ -732,14 +732,14 @@ if ($_POST['Action']=='Update' ) {
 	//分類
 	$class_banner = array();
 	$list = 0;
-	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']));
+	$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid']),0);
 	$brandbid_array[0] = $class_banner;
 	//擴展類
 	for($i=1;$i<=intval($_POST['brandclasscount']);$i++){
 		if (intval($_POST['brand_bid' . $i]) > 0){
 			$class_banner = array();
 			$list = 0;
-			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]));
+			$PRODUCT->getTopBrandBidList(intval($_POST['brand_bid' . $i]),0);
 			$brandbid_array[$i] = $class_banner;
 		}
 	}

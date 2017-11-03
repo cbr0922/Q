@@ -829,17 +829,18 @@ class PRODUCT{
 	/**
 	商品分類
 	**/
-	function getTopBrandBidList($bid){
+	function getTopBrandBidList($bid,$showname=1){
 		global $DB,$INFO,$class_banner,$list,$Bcontent;
 		$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand_class` where bid=".intval($bid)." limit 0,1 ");
 		$Num   = $DB->num_rows($Query);
 		if ($Num>0){
 			$Result     =  $DB->fetch_array($Query);
 			$class_banner[$list]['bid'] = $Result['bid'];
-			$class_banner[$list]['catname'] = $Result['catname'];
+			if($showname==1)
+				$class_banner[$list]['catname'] = $Result['catname'];
 			$list++;
 			if ($Result['top_id']>0)
-				$this->getTopBrandBidList($Result['top_id']);
+				$this->getTopBrandBidList($Result['top_id'],$showname);
 		}
 	}
 
