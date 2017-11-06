@@ -11178,6 +11178,7 @@ div.ES-good_color {
 			margin-right: 0px;
 			height: 22px !important;
 			font-size: 12px;
+			width:80%;
 		}
 		.ES-table .form-group{
 			margin-bottom:0px !important;
@@ -11190,6 +11191,9 @@ div.ES-good_color {
 		}
 		.sortbox .options{
 			text-align:center;
+		}
+		.ESlist .sortbox .options{
+			text-align:right;
 		}
 }
 /*ES&LMproductlist-CSS*/
@@ -11481,7 +11485,9 @@ section.page-header.brandbread .breadcrumb {
     padding: 0 15px;
     text-align: center;
 }
-
+.visible-767{
+	display:none;
+}
 @media (max-width: 767px) {
 	.ESlist .catname h1{
 		margin-top: 5px;
@@ -11494,7 +11500,15 @@ section.page-header.brandbread .breadcrumb {
 		padding: 0 5px;
 		text-align: center;
 	}
-
+	.hidden-767{
+		display:none;
+	}
+	.visible-767{
+		display:block;
+	}
+	.nopadding-374{
+		padding:0 !important;
+	}
 }
 @media (max-width: 374px) {
 	.col-374-12{
@@ -11506,6 +11520,7 @@ section.page-header.brandbread .breadcrumb {
 	.col-374-12 section.page-header.brandbread {
 		padding-bottom: 10px !important;
 	}
+	
 }
 /*ES-store、ES-story*/
 .ES-store{

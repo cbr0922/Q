@@ -327,11 +327,13 @@ class PRODUCT{
 						break;
 					case "trait":
 						$trait_array = explode("-",$v);
-						foreach($trait_array as $key=>$value){
+						foreach($trait_array as $k=>$value){
 							if($value=="new")
 								$searchSql .= " and g.ifnew = '1'";
 							elseif($value=="sale") {
-								//$searchSql .= " and g.pricedesc <= '".intval($v)."'";
+								$searchSql .= " and ((g.ifsaleoff = '1' and g.saleoff_starttime<='".time()."' and g.saleoff_endtime<='".time()."')";
+								$searchSql .= " or (g.iftimesale = '1' and g.timesale_starttime<='".time()."' and g.timesale_endtime<='".time()."')";
+								$searchSql .= " or (g.price != 0 and g.price != g.pricedesc))";
 							}
 						}
 						break;
@@ -828,16 +830,16 @@ class PRODUCT{
 	商品分類
 	**/
 	function getTopBrandBidList($bid,$showname=1){
-	   global $DB,$INFO,$class_banner,$list,$Bcontent;
-	   $Query = $DB->query("select * from `{$INFO[DBPrefix]}brand_class` where bid=".intval($bid)." limit 0,1 ");
-	   $Num   = $DB->num_rows($Query);
-	   if ($Num>0){
+		global $DB,$INFO,$class_banner,$list,$Bcontent;
+		$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand_class` where bid=".intval($bid)." limit 0,1 ");
+		$Num   = $DB->num_rows($Query);
+		if ($Num>0){
 			$Result     =  $DB->fetch_array($Query);
 			$class_banner[$list]['bid'] = $Result['bid'];
 			if($showname==1)
 				$class_banner[$list]['catname'] = $Result['catname'];
 				$class_banner[$list]['top_id'] = $Result['top_id'];
-				$list++;
+			$list++;
 			if ($Result['top_id']>0)
 				$this->getTopBrandBidList($Result['top_id'],$showname);
 		}

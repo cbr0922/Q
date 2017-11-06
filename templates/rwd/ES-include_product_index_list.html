@@ -311,7 +311,7 @@ div.shop-item-summary {
 	 </div><{/if}>
 
 		<div class="form-group">
-		<div class="col-md-4 col-sm-4 col-xs-6 col-374-12">
+		<div class="col-md-4 col-sm-4 col-xs-6 col-374-12-t nopadding-374">
 		<!-- PAGE HEADER -->
 			<section class="page-header brandbread">
 				<div class="container10">
@@ -332,10 +332,10 @@ div.shop-item-summary {
 			</section>
 			<!-- /PAGE HEADER -->
 		</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
+			<div class="col-md-4 col-sm-4 col-xs-12 hidden-767">
 			  <h1 class="margin-bottom-10 text-center" style="margin-top:5px;font-size:22px;font-weight:normal;"><{if $smarty.get.type eq 'new' }>新品上市<{else}><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><{/if}><!--<{if $title neq ""}><{ $title }><{elseif $smarty.get.brand_id >0 }><{if $brandname neq ""}><{ $brandname }><{/if}><{else}><{if $smarty.get.bid>0 }><{ $classinfo_array.catname }><{else}>全部商品<{/if}><{/if}>商品區--></h1>
 			</div><!--<img src="<{ $template_dir }>/images/product_all.jpg"> <{if $smarty.get.skey neq ""}>您搜尋的關鍵字是：<font color="#FF0000"><{$smarty.get.skey}></font>的結果<{/if}>共找到 <span class="price"><{$product_array.count}></span> 項商品-->
-			<div class="col-md-4 col-sm-4 col-xs-6 col-374-12">
+			<div class="col-md-4 col-sm-4 col-xs-6 col-374-12-t nopadding-374">
 								<!-- LIST OPTIONS -->
 							<div class="clearfix shop-list-options margin-top-10 sortbox">
 <!-- 簡易頁數
@@ -380,7 +380,7 @@ div.shop-item-summary {
 							</div>
 							<!-- /LIST OPTIONS -->
 			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 hidden-lg hidden-md hidden-sm">
+			<div class="col-md-4 col-sm-4 col-xs-12 hidden-lg visible-767">
 			  <h1 class="margin-bottom-10 text-center" style="margin-top:5px;font-size:22px;font-weight:normal;"><{if $smarty.get.type eq 'new' }>新品上市<{else}><{if $smarty.get.brand_class eq ""}>瀏覽所有產品<{else}><{$catname}><{/if}><{/if}></h1>
 			</div>
 
