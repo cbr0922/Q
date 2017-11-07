@@ -4,7 +4,7 @@
 								<!-- item --
                                  <{ section name=list loop=$adv_array }>
 								<div>
-					
+
 
 									<A title="<{$adv_array[list].title}>" href="<{$adv_array[list].url}>" class="ad"><{$adv_array[list].img}></A>
 								</div>
@@ -13,10 +13,10 @@
 
 							</div>
 							<!-- /CAROUSEL -->
-						
 
 
-                      
+
+
 						<!-- OWL SLIDER -->
 						<div class="owl-carousel owl-theme owl-carousel1">
 						  <{ section name=list loop=$adv_array }>
@@ -26,16 +26,16 @@
                           </a>
 						  </div>
                           <{ /section }>
-  
-						
+
+
 						</div>
 						<div class="psbtn">
 						 <a class="button secondary play"><i class="fa fa-play"></i></a>
 						 <a class="button secondary stop"><i class="fa fa-pause"></i></a>
 						 </div>
-						 
+
                        <!-- /OWL SLIDER -->
-							
+
 		<script type="text/javascript" src="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.js"></script>
 		 <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.carousel.min.css">
     <link rel="stylesheet" href="<{ $Site_Url }>/assets/plugins/owl-carousel2/owl.theme.default.min.css">
@@ -60,10 +60,10 @@ $(document).ready(function() {
 				$('.play').show();
                 owl.trigger('stop.owl.autoplay')
               })
-			  
-			
-})	
-			
+
+
+})
+
 </script>
 
 

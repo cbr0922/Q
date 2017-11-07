@@ -24,7 +24,7 @@ if (intval($_GET[top_id])!=0 ){
 			$ot_class_array  = array_merge($Next_ArrayClass,$ot_class_array);
 		}
 	}
-		if ((in_array(intval($_GET[top_id]),$ot_class_array) && $_SESSION['LOGINADMIN_TYPE']==1) || $_SESSION['LOGINADMIN_TYPE']!=1){
+		if (/*(in_array(intval($_GET[top_id]),$ot_class_array) &&)*/ $_SESSION['LOGINADMIN_TYPE']==1 || $_SESSION['LOGINADMIN_TYPE']!=1){
 			$S_Sql            = " and ( bid='".intval($_GET[top_id])."'  ";
 			$Next_ArrayClass  = $FUNCTIONS->Sun_pcon_class(intval($_GET[top_id]));
 			$Next_ArrayClass  = explode(",",$Next_ArrayClass);
