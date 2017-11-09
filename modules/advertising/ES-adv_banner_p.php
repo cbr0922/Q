@@ -26,7 +26,7 @@ while($Result = $DB->fetch_array($Query)){
 
 	$adv_array[$i]['title'] = $Result['adv_title'];
 
-	$DB->query("update `{$INFO[DBPrefix]}advertising` set point_num=point_num+1 where adv_id=".intval($Result['adv_id']));  
+	$DB->query("update `{$INFO[DBPrefix]}advertising` set point_num=point_num+1 where adv_id=".intval($Result['adv_id']));
 
 	$i++;
 
@@ -41,4 +41,3 @@ $tpl->assign("adv_Num",     $Num);
 $tpl->display("ES-adv_banner_p.html");
 
 ?>
-
