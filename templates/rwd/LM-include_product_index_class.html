@@ -582,43 +582,7 @@ href="javascript:location.href='<{ $Site_Url }>/shopping/cart.php?Action=Add&goo
 								<{/if}>
          </li>
 
-		 	<!--重設自適應 column-->
-                                <{ if $productlist_type eq 1 }><!--有左側時的排板-->
-                                	<{if $smarty.section.list.index_next%2 eq 0}>
-    							    <div class="clearfix visible-xs-block margin-bottom-10"></div>
-    							    <{/if}>
-                                 	<{if $smarty.section.list.index_next%3 eq 0}>
-                                    <div class="clearfix visible-sm-block visible-md-block visible-lg-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                <{ elseif $cell_num eq 1 }><!--沒左側時數量3格的排板-->
-                                	<{if $smarty.section.list.index_next%2 eq 0}>
-    							    <div class="clearfix visible-xs-block margin-bottom-10"></div>
-    							    <{/if}>
-                                 	<{if $smarty.section.list.index_next%3 eq 0}>
-                                    <div class="clearfix visible-sm-block visible-md-block visible-lg-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                <{ elseif $cell_num eq 2 }><!--沒左側時數量4格的排板-->
-                                	<{if $smarty.section.list.index_next%2 eq 0}>
-    							    <div class="clearfix visible-xs-block margin-bottom-10"></div>
-    							    <{/if}>
-                                 	<{if $smarty.section.list.index_next%3 eq 0}>
-                                    <div class="clearfix visible-sm-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                    <{if $smarty.section.list.index_next%4 eq 0}>
-                                    <div class="clearfix visible-md-block visible-lg-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                <{ elseif $productlist_type neq 1 && $cell_num eq 3 }><!--沒左側時數量5格的排板-->
-                                	<{if $smarty.section.list.index_next%2 eq 0}>
-    							    <div class="clearfix visible-xs-block margin-bottom-10"></div>
-    							    <{/if}>
-                                    <{if $smarty.section.list.index_next%3 eq 0}>
-                                    <div class="clearfix visible-sm-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                 	<{if $smarty.section.list.index_next%5 eq 0}>
-                                    <div class="clearfix visible-md-block visible-lg-block margin-bottom-10"></div>
-    							 	<{/if}>
-                                <{/if}>
-								<!--/重設自適應 column-->
+	
          <{/section}></ul>
 
 <{/section}>
