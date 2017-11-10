@@ -104,8 +104,7 @@
 				</div>
 			</section>
 			<!-- /PAGE HEADER -->
-
-	<{if $catcontent neq ''}>
+ <{if $catcontent neq ''}>
 	<section class="padding-top-0 padding-bottom-20 noborder">
 		<div class="container">
 
@@ -119,18 +118,13 @@
         </div>
     </section>
 	<{/if}>
-			<!-- Product List-->
-
-                <{ if $productlist_type eq 1 }>
-			    	        <{ include file="ES-product_index_left.html" }>
-                <{else}>
-                    <{ include file="ES-product_index_full.html" }>
-                <{/if}>
-
-
-
-      <{ include_php file="include/bottom.php" }>
-
+<!-- Product List-->
+<{ if $productlist_type eq 1 }>
+<{ include file="ES-product_index_left.html"}>
+<{else}>
+<{ include file="ES-product_index_full.html"}>
+<{/if}>
+<{ include_php file="include/bottom.php" }>
       <{ if $product_filter eq 0 }>
         <div id="indexlist"><{ include file="ES-include_product_index_list.html" }></div>
       <{/if}>
