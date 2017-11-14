@@ -10707,7 +10707,7 @@ a.horsetext:hover {
 }
 
 .TAGdiv{
-	height: 25px;
+	height: 28px;
     line-height: 25px;
     overflow: hidden;
 	padding: 0 15px;
@@ -10720,6 +10720,13 @@ a.horsetext:hover {
 	color: #000;
 	
 }
+@media only screen and (max-width: 1199px){
+	.TAGa {
+		padding: 3px 2px;
+		line-height: 29px;
+		font-size: 10px;
+	}
+}	
 @media only screen and (max-width: 767px){
 	
 	.TAGdiv{
@@ -10727,10 +10734,22 @@ a.horsetext:hover {
 	}
 	.TAGsm{
 		display: inline-block;
-		width: 108px;
+		width: 115px;
 		overflow: hidden;
 	}
+
 	
+}
+@media only screen and (max-width: 374px){
+	.TAGdiv{
+		padding:0px!important;	
+	}
+	.TAGsm{
+		display: inline-block;
+		width: 110px;
+		overflow: hidden;
+	}
+
 	.TAGa{
 		padding:1px;		
 	}
@@ -10757,11 +10776,18 @@ section.page-header.brandbread .breadcrumb>li+li:before{
 .ESlist .shop-item.product-shop-item:hover .thumbnail{
 	border-color: #fff !important;
 }
+.ESlist div.shop-item {
+    margin-bottom: 30px;
+}
+.ESlist .shop-item.product-shop-item:hover .ES-product-img{
+	/*width:80%;*/
+}
 /**品牌相關文章**/
 .barNtitle{
 	font-size: 60px;
-	margin: 0 0 10px 0;
-	font-weight:normal;
+    margin: 0 0 20px 0;
+    font-weight: normal;
+    line-height: 1;
 }
 h1.barabout{
 	font-size: 60px;
@@ -10783,14 +10809,16 @@ h1.barabout{
 	font-size: 22px;
 	margin: 30px 0;
 	display: block;
+	color:#00122c;
 }
 .barmore{
 	font-size: 14px;
 	padding:12px 40px;
 	border: 1px #000 solid;
+	color:#000033;
 	
 }
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 767px){
 	.barNtitle{
 		font-size: 30px;
 		margin: 0 0 10px 0;
@@ -11459,11 +11487,21 @@ section.page-header.brandbread .breadcrumb {
 /*ES-article*/
 .ES-article-padding-left{
 	
-    padding-left: 8%;	
+    padding-left: 7%;	
 }
 .ES-article-img-top{
 	
     padding-top: 10%;	
+}
+.ES-article-intro{
+	font-size:22px;
+	color:#00122c;
+}
+.ES-article-text{
+	font-size:16px;
+	color:#00122c;
+	padding-right: 9px;
+    padding-left: 8px;
 }
 @media (max-width: 991px) {
 	.ES-article-padding-left{
@@ -11473,10 +11511,29 @@ section.page-header.brandbread .breadcrumb {
 		padding-top: 0;			
 	}
 }
+@media (max-width: 767px) {
+	.ES-article-intro{
+		font-size:12px;
+	}
+	.ES-article-text{
+		font-size:12px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	.ES-article-text img{
+		width:70%;
+	}
+}
 /*ES-product*/
 .ESlist .catname h1{
 	margin-top: 5px;
     font-size: 50px;
+}
+.ESlist div.shop-item-summary h2 a{
+	font-weight: normal;
+    font-size: 14px;
+    color: #040a2b;
+    margin: 0 0 4px 0;
 }
 .ES-product section.page-header .breadcrumb{
 	padding:0;
@@ -11493,6 +11550,11 @@ section.page-header.brandbread .breadcrumb {
 }
 .visible-767{
 	display:none;
+}
+@media (max-width: 1199px) {
+	.liu-add{
+		font-size: 12px;
+	}
 }
 @media (max-width: 767px) {
 	.ESlist .catname h1{
@@ -11514,6 +11576,12 @@ section.page-header.brandbread .breadcrumb {
 	}
 	.nopadding-374{
 		padding:0 !important;
+	}
+	.ESlist div.shop-item-summary h2 a,.ESlist div.shop-item-summary h2 a:hover{
+		font-size: 13px;
+	}
+	.ESlist div.shop-item-price,.ESlist .shop-item-price{
+		margin-top: 18px;
 	}
 }
 @media (max-width: 374px) {

@@ -445,7 +445,7 @@ div.shop-item-summary {
                                             <{else}>
                                             <a href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>">
                                             <{/if}>
-                                            <img class="lazy" id="showbonus" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $product_array.info[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].smallimg}><{/if}>" border=0 name="goodpic" alt="<{$product_array.info[list].goodsname}>">
+                                            <img class="lazy ES-product-img" id="showbonus" src="<{ $Site_Url }>/images/Loading.svg" data-original="<{if $product_array.info[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$product_array.info[list].smallimg}><{/if}>" border=0 name="goodpic" alt="<{$product_array.info[list].goodsname}>">
                                             </a>
                                             <{if $pic_fix eq 1}>
                                             </div>
@@ -458,7 +458,7 @@ div.shop-item-summary {
 											  <div class="thumbnail_fix">
 											  <{/if}>
 											  <a <{if $smarty.get.type eq 'bonus'}> class="lightbox" href="../product/showProduct.php?goods_id=<{$product_array.info[list].gid}>"  data-target="#ajax" data-toggle="modal" <{else}>href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>"<{/if}>>
-											  <img class="lazy" id="showbonus"  src="<{ $Site_Url }>/images/Loading.svg" data-original="
+											  <img class="lazy ES-product-img" id="showbonus"  src="<{ $Site_Url }>/images/Loading.svg" data-original="
 												<{if $product_array.info[list].smallimg2 eq ''}>
 													<{if $product_array.info[list].smallimg eq ''}><{ $Site_Url }>/images/pic.svg
 													<{else}>
@@ -539,7 +539,7 @@ div.shop-item-summary {
 											<{$product_array.info[list].ERP}><{$product_array.info[list].goodsname}></a></h2>
 
 
-											<div class="size-12 margin-top-10" style="height: 32px;overflow: hidden;"><{$product_array.info[list].intro}></div>
+											<div class="size-12 margin-top-10 hidden-xs hidden-sm" style="height: 32px;overflow: hidden;"><{$product_array.info[list].intro}></div>
 
 											<div style="height: 22px;overflow: hidden;"><{if $showbid neq 6 && $showalert neq 1}><{$product_array.info[list].showstorage}><{/if}></div>
 											</div>
@@ -578,7 +578,7 @@ div.shop-item-summary {
                                     <{/if}>
 
 
-														<div <{if $smarty.get.type eq 'bonus'}>class="col-md-12 col-xs-12"<{else}>class="col-md-6 col-xs-6" style="border-right: 1px solid #cecece;"<{/if}>>
+														<div <{if $smarty.get.type eq 'bonus'}>class="col-md-12 col-xs-12 liu-add"<{else}>class="col-md-6 col-xs-6 liu-add" style="border-right: 1px solid #cecece;"<{/if}>>
 														<a <{if $smarty.get.type eq 'bonus'}> class="lightbox" href="../product/showProduct.php?goods_id=<{$product_array.info[list].gid}>"  data-target="#ajax" data-toggle="modal" <{else}>href="<{ $Site_Url }>/product/detail<{$product_array.info[list].gid}>"<{/if}>>
 															<span class="et-expand size-20"></span><br>瀏覽詳細資料
 														</a>
@@ -591,7 +591,7 @@ div.shop-item-summary {
 
 
 
-														<div class="col-md-6 col-xs-6" <{if $product_array.info[list].heartColor eq 1}> style="opacity: 1;"<{/if}>>
+														<div class="col-md-6 col-xs-6 liu-add" <{if $product_array.info[list].heartColor eq 1}> style="opacity: 1;"<{/if}>>
 														<a class="gid<{ $product_array.info[list].gid }> add-wishlist<{$product_array.info[list].heartColor}>" href=javascript:void(0);" onclick="clickHeart(<{ $product_array.info[list].gid }>);" data-item-id="1" data-toggle="tooltip" title="加入追蹤清單">
 															<i class="et-heart size-20 <{if $product_array.info[list].heartColor eq 1}> heartColor<{/if}>"></i><br>加入追蹤清單
 														</a>
