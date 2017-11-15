@@ -341,6 +341,28 @@ div.good_color {
                                         <h1 class="weight-500 size-25" itemprop="name" style="margin-bottom:20px !important;"><{ $P_ERP }></h1>
 									<{/if}>
 									<h1 class="weight-500 size-25" itemprop="name" style="margin-bottom:20px !important;"><{ $P_goodsname }><{if $goodBid neq 6}><{ $P_showstorage }><{/if}></h1>
+									
+									<!-- <{ if $P_Attr neq "" }>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 margin-top-10 nopadding">
+									<{ section name=list loop=$P_Attr }>
+										<{ if $P_Attr[list].attrid neq 4 }>
+										<{ section name=list2 loop=$P_Attr[list].value }><span style="border: 1px solid #000; padding:2px 4px; color: #000;" ><{$P_Attr[list].value[list2].value}></span> <{/section}>
+										 <{/if}>
+                                    <{/section}>
+									
+									</div>
+                                    <{/if}>-->
+									<div class="margin-bottom-10 margin-top-0 nopadding hidden-xs TAGdiv text-left">
+									<{ section name=attri loop=$P_attrs }>
+											<{ if $P_attrs neq ''}>
+											<a class="TAGa"><{$P_attrs[attri].value}></a>
+											
+											<{/if}>
+										<{/section}>
+									<{if $P_ifnew eq 1}><a class="TAGa">NEW</a><{/if}>
+									<{if $P_price neq $P_pricedesc}><a class="TAGa">促銷中</a><{/if}>
+									</div>
+									
 									<p style="border-bottom:#cbcbcb solid 1px; height:1px; margin:0 0 20px 0; "></p>
 									<!-- 商品簡介 -->
 									<{ if $P_intro neq "" }><p><div class="gooddesc" itemprop="description"><{ $P_intro }></div></p><{/if}>
@@ -364,6 +386,11 @@ div.good_color {
 
 								</div>
 								<!-- 優惠活動 -->
+                                    <{ if $P_salecontent neq "" }>
+                                        <div class="col-md-12 nopadding margin-top-0 margin-bottom-20"><div class="event_block"><i class="fa fa-caret-right event_arrow size-18"></i> 優惠說明<br><{$P_salecontent}></div></div>
+                                        <div style="clear:both"></div>
+                                    <{/if}>
+								<!-- 優惠活動 -->
                                     <{ if $P_subjectcontent neq "" }>
                                         <div class="col-md-12 nopadding margin-top-0 margin-bottom-20"><div class="event_block"><i class="fa fa-caret-right event_arrow size-18"></i> 限時優惠<br><{$P_subjectcontent}></div></div>
                                         <div style="clear:both"></div>
@@ -373,10 +400,14 @@ div.good_color {
 									<div id="top_g" class="text-muted" style="line-height:25px;">
 										<!--<{ if $avgscoreimg neq "" }>商品評價：<{$avgscoreimg}><{/if}>-->
                                         <!--<div class="gtitle_size  nopadding">賣場編號</div><div class="nopadding gname_size"><{ $P_goodsno }></div>-->
-										<{ if $P_bn neq "" }><div class="gtitle_size  nopadding">商品編號</div><div class="nopadding gname_size"><span id="showspanbn"><{ $P_bn }></span>&nbsp;</div><{/if}>
-										<{ if $P_guojima neq "" }><div class="gtitle_size  nopadding">國際條碼</div><div class="nopadding gname_size"><span id="showspanguojima"><{ $P_guojima }></span>&nbsp;</div><{/if}>
-										<{ if $P_orgno neq "" }><div class="gtitle_size  nopadding">原廠條碼</div><div class="nopadding gname_size"><span id="showspanguojima"><{ $P_orgno }></span>&nbsp;</div><{/if}>
-										<{ if $P_color neq "" }><div class="gtitle_size  nopadding">顏色</div><div class="nopadding gname_size"><span id="showspancolor"><{ $P_color }></span>&nbsp;</div><{/if}>
+										<{ if $P_bn neq "" }><!--div class="gtitle_size  nopadding">商品編號</div><div class="nopadding gname_size"><span id="showspanbn"><{ $P_bn }></span>&nbsp;</div--><{/if}>
+										<div id="guojima" style="<{ if $P_guojima eq '' }>display:none<{/if}>">
+										<div class="gtitle_size  nopadding">國際條碼</div><div class="nopadding gname_size"><span id="showspanguojima" ><{ $P_guojima }></span>&nbsp;</div>
+										</div>
+										<div id="orgno" style="<{ if $P_orgno eq '' }>display:none<{/if}>">
+										<div class="gtitle_size  nopadding" >原廠條碼</div><div class="nopadding gname_size"><span id="showspanorgno"><{ $P_orgno }></span>&nbsp;</div>
+										</div>
+										<{ if $P_color neq "" }><div class="gtitle_size  nopadding">顏色</div><div class="nopadding gname_size"><span id="showspancolor"></span>&nbsp;</div><{/if}>
                                         <{ if $P_xinghao neq "" }><div class="gtitle_size  nopadding">型號</div><div class="nopadding gname_size"><{ $P_xinghao }></div><{/if}>
                                         <{ if $P_unit neq "" }><div class=" gtitle_size nopadding">計量單位</div><div class="nopadding gname_size"><{ $P_unit }></div><{/if}>
                                         <{ if $P_weight>0 }><div class="gtitle_size  nopadding">重量</div><div class="nopadding gname_size"><{ $P_weight }>KG</div><{/if}>
@@ -545,22 +576,7 @@ div.good_color {
 										<div style="width:100%; float:left;margin: 10px 0 0 0;">
 
 											<ul class="nopadding nomargin" style="list-style-type:none;">
-												<li class="pull-left" style="margin-right:5px;">
-													
-														<{ section name=Comm loop=$Goodpic start=1 max=1}>
-
-														
-													<div class="img-container">
-															 
-												<img style="max-width:150px;" src="<{if $Goodpic[Comm].pic eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path}>/<{$Goodpic[Comm].pic}><{/if}>" alt="<{$Goodpic[Comm].goodpic_title}>" />
-
-															
-													</div>
-													<{/section}>
-													
-													</li>
 											   <{ section name=list loop=$P_color }>
-													
 													<li class="pull-left" style="margin-right:5px;">
 														<a href="javascript:void(0);" onClick="changeColor('<{$P_color[list].color}>');changeImgs('<{$P_color[list].sort}>');">
 														<div class="good_color" id="showcolor<{$smarty.section.list.index}>">
@@ -671,7 +687,7 @@ div.good_color {
 													<td style="padding-left:0;">
 
 													<div class="form-group">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12  nopadding-left">
+													<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12  nopadding-left">
 													<div><a class="ico-rounded lightbox" href="../product/showProduct.php?goods_id=<{ $P_changegoods.info[list].changegid }>" data-plugin-options='{"type":"ajax", "closeOnBgClick":false}'><{$P_changegoods.info[list].goodsname}></a> <span style="color: #f00;" id="showchangegid<{$P_changegoods.info[list].changegid}>"></span></div>
                                                     <{if $P_changegoods.info[list].good_color neq ""}>
                                                     <div class="clearfix shop-list-options text-left"  style="margin-bottom: 5px;">
@@ -695,7 +711,7 @@ div.good_color {
                                                     <{/if}>
 													</div>
 													<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 nopadding">原價 <span class="line-through nopadding-left">NT$ <{$P_changegoods.info[list].pricedesc}></span></div>
-                                                      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 nopadding-left">加購價 <span <{ if $P_levelprice>0 || $P_iftimesale>0 }><{else}>class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}><{/if}>  >NT$ <{$P_changegoods.info[list].price}></span></div>
+                                                      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 nopadding-left">加購價 <span <{ if $P_levelprice>0 || $P_iftimesale>0 }><{else}>class="shop-item-price" <{ if $price_color neq "" }>style="color:<{$price_color}> !important"<{/if}><{/if}>  >NT$ <{$P_changegoods.info[list].price}></span></div>
 												    </td>
                                                   </tr>
                                                   <{/section}>
@@ -723,15 +739,8 @@ div.good_color {
                                                   </td>
                                                 </tr>
 									<{/if}>
-                                    <{ if $P_Attr neq "" }>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-30 margin-top-10 nopadding">
-									<{ section name=list loop=$P_Attr }>
-										<{ if $P_Attr[list].attrid neq 4 }>
-										<{ section name=list2 loop=$P_Attr[list].value }><span style="border: 1px solid #000; padding:2px 4px; color: #000;" ><{$P_Attr[list].value[list2].value}></span> <{/section}>
-										 <{/if}>
-                                    <{/section}>
-									</div>
-                                    <{/if}>
+                                   
+									
                                      <{ if $PresentProduct_array.count>0 }>
 									 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0  margin-bottom-10 margin-top-10">
 									  <div class="gtitle_size  nopadding">買就送贈品<!--買就送贈品--></div>
@@ -1139,14 +1148,22 @@ showcontent("1");
 function changeproductdetail(detail_id){
 	<{ section name=list loop=$P_productdetail.info }>
 		if(detail_id == "<{$P_productdetail.info[list].detail_id}>"){
-
-
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_productdetail.info[list].detail_bn}>");
+			<{if $P_productdetail.info[list].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$P_productdetail.info[list].guojima}>");
+			<{/if}>
+			
+			<{if $P_productdetail.info[list].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$P_productdetail.info[list].orgno}>");
+			<{/if}>
 		}
 	<{/section}>
-
-
-
 }
 //標籤
 //判斷庫存
@@ -1680,15 +1697,43 @@ function changeColor(color){
 	<{ section name=i loop=$P_color }>
 		if(color == "<{$P_color[i].color}>"){
 			$('#showcolor<{$smarty.section.i.index}>').attr("class","good_color_select");
-
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_color[i].bn}>");
+		
+			<{if $P_color[i].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$P_color[i].guojima}>");
+			<{/if}>
+			
+			<{if $P_color[i].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$P_color[i].orgno}>");
+			<{/if}>
+			
+			
 			$('#showspancolor').html("<{$P_color[i].color}>");
 			//<{$P_color[i].guojima}>/<{$P_color[i].orgno}>
 		}
 	<{ /section }>
 	<{ section name=i loop=$goodcolor_array }>
 		if(color == "<{$goodcolor_array[i].color}>"){
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$goodcolor_array[i].goodsno}>");
+			<{if $goodcolor_array[i].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$goodcolor_array[i].guojima}>");
+			<{/if}>
+			
+			<{if $goodcolor_array[i].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$goodcolor_array[i].orgno}>");
+			<{/if}>
 		}
 	<{ /section }>
 

@@ -396,6 +396,11 @@ div.good_color {
 
 								</div>
 								<!-- 優惠活動 -->
+								<{ if $P_salecontent neq "" }>
+                                        <div class="col-md-12 nopadding margin-top-0 margin-bottom-20"><div class="event_block"><i class="fa fa-caret-right event_arrow size-18"></i> 優惠說明<br><{$P_salecontent}></div></div>
+                                        <div style="clear:both"></div>
+                                    <{/if}>
+								<!-- 優惠活動 -->
                                     <{ if $P_subjectcontent neq "" }>
                                         <div class="col-md-12 nopadding margin-top-0 margin-bottom-20"><div class="event_block"><i class="fa fa-caret-right event_arrow size-18"></i> 限時優惠<br><{$P_subjectcontent}></div></div>
                                         <div style="clear:both"></div>
@@ -406,7 +411,7 @@ div.good_color {
 										<!--<{ if $avgscoreimg neq "" }>商品評價：<{$avgscoreimg}><{/if}>-->
                                         <!--<div class="gtitle_size  nopadding">賣場編號</div><div class="nopadding gname_size"><{ $P_goodsno }></div>-->
 										<{ if $P_bn neq "" }><!--div class="gtitle_size  nopadding">商品編號</div><div class="nopadding gname_size"><span id="showspanbn"><{ $P_bn }></span>&nbsp;</div--><{/if}>
-										<div id="guojima"style="<{ if $P_guojima eq '' }>display:none<{/if}>">
+										<div id="guojima" style="<{ if $P_guojima eq '' }>display:none<{/if}>">
 										<div class="gtitle_size  nopadding">國際條碼</div><div class="nopadding gname_size"><span id="showspanguojima" ><{ $P_guojima }></span>&nbsp;</div>
 										</div>
 										<div id="orgno" style="<{ if $P_orgno eq '' }>display:none<{/if}>">
@@ -1147,8 +1152,17 @@ function changeproductdetail(detail_id){
 			$('#orgno').css("display","block");
 			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_productdetail.info[list].detail_bn}>");
-			$('#showspanguojima').html("<{$P_productdetail.info[list].guojima}>");
-			$('#showspanorgno').html("<{$P_productdetail.info[list].orgno}>");
+			<{if $P_productdetail.info[list].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$P_productdetail.info[list].guojima}>");
+			<{/if}>
+			
+			<{if $P_productdetail.info[list].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$P_productdetail.info[list].orgno}>");
+			<{/if}>
 		}
 	<{/section}>
 }
@@ -1687,19 +1701,42 @@ function changeColor(color){
 			$('#orgno').css("display","block");
 			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_color[i].bn}>");
-			$('#showspanguojima').html("<{$P_color[i].guojima}>");
-			$('#showspanorgno').html("<{$P_color[i].orgno}>");
+		
+			<{if $P_color[i].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$P_color[i].guojima}>");
+			<{/if}>
+			
+			<{if $P_color[i].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$P_color[i].orgno}>");
+			<{/if}>
+			
+			
 			$('#showspancolor').html("<{$P_color[i].color}>");
 			//<{$P_color[i].guojima}>/<{$P_color[i].orgno}>
 		}
 	<{ /section }>
+	//
 	<{ section name=i loop=$goodcolor_array }>
 		if(color == "<{$goodcolor_array[i].color}>"){
 			$('#orgno').css("display","block");
 			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$goodcolor_array[i].goodsno}>");
-			$('#showspanguojima').html("<{$goodcolor_array[i].guojima}>");
-			$('#showspanorgno').html("<{$goodcolor_array[i].orgno}>");
+			<{if $goodcolor_array[i].guojima eq ""}>
+				$('#guojima').css("display","none");
+			<{else}>
+				$('#showspanguojima').html("<{$goodcolor_array[i].guojima}>");
+			<{/if}>
+			
+			<{if $goodcolor_array[i].orgno eq ""}>
+				$('#orgno').css("display","none");
+			<{else}>
+				$('#showspanorgno').html("<{$goodcolor_array[i].orgno}>");
+			<{/if}>
+			
 		}
 	<{ /section }>
 
