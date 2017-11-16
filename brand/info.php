@@ -77,6 +77,7 @@ $Query = $DB->query("select * from `{$INFO[DBPrefix]}nclass` where brand_id=".in
 		//print_r($pic_news);
 		 $tpl->assign("menu_news",$pic_news);
 	}
+$tpl->assign("brand_id",     intval($_GET['brand_id']));
 if(intval($_GET['brand_id'])==136){
 	$tpl->display("ES-brand_info.html");
 }elseif(intval($_GET['brand_id'])==184){

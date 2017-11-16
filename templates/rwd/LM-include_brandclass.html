@@ -319,7 +319,7 @@ a.cur{
 			<div class="navbar-collapse nav-main-collapse collapse submenu-dark" style=" background-color: #fff;">
 							<div class="container100">
 							<div class="product_banner es-logo" style=" width:100%; float:left; position:relative; text-align:center; padding-top:10px;padding-bottom:10px;">
-							<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
+							<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
                             <nav class="nav-main">
 
 
@@ -335,27 +335,27 @@ a.cur{
 									</li>
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main" style="position:absolute; width:100%;margin-top: 11px;max-height: 420px;overflow: auto;">
-									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></i>
+									<!--<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$brand_id}>">商品總覽</a></i>
 							
-									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
+									<li class="dropdown"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$brand_id}>">暢銷榜單</a></li>-->
 
 									<{ section name=list loop=$brandclass_array }>
                   <{if $brandclass_array[list].totalcount neq 0}>
-									<li class="dropdown"><a class="<{if $brandclass_array[list].sub neq "" && $brandclass_array[list].url neq '/product/index.php?brand_id=184&brand_class=283'}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].url eq ""}><{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].url}><{/if}>"><{$brandclass_array[list].classname}></a>
+									<li class="dropdown"><a class="<{if $brandclass_array[list].sub neq "" && $brandclass_array[list].url neq '/product/index.php?brand_id=184&brand_class=283'}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].url eq ""}><{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].url}><{/if}>"><{$brandclass_array[list].classname}></a>
 
 									<{if $brandclass_array[list].sub neq ""}>
 									<{if $brandclass_array[list].url neq "/product/index.php?brand_id=184&brand_class=283"}><!--不是禮儀之選-->
 									<ul class="dropdown-menu es-two">
 									<{ section name=list1 loop=$brandclass_array[list].sub }>
                   <{if $brandclass_array[list].sub[list1].totalcount neq 0}>
-										<li class="dropdown"><a class="<{if $brandclass_array[list].sub[list1].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub[list1].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}>#<{/if}>"><{$brandclass_array[list].sub[list1].classname}></a>
+										<li class="dropdown"><a class="<{if $brandclass_array[list].sub[list1].sub neq ""}>dropdown-toggle<{/if}>" href="<{if $brandclass_array[list].sub[list1].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}>#<{/if}>"><{$brandclass_array[list].sub[list1].classname}></a>
 
 										<{if $brandclass_array[list].sub[list1].sub neq ""}>
 
 										<ul class="dropdown-menu" style="background-color: #2a3263;">
 											<{ section name=list2 loop=$brandclass_array[list].sub[list1].sub }>
                       <{if $brandclass_array[list].sub[list1].sub[list2].totalcount neq 0}>
-												<li><a href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
+												<li><a href="<{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a></li>
                       <{/if}>
                       <{/section}>
 										</ul>
@@ -368,8 +368,8 @@ a.cur{
 									</li>
                   <{/if}>
 								<{/section}>
-								<li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a></li>
-								<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線產品</a></li>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=2">專櫃指南</a></li>
+								<li class="dropdown"><a href="<{ $Site_Url }>/brand/<{$brand_id}>">瀏覽全線產品</a></li>
 									<!--<li class="dropdown"> BLOG
 										<a class="dropdown-toggle" href="#">
 											BLOG
@@ -397,8 +397,8 @@ a.cur{
 
 									<ul class="dropdown-menu">
 
-										<{if $title1 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1"><{$title1}></a></li><{/if}>
-										<{if $title2 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2"><{$title2}></a></li><{/if}>
+										<{if $title1 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=1"><{$title1}></a></li><{/if}>
+										<{if $title2 neq ""}><li class="dropdown"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=2"><{$title2}></a></li><{/if}>
 
 									</ul>
 
@@ -425,11 +425,11 @@ a.cur{
     <div class="margin-bottom-10" style="width:100%; float:left;border-bottom: 1px solid #000;">
 	
 			<div class="col-md-4 col-sm-3" style="margin-top: 40px;padding-left: 0;">
-				<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2">專櫃指南</a>&nbsp;|&nbsp;</div>
-				<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">瀏覽全線產品</a></div>
+				<div style="float:left"><a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=2">專櫃指南</a>&nbsp;|&nbsp;</div>
+				<div style="float:left"><a href="<{ $Site_Url }>/brand/<{$brand_id}>">瀏覽全線產品</a></div>
 			</div>
 			<div class="col-md-4 col-sm-6 product_banner text-center" style="margin: 15px 0;">
-									<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$smarty.get.brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
+									<{if $logopic neq ''}><a href="<{ $Site_Url }>/brand/index.php?brand_id=<{$brand_id}>"><img src="../UploadFile/LogoPic/<{$logopic}>" alt="<{ $brandname }>" /></a><{else}>&nbsp;<{/if}>
 			</div>
 			<div  class="col-md-4 col-sm-3 text-right" style="padding-right: 0;">
 			  <script  language="JavaScript" src="<{ $Site_Url }>/modules/advertising/adv.php?tag=LM-AD" type="text/javascript"></script>
@@ -440,18 +440,18 @@ a.cur{
 
       <div style=" width:100%; float:left;border-bottom: 1px solid #ccc;position: relative;">      
 			<ul id="nav-main1">
-				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/<{$smarty.get.brand_id}>">商品總覽</a></li>-->
+				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/<{$brand_id}>">商品總覽</a></li>-->
 			
-				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$smarty.get.brand_id}>">暢銷榜單</a></li>-->
+				<!--<li class="gnbsub_top"><a href="<{ $Site_Url }>/brand/brand_bestseller.php?brand_id=<{$brand_id}>">暢銷榜單</a></li>-->
                 <{ section name=list loop=$brandclass_array }>
                   <{if $brandclass_array[list].totalcount neq 0}>
-                <li class="gnbsub_top"><a class="cur" href="<{if $brandclass_array[list].url eq ""}><{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].url}><{/if}>"><{$brandclass_array[list].classname}></a>
+                <li class="gnbsub_top"><a class="cur" href="<{if $brandclass_array[list].url eq ""}><{if $brandclass_array[list].sub eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].bid}><{else}>#<{/if}><{else}><{$brandclass_array[list].url}><{/if}>"><{$brandclass_array[list].classname}></a>
                 <{if $brandclass_array[list].sub neq ""}>
                 <{if $brandclass_array[list].url neq "/product/index.php?brand_id=184&brand_class=283"}><!--不是禮儀之選-->
 				
 				<div class="gnbsub" style="display:none">
 				<{if $brandclass_array[list].url neq "#"}>
-                <a href="<{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].bid}>" style="width: 100%;padding: 0;">
+                <a href="<{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].bid}>" style="width: 100%;padding: 0;">
                 <!--<div style="width:100%; float:left;padding: 10px 20px;background-color: #f3f3f3;font-weight: bold;color: #000;font-size: 16px;">
                     瀏覽全線商品&nbsp;<i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>-->
@@ -463,9 +463,9 @@ a.cur{
                   <{ section name=list1 loop=$brandclass_array[list].sub }>
                   <{if $brandclass_array[list].sub[list1].totalcount neq 0}>
 					<span id="subClass1">
-					<h4><a class="" href="<{if $brandclass_array[list].sub[list1].url eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}><{$brandclass_array[list].sub[list1].url}><{/if}>"><{$brandclass_array[list].sub[list1].classname}></a></h4>
+					<h4><a class="" href="<{if $brandclass_array[list].sub[list1].url eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].bid}><{else}><{$brandclass_array[list].sub[list1].url}><{/if}>"><{$brandclass_array[list].sub[list1].classname}></a></h4>
                     <{ section name=list2 loop=$brandclass_array[list].sub[list1].sub }>
-					<a class="size-14" href="<{if $brandclass_array[list].sub[list1].sub[list2].url eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$smarty.get.brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}><{else}><{$brandclass_array[list].sub[list1].sub[list2].url}><{/if}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a>
+					<a class="size-14" href="<{if $brandclass_array[list].sub[list1].sub[list2].url eq ""}><{ $Site_Url }>/product/index.php?brand_id=<{$brand_id}>&brand_class=<{$brandclass_array[list].sub[list1].sub[list2].bid}><{else}><{$brandclass_array[list].sub[list1].sub[list2].url}><{/if}>"><{$brandclass_array[list].sub[list1].sub[list2].classname}></a>
                     <{/section}>
 					</span>
                     <{/if}>
@@ -510,10 +510,10 @@ a.cur{
 					<!--第二層--
 					<span id="subClass1">
                     <{if $title1 neq ""}>
-					<a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=1"><{$title1}></a>
+					<a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=1"><{$title1}></a>
                     <{/if}>
                     <{if $title2 neq ""}>
-                    <a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$smarty.get.brand_id}>&type=2"><{$title2}></a>
+                    <a href="<{ $Site_Url }>/brand/info.php?brand_id=<{$brand_id}>&type=2"><{$title2}></a>
                     <{/if}>
 					</span>
 					</div>

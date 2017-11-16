@@ -255,7 +255,7 @@ div.good_color {
     </div>
   </div>
   </div>
-  </div>
+</div>
 
 
 
@@ -266,8 +266,13 @@ div.good_color {
   <{ if $Ear_radio eq 1 }>
 	  <{ include_php file="modules/advertising/ear.php" }>
   <{ /if }>
+  
+
+		<!--品牌分類-->
+		<{ include file="ES-include_brandclass.html" }>
+
 			<!-- PAGE HEADER-->
-			<section class="page-header page-header-xs">
+			<section class="page-header page-header-xs hidden-md hidden-lg brandbread">
 				<div class="container">
 					<h3 class="size-18 hidden"><{ $P_goodsname }></h3>
 					<!-- breadcrumbs -->
@@ -285,9 +290,10 @@ div.good_color {
 					</ol><!-- /breadcrumbs -->
 				</div>
 			</section>
+
 			<!-- /PAGE HEADER -->
 
-<section class="noborder">
+<section class="noborder goods_deatil">
   <div class="container">
 	<div class="row">
 						<!-- 右邊開始  左欄邊線class=border_left -->
@@ -312,7 +318,7 @@ div.good_color {
 											IMAGE ZOOM
 											data-mode="mouseover|grab|click|toggle"
 										-->
-                                        <div class="lightbox" style="overflow: hidden; position: absolute; z-index: 20; font-size: 17px; background-color: #666; padding: 6px 10px; width: 40px; height: 40px; line-height: 30px; text-align: center; color: #fff; -webkit-border-bottom-right-radius: 15px; -webkit-border-top-left-radius: 15px; -moz-border-radius-bottomright: 15px; -moz-border-radius-topleft: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; right: 12px; top: 12px;" data-img-big="1" data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'>
+                                        <div class="lightbox" style="overflow: hidden; position: absolute; z-index: 2; font-size: 17px; background-color: #666; padding: 6px 10px; width: 40px; height: 40px; line-height: 30px; text-align: center; color: #fff; -webkit-border-bottom-right-radius: 15px; -webkit-border-top-left-radius: 15px; -moz-border-radius-bottomright: 15px; -moz-border-radius-topleft: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; right: 12px; top: 12px;" data-img-big="1" data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'>
                                             <{ section name=Comm loop=$Goodpic }>
 											<a href="<{if $Goodpic[Comm].bigpic eq ''}><{ $Site_Url }>/images/pic.svg<{else}><{ $Site_Url }>/<{ $good_pic_path }>/<{$Goodpic[Comm].bigpic}><{/if}>"><i class="glyphicon glyphicon-search heartColor"></i></a>
                                             <{/section}>

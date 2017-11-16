@@ -234,8 +234,11 @@ div.good_color {
   <{ if $Ear_radio eq 1 }>
 	  <{ include_php file="modules/advertising/ear.php" }>
   <{ /if }>
+  
+  <!--品牌分類-->
+		<{ include file="LM-include_brandclass.html" }>
 			<!-- PAGE HEADER-->
-			<section class="page-header page-header-xs">
+			<section class="page-header page-header-xs hidden-md hidden-lg brandbread breadcrumb-align"">
 				<div class="container">
 					<h3 class="size-18 hidden"><{ $P_goodsname }></h3>
 					<!-- breadcrumbs -->
@@ -255,7 +258,7 @@ div.good_color {
 			</section>
 			<!-- /PAGE HEADER -->
 
-<section class="noborder">
+<section class="noborder goods_deatil">
   <div class="container">
 	<div class="row">
 						<!-- 右邊開始  左欄邊線class=border_left -->

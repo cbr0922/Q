@@ -332,6 +332,8 @@ $Query = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id=".int
 		$tpl->assign("brandname",  $brandname);
 	}
 $_GET['brand_id']=intval($brand_id);
+
+$tpl->assign("brand_id",     intval($brand_id));
 if($brand_id==136){
 	$tpl->display("ES-article.html");
 }elseif($brand_id==184){

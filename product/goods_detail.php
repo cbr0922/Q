@@ -197,6 +197,42 @@ $tpl->assign("Goodsname",      $Goodsname);
 $tpl->assign("Big_pic",        $Big_pic);
 //$tpl->assign("Goodpic",        $Goodpic);
 $tpl->assign("Close",          $Basic_Command['Close']); //关闭
+
+$Query = $DB->query("select brand_id from `{$INFO[DBPrefix]}goods` where gid=".$_GET['goods_id']." limit 0,1");
+$Num   = $DB->num_rows($Query);
+	if ($Num>0){
+		$Result= $DB->fetch_array($Query);
+		$brand_id    =  $Result['brand_id'];
+	}
+$tpl->assign("brand_id",       $brand_id);
+
+
+$Query = $DB->query("select * from `{$INFO[DBPrefix]}brand` where brand_id=".intval($brand_id)." limit 0,1");
+	$Num   = $DB->num_rows($Query);
+	if ($Num>0){
+		$Result= $DB->fetch_array($Query);
+		$brandname    =  trim($Result['brandname']);
+		$brandcontent    =  trim($Result['brandcontent']);
+		$logopic    =  trim($Result['logopic']);
+		$content    =  trim($Result['content']);
+		$meta_des    =  trim($Result['meta_des']);
+		$meta_key    =  trim($Result['meta_key']);
+		$title1    =  trim($Result['title1']);
+		$title2    =  trim($Result['title2']);
+		$ifshowgoods    =  trim($Result['ifshowgoods']);
+		$brandclass_array = $PRODUCT->getBrandProductClass(intval($brand_id));
+		if(count($brandclass_array)>0)
+			$tpl->assign("brandclass_array",       $brandclass_array);
+		$tpl->assign("meta_key",       $meta_key);
+		$tpl->assign("meta_des",       $meta_des);
+		$tpl->assign("title1",       $title1);
+		$tpl->assign("title2",       $title2);
+		$tpl->assign("ifshowgoods",       $ifshowgoods);
+	}
+
+
+
+
 /* FB像素ViewContent事件 */
 $track_id = '5';
 $Sql_track = "SELECT * FROM `{$INFO[DBPrefix]}track`  where trid='".intval($track_id)."' limit 0,1";
@@ -219,6 +255,15 @@ while ($track_array  = $DB->fetch_array($Query)){
 	else $track_Js="";
 	$tpl->assign("AddToCart_js",   $track_Js);
 }
+
+
+$tpl->assign("title",       $title);
+$tpl->assign("content",       $content);
+$tpl->assign("logopic",       $logopic);
+$tpl->assign("Array_sub",       $Array_sub);
+$tpl->assign("brandname",  $brandname);
+$tpl->assign("brandcontent",  $brandcontent);
+
 $tpl->assign("bNum",     $bNum);
 $tpl->assign("books_array",     $books_array);
 $tpl->assign("adv_array",     $adv_array);
@@ -232,6 +277,8 @@ $tpl->assign("maxbuyCount",  intval($INFO['buy_product_max_num']));
 $tpl->assign("MemberState", intval($MemberState)); //會員狀態
 if($product_array['brand_id']==136){
 	$tpl->display("ES-goods_detail.html");
+}elseif($product_array['brand_id']==184){
+	$tpl->display("LM-goods_detail.html");
 }else{
 	$tpl->display("goods_detail.html");
 }
