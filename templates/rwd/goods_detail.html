@@ -341,7 +341,7 @@ div.good_color {
                                         <h1 class="weight-500 size-25" itemprop="name" style="margin-bottom:20px !important;"><{ $P_ERP }></h1>
 									<{/if}>
 									<h1 class="weight-500 size-25" itemprop="name" style="margin-bottom:20px !important;"><{ $P_goodsname }><{if $goodBid neq 6}><{ $P_showstorage }><{/if}></h1>
-									
+
 									<!-- <{ if $P_Attr neq "" }>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-20 margin-top-10 nopadding">
 									<{ section name=list loop=$P_Attr }>
@@ -349,20 +349,20 @@ div.good_color {
 										<{ section name=list2 loop=$P_Attr[list].value }><span style="border: 1px solid #000; padding:2px 4px; color: #000;" ><{$P_Attr[list].value[list2].value}></span> <{/section}>
 										 <{/if}>
                                     <{/section}>
-									
+
 									</div>
                                     <{/if}>-->
 									<div class="margin-bottom-10 margin-top-0 nopadding hidden-xs TAGdiv text-left">
 									<{ section name=attri loop=$P_attrs }>
 											<{ if $P_attrs neq ''}>
 											<a class="TAGa"><{$P_attrs[attri].value}></a>
-											
+
 											<{/if}>
 										<{/section}>
 									<{if $P_ifnew eq 1}><a class="TAGa">NEW</a><{/if}>
 									<{if $P_price neq $P_pricedesc}><a class="TAGa">促銷中</a><{/if}>
 									</div>
-									
+
 									<p style="border-bottom:#cbcbcb solid 1px; height:1px; margin:0 0 20px 0; "></p>
 									<!-- 商品簡介 -->
 									<{ if $P_intro neq "" }><p><div class="gooddesc" itemprop="description"><{ $P_intro }></div></p><{/if}>
@@ -739,8 +739,8 @@ div.good_color {
                                                   </td>
                                                 </tr>
 									<{/if}>
-                                   
-									
+
+
                                      <{ if $PresentProduct_array.count>0 }>
 									 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0  margin-bottom-10 margin-top-10">
 									  <div class="gtitle_size  nopadding">買就送贈品<!--買就送贈品--></div>
@@ -1148,16 +1148,16 @@ showcontent("1");
 function changeproductdetail(detail_id){
 	<{ section name=list loop=$P_productdetail.info }>
 		if(detail_id == "<{$P_productdetail.info[list].detail_id}>"){
-
-
+			$('#orgno').css("display","block");
+			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_productdetail.info[list].detail_bn}>");
-			
+
 			<{if $P_productdetail.info[list].guojima eq ""}>
 				$('#guojima').css("display","none");
 			<{else}>
 				$('#showspanguojima').html("<{$P_productdetail.info[list].guojima}>");
 			<{/if}>
-			
+
 			<{if $P_productdetail.info[list].orgno eq ""}>
 				$('#orgno').css("display","none");
 			<{else}>
@@ -1704,19 +1704,19 @@ function changeColor(color){
 			$('#orgno').css("display","block");
 			$('#guojima').css("display","block");
 			$('#showspanbn').html("<{$P_color[i].bn}>");
-			
+
 			<{if $P_color[i].guojima eq ""}>
 				$('#guojima').css("display","none");
 			<{else}>
 				$('#showspanguojima').html("<{$P_color[i].guojima}>");
 			<{/if}>
-			
+
 			<{if $P_color[i].orgno eq ""}>
 				$('#orgno').css("display","none");
 			<{else}>
 				$('#showspanorgno').html("<{$P_color[i].orgno}>");
 			<{/if}>
-			
+
 			$('#showspancolor').html("<{$P_color[i].color}>");
 			//<{$P_color[i].guojima}>/<{$P_color[i].orgno}>
 		}
@@ -1729,7 +1729,7 @@ function changeColor(color){
 			<{else}>
 				$('#showspanguojima').html("<{$goodcolor_array[i].guojima}>");
 			<{/if}>
-			
+
 			<{if $goodcolor_array[i].orgno eq ""}>
 				$('#orgno').css("display","none");
 			<{else}>
