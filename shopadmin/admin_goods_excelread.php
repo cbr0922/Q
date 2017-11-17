@@ -37,7 +37,7 @@ $rowc = 0;
 $rowd = 0;
 $error_array = array();
 $erow = 0;
-echo "<br>以下為貨號重複，未匯入成功：<br><br><table border=1 cellspacing=0 cellpadding=5><tr style='color: #fff;background: #bb0a0a;font-weight: bold;'><td>列數</td><td>重複的貨號</td></tr>";
+echo "<br>以下為貨號重複，未匯入成功：<br><br><table border=1 cellspacing=0 cellpadding=5><tr style='color: #fff;background: #bb0a0a;font-weight: bold;'><td>列數</td><td>貨號</td><td>問題</td></tr>";
 for($currentRow = 2;$currentRow <= $allRow;$currentRow++){ 
 /**从第A列开始输出*/ 
 	$data = array();
@@ -50,7 +50,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 	$ifop = 1;
 	if($data[getindex("AD")]=="" && $data[getindex("s")]=="" && $data[getindex("Ae")]==""){
 		$ifop = 0;
-		$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "負責人ID要必填</td></tr>";
+		$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $data[getindex("I")] . "</td><td>負責人ID要必填</td></tr>";
 		$erow++;
 	}
 	if($data[getindex("I")]!=""){
@@ -58,7 +58,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		if($data[getindex("S")]!=""){
 			$mybn = $data[getindex("S")];
 			if(in_array($mybn,$bn_array)){
-				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td></tr>";
+				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td><td>重複的貨號</td></tr>";
 				$erow++;
 				$ifop = 0;
 			}else{
@@ -68,7 +68,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		}elseif($data[getindex("AE")]!=""){
 			$mybn = $data[getindex("AE")];
 			if(in_array($mybn,$bnd_array)){
-				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td></tr>";
+				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td><td>重複的貨號</td></tr>";
 				$erow++;
 				$ifop = 0;
 			}else{
@@ -78,7 +78,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		}else{
 			$mybn = $data[getindex("I")];
 			if(in_array($mybn,$bnc_array)){
-				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td></tr>";
+				$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "</td><td>重複的貨號</td></tr>";
 				$erow++;
 				$ifop = 0;
 			}else{
