@@ -48,6 +48,11 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		$data[$column] = $currentSheet->getCell($address)->getValue();/**ord()将字符转为十进制数*/ 
 	}
 	$ifop = 1;
+	if($data[getindex("AD")]=="" && $data[getindex("s")]=="" && $data[getindex("Ae")]==""){
+		$ifop = 0;
+		$error_array[$erow] = "<tr><td>".$currentRow . "</td><td>" . $mybn . "負責人ID要必填</td></tr>";
+		$erow++;
+	}
 	if($data[getindex("I")]!=""){
 		$mybn = "";
 		if($data[getindex("S")]!=""){
@@ -95,6 +100,7 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 		}
 		$brandbids = "";
 		$extendbid = "";
+		$attributeclass= "";
 		if(intval($data[getindex("x")])==0)
 				$data[getindex("x")] =intval($data[getindex("w")]);
 			//匯入屬性
@@ -258,6 +264,8 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 			}else{
 				$saleenddate = "";
 			}
+				
+				
 			$sql_data = array (
 					'bid'                => intval($data[getindex("a")]),
 
@@ -289,13 +297,21 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 					'saleenddate'           => $saleenddate,	
 					//'brand_bid'              => intval($data[getindex("aj")]),
 					'idate'              => time(),
+					
 					'ifpub'=>1,
 					'checkstate'=>2
 					  );
 		//print_r($sql_data);exit;
 		if(trim($data[19])=="" && trim($data[getindex("ae")])==""){
 			$sql_data['sales'] = intval($data[getindex("ab")]);
+			//tag
+			if(trim($data[getindex("v")])!=""){
+				$tag_array = explode(",",trim($data[getindex("v")]));
+				$attributeclass= json_encode($tag_array);
+			}
+			$sql_data['attributeclass'] = $attributeclass;
 		}
+				
 		if($gid<=0 && trim($data[getindex("I")])!="" && trim($data[getindex("m")])!=""){
 			$Query_b = $DB->query("select max(goodsno) as maxno from `{$INFO[DBPrefix]}goods`");
 			$Result_b= $DB->fetch_array($Query_b);
@@ -364,6 +380,8 @@ for($currentRow = 2;$currentRow <= $allRow;$currentRow++){
 						$Result_Insert=$DB->query($Sql);
 					}
 				}
+				
+				
 			}
 		}
 		//多图
@@ -403,21 +421,24 @@ $SMTP =  new SMSP_smtp($smtpserver,$smtpserverport,$auth,$smtpuser,$smtppass);
 $Array =  array();
 $j =0;
 foreach($pm_array as $k=>$v){
-	if(intval($v)>0)
+	if(intval($v)>0){
 		$pmstr[$j]="opid='" . intval($v) . "'";
-	$j++;
+		$j++;
+	}
 }
- $Sql      = "select * from `{$INFO[DBPrefix]}operater` where  status=1 and (" . implode(" or ",$pmstr) . ")";
+if($j>0){
+	$Sql      = "select * from `{$INFO[DBPrefix]}operater` where  status=1 and (" . implode(" or ",$pmstr) . ")";
 
-$Query    = $DB->query($Sql);
-$operater_array = array();
-$j = 0;
-while($Rs_o=$DB->fetch_array($Query)){
-	$operater_array[$j] = $Rs_o['email'];
-	$j++;
+	$Query    = $DB->query($Sql);
+	$operater_array = array();
+	$j = 0;
+	while($Rs_o=$DB->fetch_array($Query)){
+		$operater_array[$j] = $Rs_o['email'];
+		$j++;
+	}
+	$operater_str = implode(",",$operater_array);
+	$SMTP->MailForsmartshop($operater_str,"",38,$Array);
 }
-$operater_str = implode(",",$operater_array);
-$SMTP->MailForsmartshop($operater_str,"",38,$Array);
 function getindex($name){
 	return PHPExcel_Cell::columnIndexFromString($name)-1;	
 }
