@@ -121,6 +121,7 @@ if(intval($_GET['brand_id'])>0){
 			$tpl->assign("catcontent",$Catcontent);
 		}
 	}
+	$tpl->assign("brand_id",     intval($_GET['brand_id']));
 }
 
 
