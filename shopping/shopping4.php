@@ -584,7 +584,7 @@ echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><script
 				$Rs1  = $DB->fetch_array($Query1);				
 				$born_date   = $Rs1['born_date'];
 			}
-			if($born_date != ''){
+			if($born_date != '' && $born_date != '--'){
 			  $born_date_update=$born_date;
 			}else{
 				$born_date_update=$_POST['byear']."-".$_POST['bmonth']."-".$_POST['bday'];
